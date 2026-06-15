@@ -1,0 +1,11 @@
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# Editör
+.vscode/
+.idea/
+*.swp
+
+# Bağımlılıklar (gerekmiyor ama ileride lazım olursa)
+node_modules/
