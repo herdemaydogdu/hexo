@@ -19,7 +19,7 @@ if not exist ".git" (
   echo Ilk kurulum yapiliyor...
   git init
   git branch -M main
-  git remote add origin https://github.com/herdemaydogdu/s-nav.git
+  git remote add origin https://github.com/herdemaydogdu/hexo.git
 )
 
 echo Degisiklikler gonderiliyor...
@@ -30,6 +30,6 @@ git push -u origin main
 echo.
 echo ============================================
 echo   Tamamlandi. Site birkac dakika icinde guncellenir:
-echo   https://herdemaydogdu.github.io/s-nav/
+echo   https://herdemaydogdu.github.io/hexo/
 echo ============================================
 pause

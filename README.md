@@ -9,6 +9,8 @@ Saf HTML/CSS/JavaScript ile yapılmış TYT sınavına hazırlık uygulaması. K
 - **Deneme Sınavı** — Süreli, karışık sorulardan oluşan deneme
 - **İstatistik** — Net gelişimi grafiği, ders bazlı başarı (ilerleme tarayıcıda `localStorage`'da saklanır)
 - **Net hesabı** — TYT kuralı: 4 yanlış 1 doğruyu götürür
+- **Oyunlar** — Eşleştirme, hafıza, bilgi kartları ve hızlı yarış; her ders için
+- **Oyunlaştırma** — XP, seviye, rozetler ve en yüksek skorlar ile uzun süre sıkılmadan pratik
 
 ## Çalıştırma
 

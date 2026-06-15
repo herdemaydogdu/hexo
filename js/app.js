@@ -66,6 +66,7 @@ const routes = {
   konu: renderKonuList,
   quiz: renderQuizMenu,
   deneme: renderDenemeMenu,
+  oyunlar: renderGamesMenu,
   istatistik: renderStats
 };
 
@@ -91,6 +92,7 @@ function renderDashboard() {
   const totalCorrect = p.sessions.reduce((a, s) => a + s.correct, 0);
   const bestNet = p.sessions.length ? Math.max(...p.sessions.map(s => s.net)).toFixed(2) : "0";
   const streak = calcStreak(p.studyDays);
+  const gp = gameProfile();
   const todayQ = p.sessions.filter(s => s.date.slice(0, 10) === todayKey()).reduce((a, s) => a + s.total, 0);
   const goalPct = Math.min(100, Math.round(todayQ / DAILY_GOAL * 100));
 
@@ -132,6 +134,11 @@ function renderDashboard() {
       <div class="card clickable" data-go="deneme">
         <span class="icon">⏱️</span><h3>Deneme Sınavı</h3>
         <p>Süreli, karışık sorulardan oluşan deneme ile kendini sına.</p>
+      </div>
+      <div class="card clickable" data-go="oyunlar">
+        <span class="icon">🎮</span><h3>Oyunlar</h3>
+        <p>Eşleştirme, hafıza, bilgi kartları ve hızlı yarış ile eğlenerek çalış.</p>
+        <div class="meta">Sv. ${gp.level} · ${gp.xp} XP →</div>
       </div>
       <div class="card clickable" data-go="istatistik">
         <span class="icon">📊</span><h3>İstatistik</h3>
