@@ -142,86 +142,159 @@ window.addEventListener("hashchange", () => {
    ============================================================ */
 const DAILY_GOAL = 10; // günlük hedef soru sayısı
 
+/* Sade, tek görsel dilde çizgi ikonlar (büyük emoji yok) */
+function svgIcon(name) {
+  const paths = {
+    soru: '<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+    deneme: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    konu: '<path d="M4 19V6a2 2 0 0 1 2-2h12v15H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h12"/>',
+    yanlis: '<path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/>',
+    arrow: '<path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>'
+  };
+  return `<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || ""}</svg>`;
+}
+
+/* Ders performansı — cevap kayıtlarından (karışık deneme dahil) */
+function subjectPerf() {
+  const by = {};
+  loadProgress().sessions.forEach(s => {
+    if (Array.isArray(s.answers) && s.answers.length) {
+      s.answers.forEach(a => {
+        const q = questionById[a.questionId]; if (!q) return;
+        by[q.subject] = by[q.subject] || { c: 0, t: 0 };
+        by[q.subject].t++; if (a.isCorrect) by[q.subject].c++;
+      });
+    } else if (s.subject && s.subject !== "karisik") {
+      by[s.subject] = by[s.subject] || { c: 0, t: 0 };
+      by[s.subject].c += s.correct || 0; by[s.subject].t += s.total || 0;
+    }
+  });
+  return by;
+}
+
+/* Son 7 günün günlük çözülen soru sayısı */
+function weeklyData() {
+  const sessions = loadProgress().sessions;
+  const names = ["Pz", "Pt", "Sa", "Ça", "Pe", "Cu", "Ct"];
+  const today = new Date(); today.setHours(12, 0, 0, 0);
+  const out = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(today); d.setDate(today.getDate() - i);
+    const key = TYTCore.getLocalDateKey(d);
+    const count = sessions.filter(s => TYTCore.toLocalDateKey(s.date) === key).reduce((a, s) => a + (s.total || 0), 0);
+    out.push({ key, count, name: names[d.getDay()], full: d.toLocaleDateString("tr-TR", { day: "numeric", month: "long" }) });
+  }
+  return out;
+}
+
 function renderDashboard() {
   const p = loadProgress();
-  const totalQ = p.sessions.reduce((a, s) => a + s.total, 0);
-  const totalCorrect = p.sessions.reduce((a, s) => a + s.correct, 0);
-  const bestNet = p.sessions.length ? Math.max(...p.sessions.map(s => s.net)).toFixed(2) : "0";
-  const streak = calcStreak(p.studyDays);
-  const gp = gameProfile();
   const active = getActiveSession();
-  const dueCount = dueQuestionIds().length;
-  const todayActs = todayActivities().length;
-  const todayQ = p.sessions.filter(s => TYTCore.toLocalDateKey(s.date) === todayKey()).reduce((a, s) => a + s.total, 0);
-  const goalPct = Math.min(100, Math.round(todayQ / DAILY_GOAL * 100));
+  const due = dueQuestionIds().length;
+  const streak = calcStreak(p.studyDays);
+  const todayQ = p.sessions.filter(s => TYTCore.toLocalDateKey(s.date) === todayKey()).reduce((a, s) => a + (s.total || 0), 0);
+  const goal = DAILY_GOAL, done = todayQ, remaining = Math.max(0, goal - done);
+  const goalPct = Math.min(100, Math.round(done / goal * 100));
+
+  const hour = new Date().getHours();
+  const greet = hour < 11 ? "Günaydın" : hour < 18 ? "İyi çalışmalar" : "İyi akşamlar";
+  const dateStr = new Date().toLocaleDateString("tr-TR", { weekday: "long", day: "numeric", month: "long" });
+
+  // Akıllı tek CTA — kaldığı test önce, sonra tekrar, sonra yeni
+  let ctaLabel, ctaGo, ctaSub;
+  if (active) {
+    ctaLabel = "Çalışmaya Devam Et"; ctaGo = "resume";
+    ctaSub = `Kaldığın test: ${active.title} · ${(active.answers || []).filter(a => a !== null && a !== undefined).length}/${(active.questions || []).length} işaretli`;
+  } else if (due > 0) {
+    ctaLabel = "Tekrara Başla"; ctaGo = "review"; ctaSub = `${due} soru tekrar zamanı (yanlış defteri)`;
+  } else {
+    ctaLabel = "Çalışmaya Başla"; ctaGo = "quiz";
+    ctaSub = remaining > 0 ? `Günlük hedefe ${remaining} soru kaldı` : "Bugünkü hedefini tamamladın";
+  }
+
+  const perf = subjectPerf();
+  const perfRows = ["turkce", "matematik", "sosyal", "fen"].map(id => {
+    const sub = getSubject(id), v = perf[id];
+    if (!v || !v.t) return `<div class="perf-row"><span class="perf-name">${sub.name}</span><span class="perf-empty">Henüz veri yok</span></div>`;
+    const rate = Math.round(v.c / v.t * 100);
+    return `<div class="perf-row"><span class="perf-name">${sub.name}</span>
+      <span class="perf-bar"><span style="width:${rate}%"></span></span>
+      <span class="perf-val">%${rate}</span></div>`;
+  }).join("");
+
+  const recent = p.sessions.slice(-5).reverse();
+  const recentRows = recent.length ? recent.map((s, i) => {
+    const realIdx = p.sessions.length - 1 - i;
+    const dk = new Date(s.completedAt || s.date);
+    const dstr = isNaN(dk.getTime()) ? "—" : dk.toLocaleDateString("tr-TR", { day: "2-digit", month: "2-digit" });
+    const subLabel = s.subject && s.subject !== "karisik" ? (getSubject(s.subject) ? getSubject(s.subject).name : s.subject) : "Karışık";
+    const reviewable = Array.isArray(s.answers) && s.answers.length;
+    return `<button class="recent-row" data-session="${realIdx}"${reviewable ? "" : ' data-noreview="1"'}>
+      <span class="rec-date">${dstr}</span>
+      <span class="rec-sub">${subLabel}</span>
+      <span class="rec-q">${s.total || 0} soru</span>
+      <span class="rec-net">${(s.net || 0).toFixed(2)} net</span>
+      <span class="rec-go">${svgIcon("arrow")}</span>
+    </button>`;
+  }).join("") : `<p class="muted-note">Henüz çalışma yok. İlk testini çöz; burada görünsün.</p>`;
+
+  const week = weeklyData();
+  const wmax = Math.max(...week.map(d => d.count), 1);
+  const weekBars = week.map(d => {
+    const h = d.count ? Math.max(8, Math.round(d.count / wmax * 100)) : 3;
+    return `<div class="wcol" title="${d.full}: ${d.count} soru"><div class="wbar${d.count ? "" : " empty"}" style="height:${h}%"></div><span class="wlbl">${d.name}</span></div>`;
+  }).join("");
 
   app.innerHTML = `
-    <div class="hero">
-      <h1>TYT'ye hazırlanmaya başla 🚀</h1>
-      <p>Konuları çalış, soru çöz, süreli deneme sınavlarına gir ve gelişimini takip et. Tüm ilerlemen bu tarayıcıda güvenle saklanır.</p>
-      <div class="btn-row">
-        <button class="btn" data-go="quiz">Soru Çözmeye Başla</button>
-        <button class="btn secondary" data-go="konu">Konu Çalış</button>
+    <header class="dash-head">
+      <h1>${greet}</h1>
+      <p class="dash-date">${dateStr}</p>
+    </header>
+
+    <section class="today-panel" aria-label="Bugünkü çalışma">
+      <div class="today-metrics">
+        <div class="tm"><span class="tm-num">${done}</span><span class="tm-lbl">Çözülen</span></div>
+        <div class="tm"><span class="tm-num">${goal}</span><span class="tm-lbl">Hedef</span></div>
+        <div class="tm"><span class="tm-num">${remaining}</span><span class="tm-lbl">Kalan</span></div>
+        <div class="tm"><span class="tm-num">${streak}</span><span class="tm-lbl">Gün seri</span></div>
       </div>
+      <div class="progress-track" style="margin:16px 0 0" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${goalPct}" aria-label="Günlük hedef ilerlemesi"><div class="progress-fill" style="width:${goalPct}%"></div></div>
+      <div class="cta-row">
+        <span class="cta-sub">${ctaSub}</span>
+        <button class="btn" data-go="${ctaGo}">${ctaLabel} ${svgIcon("arrow")}</button>
+      </div>
+    </section>
+
+    <h2 class="dash-h2">Hızlı erişim</h2>
+    <nav class="quick-row" aria-label="Hızlı erişim">
+      <button class="quick-tile" data-go="quiz">${svgIcon("soru")}<span>Soru Çöz</span></button>
+      <button class="quick-tile" data-go="deneme">${svgIcon("deneme")}<span>Mini Deneme</span></button>
+      <button class="quick-tile" data-go="konu">${svgIcon("konu")}<span>Konu Çalış</span></button>
+      <button class="quick-tile" data-go="review">${svgIcon("yanlis")}<span>Yanlışlarım${due ? ` (${due})` : ""}</span></button>
+    </nav>
+
+    <div class="dash-cols">
+      <section class="panel" aria-label="Ders performansı">
+        <h2 class="dash-h2">Ders performansı</h2>
+        <div class="perf-list">${perfRows}</div>
+      </section>
+      <section class="panel" aria-label="Haftalık ilerleme">
+        <h2 class="dash-h2">Haftalık ilerleme</h2>
+        <div class="week-chart">${weekBars}</div>
+      </section>
     </div>
 
-    ${active ? `
-    <div class="card resume-card clickable" data-go="resume">
-      <div><span class="icon" style="font-size:22px">⏸️</span> <b>Kaldığın yerden devam et</b>
-        <p style="margin:4px 0 0;color:var(--muted);font-size:13.5px">${active.title} · ${(active.answers || []).filter(a => a !== null).length}/${(active.questions || []).length} işaretli</p>
-      </div>
-      <span class="btn" style="pointer-events:none">Devam et →</span>
-    </div>` : ""}
-
-    <div class="card goal-card">
-      <div class="goal-head">
-        <div><span class="fire">🔥</span> <b>${streak} günlük</b> çalışma serisi</div>
-        <div class="goal-count">Bugün: ${todayQ} / ${DAILY_GOAL} soru</div>
-      </div>
-      <div class="progress-track" style="margin:12px 0 0"><div class="progress-fill" style="width:${goalPct}%"></div></div>
-      <p class="goal-msg">${goalPct >= 100 ? "Günlük hedefini tamamladın, harikasın! 🎉" : "Her gün biraz çalışarak seriyi büyüt."}${todayActs ? ` · Bugün ${todayActs} çalışma aktivitesi` : ""}</p>
-    </div>
-
-    ${dueCount > 0 ? `
-    <div class="card resume-card clickable" data-go="review" style="border-color:rgba(251,191,36,.4);background:linear-gradient(135deg,rgba(251,191,36,.10),rgba(99,102,241,.06))">
-      <div><span class="icon" style="font-size:22px">📒</span> <b>Bugün tekrar etmen gereken ${dueCount} soru</b>
-        <p style="margin:4px 0 0;color:var(--muted);font-size:13.5px">Yanlış defterindeki sorular aralıklı tekrarla kalıcı olur.</p>
-      </div>
-      <span class="btn" style="pointer-events:none">Tekrara başla →</span>
-    </div>` : ""}
-
-    <div class="grid grid-3">
-      <div class="card stat"><div class="num">${totalQ}</div><div class="label">Çözülen Soru</div></div>
-      <div class="card stat"><div class="num">${totalCorrect}</div><div class="label">Doğru Cevap</div></div>
-      <div class="card stat"><div class="num">${bestNet}</div><div class="label">En İyi Net</div></div>
-    </div>
-
-    <h2 class="section-title">Ne yapmak istersin?</h2>
-    <div class="grid grid-2">
-      <div class="card clickable" data-go="konu">
-        <span class="icon">📖</span><h3>Konu Anlatımı</h3>
-        <p>Derslere göre ayrılmış özet konu anlatımlarını oku.</p>
-      </div>
-      <div class="card clickable" data-go="quiz">
-        <span class="icon">✍️</span><h3>Soru Çöz</h3>
-        <p>Derse göre testler çöz, anında doğru cevabı ve açıklamayı gör.</p>
-      </div>
-      <div class="card clickable" data-go="deneme">
-        <span class="icon">⏱️</span><h3>Deneme Sınavı</h3>
-        <p>Süreli, karışık sorulardan oluşan deneme ile kendini sına.</p>
-      </div>
-      <div class="card clickable" data-go="oyunlar">
-        <span class="icon">🎮</span><h3>Oyunlar</h3>
-        <p>Eşleştirme, hafıza, bilgi kartları ve hızlı yarış ile eğlenerek çalış.</p>
-        <div class="meta">Sv. ${gp.level} · ${gp.xp} XP →</div>
-      </div>
-      <div class="card clickable" data-go="istatistik">
-        <span class="icon">📊</span><h3>İstatistik</h3>
-        <p>Net gelişimini ve ders bazlı performansını grafiklerle gör.</p>
-      </div>
-    </div>
+    <section class="panel" aria-label="Son çalışmalar">
+      <h2 class="dash-h2">Son çalışmalar</h2>
+      <div class="recent-list">${recentRows}</div>
+    </section>
   `;
   bindGo();
+  app.querySelectorAll("[data-session]").forEach(b => b.onclick = () => {
+    if (b.dataset.noreview) { notify("Bu eski oturumda ayrıntılı kayıt yok.", "info"); return; }
+    const s = p.sessions[parseInt(b.dataset.session, 10)];
+    if (s) renderReview(s, "all");
+  });
 }
 
 /* ============================================================
