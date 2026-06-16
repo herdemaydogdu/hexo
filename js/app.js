@@ -100,13 +100,40 @@ function doNavigate(route, ...args) {
   if (SCREEN_ROUTES.indexOf(route) >= 0) currentScreen = route;
   document.querySelectorAll(".nav-btn").forEach(b =>
     b.classList.toggle("active", b.dataset.nav === route));
-  const nm = document.getElementById("navMenu");
-  if (nm) nm.classList.remove("open");
-  const mt = document.getElementById("menuToggle");
-  if (mt) mt.setAttribute("aria-expanded", "false");
+  closeSidebar();
   window.scrollTo(0, 0);
   (routes[route] || renderDashboard)(...args);
+  updateSidebarFoot();
   focusMainHeading();
+}
+
+/* Sidebar (mobil çekmece) ---------------------------------- */
+function openSidebar() {
+  const sb = document.getElementById("sidebar"), sc = document.getElementById("sidebarScrim"), mt = document.getElementById("menuToggle");
+  if (sb) sb.classList.add("open");
+  if (sc) sc.hidden = false;
+  if (mt) mt.setAttribute("aria-expanded", "true");
+}
+function closeSidebar() {
+  const sb = document.getElementById("sidebar"), sc = document.getElementById("sidebarScrim"), mt = document.getElementById("menuToggle");
+  if (sb) sb.classList.remove("open");
+  if (sc) sc.hidden = true;
+  if (mt) mt.setAttribute("aria-expanded", "false");
+}
+
+/* Sidebar alt kartı: seviye + günlük seri */
+function updateSidebarFoot() {
+  const el2 = document.getElementById("sidebarFoot");
+  if (!el2) return;
+  const gp = gameProfile();
+  const streak = calcStreak(loadProgress().studyDays);
+  el2.innerHTML = `
+    <div class="side-card">
+      <div class="side-level">Sv. ${gp.level}</div>
+      <div class="side-meta"><b>${gp.title}</b><span>${gp.xp} XP</span></div>
+      <div class="side-xp"><span style="width:${gp.pct}%"></span></div>
+    </div>
+    <div class="side-streak"><span class="flame">🔥</span> <b>${streak}</b> günlük seri</div>`;
 }
 
 function navigate(route, ...args) {
@@ -195,6 +222,7 @@ function renderDashboard() {
   const todayQ = p.sessions.filter(s => TYTCore.toLocalDateKey(s.date) === todayKey()).reduce((a, s) => a + (s.total || 0), 0);
   const goal = DAILY_GOAL, done = todayQ, remaining = Math.max(0, goal - done);
   const goalPct = Math.min(100, Math.round(done / goal * 100));
+  const ringOff = Math.round(289 * (1 - goalPct / 100)); // çevre ≈ 2π·46
 
   const hour = new Date().getHours();
   const greet = hour < 11 ? "Günaydın" : hour < 18 ? "İyi çalışmalar" : "İyi akşamlar";
@@ -215,9 +243,10 @@ function renderDashboard() {
   const perf = subjectPerf();
   const perfRows = ["turkce", "matematik", "sosyal", "fen"].map(id => {
     const sub = getSubject(id), v = perf[id];
-    if (!v || !v.t) return `<div class="perf-row"><span class="perf-name">${sub.name}</span><span class="perf-empty">Henüz veri yok</span></div>`;
+    const nameHtml = `<span class="perf-name-wrap"><span class="perf-dot" style="background:var(--c-${id})"></span><span class="perf-name">${sub.name}</span></span>`;
+    if (!v || !v.t) return `<div class="perf-row">${nameHtml}<span class="perf-empty">Henüz veri yok</span></div>`;
     const rate = Math.round(v.c / v.t * 100);
-    return `<div class="perf-row"><span class="perf-name">${sub.name}</span>
+    return `<div class="perf-row">${nameHtml}
       <span class="perf-bar"><span style="width:${rate}%"></span></span>
       <span class="perf-val">%${rate}</span></div>`;
   }).join("");
@@ -252,13 +281,20 @@ function renderDashboard() {
     </header>
 
     <section class="today-panel" aria-label="Bugünkü çalışma">
-      <div class="today-metrics">
-        <div class="tm"><span class="tm-num">${done}</span><span class="tm-lbl">Çözülen</span></div>
-        <div class="tm"><span class="tm-num">${goal}</span><span class="tm-lbl">Hedef</span></div>
-        <div class="tm"><span class="tm-num">${remaining}</span><span class="tm-lbl">Kalan</span></div>
-        <div class="tm"><span class="tm-num">${streak}</span><span class="tm-lbl">Gün seri</span></div>
+      <div class="today-grid">
+        <div class="ring-wrap" role="img" aria-label="Günlük hedef: ${done} / ${goal} soru">
+          <svg class="ring" viewBox="0 0 104 104" aria-hidden="true">
+            <circle class="ring-bg" cx="52" cy="52" r="46"/>
+            <circle class="ring-fg" cx="52" cy="52" r="46" stroke-dasharray="289" stroke-dashoffset="${ringOff}"/>
+          </svg>
+          <div class="ring-c"><span class="ring-num">${done}/${goal}</span><span class="ring-lbl">soru</span></div>
+        </div>
+        <div class="today-metrics">
+          <div class="tm"><span class="tm-num">${done}</span><span class="tm-lbl">Çözülen</span></div>
+          <div class="tm"><span class="tm-num">${remaining}</span><span class="tm-lbl">Kalan</span></div>
+          <div class="tm"><span class="tm-num">${streak}</span><span class="tm-lbl">Gün seri</span></div>
+        </div>
       </div>
-      <div class="progress-track" style="margin:16px 0 0" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${goalPct}" aria-label="Günlük hedef ilerlemesi"><div class="progress-fill" style="width:${goalPct}%"></div></div>
       <div class="cta-row">
         <span class="cta-sub">${ctaSub}</span>
         <button class="btn" data-go="${ctaGo}">${ctaLabel} ${svgIcon("arrow")}</button>
@@ -267,10 +303,10 @@ function renderDashboard() {
 
     <h2 class="dash-h2">Hızlı erişim</h2>
     <nav class="quick-row" aria-label="Hızlı erişim">
-      <button class="quick-tile" data-go="quiz">${svgIcon("soru")}<span>Soru Çöz</span></button>
-      <button class="quick-tile" data-go="deneme">${svgIcon("deneme")}<span>Mini Deneme</span></button>
-      <button class="quick-tile" data-go="konu">${svgIcon("konu")}<span>Konu Çalış</span></button>
-      <button class="quick-tile" data-go="review">${svgIcon("yanlis")}<span>Yanlışlarım${due ? ` (${due})` : ""}</span></button>
+      <button class="quick-tile" data-go="quiz"><span class="isq" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("soru")}</span><span class="qt-txt"><b>Soru Çöz</b><span>Sorulara başla</span></span></button>
+      <button class="quick-tile" data-go="deneme"><span class="isq" style="background:rgba(20,184,196,.14);color:var(--accent)">${svgIcon("deneme")}</span><span class="qt-txt"><b>Mini Deneme</b><span>Kısa deneme çöz</span></span></button>
+      <button class="quick-tile" data-go="konu"><span class="isq" style="background:rgba(124,108,240,.14);color:var(--primary-2)">${svgIcon("konu")}</span><span class="qt-txt"><b>Konu Çalış</b><span>Anlatımları oku</span></span></button>
+      <button class="quick-tile" data-go="review"><span class="isq" style="background:rgba(239,68,68,.12);color:var(--red)">${svgIcon("yanlis")}</span><span class="qt-txt"><b>Yanlışlarım${due ? ` (${due})` : ""}</b><span>Tekrar et</span></span></button>
     </nav>
 
     <div class="dash-cols">
@@ -391,12 +427,14 @@ function renderQuizMenu() {
     <p class="page-sub">Bir ders seç; ardından ünite, soru sayısı ve modu belirle.</p>
     <div class="grid grid-3">`;
   items.forEach(it => {
+    const cv = it.branchId ? `--c-${it.branchId}` : `--c-${it.subId}`;
+    const abbr = it.name.slice(0, 2);
     html += `
       <div class="card clickable" data-quiz="${it.subId}" data-branch="${it.branchId}">
-        <span class="icon">${it.icon}</span>
-        <h3>${it.name}</h3>
-        <p>${it.count} soru hazır</p>
-        <div class="meta">Çözmeye başla →</div>
+        <div class="subj-tile">
+          <span class="subj-abbr" style="background:var(${cv});color:#fff">${abbr}</span>
+          <div><h3 style="margin:0;font-size:15px">${it.name}</h3><p style="margin:3px 0 0">${it.count} soru hazır</p></div>
+        </div>
       </div>`;
   });
   html += `</div>`;
@@ -944,32 +982,23 @@ document.querySelectorAll(".nav-btn, .brand").forEach(b =>
   b.onclick = () => navigate(b.dataset.nav));
 
 const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.querySelector(".nav");
-navMenu.id = "navMenu";
-menuToggle.setAttribute("aria-controls", "navMenu");
-menuToggle.setAttribute("aria-expanded", "false");
-menuToggle.onclick = () => {
-  const open = navMenu.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+const sidebarScrim = document.getElementById("sidebarScrim");
+if (menuToggle) menuToggle.onclick = () => {
+  const sb = document.getElementById("sidebar");
+  if (sb && sb.classList.contains("open")) closeSidebar(); else openSidebar();
 };
+if (sidebarScrim) sidebarScrim.onclick = closeSidebar;
 
-/* P1-11: Klavye — kart/seçenekleri Enter/Space ile çalıştır; Escape ile menü/modal kapat */
+/* P1-11: Klavye — kart/seçenekleri Enter/Space ile çalıştır; Escape ile sidebar/modal kapat */
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") {
-    if (navMenu.classList.contains("open")) { navMenu.classList.remove("open"); menuToggle.setAttribute("aria-expanded", "false"); }
+    closeSidebar();
     const ov = document.querySelector(".modal-overlay"); if (ov) { const stay = ov.querySelector("#stay"); if (stay) stay.click(); }
     return;
   }
   if ((e.key === "Enter" || e.key === " ") && document.activeElement &&
     document.activeElement.matches('.clickable,[data-go],[data-unit],[data-sub],[data-game],[data-type],[data-deneme],[data-quiz],[data-topic],[data-diff],[data-filter],[data-nav]')) {
     e.preventDefault(); document.activeElement.click();
-  }
-});
-
-/* Mobil menü dışına tıklayınca kapat */
-document.addEventListener("click", e => {
-  if (navMenu.classList.contains("open") && !navMenu.contains(e.target) && e.target !== menuToggle) {
-    navMenu.classList.remove("open"); menuToggle.setAttribute("aria-expanded", "false");
   }
 });
 
@@ -996,6 +1025,8 @@ new MutationObserver(() => {
 })();
 
 /* Başlat — hash router (yenilemede ekran korunur) */
+const _dp = document.getElementById("datePill");
+if (_dp) _dp.textContent = new Date().toLocaleDateString("tr-TR", { day: "numeric", month: "long" });
 if (!location.hash) { suppressHash = true; location.hash = "#/dashboard"; }
 doNavigate(routeFromHash());
 /* v1.3 — P1 */
