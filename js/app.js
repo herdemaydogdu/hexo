@@ -244,9 +244,10 @@ function renderDashboard() {
   }
 
   const perf = subjectPerf();
+  const subjAbbr = { turkce: "Tü", matematik: "Ma", sosyal: "So", fen: "Fe" };
   const perfRows = ["turkce", "matematik", "sosyal", "fen"].map(id => {
     const sub = getSubject(id), v = perf[id];
-    const nameHtml = `<span class="perf-name-wrap"><span class="perf-dot" style="background:var(--c-${id})"></span><span class="perf-name">${sub.name}</span></span>`;
+    const nameHtml = `<span class="perf-name-wrap"><span class="perf-isq" style="background:var(--c-${id})">${subjAbbr[id]}</span><span class="perf-name">${sub.name}</span></span>`;
     if (!v || !v.t) return `<div class="perf-row">${nameHtml}<span class="perf-empty">Henüz veri yok</span></div>`;
     const rate = Math.round(v.c / v.t * 100);
     return `<div class="perf-row">${nameHtml}
@@ -258,15 +259,16 @@ function renderDashboard() {
   const recentRows = recent.length ? recent.map((s, i) => {
     const realIdx = p.sessions.length - 1 - i;
     const dk = new Date(s.completedAt || s.date);
-    const dstr = isNaN(dk.getTime()) ? "—" : dk.toLocaleDateString("tr-TR", { day: "2-digit", month: "2-digit" });
-    const subLabel = s.subject && s.subject !== "karisik" ? (getSubject(s.subject) ? getSubject(s.subject).name : s.subject) : "Karışık";
+    const dstr = isNaN(dk.getTime()) ? "" : dk.toLocaleDateString("tr-TR", { day: "2-digit", month: "long" });
+    const subId = s.subject && s.subject !== "karisik" ? s.subject : null;
+    const label = subId ? (getSubject(subId) ? getSubject(subId).name : subId) : (s.type === "deneme" ? "Deneme Sınavı" : "Karışık Test");
+    const cv = subId ? `--c-${subId}` : "--primary";
+    const abbr2 = (subId ? (subjAbbr[subId] || label.slice(0, 2)) : "Kr");
     const reviewable = Array.isArray(s.answers) && s.answers.length;
     return `<button class="recent-row" data-session="${realIdx}"${reviewable ? "" : ' data-noreview="1"'}>
-      <span class="rec-date">${dstr}</span>
-      <span class="rec-sub">${subLabel}</span>
-      <span class="rec-q">${s.total || 0} soru</span>
+      <span class="rec-isq" style="background:var(${cv})">${abbr2}</span>
+      <span class="rec-main"><b>${label}</b><span>${dstr} · ${s.total || 0} soru</span></span>
       <span class="rec-net">${(s.net || 0).toFixed(2)} net</span>
-      <span class="rec-go">${svgIcon("arrow")}</span>
     </button>`;
   }).join("") : `<p class="muted-note">Henüz çalışma yok. İlk testini çöz; burada görünsün.</p>`;
 
@@ -304,6 +306,14 @@ function renderDashboard() {
           <div class="tm"><span class="tm-num">${remaining}</span><span class="tm-lbl">Kalan</span></div>
           <div class="tm"><span class="tm-num">${streak}</span><span class="tm-lbl">Günlük seri</span></div>
         </div>
+        <svg class="goal-illus" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <circle cx="56" cy="62" r="38" stroke="#c9d4f7" stroke-width="3"/>
+          <circle cx="56" cy="62" r="26" stroke="#9db0f2" stroke-width="3"/>
+          <circle cx="56" cy="62" r="14" stroke="#4f6ef2" stroke-width="3"/>
+          <circle cx="56" cy="62" r="4" fill="#4f6ef2"/>
+          <path d="M56 62 L104 16" stroke="#1f2538" stroke-width="3" stroke-linecap="round"/>
+          <path d="M104 16 l-13 1 l4 -12 z" fill="#ef4444"/>
+        </svg>
       </div>
       <div class="cta-row">
         <div class="cta-text"><b>Hedefin: ${goal} soru</b><span>${ctaSub}</span></div>
@@ -314,15 +324,16 @@ function renderDashboard() {
     <h2 class="dash-h2">Hızlı erişim</h2>
     <nav class="quick-row" aria-label="Hızlı erişim">
       <button class="quick-tile" data-go="quiz"><span class="isq" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("soru")}</span><span class="qt-txt"><b>Soru Çöz</b><span>Sorulara başla</span></span></button>
-      <button class="quick-tile" data-go="deneme"><span class="isq" style="background:rgba(20,184,196,.14);color:var(--accent)">${svgIcon("deneme")}</span><span class="qt-txt"><b>Mini Deneme</b><span>Kısa deneme çöz</span></span></button>
+      <button class="quick-tile" data-go="deneme"><span class="isq" style="background:rgba(22,163,74,.13);color:var(--green)">${svgIcon("deneme")}</span><span class="qt-txt"><b>Mini Deneme</b><span>Kısa deneme çöz</span></span></button>
       <button class="quick-tile" data-go="konu"><span class="isq" style="background:rgba(124,108,240,.14);color:var(--primary-2)">${svgIcon("konu")}</span><span class="qt-txt"><b>Konu Çalış</b><span>Anlatımları oku</span></span></button>
-      <button class="quick-tile" data-go="review"><span class="isq" style="background:rgba(239,68,68,.12);color:var(--red)">${svgIcon("yanlis")}</span><span class="qt-txt"><b>Yanlışlarım${due ? ` (${due})` : ""}</b><span>Tekrar et</span></span></button>
+      <button class="quick-tile" data-go="review"><span class="isq" style="background:rgba(245,158,11,.14);color:var(--yellow)">${svgIcon("yanlis")}</span><span class="qt-txt"><b>Yanlışlarım${due ? ` (${due})` : ""}</b><span>Yanlışları tekrar et</span></span></button>
     </nav>
 
     <div class="dash-cols">
       <section class="panel" aria-label="Ders performansı">
         <h2 class="dash-h2">Ders performansı</h2>
         <div class="perf-list">${perfRows}</div>
+        <button class="link-all" data-go="istatistik">Tümünü Gör</button>
       </section>
       <section class="panel" aria-label="Haftalık ilerleme">
         <h2 class="dash-h2">Haftalık ilerleme</h2>
@@ -333,6 +344,7 @@ function renderDashboard() {
     <section class="panel" aria-label="Son çalışmalar">
       <h2 class="dash-h2">Son çalışmalar</h2>
       <div class="recent-list">${recentRows}</div>
+      ${recent.length ? `<button class="link-all" data-go="istatistik">Tümünü Gör</button>` : ""}
     </section>
 
     <div class="tip-banner">
