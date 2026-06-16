@@ -12,12 +12,13 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <a href="#app" class="skip-link">İçeriğe geç</a>
   <header class="topbar">
-    <div class="brand" data-nav="dashboard">
+    <div class="brand" data-nav="dashboard" role="button" tabindex="0" aria-label="Ana sayfa">
       <span class="logo">TYT</span>
       <span class="brand-text">Hazırlık</span>
     </div>
-    <nav class="nav">
+    <nav class="nav" aria-label="Ana menü">
       <button class="nav-btn" data-nav="dashboard">Ana Sayfa</button>
       <button class="nav-btn" data-nav="konu">Konu Anlatımı</button>
       <button class="nav-btn" data-nav="quiz">Soru Çöz</button>
@@ -34,6 +35,9 @@
     <p>TYT Hazırlık · Saf HTML/CSS/JS · İlerlemen bu tarayıcıda saklanır</p>
   </footer>
 
+  <script src="js/config.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/store.js"></script>
   <script src="js/data.js"></script>
   <script src="js/games-data.js"></script>
   <script src="js/games.js"></script>
