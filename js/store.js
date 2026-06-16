@@ -111,10 +111,16 @@ function getQuizSettings() {
 function saveQuizSettings(qs) {
   const p = loadProgress(); p.settings = p.settings || {}; p.settings.quiz = qs; saveProgress(p);
 }
-function buildQuizPool(subId, unitId, mode) {
-  let pool = D.questions.filter(q => q.subject === subId && (unitId === "all" || q.unit === unitId));
+function buildQuizPool(subId, unitId, mode, allowedUnits) {
+  let pool = D.questions.filter(q => {
+    if (q.subject !== subId) return false;
+    if (unitId && unitId !== "all") return q.unit === unitId;
+    // "all": branş verildiyse yalnızca o branşın üniteleri
+    if (Array.isArray(allowedUnits) && allowedUnits.length) return allowedUnits.indexOf(q.unit) >= 0;
+    return true;
+  });
   if (mode === "unsolved") { const ans = answeredIds(); pool = pool.filter(q => !ans.has(q.id)); }
   else if (mode === "wrong") { const wb = getWrongBook(); pool = pool.filter(q => wb[q.id] && !wb[q.id].mastered); }
-  return pool; // "all" ve "mixed" → tüm havuz (karıştırma sonra)
+  return pool; // "all"/"mixed" → tüm (izinli) havuz; karıştırma sonra
 }
 function subjectQ(subId) { return D.questions.filter(q => q.subject === subId); }

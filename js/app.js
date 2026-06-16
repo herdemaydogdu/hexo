@@ -301,30 +301,47 @@ function startQuizUnit(subId, unitId) {
    QUIZ (Soru Çöz)
    ============================================================ */
 function renderQuizMenu() {
-  let html = `<h1 class="page-title">Soru Çöz</h1>
-    <p class="page-sub">Bir ders seç. Sorular tek tek gelir, cevabını işaretleyince doğrusunu ve açıklamasını görürsün.</p>
-    <div class="grid grid-2">`;
+  // Her ders/branş ayrı kart — Sosyal/Fen şemsiyesi yok
+  const items = [];
   D.subjects.forEach(sub => {
-    const count = D.questions.filter(q => q.subject === sub.id).length;
+    if (sub.branches && sub.branches.length) {
+      sub.branches.forEach(br => {
+        const count = D.questions.filter(q => q.subject === sub.id && sub.units.some(u => u.id === q.unit && u.branch === br.id)).length;
+        if (count) items.push({ subId: sub.id, branchId: br.id, name: br.name, icon: br.icon, count });
+      });
+    } else {
+      items.push({ subId: sub.id, branchId: "", name: sub.name, icon: sub.icon, count: D.questions.filter(q => q.subject === sub.id).length });
+    }
+  });
+
+  let html = `<h1 class="page-title">Soru Çöz</h1>
+    <p class="page-sub">Bir ders seç; ardından ünite, soru sayısı ve modu belirle.</p>
+    <div class="grid grid-3">`;
+  items.forEach(it => {
     html += `
-      <div class="card clickable" data-quiz="${sub.id}">
-        <span class="icon">${sub.icon}</span>
-        <h3>${sub.name}</h3>
-        <p>${count} soru hazır</p>
+      <div class="card clickable" data-quiz="${it.subId}" data-branch="${it.branchId}">
+        <span class="icon">${it.icon}</span>
+        <h3>${it.name}</h3>
+        <p>${it.count} soru hazır</p>
         <div class="meta">Çözmeye başla →</div>
       </div>`;
   });
   html += `</div>`;
   app.innerHTML = html;
   app.querySelectorAll("[data-quiz]").forEach(c =>
-    c.onclick = () => renderQuizConfig(c.dataset.quiz));
+    c.onclick = () => renderQuizConfig(c.dataset.quiz, c.dataset.branch || null));
 }
 
-/* P1-2: Quiz oluşturma ayar ekranı */
-function renderQuizConfig(subId) {
+/* P1-2: Quiz oluşturma ayar ekranı (branş-farkında) */
+function renderQuizConfig(subId, branchId) {
   const sub = getSubject(subId);
   const st = getQuizSettings();
-  const units = sub.units.filter(u => D.questions.some(q => q.subject === subId && q.unit === u.id));
+  let units = sub.units.filter(u => D.questions.some(q => q.subject === subId && q.unit === u.id));
+  if (branchId) units = units.filter(u => u.branch === branchId);
+  const allowedUnits = units.map(u => u.id);
+  const br = branchId ? (sub.branches || []).find(b => b.id === branchId) : null;
+  const dispName = br ? br.name : sub.name;
+  const dispIcon = br ? br.icon : sub.icon;
   const unitOpts = `<option value="all">Tüm üniteler</option>` +
     units.map(u => `<option value="${u.id}" ${st.unit === u.id ? "selected" : ""}>${u.name}</option>`).join("");
   const countOpts = [5, 10, 20, 9999].map(n => `<option value="${n}" ${st.count === n ? "selected" : ""}>${n === 9999 ? "Tümü" : n + " soru"}</option>`).join("");
@@ -332,7 +349,7 @@ function renderQuizConfig(subId) {
 
   app.innerHTML = `
     <button class="back-link" id="back">← Ders seç</button>
-    <h1 class="page-title">${sub.icon} ${sub.name} · Test Oluştur</h1>
+    <h1 class="page-title">${dispIcon} ${dispName} · Test Oluştur</h1>
     <div class="card config-card">
       <label class="cfg-row" for="cfgUnit"><span>Ünite</span><select id="cfgUnit">${unitOpts}</select></label>
       <label class="cfg-row" for="cfgCount"><span>Soru sayısı</span><select id="cfgCount">${countOpts}</select></label>
@@ -346,7 +363,7 @@ function renderQuizConfig(subId) {
   const upd = () => {
     const unit = document.getElementById("cfgUnit").value;
     const mode = document.getElementById("cfgMode").value;
-    const n = buildQuizPool(subId, unit, mode).length;
+    const n = buildQuizPool(subId, unit, mode, allowedUnits).length;
     document.getElementById("cfgInfo").textContent = n ? `Bu seçimde uygun ${n} soru var.` : "Bu seçimde uygun soru yok.";
   };
   document.getElementById("cfgUnit").onchange = upd;
@@ -358,7 +375,7 @@ function renderQuizConfig(subId) {
     const mode = document.getElementById("cfgMode").value;
     const timed = document.getElementById("cfgTimed").checked;
     saveQuizSettings({ unit, count, mode, timed });
-    let pool = shuffle(buildQuizPool(subId, unit, mode));
+    let pool = shuffle(buildQuizPool(subId, unit, mode, allowedUnits));
     if (!pool.length) {
       notify(mode === "wrong" ? "Bu seçimde yanlış soru yok — tebrikler!" :
         mode === "unsolved" ? "Bu seçimde çözülmemiş soru kalmadı." : "Bu seçimde soru yok.", "info");
@@ -368,7 +385,7 @@ function renderQuizConfig(subId) {
     if (count !== 9999 && pool.length < count) notify(`${count} istendi; havuzda ${pool.length} soru var. ${pool.length} soruyla başlıyor.`, "info");
     pool = pool.slice(0, want);
     runQuiz({
-      title: sub.name + (unit !== "all" ? " · " + getUnit(subId, unit).name : ""),
+      title: dispName + (unit !== "all" ? " · " + getUnit(subId, unit).name : ""),
       subjectId: subId, questions: pool,
       timed, durationSec: timed ? pool.length * 60 : 0,
       showExplain: !timed
