@@ -176,6 +176,9 @@ function svgIcon(name) {
     deneme: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
     konu: '<path d="M4 19V6a2 2 0 0 1 2-2h12v15H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h12"/>',
     yanlis: '<path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/>',
+    target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>',
+    bulb: '<path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 0 0 0-4-10z"/>',
+    flame: '<path d="M12 3c1 3 4 4 4 8a4 4 0 0 1-8 0c0-2 1-3 2-4 0 1 1 2 2 2 1-2 0-4 0-6z"/>',
     arrow: '<path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>'
   };
   return `<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || ""}</svg>`;
@@ -276,11 +279,18 @@ function renderDashboard() {
 
   app.innerHTML = `
     <header class="dash-head">
-      <h1>${greet}</h1>
-      <p class="dash-date">${dateStr}</p>
+      <div>
+        <h1>Merhaba! 👋</h1>
+        <p class="dash-sub">Bugün yeni şeyler öğrenmek için harika bir gün.</p>
+      </div>
+      <span class="head-date">${dateStr}</span>
     </header>
 
-    <section class="today-panel" aria-label="Bugünkü çalışma">
+    <section class="today-panel" aria-label="Günlük hedef">
+      <div class="panel-head">
+        <span class="ph-ic" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("target")}</span>
+        <h2 class="dash-h2" style="margin:0">Günlük Hedef</h2>
+      </div>
       <div class="today-grid">
         <div class="ring-wrap" role="img" aria-label="Günlük hedef: ${done} / ${goal} soru">
           <svg class="ring" viewBox="0 0 104 104" aria-hidden="true">
@@ -292,11 +302,11 @@ function renderDashboard() {
         <div class="today-metrics">
           <div class="tm"><span class="tm-num">${done}</span><span class="tm-lbl">Çözülen</span></div>
           <div class="tm"><span class="tm-num">${remaining}</span><span class="tm-lbl">Kalan</span></div>
-          <div class="tm"><span class="tm-num">${streak}</span><span class="tm-lbl">Gün seri</span></div>
+          <div class="tm"><span class="tm-num">${streak}</span><span class="tm-lbl">Günlük seri</span></div>
         </div>
       </div>
       <div class="cta-row">
-        <span class="cta-sub">${ctaSub}</span>
+        <div class="cta-text"><b>Hedefin: ${goal} soru</b><span>${ctaSub}</span></div>
         <button class="btn" data-go="${ctaGo}">${ctaLabel} ${svgIcon("arrow")}</button>
       </div>
     </section>
@@ -324,6 +334,11 @@ function renderDashboard() {
       <h2 class="dash-h2">Son çalışmalar</h2>
       <div class="recent-list">${recentRows}</div>
     </section>
+
+    <div class="tip-banner">
+      <span class="tip-ic">${svgIcon("bulb")}</span>
+      <p>Zorlandığın konuları düzenli tekrar ederek ilerlemeni hızlandırabilirsin.</p>
+    </div>
   `;
   bindGo();
   app.querySelectorAll("[data-session]").forEach(b => b.onclick = () => {

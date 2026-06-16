@@ -332,10 +332,27 @@ button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 
 /* ============ DASHBOARD (öğrenci paneli) ============ */
 .ic { display: inline-block; vertical-align: middle; width: 20px; height: 20px; }
-.dash-head { margin: 6px 0 22px; }
+.dash-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin: 6px 0 22px; }
 .dash-head h1 { font-size: 24px; font-weight: 800; }
-.dash-date { color: var(--muted); font-size: 14px; margin-top: 4px; text-transform: capitalize; }
+.dash-sub { color: var(--muted); font-size: 14.5px; margin-top: 4px; }
+.head-date { background: var(--card); border: 1px solid var(--line); color: var(--muted); font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 99px; white-space: nowrap; text-transform: capitalize; }
 .dash-h2 { font-size: 14px; font-weight: 700; letter-spacing: .3px; margin: 0 0 12px; color: var(--text); }
+
+/* Panel başlığı (ikon + başlık) */
+.panel-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.ph-ic { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; }
+.ph-ic .ic { width: 20px; height: 20px; }
+
+/* CTA metni */
+.cta-text { display: flex; flex-direction: column; }
+.cta-text b { font-size: 14.5px; }
+.cta-text span { color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+/* İpucu şeridi */
+.tip-banner { display: flex; align-items: center; gap: 12px; background: linear-gradient(90deg, rgba(245,158,11,.10), rgba(79,110,242,.06)); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 18px; margin-top: 16px; }
+.tip-ic { width: 34px; height: 34px; flex-shrink: 0; border-radius: 9px; display: grid; place-items: center; background: rgba(245,158,11,.16); color: var(--yellow); }
+.tip-ic .ic { width: 19px; height: 19px; }
+.tip-banner p { color: var(--text); font-size: 13.5px; margin: 0; }
 
 /* Bugünkü çalışma paneli */
 .today-panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow-sm); margin-bottom: 26px; }
