@@ -374,24 +374,42 @@ function unitCard(subId, u, p) {
 
 function renderKonuList() {
   const p = loadProgress();
-  let html = `<h1 class="page-title">Konu Anlatımı</h1>
-    <p class="page-sub">Bir ders seç, üniteye tıklayarak anlatımı oku. Sosyal ve Fen dersleri branşlara ayrılmıştır.</p>`;
+  const byUnit = {};
+  p.sessions.forEach(s => (s.answers || []).forEach(a => {
+    const q = questionById[a.questionId]; if (!q || !q.unit) return;
+    byUnit[q.unit] = byUnit[q.unit] || { c: 0, t: 0 };
+    byUnit[q.unit].t++; if (a.isCorrect) byUnit[q.unit].c++;
+  }));
+  const unitPct = id => { const v = byUnit[id]; if (v && v.t) return Math.round(v.c / v.t * 100); return p.readTopics.includes(id) ? 100 : 0; };
+  const subjAbbr = { turkce: "Tü", matematik: "Ma", sosyal: "So", fen: "Fe" };
 
+  const row = (subId, u) => {
+    const cv = u.branch ? `--c-${u.branch}` : `--c-${subId}`;
+    const cnt = D.questions.filter(q => q.subject === subId && q.unit === u.id).length;
+    const pct = unitPct(u.id);
+    return `<button class="konu-row" data-unit="${subId}|${u.id}">
+      <span class="konu-isq" style="background:var(${cv})">${u.name.slice(0, 2)}</span>
+      <span class="konu-name">${u.name}</span>
+      <span class="konu-cnt">${cnt} soru</span>
+      <span class="konu-bar"><span style="width:${pct}%"></span></span>
+      <span class="konu-pct">%${pct}</span>
+    </button>`;
+  };
+
+  let html = `<h1 class="page-title">Konu Anlatımı</h1>
+    <p class="page-sub">Ders seç, üniteye tıklayarak anlatımı oku ve ilerlemeni gör.</p>`;
   D.subjects.forEach(sub => {
-    html += `<h2 class="section-title">${sub.icon} ${sub.name}</h2>`;
+    html += `<section class="panel subj-panel">
+      <div class="subj-panel-head"><span class="subj-abbr" style="background:var(--c-${sub.id});color:#fff">${subjAbbr[sub.id]}</span><h2>${sub.name}</h2></div>`;
     if (sub.branches && sub.branches.length) {
       sub.branches.forEach(br => {
-        const units = sub.units.filter(u => u.branch === br.id);
-        if (!units.length) return;
-        html += `<h3 class="branch-title">${br.icon} ${br.name}</h3><div class="grid grid-3">`;
-        units.forEach(u => { html += unitCard(sub.id, u, p); });
-        html += `</div>`;
+        const us = sub.units.filter(u => u.branch === br.id);
+        if (us.length) html += `<div class="branch-sub">${br.name}</div>` + us.map(u => row(sub.id, u)).join("");
       });
     } else {
-      html += `<div class="grid grid-3">`;
-      sub.units.forEach(u => { html += unitCard(sub.id, u, p); });
-      html += `</div>`;
+      html += sub.units.map(u => row(sub.id, u)).join("");
     }
+    html += `</section>`;
   });
 
   app.innerHTML = html;
@@ -888,6 +906,8 @@ function startDeneme(mode) {
 /* ============================================================
    İSTATİSTİK
    ============================================================ */
+const SUBJ_HEX = { turkce: "#ef4444", matematik: "#4f6ef2", sosyal: "#8b5cf6", fen: "#0ea5e9" };
+
 function renderStats(range) {
   range = range || "all";
   const p = loadProgress();
@@ -899,91 +919,110 @@ function renderStats(range) {
     return;
   }
 
-  const now = Date.now();
-  const rangeMs = range === "7" ? 7 * 86400000 : range === "30" ? 30 * 86400000 : Infinity;
-  const sessions = p.sessions.filter(s => {
-    const t = new Date(s.completedAt || s.date).getTime();
-    return isFinite(t) ? (now - t) <= rangeMs : true;
-  });
+  const now = new Date();
+  const inRange = s => {
+    const d = new Date(s.completedAt || s.date); if (isNaN(d.getTime())) return true;
+    if (range === "7") return (now - d) <= 7 * 86400000;
+    if (range === "30") return (now - d) <= 30 * 86400000;
+    if (range === "month") return d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth();
+    return true;
+  };
+  const sessions = p.sessions.filter(inRange);
 
-  // Toplamlar: answers varsa cevaplardan (karışık denemeyi derslere dağıtır), yoksa özetten
-  let totalQ = 0, totalC = 0, durSum = 0, durN = 0;
-  const bySubject = {}, byUnit = {};
+  let totalQ = 0, totalC = 0, totalW = 0, durSum = 0, durN = 0;
+  const bySubject = {};
+  ["turkce", "matematik", "sosyal", "fen"].forEach(id => bySubject[id] = { c: 0, t: 0, w: 0 });
   sessions.forEach(s => {
     if (Array.isArray(s.answers) && s.answers.length) {
       s.answers.forEach(a => {
         totalQ++;
-        if (!a.isBlank && a.isCorrect) totalC++;
+        if (!a.isBlank && a.isCorrect) totalC++; else if (!a.isBlank) totalW++;
         if (typeof a.durationSeconds === "number" && a.durationSeconds > 0) { durSum += a.durationSeconds; durN++; }
         const q = questionById[a.questionId];
-        if (q) {
-          bySubject[q.subject] = bySubject[q.subject] || { c: 0, t: 0 };
-          bySubject[q.subject].t++; if (a.isCorrect) bySubject[q.subject].c++;
-          if (q.unit) { byUnit[q.unit] = byUnit[q.unit] || { c: 0, t: 0, subject: q.subject }; byUnit[q.unit].t++; if (a.isCorrect) byUnit[q.unit].c++; }
-        }
+        if (q && bySubject[q.subject]) { bySubject[q.subject].t++; if (a.isCorrect) bySubject[q.subject].c++; else if (!a.isBlank) bySubject[q.subject].w++; }
       });
     } else {
-      totalQ += s.total || 0; totalC += s.correct || 0;
-      if (s.subject && s.subject !== "karisik") { bySubject[s.subject] = bySubject[s.subject] || { c: 0, t: 0 }; bySubject[s.subject].c += s.correct || 0; bySubject[s.subject].t += s.total || 0; }
+      totalQ += s.total || 0; totalC += s.correct || 0; totalW += s.wrong || 0;
+      if (bySubject[s.subject]) { bySubject[s.subject].c += s.correct || 0; bySubject[s.subject].t += s.total || 0; bySubject[s.subject].w += s.wrong || 0; }
     }
   });
+  const netTotal = Math.max(0, totalC - totalW / 4);
   const successRate = totalQ ? Math.round(totalC / totalQ * 100) : 0;
   const avgDur = durN ? Math.round(durSum / durN) : 0;
 
-  // En iyi net — tür ve soru sayısına göre AYRI (farklı ölçekler kıyaslanmaz)
-  const bestByCat = {};
-  sessions.forEach(s => {
-    const cat = (s.type || "quiz") + " · " + (s.total || 0) + " soru";
-    if (bestByCat[cat] == null || (s.net || 0) > bestByCat[cat]) bestByCat[cat] = s.net || 0;
-  });
-
-  // Net % trendi (karşılaştırılabilir) — son 10 oturum
+  // Çizgi grafik — son 10 oturumun net %'si
   const recent = sessions.slice(-10);
   const netPct = s => s.total ? Math.max(0, Math.round((s.net || 0) / s.total * 100)) : 0;
-  const bars = recent.map((s, i) => `<div class="bar-col"><div class="bar-val">%${netPct(s)}</div><div class="bar" style="height:${netPct(s)}%"></div><div class="bar-label">${i + 1}</div></div>`).join("") || `<p class="page-sub">Bu aralıkta veri yok.</p>`;
-  const tableRows = recent.map((s, i) => `<tr><td>${i + 1}</td><td>${s.type || "quiz"}</td><td>${s.total || 0}</td><td>${(s.net || 0).toFixed(2)}</td><td>%${netPct(s)}</td></tr>`).join("");
+  let linePts = "", lineDots = "";
+  if (recent.length) {
+    const pts = recent.map((s, i) => {
+      const x = recent.length > 1 ? 10 + (i / (recent.length - 1)) * 280 : 150;
+      const y = 95 - (netPct(s) / 100) * 80;
+      return [Math.round(x), Math.round(y)];
+    });
+    linePts = pts.map(pt => pt.join(",")).join(" ");
+    lineDots = pts.map(pt => `<circle cx="${pt[0]}" cy="${pt[1]}" r="3.5" fill="#4f6ef2"/>`).join("");
+  }
+  const lineChart = recent.length
+    ? `<svg class="line-chart" viewBox="0 0 300 110" preserveAspectRatio="none" role="img" aria-label="Net gelişim grafiği">
+        <line x1="10" y1="95" x2="290" y2="95" stroke="var(--line)" stroke-width="1"/>
+        <polyline points="${linePts}" fill="none" stroke="#4f6ef2" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        ${lineDots}
+       </svg>`
+    : `<p class="page-sub">Bu aralıkta veri yok.</p>`;
 
-  const subjCards = Object.entries(bySubject).map(([id, v]) => {
-    const sub = getSubject(id), rate = v.t ? Math.round(v.c / v.t * 100) : 0;
-    return `<div class="card"><h3>${sub ? sub.icon + " " + sub.name : id}</h3>
-      <div class="progress-track" style="margin:12px 0 8px"><div class="progress-fill" style="width:${rate}%"></div></div>
-      <p>${v.c}/${v.t} doğru · %${rate} başarı</p></div>`;
-  }).join("") || `<p class="page-sub">Ders bazlı veri için soru çöz.</p>`;
+  // Donut — ders bazlı net dağılımı
+  const subjNet = {}; let netSum = 0;
+  ["turkce", "matematik", "sosyal", "fen"].forEach(id => { const v = bySubject[id]; const n = Math.max(0, v.c - v.w / 4); subjNet[id] = n; netSum += n; });
+  const R = 42, CIRC = 2 * Math.PI * R; let off = 0;
+  const donutSegs = ["turkce", "matematik", "sosyal", "fen"].map(id => {
+    const frac = netSum ? subjNet[id] / netSum : 0;
+    const len = frac * CIRC;
+    const seg = `<circle cx="60" cy="60" r="${R}" fill="none" stroke="${SUBJ_HEX[id]}" stroke-width="16" stroke-dasharray="${len.toFixed(2)} ${(CIRC - len).toFixed(2)}" stroke-dashoffset="${(-off).toFixed(2)}" transform="rotate(-90 60 60)"/>`;
+    off += len; return seg;
+  }).join("");
+  const donutLegend = ["turkce", "matematik", "sosyal", "fen"].map(id =>
+    `<div class="ll"><span class="dot" style="background:${SUBJ_HEX[id]}"></span>${getSubject(id).name}<b>${subjNet[id].toFixed(1)}</b></div>`).join("");
+  const donut = netSum
+    ? `<div class="donut-wrap"><svg viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Ders bazlı net dağılımı"><circle cx="60" cy="60" r="${R}" fill="none" stroke="var(--bg-soft)" stroke-width="16"/>${donutSegs}</svg><div class="donut-legend">${donutLegend}</div></div>`
+    : `<p class="page-sub">Henüz net yok.</p>`;
 
-  const weak = Object.entries(byUnit).filter(([, v]) => v.t >= 2).map(([id, v]) => ({ id, rate: v.c / v.t, c: v.c, t: v.t, subject: v.subject })).sort((a, b) => a.rate - b.rate).slice(0, 3);
-  const weakHtml = weak.length ? `<h2 class="section-title">En çok zorlandığın üniteler</h2><div class="grid grid-3">${weak.map(w => { const u = getUnit(w.subject, w.id); return `<div class="card"><h3>${u ? u.name : w.id}</h3><p>%${Math.round(w.rate * 100)} başarı · ${w.c}/${w.t} doğru</p></div>`; }).join("")}</div>` : "";
+  // Son çalışmalar tablosu
+  const tableRows = sessions.slice(-8).reverse().map(s => {
+    const d = new Date(s.completedAt || s.date);
+    const dstr = isNaN(d.getTime()) ? "" : d.toLocaleDateString("tr-TR", { day: "2-digit", month: "2-digit", year: "numeric" });
+    const typeLbl = s.type === "deneme" ? "Deneme" : s.type === "review" ? "Tekrar" : "Soru Çöz";
+    const subLbl = s.subject && s.subject !== "karisik" ? (getSubject(s.subject) ? getSubject(s.subject).name : s.subject) : "Karışık";
+    return `<tr><td>${dstr}</td><td>${typeLbl}</td><td>${subLbl}</td><td>${s.total || 0}</td><td>${(s.net || 0).toFixed(2)}</td></tr>`;
+  }).join("");
 
-  const bestHtml = Object.entries(bestByCat).map(([cat, net]) => `<div class="card stat"><div class="num">${net.toFixed(2)}</div><div class="label">En iyi net · ${cat}</div></div>`).join("");
   const fbtn = (k, l) => `<button class="filter-btn ${range === k ? "active" : ""}" data-range="${k}">${l}</button>`;
 
   app.innerHTML = `
     <h1 class="page-title">İstatistik</h1>
-    <p class="page-sub">${sessions.length} oturum (seçili aralık).</p>
-    <div class="filter-bar">${fbtn("7", "Son 7 gün")}${fbtn("30", "Son 30 gün")}${fbtn("all", "Tüm zamanlar")}</div>
+    <div class="filter-bar">${fbtn("7", "7 Gün")}${fbtn("30", "30 Gün")}${fbtn("month", "Bu Ay")}${fbtn("all", "Tümü")}</div>
 
-    <div class="grid grid-4">
-      <div class="card stat"><div class="num">${sessions.length}</div><div class="label">Oturum</div></div>
-      <div class="card stat"><div class="num">${totalQ}</div><div class="label">Çözülen Soru</div></div>
-      <div class="card stat"><div class="num">%${successRate}</div><div class="label">Başarı</div></div>
-      <div class="card stat"><div class="num">${avgDur ? avgDur + " sn" : "—"}</div><div class="label">Ort. Süre/Soru</div></div>
+    <div class="metric-row">
+      <div class="metric"><div class="m-lbl">Toplam Soru</div><div class="m-num">${totalQ}</div></div>
+      <div class="metric"><div class="m-lbl">Doğru</div><div class="m-num" style="color:var(--green)">${totalC}</div></div>
+      <div class="metric"><div class="m-lbl">Yanlış</div><div class="m-num" style="color:var(--red)">${totalW}</div></div>
+      <div class="metric"><div class="m-lbl">Net</div><div class="m-num">${netTotal.toFixed(1)}</div></div>
+      <div class="metric"><div class="m-lbl">Başarı</div><div class="m-num" style="color:var(--primary)">%${successRate}</div></div>
     </div>
 
-    <h2 class="section-title">Net Gelişimi (net %, son ${recent.length})</h2>
-    <div class="card">
-      <div class="bars">${bars}</div>
-      <details class="table-alt"><summary>Tablo olarak gör</summary>
-        <table class="stat-table"><thead><tr><th>#</th><th>Tür</th><th>Soru</th><th>Net</th><th>Net %</th></tr></thead><tbody>${tableRows}</tbody></table>
-      </details>
+    <div class="stat-cols">
+      <section class="panel"><h2 class="dash-h2">Net Grafiği</h2>${lineChart}</section>
+      <section class="panel"><h2 class="dash-h2">Ders Dağılımı (Net)</h2>${donut}</section>
     </div>
 
-    ${bestHtml ? `<h2 class="section-title">En iyi netler <span style="font-weight:400;color:var(--muted);font-size:13px">(tür/soru sayısına göre ayrı)</span></h2><div class="grid grid-3">${bestHtml}</div>` : ""}
+    <section class="panel">
+      <h2 class="dash-h2">Son Çalışmalar</h2>
+      ${tableRows
+      ? `<table class="stat-table"><thead><tr><th>Tarih</th><th>Tür</th><th>Ders</th><th>Soru</th><th>Net</th></tr></thead><tbody>${tableRows}</tbody></table>`
+      : `<p class="muted-note">Bu aralıkta çalışma yok.</p>`}
+    </section>
 
-    <h2 class="section-title">Ders Bazlı Başarı</h2>
-    <div class="grid grid-3">${subjCards}</div>
-
-    ${weakHtml}
-
-    <div class="btn-row" style="margin-top:24px">
+    <div class="btn-row" style="margin-top:20px">
       <button class="btn danger" id="reset">İlerlemeyi Sıfırla</button>
     </div>
   `;
