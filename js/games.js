@@ -160,16 +160,11 @@ function renderGamesMenu() {
     </div>
     <p class="page-sub">Oynayarak öğren! Her oyun sana XP kazandırır, seviye atlatır ve rozet açar.</p>
 
-    <div class="card level-card">
-      <div class="level-top">
-        <div class="level-badge">Sv. ${p.level}</div>
-        <div>
-          <div class="level-title">${p.title}</div>
-          <div class="level-xp">${p.xp} XP · ${earned}/${total} rozet</div>
-        </div>
-      </div>
-      <div class="progress-track" style="margin-top:14px"><div class="progress-fill" style="width:${p.pct}%"></div></div>
-      <div class="level-next">Sonraki seviyeye ${p.per - p.inLevel} XP</div>
+    <div class="level-strip">
+      <span class="level-badge sm">Sv. ${p.level}</span>
+      <span class="level-strip-info"><b>${p.title}</b><span>${p.xp} XP · ${earned}/${total} rozet</span></span>
+      <span class="level-strip-bar"><span style="width:${p.pct}%"></span></span>
+      <span class="level-strip-next">Sonraki: ${p.per - p.inLevel} XP</span>
     </div>
 
     <h2 class="section-title">Oyun seç</h2>

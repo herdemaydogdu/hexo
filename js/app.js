@@ -227,9 +227,9 @@ function renderDashboard() {
   const goalPct = Math.min(100, Math.round(done / goal * 100));
   const ringOff = Math.round(289 * (1 - goalPct / 100)); // çevre ≈ 2π·46
 
-  const hour = new Date().getHours();
-  const greet = hour < 11 ? "Günaydın" : hour < 18 ? "İyi çalışmalar" : "İyi akşamlar";
-  const dateStr = new Date().toLocaleDateString("tr-TR", { weekday: "long", day: "numeric", month: "long" });
+  const examDate = new Date(TYT_CONFIG.examDate + "T00:00:00");
+  const daysLeft = Math.ceil((examDate - new Date()) / 86400000);
+  const countText = daysLeft > 0 ? `TYT'ye <b>${daysLeft}</b> gün kaldı` : daysLeft === 0 ? "Bugün TYT günü!" : "Sınav tarihini güncelle (config.examDate)";
 
   // Akıllı tek CTA — kaldığı test önce, sonra tekrar, sonra yeni
   let ctaLabel, ctaGo, ctaSub;
@@ -280,72 +280,62 @@ function renderDashboard() {
   }).join("");
 
   app.innerHTML = `
-    <header class="dash-head">
-      <div>
-        <h1>Merhaba! 👋</h1>
-        <p class="dash-sub">Bugün yeni şeyler öğrenmek için harika bir gün.</p>
-      </div>
-      <span class="head-date">${dateStr}</span>
-    </header>
+    <div class="tyt-count">${svgIcon("deneme")}<span>${countText}</span></div>
 
-    <section class="today-panel" aria-label="Günlük hedef">
-      <div class="panel-head">
-        <span class="ph-ic" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("target")}</span>
-        <h2 class="dash-h2" style="margin:0">Günlük Hedef</h2>
-      </div>
-      <div class="today-grid">
-        <div class="ring-wrap" role="img" aria-label="Günlük hedef: ${done} / ${goal} soru">
-          <svg class="ring" viewBox="0 0 104 104" aria-hidden="true">
-            <circle class="ring-bg" cx="52" cy="52" r="46"/>
-            <circle class="ring-fg" cx="52" cy="52" r="46" stroke-dasharray="289" stroke-dashoffset="${ringOff}"/>
-          </svg>
-          <div class="ring-c"><span class="ring-num">${done}/${goal}</span><span class="ring-lbl">soru</span></div>
+    <div class="dash-row2">
+      <section class="today-panel" aria-label="Günlük hedef">
+        <div class="panel-head">
+          <span class="ph-ic" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("target")}</span>
+          <h2 class="dash-h2" style="margin:0">Günlük Hedef</h2>
         </div>
-        <div class="today-metrics">
-          <div class="tm"><span class="tm-num">${done}</span><span class="tm-lbl">Çözülen</span></div>
-          <div class="tm"><span class="tm-num">${remaining}</span><span class="tm-lbl">Kalan</span></div>
-          <div class="tm"><span class="tm-num">${streak}</span><span class="tm-lbl">Günlük seri</span></div>
+        <div class="today-grid">
+          <div class="ring-wrap" role="img" aria-label="Günlük hedef: ${done} / ${goal} soru">
+            <svg class="ring" viewBox="0 0 104 104" aria-hidden="true">
+              <circle class="ring-bg" cx="52" cy="52" r="46"/>
+              <circle class="ring-fg" cx="52" cy="52" r="46" stroke-dasharray="289" stroke-dashoffset="${ringOff}"/>
+            </svg>
+            <div class="ring-c"><span class="ring-num">${done}/${goal}</span><span class="ring-lbl">soru</span></div>
+          </div>
+          <div class="today-metrics">
+            <div class="tm"><span class="tm-num">${done}</span><span class="tm-lbl">Çözülen</span></div>
+            <div class="tm"><span class="tm-num">${remaining}</span><span class="tm-lbl">Kalan</span></div>
+            <div class="tm"><span class="tm-num">${streak}</span><span class="tm-lbl">Günlük seri</span></div>
+          </div>
         </div>
-        <svg class="goal-illus" viewBox="0 0 120 120" fill="none" aria-hidden="true">
-          <circle cx="56" cy="62" r="38" stroke="#c9d4f7" stroke-width="3"/>
-          <circle cx="56" cy="62" r="26" stroke="#9db0f2" stroke-width="3"/>
-          <circle cx="56" cy="62" r="14" stroke="#4f6ef2" stroke-width="3"/>
-          <circle cx="56" cy="62" r="4" fill="#4f6ef2"/>
-          <path d="M56 62 L104 16" stroke="#1f2538" stroke-width="3" stroke-linecap="round"/>
-          <path d="M104 16 l-13 1 l4 -12 z" fill="#ef4444"/>
-        </svg>
-      </div>
-      <div class="cta-row">
-        <div class="cta-text"><b>Hedefin: ${goal} soru</b><span>${ctaSub}</span></div>
-        <button class="btn" data-go="${ctaGo}">${ctaLabel} ${svgIcon("arrow")}</button>
-      </div>
+        <div class="cta-row">
+          <div class="cta-text"><b>Hedefin: ${goal} soru</b><span>${ctaSub}</span></div>
+          <button class="btn" data-go="${ctaGo}">${ctaLabel} ${svgIcon("arrow")}</button>
+        </div>
+      </section>
+
+      <section class="panel quick-panel" aria-label="Hızlı erişim">
+        <h2 class="dash-h2">Hızlı erişim</h2>
+        <nav class="quick-row q2">
+          <button class="quick-tile" data-go="quiz"><span class="isq" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("soru")}</span><span class="qt-txt"><b>Soru Çöz</b><span>Sorulara başla</span></span></button>
+          <button class="quick-tile" data-go="deneme"><span class="isq" style="background:rgba(22,163,74,.13);color:var(--green)">${svgIcon("deneme")}</span><span class="qt-txt"><b>Mini Deneme</b><span>Kısa deneme çöz</span></span></button>
+          <button class="quick-tile" data-go="konu"><span class="isq" style="background:rgba(124,108,240,.14);color:var(--primary-2)">${svgIcon("konu")}</span><span class="qt-txt"><b>Konu Çalış</b><span>Anlatımları oku</span></span></button>
+          <button class="quick-tile" data-go="review"><span class="isq" style="background:rgba(245,158,11,.14);color:var(--yellow)">${svgIcon("yanlis")}</span><span class="qt-txt"><b>Yanlışlarım${due ? ` (${due})` : ""}</b><span>Yanlışları tekrar et</span></span></button>
+        </nav>
+      </section>
+    </div>
+
+    <section class="panel" aria-label="Ders performansı">
+      <h2 class="dash-h2">Ders performansı</h2>
+      <div class="perf-list">${perfRows}</div>
+      <button class="link-all" data-go="istatistik">Tümünü Gör</button>
     </section>
 
-    <h2 class="dash-h2">Hızlı erişim</h2>
-    <nav class="quick-row" aria-label="Hızlı erişim">
-      <button class="quick-tile" data-go="quiz"><span class="isq" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("soru")}</span><span class="qt-txt"><b>Soru Çöz</b><span>Sorulara başla</span></span></button>
-      <button class="quick-tile" data-go="deneme"><span class="isq" style="background:rgba(22,163,74,.13);color:var(--green)">${svgIcon("deneme")}</span><span class="qt-txt"><b>Mini Deneme</b><span>Kısa deneme çöz</span></span></button>
-      <button class="quick-tile" data-go="konu"><span class="isq" style="background:rgba(124,108,240,.14);color:var(--primary-2)">${svgIcon("konu")}</span><span class="qt-txt"><b>Konu Çalış</b><span>Anlatımları oku</span></span></button>
-      <button class="quick-tile" data-go="review"><span class="isq" style="background:rgba(245,158,11,.14);color:var(--yellow)">${svgIcon("yanlis")}</span><span class="qt-txt"><b>Yanlışlarım${due ? ` (${due})` : ""}</b><span>Yanlışları tekrar et</span></span></button>
-    </nav>
-
-    <div class="dash-cols">
-      <section class="panel" aria-label="Ders performansı">
-        <h2 class="dash-h2">Ders performansı</h2>
-        <div class="perf-list">${perfRows}</div>
-        <button class="link-all" data-go="istatistik">Tümünü Gör</button>
-      </section>
+    <div class="dash-row2">
       <section class="panel" aria-label="Haftalık ilerleme">
         <h2 class="dash-h2">Haftalık ilerleme</h2>
         <div class="week-chart">${weekBars}</div>
       </section>
+      <section class="panel" aria-label="Son çalışmalar">
+        <h2 class="dash-h2">Son çalışmalar</h2>
+        <div class="recent-list">${recentRows}</div>
+        ${recent.length ? `<button class="link-all" data-go="istatistik">Tümünü Gör</button>` : ""}
+      </section>
     </div>
-
-    <section class="panel" aria-label="Son çalışmalar">
-      <h2 class="dash-h2">Son çalışmalar</h2>
-      <div class="recent-list">${recentRows}</div>
-      ${recent.length ? `<button class="link-all" data-go="istatistik">Tümünü Gör</button>` : ""}
-    </section>
 
     <div class="tip-banner">
       <span class="tip-ic">${svgIcon("bulb")}</span>
@@ -374,6 +364,32 @@ function unitCard(subId, u, p) {
 
 function renderKonuList() {
   const p = loadProgress();
+  const subjAbbr = { turkce: "Tü", matematik: "Ma", sosyal: "So", fen: "Fe" };
+  let html = `<h1 class="page-title">Konu Anlatımı</h1>
+    <p class="page-sub">Çalışmak istediğin dersi seç.</p>
+    <div class="grid grid-2">`;
+  D.subjects.forEach(sub => {
+    const total = sub.units.length;
+    const read = sub.units.filter(u => p.readTopics.includes(u.id)).length;
+    const pct = total ? Math.round(read / total * 100) : 0;
+    const brInfo = (sub.branches && sub.branches.length) ? sub.branches.length + " branş · " : "";
+    html += `<button class="card clickable subj-select" data-sub="${sub.id}">
+      <div class="subj-tile">
+        <span class="subj-abbr" style="background:var(--c-${sub.id});color:#fff">${subjAbbr[sub.id]}</span>
+        <div><h3 style="margin:0;font-size:16px">${sub.name}</h3><p style="margin:3px 0 0">${brInfo}${total} ünite · %${pct} okundu</p></div>
+      </div>
+      <span class="konu-bar"><span style="width:${pct}%"></span></span>
+    </button>`;
+  });
+  html += `</div>`;
+  app.innerHTML = html;
+  app.querySelectorAll("[data-sub]").forEach(c => c.onclick = () => renderKonuSubject(c.dataset.sub));
+}
+
+function renderKonuSubject(subId) {
+  const sub = getSubject(subId);
+  if (!sub) return renderKonuList();
+  const p = loadProgress();
   const byUnit = {};
   p.sessions.forEach(s => (s.answers || []).forEach(a => {
     const q = questionById[a.questionId]; if (!q || !q.unit) return;
@@ -381,13 +397,12 @@ function renderKonuList() {
     byUnit[q.unit].t++; if (a.isCorrect) byUnit[q.unit].c++;
   }));
   const unitPct = id => { const v = byUnit[id]; if (v && v.t) return Math.round(v.c / v.t * 100); return p.readTopics.includes(id) ? 100 : 0; };
-  const subjAbbr = { turkce: "Tü", matematik: "Ma", sosyal: "So", fen: "Fe" };
 
-  const row = (subId, u) => {
+  const row = (u) => {
     const cv = u.branch ? `--c-${u.branch}` : `--c-${subId}`;
     const cnt = D.questions.filter(q => q.subject === subId && q.unit === u.id).length;
     const pct = unitPct(u.id);
-    return `<button class="konu-row" data-unit="${subId}|${u.id}">
+    return `<button class="konu-row" data-unit="${u.id}">
       <span class="konu-isq" style="background:var(${cv})">${u.name.slice(0, 2)}</span>
       <span class="konu-name">${u.name}</span>
       <span class="konu-cnt">${cnt} soru</span>
@@ -396,25 +411,22 @@ function renderKonuList() {
     </button>`;
   };
 
-  let html = `<h1 class="page-title">Konu Anlatımı</h1>
-    <p class="page-sub">Ders seç, üniteye tıklayarak anlatımı oku ve ilerlemeni gör.</p>`;
-  D.subjects.forEach(sub => {
-    html += `<section class="panel subj-panel">
-      <div class="subj-panel-head"><span class="subj-abbr" style="background:var(--c-${sub.id});color:#fff">${subjAbbr[sub.id]}</span><h2>${sub.name}</h2></div>`;
-    if (sub.branches && sub.branches.length) {
-      sub.branches.forEach(br => {
-        const us = sub.units.filter(u => u.branch === br.id);
-        if (us.length) html += `<div class="branch-sub">${br.name}</div>` + us.map(u => row(sub.id, u)).join("");
-      });
-    } else {
-      html += sub.units.map(u => row(sub.id, u)).join("");
-    }
-    html += `</section>`;
-  });
-
+  let html = `<button class="back-link" id="kback">← Derslere dön</button>
+    <h1 class="page-title">${sub.name}</h1>
+    <p class="page-sub">Üniteye tıklayarak anlatımı oku ve ilerlemeni gör.</p>
+    <section class="panel subj-panel">`;
+  if (sub.branches && sub.branches.length) {
+    sub.branches.forEach(br => {
+      const us = sub.units.filter(u => u.branch === br.id);
+      if (us.length) html += `<div class="branch-sub">${br.name}</div>` + us.map(row).join("");
+    });
+  } else {
+    html += sub.units.map(row).join("");
+  }
+  html += `</section>`;
   app.innerHTML = html;
-  app.querySelectorAll("[data-unit]").forEach(c =>
-    c.onclick = () => { const [s, u] = c.dataset.unit.split("|"); renderKonuDetail(s, u); });
+  document.getElementById("kback").onclick = renderKonuList;
+  app.querySelectorAll("[data-unit]").forEach(c => c.onclick = () => renderKonuDetail(subId, c.dataset.unit));
 }
 
 function renderKonuDetail(subId, unitId) {
@@ -439,8 +451,8 @@ function renderKonuDetail(subId, unitId) {
       <button class="btn ghost" id="back2">Diğer Üniteler</button>
     </div>
   `;
-  document.getElementById("back").onclick = renderKonuList;
-  document.getElementById("back2").onclick = renderKonuList;
+  document.getElementById("back").onclick = () => renderKonuSubject(subId);
+  document.getElementById("back2").onclick = () => renderKonuSubject(subId);
   if (hasQ) document.getElementById("solve").onclick = () => startQuizUnit(subId, unitId);
   if (hasPairs) document.getElementById("game").onclick = () => pickGameForUnit(subId, unitId);
 }
@@ -455,37 +467,25 @@ function startQuizUnit(subId, unitId) {
    QUIZ (Soru Çöz)
    ============================================================ */
 function renderQuizMenu() {
-  // Her ders/branş ayrı kart — Sosyal/Fen şemsiyesi yok
-  const items = [];
-  D.subjects.forEach(sub => {
-    if (sub.branches && sub.branches.length) {
-      sub.branches.forEach(br => {
-        const count = D.questions.filter(q => q.subject === sub.id && sub.units.some(u => u.id === q.unit && u.branch === br.id)).length;
-        if (count) items.push({ subId: sub.id, branchId: br.id, name: br.name, icon: br.icon, count });
-      });
-    } else {
-      items.push({ subId: sub.id, branchId: "", name: sub.name, icon: sub.icon, count: D.questions.filter(q => q.subject === sub.id).length });
-    }
-  });
-
+  // Dört ana ders — Sosyal/Fen şemsiyesi korunur
+  const subjAbbr = { turkce: "Tü", matematik: "Ma", sosyal: "So", fen: "Fe" };
   let html = `<h1 class="page-title">Soru Çöz</h1>
     <p class="page-sub">Bir ders seç; ardından ünite, soru sayısı ve modu belirle.</p>
-    <div class="grid grid-3">`;
-  items.forEach(it => {
-    const cv = it.branchId ? `--c-${it.branchId}` : `--c-${it.subId}`;
-    const abbr = it.name.slice(0, 2);
+    <div class="grid grid-2">`;
+  D.subjects.forEach(sub => {
+    const count = D.questions.filter(q => q.subject === sub.id).length;
     html += `
-      <div class="card clickable" data-quiz="${it.subId}" data-branch="${it.branchId}">
+      <div class="card clickable" data-quiz="${sub.id}">
         <div class="subj-tile">
-          <span class="subj-abbr" style="background:var(${cv});color:#fff">${abbr}</span>
-          <div><h3 style="margin:0;font-size:15px">${it.name}</h3><p style="margin:3px 0 0">${it.count} soru hazır</p></div>
+          <span class="subj-abbr" style="background:var(--c-${sub.id});color:#fff">${subjAbbr[sub.id]}</span>
+          <div><h3 style="margin:0;font-size:16px">${sub.name}</h3><p style="margin:3px 0 0">${count} soru hazır</p></div>
         </div>
       </div>`;
   });
   html += `</div>`;
   app.innerHTML = html;
   app.querySelectorAll("[data-quiz]").forEach(c =>
-    c.onclick = () => renderQuizConfig(c.dataset.quiz, c.dataset.branch || null));
+    c.onclick = () => renderQuizConfig(c.dataset.quiz, null));
 }
 
 /* P1-2: Quiz oluşturma ayar ekranı (branş-farkında) */

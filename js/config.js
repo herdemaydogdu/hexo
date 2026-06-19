@@ -21,6 +21,9 @@ const TYT_CONFIG = {
   // Tam TYT dağılımı ve süresi
   tyt: { turkce: 40, matematik: 40, sosyal: 20, fen: 20, durationMin: 165 },
 
+  // TYT sınav tarihi (geri sayım için) — her yıl güncelle
+  examDate: "2027-06-19",
+
   // Oyunlaştırma
   xpPerLevel: 100,
   timerWarnSec: 10,
