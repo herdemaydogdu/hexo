@@ -1,12 +1,12 @@
 :root {
   /* Açık tema — Modern & Soft (indigo) */
-  --bg: #f4f6fb;
-  --bg-soft: #ecf0f8;
+  --bg: #f6f8fd;
+  --bg-soft: #eef1fa;
   --card: #ffffff;
-  --card-hover: #f7f9fe;
-  --line: #e6e9f2;
-  --text: #1f2538;
-  --muted: #6e7790;
+  --card-hover: #f8faff;
+  --line: #e9ecf6;
+  --text: #161a30;
+  --muted: #727b96;
   --primary: #4f6ef2;
   --primary-dark: #3b56d6;
   --primary-2: #7c6cf0;
@@ -28,10 +28,10 @@
   /* Tasarım tokenları */
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px;
   --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 20px;
-  --radius: 16px;
-  --shadow-sm: 0 1px 2px rgba(20,28,64,.04), 0 4px 16px rgba(20,28,64,.05);
-  --shadow: 0 14px 36px rgba(20,28,64,.12);
-  --shadow-glow: 0 8px 20px rgba(79,110,242,.28);
+  --radius: 20px;
+  --shadow-sm: 0 1px 2px rgba(22,26,48,.04), 0 6px 22px rgba(22,26,48,.05);
+  --shadow: 0 20px 48px rgba(22,26,48,.13);
+  --shadow-glow: 0 10px 26px rgba(79,110,242,.30);
   --sidebar-w: 244px;
   --maxw: 1120px;
 }
@@ -736,3 +736,68 @@ select:focus, input[type="text"]:focus, input[type="number"]:focus { border-colo
 
 /* Sonuç skoru */
 .result-score { font-size: 60px; letter-spacing: -2px; }
+
+/* ============================================================
+   PREMIUM v2 — rafine tipografi, boşluk ve detay
+   ============================================================ */
+.container { padding: 36px 34px 72px; }
+
+/* Sayfa başlıkları — daha iri, dengeli */
+.page-title { font-size: 29px; font-weight: 800; letter-spacing: -.7px; margin-bottom: 7px; }
+.page-sub { font-size: 15px; margin-bottom: 28px; }
+
+/* Panel başlıklarına ince degrade aksan */
+.dash-h2 { position: relative; padding-left: 13px; font-size: 16px; font-weight: 700; }
+.dash-h2::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 4px; height: 15px; border-radius: 4px; background: var(--grad-primary); }
+.today-panel .panel-head .dash-h2 { padding-left: 0; }
+.today-panel .panel-head .dash-h2::before { display: none; }
+.section-title { font-size: 18px; font-weight: 800; letter-spacing: -.3px; }
+
+/* Kart & panel — daha cömert iç boşluk, yumuşak büyük köşe */
+.card { padding: 24px; }
+.panel { padding: 22px 24px; }
+
+/* Günlük hedef halkası ve metrikler — daha gösterişli */
+.ring-num { font-size: 19px; font-weight: 800; }
+.tm-num { font-size: 28px; letter-spacing: -.5px; }
+.cta-row .btn { padding: 11px 20px; border-radius: 13px; }
+
+/* Hızlı erişim kutuları — daha havadar */
+.quick-tile { padding: 20px 12px; border-radius: 16px; gap: 11px; }
+.quick-tile .isq { width: 42px; height: 42px; border-radius: 13px; }
+
+/* İlerleme çubukları — yuvarlak uçlu, degrade, hafif iz */
+.perf-bar, .konu-bar, .level-strip-bar { background: #edf0f9; }
+.perf-bar { height: 9px; }
+.perf-bar > span, .konu-bar > span, .level-strip-bar > span { background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 99px; }
+.perf-row { font-size: 14px; }
+.perf-name { width: 110px; font-weight: 600; }
+.perf-val { font-weight: 800; }
+
+/* Haftalık çubuklar — degrade, yuvarlak, gölge */
+.week-chart { height: 132px; }
+.wbar { background: linear-gradient(180deg, var(--primary), #6b86f6); border-radius: 8px 8px 3px 3px; box-shadow: 0 6px 14px rgba(79,110,242,.22); }
+.wbar.empty { background: #e7eaf4; box-shadow: none; }
+
+/* Son çalışmalar satırları — yumuşak hover */
+.recent-row { border-radius: 12px; padding: 13px 12px; border-bottom: 1px solid var(--line); }
+.recent-row:hover { background: var(--bg-soft); transform: translateX(2px); }
+
+/* İpucu bandı — degradeli premium */
+.tip-banner { background: linear-gradient(120deg, rgba(79,110,242,.10), rgba(20,184,196,.08)); border: 1px solid rgba(79,110,242,.16); border-radius: var(--r-lg); padding: 16px 18px; }
+.tip-ic { color: var(--primary); }
+
+/* Seçim/içerik kartları — ferah */
+.subj-pick { padding: 20px 22px; }
+.konu-body { padding: 34px 36px; line-height: 1.8; }
+
+/* Kenar çubuğu — ferah */
+.sidebar { padding: 22px 16px; }
+.nav-btn { padding: 11px 13px; margin-bottom: 2px; }
+
+@media (max-width: 540px) {
+  .container { padding: 22px 16px 48px; }
+  .card { padding: 18px; }
+  .panel { padding: 18px; }
+  .konu-body { padding: 22px 18px; }
+}
