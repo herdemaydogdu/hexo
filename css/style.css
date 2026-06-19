@@ -665,3 +665,74 @@ button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
   .nav { right: 8px; left: 8px; }
   .match-item { font-size: 12px; min-height: 64px; }
 }
+
+/* ============================================================
+   PREMIUM TASARIM KATMANI (global cila)
+   ============================================================ */
+/* Zemin: katmanlı yumuşak ışık */
+body {
+  background:
+    radial-gradient(1200px 620px at 112% -12%, rgba(79,110,242,.10), transparent 60%),
+    radial-gradient(900px 520px at -12% -4%, rgba(20,184,196,.09), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Kenar çubuğu — premium */
+.sidebar { background: linear-gradient(180deg, #ffffff, #fbfcff); border-right: 1px solid rgba(79,110,242,.10); }
+.logo { box-shadow: 0 6px 16px rgba(79,110,242,.35); }
+.nav-btn { border-radius: 12px; font-weight: 600; position: relative; transition: background .16s, color .16s, transform .12s; }
+.nav-btn:hover { transform: translateX(2px); }
+.nav-btn.active { background: linear-gradient(135deg, rgba(79,110,242,.15), rgba(124,108,240,.10)); color: var(--primary); box-shadow: inset 0 0 0 1px rgba(79,110,242,.14); }
+.nav-btn.active::before { content: ""; position: absolute; left: -10px; top: 50%; transform: translateY(-50%); width: 4px; height: 22px; border-radius: 4px; background: var(--grad-primary); }
+.side-card { background: linear-gradient(135deg, rgba(79,110,242,.10), rgba(124,108,240,.07)); border: 1px solid rgba(79,110,242,.14); }
+
+/* Üst bar (mobil) — camsı */
+.appbar { background: rgba(255,255,255,.78); backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px); position: sticky; top: 0; z-index: 50; }
+
+/* Kart & paneller — zengin katmanlı gölge */
+.card, .panel, .today-panel, .question-card, .konu-body { border-color: rgba(20,28,64,.07); box-shadow: 0 1px 2px rgba(20,28,64,.04), 0 10px 30px rgba(20,28,64,.06); }
+
+/* Başlıklar */
+.page-title { font-weight: 800; }
+.dash-h2, .section-title { letter-spacing: -.2px; }
+
+/* Butonlar — parlaklık */
+.btn { position: relative; overflow: hidden; box-shadow: 0 8px 20px rgba(79,110,242,.30); }
+.btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.22), transparent 46%); pointer-events: none; }
+.btn:hover { box-shadow: 0 12px 26px rgba(79,110,242,.38); }
+.btn.secondary, .btn.ghost { box-shadow: var(--shadow-sm); }
+.btn.secondary::after, .btn.ghost::after { display: none; }
+
+/* Form alanları — premium (yalnızca select ve metin/numara) */
+select, input[type="text"], input[type="number"] { background: var(--card); border: 1.5px solid var(--line); border-radius: var(--r-md); padding: 11px 14px; font-family: inherit; font-size: 14.5px; color: var(--text); transition: border-color .15s, box-shadow .15s; }
+select:focus, input[type="text"]:focus, input[type="number"]:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(79,110,242,.14); outline: none; }
+
+/* Quiz şıkları */
+.option { border-width: 1.5px; border-radius: 14px; transition: border-color .14s, background .14s, transform .1s, box-shadow .14s; }
+.option:hover { transform: translateX(2px); box-shadow: 0 6px 16px rgba(20,28,64,.07); }
+.option.selected { box-shadow: 0 0 0 3px rgba(79,110,242,.16); }
+
+/* İlerleme çubukları — degrade */
+.konu-bar > span, .perf-bar > span, .level-strip-bar > span { background: var(--grad-accent); }
+
+/* Konu satırı */
+.konu-row { transition: background .14s, transform .1s; }
+.konu-row:hover { background: var(--bg-soft); transform: translateX(2px); }
+
+/* Geri bağlantısı — pill buton */
+.back-link { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 99px; background: var(--card); border: 1px solid var(--line); box-shadow: var(--shadow-sm); transition: border-color .14s, transform .12s; }
+.back-link:hover { border-color: var(--primary); transform: translateX(-2px); }
+
+/* Oyun & rozet */
+.game-tile { transition: transform .16s, border-color .16s, box-shadow .16s; }
+.badge-card.got { box-shadow: 0 8px 20px rgba(251,191,36,.18); }
+
+/* Tablolar */
+.stat-table th { text-transform: uppercase; letter-spacing: .4px; font-size: 11px; }
+.stat-table tbody tr:hover td { background: var(--bg-soft); }
+
+/* Sonuç skoru */
+.result-score { font-size: 60px; letter-spacing: -2px; }
