@@ -67,6 +67,25 @@
       });
     },
 
+    /* Bir branşın TÜM ünitelerini yenileriyle değiştirir (birleştirme için).
+       data.js'teki eski üniteler çalışma anında kaldırılır; dosya değişmez. */
+    replaceBranchUnits: function (subjectId, branchId, units) {
+      var s = getSubject(subjectId);
+      if (!s) { console.error("[content-loader] replaceBranchUnits: ders yok:", subjectId); return; }
+      var removed = s.units.filter(function (u) { return u.branch === branchId; }).length;
+      s.units = s.units.filter(function (u) { return u.branch !== branchId; });
+      (units || []).forEach(function (u) { s.units.push(u); });
+      console.info("[content-loader] " + branchId + ": " + removed + " ünite → " + (units || []).length + " ünite");
+    },
+
+    /* Eski soru unit kimliklerini yenilerine eşler (birleştirme sonrası). */
+    remapQuestionUnits: function (map) {
+      var d = D(); var n = 0;
+      d.questions.forEach(function (q) { if (map[q.unit]) { q.unit = map[q.unit]; n++; } });
+      if (n) console.info("[content-loader] yeniden eşlenen soru unit:", n);
+      return n;
+    },
+
     /* Yeni sorular ekler. Aynı id'li soru varsa atlar. */
     addQuestions: function (qs) {
       var d = D();
