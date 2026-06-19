@@ -401,6 +401,42 @@ button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 .level-strip-bar > span { display: block; height: 100%; background: var(--grad-primary); border-radius: 99px; }
 .level-strip-next { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
 
+/* ============================================================
+   PREMIUM CİLA
+   ============================================================ */
+/* TYT geri sayım kartı */
+.tyt-countdown { position: relative; display: flex; align-items: center; gap: 18px; padding: 20px 24px; border-radius: var(--r-xl); margin-bottom: 20px; color: #fff; overflow: hidden; background: linear-gradient(120deg, #4f46e5 0%, #4f6ef2 46%, #14b8c4 112%); box-shadow: 0 16px 36px rgba(79,110,242,.32); }
+.tyt-countdown::after { content: ""; position: absolute; right: -40px; top: -60px; width: 210px; height: 210px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.20), transparent 70%); pointer-events: none; }
+.tyt-countdown::before { content: ""; position: absolute; left: -30px; bottom: -80px; width: 170px; height: 170px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.12), transparent 70%); pointer-events: none; }
+.tc-ic { width: 48px; height: 48px; border-radius: 14px; background: rgba(255,255,255,.18); display: grid; place-items: center; flex-shrink: 0; }
+.tc-ic .ic { width: 26px; height: 26px; color: #fff; }
+.tc-num { display: flex; align-items: baseline; gap: 7px; line-height: 1; z-index: 1; }
+.tc-num b { font-size: 46px; font-weight: 800; letter-spacing: -1.5px; }
+.tc-num span { font-size: 15px; font-weight: 600; opacity: .92; }
+.tc-meta { display: flex; flex-direction: column; margin-left: auto; text-align: right; z-index: 1; }
+.tc-meta b { font-size: 15px; font-weight: 700; }
+.tc-meta span { font-size: 12.5px; opacity: .85; margin-top: 2px; }
+
+/* Soru Çöz / branş seçim kartı */
+.subj-pick { display: flex; align-items: center; gap: 14px; cursor: pointer; }
+.subj-pick-txt { flex: 1; min-width: 0; }
+.subj-pick-txt h3 { margin: 0; font-size: 16px; font-weight: 700; }
+.subj-pick-txt p { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
+.subj-pick-arr { width: 22px; height: 22px; color: var(--muted); flex-shrink: 0; transition: transform .16s, color .16s; }
+.subj-pick:hover .subj-pick-arr { transform: translateX(3px); color: var(--primary); }
+.subj-abbr.xl { width: 50px; height: 50px; border-radius: 14px; font-size: 17px; box-shadow: 0 6px 14px rgba(20,28,64,.16); }
+
+/* Genel cila */
+.page-title { letter-spacing: -.5px; }
+.card.clickable:hover { box-shadow: 0 16px 38px rgba(20,28,64,.14); }
+.panel { transition: box-shadow .18s; }
+
+@media (max-width: 560px) {
+  .tyt-countdown { flex-wrap: wrap; gap: 12px; }
+  .tc-meta { margin-left: 0; text-align: left; width: 100%; }
+  .tc-num b { font-size: 38px; }
+}
+
 /* Ders performansı */
 .perf-list { display: flex; flex-direction: column; gap: 14px; }
 .perf-row { display: flex; align-items: center; gap: 12px; font-size: 14px; }

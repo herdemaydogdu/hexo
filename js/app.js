@@ -229,7 +229,10 @@ function renderDashboard() {
 
   const examDate = new Date(TYT_CONFIG.examDate + "T00:00:00");
   const daysLeft = Math.ceil((examDate - new Date()) / 86400000);
-  const countText = daysLeft > 0 ? `TYT'ye <b>${daysLeft}</b> gün kaldı` : daysLeft === 0 ? "Bugün TYT günü!" : "Sınav tarihini güncelle (config.examDate)";
+  const examFmt = examDate.toLocaleDateString("tr-TR", { day: "numeric", month: "long", year: "numeric" });
+  const bigNum = daysLeft > 0 ? daysLeft : daysLeft === 0 ? "🎯" : "—";
+  const bigLbl = daysLeft > 0 ? "gün kaldı" : daysLeft === 0 ? "bugün!" : "geçti";
+  const tcSub = daysLeft >= 0 ? `${examFmt} · YKS 1. oturum` : "Sınav tarihini güncelle";
 
   // Akıllı tek CTA — kaldığı test önce, sonra tekrar, sonra yeni
   let ctaLabel, ctaGo, ctaSub;
@@ -280,7 +283,11 @@ function renderDashboard() {
   }).join("");
 
   app.innerHTML = `
-    <div class="tyt-count">${svgIcon("deneme")}<span>${countText}</span></div>
+    <div class="tyt-countdown" role="img" aria-label="TYT'ye ${daysLeft} gün kaldı">
+      <span class="tc-ic">${svgIcon("deneme")}</span>
+      <div class="tc-num"><b>${bigNum}</b><span>${bigLbl}</span></div>
+      <div class="tc-meta"><b>TYT'ye Kalan Süre</b><span>${tcSub}</span></div>
+    </div>
 
     <div class="dash-row2">
       <section class="today-panel" aria-label="Günlük hedef">
@@ -474,18 +481,46 @@ function renderQuizMenu() {
     <div class="grid grid-2">`;
   D.subjects.forEach(sub => {
     const count = D.questions.filter(q => q.subject === sub.id).length;
+    const branched = sub.branches && sub.branches.length;
+    const meta = branched ? `${sub.branches.length} branş · ${count} soru` : `${count} soru hazır`;
     html += `
-      <div class="card clickable" data-quiz="${sub.id}">
-        <div class="subj-tile">
-          <span class="subj-abbr" style="background:var(--c-${sub.id});color:#fff">${subjAbbr[sub.id]}</span>
-          <div><h3 style="margin:0;font-size:16px">${sub.name}</h3><p style="margin:3px 0 0">${count} soru hazır</p></div>
-        </div>
+      <div class="card clickable subj-pick" data-quiz="${sub.id}">
+        <span class="subj-abbr xl" style="background:var(--c-${sub.id});color:#fff">${subjAbbr[sub.id]}</span>
+        <div class="subj-pick-txt"><h3>${sub.name}</h3><p>${meta}</p></div>
+        <svg class="subj-pick-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </div>`;
   });
   html += `</div>`;
   app.innerHTML = html;
-  app.querySelectorAll("[data-quiz]").forEach(c =>
-    c.onclick = () => renderQuizConfig(c.dataset.quiz, null));
+  app.querySelectorAll("[data-quiz]").forEach(c => c.onclick = () => {
+    const sub = getSubject(c.dataset.quiz);
+    if (sub.branches && sub.branches.length) renderQuizBranches(sub.id);
+    else renderQuizConfig(sub.id, null);
+  });
+}
+
+/* Branşlı derslerde (Sosyal / Fen) branş seçimi */
+function renderQuizBranches(subId) {
+  const sub = getSubject(subId);
+  if (!sub || !(sub.branches && sub.branches.length)) return renderQuizConfig(subId, null);
+  let html = `<button class="back-link" id="qback">← Derslere dön</button>
+    <h1 class="page-title">${sub.name}</h1>
+    <p class="page-sub">Bir branş seç.</p>
+    <div class="grid grid-2">`;
+  sub.branches.forEach(br => {
+    const count = D.questions.filter(q => q.subject === subId && sub.units.some(u => u.id === q.unit && u.branch === br.id)).length;
+    const units = sub.units.filter(u => u.branch === br.id).length;
+    html += `
+      <div class="card clickable subj-pick" data-branch="${br.id}">
+        <span class="subj-abbr xl" style="background:var(--c-${br.id});color:#fff">${br.name.slice(0, 2)}</span>
+        <div class="subj-pick-txt"><h3>${br.name}</h3><p>${units} ünite · ${count} soru</p></div>
+        <svg class="subj-pick-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </div>`;
+  });
+  html += `</div>`;
+  app.innerHTML = html;
+  document.getElementById("qback").onclick = renderQuizMenu;
+  app.querySelectorAll("[data-branch]").forEach(c => c.onclick = () => renderQuizConfig(subId, c.dataset.branch));
 }
 
 /* P1-2: Quiz oluşturma ayar ekranı (branş-farkında) */
