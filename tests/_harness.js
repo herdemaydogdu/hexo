@@ -18,7 +18,7 @@ function load() {
   require("../js/content-loader.js");
 
   // İçerik modülleri — sırayla TYT_CONTENT.addUnits/addQuestions çağırır
-  ["js/data/turkce-pilot.js", "js/data/matematik-pilot.js"].forEach(function (m) {
+  ["js/data/turkce-pilot.js", "js/data/matematik-pilot.js", "js/data/geometri-pilot.js"].forEach(function (m) {
     try { const s = fs.readFileSync(abs(m), "utf8"); eval(s); }
     catch (e) { console.warn("Modül yüklenemedi:", m, e.message); }
   });

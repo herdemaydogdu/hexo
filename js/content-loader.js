@@ -44,6 +44,18 @@
   }
 
   var TYT_CONTENT = {
+    /* Yeni bir üst ders ekler (örn. Geometri). Varsa dokunmaz/döner. */
+    addSubject: function (subject) {
+      var d = D();
+      var ex = getSubject(subject.id);
+      if (ex) return ex;
+      var s = { id: subject.id, name: subject.name, icon: subject.icon || "📐" };
+      if (subject.branches) s.branches = subject.branches;
+      s.units = subject.units || [];
+      d.subjects.push(s);
+      return s;
+    },
+
     /* Bir derse (veya branşa) yeni üniteler ekler. Mevcut id varsa atlar. */
     addUnits: function (subjectId, units) {
       var s = getSubject(subjectId);

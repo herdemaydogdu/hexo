@@ -247,7 +247,7 @@ function renderDashboard() {
   }
 
   const perf = subjectPerf();
-  const subjAbbr = { turkce: "Tü", matematik: "Ma", sosyal: "So", fen: "Fe" };
+  const subjAbbr = { turkce: "Tü", matematik: "Ma", geometri: "Ge", sosyal: "So", fen: "Fe" };
   const perfRows = ["turkce", "matematik", "sosyal", "fen"].map(id => {
     const sub = getSubject(id), v = perf[id];
     const nameHtml = `<span class="perf-name-wrap"><span class="perf-isq" style="background:var(--c-${id})">${subjAbbr[id]}</span><span class="perf-name">${sub.name}</span></span>`;
@@ -371,7 +371,7 @@ function unitCard(subId, u, p) {
 
 function renderKonuList() {
   const p = loadProgress();
-  const subjAbbr = { turkce: "Tü", matematik: "Ma", sosyal: "So", fen: "Fe" };
+  const subjAbbr = { turkce: "Tü", matematik: "Ma", geometri: "Ge", sosyal: "So", fen: "Fe" };
   let html = `<h1 class="page-title">Konu Anlatımı</h1>
     <p class="page-sub">Çalışmak istediğin dersi seç.</p>
     <div class="grid grid-2">`;
@@ -475,7 +475,7 @@ function startQuizUnit(subId, unitId) {
    ============================================================ */
 function renderQuizMenu() {
   // Dört ana ders — Sosyal/Fen şemsiyesi korunur
-  const subjAbbr = { turkce: "Tü", matematik: "Ma", sosyal: "So", fen: "Fe" };
+  const subjAbbr = { turkce: "Tü", matematik: "Ma", geometri: "Ge", sosyal: "So", fen: "Fe" };
   let html = `<h1 class="page-title">Soru Çöz</h1>
     <p class="page-sub">Bir ders seç; ardından ünite, soru sayısı ve modu belirle.</p>
     <div class="grid grid-2">`;

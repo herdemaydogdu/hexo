@@ -19,7 +19,7 @@
   --c-turkce: #ef4444; --c-matematik: #4f6ef2; --c-tarih: #8b5cf6;
   --c-cografya: #16a34a; --c-felsefe: #f59e0b; --c-din: #14b8c4;
   --c-fizik: #6366f1; --c-kimya: #ec4899; --c-biyoloji: #0ea5e9;
-  --c-sosyal: #8b5cf6; --c-fen: #0ea5e9;
+  --c-sosyal: #8b5cf6; --c-fen: #0ea5e9; --c-geometri: #f97316;
 
   /* Gradyanlar */
   --grad-primary: linear-gradient(135deg, var(--primary), var(--primary-2));
