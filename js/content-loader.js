@@ -78,6 +78,17 @@
       console.info("[content-loader] " + branchId + ": " + removed + " ünite → " + (units || []).length + " ünite");
     },
 
+    /* Üniteyi id'sine göre tam sürümüyle değiştirir; yoksa ekler (içerik
+       zenginleştirme için). branch sırası korunur. */
+    upsertUnits: function (subjectId, units) {
+      var s = getSubject(subjectId);
+      if (!s) { console.error("[content-loader] upsertUnits: ders yok:", subjectId); return; }
+      (units || []).forEach(function (u) {
+        var i = s.units.findIndex(function (x) { return x.id === u.id; });
+        if (i >= 0) s.units[i] = u; else s.units.push(u);
+      });
+    },
+
     /* Eski soru unit kimliklerini yenilerine eşler (birleştirme sonrası). */
     remapQuestionUnits: function (map) {
       var d = D(); var n = 0;
