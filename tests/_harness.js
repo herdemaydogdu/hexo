@@ -18,7 +18,7 @@ function load() {
   require("../js/content-loader.js");
 
   // İçerik modülleri — sırayla TYT_CONTENT.addUnits/addQuestions çağırır
-  ["js/data/tarih.js", "js/data/tarih-q2.js", "js/data/turkce-pilot.js", "js/data/turkce-01.js", "js/data/turkce-02.js", "js/data/turkce-03.js", "js/data/turkce-04.js", "js/data/matematik-pilot.js", "js/data/geometri-pilot.js", "js/data/fen-pilot.js", "js/data/sosyal-pilot.js"].forEach(function (m) {
+  ["js/data/tarih.js", "js/data/tarih-q2.js", "js/data/turkce-pilot.js", "js/data/turkce-01.js", "js/data/turkce-02.js", "js/data/turkce-03.js", "js/data/turkce-04.js", "js/data/turkce-05.js", "js/data/matematik-pilot.js", "js/data/geometri-pilot.js", "js/data/fen-pilot.js", "js/data/sosyal-pilot.js"].forEach(function (m) {
     try { const s = fs.readFileSync(abs(m), "utf8"); eval(s); }
     catch (e) { console.warn("Modül yüklenemedi:", m, e.message); }
   });
