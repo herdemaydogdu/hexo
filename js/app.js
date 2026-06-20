@@ -896,6 +896,8 @@ function renderDenemeMenu() {
   const avail = { turkce: subjectQ("turkce").length, matematik: subjectQ("matematik").length, sosyal: subjectQ("sosyal").length, fen: subjectQ("fen").length };
   const fullReady = avail.turkce >= dist.turkce && avail.matematik >= dist.matematik && avail.sosyal >= dist.sosyal && avail.fen >= dist.fen;
   const miniN = Math.min(20, D.questions.length);
+  const turkceN = Math.min(20, avail.turkce);
+  const turkceReady = avail.turkce >= 20;
 
   app.innerHTML = `
     <h1 class="page-title">Deneme Sınavı</h1>
@@ -905,6 +907,11 @@ function renderDenemeMenu() {
         <span class="icon">⚡</span><h3>Mini TYT Denemesi</h3>
         <p>${miniN} karışık soru · ${miniN} dakika</p>
         <div class="meta">Başla →</div>
+      </div>
+      <div class="card ${turkceReady ? "clickable" : "disabled-card"}" ${turkceReady ? 'data-deneme="turkce"' : ""}>
+        <span class="icon">📚</span><h3>Türkçe Denemesi</h3>
+        <p>${turkceReady ? "20 Türkçe sorusu · 30 dakika" : `Türkçe havuzu: ${avail.turkce}/20`}</p>
+        <div class="meta">${turkceReady ? "Başla →" : "Havuz yetersiz"}</div>
       </div>
       <div class="card ${fullReady ? "clickable" : "disabled-card"}" ${fullReady ? 'data-deneme="full"' : ""}>
         <span class="icon">🎯</span><h3>Tam TYT Denemesi</h3>
@@ -926,6 +933,11 @@ function renderDenemeMenu() {
 }
 
 function startDeneme(mode) {
+  if (mode === "turkce") {
+    const pool = shuffle(subjectQ("turkce")).slice(0, 20);
+    runQuiz({ title: "Türkçe Denemesi", subjectId: "turkce", questions: pool, timed: true, durationSec: 30 * 60, showExplain: false });
+    return;
+  }
   if (mode === "full") {
     const dist = TYT_CONFIG.tyt;
     let pool = [];
