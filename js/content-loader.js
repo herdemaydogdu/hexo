@@ -5,7 +5,12 @@
    calismadigi dogrulanabilir.
    ============================================================ */
 (function (global) {
-  function D() { return global.TYT_DATA; }
+  // data.js veriyi `const TYT_DATA` ile tanımlar; const window'a bağlanmaz.
+  // Bu yüzden önce doğrudan (script-scope) TYT_DATA'ya, sonra global'e bakarız.
+  function D() {
+    try { if (typeof TYT_DATA !== "undefined" && TYT_DATA && TYT_DATA.subjects) return TYT_DATA; } catch (e) {}
+    return global.TYT_DATA;
+  }
 
   function getSubject(id) {
     var d = D(); if (!d || !d.subjects) return null;
@@ -82,5 +87,5 @@
 
   global.TYT_CONTENT = TYT_CONTENT;
   if (typeof module !== "undefined" && module.exports) module.exports = TYT_CONTENT;
-  try { console.info("[content-loader] yuklendi v25 - TYT_CONTENT hazir"); } catch (e) {}
+  try { console.info("[content-loader] yuklendi v26 - TYT_CONTENT hazir, TYT_DATA bagli: " + (!!D())); } catch (e) {}
 })(typeof window !== "undefined" ? window : globalThis);
