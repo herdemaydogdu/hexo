@@ -806,8 +806,16 @@ select:focus, input[type="text"]:focus, input[type="number"]:focus { border-colo
    ÇİP / BUTON GRUPLARI — premium test oluşturucu
    ============================================================ */
 /* Odaklı, ortalı kolon (test oluşturucu gibi tek-iş ekranları) */
-.narrow-wrap { max-width: 720px; margin: 0 auto; }
+.narrow-wrap { max-width: 920px; margin: 0 auto; }
 .config-card { padding: 0; overflow: hidden; width: 100%; gap: 0; position: relative; border-radius: var(--r-xl); box-shadow: 0 2px 4px rgba(22,26,48,.05), 0 18px 46px rgba(22,26,48,.10); }
+/* Yan yana (dashboard) düzen: solda Ünite, sağda Soru Sayısı/Mod/Süre */
+.cfg-grid { display: grid; grid-template-columns: 1.15fr 1fr; }
+.cfg-units { border-right: 1px solid var(--line); }
+.cfg-side { display: flex; flex-direction: column; }
+@media (max-width: 680px) {
+  .cfg-grid { grid-template-columns: 1fr; }
+  .cfg-units { border-right: none; border-bottom: 1px solid var(--line); }
+}
 .config-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--grad-primary); }
 .cfg-block { display: flex; flex-direction: column; gap: 11px; padding: 15px 24px; }
 .cfg-block + .cfg-block { border-top: 1px solid var(--line); }

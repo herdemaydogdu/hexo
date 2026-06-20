@@ -554,10 +554,14 @@ function renderQuizConfig(subId, branchId) {
     <button class="back-link" id="back">← Ders seç</button>
     <h1 class="page-title">${dispIcon} ${dispName} · Test Oluştur</h1>
     <div class="card config-card">
-      <div class="cfg-block"><span class="cfg-label"><svg class="cfg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V6a2 2 0 0 1 2-2h12v15H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h12"/></svg>Ünite</span><div class="chip-row" id="grpUnit">${unitChips}</div></div>
+      <div class="cfg-grid">
+      <div class="cfg-block cfg-units"><span class="cfg-label"><svg class="cfg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V6a2 2 0 0 1 2-2h12v15H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h12"/></svg>Ünite</span><div class="chip-row" id="grpUnit">${unitChips}</div></div>
+      <div class="cfg-side">
       <div class="cfg-block"><span class="cfg-label"><svg class="cfg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></svg>Soru sayısı</span><div class="chip-row" id="grpCount">${countChips}</div></div>
       <div class="cfg-block"><span class="cfg-label"><svg class="cfg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h11M4 12h7M4 18h13"/><circle cx="18" cy="6" r="2"/><circle cx="14" cy="12" r="2"/><circle cx="20" cy="18" r="2"/></svg>Mod</span><div class="chip-row" id="grpMode">${modeChips}</div></div>
       <div class="cfg-block"><span class="cfg-label"><svg class="cfg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Süre</span><div class="chip-row"><button class="chip toggle ${curTimed ? "active" : ""}" id="cfgTimed">${curTimed ? "⏱ Süreli açık" : "Süresiz"}</button></div></div>
+      </div>
+      </div>
       <div class="cfg-foot">
         <span id="cfgInfo" class="cfg-info" aria-live="polite"></span>
         <button class="btn" id="start">Teste Başla →</button>
