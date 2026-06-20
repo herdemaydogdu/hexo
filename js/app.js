@@ -550,6 +550,7 @@ function renderQuizConfig(subId, branchId) {
   const modeChips = modes.map(([v, l]) => chip("mode", v, l, curMode === v)).join("");
 
   app.innerHTML = `
+    <div class="narrow-wrap">
     <button class="back-link" id="back">← Ders seç</button>
     <h1 class="page-title">${dispIcon} ${dispName} · Test Oluştur</h1>
     <div class="card config-card">
@@ -561,6 +562,7 @@ function renderQuizConfig(subId, branchId) {
         <span id="cfgInfo" class="cfg-info" aria-live="polite"></span>
         <button class="btn" id="start">Teste Başla →</button>
       </div>
+    </div>
     </div>
   `;
   document.getElementById("back").onclick = renderQuizMenu;
