@@ -533,53 +533,68 @@ function renderQuizConfig(subId, branchId) {
   const br = branchId ? (sub.branches || []).find(b => b.id === branchId) : null;
   const dispName = br ? br.name : sub.name;
   const dispIcon = br ? br.icon : sub.icon;
-  const unitOpts = `<option value="all">Tüm üniteler</option>` +
-    units.map(u => `<option value="${u.id}" ${st.unit === u.id ? "selected" : ""}>${u.name}</option>`).join("");
-  const countOpts = [5, 10, 20, 9999].map(n => `<option value="${n}" ${st.count === n ? "selected" : ""}>${n === 9999 ? "Tümü" : n + " soru"}</option>`).join("");
-  const modes = [["all", "Tüm sorular"], ["unsolved", "Çözülmemiş sorular"], ["wrong", "Daha önce yanlış yapılanlar"], ["mixed", "Karışık tekrar"]];
+  const counts = [5, 10, 20, 9999];
+  const modes = [["all", "Tüm sorular"], ["unsolved", "Çözülmemiş"], ["wrong", "Yanlışlarım"], ["mixed", "Karışık tekrar"]];
+
+  // Geçerli seçim durumu (kayıtlı ayardan; ünite izinli değilse "all")
+  let curUnit = (st.unit === "all" || allowedUnits.indexOf(st.unit) >= 0) ? st.unit : "all";
+  let curCount = counts.indexOf(st.count) >= 0 ? st.count : 10;
+  let curMode = modes.some(m => m[0] === st.mode) ? st.mode : "all";
+  let curTimed = !!st.timed;
+
+  const chip = (group, val, label, active) =>
+    `<button class="chip ${active ? "active" : ""}" data-group="${group}" data-val="${val}">${label}</button>`;
+  const unitChips = chip("unit", "all", "Tüm üniteler", curUnit === "all") +
+    units.map(u => chip("unit", u.id, u.name, curUnit === u.id)).join("");
+  const countChips = counts.map(n => chip("count", n, n === 9999 ? "Tümü" : n + " soru", curCount === n)).join("");
+  const modeChips = modes.map(([v, l]) => chip("mode", v, l, curMode === v)).join("");
 
   app.innerHTML = `
     <button class="back-link" id="back">← Ders seç</button>
     <h1 class="page-title">${dispIcon} ${dispName} · Test Oluştur</h1>
     <div class="card config-card">
-      <label class="cfg-row" for="cfgUnit"><span>Ünite</span><select id="cfgUnit">${unitOpts}</select></label>
-      <label class="cfg-row" for="cfgCount"><span>Soru sayısı</span><select id="cfgCount">${countOpts}</select></label>
-      <label class="cfg-row" for="cfgMode"><span>Mod</span><select id="cfgMode">${modes.map(([v, l]) => `<option value="${v}" ${st.mode === v ? "selected" : ""}>${l}</option>`).join("")}</select></label>
-      <label class="cfg-row check" for="cfgTimed"><input type="checkbox" id="cfgTimed" ${st.timed ? "checked" : ""}><span>Süreli (yaklaşık 1 dk/soru)</span></label>
+      <div class="cfg-block"><span class="cfg-label">Ünite</span><div class="chip-row" id="grpUnit">${unitChips}</div></div>
+      <div class="cfg-block"><span class="cfg-label">Soru sayısı</span><div class="chip-row" id="grpCount">${countChips}</div></div>
+      <div class="cfg-block"><span class="cfg-label">Mod</span><div class="chip-row" id="grpMode">${modeChips}</div></div>
+      <div class="cfg-block"><span class="cfg-label">Süre</span><div class="chip-row"><button class="chip toggle ${curTimed ? "active" : ""}" id="cfgTimed">${curTimed ? "⏱ Süreli açık" : "Süresiz"}</button></div></div>
       <div id="cfgInfo" class="cfg-info" aria-live="polite"></div>
-      <div class="btn-row"><button class="btn" id="start">Teste Başla</button></div>
+      <div class="btn-row"><button class="btn" id="start">Teste Başla →</button></div>
     </div>
   `;
   document.getElementById("back").onclick = renderQuizMenu;
   const upd = () => {
-    const unit = document.getElementById("cfgUnit").value;
-    const mode = document.getElementById("cfgMode").value;
-    const n = buildQuizPool(subId, unit, mode, allowedUnits).length;
+    const n = buildQuizPool(subId, curUnit, curMode, allowedUnits).length;
     document.getElementById("cfgInfo").textContent = n ? `Bu seçimde uygun ${n} soru var.` : "Bu seçimde uygun soru yok.";
   };
-  document.getElementById("cfgUnit").onchange = upd;
-  document.getElementById("cfgMode").onchange = upd;
+  const bindGroup = (id, setter) => {
+    const el = document.getElementById(id);
+    el.querySelectorAll(".chip").forEach(b => b.onclick = () => {
+      el.querySelectorAll(".chip").forEach(x => x.classList.remove("active"));
+      b.classList.add("active"); setter(b.dataset.val); upd();
+    });
+  };
+  bindGroup("grpUnit", v => curUnit = v);
+  bindGroup("grpCount", v => curCount = parseInt(v, 10));
+  bindGroup("grpMode", v => curMode = v);
+  const tBtn = document.getElementById("cfgTimed");
+  tBtn.onclick = () => { curTimed = !curTimed; tBtn.classList.toggle("active", curTimed); tBtn.textContent = curTimed ? "⏱ Süreli açık" : "Süresiz"; };
   upd();
   document.getElementById("start").onclick = () => {
-    const unit = document.getElementById("cfgUnit").value;
-    const count = parseInt(document.getElementById("cfgCount").value, 10);
-    const mode = document.getElementById("cfgMode").value;
-    const timed = document.getElementById("cfgTimed").checked;
-    saveQuizSettings({ unit, count, mode, timed });
-    let pool = shuffle(buildQuizPool(subId, unit, mode, allowedUnits));
+    saveQuizSettings({ unit: curUnit, count: curCount, mode: curMode, timed: curTimed });
+    let pool = shuffle(buildQuizPool(subId, curUnit, curMode, allowedUnits));
     if (!pool.length) {
-      notify(mode === "wrong" ? "Bu seçimde yanlış soru yok — tebrikler!" :
-        mode === "unsolved" ? "Bu seçimde çözülmemiş soru kalmadı." : "Bu seçimde soru yok.", "info");
+      notify(curMode === "wrong" ? "Bu seçimde yanlış soru yok — tebrikler!" :
+        curMode === "unsolved" ? "Bu seçimde çözülmemiş soru kalmadı." : "Bu seçimde soru yok.", "info");
       return;
     }
-    const want = count === 9999 ? pool.length : Math.min(count, pool.length);
-    if (count !== 9999 && pool.length < count) notify(`${count} istendi; havuzda ${pool.length} soru var. ${pool.length} soruyla başlıyor.`, "info");
+    const want = curCount === 9999 ? pool.length : Math.min(curCount, pool.length);
+    if (curCount !== 9999 && pool.length < curCount) notify(`${curCount} istendi; havuzda ${pool.length} soru var. ${pool.length} soruyla başlıyor.`, "info");
     pool = pool.slice(0, want);
     runQuiz({
-      title: dispName + (unit !== "all" ? " · " + getUnit(subId, unit).name : ""),
+      title: dispName + (curUnit !== "all" ? " · " + getUnit(subId, curUnit).name : ""),
       subjectId: subId, questions: pool,
-      timed, durationSec: timed ? pool.length * 60 : 0,
-      showExplain: !timed
+      timed: curTimed, durationSec: curTimed ? pool.length * 60 : 0,
+      showExplain: !curTimed
     });
   };
 }
