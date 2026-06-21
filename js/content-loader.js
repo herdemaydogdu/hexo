@@ -82,6 +82,18 @@
         d.questions.push(q); if (q.id) byId[q.id] = true;
       });
     },
+    replaceQuestionsForUnit: function (unitId, qs) {
+      var d = D(); if (!d || !d.questions) return 0;
+      var before = d.questions.length;
+      d.questions = d.questions.filter(function (q) { return q.unit !== unitId; });
+      var byId = {};
+      d.questions.forEach(function (q) { if (q.id) byId[q.id] = true; });
+      (qs || []).forEach(function (q) {
+        if (q.id && byId[q.id]) return;
+        d.questions.push(q); if (q.id) byId[q.id] = true;
+      });
+      return before - d.questions.length + (qs || []).length;
+    },
     finalize: function () { return ensureQuestionIds(); }
   };
 
