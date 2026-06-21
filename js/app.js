@@ -533,7 +533,7 @@ function renderQuizConfig(subId, branchId) {
   const br = branchId ? (sub.branches || []).find(b => b.id === branchId) : null;
   const dispName = br ? br.name : sub.name;
   const dispIcon = br ? br.icon : sub.icon;
-  const counts = [5, 10, 20, 9999];
+  const counts = [5, 10, 20, 25, 9999];
   const modes = [["all", "Tüm sorular"], ["unsolved", "Çözülmemiş"], ["wrong", "Yanlışlarım"], ["mixed", "Karışık tekrar"]];
 
   // Geçerli seçim durumu (kayıtlı ayardan; ünite izinli değilse "all")
@@ -544,27 +544,41 @@ function renderQuizConfig(subId, branchId) {
 
   const chip = (group, val, label, active) =>
     `<button class="chip ${active ? "active" : ""}" data-group="${group}" data-val="${val}">${label}</button>`;
-  const unitChips = chip("unit", "all", "Tüm üniteler", curUnit === "all") +
-    units.map(u => chip("unit", u.id, u.name, curUnit === u.id)).join("");
+  const totalQuestionCount = D.questions.filter(q => q.subject === subId && allowedUnits.includes(q.unit)).length;
+  const unitChip = (u, active) => {
+    const count = D.questions.filter(q => q.subject === subId && q.unit === u.id).length;
+    return `<button class="chip unit-choice ${active ? "active" : ""}" data-group="unit" data-val="${u.id}">
+      <span class="unit-choice-name">${u.name}</span><span class="unit-choice-count">${count} soru</span>
+    </button>`;
+  };
+  const unitChips = `<button class="chip unit-choice unit-choice-all ${curUnit === "all" ? "active" : ""}" data-group="unit" data-val="all">
+      <span class="unit-choice-name">Tüm üniteler</span><span class="unit-choice-count">${totalQuestionCount} soru</span>
+    </button>` + units.map(u => unitChip(u, curUnit === u.id)).join("");
   const countChips = counts.map(n => chip("count", n, n === 9999 ? "Tümü" : n + " soru", curCount === n)).join("");
   const modeChips = modes.map(([v, l]) => chip("mode", v, l, curMode === v)).join("");
 
   app.innerHTML = `
-    <div class="narrow-wrap">
-    <button class="back-link" id="back">← Ders seç</button>
-    <h1 class="page-title">${dispIcon} ${dispName} · Test Oluştur</h1>
+    <div class="narrow-wrap quiz-builder">
+    <div class="quiz-builder-head">
+      <button class="back-link" id="back">← Ders seç</button>
+      <div class="quiz-builder-title">
+        <span class="quiz-builder-icon" aria-hidden="true">${dispIcon}</span>
+        <div><span class="eyebrow">Kişisel çalışma testi</span><h1 class="page-title">${dispName} Testi Oluştur</h1>
+        <p>${units.length} ünite · ${totalQuestionCount} soru içinden seçim yap</p></div>
+      </div>
+    </div>
     <div class="card config-card">
       <div class="cfg-grid">
-      <div class="cfg-block cfg-units"><span class="cfg-label"><svg class="cfg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V6a2 2 0 0 1 2-2h12v15H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h12"/></svg>Ünite</span><div class="chip-row" id="grpUnit">${unitChips}</div></div>
+      <div class="cfg-block cfg-units"><div class="cfg-section-head"><span class="cfg-label"><svg class="cfg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V6a2 2 0 0 1 2-2h12v15H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h12"/></svg>Ünite seç</span><span class="cfg-hint">Bir ünite veya tüm havuz</span></div><div class="chip-row" id="grpUnit">${unitChips}</div></div>
       <div class="cfg-side">
+      <div class="cfg-foot">
+        <div><span class="cfg-foot-label">Testin hazır</span><span id="cfgInfo" class="cfg-info" aria-live="polite"></span></div>
+        <button class="btn" id="start">Testi Başlat <span aria-hidden="true">→</span></button>
+      </div>
       <div class="cfg-block"><span class="cfg-label"><svg class="cfg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></svg>Soru sayısı</span><div class="chip-row" id="grpCount">${countChips}</div></div>
       <div class="cfg-block"><span class="cfg-label"><svg class="cfg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h11M4 12h7M4 18h13"/><circle cx="18" cy="6" r="2"/><circle cx="14" cy="12" r="2"/><circle cx="20" cy="18" r="2"/></svg>Mod</span><div class="chip-row" id="grpMode">${modeChips}</div></div>
       <div class="cfg-block"><span class="cfg-label"><svg class="cfg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Süre</span><div class="chip-row"><button class="chip toggle ${curTimed ? "active" : ""}" id="cfgTimed">${curTimed ? "⏱ Süreli açık" : "Süresiz"}</button></div></div>
       </div>
-      </div>
-      <div class="cfg-foot">
-        <span id="cfgInfo" class="cfg-info" aria-live="polite"></span>
-        <button class="btn" id="start">Teste Başla →</button>
       </div>
     </div>
     </div>
@@ -572,7 +586,12 @@ function renderQuizConfig(subId, branchId) {
   document.getElementById("back").onclick = renderQuizMenu;
   const upd = () => {
     const n = buildQuizPool(subId, curUnit, curMode, allowedUnits).length;
-    document.getElementById("cfgInfo").textContent = n ? `Bu seçimde uygun ${n} soru var.` : "Bu seçimde uygun soru yok.";
+    const actual = curCount === 9999 ? n : Math.min(curCount, n);
+    const info = document.getElementById("cfgInfo");
+    const start = document.getElementById("start");
+    info.textContent = n ? `${n} uygun soru · Test ${actual} soru olacak` : "Bu seçimde uygun soru yok";
+    start.disabled = !n;
+    start.innerHTML = n ? `${actual} Soruluk Testi Başlat <span aria-hidden="true">→</span>` : `Soru Bulunamadı`;
   };
   const bindGroup = (id, setter) => {
     const el = document.getElementById(id);
