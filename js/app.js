@@ -54,6 +54,14 @@ function emptyState(icon, msg, actionHtml) {
   return `<div class="empty"><span class="icon">${icon}</span><p>${msg}</p>${actionHtml || ""}</div>`;
 }
 
+/* Ortak sayfa girişi — ana ekranlarda tek tip görsel hiyerarşi */
+function pageIntro(eyebrow, title, sub, icon) {
+  return `<header class="page-intro">
+    ${icon ? `<span class="page-intro-icon" aria-hidden="true">${icon}</span>` : ""}
+    <div><span class="page-eyebrow">${eyebrow}</span><h1 class="page-title">${title}</h1>${sub ? `<p class="page-sub">${sub}</p>` : ""}</div>
+  </header>`;
+}
+
 /* ============================================================
    ROUTER
    ============================================================ */
@@ -102,6 +110,7 @@ function doNavigate(route, ...args) {
     b.classList.toggle("active", b.dataset.nav === route));
   closeSidebar();
   window.scrollTo(0, 0);
+  app.dataset.screen = route;
   (routes[route] || renderDashboard)(...args);
   updateSidebarFoot();
   focusMainHeading();
@@ -283,6 +292,7 @@ function renderDashboard() {
   }).join("");
 
   app.innerHTML = `
+    <h1 class="sr-only">TYT Öğrenci Paneli</h1>
     <div class="tyt-countdown" role="img" aria-label="TYT'ye ${daysLeft} gün kaldı">
       <span class="tc-ic">${svgIcon("deneme")}</span>
       <div class="tc-num"><b>${bigNum}</b><span>${bigLbl}</span></div>
@@ -372,8 +382,7 @@ function unitCard(subId, u, p) {
 function renderKonuList() {
   const p = loadProgress();
   const subjAbbr = { turkce: "Tü", matematik: "Ma", geometri: "Ge", sosyal: "So", fen: "Fe" };
-  let html = `<h1 class="page-title">Konu Anlatımı</h1>
-    <p class="page-sub">Çalışmak istediğin dersi seç.</p>
+  let html = `${pageIntro("Konu kütüphanesi", "Konu Anlatımı", "Dersini seç, ünite ilerlemeni gör ve kaldığın yerden devam et.", "▤")}
     <div class="grid grid-2">`;
   D.subjects.forEach(sub => {
     const total = sub.units.length;
@@ -476,8 +485,7 @@ function startQuizUnit(subId, unitId) {
 function renderQuizMenu() {
   // Dört ana ders — Sosyal/Fen şemsiyesi korunur
   const subjAbbr = { turkce: "Tü", matematik: "Ma", geometri: "Ge", sosyal: "So", fen: "Fe" };
-  let html = `<h1 class="page-title">Soru Çöz</h1>
-    <p class="page-sub">Bir ders seç; ardından ünite, soru sayısı ve modu belirle.</p>
+  let html = `${pageIntro("Kişisel soru merkezi", "Soru Çöz", "Dersini ve çalışma biçimini seç; sana uygun testi birkaç saniyede oluştur.", "✎")}
     <div class="grid grid-2">`;
   D.subjects.forEach(sub => {
     const count = D.questions.filter(q => q.subject === sub.id).length;
@@ -942,8 +950,7 @@ function renderDenemeMenu() {
   const turkceReady = avail.turkce >= 20;
 
   app.innerHTML = `
-    <h1 class="page-title">Deneme Sınavı</h1>
-    <p class="page-sub">Gerçek sınav deneyimi için süreli, karışık deneme. Soru havuzu yapay olarak çoğaltılmaz.</p>
+    ${pageIntro("Sınav simülasyonu", "Deneme Sınavı", "Süre yönetimini geliştir, gerçek sınav düzeninde performansını ölç.", "◷")}
     <div class="grid grid-2">
       <div class="card clickable" data-deneme="mini">
         <span class="icon">⚡</span><h3>Mini TYT Denemesi</h3>
@@ -1001,7 +1008,7 @@ function renderStats(range) {
   range = range || "all";
   const p = loadProgress();
   if (!p.sessions.length) {
-    app.innerHTML = `<h1 class="page-title">İstatistik</h1>` +
+    app.innerHTML = pageIntro("Gelişim merkezi", "İstatistik", "Çalışmaların biriktikçe güçlü ve gelişime açık alanların burada görünür.", "↗") +
       emptyState("📊", "Henüz veri yok. Birkaç soru çözdükten sonra gelişimini burada göreceksin.",
         `<div class="btn-row" style="justify-content:center;margin-top:16px"><button class="btn" data-go="quiz">Soru Çözmeye Başla</button></div>`);
     bindGo();
@@ -1088,7 +1095,7 @@ function renderStats(range) {
   const fbtn = (k, l) => `<button class="filter-btn ${range === k ? "active" : ""}" data-range="${k}">${l}</button>`;
 
   app.innerHTML = `
-    <h1 class="page-title">İstatistik</h1>
+    ${pageIntro("Gelişim merkezi", "İstatistik", "Soru, net ve başarı eğilimini seçtiğin zaman aralığında incele.", "↗")}
     <div class="filter-bar">${fbtn("7", "7 Gün")}${fbtn("30", "30 Gün")}${fbtn("month", "Bu Ay")}${fbtn("all", "Tümü")}</div>
 
     <div class="metric-row">

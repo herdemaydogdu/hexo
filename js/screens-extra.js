@@ -20,8 +20,7 @@
     }).join("");
 
     app.innerHTML =
-      '<h1 class="page-title">Çıkmış Sorular</h1>' +
-      '<p class="page-sub">Yıllara göre resmî ÖSYM kaynakları. Soru metinleri burada yayımlanmaz.</p>' +
+      pageIntro('Resmî sınav arşivi', 'Çıkmış Sorular', 'Yıllara göre resmî ÖSYM kitapçıklarına güvenli biçimde ulaş.', '⌁') +
       '<div class="tip-banner" style="margin:0 0 18px"><span class="tip-ic">©</span><p>' + C.note + '</p></div>' +
       '<div class="grid grid-3">' + cards + '</div>' +
       '<p class="muted-note" style="margin-top:18px">Telif gereği bu platform yalnızca kendi ürettiği özgün soruları yayımlar; çıkmış sorulara erişim için resmî ÖSYM bağlantıları sunulur. Ayrıntı için <a href="#/kaynak">Kaynaklar ve Telif</a> sayfasına bakın.</p>';
@@ -38,8 +37,7 @@
     }).join("");
 
     app.innerHTML =
-      '<h1 class="page-title">Kaynaklar ve Telif</h1>' +
-      '<p class="page-sub">Bu platformdaki tüm konu anlatımı, soru, seçenek ve çözümler özgün üretimdir.</p>' +
+      pageIntro('Şeffaf içerik politikası', 'Kaynaklar ve Telif', 'İçerik üretiminde kullanılan kapsam, doğrulama ve telif yaklaşımı.', '§') +
       '<div class="panel" style="margin-bottom:16px">' +
         '<p>ÖSYM ve MEB soruları, kitapçıkları ve çözümleri bu sitede <b>kopyalanmaz veya yeniden yayımlanmaz</b>. Resmî kaynaklar yalnızca kapsam ve beceri analizi için incelenmiş; öğrenciye resmî sayfaya <b>dış bağlantı</b> sunulmuştur. Yapay zekâ destekli üretilen içerikler <b>taslak</b> statüsündedir ve alan uzmanı kontrolünden sonra yayın kalitesine ulaşır.</p>' +
       '</div>' +

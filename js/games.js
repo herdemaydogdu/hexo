@@ -155,10 +155,9 @@ function renderGamesMenu() {
 
   app.innerHTML = `
     <div class="games-head">
-      <h1 class="page-title">Oyunlar</h1>
+      ${pageIntro("Oyun tabanlı tekrar", "Oyunlar", "Kısa oyunlarla bilgini pekiştir, hızını artır ve çalışma serini koru.", "◇")}
       <button class="sfx-btn" id="sfx" title="Ses aç/kapat">${sfxEnabled() ? "🔊" : "🔇"}</button>
     </div>
-    <p class="page-sub">Oynayarak öğren! Her oyun sana XP kazandırır, seviye atlatır ve rozet açar.</p>
 
     <div class="level-strip">
       <span class="level-badge sm">Sv. ${p.level}</span>
