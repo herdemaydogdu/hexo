@@ -1096,3 +1096,52 @@ body { background: linear-gradient(145deg, #f7f9fd 0%, #f3f6fc 58%, #f7f8fc 100%
   .appbar { display: none; }
   .sidebar-scrim { display: none !important; }
 }
+
+/* ============================================================
+   PREMIUM v3 — bütünsel okuma & ekran cilası (her sayfa)
+   ============================================================ */
+::selection { background: rgba(79,110,242,.18); }
+.konu-body a { color: var(--primary); }
+* { scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+
+/* --- Konu anlatımı: okuma deneyimi --- */
+.konu-body { max-width: 820px; margin: 0 auto; padding: 34px 38px; line-height: 1.85; font-size: 16px; color: #2a3047; }
+.konu-body h2 { font-size: 24px; font-weight: 800; letter-spacing: -.5px; margin: 0 0 18px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.konu-body h3 { position: relative; font-size: 17px; font-weight: 800; color: var(--text); margin: 26px 0 10px; padding-left: 14px; }
+.konu-body h3::before { content: ""; position: absolute; left: 0; top: 2px; bottom: 2px; width: 4px; border-radius: 4px; background: var(--grad-primary); }
+.konu-body p { margin: 0 0 14px; }
+.konu-body ul, .konu-body ol { margin: 0 0 16px; padding-left: 4px; list-style: none; }
+.konu-body li { position: relative; padding-left: 24px; margin-bottom: 9px; }
+.konu-body ul li::before { content: ""; position: absolute; left: 6px; top: 11px; width: 7px; height: 7px; border-radius: 2px; background: var(--primary); transform: rotate(45deg); }
+.konu-body ol { counter-reset: kb; }
+.konu-body ol li { counter-increment: kb; }
+.konu-body ol li::before { content: counter(kb); position: absolute; left: 0; top: 1px; width: 19px; height: 19px; font-size: 11px; font-weight: 800; color: #fff; background: var(--primary); border-radius: 6px; display: grid; place-items: center; }
+.konu-body b, .konu-body strong { color: var(--primary-dark); font-weight: 700; }
+.konu-body .formula { display: block; background: linear-gradient(135deg, rgba(79,110,242,.08), rgba(20,184,196,.06)); border: 1px solid rgba(79,110,242,.18); border-left: 4px solid var(--primary); border-radius: 12px; padding: 14px 18px; margin: 16px 0; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 14.5px; color: var(--text); overflow-x: auto; }
+
+/* --- Aktif quiz: soru kartı & şıklar --- */
+.question-card { padding: 30px; }
+.q-text { font-size: 18.5px; line-height: 1.6; }
+.option { border-radius: 14px; }
+.option .key { font-weight: 800; }
+.explain { border-radius: 12px; border-left-width: 4px; }
+
+/* --- Sonuç & inceleme --- */
+.result-card { border-radius: var(--r-xl); }
+.result-score { letter-spacing: -2px; }
+.rev-card { border-radius: var(--r-lg); }
+
+/* --- Oyunlar & rozetler --- */
+.game-tile:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 16px 34px rgba(20,28,64,.13); }
+.badge-card { transition: transform .15s, box-shadow .15s; }
+.badge-card.got:hover { transform: translateY(-3px); }
+
+/* --- Boş durum --- */
+.empty { background: var(--card); border: 1px dashed var(--line); border-radius: var(--radius); }
+
+/* --- Mobil okuma --- */
+@media (max-width: 540px) {
+  .konu-body { padding: 22px 18px; font-size: 15.5px; line-height: 1.8; }
+  .konu-body h2 { font-size: 21px; }
+  .q-text { font-size: 16.5px; }
+}
