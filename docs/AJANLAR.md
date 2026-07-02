@@ -13,6 +13,9 @@ Ekip **4 katmanlı** ve bir **koordinatör** etrafında kuruludur. Her ajan `doc
 | **3 Kalite** | [denetci](agents/denetci.md) | değişen dosya → GEÇTİ/KALDI raporu |
 | **4 Yayın** | [tasarim-qa](agents/tasarim-qa.md) | ekran/CSS → cila + `?v` artışı |
 | | [yayimlayici](agents/yayimlayici.md) | yeşil durum → yayın raporu (push YOK) |
+| **Köprü** | [is-gelistirme](agents/is-gelistirme.md) | pazarlama çıktıları + backlog → **uygulanmış** ürün değişikliği |
+
+**is-gelistirme**, pazarlama ekibiyle (docs/PAZARLAMA-EKIBI.md) geliştirme ekibi arasındaki köprüdür: önerileri değerlendirir, önceliklendirir ve güvenli olanları gerçekten uygular; büyük olanları kullanıcıya sunar.
 
 ## Hat (state machine)
 ```

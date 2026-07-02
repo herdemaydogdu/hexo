@@ -9,6 +9,7 @@ Tek tek tanımlar: `docs/agents/*.md`
 
 Katmanlar: **koordinasyon** (orkestra-sefi) · **keşif** (mufredat-takip, rakip-arastirma) · **üretim** (konu-anlatimi, soru-uretici) · **kalite** (denetci) · **yayın** (tasarim-qa, yayimlayici).
 Ayrı bir **pazarlama & araştırma ekibi** de vardır: **[docs/PAZARLAMA-EKIBI.md](docs/PAZARLAMA-EKIBI.md)** (pazarlama-sefi + pazar/rakip araştırma, konumlandırma, büyüme, içerik pazarlaması). Strateji üretir, ürün önerilerini geliştirme ekibine devreder.
+İki ekip arasındaki köprü **is-gelistirme** ajanıdır (docs/agents/is-gelistirme.md): pazarlama çıktıları + docs/backlog.md'yi değerlendirir, önceliklendirir ve güvenli olanları **gerçekten uygular**.
 Ajan skill'leri (yardımcı scriptler): **[docs/agents/skills.md](docs/agents/skills.md)** — `denetle`, `rapor`, `surum-artir`.
 Hattı **orkestra-sefi** yürütür: keşif → üretim → denetci(birim) → tasarim-qa → denetci(regresyon) → yayimlayici. Her aşamanın net bir "bitti" sözleşmesi vardır; yayını **kullanıcı `yayinla.bat`** ile yapar (ajanlar push etmez).
 
