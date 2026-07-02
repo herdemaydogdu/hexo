@@ -1225,3 +1225,54 @@ h1, h2, .page-title, .dash-h2, .dash-title { letter-spacing: -.4px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(114,123,150,.5); background-clip: padding-box; }
 
 @media (max-width: 900px) { .appbar { background: rgba(255,255,255,.85); } }
+
+/* ============================================================
+   PREMIUM v5 — uzman geçişi: daha fazla derinlik, hava, hiyerarşi
+   (yüksek öncelikli; önceki katmanların üzerine yazar)
+   ============================================================ */
+:root {
+  --radius: 22px;
+  --r-xl: 22px; --r-lg: 18px;
+  --shadow-sm: 0 2px 4px rgba(22,26,48,.05), 0 14px 34px rgba(22,26,48,.09) !important;
+  --shadow: 0 30px 70px rgba(22,26,48,.16), 0 8px 22px rgba(22,26,48,.07) !important;
+}
+
+/* Zemin — belirgin ama zarif premium his */
+body {
+  background:
+    radial-gradient(1200px 680px at 100% -12%, rgba(124,108,240,.16), transparent 58%),
+    radial-gradient(1000px 620px at -8% 4%, rgba(20,184,196,.12), transparent 52%),
+    linear-gradient(160deg, #f4f7fe 0%, #eef2fb 100%) !important;
+  background-attachment: fixed !important;
+}
+
+/* Kartlar — belirgin yüzen derinlik + daha yuvarlak (yükleme anında görünür) */
+.panel, .card, .subj-select, .stat-card, .metric-card, .dash-panel, .today-panel {
+  border-radius: 20px !important;
+  box-shadow: 0 2px 4px rgba(22,26,48,.05), 0 16px 40px rgba(22,26,48,.10) !important;
+  border: 1px solid rgba(22,26,48,.06) !important;
+}
+
+/* İçerik alanına daha fazla nefes */
+.container { padding-top: 26px; padding-bottom: 40px; }
+.dash-cols, .dash-row2 { gap: 20px !important; }
+
+/* Tipografi hiyerarşisi — daha güçlü başlıklar */
+.page-title { font-size: clamp(30px, 3.2vw, 42px) !important; font-weight: 800; letter-spacing: -1.1px; }
+.dash-head h1 { font-size: 28px !important; letter-spacing: -.8px; }
+.page-eyebrow { letter-spacing: 1.4px; }
+
+/* Hero countdown — daha iri, daha derin, daha premium */
+.tyt-countdown {
+  padding: 28px 30px !important;
+  border-radius: 24px !important;
+  background: linear-gradient(120deg, #4338ca 0%, #4f6ef2 44%, #06b6d4 118%) !important;
+  box-shadow: 0 26px 60px rgba(67,56,202,.38) !important;
+}
+
+/* Birincil buton — dolu degrade, net (sınıf adı ne olursa olsun yakala) */
+.btn.primary, .btn-primary, .cta, .btn.cta, [data-role="start"], #btnStart {
+  background: linear-gradient(135deg, #4f6ef2, #7c6cf0) !important;
+  color: #fff !important; border: none !important;
+  box-shadow: 0 14px 32px rgba(79,110,242,.40) !important;
+}
