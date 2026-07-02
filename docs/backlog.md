@@ -5,7 +5,7 @@ Keşif/pazarlama ekiplerinin ürettiği öneriler burada önceliklenir; orkestra
 ## Pazarlamadan gelen (2026-07-02 rakip/pazar analizi)
 | # | Öneri | Tür | Etki/Efor | Sahip |
 |---|---|---|---|---|
-| 1 | Ünite sayfalarına özgün SEO başlık/meta + site haritası | Ürün/SEO | Yüksek/Orta | tasarim-qa |
+| 1 | ~~SEO başlık/meta + site haritası~~ **YAPILDI (2026-07-02, is-gelistirme)**: index.html head (meta, OG, Twitter, JSON-LD) + robots.txt + sitemap.xml | Ürün/SEO | Yüksek/Orta | ✅ |
 | 2 | Deneme sonrası konu bazlı analiz ekranı (zayıf alan) | Ürün | Yüksek/Orta | orkestra-sefi |
 | 3 | Paylaşılabilir net/rozet sonuç kartı (büyüme döngüsü) | Ürün | Orta/Orta | tasarim-qa |
 | 4 | Yanlış defterinden hafif adaptif tekrar önerisi | Ürün | Orta/Yüksek | orkestra-sefi |
