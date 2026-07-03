@@ -220,6 +220,59 @@
         { term: "Talas (751)", def: "Kâğıt yayıldı, Türk-İslam yakınlaşması" }
       ],
       reviewStatus: "draft", originalityStatement: true, reviewedAt: "2026-07-02"
+    },
+    {
+      id: "tar-turkislam", name: "İlk Türk-İslam Devletleri", branch: "tarih",
+      summary: "Karahanlılar, Gazneliler ve Büyük Selçuklu Devleti; ilk Türk-İslam eserleri.",
+      content:
+        "<h2>İlk Türk-İslam Devletleri</h2>" +
+        "<p>751 <b>Talas Savaşı</b> ile Türkler ve Müslümanlar yakınlaştı; Türkler kitleler hâlinde İslamiyet'i kabul etmeye başladı. Böylece ilk Müslüman Türk devletleri kuruldu.</p>" +
+        "<h3>Karahanlılar</h3>" +
+        "<ul>" +
+        "<li><b>İlk Müslüman Türk devleti</b>dir (Satuk Buğra Han İslamiyet'i kabul etti). Resmî dilleri <b>Türkçe</b> idi; Türk kültürünü korudular.</li>" +
+        "<li>İlk Türk-İslam eserleri bu dönemde yazıldı: <b>Kutadgu Bilig</b> (Yusuf Has Hacib), <b>Divanü Lugati't-Türk</b> (Kaşgarlı Mahmud), <b>Atabetü'l-Hakayık</b> (Edip Ahmet), <b>Divan-ı Hikmet</b> (Ahmet Yesevi).</li>" +
+        "<li>Kervansaray ve ribatlar inşa ettiler.</li>" +
+        "</ul>" +
+        "<h3>Gazneliler</h3>" +
+        "<ul>" +
+        "<li>Alp Tegin tarafından kuruldu; en parlak dönem <b>Gazneli Mahmud</b> zamanıdır.</li>" +
+        "<li>Gazneli Mahmud <b>'Sultan' unvanını ilk kez</b> kullandı; <b>Hindistan'a seferler</b> düzenleyerek İslamiyet'i Hindistan'a yaydı.</li>" +
+        "<li>Farsça ve Arapça'ya önem verdiler (Firdevsi'nin Şehname'si bu döneme yakındır).</li>" +
+        "</ul>" +
+        "<h3>Büyük Selçuklu Devleti</h3>" +
+        "<ul>" +
+        "<li><b>Dandanakan Savaşı (1040):</b> Gaznelilere karşı kazanıldı; devlet resmen kuruldu (<b>Tuğrul Bey</b>).</li>" +
+        "<li><b>Malazgirt Savaşı (1071):</b> <b>Alparslan</b> Bizans'ı yendi; <b>Anadolu'nun kapısı Türklere açıldı</b>.</li>" +
+        "<li><b>Nizamülmülk</b> (vezir) <b>Nizamiye Medreseleri</b>ni kurdu, Siyasetname'yi yazdı; <b>ikta sistemi</b> uygulandı.</li>" +
+        "<li><b>Melikşah</b> döneminde devlet en geniş sınırlarına ulaştı; <b>Celali takvimi</b> hazırlandı.</li>" +
+        "<li><b>Katvan Savaşı (1141):</b> Karahitaylara yenilgi çöküşü başlattı; son güçlü hükümdar <b>Sultan Sencer</b>'dir.</li>" +
+        "</ul>" +
+        "<h3>Öne Çıkan Noktalar</h3>" +
+        "<ul>" +
+        "<li>İlk Müslüman Türk devleti: <b>Karahanlılar</b> · 'Sultan' unvanını ilk kullanan: <b>Gazneli Mahmud</b>.</li>" +
+        "<li>Anadolu'nun kapısını açan: <b>Malazgirt (1071)</b> · Nizamiye Medreseleri: <b>Nizamülmülk</b> · Selçuklu'yu kuran zafer: <b>Dandanakan (1040)</b>.</li>" +
+        "</ul>",
+      objectives: [
+        "İlk Müslüman Türk devletlerini özellikleriyle ayırt eder.",
+        "İlk Türk-İslam eserlerini yazarlarıyla eşleştirir.",
+        "Dandanakan ve Malazgirt savaşlarının sonuçlarını açıklar.",
+        "Nizamiye Medreseleri ve ikta sisteminin önemini yorumlar."
+      ],
+      commonMistakes: [
+        "İlk Müslüman Türk devletini Gazneli/Selçuklu sanmak (Karahanlılar).",
+        "'Sultan' unvanını ilk kullananı Tuğrul Bey sanmak (Gazneli Mahmud).",
+        "Malazgirt'i Gaznelilere karşı sanmak (Bizans'a karşı, 1071).",
+        "Dandanakan'ı Bizans'a karşı sanmak (Gaznelilere karşı, 1040)."
+      ],
+      pairs: [
+        { term: "Karahanlılar", def: "İlk Müslüman Türk devleti" },
+        { term: "Kutadgu Bilig", def: "Yusuf Has Hacib" },
+        { term: "Gazneli Mahmud", def: "'Sultan' unvanı; Hindistan seferleri" },
+        { term: "Dandanakan (1040)", def: "Büyük Selçuklu kuruldu" },
+        { term: "Malazgirt (1071)", def: "Anadolu'nun kapısı açıldı" },
+        { term: "Nizamülmülk", def: "Nizamiye Medreseleri, Siyasetname" }
+      ],
+      reviewStatus: "draft", originalityStatement: true, reviewedAt: "2026-07-02"
     }
   ]);
 })();
