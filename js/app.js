@@ -455,22 +455,67 @@ function renderKonuDetail(subId, unitId) {
     if (r.awardedXp) notify("+" + r.awardedXp + " XP · konu okundu", "success");
   }
 
+  const sub = getSubject(subId);
   const hasQ = D.questions.some(q => q.subject === subId && q.unit === unitId);
+  const cnt = D.questions.filter(q => q.subject === subId && q.unit === unitId).length;
   const hasPairs = (unit.pairs || []).length >= 2;
+  const cv = unit.branch ? `--c-${unit.branch}` : `--c-${subId}`;
+  const brName = unit.branch ? (((sub.branches || []).find(b => b.id === unit.branch) || {}).name || unit.branch) : "";
+
+  const ordered = orderedUnits(sub);
+  const idx = ordered.findIndex(u => u.id === unitId);
+  const prev = idx > 0 ? ordered[idx - 1] : null;
+  const next = idx >= 0 && idx < ordered.length - 1 ? ordered[idx + 1] : null;
+
+  const plain = (unit.content || "").replace(/<[^>]+>/g, "");
+  const dk = Math.max(1, Math.round(plain.length / 900));
+  const obj = unit.objectives || [];
+  const mis = unit.commonMistakes || [];
+  const objBox = obj.length ? `<aside class="konu-box konu-box-obj"><h4>Kazanımlar</h4><ul>${obj.map(o => `<li>${o}</li>`).join("")}</ul></aside>` : "";
+  const misBox = mis.length ? `<aside class="konu-box konu-box-mis"><h4>Sık Yapılan Hatalar</h4><ul>${mis.map(m => `<li>${m}</li>`).join("")}</ul></aside>` : "";
 
   app.innerHTML = `
-    <button class="back-link" id="back">← Konulara dön</button>
+    <button class="back-link" id="back">← ${sub.name} üniteleri</button>
+    <header class="konu-head" style="--accent:var(${cv})">
+      <span class="konu-head-badge">${unit.name.slice(0, 2)}</span>
+      <div class="konu-head-txt">
+        <span class="konu-head-eyebrow">${sub.name}${brName ? " · " + brName : ""}</span>
+        <h1 class="konu-head-title">${unit.name}</h1>
+        <div class="konu-head-meta">
+          <span>~${dk} dk okuma</span>
+          ${cnt ? `<span>${cnt} soru</span>` : ""}
+          <span>${idx + 1} / ${ordered.length} ünite</span>
+        </div>
+      </div>
+    </header>
+    ${objBox}
     <div class="konu-body">${unit.content}</div>
+    ${misBox}
     <div class="btn-row" style="margin-top:22px">
-      ${hasQ ? `<button class="btn" id="solve">Bu Üniteden Soru Çöz</button>` : ""}
+      ${hasQ ? `<button class="btn primary" id="solve">Bu Üniteden Soru Çöz</button>` : ""}
       ${hasPairs ? `<button class="btn secondary" id="game">Bu Üniteyle Oyna</button>` : ""}
-      <button class="btn ghost" id="back2">Diğer Üniteler</button>
     </div>
+    <nav class="konu-nav" aria-label="Konu gezinme">
+      ${prev ? `<button class="konu-nav-btn prev" data-go="${prev.id}"><span>← Önceki konu</span><b>${prev.name}</b></button>` : `<span class="konu-nav-spacer"></span>`}
+      ${next ? `<button class="konu-nav-btn next" data-go="${next.id}"><span>Sonraki konu →</span><b>${next.name}</b></button>` : `<span class="konu-nav-spacer"></span>`}
+    </nav>
   `;
   document.getElementById("back").onclick = () => renderKonuSubject(subId);
-  document.getElementById("back2").onclick = () => renderKonuSubject(subId);
   if (hasQ) document.getElementById("solve").onclick = () => startQuizUnit(subId, unitId);
   if (hasPairs) document.getElementById("game").onclick = () => pickGameForUnit(subId, unitId);
+  app.querySelectorAll("[data-go]").forEach(b => b.onclick = () => { try { window.scrollTo(0, 0); } catch (e) {} renderKonuDetail(subId, b.dataset.go); });
+}
+
+function orderedUnits(sub) {
+  if (sub.branches && sub.branches.length) {
+    var arr = [], seen = {};
+    sub.branches.forEach(function (br) {
+      sub.units.filter(function (u) { return u.branch === br.id; }).forEach(function (u) { arr.push(u); seen[u.id] = 1; });
+    });
+    sub.units.forEach(function (u) { if (!seen[u.id]) arr.push(u); });
+    return arr;
+  }
+  return sub.units.slice();
 }
 
 function startQuizUnit(subId, unitId) {
