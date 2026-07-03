@@ -169,6 +169,57 @@
         { term: "Kut", def: "Yönetme yetkisinin Gök Tanrı'dan verilmesi" }
       ],
       reviewStatus: "draft", originalityStatement: true, reviewedAt: "2026-07-02"
+    },
+    {
+      id: "tar-islam", name: "İslam Tarihi ve Medeniyeti", branch: "tarih",
+      summary: "İslamiyet'in doğuşu, Hz. Muhammed ve Dört Halife dönemi, Emeviler ve Abbasiler.",
+      content:
+        "<h2>İslam Tarihi ve Medeniyeti</h2>" +
+        "<p>İslamiyet'ten önce Arabistan'da putperestlik, kabilecilik ve kan davalarının yaygın olduğu döneme <b>Cahiliye Dönemi</b> denir. İslamiyet <b>Hz. Muhammed</b> ile Mekke'de doğdu (ilk vahiy 610).</p>" +
+        "<h3>Hz. Muhammed Dönemi</h3>" +
+        "<ul>" +
+        "<li><b>Hicret (622):</b> Mekke'den Medine'ye göç; Hicri takvimin başlangıcı ve ilk İslam toplumunun temeli.</li>" +
+        "<li>Savaşlar: <b>Bedir</b> (ilk büyük zafer), <b>Uhud</b>, <b>Hendek</b> (savunma); <b>Hudeybiye Antlaşması</b> Müslümanların siyasi güç olarak tanınmasını sağladı.</li>" +
+        "<li><b>Mekke'nin Fethi (630)</b> ve <b>Veda Hutbesi</b> ile İslamiyet Arabistan'a yayıldı.</li>" +
+        "</ul>" +
+        "<h3>Dört Halife Dönemi (632-661)</h3>" +
+        "<ul>" +
+        "<li><b>Hz. Ebubekir:</b> Ridde (dinden dönme) ve yalancı peygamber isyanları bastırıldı; <b>Kur'an ilk kez kitap hâline getirildi</b>.</li>" +
+        "<li><b>Hz. Ömer:</b> Büyük fetihler (Suriye, Filistin, Mısır, Sasani/İran); <b>ilk devlet teşkilatı</b> (divan, ordugâh şehirler); <b>Hicri takvim</b> kabul edildi.</li>" +
+        "<li><b>Hz. Osman:</b> <b>Kur'an çoğaltılıp</b> merkezlere gönderildi; ilk İslam donanması kuruldu; son döneminde iç karışıklıklar arttı.</li>" +
+        "<li><b>Hz. Ali:</b> <b>Cemel</b> ve <b>Sıffın</b> savaşları yaşandı; Hariciler ortaya çıktı (fitne dönemi).</li>" +
+        "</ul>" +
+        "<p>Dört Halife seçimle iş başına geldiği için bu döneme <b>Cumhuriyet Dönemi</b> de denir.</p>" +
+        "<h3>Emeviler (661-750)</h3>" +
+        "<p><b>Muaviye</b> ile halifelik <b>saltanata (babadan oğula)</b> dönüştü. <b>Arap milliyetçiliği</b> (mevali politikası: Arap olmayan Müslümanlara ikinci sınıf muamele) çöküşü hızlandırdı. Kerbela Olayı yaşandı; İspanya'da <b>Endülüs Emevi Devleti</b> kuruldu.</p>" +
+        "<h3>Abbasiler (750-1258)</h3>" +
+        "<p>Abbasiler <b>mevali politikasını terk ederek eşitlikçi</b> davrandı. <b>Bilim ve çeviri</b> zirveye çıktı (<b>Beytülhikme</b>). <b>Talas Savaşı (751)</b>'nda Çin'e karşı Türklerle birlikte kazanıldı; <b>kâğıt</b> İslam dünyasına yayıldı ve Türk-İslam yakınlaşması başladı.</p>" +
+        "<h3>Öne Çıkan Noktalar</h3>" +
+        "<ul>" +
+        "<li>Kur'an'ı kitap yapan: <b>Hz. Ebubekir</b> · çoğaltan: <b>Hz. Osman</b> · ilk teşkilat/divan: <b>Hz. Ömer</b>.</li>" +
+        "<li>Halifeliği saltanata çeviren: <b>Muaviye (Emeviler)</b> · Talas (751): kâğıt + Türk-İslam yakınlaşması (<b>Abbasiler</b>).</li>" +
+        "</ul>",
+      objectives: [
+        "İslamiyet'in doğuşunu ve Hz. Muhammed dönemi olaylarını sıralar.",
+        "Dört Halife'nin icraatlarını ayırt eder.",
+        "Emevi ve Abbasi yönetim anlayışını karşılaştırır.",
+        "Talas Savaşı'nın Türk-İslam tarihindeki önemini yorumlar."
+      ],
+      commonMistakes: [
+        "Kur'an'ı çoğaltanı Hz. Ebubekir sanmak (kitap: Ebubekir, çoğaltma: Osman).",
+        "İlk devlet teşkilatını/divanı Hz. Osman'a vermek (Hz. Ömer).",
+        "Halifeliği saltanata çevireni Abbasiler sanmak (Emeviler/Muaviye).",
+        "Talas Savaşı'nı Emeviler sanmak (Abbasiler, 751)."
+      ],
+      pairs: [
+        { term: "Hicret (622)", def: "Hicri takvimin başlangıcı" },
+        { term: "Hz. Ömer", def: "İlk teşkilat, divan, büyük fetihler" },
+        { term: "Hz. Osman", def: "Kur'an'ı çoğalttı" },
+        { term: "Muaviye", def: "Halifeliği saltanata çevirdi" },
+        { term: "Beytülhikme", def: "Abbasi bilim/çeviri merkezi" },
+        { term: "Talas (751)", def: "Kâğıt yayıldı, Türk-İslam yakınlaşması" }
+      ],
+      reviewStatus: "draft", originalityStatement: true, reviewedAt: "2026-07-02"
     }
   ]);
 })();
