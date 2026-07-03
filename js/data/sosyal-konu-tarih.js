@@ -65,6 +65,64 @@
         { term: "Kavimler Göçü (375)", def: "Orta Çağ'ı başlattı" }
       ],
       reviewStatus: "draft", originalityStatement: true, reviewedAt: "2026-07-02"
+    },
+    {
+      id: "tar-ilkcag", name: "İlk Çağ Uygarlıkları", branch: "tarih",
+      summary: "Mezopotamya, Mısır, Anadolu, Doğu Akdeniz, İran ve Ege uygarlıkları; öne çıkan ilkler.",
+      content:
+        "<h2>İlk Çağ Uygarlıkları</h2>" +
+        "<p>İlk Çağ, yazının icadıyla başlayıp Kavimler Göçü'ne (375) kadar sürer. Su kaynaklarının verimli kıldığı bölgelerde (Mezopotamya, Nil, Anadolu) güçlü uygarlıklar doğmuştur.</p>" +
+        "<h3>Mezopotamya Uygarlıkları</h3>" +
+        "<ul>" +
+        "<li><b>Sümerler:</b> Yazıyı (çivi yazısı) buldular; ilk şehir devletlerini (site) ve ilk yazılı kanunları oluşturdular. Zigguratlar (tapınak) yaptılar.</li>" +
+        "<li><b>Akadlar:</b> Sargon önderliğinde tarihin bilinen ilk imparatorluğunu kurdular.</li>" +
+        "<li><b>Babilliler:</b> <b>Hammurabi Kanunları</b> (sert, kısasa kısas) ile ünlüdür; astronomide ilerlediler.</li>" +
+        "<li><b>Asurlular:</b> Ticaret kolonileriyle <b>Anadolu'ya yazıyı taşıdılar</b> (Kültepe/Kaniş); Ninova'da kütüphane kurdular.</li>" +
+        "<li><b>Elamlar:</b> Güneydoğu'da madencilik ve seramikte gelişti.</li>" +
+        "</ul>" +
+        "<h3>Mısır Uygarlığı</h3>" +
+        "<p>Nil Nehri çevresinde kuruldu. <b>Hiyeroglif</b> yazısı ve <b>papirüs</b> kullanıldı; mumyalama tıp ve eczacılığı geliştirdi. Piramitler yapıldı, <b>Güneş yılı esaslı takvim</b> bulundu. Yönetici <b>firavun</b>dur.</p>" +
+        "<h3>Anadolu Uygarlıkları</h3>" +
+        "<ul>" +
+        "<li><b>Hititler:</b> Mısır'la <b>Kadeş Antlaşması</b>'nı (bilinen ilk yazılı antlaşma) imzaladılar; kral tanrılara hesap verirdi (anal/yıllıklar).</li>" +
+        "<li><b>Frigler:</b> Tarımı kutsal saydılar (Ana Tanrıça <b>Kibele</b>); tapates (kilim) dokudular.</li>" +
+        "<li><b>Lidyalılar:</b> Tarihte <b>ilk madeni parayı</b> bastılar; Kral Yolu ticareti geliştirdi.</li>" +
+        "<li><b>Urartular:</b> Van çevresinde su kanalları, kaleler ve kaya mezarları; madencilikte ileri.</li>" +
+        "<li><b>İyonlar:</b> Batı Anadolu'da bilim ve özgür düşüncede öncü (Tales, Pisagor).</li>" +
+        "</ul>" +
+        "<h3>Doğu Akdeniz</h3>" +
+        "<ul>" +
+        "<li><b>Fenikeliler:</b> <b>İlk alfabeyi</b> (harf yazısı) oluşturdular; denizcilik, kolonicilik ve camda ünlüdür.</li>" +
+        "<li><b>İbraniler:</b> Tarihte <b>ilk tek tanrılı dine</b> (Musevilik) inanan topluluktur.</li>" +
+        "</ul>" +
+        "<h3>İran ve Ege</h3>" +
+        "<p><b>Persler:</b> Ülkeyi satraplıklara böldü; Sardes-Sus arasında Kral Yolu'nu kullandı; Zerdüştlük inancı yaygındı. <b>Yunan (Ege):</b> Şehir devletleri (polis) kuruldu; Atina'da <b>demokrasi</b> gelişti, kolonizasyon yapıldı.</p>" +
+        "<h3>Öne Çıkan İlkler</h3>" +
+        "<ul>" +
+        "<li>İlk yazı: <b>Sümerler</b> · İlk yazılı kanun: <b>Sümerler</b> · İlk imparatorluk: <b>Akadlar</b>.</li>" +
+        "<li>İlk yazılı antlaşma: <b>Kadeş (Hitit-Mısır)</b> · İlk madeni para: <b>Lidyalılar</b> · İlk alfabe: <b>Fenikeliler</b> · İlk tek tanrılı din: <b>İbraniler</b>.</li>" +
+        "</ul>",
+      objectives: [
+        "Mezopotamya ve Mısır uygarlıklarının katkılarını açıklar.",
+        "Anadolu uygarlıklarını (Hitit, Frig, Lidya, Urartu, İyon) ayırt eder.",
+        "İlk Çağ'daki 'ilk'leri ilgili uygarlıkla eşleştirir.",
+        "Uygarlıkların gelişiminde coğrafyanın etkisini yorumlar."
+      ],
+      commonMistakes: [
+        "İlk parayı Sümer/Fenike sanmak (Lidyalılar).",
+        "İlk alfabeyi Sümer sanmak (Fenikeliler; Sümer çivi yazısıdır).",
+        "Kadeş Antlaşması'nı Sümer-Akad sanmak (Hitit-Mısır).",
+        "Anadolu'ya yazıyı Hititlerin getirdiğini sanmak (Asurlular getirdi)."
+      ],
+      pairs: [
+        { term: "Sümerler", def: "Yazıyı ve ilk yazılı kanunları buldu" },
+        { term: "Lidyalılar", def: "İlk madeni parayı bastı" },
+        { term: "Fenikeliler", def: "İlk alfabeyi oluşturdu" },
+        { term: "Hititler", def: "Kadeş Antlaşması'nı imzaladı" },
+        { term: "İbraniler", def: "İlk tek tanrılı din (Musevilik)" },
+        { term: "Asurlular", def: "Anadolu'ya yazıyı taşıdı" }
+      ],
+      reviewStatus: "draft", originalityStatement: true, reviewedAt: "2026-07-02"
     }
   ]);
 })();
