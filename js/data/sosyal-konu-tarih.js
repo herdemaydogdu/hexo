@@ -123,6 +123,52 @@
         { term: "Asurlular", def: "Anadolu'ya yazıyı taşıdı" }
       ],
       reviewStatus: "draft", originalityStatement: true, reviewedAt: "2026-07-02"
+    },
+    {
+      id: "tar-ilkturk", name: "İslamiyet Öncesi Türk Tarihi", branch: "tarih",
+      summary: "Orta Asya, göçler, ilk Türk devletleri (Hun, Göktürk, Uygur) ve bozkır kültürü.",
+      content:
+        "<h2>İslamiyet Öncesi Türk Tarihi</h2>" +
+        "<p>Türklerin ana yurdu <b>Orta Asya</b>'dır. Kuraklık, nüfus artışı, otlak yetersizliği, boylar arası mücadele ve dış baskılar <b>Türk göçlerine</b> yol açmıştır. Göçler Türk kültürünü geniş coğrafyalara taşımıştır.</p>" +
+        "<h3>İlk Türk Devletleri</h3>" +
+        "<ul>" +
+        "<li><b>Asya (Büyük) Hun Devleti:</b> Bilinen <b>ilk teşkilatlı Türk devleti</b>. <b>Mete Han (Motun)</b> orduyu <b>onlu sisteme</b> göre düzenledi; Çin akınlarına karşı Çin Seddi yaptırıldı.</li>" +
+        "<li><b>Kavimler Göçü (375):</b> Batı (Avrupa) Hunlarının baskısıyla başladı; <b>Attila</b> ünlüdür. Avrupa'da <b>Orta Çağ</b> başladı.</li>" +
+        "<li><b>Göktürkler:</b> <b>'Türk' adını ilk kez devlet adı yapan</b> devlet (Bumin Kağan). II. Göktürk (Kutluk) döneminde <b>Orhun (Göktürk) Yazıtları</b> dikildi — <b>ilk Türkçe yazılı belge</b> (Bilge Kağan, Kültigin, Tonyukuk).</li>" +
+        "<li><b>Uygurlar:</b> <b>Yerleşik hayata geçen ilk Türkler</b>. Mani (Manihaizm) dinini benimsediler; kâğıt ve matbaayı kullandılar, 18 harfli alfabe oluşturdular.</li>" +
+        "<li><b>Diğerleri:</b> <b>Avarlar</b> (İstanbul'u kuşatan ilk Türkler), <b>Hazarlar</b> (Museviliği benimsedi, Hazar Barışı), <b>Türgişler</b> (ilk Türk parasını bastı), Bulgarlar, Macarlar, Peçenekler, Kıpçaklar, Kırgızlar.</li>" +
+        "</ul>" +
+        "<h3>Kültür ve Medeniyet</h3>" +
+        "<ul>" +
+        "<li><b>Yönetim:</b> Devleti <b>Kağan</b> yönetir; egemenlik anlayışı <b>Kut</b>'tur (yönetme yetkisinin Gök Tanrı'dan verildiği inancı). <b>Kurultay (Toy)</b> danışma meclisidir; ikili (doğu-batı) yönetim yaygındır.</li>" +
+        "<li><b>İnanç:</b> <b>Gök Tanrı</b> dini; ölümden sonraki hayata inanç (<b>kurgan</b> mezarlar, <b>balbal</b> taşları). Cenaze törenine <b>yuğ</b> denir.</li>" +
+        "<li><b>Yaşam:</b> Konar-göçer (göçebe) hayat, hayvancılık; <b>ordu-millet</b> anlayışı; yazısız hukuk kuralları olan <b>töre</b>.</li>" +
+        "</ul>" +
+        "<h3>Öne Çıkan İlkler</h3>" +
+        "<ul>" +
+        "<li>İlk teşkilatlı Türk devleti: <b>Asya Hunları</b> · 'Türk' adını devlet adı yapan: <b>Göktürkler</b> · İlk Türkçe yazılı belge: <b>Orhun Yazıtları</b> · Yerleşik ilk Türkler: <b>Uygurlar</b> · İlk Türk parası: <b>Türgişler</b>.</li>" +
+        "</ul>",
+      objectives: [
+        "Türk göçlerinin nedenlerini ve sonuçlarını açıklar.",
+        "İlk Türk devletlerini (Hun, Göktürk, Uygur) özellikleriyle ayırt eder.",
+        "Bozkır kültürünün yönetim, inanç ve yaşam özelliklerini kavrar.",
+        "İslamiyet öncesi Türklere ait 'ilk'leri eşleştirir."
+      ],
+      commonMistakes: [
+        "'Türk' adını devlet adı yapanı Asya Hunları sanmak (Göktürkler).",
+        "İlk Türkçe yazılı belgeyi Uygurlara vermek (Orhun/Göktürk Yazıtları).",
+        "Yerleşik ilk Türkleri Göktürk sanmak (Uygurlar).",
+        "Kavimler Göçü'nü Asya Hunlarının başlattığını sanmak (Batı/Avrupa Hunları)."
+      ],
+      pairs: [
+        { term: "Asya Hunları", def: "İlk teşkilatlı Türk devleti; Mete Han, onlu sistem" },
+        { term: "Göktürkler", def: "'Türk' adını devlet adı yaptı" },
+        { term: "Orhun Yazıtları", def: "İlk Türkçe yazılı belge" },
+        { term: "Uygurlar", def: "Yerleşik hayata geçen ilk Türkler" },
+        { term: "Türgişler", def: "İlk Türk parasını bastı" },
+        { term: "Kut", def: "Yönetme yetkisinin Gök Tanrı'dan verilmesi" }
+      ],
+      reviewStatus: "draft", originalityStatement: true, reviewedAt: "2026-07-02"
     }
   ]);
 })();
