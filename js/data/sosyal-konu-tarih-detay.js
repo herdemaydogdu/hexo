@@ -65,4 +65,82 @@
     "<li>Türkçeyi en çok koruyan = <b>Karahanlılar</b>; en çok yabancı kültür etkisinde kalan = <b>Gazneliler</b>.</li>" +
     "</ul>"
   );
+
+  setContent("tar-bilim",
+    "<h2>Tarih Bilimi ve Zaman</h2>" +
+    "<h3>Tarih Nedir?</h3>" +
+    "<p>Tarih; geçmişteki insan topluluklarının siyasi, sosyal, ekonomik, kültürel ve dinî faaliyetlerini <b>yer ve zaman göstererek</b>, <b>neden-sonuç</b> ilişkisi içinde ve <b>belgelere dayanarak</b> inceleyen bir bilimdir. Tarih yalnızca 'ne oldu' sorusuna değil, 'neden oldu, sonucunda ne değişti' sorularına da yanıt arar. Bu yüzden tarih öğrenmek olayları ezberlemek değil, aralarındaki bağı kurmaktır.</p>" +
+    "<h3>Tarih Biliminin Özellikleri</h3>" +
+    "<p>Tarihin kendine özgü bir yöntemi vardır ve bu onu fen bilimlerinden ayırır:</p>" +
+    "<ul>" +
+    "<li><b>Deney ve gözlem yapılamaz:</b> Olaylar geçmişte bir kez yaşanmış ve <b>tekrarlanamaz</b> olduğundan laboratuvara taşınamaz. Tarihçi olayı yeniden yaşayamaz, ancak <b>belgeleri</b> yorumlar.</li>" +
+    "<li><b>Yer ve zaman şarttır:</b> Bir olayın nerede ve ne zaman geçtiği bilinmezse doğru değerlendirilemez.</li>" +
+    "<li><b>Neden-sonuç ilişkisi:</b> Her olayın nedenleri ve sonuçları vardır; olaylar birbirini tetikler.</li>" +
+    "<li><b>Objektiflik (tarafsızlık):</b> Tarihçi; milliyetini, dinini veya duygularını karıştırmadan, olayı <b>kendi döneminin koşulları içinde</b> değerlendirmelidir. Günümüz ölçütleriyle geçmişi yargılamak yanlış sonuç doğurur.</li>" +
+    "</ul>" +
+    "<h3>Tarihin Kaynakları</h3>" +
+    "<p>Tarih kaynaklara dayanır ve kaynaklar iki açıdan sınıflandırılır:</p>" +
+    "<ul>" +
+    "<li><b>Türüne göre:</b> <b>Yazılı</b> (ferman, kitabe, kanun, gazete, mektup), <b>sözlü</b> (destan, efsane, atasözü) ve <b>kalıntı/arkeolojik</b> (sikke, mezar, silah, çanak-çömlek).</li>" +
+    "<li><b>Döneme göre:</b> <b>Birincil (ana) kaynak</b> olayın yaşandığı döneme aittir ve en güvenilirdir. <b>İkincil kaynak</b> ise sonradan, birincil kaynaklardan yararlanılarak üretilir (bugün yazılan bir tarih kitabı gibi).</li>" +
+    "</ul>" +
+    "<h3>Tarihe Yardımcı Bilimler</h3>" +
+    "<p>Tarihçi tek başına çalışamaz; birçok bilimden yararlanır:</p>" +
+    "<ul>" +
+    "<li><b>Arkeoloji:</b> Kazılarla toprak altındaki kalıntıları çıkarır; yazısız dönemler için hayatidir.</li>" +
+    "<li><b>Paleografya:</b> Eski yazı türlerini okur. <b>Epigrafya:</b> taş/mermer üzerindeki kitabeleri inceler.</li>" +
+    "<li><b>Nümizmatik:</b> Eski paraları inceler; ekonomiyi ve hükümdarları aydınlatır.</li>" +
+    "<li><b>Kronoloji:</b> Zamanı, sırayı ve takvimleri inceler. <b>Diplomatik:</b> ferman-berat gibi resmî belgeleri.</li>" +
+    "<li><b>Etnografya:</b> örf-âdet ve kültürü; <b>Heraldik:</b> arma-mühürleri; <b>Filoloji:</b> dilleri; <b>Antropoloji:</b> insan ırklarını inceler.</li>" +
+    "</ul>" +
+    "<h3>Zaman ve Takvim</h3>" +
+    "<p><b>1 yüzyıl (asır) = 100 yıl</b>'dır. Bir yılın hangi yüzyılda olduğu yüzler basamağına bakılarak bulunur; örneğin 1453 yılı 15. yüzyıldadır (1401-1500 arası). Takvimler iki temele dayanır: <b>Güneş yılı</b> (~365 gün: Mısır, Miladi, 12 Hayvanlı Türk, Celali) ve <b>Ay yılı</b> (~354 gün: Sümer/Babil, Hicri). <b>Miladi takvim</b> Hz. İsa'nın doğumunu, <b>Hicri takvim</b> hicreti (622) başlangıç alır.</p>" +
+    "<h3>Çağlar ve Onları Ayıran Olaylar</h3>" +
+    "<ul>" +
+    "<li><b>İlk Çağ:</b> Yazının icadı (~MÖ 3200) → <b>Kavimler Göçü (375)</b>.</li>" +
+    "<li><b>Orta Çağ:</b> 375 → <b>İstanbul'un Fethi (1453)</b>; feodalite ve dinin belirleyici olduğu dönem.</li>" +
+    "<li><b>Yeni Çağ:</b> 1453 → <b>Fransız İhtilali (1789)</b>; Coğrafi Keşifler, Rönesans, Reform.</li>" +
+    "<li><b>Yakın Çağ:</b> 1789 → günümüz; milliyetçilik ve sanayileşme çağı.</li>" +
+    "</ul>" +
+    "<h3>Sınav İçin Kritik Ayrımlar</h3>" +
+    "<ul>" +
+    "<li>Birincil kaynak = döneme ait; ikincil kaynak = sonradan yazılan.</li>" +
+    "<li>Hicri = Ay yılı + Hicret (622); Miladi = Güneş yılı + Hz. İsa'nın doğumu. Karıştırma!</li>" +
+    "<li>Tarihte deney-gözlem YAPILAMAZ (olaylar tekrarlanamaz).</li>" +
+    "</ul>"
+  );
+
+  setContent("tar-ilkcag",
+    "<h2>İlk Çağ Uygarlıkları</h2>" +
+    "<p>İlk Çağ, yazının icadıyla (~MÖ 3200) başlar ve Kavimler Göçü'ne (375) kadar sürer. İnsanlık ilk büyük uygarlıklarını, tarıma ve ticarete elverişli su kaynaklarının çevresinde kurdu: Mezopotamya'da Dicle-Fırat, Mısır'da Nil, Anadolu ve Ege'de verimli topraklar. Bu bölgeler 'medeniyetin beşiği' sayılır.</p>" +
+    "<h3>Mezopotamya Uygarlıkları</h3>" +
+    "<p>Dicle ile Fırat arasındaki Mezopotamya birçok uygarlığa ev sahipliği yaptı:</p>" +
+    "<ul>" +
+    "<li><b>Sümerler:</b> <b>Yazıyı (çivi yazısı) bularak tarihî çağları başlattılar</b>. İlk şehir devletlerini (site) kurdular, ilk yazılı kanunları yaptılar, <b>ziggurat</b> denen tapınaklar inşa ettiler; matematik ve astronomide ilerlediler.</li>" +
+    "<li><b>Akadlar:</b> Sargon önderliğinde <b>tarihin bilinen ilk imparatorluğunu</b> kurdular.</li>" +
+    "<li><b>Babilliler:</b> <b>Hammurabi Kanunları</b> serttir (kısasa kısas) ve güçlü bir merkezî otoriteyi gösterir; astronomide çok ilerlediler.</li>" +
+    "<li><b>Asurlular:</b> Ticaret kolonileriyle (Kültepe/Kaniş) <b>Anadolu'ya yazıyı taşıdılar</b>; böylece Anadolu tarihî çağlara girdi. Ninova'da kütüphane kurdular.</li>" +
+    "</ul>" +
+    "<h3>Mısır Uygarlığı</h3>" +
+    "<p>Nil çevresinde, dış etkilere kapalı bir coğrafyada geliştiği için özgün kaldı. <b>Hiyeroglif</b> yazısını ve <b>papirüs</b>ü kullandılar. Ölümden sonraki hayata inandıkları için <b>mumyalama</b> yaptılar; bu, insan vücudunun tanınmasını sağlayarak <b>tıp ve eczacılığı</b> geliştirdi. Nil'in taşkınlarını önceden bilmek için <b>Güneş yılı takvimi</b>ni buldular, dev <b>piramitler</b> inşa ettiler. Yönetici hem kral hem tanrı sayılan <b>firavun</b>du.</p>" +
+    "<h3>Anadolu Uygarlıkları</h3>" +
+    "<ul>" +
+    "<li><b>Hititler:</b> Mısır'la yaptıkları <b>Kadeş Antlaşması</b> tarihin <b>ilk yazılı antlaşması</b>dır. Kralların tanrılara hesap verdiği yıllıklara <b>anal</b> denir.</li>" +
+    "<li><b>Frigler:</b> Tarımı kutsal saydılar; Ana Tanrıça <b>Kibele</b>'ye taptılar, tapates (kilim) dokudular.</li>" +
+    "<li><b>Lidyalılar:</b> Ticareti kolaylaştırmak için <b>ilk madeni parayı</b> bastılar; Kral Yolu ticareti geliştirdi.</li>" +
+    "<li><b>Urartular:</b> Van çevresinde su kanalları, kaleler ve kaya mezarları; madencilikte ileri. <b>İyonlar:</b> özgür düşünce ve bilimde öncü (Tales, Pisagor).</li>" +
+    "</ul>" +
+    "<h3>Doğu Akdeniz, İran ve Ege</h3>" +
+    "<ul>" +
+    "<li><b>Fenikeliler:</b> Denizci-tüccardılar; kayıtları kolaylaştırmak için <b>ilk alfabeyi</b> geliştirdiler (bugünkü alfabelerin atası).</li>" +
+    "<li><b>İbraniler:</b> <b>İlk tek tanrılı dine (Musevilik)</b> inanan topluluktur.</li>" +
+    "<li><b>Persler:</b> Geniş ülkeyi <b>satraplıklara</b> böldü; Kral Yolu ile yönetimi güçlendirdi. <b>Yunanlılar:</b> şehir devletleri (polis) kurdu, Atina'da <b>demokrasi</b> gelişti.</li>" +
+    "</ul>" +
+    "<h3>Sınav İçin Kritik 'İlk'ler</h3>" +
+    "<ul>" +
+    "<li>İlk yazı ve ilk yazılı kanun = <b>Sümerler</b> · İlk imparatorluk = <b>Akadlar</b>.</li>" +
+    "<li>İlk yazılı antlaşma = <b>Kadeş (Hitit-Mısır)</b> · İlk madeni para = <b>Lidyalılar</b>.</li>" +
+    "<li>İlk alfabe = <b>Fenikeliler</b> · İlk tek tanrılı din = <b>İbraniler</b> · Anadolu'ya yazıyı getiren = <b>Asurlular</b>.</li>" +
+    "</ul>"
+  );
 })();
