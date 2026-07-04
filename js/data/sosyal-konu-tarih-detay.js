@@ -143,4 +143,124 @@
     "<li>İlk alfabe = <b>Fenikeliler</b> · İlk tek tanrılı din = <b>İbraniler</b> · Anadolu'ya yazıyı getiren = <b>Asurlular</b>.</li>" +
     "</ul>"
   );
+
+  /* ---- 2026-07-04 eklemeleri: içerik + kazanım + sık hata birlikte ---- */
+  function setFull(id, content, objectives, commonMistakes) {
+    var u = mevcut(id) || { id: id, branch: "tarih", reviewStatus: "draft", originalityStatement: true };
+    u.content = content; u.reviewedAt = "2026-07-04";
+    if (objectives) u.objectives = objectives;
+    if (commonMistakes) u.commonMistakes = commonMistakes;
+    TYT_CONTENT.upsertUnits("sosyal", [u]);
+  }
+
+  setFull("tar-selcuklu",
+    "<h2>Türkiye Tarihi ve Selçuklular</h2>" +
+
+    "<h3>Malazgirt Sonrası: Anadolu'da İlk Beylikler</h3>" +
+    "<p>1071 Malazgirt Zaferi'nin ardından Anadolu'nun kapıları Türklere açıldı; Alparslan'ın komutanları fethettikleri bölgelerde ilk beylikleri kurdular. Bu beylikler Anadolu'nun <b>Türkleşmesinde ve İslamlaşmasında</b> öncü oldu; kurdukları cami, medrese ve kervansaraylarla bulundukları şehirlere Türk kimliği kazandırdılar.</p>" +
+    "<ul>" +
+    "<li><b>Danişmentliler:</b> Sivas-Tokat-Kayseri çevresi; Anadolu'daki <b>ilk medreseyi</b> (Tokat Niksar, Yağıbasan) kurdular.</li>" +
+    "<li><b>Saltuklular:</b> Erzurum çevresinde kurulan <b>ilk Anadolu Türk beyliği</b>dir.</li>" +
+    "<li><b>Mengücekliler:</b> Erzincan-Divriği; Divriği Ulu Camii (UNESCO) ile ünlüdür.</li>" +
+    "<li><b>Artuklular:</b> Mardin-Diyarbakır; Malabadi Köprüsü gibi mimari eserler.</li>" +
+    "<li><b>Çaka Beyliği:</b> İzmir'de kurulan <b>ilk Türk denizci beyliği</b>; Çaka Bey ilk Türk donanmasını kurdu (1081, Türk denizciliğinin başlangıcı sayılır).</li>" +
+    "</ul>" +
+
+    "<h3>Türkiye (Anadolu) Selçuklu Devleti (1077-1308)</h3>" +
+    "<p><b>Süleyman Şah</b>, İznik merkezli olarak devleti kurdu. Haçlı Seferleri başlayınca başkent güvenlik gerekçesiyle <b>Konya</b>'ya taşındı.</p>" +
+    "<ul>" +
+    "<li><b>I. Kılıç Arslan:</b> I. Haçlı Seferi ile mücadele etti; kalabalık Haçlı ordusuna karşı yıpratma savaşı uyguladı.</li>" +
+    "<li><b>Miryokefalon Savaşı (1176):</b> <b>II. Kılıç Arslan</b>, Bizans'ı kesin yenilgiye uğrattı. Bu zaferle <b>Anadolu'nun Türk yurdu olduğu kesinleşti</b>; Bizans'ın Türkleri Anadolu'dan atma umudu sona erdi. (Malazgirt kapıyı açtı, Miryokefalon tapuyu verdi.)</li>" +
+    "<li><b>I. Alâeddin Keykubat:</b> Devletin <b>en parlak dönemi</b>; Alanya (Alaiye) fethedilip tersane kuruldu, Yassıçemen Savaşı (1230) ile Harzemşahlar yenildi.</li>" +
+    "<li><b>Baba İshak İsyanı (1240):</b> Devleti sarsan büyük sosyal-dinî ayaklanma; merkezî otorite zayıfladı.</li>" +
+    "<li><b>Kösedağ Savaşı (1243):</b> Moğollara (İlhanlılar) karşı kaybedildi. Anadolu <b>Moğol egemenliğine</b> girdi, devlet fiilen çöktü ve <b>İkinci Beylikler Dönemi</b> başladı (Osmanlı, Karaman, Germiyan, Aydın...). Bu yönüyle Kösedağ, Anadolu tarihinin dönüm noktalarındandır.</li>" +
+    "</ul>" +
+
+    "<h3>Haçlı Seferleri (1096-1270)</h3>" +
+    "<p><b>Nedenleri:</b> Kudüs ve kutsal yerleri geri alma isteği (dinî), Doğu'nun zenginliğine ulaşma (ekonomik), Kluni tarikatının kışkırtması, şövalyelerin macera arayışı ve Bizans'ın Türklere karşı Avrupa'dan yardım istemesi.</p>" +
+    "<p><b>Önemli seferler:</b> I. Sefer'de Haçlılar İznik'i ve Kudüs'ü aldı; Türkiye Selçukluları başkenti Konya'ya taşıdı. IV. Sefer'de Haçlılar Kudüs yerine <b>İstanbul'u yağmalayıp</b> Latin Krallığı kurdular; bu, Hristiyan dünyasında büyük güven kaybı doğurdu.</p>" +
+    "<p><b>Sonuçları:</b></p>" +
+    "<ul>" +
+    "<li>Din adamlarına ve kiliseye <b>güven sarsıldı</b>; skolastik düşünce zayıfladı.</li>" +
+    "<li>Derebeylerin (feodalite) çoğu seferlerde ölünce <b>feodalite zayıfladı</b>, merkezî krallıklar güçlendi.</li>" +
+    "<li><b>Kâğıt, matbaa, pusula ve barut</b> Avrupa'ya taşındı (Rönesans, Coğrafi Keşifler ve ateşli silahların temeli).</li>" +
+    "<li>Akdeniz limanları (Venedik, Ceneviz) canlandı; Doğu-Batı ticareti gelişti.</li>" +
+    "<li>Anadolu, Suriye ve Filistin'deki Türk-İslam şehirleri tahrip oldu; Türklerin batıya ilerleyişi bir süre durdu.</li>" +
+    "</ul>" +
+
+    "<h3>Ekonomik ve Kültürel Hayat</h3>" +
+    "<p>Türkiye Selçukluları ticareti devlet politikası yaptı: yol boylarına <b>kervansaraylar</b> kuruldu, tüccarın zararını karşılayan <b>ilk devlet sigortası</b> uygulandı, Venedik ve Kıbrıs'la ticaret antlaşmaları imzalandı. Esnafı örgütleyen <b>Ahilik</b> teşkilatı hem mesleki eğitim hem sosyal dayanışma sağladı. Toprakta <b>ikta sistemi</b> (gelirin askere ve memura tahsisi) üretimi ve orduyu birlikte besledi.</p>" +
+
+    "<h3>Sınav İçin Kritik Ayrımlar</h3>" +
+    "<ul>" +
+    "<li><b>Malazgirt (1071):</b> Anadolu'nun kapısını açtı · <b>Miryokefalon (1176):</b> Türk yurdu olduğunu kesinleştirdi. İkisini karıştırma!</li>" +
+    "<li>İlk Anadolu beyliği = <b>Saltuklular</b> · İlk denizci beylik = <b>Çaka</b> · İlk medrese = <b>Danişmentliler</b>.</li>" +
+    "<li><b>Kösedağ (1243)</b> savaş kaybettirdi ama devleti hemen yıkmadı; Moğol egemenliği ve beylikler dönemini başlattı.</li>" +
+    "</ul>",
+    [
+      "Malazgirt sonrası kurulan ilk beylikleri ve katkılarını açıklar.",
+      "Türkiye Selçuklu Devleti'nin dönüm noktalarını (Miryokefalon, Yassıçemen, Kösedağ) sıralar.",
+      "Haçlı Seferleri'nin nedenlerini ve sonuçlarını analiz eder.",
+      "Selçuklu ticaret ve toprak politikalarını (kervansaray, ahilik, ikta) kavrar."
+    ],
+    [
+      "Miryokefalon ile Malazgirt'in sonuçlarını karıştırmak (kapıyı açan Malazgirt, kesinleştiren Miryokefalon).",
+      "İlk Türk denizci beyliğini Karesi sanmak (Çaka Beyliği).",
+      "Kösedağ'ı Osmanlı dönemine yerleştirmek (1243, Türkiye Selçuklu-Moğol).",
+      "Haçlı Seferleri'nin feodaliteyi güçlendirdiğini sanmak (tam tersine zayıflattı)."
+    ]),
+
+  setFull("tar-kurulus",
+    "<h2>Osmanlı Kuruluş ve Devletleşme</h2>" +
+
+    "<h3>Kuruluş Ortamı ve Osmanlı'nın Avantajları</h3>" +
+    "<p>13. yüzyıl sonunda Anadolu'da Türkiye Selçuklu Devleti Moğol baskısıyla çökmüş, güç beyliklere geçmişti. Söğüt-Domaniç'te kurulan Osmanlı Beyliği'ni büyüten etkenler şunlardır:</p>" +
+    "<ul>" +
+    "<li><b>Uç beyliği</b> konumu: Bizans sınırında olması gaza ve fetih imkânı verdi; gazileri kendine çekti.</li>" +
+    "<li>Bizans'ın <b>taht kavgaları</b> ve tekfurların halkı ezmesi; Balkanlarda siyasi birliğin olmaması.</li>" +
+    "<li>Merkezî ticaret yolları üzerinde bulunması ve <b>ahilerin, şeyh Edebali çevresinin desteği</b>.</li>" +
+    "<li><b>İstimâlet (hoşgörü) politikası:</b> Fethedilen yerlerin halkına din ve mülkiyet güvencesi verilmesi, yerli halkın Osmanlı yönetimini benimsemesini sağladı.</li>" +
+    "</ul>" +
+
+    "<h3>İlk Padişahlar ve Devletleşme Adımları</h3>" +
+    "<ul>" +
+    "<li><b>Osman Bey:</b> Koyunhisar (1302) ile Bizans'a karşı ilk büyük savaş kazanıldı; ilk Osmanlı parası (akçe öncesi mangır/sikke) bastırıldı.</li>" +
+    "<li><b>Orhan Bey:</b> <b>Bursa (1326)</b> başkent yapıldı; İznik ve İzmit alındı. <b>Karesi Beyliği'nin katılmasıyla</b> Osmanlı ilk donanmaya kavuştu ve <b>Çimpe Kalesi (1353)</b> ile <b>Rumeli'ye geçildi</b>. İlk düzenli ordu (yaya-müsellem), ilk divan teşkilatı ve İznik'te ilk Osmanlı medresesi kuruldu → beylikten devlete geçişin mimarıdır.</li>" +
+    "<li><b>I. Murat:</b> <b>Edirne</b> fethedilip başkent yapıldı; Sırpsındığı ve <b>I. Kosova (1389)</b> zaferleriyle Balkan fetihleri kalıcılaştı. <b>Tımar sistemi</b> yaygınlaştırıldı, <b>Kapıkulu Ocakları</b> (devşirme temelli Yeniçeri Ocağı) kuruldu. \"Ülke, hanedanın ortak malıdır\" anlayışı \"<b>ülke, padişah ve oğullarınındır</b>\" biçimine dönüştü → merkezî otorite güçlendi.</li>" +
+    "<li><b>Yıldırım Bayezid:</b> <b>Niğbolu (1396)</b> Haçlı zaferi; Anadolu Türk birliği <b>ilk kez</b> büyük ölçüde sağlandı; İstanbul ilk kez kuşatıldı (Anadolu Hisarı). Ancak <b>Ankara Savaşı (1402)</b>'nda Timur'a yenilince devlet dağılma tehlikesi geçirdi.</li>" +
+    "<li><b>Fetret Devri (1402-1413):</b> Şehzadeler arası taht kavgası; Balkanlarda toprak kaybı azdır (istimâlet politikasının başarısı). <b>Çelebi Mehmet</b> birliği yeniden kurdu (devletin ikinci kurucusu sayılır).</li>" +
+    "<li><b>II. Murat:</b> <b>Varna (1444)</b> ve <b>II. Kosova (1448)</b> zaferleriyle Türklerin Balkanlardan atılamayacağı kesinleşti.</li>" +
+    "</ul>" +
+
+    "<h3>İstanbul'un Fethi (1453)</h3>" +
+    "<p><b>Nedenleri:</b> Bizans'ın Osmanlı toprak bütünlüğünü bozması (Anadolu-Rumeli arasında kalması), şehzadeleri ve Avrupa'yı Osmanlı'ya karşı kışkırtması, boğaz ticaretinin denetimi.</p>" +
+    "<p><b>Hazırlıklar:</b> Boğazı denetlemek için <b>Rumeli Hisarı</b> yapıldı, surları aşabilecek <b>şahi topları</b> döktürüldü, <b>gemiler karadan Haliç'e indirildi</b>.</p>" +
+    "<p><b>Sonuçları:</b></p>" +
+    "<ul>" +
+    "<li>Bizans sona erdi; Osmanlı <b>imparatorluk</b> hâline geldi, II. Mehmet \"<b>Fatih</b>\" unvanını aldı.</li>" +
+    "<li>Büyük topların surları yıkabildiği görüldü → Avrupa'da <b>feodalitenin çözülüşü</b> hızlandı.</li>" +
+    "<li>İstanbul'dan İtalya'ya giden bilginler <b>Rönesans</b>'ın doğuşuna katkı sağladı.</li>" +
+    "<li>İpek Yolu'nun denetimi Osmanlı'ya geçti; Avrupalılar yeni yol arayışına yöneldi → <b>Coğrafi Keşifler</b>'e zemin.</li>" +
+    "<li>Bu sonuçlar nedeniyle 1453, <b>Orta Çağ'ın bitişi - Yeni Çağ'ın başlangıcı</b> kabul edilir.</li>" +
+    "</ul>" +
+
+    "<h3>Sınav İçin Kritik Ayrımlar</h3>" +
+    "<ul>" +
+    "<li>Rumeli'ye geçiş = <b>Çimpe (1353, Orhan Bey)</b>; Edirne'nin fethi = <b>I. Murat</b>. Karıştırma!</li>" +
+    "<li>Başkent sırası: Söğüt/Bursa → <b>Bursa (Orhan)</b> → <b>Edirne (I. Murat)</b> → <b>İstanbul (Fatih)</b>.</li>" +
+    "<li>Anadolu birliğini ilk kuran <b>Yıldırım</b>, bozan <b>Ankara 1402</b>, yeniden kuran <b>Çelebi Mehmet</b>.</li>" +
+    "<li>Devşirme sistemi <b>I. Murat</b> ile kurumsallaştı; Yeniçeriler <b>Kapıkulu</b> ordusudur, tımarlı sipahi değildir.</li>" +
+    "</ul>",
+    [
+      "Osmanlı Beyliği'ni büyüten coğrafi ve siyasi etkenleri açıklar.",
+      "İlk padişahların devletleşme adımlarını (ordu, divan, tımar, devşirme) sıralar.",
+      "Fetret Devri'nin nedenlerini ve sonuçlarını değerlendirir.",
+      "İstanbul'un Fethi'nin Türk ve dünya tarihine etkilerini analiz eder."
+    ],
+    [
+      "Rumeli'ye geçişi I. Murat'a bağlamak (Çimpe 1353, Orhan Bey dönemi).",
+      "Yeniçerileri tımarlı sipahi sanmak (Kapıkulu ocağıdır, maaşlı ve merkeze bağlıdır).",
+      "Fetret Devri'nde Balkanların elden çıktığını sanmak (istimâlet sayesinde kayıp sınırlı kaldı).",
+      "İstanbul'un Fethi'nin yalnızca Türk tarihini etkilediğini düşünmek (feodalite, Rönesans, keşifler üzerinden dünya tarihini de etkiledi)."
+    ]);
 })();
