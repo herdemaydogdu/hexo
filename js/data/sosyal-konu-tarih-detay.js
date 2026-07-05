@@ -263,4 +263,59 @@
       "Fetret Devri'nde Balkanların elden çıktığını sanmak (istimâlet sayesinde kayıp sınırlı kaldı).",
       "İstanbul'un Fethi'nin yalnızca Türk tarihini etkilediğini düşünmek (feodalite, Rönesans, keşifler üzerinden dünya tarihini de etkiledi)."
     ]);
+
+  setContent("tar-ilkturk",
+    "<h2>İslamiyet Öncesi Türk Tarihi</h2>" +
+    "<h3>Ana Yurt ve Göçler</h3>" +
+    "<p>Türklerin ana yurdu <b>Orta Asya</b>'dır. Türkler burada kalmayıp geniş bir coğrafyaya yayıldılar. Başlıca göç nedenleri: <b>kuraklık ve iklim değişikliği</b>, hızlı <b>nüfus artışı</b> ve otlakların yetersizliği, boylar arası <b>mücadele</b> ve dış (özellikle Çin) baskısı. Göçler Türk kültürünü geniş alanlara taşımış, farklı toplumlarla kaynaşma getirmiş ama Türk boylarının dağılmasına da yol açmıştır.</p>" +
+    "<h3>İlk Türk Devletleri</h3>" +
+    "<ul>" +
+    "<li><b>Asya (Büyük) Hun Devleti:</b> Bilinen <b>ilk teşkilatlı Türk devleti</b>. <b>Mete Han (Motun)</b> orduyu <b>onlu sisteme</b> göre düzenledi (10-100-1000-10.000'lik birlikler); bu sistem sonraki ordulara örnek oldu. Çin akınlarına karşı Çin Seddi güçlendirildi.</li>" +
+    "<li><b>Kavimler Göçü (375):</b> Batı (Avrupa) Hunlarının baskısıyla Avrupa'daki kavimler yer değiştirdi; bu hareket Avrupa'da <b>Orta Çağ'ı başlattı</b>. Avrupa Hunlarının en ünlü hükümdarı <b>Attila</b>'dır.</li>" +
+    "<li><b>Göktürkler:</b> <b>'Türk' adını ilk kez devlet adı yapan</b> devlet (Bumin Kağan). II. Göktürk (Kutluk) döneminde dikilen <b>Orhun Yazıtları</b>, <b>ilk Türkçe yazılı belge</b>dir (Bilge Kağan, Kültigin, Tonyukuk).</li>" +
+    "<li><b>Uygurlar:</b> <b>Yerleşik hayata geçen ilk Türkler</b>. Mani dinini benimsediler; bu din savaşçılığı azalttı. Kâğıt ve matbaayı kullandılar, 18 harfli alfabe oluşturdular.</li>" +
+    "<li><b>Diğerleri:</b> <b>Avarlar</b> İstanbul'u kuşatan ilk Türklerdir; <b>Hazarlar</b> Museviliği benimsedi; <b>Türgişler</b> ilk Türk parasını bastı; Bulgar, Macar, Peçenek, Kıpçak ve Kırgızlar da önemli topluluklardır.</li>" +
+    "</ul>" +
+    "<h3>Kültür, Yönetim ve İnanç</h3>" +
+    "<ul>" +
+    "<li><b>Yönetim:</b> Devleti <b>Kağan</b> yönetirdi. Egemenlik anlayışı <b>Kut</b>'tur: yönetme yetkisinin Gök Tanrı'ca hükümdar ailesine verildiğine inanılırdı. Bu inanç sık taht kavgalarına yol açtı. <b>Kurultay (Toy)</b> danışma meclisiydi; ülke çoğunlukla <b>doğu-batı (ikili)</b> yönetilirdi.</li>" +
+    "<li><b>Ordu ve Yaşam:</b> <b>Ordu-millet</b> anlayışı vardı, her birey asker sayılırdı. Konar-göçer yaşam nedeniyle kalıcı büyük yapılar azdı; yazısız hukuk kurallarına <b>töre</b> denirdi.</li>" +
+    "<li><b>İnanç:</b> <b>Gök Tanrı</b> dini; ölümden sonrasına inanç. Ölüler <b>kurgan</b>lara gömülür, <b>balbal</b> dikilir, cenazeye <b>yuğ</b> denirdi.</li>" +
+    "</ul>" +
+    "<h3>Sınav İçin Kritik Ayrımlar</h3>" +
+    "<ul>" +
+    "<li>İlk teşkilatlı Türk devleti = <b>Asya Hunları</b> · 'Türk' adını devlet adı yapan = <b>Göktürkler</b>.</li>" +
+    "<li>İlk Türkçe yazılı belge = <b>Orhun Yazıtları</b> · Yerleşik ilk Türkler = <b>Uygurlar</b>.</li>" +
+    "<li>Kavimler Göçü'nü <b>Batı (Avrupa) Hunları</b> başlattı (Asya Hunları değil).</li>" +
+    "</ul>"
+  );
+
+  setContent("tar-islam",
+    "<h2>İslam Tarihi ve Medeniyeti</h2>" +
+    "<h3>İslamiyet'in Doğuşu</h3>" +
+    "<p>İslamiyet'ten önce Arabistan'da putperestlik, kabilecilik ve kan davaları yaygındı; bu döneme <b>Cahiliye Dönemi</b> denir. İslamiyet, <b>Hz. Muhammed</b>'e 610'da Mekke'de gelen ilk vahiyle doğdu. Baskılar artınca Müslümanlar Medine'ye göç etti.</p>" +
+    "<h3>Hz. Muhammed Dönemi</h3>" +
+    "<ul>" +
+    "<li><b>Hicret (622):</b> Mekke'den Medine'ye göç; Medine'de ilk İslam toplumu ve siyasi birlik kuruldu. Bu tarih <b>Hicri takvimin başlangıcı</b>dır.</li>" +
+    "<li><b>Bedir</b> (ilk büyük zafer), <b>Uhud</b> ve <b>Hendek</b> savaşları yapıldı. <b>Hudeybiye Antlaşması</b> Müslümanların <b>siyasi bir güç olarak tanınmasını</b> sağladı.</li>" +
+    "<li><b>Mekke'nin Fethi (630)</b> ve <b>Veda Hutbesi</b> ile İslamiyet Arabistan'a yayıldı.</li>" +
+    "</ul>" +
+    "<h3>Dört Halife Dönemi (632-661)</h3>" +
+    "<p>Halifeler seçimle geldiği için bu döneme <b>Cumhuriyet Dönemi</b> de denir.</p>" +
+    "<ul>" +
+    "<li><b>Hz. Ebubekir:</b> Ridde isyanlarını bastırdı; Yemame'de hafızların şehit olması üzerine <b>Kur'an ilk kez kitap hâline getirildi</b>.</li>" +
+    "<li><b>Hz. Ömer:</b> Büyük fetihler (Suriye, Filistin, Mısır, <b>Sasani/İran</b>); <b>ilk devlet teşkilatı</b> (divan, ordugâh şehirler); <b>Hicri takvim</b> kabul edildi.</li>" +
+    "<li><b>Hz. Osman:</b> <b>Kur'an çoğaltılıp</b> merkezlere gönderildi; ilk donanma kuruldu; son döneminde karışıklıklar arttı.</li>" +
+    "<li><b>Hz. Ali:</b> <b>Cemel</b> ve <b>Sıffın</b> savaşları; Hariciler ortaya çıktı (fitne dönemi).</li>" +
+    "</ul>" +
+    "<h3>Emeviler ve Abbasiler</h3>" +
+    "<p><b>Emeviler (661-750):</b> Muaviye ile halifelik <b>saltanata</b> dönüştü. <b>Arap milliyetçiliği</b> (mevaliye ikinci sınıf muamele) çöküşü hızlandırdı; Kerbela Olayı yaşandı, İspanya'da <b>Endülüs Emevileri</b> kuruldu.</p>" +
+    "<p><b>Abbasiler (750-1258):</b> <b>Eşitlikçi</b> davrandılar (mevali politikası bırakıldı). Bilim zirveye çıktı (<b>Beytülhikme</b>). <b>Talas Savaşı (751)</b> ile Türklerle birlikte Çin yenildi; <b>kâğıt</b> yayıldı, Türk-İslam yakınlaşması başladı.</p>" +
+    "<h3>Sınav İçin Kritik Ayrımlar</h3>" +
+    "<ul>" +
+    "<li>Kur'an'ı kitap yapan = <b>Hz. Ebubekir</b>; çoğaltan = <b>Hz. Osman</b>.</li>" +
+    "<li>İlk teşkilat/divan = <b>Hz. Ömer</b> · Halifeliği saltanata çeviren = <b>Muaviye</b>.</li>" +
+    "<li>Talas (751) ve kâğıt = <b>Abbasiler</b> (Emeviler değil).</li>" +
+    "</ul>"
+  );
 })();
