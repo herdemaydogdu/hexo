@@ -911,6 +911,55 @@ function showExitGuard(onLeave, onStay) {
   overlay.querySelector("#leave").focus();
 }
 
+/* #2/#7: Deneme/test sonrası konu bazlı zayıf-alan analizi (ücretsiz).
+   session.answers'i ders+üniteye göre gruplar, en zayıf konuları çıkarır. */
+function weakAreaSection(session) {
+  const A = (session && session.answers) || [];
+  const g = {};
+  A.forEach(a => {
+    const q = questionById[a.questionId]; if (!q) return;
+    const key = q.subject + "|" + q.unit;
+    const o = g[key] || (g[key] = { subject: q.subject, unit: q.unit, correct: 0, total: 0 });
+    o.total++; if (a.isCorrect) o.correct++;
+  });
+  const rows = Object.keys(g).map(k => {
+    const o = g[k]; o.pct = Math.round(o.correct / o.total * 100);
+    const sub = getSubject(o.subject), unit = getUnit(o.subject, o.unit);
+    o.subName = sub ? sub.name : o.subject;
+    o.unitName = unit ? unit.name : o.unit;
+    return o;
+  });
+  if (!rows.length) return "";
+  const weak = rows.filter(o => o.pct < 70).sort((a, b) => a.pct - b.pct).slice(0, 4);
+  const strong = rows.filter(o => o.pct >= 70).length;
+  if (!weak.length) {
+    return `<div class="card weak-card"><h3 class="weak-title">Konu bazlı analiz</h3>
+      <p class="weak-sub">👏 Çözdüğün tüm konularda %70+ başarı. Güçlü gidiyorsun — bu tempoyu koru!</p></div>`;
+  }
+  const list = weak.map(o => `
+    <div class="weak-row">
+      <div class="weak-top">
+        <span class="weak-name">${o.subName} · ${o.unitName}</span>
+        <span class="weak-stat">${o.correct}/${o.total} · %${o.pct}</span>
+      </div>
+      <div class="weak-bar"><span class="weak-fill ${o.pct < 40 ? "low" : "mid"}" style="width:${Math.max(o.pct, 4)}%"></span></div>
+      <button class="btn secondary weak-go" data-sub="${o.subject}" data-unit="${o.unit}">Bu konuyu çalış →</button>
+    </div>`).join("");
+  return `<div class="card weak-card">
+    <h3 class="weak-title">Konu bazlı analiz — gelişime açık alanlar</h3>
+    <p class="weak-sub">En zayıf ${weak.length} konun aşağıda${strong ? `, ${strong} konuda %70+ başardın` : ""}. Hedefli çöz, netini yükselt.</p>
+    <div class="weak-list">${list}</div>
+  </div>`;
+}
+
+/* Zayıf konuya odaklı hızlı çalışma (açıklamalı, süresiz) */
+function startUnitPractice(subjectId, unitId) {
+  const pool = shuffle(D.questions.filter(q => q.subject === subjectId && q.unit === unitId));
+  if (!pool.length) { notify("Bu konuda soru bulunamadı.", "info"); return; }
+  const unit = getUnit(subjectId, unitId);
+  runQuiz({ title: (unit ? unit.name : "Konu") + " · Hedefli Çalışma", subjectId, questions: pool.slice(0, 10), timed: false, showExplain: true });
+}
+
 function renderResult(r) {
   const pct = Math.round(r.correct / r.total * 100);
   app.innerHTML = `
@@ -929,11 +978,13 @@ function renderResult(r) {
         <button class="btn ghost" id="home">Ana Sayfa</button>
       </div>
     </div>
+    ${r.session ? weakAreaSection(r.session) : ""}
   `;
   if (r.session) document.getElementById("review").onclick = () => renderReview(r.session, "all");
   document.getElementById("retry").onclick = r.retry;
   document.getElementById("stats").onclick = () => navigate("istatistik");
   document.getElementById("home").onclick = () => navigate("dashboard");
+  app.querySelectorAll(".weak-go").forEach(b => b.onclick = () => startUnitPractice(b.dataset.sub, b.dataset.unit));
 }
 
 /* P1-4: Test sonuç inceleme ekranı */
