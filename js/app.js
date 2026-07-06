@@ -632,6 +632,7 @@ function renderQuizConfig(subId, branchId) {
         <p>${units.length} ünite · ${totalQuestionCount} soru içinden seçim yap</p></div>
       </div>
     </div>
+    <p class="trust-badge"><span class="trust-check" aria-hidden="true">✓</span> Tüm sorular <b>özgündür</b> — soru bankalarından kopyalanmaz; <b>ÖSYM'ye kalibre %20/40/40</b> zorlukta hazırlanır.</p>
     <div class="card config-card">
       <div class="cfg-grid">
       <div class="cfg-block cfg-units"><div class="cfg-section-head"><span class="cfg-label"><svg class="cfg-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V6a2 2 0 0 1 2-2h12v15H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h12"/></svg>Ünite seç</span><span class="cfg-hint">Bir ünite veya tüm havuz</span></div><div class="chip-row" id="grpUnit">${unitChips}</div></div>
