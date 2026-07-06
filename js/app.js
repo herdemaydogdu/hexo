@@ -291,6 +291,17 @@ function renderDashboard() {
     return `<div class="wcol" title="${d.full}: ${d.count} soru"><div class="wbar${d.count ? "" : " empty"}" style="height:${h}%"></div><span class="wlbl">${d.name}</span></div>`;
   }).join("");
 
+  const isNewUser = !p.sessions.length;
+  const posBanner = isNewUser ? `
+    <section class="pos-banner" aria-label="Neden bu platform">
+      <p class="pos-lead"><b>Tamamen ücretsiz.</b> Kayıt yok, reklam yok — ÖSYM seviyesine <b>kalibre %20/40/40 zorlukta</b> özgün sorularla netini yükselt.</p>
+      <div class="pos-chips">
+        <span class="pos-chip">Ücretsiz</span>
+        <span class="pos-chip">Kayıt yok · reklam yok</span>
+        <span class="pos-chip pos-chip-accent">%20/40/40 kalibre zorluk</span>
+      </div>
+    </section>` : "";
+
   app.innerHTML = `
     <h1 class="sr-only">TYT Öğrenci Paneli</h1>
     <div class="tyt-countdown" role="img" aria-label="TYT'ye ${daysLeft} gün kaldı">
@@ -298,6 +309,7 @@ function renderDashboard() {
       <div class="tc-num"><b>${bigNum}</b><span>${bigLbl}</span></div>
       <div class="tc-meta"><b>TYT'ye Kalan Süre</b><span>${tcSub}</span></div>
     </div>
+    ${posBanner}
 
     <div class="dash-row2">
       <section class="today-panel" aria-label="Günlük hedef">
