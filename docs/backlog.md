@@ -2,6 +2,8 @@
 
 Keşif/pazarlama ekiplerinin ürettiği öneriler burada önceliklenir; orkestra-sefi buradan iş dağıtır.
 
+> **Aktif plan (2026-07-06):** docs/plan-2026-07-06.md. is-gelistirme kararı: Faz 1 (ürün) ve Faz 2 (içerik) **paralel**. Uygulama sırası: M2 Tarih şeması → #9 rozet → Geometri kuyruğu → #2/#7 zayıf-alan → #3/#4.
+
 ## Pazarlamadan gelen (2026-07-02 rakip/pazar analizi)
 | # | Öneri | Tür | Etki/Efor | Sahip |
 |---|---|---|---|---|
@@ -28,7 +30,7 @@ Keşif/pazarlama ekiplerinin ürettiği öneriler burada önceliklenir; orkestra
 | # | Boşluk | Öncelik | Öneri ünite sayısı |
 |---|---|---|---|
 | M1 | **Geometri** (dik üçgen, özel üçgen, benzerlik, çokgen, dörtgen, çember, analitik, katı cisim, dönüşüm) | 🔴 En yüksek (≈%25 mat sorusu) | ~9 |
-| M2 | **Tarih ünite şeması** — soru havuzu var (`tarilkcag/tarilkturk/tarislam/tarturkislam`), ünite tanımı yok; bağla | 🔴 Yüksek (düşük efor) | ~6 |
+| M2 | ~~**Tarih ünite şeması** — bağla~~ **ZATEN YAPILMIŞ (2026-07-06 doğrulandı, is-gelistirme)**: `tar-bilim/ilkcag/ilkturk/islam/turkislam` üniteleri `sosyal-konu-tarih.js`'te `upsertUnits` ile tanımlı+içerikli; 5 havuz da 25'er soruyla `replaceQuestionsForUnit` üzerinden bağlı ve `index.html`'de yüklü. Taramanın gapi = mount-eskimesi yanlış pozitifi. | ✅ | — |
 | M3 | **Fizik** (giriş, hareket, ısı, basınç, elektrik, dalga, optik) | 🟠 Yüksek | ~7 |
 | M4 | **Kimya** (atom/periyodik, bağlar, karışım, asit-baz, mol/hesap, kimya her yerde) | 🟠 Yüksek | ~7 |
 | M5 | **Biyoloji** (ortak özellik, hücre, sınıflandırma, kalıtım, ekoloji, sistemler) | 🟠 Yüksek | ~6 |
