@@ -8,7 +8,7 @@ Keşif/pazarlama ekiplerinin ürettiği öneriler burada önceliklenir; orkestra
 | # | Öneri | Tür | Etki/Efor | Sahip |
 |---|---|---|---|---|
 | 1 | ~~SEO başlık/meta + site haritası~~ **YAPILDI (2026-07-02, is-gelistirme)**: index.html head (meta, OG, Twitter, JSON-LD) + robots.txt + sitemap.xml | Ürün/SEO | Yüksek/Orta | ✅ |
-| 2 | Deneme sonrası konu bazlı analiz ekranı (zayıf alan) | Ürün | Yüksek/Orta | orkestra-sefi |
+| 2 | ~~Deneme sonrası konu bazlı analiz ekranı (zayıf alan)~~ **YAPILDI (2026-07-06, is-gelistirme)** — bkz. #7 | Ürün | Yüksek/Orta | ✅ |
 | 3 | Paylaşılabilir net/rozet sonuç kartı (büyüme döngüsü) | Ürün | Orta/Orta | tasarim-qa |
 | 4 | Yanlış defterinden hafif adaptif tekrar önerisi | Ürün | Orta/Yüksek | orkestra-sefi |
 | 5 | Sitedeki özgün içerikten kısa video/sosyal malzeme | Pazarlama | Orta/Düşük | icerik-pazarlama |
@@ -17,7 +17,7 @@ Keşif/pazarlama ekiplerinin ürettiği öneriler burada önceliklenir; orkestra
 | # | Öneri | Tür | Etki/Efor | Sahip |
 |---|---|---|---|---|
 | 6 | ~~Ana sayfada "Ücretsiz + kalibre zorluk (%20/40/40)" konum mesajı~~ **YAPILDI (2026-07-06, is-gelistirme)**: yeni ziyaretçiye (henüz oturumu yok) dashboard'da `.pos-banner` konum bandı — "Tamamen ücretsiz · kayıt yok · reklam yok · %20/40/40 kalibre zorluk". app.js + style.css, ?v=78 | Konumlandırma | Yüksek/Düşük | ✅ |
-| 7 | Deneme sonrası konu bazlı zayıf-alan ekranı — **ücretsiz** (bkz. #2 ile birleştir) | Ürün | Yüksek/Orta | orkestra-sefi |
+| 7 | ~~Deneme sonrası konu bazlı zayıf-alan ekranı — **ücretsiz**~~ **YAPILDI (2026-07-06, is-gelistirme)**: sonuç ekranına `weakAreaSection` — session.answers ders+üniteye göre gruplanır, en zayıf ≤4 konu (%70 altı) çubuk+yüzdeyle listelenir, "Bu konuyu çalış" → `startUnitPractice` (10 soruluk açıklamalı hedefli test). app.js + style.css, `?v=81`. İzole node ile mantık+sözdizimi doğrulandı. | Ürün | Yüksek/Orta | ✅ |
 | 8 | Ücretsiz TYT deneme SEO sayfaları ("TYT deneme çöz", "net hesapla") | İçerik/SEO | Yüksek/Orta | icerik-pazarlama |
 | 9 | ~~"Özgün + ÖSYM'ye kalibre" güven rozeti/mesajı~~ **YAPILDI (2026-07-06, is-gelistirme)**: quiz kurulum ekranına `.trust-badge` — "Tüm sorular özgündür — soru bankalarından kopyalanmaz; ÖSYM'ye kalibre %20/40/40". app.js + style.css, `?v=79` | ✅ | ✅ |
 | 10 | Net-artışı temalı kısa video/sosyal malzeme (TikTok/YouTube, oyunlaştırma boşluğu) | Pazarlama | Orta/Düşük | icerik-pazarlama |
