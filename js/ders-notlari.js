@@ -103,12 +103,19 @@
       ".dn-pager .ind{font-size:12px;font-weight:600;color:#6a6f88;font-family:'Fraunces',serif;}",
       ".dn-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(18px);background:#232433;color:#fff;font-size:12.5px;font-weight:600;padding:9px 18px;border-radius:99px;box-shadow:0 10px 26px rgba(35,36,51,.3);opacity:0;pointer-events:none;transition:.25s;z-index:9000;}",
       ".dn-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}",
-      ".dn-navToggle{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;border:1px solid #e2e0ee;background:#fff;color:#4c5069;cursor:pointer;margin-right:8px;flex-shrink:0;}",
-      ".dn-navToggle:hover{background:#f4f5fb;color:#232433}",
-      ".dn-navToggle svg{width:18px;height:18px}",
-      ".sidebar{transition:width .22s ease,opacity .2s ease;}",
-      "body.dn-nav-hidden .sidebar{flex:0 0 0!important;width:0!important;min-width:0!important;padding-left:0!important;padding-right:0!important;border:0!important;overflow:hidden!important;opacity:0;pointer-events:none;}",
-      "@media(max-width:720px){.dn-toc{display:none}.dn-stage{gap:8px}.dn-tools{width:50px}.dn-navToggle{display:none}}"
+      ".dn-navCollapse{position:absolute;top:16px;right:12px;width:30px;height:30px;border-radius:9px;border:1px solid #e6e9f4;background:#fff;color:#4c5069;cursor:pointer;display:grid;place-items:center;z-index:20;box-shadow:0 2px 8px rgba(35,36,51,.08);}",
+      ".dn-navCollapse:hover{background:#f4f5fb;color:#232433}",
+      ".dn-navCollapse svg{width:17px;height:17px}",
+      ".dn-navShow{position:fixed;top:14px;left:14px;z-index:1000;width:40px;height:40px;border-radius:11px;border:1px solid #e2e0ee;background:#fff;color:#4f6ef2;cursor:pointer;display:none;place-items:center;box-shadow:0 8px 22px rgba(35,36,51,.18);}",
+      ".dn-navShow:hover{background:#4f6ef2;color:#fff}",
+      ".dn-navShow svg{width:21px;height:21px}",
+      ".sidebar{transition:transform .24s ease;}",
+      ".main-wrap{transition:margin-left .24s ease;}",
+      "body.dn-nav-hidden .dn-navShow{display:grid;}",
+      "body.dn-nav-hidden .sidebar{transform:translateX(-100%);}",
+      "body.dn-nav-hidden .main-wrap{margin-left:0!important;}",
+      "@media(max-width:900px){.dn-navCollapse,.dn-navShow{display:none!important}}",
+      "@media(max-width:720px){.dn-toc{display:none}.dn-stage{gap:8px}.dn-tools{width:50px}}"
     ].join("\n");
     document.head.appendChild(s);
   }
@@ -430,23 +437,27 @@
   }
   /* ---------- KENAR ÇUBUĞU AÇ/KAPA ---------- */
   function setupNavToggle() {
-    var bar = document.querySelector(".appbar");
-    if (!bar || document.getElementById("dn-navToggle")) return;
-    var btn = document.createElement("button");
-    btn.id = "dn-navToggle"; btn.className = "dn-navToggle"; btn.type = "button";
-    btn.setAttribute("aria-label", "Menüyü gizle/göster");
-    function paint() { btn.innerHTML = document.body.classList.contains("dn-nav-hidden") ? svg("menu", 2) : svg("panel", 1.9); }
+    var sb = document.querySelector(".sidebar");
+    if (!sb || document.getElementById("dn-navCollapse")) return;
     function apply(h) {
       document.body.classList.toggle("dn-nav-hidden", h);
       try { localStorage.setItem("dn_nav_hidden", h ? "1" : "0"); } catch (e) {}
-      paint();
-      setTimeout(function () { try { window.dispatchEvent(new Event("resize")); } catch (e) {} }, 240);
+      setTimeout(function () { try { window.dispatchEvent(new Event("resize")); } catch (e) {} }, 260);
     }
-    btn.addEventListener("click", function () { apply(!document.body.classList.contains("dn-nav-hidden")); });
-    bar.insertBefore(btn, bar.firstChild);
+    var cb = document.createElement("button");
+    cb.id = "dn-navCollapse"; cb.className = "dn-navCollapse"; cb.type = "button";
+    cb.setAttribute("aria-label", "Menüyü gizle"); cb.title = "Menüyü gizle";
+    cb.innerHTML = svg("chevL", 2.1);
+    cb.addEventListener("click", function () { apply(true); });
+    sb.appendChild(cb);
+    var xb = document.createElement("button");
+    xb.id = "dn-navShow"; xb.className = "dn-navShow"; xb.type = "button";
+    xb.setAttribute("aria-label", "Menüyü göster"); xb.title = "Menüyü göster";
+    xb.innerHTML = svg("menu", 2.1);
+    xb.addEventListener("click", function () { apply(false); });
+    document.body.appendChild(xb);
     var saved = false; try { saved = localStorage.getItem("dn_nav_hidden") === "1"; } catch (e) {}
     if (saved) document.body.classList.add("dn-nav-hidden");
-    paint();
   }
 
   function boot() {
