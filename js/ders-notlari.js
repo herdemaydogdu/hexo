@@ -117,7 +117,7 @@
       "body.dn-nav-hidden .sidebar{transform:translateX(-100%);}",
       "body.dn-nav-hidden .main-wrap{margin-left:0!important;}",
       "@media(max-width:900px){.dn-navCollapse,.dn-navShow{display:none!important}}",
-      "@media(max-width:720px){.dn-toc{display:none}.dn-stage{gap:6px}.dn-tools{width:46px}.dn-tools .dn-tbtn{width:36px;height:34px}.dn-nav{width:38px;height:38px}.dn-nav svg{width:17px;height:17px}.dn-paper{padding:16px 14px;gap:34px}.dn-hero h1{font-size:20px}.dn-hero{padding:13px 15px}}"
+      "@media(max-width:767px){.dn-toc{display:none}.dn-stage{gap:8px;min-width:0}.dn-book{width:100%}.dn-tools{width:46px}.dn-tools .dn-tbtn{width:36px;height:34px}.dn-stage>.dn-nav{width:38px;height:38px}.dn-stage>.dn-nav svg{width:17px;height:17px}.dn-paper{padding:16px 14px;gap:34px}.dn-hero h1{font-size:20px}.dn-hero{padding:13px 15px}.dn-modes button[data-mode='spread']{display:none}.dn-pager{gap:16px}.dn-pager .dn-nav{width:38px;height:38px;box-shadow:0 4px 13px rgba(35,36,51,.16)}.dn-pager .dn-nav svg{width:18px;height:18px}}"
     ].join("\n");
     document.head.appendChild(s);
   }
@@ -302,13 +302,19 @@
       var cs = getComputedStyle(paper);
       var padL = parseFloat(cs.paddingLeft) || 28, padT = parseFloat(cs.paddingTop) || 24, gap = parseFloat(cs.columnGap || cs.gap) || 60;
       var innerW = paper.clientWidth - padL * 2;
-      var pageW = mode === "single" ? Math.max(240, innerW - 34) : Math.max(230, Math.floor((innerW - gap) / 2));
+      var pageW;
+      if (mode === "single") {
+        // Tek sayfa: mevcut genişliği doldur ama ASLA paper'ı aşma → yatay taşma/kesilme yok
+        pageW = Math.min(Math.max(200, innerW - 30), innerW);
+      } else {
+        pageW = Math.max(200, Math.floor((innerW - gap) / 2));
+      }
       var pageH = paper.clientHeight - padT * 2 - 4;
       return { pageW: pageW, pageH: pageH };
     }
     function targetH() {
       var top = book.getBoundingClientRect().top;
-      var reserve = window.innerWidth <= 720 ? 140 : 220; // altındaki pager + butonlar + konu-nav için yer
+      var reserve = window.innerWidth < 768 ? 150 : 220; // altındaki pager + butonlar + konu-nav için yer
       return Math.max(340, Math.min(820, window.innerHeight - top - reserve));
     }
     function paginate() {
@@ -435,12 +441,26 @@
     function onKey(e) { if (!document.body.contains(wrap)) { document.removeEventListener("keydown", onKey); return; } if (e.key === "ArrowRight") next.click(); if (e.key === "ArrowLeft") prev.click(); }
     document.addEventListener("keydown", onKey);
     // yeniden boyut
-    var rt; window.addEventListener("resize", function () { if (!document.body.contains(wrap)) return; clearTimeout(rt); rt = setTimeout(function () { paginate(); render(); }, 200); });
+    var rt; window.addEventListener("resize", function () {
+      if (!document.body.contains(wrap)) return;
+      clearTimeout(rt);
+      rt = setTimeout(function () {
+        // mobile'a küçülünce iki sayfada kalmışsa tek sayfaya zorla (iki sayfa mobilde gizli)
+        if (window.innerWidth < 768 && mode === "spread") {
+          mode = "single"; book.classList.add("dn-single");
+          [].forEach.call(modes.children, function (x) { x.classList.toggle("on", x.dataset.mode === "single"); });
+        }
+        paginate(); render();
+      }, 200);
+    });
 
-    // mobilde varsayılan tek sayfa (tam genişlik, okunur)
-    if (window.innerWidth <= 720) {
+    // mobilde (<768px) varsayılan tek sayfa + gezinme oklarını alt pager'a taşı
+    // (böylece defter yatayda daralmaz; "İki Sayfa" seçeneği CSS ile gizli)
+    if (window.innerWidth < 768) {
       mode = "single"; book.classList.add("dn-single");
       [].forEach.call(modes.children, function (x) { x.classList.toggle("on", x.dataset.mode === "single"); });
+      var pagerEl = wrap.querySelector(".dn-pager");
+      if (pagerEl && prev && next) { pagerEl.insertBefore(prev, pagerEl.firstChild); pagerEl.appendChild(next); }
     }
     // ilk çizim (fontlar yüklendikten sonra ölçüm daha doğru)
     paginate(); render();
