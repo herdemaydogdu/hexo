@@ -115,4 +115,80 @@
       { term: "Kapitülasyon (1535)", def: "Fransa'ya verilen ticari ayrıcalıklar" }
     ]
   );
+
+  setFull("tar-degisim",
+    "<h2>Değişim Çağında Osmanlı</h2>" +
+    "<p>17. ve 18. yüzyıllarda Avrupa; coğrafi keşifler, Rönesans, Reform ve bilim devrimiyle hızla güçlenirken Osmanlı eski düzenini koruyamadı. Bu döneme <b>Duraklama</b> ve ardından <b>Gerileme</b> denir. Devlet artık büyük fetihler yerine <b>toprak kaybını durdurmaya</b> ve <b>Batı'yı örnek alan ilk yeniliklere</b> yöneldi.</p>" +
+
+    "<h3>Duraklamanın Nedenleri</h3>" +
+    "<ul>" +
+    "<li><b>İç nedenler:</b> Merkezî otoritenin zayıflaması, tecrübesiz padişahlar ve taht kavgaları; <b>tımar sisteminin bozulup iltizamın yaygınlaşması</b>; yeniçeri ve kapıkulu isyanları; ilmiye sınıfının ve adaletin bozulması.</li>" +
+    "<li><b>Dış nedenler:</b> Devletin <b>doğal sınırlarına ulaşması</b> ve güçlü Avrupa devletleriyle (Avusturya, Rusya) komşu olması; fetih gelirlerinin azalması.</li>" +
+    "<li><b>Ekonomik nedenler:</b> <b>Coğrafi keşiflerle</b> ticaret yollarının okyanuslara kayması; Avrupa'dan gelen ucuz gümüşün yol açtığı <b>fiyat devrimi (enflasyon)</b>; kapitülasyonların yükü; savaş masraflarının artması.</li>" +
+    "</ul>" +
+
+    "<h3>17. Yüzyıl Savaşları ve Antlaşmaları</h3>" +
+    "<ul>" +
+    "<li><b>Zitvatorok Antlaşması (1606):</b> Avusturya ile imzalandı. Osmanlı, Avusturya arşidükünü <b>protokolde kendine denk</b> saydı ve aldığı yıllık vergiyi kaldırdı. Bu, Osmanlı'nın Avrupa karşısındaki <b>itibar kaybının</b> ilk işaretidir.</li>" +
+    "<li><b>Kasr-ı Şirin Antlaşması (1639):</b> İran (Safeviler) ile imzalandı; Bağdat Osmanlı'da kaldı. Bu antlaşmayla çizilen sınır, büyük ölçüde <b>bugünkü Türkiye-İran sınırıdır</b> ve kalıcı olmuştur.</li>" +
+    "<li><b>Girit'in Fethi:</b> Venedik'e karşı çok uzun süren bir kuşatmayla ada alındı; deniz gücündeki zayıflamayı gösterdi.</li>" +
+    "</ul>" +
+
+    "<h3>İç İsyanlar ve Islahat Çabaları</h3>" +
+    "<p>Bozulmayı durdurmak için bazı padişah ve devlet adamları sert önlemler aldı:</p>" +
+    "<ul>" +
+    "<li><b>II. Osman (Genç Osman):</b> Bozulan <b>yeniçeri ocağını kaldırmak</b> isteyen ilk padişah oldu; bu yüzden bir yeniçeri isyanıyla öldürüldü (padişahın askere öldürülmesi otorite kaybının simgesidir).</li>" +
+    "<li><b>IV. Murad:</b> Sert bir otoriteyle isyanları bastırdı, <b>Bağdat'ı geri aldı</b>; ıslahat için <b>Koçi Bey Risalesi</b>'ni hazırlattı. Bu risale, bozulmanın nedenlerini ve çözümlerini anlatan önemli bir rapordur.</li>" +
+    "<li><b>Köprülüler Dönemi:</b> Köprülü Mehmed Paşa ve oğlu Fazıl Ahmed Paşa gibi sadrazamlar devleti geçici olarak toparladı; ıslahatlar <b>kişilere bağlı</b> kaldığı için kalıcı olmadı.</li>" +
+    "</ul>" +
+    "<p>Bu dönem ıslahatları, sorunları köklü biçimde çözmek yerine eski düzeni <b>onarmaya (şiddet ve baskıyla eski hâle döndürmeye)</b> çalıştığı için yetersiz kaldı.</p>" +
+
+    "<h3>Karlofça ve Batı'nın Üstünlüğü</h3>" +
+    "<p><b>II. Viyana Kuşatması (1683)</b> ağır bir bozgunla sonuçlandı ve Osmanlı'ya karşı <b>Kutsal İttifak</b> (Avusturya, Lehistan, Venedik, Rusya) kuruldu. Uzun savaşların ardından imzalanan <b>Karlofça Antlaşması (1699)</b> bir dönüm noktasıdır:</p>" +
+    "<ul>" +
+    "<li>Osmanlı ilk kez <b>büyük ölçüde toprak kaybetti</b> (Macaristan Avusturya'ya bırakıldı).</li>" +
+    "<li><b>Duraklama sona erdi, Gerileme Dönemi başladı.</b></li>" +
+    "<li>Osmanlı, <b>Batı'nın askerî üstünlüğünü kabul etmek</b> zorunda kaldı; artık savunmaya çekildi.</li>" +
+    "</ul>" +
+
+    "<h3>Lale Devri ve İlk Yenilikler (1718-1730)</h3>" +
+    "<p><b>Pasarofça Antlaşması (1718)</b> ile başlayan barış ortamında, III. Ahmed ve sadrazamı <b>Damat İbrahim Paşa</b> döneminde <b>ilk kez Batı örnek alınarak</b> yenilikler yapıldı:</p>" +
+    "<ul>" +
+    "<li><b>İlk Türk matbaası</b> İbrahim Müteferrika ve Sait Efendi tarafından kuruldu (1727). (Dikkat: matbaa Avrupa'da çok önce icat edildi; bu, ilk <b>Türk-İslam</b> matbaasıdır.)</li>" +
+    "<li>Avrupa'ya <b>ilk geçici elçilikler</b> gönderildi (Yirmisekiz Mehmed Çelebi → Paris); Batı yakından tanınmaya başlandı.</li>" +
+    "<li><b>Çiçek aşısı</b> uygulandı; kâğıt ve kumaş atölyeleri, çini üretimi ve itfaiye (Tulumbacı Ocağı) kuruldu; kütüphaneler açıldı, çok sayıda eser çevrildi.</li>" +
+    "</ul>" +
+    "<p>Zevk ve eğlenceyle de anılan bu dönem, halkın tepkisiyle çıkan <b>Patrona Halil İsyanı (1730)</b> ile sona erdi. Yine de Lale Devri, Osmanlı <b>Batılılaşmasının başlangıcı</b> sayılır.</p>" +
+
+    "<h3>18. Yüzyılda Toprak Kayıpları</h3>" +
+    "<ul>" +
+    "<li><b>Prut Savaşı (1711):</b> Rusya'ya karşı kazanıldı, kısa süreli bir başarı oldu.</li>" +
+    "<li><b>Küçük Kaynarca Antlaşması (1774):</b> Rusya'ya karşı imzalanan <b>en ağır antlaşmalardan biridir</b>. <b>Kırım'a 'bağımsızlık' verildi</b> (bu, Kırım'ın Rusya'ya kaptırılmasının yolunu açtı); Rusya, Osmanlı topraklarındaki <b>Ortodoksların koruyuculuğunu</b> bahane etme hakkı ve kapitülasyon elde etti.</li>" +
+    "<li><b>Kırım'ın Kaybı (1783):</b> Rusya Kırım'ı ilhak etti; bu, kaybedilen <b>ilk Müslüman-Türk toprağı</b> olması bakımından çok sarsıcıdır.</li>" +
+    "</ul>" +
+    "<p>18. yüzyıl sonunda Osmanlı, sorunların yalnızca eski düzeni onararak çözülemeyeceğini anladı; bu anlayış, <b>Batı tarzı köklü modernleşme</b> (III. Selim'in Nizam-ı Cedid'i ve sonrası) için zemin hazırladı.</p>",
+
+    [
+      "Osmanlı'da duraklamanın iç, dış ve ekonomik nedenlerini açıklar.",
+      "17. yüzyıl savaşlarını ve antlaşmalarını (Zitvatorok, Kasr-ı Şirin, Karlofça) değerlendirir.",
+      "Duraklama dönemi ıslahatçılarını ve çabalarının neden yetersiz kaldığını kavrar.",
+      "Lale Devri'ndeki ilk Batı tarzı yenilikleri sıralar.",
+      "18. yüzyıldaki toprak kayıplarının (özellikle Küçük Kaynarca ve Kırım) sonuçlarını değerlendirir."
+    ],
+    [
+      "Zitvatorok'u Osmanlı lehine sanmak — aslında itibar kaybının işaretidir (Avusturya denk sayıldı).",
+      "Karlofça'yı sıradan bir antlaşma sanmak — Duraklama'dan Gerileme'ye geçişi ve ilk büyük toprak kaybını simgeler.",
+      "Lale Devri'ni yalnızca eğlence dönemi sanmak — ilk ciddi Batılılaşma ve yenilikler bu dönemdedir.",
+      "Matbaayı 'Türkler ilk kez icat/kullandı' sanmak — Müteferrika ilk Türk-İslam matbaasını kurdu, matbaa çok daha eskidir.",
+      "Küçük Kaynarca'nın ağırlığını atlamak — Kırım ve Rusya'nın Ortodoksları koruma bahanesi çok önemlidir."
+    ],
+    [
+      { term: "Zitvatorok (1606)", def: "Avusturya ile; Osmanlı itibar kaybı" },
+      { term: "Kasr-ı Şirin (1639)", def: "İran; bugünkü Türkiye-İran sınırı" },
+      { term: "Karlofça (1699)", def: "İlk büyük toprak kaybı; Gerileme başladı" },
+      { term: "Lale Devri (1718-1730)", def: "İlk Batı tarzı yenilikler, matbaa" },
+      { term: "Küçük Kaynarca (1774)", def: "Rusya; Kırım'a bağımsızlık" },
+      { term: "Müteferrika (1727)", def: "İlk Türk-İslam matbaası" }
+    ]
+  );
 })();
