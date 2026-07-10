@@ -191,4 +191,82 @@
       { term: "Müteferrika (1727)", def: "İlk Türk-İslam matbaası" }
     ]
   );
+
+  setFull("tar-modern",
+    "<h2>19. Yüzyıl Osmanlı Modernleşmesi</h2>" +
+    "<p>19. yüzyıl, Osmanlı'nın <b>ayakta kalmak için köklü ve Batılı reformlar</b> yaptığı çağdır. Bu yüzyılda devlet; ordusunu, yönetimini, hukukunu ve eğitimini yeniden düzenledi. Reformlar tek tek kişilerin değil, artık <b>devletin kurumsal politikası</b> hâline geldi. Bu döneme 'En Uzun Yüzyıl' da denir.</p>" +
+
+    "<h3>III. Selim ve Nizam-ı Cedid</h3>" +
+    "<p><b>III. Selim</b>, Batı tarzı ilk ciddi düzeni kurdu. <b>Nizam-ı Cedid</b> (Yeni Düzen) adıyla Avrupa usulünde eğitilen yeni bir ordu oluşturdu; masraflarını karşılamak için <b>İrad-ı Cedid</b> hazinesini kurdu ve Avrupa'da <b>ilk daimî elçilikleri</b> açtı. Ancak yenilikçiliğe karşı çıkan <b>Kabakçı Mustafa İsyanı (1807)</b> ile tahttan indirildi; Nizam-ı Cedid dağıtıldı.</p>" +
+
+    "<h3>Sened-i İttifak (1808)</h3>" +
+    "<p>Alemdar Mustafa Paşa'nın araya girmesiyle <b>II. Mahmud</b> ile taşradaki güçlü <b>ayanlar</b> arasında imzalandı. Ayanlar padişahın otoritesini tanırken, padişah da onların varlığını kabul etti. Bu belge, <b>Osmanlı'da padişahın yetkisini ilk kez sınırlayan</b> yazılı metindir (İngiltere'deki Magna Carta ile benzetilir). <b>(Dikkat: Sened-i İttifak padişahı güçlendirmez, sınırlar.)</b></p>" +
+
+    "<h3>II. Mahmud'un Reformları (1808-1839)</h3>" +
+    "<p>II. Mahmud, merkezî otoriteyi güçlendirmek için köklü değişiklikler yaptı:</p>" +
+    "<ul>" +
+    "<li><b>Vaka-i Hayriye (1826):</b> Bozulmuş <b>Yeniçeri Ocağı kaldırıldı</b>; yerine <b>Asakir-i Mansure-i Muhammediye</b> adlı modern ordu kuruldu. Bu, reformların önündeki en büyük engelin kalkması demekti.</li>" +
+    "<li><b>Merkezîleşme:</b> Ayanların gücü kırıldı, <b>tımar sistemi kaldırıldı</b>, <b>müsadere</b> (mala el koyma) usulü sona erdi.</li>" +
+    "<li><b>Yönetim:</b> Divan kaldırılıp Avrupa tarzı <b>nazırlıklar (bakanlıklar)</b> kuruldu.</li>" +
+    "<li><b>İlkler:</b> İlk resmî gazete <b>Takvim-i Vekayi</b> çıkarıldı; ilk <b>nüfus sayımı</b> (askerî amaçlı) yapıldı; posta ve karantina örgütü kuruldu.</li>" +
+    "<li><b>Eğitim ve kılık:</b> Mekteb-i Tıbbiye ve Harbiye açıldı, Avrupa'ya öğrenci gönderildi; memurlara fes ve pantolon zorunlu kılındı.</li>" +
+    "</ul>" +
+    "<p>Bu dönemde <b>Yunan İsyanı</b> bağımsızlıkla sonuçlandı (1829 Edirne Antlaşması) ve Mısır Valisi <b>Mehmed Ali Paşa'nın isyanı</b> devleti Rusya'ya yaklaştırdı (Hünkâr İskelesi Antlaşması, 1833 — Boğazlar meselesi).</p>" +
+
+    "<h3>Tanzimat Fermanı (1839)</h3>" +
+    "<p><b>Mustafa Reşid Paşa</b> tarafından ilan edilen <b>Gülhane Hattı Hümayunu</b>, Osmanlı modernleşmesinin resmî dönüm noktasıdır:</p>" +
+    "<ul>" +
+    "<li>Herkesin <b>can, mal ve namus güvenliği</b> devlet güvencesine alındı.</li>" +
+    "<li><b>Kanun önünde eşitlik</b> ve <b>vergi adaleti</b> ilkeleri benimsendi; yargısız ceza kaldırıldı.</li>" +
+    "<li>İlk kez padişah, <b>kendi yetkisini kanunla sınırladığını</b> ilan etti; bu, <b>hukuk devletine</b> geçişin ilk adımıdır.</li>" +
+    "</ul>" +
+
+    "<h3>Islahat Fermanı (1856)</h3>" +
+    "<p>Kırım Savaşı sonrası, Avrupa devletlerinin de baskısıyla ilan edildi. Tanzimat'ı tamamlayan bu ferman özellikle <b>gayrimüslimlere tam eşitlik</b> getirdi:</p>" +
+    "<ul>" +
+    "<li>Gayrimüslimler <b>devlet memuru</b> ve <b>asker</b> olabilecek (ya da bedel ödeyecek), <b>okul ve mahkeme</b> açabilecekti.</li>" +
+    "<li>Din ve mezhep serbestliği güvence altına alındı; aşağılayıcı ifadeler yasaklandı.</li>" +
+    "<li>Ferman, Avrupa'nın Osmanlı <b>içişlerine karışmasını</b> artırdı; Müslüman halkta ise tepki doğurdu.</li>" +
+    "</ul>" +
+    "<p><b>Tanzimat herkese</b> yönelik genel bir güvenceyken, <b>Islahat özellikle gayrimüslim eşitliğine</b> odaklanır — sınavda en çok karıştırılan noktadır.</p>" +
+
+    "<h3>Meşrutiyet ve İlk Anayasa</h3>" +
+    "<ul>" +
+    "<li><b>I. Meşrutiyet (1876):</b> Genç Osmanlılar ve <b>Mithat Paşa</b>'nın çabasıyla <b>II. Abdülhamid</b> ilk anayasa <b>Kanun-i Esasi</b>'yi ilan etti; <b>Meclis-i Mebusan</b> açıldı. Böylece halk ilk kez yönetime (kısmen) katıldı. Ancak 1877-78 Osmanlı-Rus Savaşı (93 Harbi) bahane edilerek meclis kapatıldı (<b>İstibdat Dönemi</b>).</li>" +
+    "<li><b>II. Meşrutiyet (1908):</b> <b>İttihat ve Terakki</b>'nin baskısıyla anayasa yeniden yürürlüğe girdi; padişahın yetkileri daha da kısıtlandı. Buna karşı çıkan <b>31 Mart Olayı (1909)</b> bastırıldı ve II. Abdülhamid tahttan indirildi.</li>" +
+    "</ul>" +
+
+    "<h3>Devleti Kurtarma Reçeteleri: Fikir Akımları</h3>" +
+    "<p>Dağılmayı önlemek için farklı çözümler savunuldu:</p>" +
+    "<ul>" +
+    "<li><b>Osmanlıcılık:</b> Din ve milliyet farkı gözetmeden herkesi 'Osmanlı' üst kimliğinde birleştirmek.</li>" +
+    "<li><b>İslamcılık (Ümmetçilik):</b> Bütün Müslümanları halife etrafında toplamak.</li>" +
+    "<li><b>Türkçülük:</b> Türk milletini ve kültürünü esas alarak birliği sağlamak.</li>" +
+    "<li><b>Batıcılık:</b> Kurtuluşu Batı'nın bilim, teknik ve kurumlarını almakta görmek.</li>" +
+    "</ul>" +
+    "<p>Balkan Savaşları'yla Osmanlıcılık, I. Dünya Savaşı'yla İslamcılık zayıfladı; öne çıkan <b>Türkçülük</b>, ileride Millî Mücadele ve Cumhuriyet'in fikrî temeli oldu.</p>",
+
+    [
+      "19. yüzyıl Osmanlı modernleşmesinin aşamalarını (III. Selim, II. Mahmud, Tanzimat) sıralar.",
+      "II. Mahmud'un merkezîleşme ve reform çabalarını açıklar.",
+      "Tanzimat ve Islahat fermanlarının kapsam farkını ayırt eder.",
+      "Meşrutiyet'in ve ilk anayasa Kanun-i Esasi'nin önemini kavrar.",
+      "Devleti dağılmaktan kurtarmaya yönelik fikir akımlarını tanır."
+    ],
+    [
+      "Tanzimat ile Islahat fermanlarını karıştırmak — Tanzimat (1839) herkese, Islahat (1856) özellikle gayrimüslim eşitliğine yöneliktir.",
+      "Sened-i İttifak'ı padişahı güçlendiren belge sanmak — tersine padişah yetkisini sınırlayan ilk metindir.",
+      "Yeniçeri Ocağı'nı III. Selim kaldırdı sanmak — II. Mahmud, Vaka-i Hayriye (1826).",
+      "İlk anayasayı Tanzimat sanmak — ilk anayasa Kanun-i Esasi'dir (1876, I. Meşrutiyet).",
+      "Nizam-ı Cedid'i II. Mahmud'a atfetmek — III. Selim'in ordusudur."
+    ],
+    [
+      { term: "Nizam-ı Cedid", def: "III. Selim; Batı tarzı yeni ordu" },
+      { term: "Sened-i İttifak (1808)", def: "Padişah yetkisini sınırlayan ilk belge" },
+      { term: "Vaka-i Hayriye (1826)", def: "Yeniçeri Ocağı kaldırıldı (II. Mahmud)" },
+      { term: "Tanzimat Fermanı (1839)", def: "Kanun önünde eşitlik; hukuk devleti" },
+      { term: "Islahat Fermanı (1856)", def: "Gayrimüslimlere tam eşitlik" },
+      { term: "Kanun-i Esasi (1876)", def: "İlk anayasa; I. Meşrutiyet" }
+    ]
+  );
 })();
