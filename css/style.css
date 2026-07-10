@@ -1354,3 +1354,30 @@ body {
   .konu-nav { flex-direction: column; }
   .konu-nav-btn.next { text-align: left; align-items: flex-start; }
 }
+
+/* ============================================================
+   MOBİL DÜZELTMELERİ (2026-07-10) — dosya sonunda: cascade'i kazanır.
+   Neden: 1) body'de üç kez tanımlı background-attachment:fixed (biri
+   !important) iOS Safari/Android'de kaydırmayı dondurur, ağır repaint
+   yapar → site "kullanılamaz" hissi verir. 2) Yatay taşan bir öğe
+   layout viewport'u genişletip zoom-out'a ve kayık dokunma hedeflerine
+   yol açabilir.
+   ============================================================ */
+/* Yatay taşma kilidi (body'de zaten var; html'e de ekle) */
+html { overflow-x: hidden; }
+
+@media (max-width: 900px) {
+  /* Sabit arka planı normal akışa al: mobilde kaydırma kilidini çözer.
+     Sonraki !important olduğu için 1274. satırdaki !important'i ezer. */
+  html, body { background-attachment: scroll !important; }
+  /* Adres çubuğu yüksekliği zıplamasını azalt; destekleyen tarayıcıda
+     100svh, desteklemeyen tarayıcıda üstteki 100vh kuralı geçerli kalır */
+  .app-shell, .main-wrap { min-height: 100svh; }
+  /* Çentikli telefonlarda üst barı güvenli alandan içeri al */
+  .appbar {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  /* Geniş tabloyu (min-width:620px) taşırmadan kaydırılabilir yap */
+  .panel:has(.stat-table) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}

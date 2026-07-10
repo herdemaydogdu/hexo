@@ -269,4 +269,66 @@
       { term: "Kanun-i Esasi (1876)", def: "İlk anayasa; I. Meşrutiyet" }
     ]
   );
+
+  setFull("tar-20yy",
+    "<h2>20. Yüzyıl Başlarında Osmanlı</h2>" +
+    "<p>20. yüzyılın başında Osmanlı, arka arkaya gelen savaşlarla hızla toprak kaybetti. <b>Trablusgarp</b>, <b>Balkan Savaşları</b> ve <b>I. Dünya Savaşı</b>, devleti yıkımın eşiğine getirdi ve <b>Millî Mücadele'ye</b> giden yolu açtı.</p>" +
+
+    "<h3>Trablusgarp Savaşı (1911-1912)</h3>" +
+    "<p>Sömürge arayan <b>İtalya</b>, Osmanlı'nın Kuzey Afrika'daki son toprağı <b>Trablusgarp</b>'a saldırdı. Osmanlı donanması zayıf, kara bağlantısı (Mısır) İngiliz denetiminde olduğu için bölgeye düzenli ordu gönderilemedi; <b>Mustafa Kemal ve Enver</b> gibi gönüllü subaylar yerel halkı örgütleyerek direndi.</p>" +
+    "<p><b>Balkan Savaşı</b> patlak verince Osmanlı barışa mecbur kaldı: <b>Uşi (Ouchy) Antlaşması (1912)</b> ile Trablusgarp ve Bingazi İtalya'ya bırakıldı; <b>Oniki Ada</b> geçici olarak İtalya'ya verildi ama geri alınamadı. Böylece <b>Kuzey Afrika'daki Osmanlı varlığı sona erdi</b>. (Dikkat: Trablusgarp İngiltere'yle değil İtalya'yladır.)</p>" +
+
+    "<h3>Balkan Savaşları (1912-1913)</h3>" +
+    "<ul>" +
+    "<li><b>I. Balkan Savaşı:</b> <b>Karadağ, Sırbistan, Bulgaristan ve Yunanistan</b> birleşip Osmanlı'ya saldırdı. Osmanlı ağır yenildi; <b>Edirne dahil</b> neredeyse tüm Balkan toprakları kaybedildi. <b>Arnavutluk bağımsızlığını ilan etti</b> (Osmanlı'dan ayrılan son Balkan devleti). <b>Londra Antlaşması (1913)</b> ile Midye-Enez çizgisi sınır oldu.</li>" +
+    "<li><b>II. Balkan Savaşı:</b> Galip devletler ganimet paylaşımında anlaşamadı; Bulgaristan'a karşı diğerleri birleşti. Bu karışıklıktan yararlanan Osmanlı, <b>Edirne ve Kırklareli'yi geri aldı</b>. Bulgaristan ile <b>İstanbul</b>, Yunanistan ile <b>Atina</b> antlaşmaları imzalandı (Batı Trakya ve azınlık hakları).</li>" +
+    "</ul>" +
+    "<p>Sonuç: Balkanlar tümüyle kaybedildi, büyük göçler yaşandı; <b>Osmanlıcılık fikri iflas etti</b>, <b>Türkçülük</b> güçlendi.</p>" +
+
+    "<h3>I. Dünya Savaşı: Nedenleri ve Osmanlı'nın Girişi</h3>" +
+    "<p>Sömürge, hammadde ve pazar rekabeti, silahlanma yarışı ve bloklaşma savaşı kaçınılmaz kıldı. Taraflar: <b>İtilaf Devletleri</b> (İngiltere, Fransa, Rusya) ve <b>İttifak Devletleri</b> (Almanya, Avusturya-Macaristan). Fitili <b>Saraybosna suikastı (1914)</b> ateşledi.</p>" +
+    "<p>Osmanlı, <b>Almanya'nın yanında</b> savaşa girdi. Amaç; kaybedilen toprakları geri almak, kapitülasyonlardan kurtulmak ve İngiltere-Rusya baskısına son vermekti. Almanya'dan gelip Osmanlı'ya sığınan <b>Goeben ve Breslau</b> (Yavuz ve Midilli) gemilerinin Rus limanlarını bombalamasıyla Osmanlı <b>fiilen savaşa girdi</b>.</p>" +
+
+    "<h3>Osmanlı'nın Savaştığı Cepheler</h3>" +
+    "<ul>" +
+    "<li><b>Kafkas Cephesi:</b> <b>Sarıkamış Harekâtı (1914-1915)</b>, Enver Paşa'nın planıyla Rusya'ya karşı açıldı; kış şartlarında <b>ağır kayıplar</b> verildi (taarruz cephesi).</li>" +
+    "<li><b>Çanakkale Cephesi (1915):</b> İtilaf donanması İstanbul'u ve Boğazları geçemedi; karaya çıkan kuvvetler <b>Mustafa Kemal</b>'in başarısıyla (Conkbayırı-Anafartalar) durduruldu. Sonuçları büyüktür: İstanbul kurtuldu, savaş uzadı, <b>Rusya'ya yardım engellendi</b> (bu, Rus Devrimi'ni kolaylaştırdı) ve Mustafa Kemal ün kazandı. <b>(Çanakkale bir savunma zaferidir.)</b></li>" +
+    "<li><b>Irak Cephesi:</b> <b>Kut'ül Amare</b>'de İngilizlere karşı önemli bir zafer kazanıldı; ancak sonradan Bağdat düştü.</li>" +
+    "<li><b>Kanal (Süveyş) Cephesi:</b> İngiltere'yi Mısır'dan atmak için açıldı, <b>başarısız</b> oldu (taarruz).</li>" +
+    "<li><b>Diğer cepheler:</b> Filistin-Suriye, Hicaz-Yemen (savunma) ile Galiçya, Romanya, Makedonya (müttefiklere yardım) cepheleri.</li>" +
+    "</ul>" +
+    "<p>Savaş sırasında, isyan ve güvenlik gerekçesiyle çıkarılan <b>Sevk ve İskân (Tehcir) Kanunu (1915)</b> ile Doğu Anadolu'daki Ermeniler Suriye yönüne göç ettirildi.</p>" +
+
+    "<h3>Savaşın Sonu ve Mondros Ateşkesi</h3>" +
+    "<p>Rusya, <b>Bolşevik Devrimi</b> ile savaştan çekildi (1917-1918) ve gizli paylaşım antlaşmalarını açıkladı; ancak ABD'nin İtilaf yanında girmesiyle denge değişti ve <b>İttifak Devletleri yenildi</b>. Osmanlı, <b>Mondros Ateşkes Antlaşması'nı (30 Ekim 1918)</b> imzaladı:</p>" +
+    "<ul>" +
+    "<li>Ordular terhis edildi, silah ve donanıma el konuldu; ulaşım-haberleşme İtilaf denetimine geçti.</li>" +
+    "<li><b>7. madde:</b> İtilaf Devletleri, güvenliklerini tehdit gören yerleri <b>işgal edebilecekti</b> — işgallerin hukuki dayanağı yapıldı.</li>" +
+    "<li><b>24. madde:</b> Doğu'daki altı ilde (Vilayat-ı Sitte) karışıklık çıkarsa buralar işgal edilebilecekti (Ermeni devleti amacı).</li>" +
+    "</ul>" +
+    "<p>Mondros'la Osmanlı <b>fiilen sona erdi</b>; başlayan işgaller, Anadolu'da <b>Millî Mücadele'yi</b> ateşledi.</p>",
+
+    [
+      "Trablusgarp ve Balkan savaşlarının nedenlerini ve sonuçlarını açıklar.",
+      "I. Dünya Savaşı'nın çıkış nedenlerini ve Osmanlı'nın savaşa giriş amaçlarını kavrar.",
+      "Osmanlı'nın savaştığı cepheleri ve Çanakkale Cephesi'nin önemini değerlendirir.",
+      "Mondros Ateşkesi'nin maddelerini ve işgallere zemin hazırlamasını açıklar.",
+      "Dönemin toprak kayıplarını Millî Mücadele ile ilişkilendirir."
+    ],
+    [
+      "Trablusgarp'ı İngiltere ile sanmak — savaş İtalya iledir.",
+      "Arnavutluk'un bağımsızlığını atlamak — I. Balkan Savaşı'nda ayrılan son Balkan devletidir.",
+      "Çanakkale'yi kayıp/yenilgi sanmak — İtilaf geçemedi, bir savunma zaferidir.",
+      "Osmanlı'nın savaşa 'kendi ilanıyla' girdiğini sanmak — Goeben-Breslau'nun Rus limanlarını bombalamasıyla fiilen girildi.",
+      "Sarıkamış ve Kanal'ı savunma cephesi sanmak — ikisi de taarruz (saldırı) cephesidir ve başarısız oldu."
+    ],
+    [
+      { term: "Trablusgarp (1911)", def: "İtalya; Uşi Antlaşması, Kuzey Afrika kaybı" },
+      { term: "I. Balkan Savaşı", def: "Edirne kaybı; Arnavutluk bağımsız oldu" },
+      { term: "II. Balkan Savaşı", def: "Edirne ve Kırklareli geri alındı" },
+      { term: "Sarıkamış (1914-15)", def: "Kafkas Cephesi; ağır kayıp" },
+      { term: "Çanakkale (1915)", def: "İtilaf geçemedi; M. Kemal ün kazandı" },
+      { term: "Mondros (1918)", def: "Fiilî teslim; işgallerin zemini" }
+    ]
+  );
 })();
