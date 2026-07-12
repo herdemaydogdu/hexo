@@ -1,9 +1,9 @@
 /* ============================================================
    SOSYAL / FELSEFE — DERİN konu anlatımı + yeni ünite tanımları.
    Felsefenin 7 branşı: Bilgi, Varlık, Bilim, Ahlak, Sanat, Din, Siyaset.
+   Ayrıca "Felsefe ile Düşünme" (akıl yürütme/argüman) ünitesi.
    fel-bilgi zaten sosyal-pilot.js'te tanımlı (content'i korunur).
-   Bu dosya 6 yeni branş ünitesini (varlik/bilim/ahlak/sanat/din/siyaset)
-   tanımlar ve dolu içerik verir. Stub'lardan SONRA yüklenir. Tümü özgündür.
+   Stub'lardan SONRA yüklenir. Tümü özgündür.
    ============================================================ */
 (function () {
   if (typeof TYT_CONTENT === "undefined") { console.error("sosyal-konu-felsefe: content-loader yüklenmedi"); return; }
@@ -22,6 +22,34 @@
     u.content = content; u.reviewedAt = "2026-07-11"; u.reviewStatus = "draft"; u.originalityStatement = true;
     TYT_CONTENT.upsertUnits("sosyal", [u]);
   }
+
+  /* =============== fel-dusunme =============== */
+  setUnit("fel-dusunme", "Felsefe ile Düşünme", "Felsefi düşünmenin özellikleri, akıl yürütme türleri, argüman ve tutarlılık.",
+    "<h2>Felsefe ile Düşünme</h2>" +
+    "<p>Felsefe bir <b>düşünme biçimi</b>dir. Felsefi düşünme; <b>sorgulayıcı, akla dayalı, tutarlı, eleştirel, refleksif (kendi üzerine dönük), sistemli ve evrensel</b> olmasıyla gündelik düşünmeden ayrılır.</p>" +
+
+    "<h3>Felsefi soru</h3>" +
+    "<p>Felsefi sorunun <b>kesin ve tek bir cevabı yoktur</b>; sürekli sorgulanabilir. \"Zaman gerçek midir?\", \"Adalet nedir?\" gibi sorular gözlemle kesin biçimde yanıtlanamaz; kavramsaldır. Bu yönüyle bilimsel ya da gündelik sorudan ayrılır.</p>" +
+
+    "<h3>Akıl yürütme türleri</h3>" +
+    "<ul>" +
+    "<li><b>Tümdengelim:</b> Genelden özele gider; öncüller doğruysa sonuç <b>zorunlu (kesin)</b>dir. (\"Bütün insanlar ölümlüdür; Sokrates insandır; öyleyse Sokrates ölümlüdür.\")</li>" +
+    "<li><b>Tümevarım:</b> Tek tek durumlardan genele gider; sonuç <b>olası (muhtemel)</b>dir. Tek bir karşı örnek genellemeyi çürütebilir.</li>" +
+    "<li><b>Analoji (benzeşim):</b> İki şey arasındaki benzerlikten sonuç çıkarır; benzerlik yüzeysel olduğunda zayıflar.</li>" +
+    "</ul>" +
+
+    "<h3>Argüman: öncül ve sonuç</h3>" +
+    "<p>Bir argüman, sonucu destekleyen <b>öncüller</b> ile bir <b>sonuç</b>tan oluşur. <b>Geçerlilik</b> biçimseldir: öncüller doğruysa sonuç zorunlu olarak çıkar. <b>Doğruluk</b> ise içeriğe ilişkindir. Bir argüman geçerli olsa bile öncülü yanlışsa sonucu yanlış olabilir; yani <b>geçerlilik ≠ doğruluk</b>.</p>" +
+
+    "<h3>Tutarlılık, dil ve çelişmezlik</h3>" +
+    "<p>Düşünce kendi içinde <b>çelişki barındırmamalı</b>dır (çelişmezlik ilkesi): Bir önerme aynı anda hem doğru hem yanlış olamaz. <b>Dil</b>, düşüncenin oluşması ve aktarılmasının temel aracıdır; kavramların belirsiz kullanımı tartışmada karışıklığa yol açar.</p>" +
+
+    "<h3>Sık Yapılan Hatalar</h3>" +
+    "<ul>" +
+    "<li><b>Tümdengelim</b> kesin, <b>tümevarım</b> olası sonuç verir — karıştırma.</li>" +
+    "<li>Bir argümanın <b>geçerli</b> olması, sonucunun <b>doğru</b> olduğunu garanti etmez.</li>" +
+    "<li>Tek bir örnekten genelleme yapmak (aşırı genelleme) hatalı tümevarımdır.</li>" +
+    "</ul>");
 
   /* =============== fel-varlik =============== */
   setUnit("fel-varlik", "Varlık Felsefesi", "Ontoloji ve metafizik; varlığın var olup olmadığı, niceliği ve niteliği.",
