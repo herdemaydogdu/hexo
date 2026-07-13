@@ -1,8 +1,9 @@
 /* ============================================================
-   FEN / KİMYA — TYT konu alanları: yeni ünite + içerik.
-   MEB TYT Kimya: Kimya Bilimi, Atom, Kimyasal Türler Arası Etkileşimler,
-   Maddenin Hâlleri, Temel Kanunlar, Mol, Karışımlar, Asit-Baz, Kimya Her Yerde.
-   branch: "kimya". Stub'lardan SONRA yüklenir. Tümü özgündür.
+   FEN / KİMYA — TYT: 30 ünite + özgün ders notları (MEB TYT Kimya
+   konu özetleri kapsamına göre; metin tamamen özgündür).
+   branch: "kimya", subject: "fen". replaceBranchUnits ile 30 ünitelik
+   resmî sıra kurulur; kim-atom/kim-periyodik/kim-hal id'leri korunur,
+   bu ünitelerin mevcut soru bağları düşmez. reviewStatus:"draft".
    ============================================================ */
 (function () {
   if (typeof TYT_CONTENT === "undefined") { console.error("fen-konu-kimya: content-loader yüklenmedi"); return; }
@@ -14,200 +15,420 @@
     } catch (e) { return null; }
   };
 
-  function setUnit(id, name, summary, content) {
-    var u = mevcut(id) || { id: id, branch: "kimya", prerequisites: [], objectives: [], difficulty: 2, estimatedMinutes: 22 };
-    u.name = name; u.summary = summary; u.branch = "kimya";
-    u.content = content; u.reviewedAt = "2026-07-12"; u.reviewStatus = "draft"; u.originalityStatement = true;
-    TYT_CONTENT.upsertUnits("fen", [u]);
-  }
+  var U = function (id, name, summary, content, objectives, mistakes, pairs) {
+    var u = mevcut(id) || { id: id, prerequisites: [], estimatedMinutes: 22 };
+    u.id = id; u.name = name; u.branch = "kimya"; u.summary = summary;
+    u.content = "<h2>" + name + "</h2>" + content;
+    u.objectives = objectives || []; u.commonMistakes = mistakes || []; u.pairs = pairs || [];
+    u.difficulty = 2; u.reviewedAt = "2026-07-13"; u.reviewStatus = "draft"; u.originalityStatement = true;
+    return u;
+  };
 
-  /* =============== kim-bilim =============== */
-  setUnit("kim-bilim", "Kimya Bilimi", "Simyadan kimyaya, kimyanın alt dalları, sembol ve formüller, laboratuvar güvenliği.",
-    "<h2>Kimya Bilimi</h2>" +
-    "<p><b>Kimya</b>; maddenin yapısını, özelliklerini ve geçirdiği değişimleri inceleyen bilimdir. <b>Simya</b>, kimyanın deneyime dayalı ilk hâlidir; simyacılar altın elde etme ve ölümsüzlük arayışıyla birçok madde ve yöntem keşfetti. Deney ve akla dayalı modern <b>kimya bilimi</b> zamanla simyadan ayrıldı.</p>" +
+  var units = [];
 
-    "<h3>Kimyanın alt dalları</h3>" +
+  /* 1 */ units.push(U("kim-simya", "Simyadan Kimyaya",
+    "Simyanın kimyaya evrimi ve kimyaya katkı sağlayan bilim insanları.",
+    "<p>Simya; maddeyi altına çevirme ve ölümsüzlük iksiri arayışıyla uğraşan, deneme-yanılmaya dayalı, <b>bilimsel yöntemden yoksun</b> bir uğraştı. Yine de damıtma, süzme, kristallendirme gibi teknikleri ve laboratuvar araçlarını kimyaya kazandırdı. <b>Kimya</b> ise maddenin yapısını, özelliklerini ve dönüşümlerini <b>bilimsel yöntemle</b> (gözlem, hipotez, deney, teori) inceler.</p>" +
+    "<h3>Katkı sağlayan bilim insanları</h3>" +
     "<ul>" +
-    "<li><b>Analitik kimya:</b> Maddenin bileşimini niteliksel/niceliksel inceler.</li>" +
-    "<li><b>Organik kimya:</b> Karbon bileşiklerini inceler. <b>Anorganik kimya:</b> Karbon dışı bileşikler.</li>" +
-    "<li><b>Fizikokimya:</b> Fizik ilkeleriyle kimyasal olaylar. <b>Biyokimya:</b> Canlılardaki kimyasal olaylar.</li>" +
+    "<li><b>Câbir bin Hayyan:</b> Deneysel kimyanın öncüsü.</li>" +
+    "<li><b>Antoine Lavoisier:</b> Kütlenin korunumu; modern kimyanın babası.</li>" +
+    "<li><b>John Dalton:</b> Modern atom teorisi.</li>" +
+    "<li><b>Dmitri Mendeleyev:</b> İlk sistemli periyodik tablo.</li>" +
     "</ul>" +
+    "<p>Simya bilimsel yöntem kullanmaz, sonuçları gizli tutar; kimya bilimsel yöntemle çalışır, sonuçlar tekrarlanabilir ve paylaşılır.</p>",
+    ["Simya ile kimyayı ayırt eder.", "Kimyaya katkı sağlayan bilim insanlarını tanır."],
+    ["Simyayı bilimsel kimya sanmak.", "Kütle korunumunu Dalton'a atfetmek (Lavoisier)."],
+    [{ term: "Lavoisier", def: "Kütlenin korunumu, modern kimyanın babası" }, { term: "Câbir bin Hayyan", def: "Deneysel kimyanın öncüsü" }, { term: "Mendeleyev", def: "İlk periyodik tablo" }]));
 
-    "<h3>Sembol ve formül</h3>" +
-    "<p>Her element bir <b>sembol</b>le gösterilir: H (hidrojen), O (oksijen), C (karbon), N (azot), Na (sodyum), Fe (demir), Au (altın), Cl (klor). Bileşikler <b>formül</b>le gösterilir: H₂O (su), CO₂ (karbondioksit), NaCl (yemek tuzu), HCl (hidroklorik asit).</p>" +
-
-    "<h3>Laboratuvar güvenliği</h3>" +
-    "<p>Kaplardaki <b>uyarı sembolleri</b> (yanıcı, aşındırıcı, zehirli, patlayıcı) dikkate alınmalı; kimyasallar koklanmamalı/tadılmamalı, önlük ve gözlük kullanılmalıdır.</p>" +
-
-    "<h3>Sık Yapılan Hatalar</h3>" +
-    "<ul><li><b>Simya</b> deneyime dayalı ilk aşamadır; <b>kimya</b> ise akıl ve deneye dayalı bilimdir.</li>" +
-    "<li>Element <b>sembol</b>, bileşik <b>formül</b>le gösterilir.</li></ul>");
-
-  /* =============== kim-atom =============== */
-  setUnit("kim-atom", "Atom ve Yapısı", "Atom modelleri; proton, nötron, elektron; atom/kütle numarası, izotop ve iyon.",
-    "<h2>Atom ve Yapısı</h2>" +
-    "<h3>Atom modelleri (tarihsel gelişim)</h3>" +
+  /* 2 */ units.push(U("kim-disiplin", "Kimya Disiplinleri ve Çalışma Alanları",
+    "Kimyanın alt dalları ve kimyayla ilgili meslekler.",
+    "<h3>Başlıca kimya disiplinleri</h3>" +
     "<ul>" +
-    "<li><b>Dalton:</b> Atom içi dolu, bölünemez bir küredir.</li>" +
-    "<li><b>Thomson:</b> Üzümlü keke benzer; (+) yük içine gömülü (−) elektronlar.</li>" +
-    "<li><b>Rutherford:</b> Atomun ortasında (+) yüklü <b>çekirdek</b>, çevrede boşluk ve elektronlar.</li>" +
-    "<li><b>Bohr:</b> Elektronlar çekirdek çevresinde belirli <b>enerji katmanlarında</b> dolanır.</li>" +
+    "<li><b>Anorganik kimya:</b> Karbon dışı (metal, mineral) bileşikler.</li>" +
+    "<li><b>Organik kimya:</b> Karbon bileşikleri (C-H).</li>" +
+    "<li><b>Fizikokimya:</b> Kimyasal olayları fizik yasalarıyla açıklar (enerji, hız).</li>" +
+    "<li><b>Analitik kimya:</b> Maddenin cinsini (nitel) ve miktarını (nicel) belirler.</li>" +
+    "<li><b>Biyokimya:</b> Canlılardaki kimyasal olaylar.</li>" +
+    "<li><b>Polimer kimyası:</b> Büyük moleküllü (plastik, kauçuk) maddeler.</li>" +
     "</ul>" +
+    "<h3>Meslekler ve endüstri</h3>" +
+    "<p>Kimyager, kimya mühendisi, eczacı, metalurji mühendisi başlıca alanlardır. <b>Endüstriyel kimya</b> ve <b>petrokimya</b> ham petrolden yakıt, plastik ve gübre üretimini kapsar.</p>",
+    ["Kimya disiplinlerini ayırt eder.", "İlgili meslekleri tanır."],
+    ["Organik-anorganik ayrımını canlı-cansız sanmak (ölçüt karbon)."],
+    [{ term: "Organik kimya", def: "Karbon (C-H) bileşikleri" }, { term: "Analitik kimya", def: "Nitel + nicel analiz" }, { term: "Biyokimya", def: "Canlıdaki kimyasal olaylar" }]));
 
-    "<h3>Atomun temel parçacıkları</h3>" +
+  /* 3 */ units.push(U("kim-sembol", "Kimyanın Sembolik Dili",
+    "Element sembolleri, bileşik formülleri ve katsayı-indis okuma.",
+    "<p>Her elementin bir <b>sembolü</b> vardır: ilk harf büyük, varsa ikincisi küçük (<b>Na, Ca, Cl</b>). Semboller uluslararası adlardan gelir (Na=natrium, Fe=ferrum, K=kalium).</p>" +
+    "<h3>Formül türleri</h3>" +
     "<ul>" +
-    "<li><b>Proton (p):</b> Çekirdekte, (+) yüklü. Sayısı elementin kimliğidir = <b>atom numarası (Z)</b>.</li>" +
-    "<li><b>Nötron (n):</b> Çekirdekte, yüksüz.</li>" +
-    "<li><b>Elektron (e):</b> Çekirdek çevresinde, (−) yüklü. Nötr atomda proton sayısı = elektron sayısı.</li>" +
+    "<li><b>Kaba (basit) formül:</b> Atomların en küçük tam sayılı oranı (CH).</li>" +
+    "<li><b>Molekül formülü:</b> Gerçek atom sayıları (C₆H₆).</li>" +
+    "<li><b>Yapı formülü:</b> Atomların bağlanışı.</li>" +
     "</ul>" +
-    "<p><b>Kütle numarası (A) = proton + nötron.</b> Örnek: Atom numarası 11, kütle numarası 23 olan sodyumda 11 proton, 11 elektron ve 23−11 = 12 nötron vardır.</p>" +
+    "<p>Alt <b>indis</b> atom sayısını, önündeki <b>katsayı</b> molekül/birim sayısını verir. Örn. <b>2H₂O</b>: 2 molekül, toplam 4 H ve 2 O atomu. İyon yükleri sağ üstte yazılır (Na⁺, SO₄²⁻).</p>",
+    ["Sembol ile formülü ayırt eder.", "Formüldeki toplam atom sayısını hesaplar."],
+    ["Katsayı ile indisi karıştırmak.", "İkinci harfi büyük yazmak (CO ≠ Co)."],
+    [{ term: "Kaba formül", def: "En küçük tam sayılı atom oranı" }, { term: "2H₂O", def: "4 H + 2 O atomu" }, { term: "Katsayı", def: "Molekül/birim sayısı" }]));
 
-    "<h3>İzotop ve iyon</h3>" +
+  /* 4 */ units.push(U("kim-guvenlik", "Kimyada İş Sağlığı ve Güvenliği",
+    "Laboratuvar güvenliği, GHS uyarı işaretleri ve güvenli çalışma.",
+    "<p>Laboratuvarda önlük, gözlük ve eldiven kullanılır; koku el ile yelpazelenerek alınır; kimyasallar ağızla pipetlenmez; asit-su seyreltmede daima <b>asit suya</b> yavaşça eklenir.</p>" +
+    "<h3>GHS tehlike işaretleri</h3>" +
     "<ul>" +
-    "<li><b>İzotop:</b> Proton sayısı aynı, nötron (kütle) sayısı farklı atomlar.</li>" +
-    "<li><b>İyon:</b> Elektron alan/veren atom yüklenir. Elektron veren <b>katyon (+)</b>, elektron alan <b>anyon (−)</b> olur.</li>" +
+    "<li><b>Alevlenir:</b> Kolay tutuşan maddeler.</li>" +
+    "<li><b>Aşındırıcı (korozif):</b> Deri/metali aşındıran asit-baz.</li>" +
+    "<li><b>Toksik:</b> Zehirli (kuru kafa sembolü).</li>" +
+    "<li><b>Oksitleyici, patlayıcı, çevreye zararlı</b> sembolleri.</li>" +
     "</ul>" +
+    "<p>Kimyasallar etiketlenir; atıklar lavaboya değil uygun kaplara dökülür. <b>MSDS</b> (güvenlik bilgi formu) maddenin tehlikelerini bildirir.</p>",
+    ["GHS işaretlerini yorumlar.", "Güvenlik kurallarını uygular."],
+    ["Suyu aside eklemek (sıçrama).", "Atıkları lavaboya dökmek."],
+    [{ term: "Aşındırıcı", def: "Asit/baz; deri-metal aşındırır" }, { term: "Seyreltme kuralı", def: "Asit suya eklenir" }, { term: "MSDS", def: "Güvenlik bilgi formu" }]));
 
-    "<h3>Sık Yapılan Hatalar</h3>" +
-    "<ul><li>Element kimliğini <b>proton (atom numarası)</b> belirler; nötron değil.</li>" +
-    "<li>Nötron sayısı = kütle numarası − proton sayısı (A − Z).</li></ul>");
-
-  /* =============== kim-tur =============== */
-  setUnit("kim-tur", "Kimyasal Türler Arası Etkileşimler", "Güçlü etkileşimler (iyonik, kovalent, metalik bağ) ve zayıf etkileşimler.",
-    "<h2>Kimyasal Türler Arası Etkileşimler</h2>" +
-    "<p><b>Kimyasal tür</b>; atom, molekül ya da iyondur. Türler arası etkileşimler <b>güçlü (kimyasal bağlar)</b> ve <b>zayıf etkileşimler</b> olarak ikiye ayrılır.</p>" +
-
-    "<h3>Güçlü etkileşimler (kimyasal bağlar)</h3>" +
+  /* 5 */ units.push(U("kim-model", "Atom Modelleri",
+    "Dalton'dan modern (kuantum) modele atomun tarihsel gelişimi.",
     "<ul>" +
-    "<li><b>İyonik bağ:</b> <b>Metal + ametal</b> arasında elektron <b>alışverişiyle</b> oluşur (ör. NaCl). Metal elektron verir (katyon), ametal alır (anyon); zıt iyonlar çekilir.</li>" +
-    "<li><b>Kovalent bağ:</b> <b>Ametal + ametal</b> arasında elektronların <b>ortaklaşa</b> kullanılmasıyla oluşur (ör. H₂O, CO₂). Elektronlar eşit paylaşılırsa apolar, farklı çekilirse polar kovalent olur.</li>" +
-    "<li><b>Metalik bağ:</b> Metal atomları arasında, ortak <b>elektron denizi</b> ile oluşur; metallerin iletkenliğini açıklar.</li>" +
+    "<li><b>Dalton:</b> Atom bölünemez, içi dolu berk küre.</li>" +
+    "<li><b>Thomson:</b> Üzümlü kek — pozitif hamur içinde gömülü elektronlar; <b>elektronu</b> (katot ışınları) buldu.</li>" +
+    "<li><b>Rutherford:</b> Merkezde küçük, pozitif, kütlenin çoğunu taşıyan <b>çekirdek</b>; çevre boşluk (altın levha deneyi).</li>" +
+    "<li><b>Bohr:</b> Elektronlar belirli enerjili <b>kararlı yörüngelerde</b> dolanır.</li>" +
+    "<li><b>Modern (kuantum):</b> Elektronun yeri kesin bilinmez; yalnızca bulunma olasılığı yüksek <b>orbitaller</b> tanımlanır.</li>" +
     "</ul>" +
+    "<p>Model gelişimi bilimin birikimli ve düzeltilebilir olduğunu gösterir; her model bir öncekinin eksiğini tamamlar.</p>",
+    ["Atom modellerini sırayla açıklar.", "Her modelin katkısını belirtir."],
+    ["Çekirdeği Thomson'a atfetmek (Rutherford).", "Bohr yörüngesi ile orbitali karıştırmak."],
+    [{ term: "Thomson", def: "Elektron; üzümlü kek" }, { term: "Rutherford", def: "Çekirdek; altın levha" }, { term: "Bohr", def: "Kararlı enerji yörüngeleri" }]));
 
-    "<h3>Zayıf etkileşimler</h3>" +
+  /* 6 */ units.push(U("kim-atom", "Atomun Yapısı",
+    "Proton, nötron, elektron; atom/kütle numarası, izotop-izobar-izoton ve iyonlar.",
+    "<p>Atom; merkezde <b>çekirdek</b> (proton p⁺ + nötron n⁰) ve çevresinde <b>elektronlar</b> (e⁻) içerir. Proton +, elektron −, nötron yüksüzdür.</p>" +
+    "<h3>Temel tanımlar</h3>" +
     "<ul>" +
-    "<li><b>Van der Waals kuvvetleri:</b> Moleküller arası zayıf çekimler.</li>" +
-    "<li><b>Hidrojen bağı:</b> H atomunun <b>F, O, N</b> gibi elektronegatif atomlara bağlı olduğu moleküller arasında görülen, van der Waals'tan güçlü bir zayıf etkileşim (suyun yüksek kaynama noktasının nedeni).</li>" +
+    "<li><b>Atom numarası (Z)</b> = proton sayısı; elementi belirler.</li>" +
+    "<li><b>Kütle numarası (A)</b> = proton + nötron.</li>" +
+    "<li>Nötr atomda <b>proton = elektron</b>.</li>" +
+    "<li><b>İyon:</b> e⁻ alırsa anyon (−), verirse katyon (+).</li>" +
     "</ul>" +
+    "<h3>Türler</h3>" +
+    "<p><b>İzotop:</b> p aynı, n farklı. <b>İzobar:</b> A aynı. <b>İzoton:</b> n aynı. <b>İzoelektronik:</b> e⁻ sayısı aynı. Örn. ₁₁²³Na: 11 p, 11 e, 12 n.</p>",
+    ["Z ve A'dan p, n, e bulur.", "İzotop-izobar-izoton-izoelektronik ayırır."],
+    ["Katyonda e⁻ = p almak.", "n = A−Z bulmayı unutmak."],
+    [{ term: "Z", def: "Proton sayısı" }, { term: "A", def: "p + n" }, { term: "İzotop", def: "p aynı, n farklı" }]));
 
-    "<h3>Sık Yapılan Hatalar</h3>" +
-    "<ul><li><b>İyonik bağ</b> metal-ametal (elektron alışverişi); <b>kovalent bağ</b> ametal-ametal (elektron ortaklığı) — karıştırma.</li>" +
-    "<li>Hidrojen bağı bir <b>molekül içi kovalent bağ değil</b>, moleküller arası zayıf etkileşimdir.</li></ul>");
-
-  /* =============== kim-hal =============== */
-  setUnit("kim-hal", "Maddenin Hâlleri ve Hâl Değişimi", "Katı, sıvı, gaz hâlleri; tanecik düzeni ve hâl değişimleri.",
-    "<h2>Maddenin Hâlleri ve Hâl Değişimi</h2>" +
-    "<h3>Maddenin hâlleri</h3>" +
+  /* 7 */ units.push(U("kim-yerlesim", "Periyodik Sistemde Yerleşim Esasları",
+    "Elektron dizilimi ile periyot ve grup belirleme.",
+    "<p>Elementler artan <b>atom numarasına</b> göre sıralanır. Elektronlar enerji katmanlarına dizilir; son katman <b>değerlik (valans)</b> elektronlarıdır.</p>" +
+    "<h3>Yer bulma</h3>" +
     "<ul>" +
-    "<li><b>Katı:</b> Tanecikler düzenli ve sıkı; belirli şekil ve hacim.</li>" +
-    "<li><b>Sıvı:</b> Tanecikler daha hareketli; belirli hacim, kabın şekli.</li>" +
-    "<li><b>Gaz:</b> Tanecikler çok hareketli ve dağınık; belirli şekil ve hacim yok, kabı doldurur.</li>" +
+    "<li><b>Periyot no</b> = katman (kabuk) sayısı. 7 periyot vardır.</li>" +
+    "<li><b>A grubu no</b> = değerlik elektron sayısı.</li>" +
     "</ul>" +
-    "<p>Katıdan gaza gidildikçe tanecikler arası <b>boşluk ve hareketlilik artar</b>, düzen azalır.</p>" +
+    "<p>Örn. ₁₁Na: 2)8)1 → 3. periyot, 1A. ₁₇Cl: 2)8)7 → 3. periyot, 7A. Baş gruplar (A) ve geçiş metalleri (B) tabloyu oluşturur.</p>",
+    ["Dizilimden periyot ve grubu bulur.", "Değerlik elektronunu belirler."],
+    ["Periyot ile grubu ters almak.", "B grubuna A kuralı uygulamak."],
+    [{ term: "Periyot", def: "Katman sayısı" }, { term: "A grup no", def: "Değerlik e⁻ sayısı" }, { term: "₁₁Na", def: "3. periyot 1A" }]));
 
-    "<h3>Hâl değişimleri</h3>" +
+  /* 8 */ units.push(U("kim-siniflama", "Elementlerin Sınıflandırılması",
+    "Metal, ametal, yarı metal, soy gaz ve grup adları.",
     "<ul>" +
-    "<li><b>Erime:</b> Katı → sıvı. <b>Donma:</b> Sıvı → katı.</li>" +
-    "<li><b>Buharlaşma:</b> Sıvı → gaz. <b>Yoğuşma (yoğunlaşma):</b> Gaz → sıvı.</li>" +
-    "<li><b>Süblimleşme:</b> Katı → gaz (doğrudan). <b>Kırağılaşma (geri süblimleşme):</b> Gaz → katı.</li>" +
+    "<li><b>Metaller:</b> Elektron verir (katyon), parlak, ısı-elektrik iletir, tel-levha olur. Tablonun solu.</li>" +
+    "<li><b>Ametaller:</b> Elektron alır (anyon), kırılgan, yalıtkan (grafit hariç). Sağ üst.</li>" +
+    "<li><b>Yarı metaller (B, Si, Ge, As, Sb, Te):</b> Yarı iletken.</li>" +
+    "<li><b>Soy gazlar (8A):</b> Son katmanı dolu, kararlı; tepkimeye girmez.</li>" +
     "</ul>" +
-    "<p>Erime-buharlaşma <b>ısı alan (endotermik)</b>; donma-yoğuşma <b>ısı veren (ekzotermik)</b> olaylardır. Hâl değişimi sırasında sıcaklık <b>sabit</b> kalır (saf maddede).</p>" +
+    "<p>Grup adları: 1A alkali metaller, 2A toprak alkali metaller, 7A halojenler, 8A soy gazlar. <b>Hidrojen ametaldir</b> (1A'da yazılsa da).</p>",
+    ["Metal-ametal-yarı metal-soy gazı ayırır.", "Grup adlarını eşleştirir."],
+    ["Hidrojeni metal sanmak.", "Soy gazı tepkimeye giriyor sanmak."],
+    [{ term: "1A", def: "Alkali metaller" }, { term: "7A", def: "Halojenler" }, { term: "8A", def: "Soy gazlar" }]));
 
-    "<h3>Sık Yapılan Hatalar</h3>" +
-    "<ul><li>Saf maddede hâl değişimi süresince sıcaklık değişmez.</li>" +
-    "<li><b>Süblimleşme</b> katı→gaz doğrudan geçiştir (naftalin, kuru buz).</li></ul>");
+  /* 9 */ units.push(U("kim-periyodik", "Periyodik Özelliklerin Değişme Eğilimleri",
+    "Atom yarıçapı, iyonlaşma enerjisi, elektron ilgisi ve elektronegatiflik.",
+    "<ul>" +
+    "<li><b>Atom yarıçapı:</b> Grupta aşağı <b>artar</b>, periyotta sağa <b>azalır</b>.</li>" +
+    "<li><b>İyonlaşma enerjisi:</b> (e⁻ koparma) yarıçapın tersi: sağa <b>artar</b>, aşağı azalır.</li>" +
+    "<li><b>Elektron ilgisi</b> ve <b>elektronegatiflik:</b> sağa artar, aşağı azalır. En elektronegatif element <b>F</b>.</li>" +
+    "<li><b>Metalik özellik</b> aşağı-sola artar; ametalik yukarı-sağa artar.</li>" +
+    "</ul>" +
+    "<p>Katyon atomundan küçük, anyon büyüktür. İzoelektronik türlerde çekirdek yükü büyük olanın yarıçapı küçüktür.</p>",
+    ["Periyodik eğilim yönlerini bilir.", "İyon yarıçaplarını karşılaştırır."],
+    ["Yarıçap ile iyonlaşma enerjisini aynı yönde sanmak.", "Katyonu atomundan büyük sanmak."],
+    [{ term: "Atom yarıçapı", def: "Sağa azalır, aşağı artar" }, { term: "İyonlaşma enerjisi", def: "Sağa artar" }, { term: "En elektronegatif", def: "Flor (F)" }]));
 
-  /* =============== kim-kanun =============== */
-  setUnit("kim-kanun", "Kimyanın Temel Kanunları", "Kütlenin korunumu, sabit oranlar ve katlı oranlar kanunları.",
-    "<h2>Kimyanın Temel Kanunları</h2>" +
-    "<h3>Kütlenin Korunumu Kanunu (Lavoisier)</h3>" +
-    "<p>Kimyasal tepkimede <b>girenlerin kütleleri toplamı = ürünlerin kütleleri toplamı</b>. Kütle yoktan var, vardan yok olmaz. Örnek: 12 g karbon 32 g oksijenle tepkimeye girerse 12 + 32 = <b>44 g</b> karbondioksit oluşur.</p>" +
+  /* 10 */ units.push(U("kim-turler", "Kimyasal Türler ve Etkileşimlerin Sınıflandırılması",
+    "Atom-molekül-iyon türleri ve güçlü-zayıf etkileşim ayrımı.",
+    "<p><b>Kimyasal tür:</b> Atom, molekül, iyon ve radikallerin ortak adı. Etkileşimler ikiye ayrılır:</p>" +
+    "<ul>" +
+    "<li><b>Güçlü etkileşimler (kimyasal bağ):</b> İyonik, kovalent, metalik. Tür içi; kopması çok enerji ister.</li>" +
+    "<li><b>Zayıf etkileşimler:</b> Van der Waals (London, dipol-dipol) ve hidrojen bağı. Moleküller arası; hâl değişiminde kopar.</li>" +
+    "</ul>" +
+    "<p>Suyun kaynaması <b>zayıf</b> etkileşimlerin kopmasıdır; O-H kovalent bağı kopmaz. Bu yüzden hâl değişimi fizikseldir.</p>",
+    ["Güçlü-zayıf etkileşimi ayırır.", "Hâl değişiminde kopan etkileşimi belirler."],
+    ["Kaynamada kovalent bağ koptuğunu sanmak.", "İyonik-kovalenti zayıf sanmak."],
+    [{ term: "Güçlü etkileşim", def: "İyonik, kovalent, metalik" }, { term: "Zayıf etkileşim", def: "Van der Waals + hidrojen bağı" }, { term: "Kaynama", def: "Zayıf bağ kopar" }]));
 
-    "<h3>Sabit Oranlar Kanunu (Proust)</h3>" +
-    "<p>Bir bileşiği oluşturan elementler, <b>kütlece sabit bir oranda</b> birleşir. Örneğin suda hidrojen–oksijen kütle oranı her zaman <b>1:8</b>'dir; miktar değişse de oran değişmez.</p>" +
+  /* 11 */ units.push(U("kim-guclu", "Güçlü Etkileşimler",
+    "İyonik, kovalent (polar-apolar) ve metalik bağ.",
+    "<ul>" +
+    "<li><b>İyonik bağ:</b> <b>Metal + ametal</b> arasında elektron <b>alışverişiyle</b> oluşur (NaCl). Metal verir (katyon), ametal alır (anyon); zıt iyonlar çekilir. Katılar örgü yapılıdır.</li>" +
+    "<li><b>Kovalent bağ:</b> <b>Ametal + ametal</b> arasında elektronların <b>ortaklaşa</b> kullanımıyla oluşur (H₂O, CO₂). Elektronlar eşit paylaşılırsa <b>apolar</b> (H₂, Cl₂), farklı çekilirse <b>polar</b> (HCl).</li>" +
+    "<li><b>Metalik bağ:</b> Metal katyonları ile ortak <b>elektron denizi</b> arasındaki çekim; iletkenlik ve işlenebilirliği açıklar.</li>" +
+    "</ul>" +
+    "<p>Bu bağlar güçlüdür; erime/kaynama noktaları yüksektir. İyonik katılar suda iyonlaşıp elektrik iletir.</p>",
+    ["İyonik-kovalent-metalik bağı ayırır.", "Polar-apolar kovalenti ayırt eder."],
+    ["İyonik (metal-ametal) ile kovalenti (ametal-ametal) karıştırmak.", "Apolar molekülü polar sanmak."],
+    [{ term: "İyonik bağ", def: "Metal + ametal, e⁻ alışverişi" }, { term: "Kovalent bağ", def: "Ametal + ametal, e⁻ ortaklığı" }, { term: "Metalik bağ", def: "Elektron denizi" }]));
 
-    "<h3>Katlı Oranlar Kanunu (Dalton)</h3>" +
-    "<p>İki element <b>birden fazla bileşik</b> oluşturuyorsa, birinin sabit kütlesiyle birleşen diğerinin kütleleri arasında <b>basit tam sayılarla ifade edilen bir oran</b> vardır (ör. CO ve CO₂).</p>" +
+  /* 12 */ units.push(U("kim-zayif", "Zayıf Etkileşimler",
+    "Van der Waals (London, dipol-dipol) ve hidrojen bağı.",
+    "<ul>" +
+    "<li><b>London (indüklenmiş dipol):</b> Tüm moleküllerde bulunan en zayıf çekim; molekül büyüdükçe (kütle arttıkça) güçlenir. Apolar moleküllerdeki tek çekimdir.</li>" +
+    "<li><b>Dipol-dipol:</b> Polar moleküller arasında, kalıcı dipollerin çekimi; London'dan güçlüdür.</li>" +
+    "<li><b>Hidrojen bağı:</b> H'nin <b>F, O, N</b>'ye bağlı olduğu moleküller arasında görülen, zayıf etkileşimlerin <b>en güçlüsü</b>. Suyun yüksek kaynama noktası ve buzun suda yüzmesinin nedenidir.</li>" +
+    "</ul>" +
+    "<p>Zayıf etkileşimler <b>hâl değişiminde</b> (erime, kaynama) kopar; kimyasal bağlar kopmaz. Güçlü zayıf etkileşimi olan maddenin kaynama noktası yüksektir.</p>",
+    ["Zayıf etkileşim türlerini güce göre sıralar.", "Hidrojen bağı koşulunu bilir."],
+    ["Hidrojen bağını kovalent bağ sanmak.", "London'u yalnızca apolarlarda var sanmak (hepsinde var)."],
+    [{ term: "London kuvveti", def: "En zayıf; kütleyle artar" }, { term: "Hidrojen bağı", def: "H–F/O/N; en güçlü zayıf etkileşim" }, { term: "Suyun k.n. yüksek", def: "Hidrojen bağı" }]));
 
-    "<h3>Sık Yapılan Hatalar</h3>" +
-    "<ul><li>Kütle korunumu <b>kimyasal tepkimelerde</b> geçerlidir; kütle yoktan var olmaz.</li>" +
-    "<li>Sabit oran <b>bir bileşik</b> için; katlı oran <b>aynı elementlerin birden çok bileşiği</b> için geçerlidir.</li></ul>");
+  /* 13 */ units.push(U("kim-degisim", "Fiziksel ve Kimyasal Değişimler",
+    "Madde değişimlerinin ayrımı ve örnekleri.",
+    "<ul>" +
+    "<li><b>Fiziksel değişim:</b> Maddenin <b>iç yapısı (kimliği) değişmez</b>, yalnızca dış görünüş/hâl değişir. Örn. buzun erimesi, kâğıdın yırtılması, şekerin suda çözünmesi, camın kırılması.</li>" +
+    "<li><b>Kimyasal değişim:</b> Maddenin <b>yapısı değişir, yeni madde oluşur</b>. Örn. kâğıdın yanması, demirin paslanması, sütün ekşimesi, ekmeğin küflenmesi, fotosentez.</li>" +
+    "</ul>" +
+    "<p>Kimyasal değişim belirtileri: renk/koku değişimi, gaz çıkışı, ısı-ışık, çökelek oluşumu ve geri dönüşün zor olması. Hâl değişimleri ve çözünme fizikseldir.</p>",
+    ["Fiziksel-kimyasal değişimi ayırır.", "Kimyasal değişim belirtilerini tanır."],
+    ["Çözünmeyi kimyasal sanmak (fizikseldir).", "Paslanmayı fiziksel sanmak (kimyasaldır)."],
+    [{ term: "Fiziksel değişim", def: "Kimlik değişmez (erime, çözünme)" }, { term: "Kimyasal değişim", def: "Yeni madde (yanma, paslanma)" }]));
 
-  /* =============== kim-mol =============== */
-  setUnit("kim-mol", "Mol Kavramı", "Mol, Avogadro sayısı, molar kütle; kütle-mol-tanecik sayısı ilişkileri.",
-    "<h2>Mol Kavramı</h2>" +
-    "<p><b>Mol</b>, kimyada madde miktarının birimidir. Nasıl \"1 düzine = 12 tane\" ise, <b>1 mol = 6,02·10²³ tane</b> tanecik (atom, molekül, iyon) demektir. Bu sayıya <b>Avogadro sayısı (N<sub>A</sub>)</b> denir.</p>" +
+  /* 14 */ units.push(U("kim-hal", "Maddenin Fiziksel Hâlleri",
+    "Katı-sıvı-gaz tanecik düzeni ve hâl değişimleri (endo/ekzotermik).",
+    "<ul>" +
+    "<li><b>Katı:</b> Tanecikler düzenli-sıkı; belirli şekil ve hacim.</li>" +
+    "<li><b>Sıvı:</b> Daha hareketli; belirli hacim, kabın şekli.</li>" +
+    "<li><b>Gaz:</b> Çok hareketli-dağınık; belirli şekil/hacim yok, kabı doldurur.</li>" +
+    "</ul>" +
+    "<p>Katıdan gaza tanecikler arası <b>boşluk ve hareket artar</b>. <b>Hâl değişimleri:</b> erime (k→s), donma (s→k), buharlaşma (s→g), yoğuşma (g→s), süblimleşme (k→g), kırağılaşma (g→k). Erime-buharlaşma-süblimleşme <b>ısı alır (endotermik)</b>; tersleri <b>ısı verir (ekzotermik)</b>. Saf maddede hâl değişiminde sıcaklık <b>sabittir</b>.</p>",
+    ["Hâlleri tanecik düzenine göre karşılaştırır.", "Hâl değişimlerini endo/ekzo sınıflar."],
+    ["Hâl değişiminde sıcaklık değişir sanmak (saf maddede sabit).", "Süblimleşmeyi buharlaşma sanmak."],
+    [{ term: "Süblimleşme", def: "Katı → gaz (naftalin, kuru buz)" }, { term: "Endotermik", def: "Erime, buharlaşma (ısı alır)" }, { term: "Saf madde hâl değişimi", def: "Sıcaklık sabit" }]));
 
-    "<h3>Molar kütle</h3>" +
-    "<p><b>Molar kütle (M):</b> 1 molün gram cinsinden kütlesi (g/mol); sayıca atom/molekül kütlesine eşittir. Örnek: su (H₂O) için M = 2·1 + 16 = <b>18 g/mol</b>.</p>" +
+  /* 15 */ units.push(U("kim-katisivi", "Katılar ve Sıvılar",
+    "Katı türleri, sıvı özellikleri; buhar basıncı, yüzey gerilimi, viskozite.",
+    "<h3>Katılar</h3>" +
+    "<p>Tanecikleri belirli düzende (örgü) titreşir. <b>Kristal katılar</b> (tuz, elmas) düzenli; <b>amorf katılar</b> (cam, lastik) düzensizdir. Sabit erime noktası kristallere özgüdür.</p>" +
+    "<h3>Sıvılar</h3>" +
+    "<ul>" +
+    "<li><b>Buhar basıncı:</b> Sıvının buharlaşma eğilimi. Zayıf etkileşimli sıvıda yüksektir (uçucudur); kaynama noktası düşüktür.</li>" +
+    "<li><b>Yüzey gerilimi:</b> Yüzeyi küçültme eğilimi (su damlasının küresel olması). Etkileşim güçlüyse artar.</li>" +
+    "<li><b>Viskozite (akışkanlık direnci):</b> Bal suya göre viskozdur. Sıcaklık artınca viskozite azalır.</li>" +
+    "</ul>" +
+    "<p>Kılcallık, adezyon-kohezyon dengesiyle sıvının ince borularda yükselmesidir.</p>",
+    ["Kristal-amorf katıyı ayırır.", "Buhar basıncı-yüzey gerilimi-viskoziteyi yorumlar."],
+    ["Buhar basıncı yüksek sıvıyı zor kaynar sanmak (kolay kaynar).", "Viskoziteyi sıcaklıkla artar sanmak."],
+    [{ term: "Buhar basıncı yüksek", def: "Uçucu, k.n. düşük" }, { term: "Yüzey gerilimi", def: "Yüzeyi küçültme eğilimi" }, { term: "Amorf katı", def: "Düzensiz (cam)" }]));
 
-    "<h3>Temel bağıntılar</h3>" +
+  /* 16 */ units.push(U("kim-gaz", "Gazlar ve Plazma",
+    "Gaz özellikleri, basınç ve maddenin dördüncü hâli plazma.",
+    "<p>Gaz tanecikleri çok hızlı ve rastgele hareket eder; kabın her yerine yayılır ve <b>basınç</b> uygular. Gaz basıncı; sıcaklık ve tanecik sayısı artınca artar, hacim artınca azalır. Gazlar kolayca <b>sıkıştırılabilir</b> (tanecikler arası boşluk çok).</p>" +
+    "<h3>Nitel gaz ilişkileri</h3>" +
+    "<ul>" +
+    "<li>Sabit sıcaklıkta hacim ↑ → basınç ↓ (ters orantı).</li>" +
+    "<li>Sabit hacimde sıcaklık ↑ → basınç ↑.</li>" +
+    "<li>Sabit basınçta sıcaklık ↑ → hacim ↑.</li>" +
+    "</ul>" +
+    "<h3>Plazma</h3>" +
+    "<p><b>Plazma</b> maddenin dördüncü hâlidir: çok yüksek sıcaklıkta atomların iyonlaştığı, yüklü taneciklerden oluşan hâl. Güneş ve yıldızlar, yıldırım, neon lambaları plazma örneğidir. Evrende en yaygın hâldir.</p>",
+    ["Gaz basıncı-sıcaklık-hacim ilişkisini yorumlar.", "Plazmayı tanır."],
+    ["Gazı sıkıştırılamaz sanmak.", "Plazmayı gaz ile aynı sanmak."],
+    [{ term: "Gaz basıncı", def: "Sıcaklık ve tanecikle artar" }, { term: "Plazma", def: "İyonlaşmış 4. hâl (yıldızlar)" }]));
+
+  /* 17 */ units.push(U("kim-su", "Su ve Hayat",
+    "Suyun özellikleri, çözücülüğü ve hayat için önemi.",
+    "<p>Su (H₂O) polar bir moleküldür ve moleküller arası <b>hidrojen bağı</b> yapar. Bu yüzden kaynama noktası yüksektir, yüzey gerilimi büyüktür ve <b>evrensel çözücü</b> olarak birçok maddeyi çözer.</p>" +
+    "<h3>Öne çıkan özellikler</h3>" +
+    "<ul>" +
+    "<li><b>Yüksek özısı:</b> Sıcaklığı geç değişir; iklimi ve canlı vücut ısısını dengeler.</li>" +
+    "<li><b>Buzun yoğunluğu sudan küçük:</b> Buz suda yüzer; göllerin dibi donmaz (canlılar korunur).</li>" +
+    "<li><b>Çözücülük:</b> Polar ve iyonik maddeleri (tuz, şeker) çözer; yağ (apolar) çözünmez — \"benzer benzeri çözer\".</li>" +
+    "</ul>" +
+    "<p>Su, canlı kütlesinin büyük kısmını oluşturur; taşıma, tepkime ortamı ve sıcaklık düzenlemesi sağlar.</p>",
+    ["Suyun anormal özelliklerini hidrojen bağıyla açıklar.", "Çözünürlük kuralını uygular."],
+    ["Yağın suda çözündüğünü sanmak.", "Buzu sudan yoğun sanmak."],
+    [{ term: "Buz < su yoğunluğu", def: "Buz yüzer (hidrojen bağı)" }, { term: "Benzer benzeri çözer", def: "Polar-polar, apolar-apolar" }, { term: "Yüksek özısı", def: "İklim/vücut ısısını dengeler" }]));
+
+  /* 18 */ units.push(U("kim-cevre", "Çevre Kimyası",
+    "Hava-su-toprak kirliliği, asit yağmuru, sera etkisi ve ozon.",
+    "<ul>" +
+    "<li><b>Asit yağmuru:</b> Fosil yakıt gazları (SO₂, NOₓ) su buharıyla asit oluşturur; toprağı, yapıları ve suları zarar verir.</li>" +
+    "<li><b>Sera etkisi ve küresel ısınma:</b> CO₂, CH₄ gibi gazlar ısıyı tutar; artışı iklimi değiştirir.</li>" +
+    "<li><b>Ozon tabakası:</b> Güneşin morötesi ışınlarını süzer; CFC gazları inceltir.</li>" +
+    "<li><b>Su kirliliği ve ötrofikasyon:</b> Atık ve gübreler suları kirletir, oksijeni azaltır.</li>" +
+    "</ul>" +
+    "<p>Geri dönüşüm, arıtma, yenilenebilir enerji ve atık yönetimi çözüm yollarıdır. <b>Yeşil kimya</b> daha az atık ve zararsız madde ilkesini benimser.</p>",
+    ["Çevre sorunlarının kimyasal nedenlerini açıklar.", "Çözüm yollarını önerir."],
+    ["Asit yağmuru ile sera etkisini karıştırmak.", "Ozon tabakasını sera gazı sanmak."],
+    [{ term: "Asit yağmuru", def: "SO₂, NOₓ" }, { term: "Sera gazı", def: "CO₂, CH₄" }, { term: "Ozon", def: "UV süzer; CFC inceltir" }]));
+
+  /* 19 */ units.push(U("kim-kanun", "Kimyanın Temel Kanunları",
+    "Kütlenin korunumu, sabit oranlar ve katlı oranlar kanunları.",
+    "<h3>Kütlenin Korunumu (Lavoisier)</h3>" +
+    "<p>Tepkimede <b>girenlerin kütlesi = ürünlerin kütlesi</b>. Örn. 12 g C + 32 g O₂ → <b>44 g</b> CO₂.</p>" +
+    "<h3>Sabit Oranlar (Proust)</h3>" +
+    "<p>Bir bileşiği oluşturan elementler <b>kütlece sabit oranda</b> birleşir. Suda H:O kütle oranı her zaman <b>1:8</b>'dir.</p>" +
+    "<h3>Katlı Oranlar (Dalton)</h3>" +
+    "<p>İki element <b>birden fazla bileşik</b> yapıyorsa, birinin sabit kütlesiyle birleşen diğerinin kütleleri arasında <b>basit tam sayılı oran</b> vardır (CO ile CO₂'de O oranı 1:2).</p>",
+    ["Üç temel kanunu ayırt eder.", "Kütle-oran hesabı yapar."],
+    ["Sabit oranı (tek bileşik) katlı oranla (çok bileşik) karıştırmak.", "Kütle korunumunu ihmal etmek."],
+    [{ term: "Lavoisier", def: "Kütlenin korunumu" }, { term: "Proust", def: "Sabit oranlar" }, { term: "Dalton", def: "Katlı oranlar" }]));
+
+  /* 20 */ units.push(U("kim-mol", "Mol Kavramı",
+    "Mol, Avogadro sayısı, molar kütle; kütle-mol-tanecik ilişkileri.",
+    "<p><b>1 mol = 6,02·10²³ tane</b> tanecik (Avogadro sayısı, N<sub>A</sub>). <b>Molar kütle (M):</b> 1 molün gram kütlesi (g/mol); su için M = 2·1 + 16 = <b>18 g/mol</b>.</p>" +
     "<div class=\"formula\">n = m / M &nbsp;|&nbsp; Tanecik sayısı = n · N<sub>A</sub></div>" +
-    "<p>(n: mol sayısı, m: kütle, M: molar kütle.)</p>" +
-    "<p><b>Örnek 1:</b> 36 g suyun mol sayısı n = 36/18 = <b>2 mol</b>'dür.</p>" +
-    "<p><b>Örnek 2:</b> 2 mol maddede 2·6,02·10²³ = <b>1,204·10²⁴</b> tanecik bulunur.</p>" +
+    "<p><b>Örnek 1:</b> 36 g su → n = 36/18 = <b>2 mol</b>.</p>" +
+    "<p><b>Örnek 2:</b> 2 mol maddede 2·6,02·10²³ = <b>1,204·10²⁴</b> tanecik.</p>" +
+    "<p><b>Örnek 3:</b> Normal koşullarda (0 °C, 1 atm) 1 mol gaz <b>22,4 litre</b> yer kaplar.</p>",
+    ["n=m/M bağıntısını kullanır.", "Mol-tanecik-hacim dönüşümü yapar."],
+    ["n = M/m ters çevirmek.", "Farklı maddeleri eşit mol için eşit kütle sanmak."],
+    [{ term: "1 mol", def: "6,02·10²³ tanecik" }, { term: "n = m/M", def: "Mol = kütle/molar kütle" }, { term: "NK'da 1 mol gaz", def: "22,4 L" }]));
 
-    "<h3>Sık Yapılan Hatalar</h3>" +
-    "<ul><li>Mol sayısı n = kütle / molar kütle (m/M); ters çevirme.</li>" +
-    "<li>1 mol her maddede aynı <b>tanecik sayısını</b> (6,02·10²³) verir; kütle ise maddeye göre değişir.</li></ul>");
-
-  /* =============== kim-karisim =============== */
-  setUnit("kim-karisim", "Karışımlar", "Saf madde ve karışım; homojen-heterojen karışımlar ve ayırma teknikleri.",
-    "<h2>Karışımlar</h2>" +
-    "<h3>Saf madde ve karışım</h3>" +
+  /* 21 */ units.push(U("kim-tepkime", "Kimyasal Tepkimeler ve Denklemler",
+    "Tepkime türleri ve denklem denkleştirme.",
+    "<p>Kimyasal denklemde <b>girenler → ürünler</b> yazılır ve <b>atom sayıları iki tarafta eşitlenir</b> (denkleştirme; kütle korunumu). Örn. <b>2H₂ + O₂ → 2H₂O</b>.</p>" +
+    "<h3>Tepkime türleri</h3>" +
     "<ul>" +
-    "<li><b>Saf madde:</b> Tek tür tanecikten oluşur. <b>Element</b> (tek cins atom: Fe, O₂) ve <b>bileşik</b> (farklı atomlar belirli oranda: H₂O, NaCl).</li>" +
-    "<li><b>Karışım:</b> Birden çok maddenin kimyasal bağ olmadan bir arada bulunmasıdır; belirli formülü yoktur.</li>" +
+    "<li><b>Yanma:</b> Yakıt + O₂ → CO₂ + H₂O + ısı.</li>" +
+    "<li><b>Sentez (birleşme):</b> A + B → AB.</li>" +
+    "<li><b>Analiz (ayrışma):</b> AB → A + B.</li>" +
+    "<li><b>Yer değiştirme:</b> Aktif element pasifin yerini alır.</li>" +
+    "<li><b>Asit-baz (nötrleşme):</b> Asit + baz → tuz + su.</li>" +
     "</ul>" +
+    "<p>Denkleştirmede yalnızca <b>katsayılar</b> değiştirilir; formüller (indisler) değişmez.</p>",
+    ["Denklem denkleştirir.", "Tepkime türünü belirler."],
+    ["Denkleştirirken indisi değiştirmek (yalnız katsayı değişir).", "Yanma ürününü yanlış yazmak."],
+    [{ term: "Denkleştirme", def: "Atom sayıları eşit; katsayı değişir" }, { term: "Nötrleşme", def: "Asit + baz → tuz + su" }, { term: "Analiz", def: "AB → A + B" }]));
 
+  /* 22 */ units.push(U("kim-hesap", "Kimyasal Tepkimelerde Hesaplamalar",
+    "Denklem katsayılarıyla mol-kütle-hacim hesabı.",
+    "<p>Denklemdeki <b>katsayılar mol oranını</b> verir. Hesap adımları: (1) denklemi denkleştir, (2) verileni mole çevir (n=m/M), (3) katsayı oranıyla istenen türün molünü bul, (4) mol'ü kütle/hacme çevir.</p>" +
+    "<p><b>Örnek:</b> 2H₂ + O₂ → 2H₂O denkleminde 4 mol H₂ tamamen yanarsa: mol oranı H₂:H₂O = 2:2 = 1:1, yani <b>4 mol</b> su oluşur; kütlesi 4·18 = <b>72 g</b>.</p>" +
+    "<p><b>Sınırlayıcı bileşen:</b> Tepkimede önce biten madde ürün miktarını belirler; hesap sınırlayıcıya göre yapılır.</p>",
+    ["Katsayı oranıyla stokiyometri hesabı yapar.", "Sınırlayıcı bileşeni belirler."],
+    ["Katsayı oranı yerine kütle oranını doğrudan kullanmak.", "Sınırlayıcıyı göz ardı etmek."],
+    [{ term: "Katsayı", def: "Mol oranını verir" }, { term: "Sınırlayıcı bileşen", def: "Önce biten, ürünü sınırlar" }]));
+
+  /* 23 */ units.push(U("kim-karisim1", "Homojen ve Heterojen Karışımlar - I",
+    "Saf madde-karışım ayrımı ve karışım türleri.",
+    "<ul>" +
+    "<li><b>Saf madde:</b> Tek tür tanecik. <b>Element</b> (tek cins atom: Fe, O₂) ve <b>bileşik</b> (farklı atomlar belirli oranda: H₂O, NaCl).</li>" +
+    "<li><b>Karışım:</b> Birden çok maddenin kimyasal bağ olmadan bir arada bulunması; belirli formülü ve sabit özellikleri yoktur.</li>" +
+    "</ul>" +
     "<h3>Karışım türleri</h3>" +
     "<ul>" +
-    "<li><b>Homojen karışım (çözelti):</b> Her yeri aynı özellikte; tek fazlı görünür (tuzlu su, kolonya, hava, alaşımlar).</li>" +
-    "<li><b>Heterojen karışım:</b> Her yeri aynı değil; farklı fazlar görülür (kumlu su, ayran, tebeşir tozu-su).</li>" +
+    "<li><b>Homojen (çözelti):</b> Her yeri aynı, tek fazlı görünür (tuzlu su, kolonya, hava, çelik gibi alaşımlar).</li>" +
+    "<li><b>Heterojen:</b> Her yeri aynı değil, fazlar ayırt edilir (kumlu su, ayran, tebeşir tozu-su).</li>" +
     "</ul>" +
+    "<p>Çözeltide <b>çözünen</b> (az) + <b>çözücü</b> (çok) bulunur; su en yaygın çözücüdür.</p>",
+    ["Saf madde-karışımı ayırır.", "Homojen-heterojen ayırt eder."],
+    ["Bileşiği karışım sanmak (bileşiğin formülü vardır).", "Alaşımı heterojen sanmak (homojendir)."],
+    [{ term: "Homojen karışım", def: "Çözelti; tek faz (tuzlu su)" }, { term: "Heterojen", def: "Fazlar görünür (ayran)" }, { term: "Alaşım", def: "Homojen metal karışımı" }]));
 
-    "<h3>Ayırma ve saflaştırma teknikleri</h3>" +
-    "<p>Karışımlar <b>fiziksel yöntemlerle</b> ayrılır: <b>süzme</b> (katı-sıvı), <b>buharlaştırma</b> (çözünmüş katı-sıvı), <b>damıtma/distilasyon</b> (kaynama noktası farkı), <b>ayırma hunisi</b> (karışmayan sıvılar), <b>mıknatısla ayırma</b> (demir), <b>yüzdürme</b> (özkütle farkı).</p>" +
+  /* 24 */ units.push(U("kim-karisim2", "Homojen ve Heterojen Karışımlar - II",
+    "Derişim (kütlece yüzde) ve çözünürlüğe etki eden faktörler.",
+    "<h3>Kütlece yüzde derişim</h3>" +
+    "<div class=\"formula\">Kütlece % = (çözünen kütlesi / çözelti kütlesi) · 100</div>" +
+    "<p>Çözelti kütlesi = çözünen + çözücü. <b>Örnek:</b> 20 g tuz 80 g suda çözünürse çözelti 100 g; derişim = 20/100·100 = <b>%20</b>.</p>" +
+    "<h3>Çözünürlüğe etki eden faktörler</h3>" +
+    "<ul>" +
+    "<li><b>Sıcaklık:</b> Katıların çoğunun çözünürlüğü sıcaklıkla artar; <b>gazlarınki azalır</b>.</li>" +
+    "<li><b>Ortak iyon, madde cinsi</b> ve gazlarda <b>basınç</b> çözünürlüğü etkiler.</li>" +
+    "<li>Karıştırma ve toz hâline getirme çözünme <b>hızını</b> artırır ama çözünürlük miktarını değiştirmez.</li>" +
+    "</ul>",
+    ["Kütlece yüzde derişim hesaplar.", "Çözünürlük faktörlerini yorumlar."],
+    ["Çözelti kütlesine çözüneni katmayı unutmak.", "Karıştırmayı çözünürlüğü artırır sanmak (hızı artırır)."],
+    [{ term: "Kütlece %", def: "çözünen/çözelti ·100" }, { term: "Gaz çözünürlüğü", def: "Sıcaklıkla azalır" }, { term: "Karıştırma", def: "Hızı artırır, miktarı değil" }]));
 
-    "<h3>Sık Yapılan Hatalar</h3>" +
-    "<ul><li>Karışımın <b>belirli formülü ve sabit özkütlesi yoktur</b>; bileşenler her oranda karışabilir.</li>" +
-    "<li>Çözeltiler <b>homojen</b> karışımdır; çözünen + çözücüden oluşur.</li></ul>");
+  /* 25 */ units.push(U("kim-ayirma", "Ayırma ve Saflaştırma Teknikleri",
+    "Karışımları fiziksel yöntemlerle ayırma.",
+    "<ul>" +
+    "<li><b>Süzme:</b> Çözünmeyen katı-sıvı ayrımı (kumlu su).</li>" +
+    "<li><b>Buharlaştırma:</b> Çözünmüş katıyı sıvıdan ayırır (tuzlu sudan tuz).</li>" +
+    "<li><b>Damıtma (distilasyon):</b> Kaynama noktası farkıyla ayırır (alkol-su, deniz suyundan tatlı su).</li>" +
+    "<li><b>Ayırma hunisi:</b> Karışmayan (yoğunluğu farklı) sıvıları ayırır (su-zeytinyağı).</li>" +
+    "<li><b>Mıknatısla ayırma:</b> Demir gibi manyetik maddeler.</li>" +
+    "<li><b>Yüzdürme/ayıklama:</b> Özkütle farkıyla (buğday-saman).</li>" +
+    "<li><b>Kristallendirme, kromatografi:</b> Saflaştırma ve bileşen ayrımı.</li>" +
+    "</ul>" +
+    "<p>Yöntem seçimi karışımın türüne ve bileşenlerin fiziksel özelliklerine (kaynama noktası, çözünürlük, yoğunluk, manyetiklik) bağlıdır.</p>",
+    ["Uygun ayırma yöntemini seçer.", "Yöntemin dayandığı fiziksel özelliği belirtir."],
+    ["Damıtmayı çözünürlük farkı sanmak (kaynama noktası).", "Homojen karışımı süzmeyle ayırmaya çalışmak."],
+    [{ term: "Damıtma", def: "Kaynama noktası farkı" }, { term: "Ayırma hunisi", def: "Karışmayan sıvılar" }, { term: "Buharlaştırma", def: "Çözünmüş katı-sıvı" }]));
 
-  /* =============== kim-asit =============== */
-  setUnit("kim-asit", "Asitler, Bazlar ve Tuzlar", "Asit ve baz özellikleri, pH, nötrleşme ve günlük hayat örnekleri.",
-    "<h2>Asitler, Bazlar ve Tuzlar</h2>" +
+  /* 26 */ units.push(U("kim-asitbaz", "Asitlerin ve Bazların Özellikleri",
+    "Asit-baz tanımları, pH ve belirteçler.",
     "<h3>Asitler</h3>" +
-    "<p>Suda <b>H⁺ (hidrojen iyonu)</b> veren maddelerdir. Tatları <b>ekşi</b>dir, mavi turnusolu <b>kırmızıya</b> çevirir, metallerle tepkimeye girer. Örnek: HCl, H₂SO₄, sirke (asetik asit), limon (sitrik asit).</p>" +
-
+    "<p>Suda <b>H⁺</b> veren maddeler. Tatları <b>ekşi</b>, mavi turnusolu <b>kırmızıya</b> çevirir, metallerle H₂ gazı verir. Örn. HCl, H₂SO₄, sirke, limon.</p>" +
     "<h3>Bazlar</h3>" +
-    "<p>Suda <b>OH⁻ (hidroksit iyonu)</b> veren maddelerdir. Tatları <b>acı</b>, ele <b>kaygan</b> gelir, kırmızı turnusolu <b>maviye</b> çevirir. Örnek: NaOH, KOH, NH₃ (amonyak), sabun, kireç suyu.</p>" +
+    "<p>Suda <b>OH⁻</b> veren maddeler. Tatları <b>acı</b>, ele <b>kaygan</b>, kırmızı turnusolu <b>maviye</b> çevirir. Örn. NaOH, KOH, NH₃, sabun.</p>" +
+    "<h3>pH cetveli</h3>" +
+    "<p><b>0–14</b> arası: <b>pH&lt;7 asidik</b>, <b>pH=7 nötr</b> (saf su), <b>pH&gt;7 bazik</b>. pH küçüldükçe asitlik artar. Fenolftalein bazda pembe, turnusol ve metiloranj de belirteçtir.</p>",
+    ["Asit-baz özelliklerini ayırır.", "pH ile asitlik-baziklik ilişkisini kurar."],
+    ["Turnusol renklerini ters bilmek (asit kırmızı, baz mavi).", "Küçük pH'ı bazik sanmak."],
+    [{ term: "Asit", def: "H⁺ verir; turnusolu kırmızı" }, { term: "Baz", def: "OH⁻ verir; turnusolu mavi" }, { term: "pH=7", def: "Nötr (saf su)" }]));
 
-    "<h3>pH ve nötrleşme</h3>" +
-    "<p><b>pH cetveli 0–14</b> arasıdır: <b>pH &lt; 7 asidik</b>, <b>pH = 7 nötr</b> (saf su), <b>pH &gt; 7 bazik</b>. pH küçüldükçe asitlik artar. <b>Nötrleşme:</b> asit + baz → <b>tuz + su</b> (ör. HCl + NaOH → NaCl + H₂O).</p>" +
+  /* 27 */ units.push(U("kim-asittepkime", "Asitlerin ve Bazların Tepkimeleri",
+    "Nötrleşme, metal ve karbonatla tepkimeler.",
+    "<ul>" +
+    "<li><b>Nötrleşme:</b> Asit + baz → <b>tuz + su</b>. Örn. HCl + NaOH → NaCl + H₂O. Isı açığa çıkar (ekzotermik).</li>" +
+    "<li><b>Aktif metalle:</b> Asit + metal → tuz + <b>H₂ gazı</b> (Zn + 2HCl → ZnCl₂ + H₂).</li>" +
+    "<li><b>Karbonatla:</b> Asit + karbonat → tuz + su + <b>CO₂</b> (kabarma; kabartma tozu-sirke).</li>" +
+    "</ul>" +
+    "<p>Kuvvetli asit/baz suda tam iyonlaşır (HCl, NaOH); zayıf olan kısmen iyonlaşır (asetik asit, NH₃). Kuvvet iyonlaşma yüzdesiyle ilgilidir, derişimle karıştırılmamalıdır.</p>",
+    ["Asit-baz tepkime ürünlerini yazar.", "Kuvvetli-zayıf elektroliti ayırır."],
+    ["Nötrleşme ürününü yanlış yazmak.", "Kuvvetli asidi derişik asitle karıştırmak."],
+    [{ term: "Nötrleşme", def: "Asit+baz → tuz+su" }, { term: "Asit + metal", def: "Tuz + H₂ gazı" }, { term: "Asit + karbonat", def: "Tuz + su + CO₂" }]));
 
-    "<h3>Sık Yapılan Hatalar</h3>" +
-    "<ul><li><b>Asit turnusolu kırmızı</b>, <b>baz maviye</b> çevirir — karıştırma.</li>" +
-    "<li>pH 7 nötr; 7'den küçük asidik, büyük baziktir. Asit ve bazlar tadılarak tanınmaz (tehlikeli).</li></ul>");
+  /* 28 */ units.push(U("kim-tuz", "Asitler, Bazlar ve Tuzlar",
+    "Tuz oluşumu, özellikleri ve günlük hayattaki tuzlar.",
+    "<p><b>Tuz</b>, asit ile bazın nötrleşmesinden oluşan iyonik bileşiktir: asidin anyonu + bazın katyonu. Örn. NaCl, CaCO₃, NaHCO₃, KNO₃.</p>" +
+    "<h3>Özellikler</h3>" +
+    "<ul>" +
+    "<li>Katı hâlde iyonik örgülüdür; suda çözününce iyonlarına ayrışıp <b>elektrik iletir</b> (elektrolit).</li>" +
+    "<li>Erime noktaları yüksektir.</li>" +
+    "</ul>" +
+    "<h3>Günlük tuzlar</h3>" +
+    "<p><b>NaCl</b> (yemek tuzu), <b>NaHCO₃</b> (kabartma tozu/karbonat), <b>CaCO₃</b> (kireç taşı, mermer), <b>Na₂CO₃</b> (soda). Toprak asitliğini gidermek için kireç (bazik) kullanılır.</p>",
+    ["Tuz oluşumunu açıklar.", "Yaygın tuzları tanır."],
+    ["Her tuzu nötr sanmak (bazıları asidik/baziktir).", "Katı tuzu iletken sanmak (suda çözününce iletir)."],
+    [{ term: "Tuz", def: "Asit+baz nötrleşmesi (NaCl)" }, { term: "Elektrolit", def: "Suda iyonlaşıp iletir" }, { term: "NaHCO₃", def: "Kabartma tozu" }]));
 
-  /* =============== kim-gunluk =============== */
-  setUnit("kim-gunluk", "Kimya Her Yerde (Günlük Hayat Kimyasalları)", "Temizlik ürünleri, yapı malzemeleri, polimerler ve kimyasalların güvenli kullanımı.",
-    "<h2>Kimya Her Yerde</h2>" +
-    "<p>Günlük hayatta kullandığımız birçok ürün kimyasal maddelerden oluşur; bilinçli ve güvenli kullanım önemlidir.</p>" +
-
+  /* 29 */ units.push(U("kim-gunluk", "Yaygın Günlük Hayat Kimyasalları",
+    "Temizlik ürünleri, yapı malzemeleri, polimerler ve güvenli kullanım.",
     "<h3>Temizlik maddeleri</h3>" +
-    "<p><b>Sabun ve deterjanlar</b> kiri sudan uzaklaştırır. <b>Çamaşır suyu</b> (sodyum hipoklorit) ağartıcı ve dezenfektandır. <b>UYARI:</b> Çamaşır suyu ile tuz ruhu (asit) <b>asla karıştırılmamalıdır</b>; zehirli klor gazı açığa çıkar.</p>" +
-
+    "<p><b>Sabun ve deterjan</b> kiri sudan uzaklaştırır. <b>Çamaşır suyu</b> (sodyum hipoklorit) ağartıcı-dezenfektandır. <b>UYARI:</b> Çamaşır suyu ile tuz ruhu (asit) <b>asla karıştırılmaz</b>; zehirli <b>klor gazı</b> çıkar.</p>" +
     "<h3>Yapı malzemeleri</h3>" +
-    "<p><b>Kireç, alçı, çimento, cam</b> yaygın yapı malzemeleridir. Kireç suyu (baz) karbondioksitle beyazlaşır.</p>" +
+    "<p>Kireç, alçı, çimento, cam yaygın malzemelerdir. Kireç suyu (baz) CO₂ ile beyazlaşır.</p>" +
+    "<h3>Polimerler</h3>" +
+    "<p><b>Plastikler</b> monomerlerin birleşmesiyle oluşan <b>polimer</b>lerdir; doğada geç bozunur, geri dönüşüm önemlidir. Kauçuk, naylon, PET birer polimerdir.</p>",
+    ["Günlük kimyasalları işleviyle eşleştirir.", "Tehlikeli karışımları bilir."],
+    ["Çamaşır suyu + asit karışımını zararsız sanmak (klor gazı).", "Plastikleri kolay bozunur sanmak."],
+    [{ term: "Çamaşır suyu + asit", def: "Zehirli klor gazı" }, { term: "Polimer", def: "Monomerlerin birleşimi (plastik)" }, { term: "Sabun/deterjan", def: "Temizlik; kiri uzaklaştırır" }]));
 
-    "<h3>Polimerler ve diğer kimyasallar</h3>" +
-    "<p><b>Plastikler</b> küçük birimlerin (monomer) birleşmesiyle oluşan <b>polimer</b>lerdir; doğada geç bozunur, geri dönüşüm önemlidir. <b>İlaçlar, gıda katkı maddeleri, kozmetikler, gübreler</b> de kimya ürünleridir.</p>" +
+  /* 30 */ units.push(U("kim-kozmetik", "Kozmetikler, İlaçlar ve Gıdalar",
+    "Kozmetik, ilaç ve gıda kimyasallarının bilinçli kullanımı.",
+    "<h3>Kozmetikler</h3>" +
+    "<p>Cilt ve saç ürünlerinde pH cilde yakın (hafif asidik) ayarlanır; nemlendirici, koruyucu ve renklendiriciler içerir. Etiket ve son kullanma tarihi önemlidir.</p>" +
+    "<h3>İlaçlar</h3>" +
+    "<p>İlaçlar belirli dozda etki eder; <b>doz aşımı zararlıdır</b>. Antasitler (bazik) mide asidini nötrler. İlaçlar hekim/eczacı önerisiyle ve son kullanma tarihine dikkat edilerek kullanılmalıdır.</p>" +
+    "<h3>Gıda katkı maddeleri</h3>" +
+    "<p>Koruyucu, antioksidan, renklendirici ve tatlandırıcılar gıdanın raf ömrünü ve görünümünü ayarlar. Bilinçli tüketim ve etiket okuma sağlık açısından önemlidir.</p>",
+    ["Kozmetik-ilaç-gıda kimyasallarını bilinçli değerlendirir.", "Doz ve etiketin önemini açıklar."],
+    ["İlaçta \"çok doz çok fayda\" sanmak (doz aşımı zararlı).", "Antasidi asit sanmak (baziktir)."],
+    [{ term: "Antasit", def: "Bazik; mide asidini nötrler" }, { term: "Gıda katkısı", def: "Koruyucu/renklendirici/tatlandırıcı" }, { term: "Doz aşımı", def: "İlaçta zararlı" }]));
 
-    "<h3>Çevre ve güvenlik</h3>" +
-    "<p>Fabrika ve araç gazları <b>asit yağmuru</b>na yol açar. Kimyasallar etiketine ve uyarı sembollerine uygun kullanılmalı, atıklar geri dönüştürülmelidir.</p>" +
-
-    "<h3>Sık Yapılan Hatalar</h3>" +
-    "<ul><li>Çamaşır suyu ile asidik temizleyiciler karıştırılırsa <b>zehirli klor gazı</b> çıkar — tehlikelidir.</li>" +
-    "<li>Plastikler polimerdir ve doğada zor bozunur; geri dönüşüm gerekir.</li></ul>");
-
+  TYT_CONTENT.replaceBranchUnits("fen", "kimya", units);
+})();
 })();
