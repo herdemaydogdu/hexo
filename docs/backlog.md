@@ -24,6 +24,16 @@ Keşif/pazarlama ekiplerinin ürettiği öneriler burada önceliklenir; orkestra
 
 > Gerekçe: docs/pazarlama/rakip-analiz-2026-07-06.md. Rakip fiyat kutupları: Doping ~₺38–45B/yıl, Kunduz ~₺650–2.500/ay; ücretsiz+kalibre+net-takibi boşluğu doğrulandı.
 
+## Pazarlamadan gelen (2026-07-13 rakip analizi)
+> Gerekçe: docs/pazarlama/rakip-analiz-2026-07-13.md. **Değişim:** "ücretsiz + oyunlaştırma + net-takibi" boşluğu kapanıyor — YKS Cepte (düello/sıralama/istatistik) ve Dersigo (arkadaşla yarış/deneme) bunu ücretsiz sunmaya başladı; Raunt ücretsiz koç analizi; Test Bank ~₺80/ay ucuz abonelik kutbu. Vurgu oyunlaştırmadan → özgün soru + %20/40/40 kalibre + ölçeklenen otomatik analize kaymalı.
+
+| # | Öneri | Tür | Etki/Efor | Sahip |
+|---|---|---|---|---|
+| 11 | ~~Ana sayfa/konum mesajını "ücretsiz oyunlaştırma"dan **"özgün + %20/40/40 kalibre zorluk"** vurgusuna kaydır~~ **YAPILDI (2026-07-13, is-gelistirme)**: 10.07 redesign'ında kaldırılan konum bandı, yeni ziyaretçiye (oturum yok) dashboard'da `.pos-banner` olarak bu haftanın vurgusuyla yeniden eklendi — lead "Her soru özgün — bankalardan kopya değil; zorluk seni sınava kalibre eder (%20/40/40)", çipler: Özgün üretim · %20/40/40 kalibre zorluk · Ücretsiz/kayıtsız/reklamsız. app.js + style.css, `?v=102`. rapor.js temiz; mount-eskimesi nedeniyle syntax kontrolü Read ile doğrulandı. | ✅ | ✅ |
+| 12 | "Koç beklemeden anında net analizi" mesajı — mevcut zayıf-alan ekranını (#7) Raunt'un insana bağlı analizine karşı ölçek vurgusuyla pazarlama diline çevir | Pazarlama | Orta/Düşük | icerik-pazarlama |
+| 13 | Rozet/paylaşım kartını **net artışına** bağla (genel çalışmaya değil) — #3 ile birleştir, düello/sıralama rakiplerinden farklılaş | Ürün/Büyüme | Orta/Orta | tasarim-qa |
+| 14 | "Reklamsız · kayıtsız · indirme yok" karşılaştırma vurgusu (Test Bank reklamlı + YKS Cepte kayıtlı kontrastı) | Konumlandırma | Orta/Düşük | konumlandirma |
+
 ## Müfredat kapsam boşlukları (2026-07-06 mufredat-takip)
 > Detay: docs/mufredat/mufredat-durum-2026-07-06.md. Resmî TYT yapısı değişmedi (Maarif Modeli etkisi ≥2028); iş = mevcut kapsamın ünite boşluklarını kapatmak.
 
@@ -38,6 +48,17 @@ Keşif/pazarlama ekiplerinin ürettiği öneriler burada önceliklenir; orkestra
 | M7 | **Felsefe** (giriş, varlık, ahlak, sanat, din, siyaset, bilim) | 🟡 Orta | ~7 |
 | M8 | **Din Kültürü** (ibadet, ahlak, Hz. Muhammed, yorumlar, dünya dinleri) | 🟡 Orta | ~5 |
 | M9 | **Türkçe** tamamlama (cümle türleri, sözel mantık) | 🟢 Düşük | ~2 |
+
+## Müfredat kapsam boşlukları (2026-07-13 mufredat-takip — güncelleme)
+> Detay: docs/mufredat/mufredat-durum-2026-07-13.md. Resmî TYT yapısı yine **değişmedi** (Maarif etkisi ≥2028). **İlerleme:** 07-06'daki M3/M6/M7/M8 kapandı — Fizik 11 ünite (tam), Coğrafya 13 soru bankası, Felsefe 13, Din 8 pratiklenebilir. Kalan gerçek boşluklar daralıyor:
+
+| # | Boşluk | Öncelik | Öneri ünite sayısı |
+|---|---|---|---|
+| M10 | **Geometri** — hâlâ yalnızca `geo-acilar` + `geo-alan`; M1 değişmedi. Eksik: özel üçgenler (dik/Pisagor, ikizkenar, eşkenar), açıortay-kenarortay, benzerlik, açı-kenar, merkezler, çokgen, dörtgenler, çember-daire, analitik, katı cisimler | 🔴 En yüksek (≈%25 mat) | ~10–12 |
+| M11 | **Biyoloji** — yalnızca `biy-hucre` + `biy-bilesen`. Eksik: ortak özellikler, organeller, zardan geçiş, sınıflandırma, mitoz, mayoz, kalıtım, ekosistem, güncel çevre | 🔴 Yüksek (6 fen sorusu) | ~8 |
+| M12 | **Kimya** — 6 ünite var; eksik iki yüksek-frekanslı konu: **karışımlar**, **asit-baz-tuz** | 🟠 Orta | ~2 |
+| M13 | **Türkçe soru bankası** — içerik 19 ünitede tam ama soru bankası 5'te; kalan ~14 başlığa soru üretimi (soru-uretici) | 🟠 Orta | — |
+| M14 | **Coğrafya konu anlatımı** — 13 soru bankası var, `setContent` yalnızca 3'te (konum/iklim/harita); kalan 10 ünitenin anlatımı stub olabilir (konu-anlatimi) | 🟠 Orta | — |
 
 ## İçerik (soru-uretici / konu-anlatimi)
 - Kalan branş üniteleri (Fonksiyon, Polinom, Olasılık, İstatistik + Geometri, Türkçe, Sosyal, Fen) için 25'er %20/40/40 soru — günlük otomatik görev (`gunluk-icerik-uretimi`) işliyor.
