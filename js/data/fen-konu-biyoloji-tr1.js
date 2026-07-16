@@ -1,10 +1,10 @@
 /* ============================================================
    FEN / BİYOLOJİ — TYT konu anlatımı (Bölüm 1: Canlıların ortak
-   özellikleri, organizasyon ve temel bileşikler).
+   özellikleri, organizasyon ve temel bileşikler). Premium Türkçe.
    Metin özgündür; MEB TYT Biyoloji kapsamına göre. upsertUnits.
    ============================================================ */
 (function () {
-  if (typeof TYT_CONTENT === "undefined") { console.error("fen-konu-biyoloji-tam: content-loader yüklenmedi"); return; }
+  if (typeof TYT_CONTENT === "undefined") { console.error("fen-konu-biyoloji-tr1: content-loader yüklenmedi"); return; }
 
   var mevcut = function (id) {
     try { var D = (typeof TYT_DATA !== "undefined") ? TYT_DATA : null; if (!D) return null;

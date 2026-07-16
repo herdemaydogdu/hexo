@@ -16,12 +16,24 @@ require(abs("js/content-loader.js"));
 
 // index.html'den js/data/*.js sırasını çek
 const html = fs.readFileSync(abs("index.html"), "utf8");
+// Mount eskimesi/truncation tespiti: index.html </html> ile bitmeli, yoksa modül listesi eksik.
+if (!/<\/html>\s*$/.test(html.replace(/\0/g, "").trimEnd())) {
+  console.warn("! UYARI: index.html mount önbelleğinde TRUNCATED (</html> yok). Modül listesi eksik olabilir; sayılar güvenilmez. Read/Grep ile doğrula.");
+}
 const mods = [];
 html.replace(/src="(js\/data\/[^"?]+)\.js/g, function (_, p) { mods.push(p + ".js"); return _; });
+// Bir dosya geçerli bir kapanışla (; } ) ]) bitmiyorsa mount'ta kesilmiş demektir; gerçek dosya sağlam olabilir.
+function mountKesik(src) { const t = src.replace(/\0/g, "").trimEnd(); return t.length > 0 && !/[;)}\]]$/.test(t); }
+const stale = [];
 mods.forEach(function (m) {
-  try { eval(fs.readFileSync(abs(m), "utf8").replace(/\0/g, "")); }  // mount NUL padding'e dayanıklı
-  catch (e) { console.warn("! yüklenemedi:", m, "-", e.message); }
+  let src = "";
+  try { src = fs.readFileSync(abs(m), "utf8"); } catch (e) { console.warn("! okunamadı:", m, "-", e.message); return; }
+  if (mountKesik(src)) stale.push(m);
+  try { eval(src.replace(/\0/g, "")); }  // mount NUL padding'e dayanıklı
+  catch (e) { console.warn("! yüklenemedi:", m, "-", e.message, mountKesik(src) ? "[STALE/TRUNCATED mount — gerçek dosya sağlam olabilir, Read ile doğrula]" : ""); }
 });
+if (stale.length) console.warn("\n! MOUNT-STALE/TRUNCATED (" + stale.length + "): " + stale.join(", ") +
+  "\n  → Bu dosyalar mount önbelleğinde kesik; gerçek dosyalar sağlam olabilir. rapor.js sayıları BUNLAR İÇİN güvenilmez, Read/Grep ile doğrula.\n");
 if (global.TYT_CONTENT && global.TYT_CONTENT.finalize) global.TYT_CONTENT.finalize();
 
 const D = global.TYT_DATA;

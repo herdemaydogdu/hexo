@@ -1,10 +1,10 @@
 /* ============================================================
    FEN / BİYOLOJİ — TYT konu anlatımı (Bölüm 2: Hücre, madde geçişleri,
-   sınıflandırma, canlılar dünyası, hücre bölünmeleri, ekosistem).
+   sınıflandırma, canlılar dünyası, hücre bölünmeleri, ekosistem). Premium Türkçe.
    upsertUnits. Metin özgündür.
    ============================================================ */
 (function () {
-  if (typeof TYT_CONTENT === "undefined") { console.error("fen-konu-biyoloji-b: content-loader yüklenmedi"); return; }
+  if (typeof TYT_CONTENT === "undefined") { console.error("fen-konu-biyoloji-tr2: content-loader yüklenmedi"); return; }
 
   var mevcut = function (id) {
     try { var D = (typeof TYT_DATA !== "undefined") ? TYT_DATA : null; if (!D) return null;
