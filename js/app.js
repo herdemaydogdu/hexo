@@ -274,16 +274,19 @@ function renderDashboard() {
   const bigLbl = daysLeft > 0 ? "gün kaldı" : daysLeft === 0 ? "bugün!" : "geçti";
   const tcSub = daysLeft >= 0 ? `${examFmt} · YKS 1. oturum` : "Sınav tarihini güncelle";
 
-  // Akıllı tek CTA — kaldığı test önce, sonra tekrar, sonra yeni
-  let ctaLabel, ctaGo, ctaSub;
+  // Akıllı tek CTA — kaldığı test önce, sonra tekrar, sonra günlük hedefi tamamla
+  let ctaLabel, ctaAttr, ctaSub;
   if (active) {
-    ctaLabel = "Çalışmaya Devam Et"; ctaGo = "resume";
+    ctaLabel = "Çalışmaya Devam Et"; ctaAttr = 'data-go="resume"';
     ctaSub = `Kaldığın test: ${active.title} · ${(active.answers || []).filter(a => a !== null && a !== undefined).length}/${(active.questions || []).length} işaretli`;
   } else if (due > 0) {
-    ctaLabel = "Tekrara Başla"; ctaGo = "review"; ctaSub = `${due} soru tekrar zamanı (yanlış defteri)`;
+    ctaLabel = "Tekrara Başla"; ctaAttr = 'data-go="review"'; ctaSub = `${due} soru tekrar zamanı (yanlış defteri)`;
+  } else if (remaining > 0) {
+    ctaLabel = `Günlük Hedefi Tamamla · ${remaining} soru`; ctaAttr = `data-quick="${remaining}"`;
+    ctaSub = `Hedefine ${remaining} soru kaldı — hemen başla`;
   } else {
-    ctaLabel = "Çalışmaya Başla"; ctaGo = "quiz";
-    ctaSub = remaining > 0 ? `Günlük hedefe ${remaining} soru kaldı` : "Bugünkü hedefini tamamladın";
+    ctaLabel = "Ekstra Test Çöz"; ctaAttr = 'data-quick="10"';
+    ctaSub = "Bugünkü hedefini tamamladın 🎯 dilersen devam et";
   }
 
   const perf = subjectPerf();
@@ -351,6 +354,41 @@ function renderDashboard() {
   qTiles.push(`<button class="quick-tile" data-go="review"><span class="isq" style="background:rgba(245,158,11,.14);color:var(--yellow)">${svgIcon("yanlis")}</span><span class="qt-txt"><b>Yanlışlarım${due ? ` (${due})` : ""}</b><span>Yanlışları tekrar et</span></span></button>`);
   qTiles.push(`<button class="quick-tile" data-go="deneme"><span class="isq" style="background:rgba(22,163,74,.13);color:var(--green)">${svgIcon("deneme")}</span><span class="qt-txt"><b>Mini Deneme</b><span>Süreli deneme çöz</span></span></button>`);
 
+  const onboardCard = isNewUser ? `
+    <section class="onboard-card" aria-label="Başlangıç">
+      <span class="ob-ic">${svgIcon("target")}</span>
+      <div class="ob-body">
+        <h2 class="ob-title">Hoş geldin! Hadi seviyeni belirleyelim</h2>
+        <p class="ob-text">Henüz çalışma verin yok. Kısa bir seviye testiyle başla; güçlü ve eksik olduğun konuları görelim, sana özel öneriler çıkaralım.</p>
+      </div>
+      <button class="btn ob-btn" data-quick="10">Seviye Testini Başlat ${svgIcon("arrow")}</button>
+    </section>` : "";
+
+  const detailBlocks = isNewUser ? "" : `
+    <h2 class="dash-section-title">İstatistiklerin</h2>
+    <section class="panel" aria-label="Ders performansı">
+      <h2 class="dash-h2">Ders performansı</h2>
+      <div class="perf-list">${perfRows}</div>
+      <button class="link-all" data-go="istatistik">Tümünü Gör</button>
+    </section>
+
+    <div class="dash-row2">
+      <section class="panel" aria-label="Haftalık ilerleme">
+        <h2 class="dash-h2">Haftalık ilerleme</h2>
+        <div class="week-chart">${weekBars}</div>
+      </section>
+      <section class="panel" aria-label="Son çalışmalar">
+        <h2 class="dash-h2">Son çalışmalar</h2>
+        <div class="recent-list">${recentRows}</div>
+        ${recent.length ? `<button class="link-all" data-go="istatistik">Tümünü Gör</button>` : ""}
+      </section>
+    </div>
+
+    <div class="tip-banner">
+      <span class="tip-ic">${svgIcon("bulb")}</span>
+      <p>Zorlandığın konuları düzenli tekrar ederek ilerlemeni hızlandırabilirsin.</p>
+    </div>`;
+
   app.innerHTML = `
     <header class="dash-top">
       <div class="dash-hello">
@@ -363,6 +401,7 @@ function renderDashboard() {
       </span>
     </header>
     ${recCard}
+    ${onboardCard}
     ${posBanner}
 
     <div class="dash-row2">
@@ -387,7 +426,7 @@ function renderDashboard() {
         </div>
         <div class="cta-row">
           <div class="cta-text"><b>Hedefin: ${goal} soru</b><span>${ctaSub}</span></div>
-          <button class="btn" data-go="${ctaGo}">${ctaLabel} ${svgIcon("arrow")}</button>
+          <button class="btn" ${ctaAttr}>${ctaLabel} ${svgIcon("arrow")}</button>
         </div>
       </section>
 
@@ -399,30 +438,10 @@ function renderDashboard() {
       </section>
     </div>
 
-    <section class="panel" aria-label="Ders performansı">
-      <h2 class="dash-h2">Ders performansı</h2>
-      <div class="perf-list">${perfRows}</div>
-      <button class="link-all" data-go="istatistik">Tümünü Gör</button>
-    </section>
-
-    <div class="dash-row2">
-      <section class="panel" aria-label="Haftalık ilerleme">
-        <h2 class="dash-h2">Haftalık ilerleme</h2>
-        <div class="week-chart">${weekBars}</div>
-      </section>
-      <section class="panel" aria-label="Son çalışmalar">
-        <h2 class="dash-h2">Son çalışmalar</h2>
-        <div class="recent-list">${recentRows}</div>
-        ${recent.length ? `<button class="link-all" data-go="istatistik">Tümünü Gör</button>` : ""}
-      </section>
-    </div>
-
-    <div class="tip-banner">
-      <span class="tip-ic">${svgIcon("bulb")}</span>
-      <p>Zorlandığın konuları düzenli tekrar ederek ilerlemeni hızlandırabilirsin.</p>
-    </div>
+    ${detailBlocks}
   `;
   bindGo();
+  app.querySelectorAll("[data-quick]").forEach(b => b.onclick = () => startQuickTest(parseInt(b.dataset.quick, 10)));
   app.querySelectorAll(".weak-go").forEach(b => b.onclick = () => startUnitPractice(b.dataset.sub, b.dataset.unit));
   app.querySelectorAll("[data-session]").forEach(b => b.onclick = () => {
     if (b.dataset.noreview) { notify("Bu eski oturumda ayrıntılı kayıt yok.", "info"); return; }
