@@ -1460,3 +1460,24 @@ html { overflow-x: hidden; }
   .onboard-card .ob-btn { width: 100%; justify-content: center; }
 }
 
+/* ============================================================
+   DASHBOARD ÖNCELİK 3 (2026-07-17): haftalık grafik yorumu,
+   mobilde katlanabilir ikincil istatistikler.
+   ============================================================ */
+.week-note { margin: 12px 2px 0; font-size: 13.5px; line-height: 1.5; color: var(--muted, #667); }
+.week-note b { color: var(--text); font-weight: 700; }
+
+/* Masaüstü: istatistikler her zaman açık, toggle gizli */
+.details-toggle { display: none; }
+.details-body { display: block; }
+
+/* Mobil: ikincil istatistikleri katlanabilir yap (uzun kaydırmayı azaltır) */
+@media (max-width: 640px) {
+  .dash-details .dash-section-title { display: none; }
+  .details-toggle { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; padding: 14px 16px; margin: 22px 0 0; border: 1px solid var(--line); border-radius: var(--radius, 14px); background: var(--card, #fff); color: var(--text); font-size: 15px; font-weight: 800; cursor: pointer; box-shadow: var(--shadow-sm); }
+  .details-toggle::after { content: "Göster ▾"; font-size: 12px; font-weight: 700; color: var(--primary); }
+  .dash-details.open .details-toggle::after { content: "Gizle ▴"; }
+  .details-body { display: none; margin-top: 14px; }
+  .dash-details.open .details-body { display: block; }
+}
+

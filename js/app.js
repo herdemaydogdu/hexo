@@ -229,6 +229,22 @@ function weeklyData() {
 
 /* Tüm oturumlardan ünite bazlı en zayıf konular — kişiselleştirilmiş öneri için.
    Yeterli veri (minTotal soru) olan ve başarısı %70 altı konuları düşükten yükseğe sıralar. */
+/* Bu hafta ve geçen haftanın toplam çözülen soru sayısı — grafik yorumu için. */
+function weekTotals() {
+  const sessions = loadProgress().sessions;
+  const today = new Date(); today.setHours(12, 0, 0, 0);
+  const sumRange = (startAgo, endAgo) => {
+    let t = 0;
+    for (let i = startAgo; i >= endAgo; i--) {
+      const d = new Date(today); d.setDate(today.getDate() - i);
+      const key = TYTCore.getLocalDateKey(d);
+      t += sessions.filter(x => TYTCore.toLocalDateKey(x.date) === key).reduce((a, x) => a + (x.total || 0), 0);
+    }
+    return t;
+  };
+  return { thisWeek: sumRange(6, 0), lastWeek: sumRange(13, 7) };
+}
+
 function weakUnitsAll(minTotal) {
   const g = {};
   loadProgress().sessions.forEach(s => {
@@ -325,6 +341,19 @@ function renderDashboard() {
     return `<div class="wcol" title="${d.full}: ${d.count} soru"><div class="wbar${d.count ? "" : " empty"}" style="height:${h}%"></div><span class="wlbl">${d.name}</span></div>`;
   }).join("");
 
+  const wt = weekTotals();
+  let weekNote;
+  if (wt.thisWeek === 0 && wt.lastWeek === 0) {
+    weekNote = "Bu hafta henüz soru çözmedin — 10 soruluk kısa bir test bile ivme kazandırır.";
+  } else if (wt.lastWeek === 0) {
+    weekNote = `Bu hafta <b>${wt.thisWeek} soru</b> çözdün. Güçlü bir başlangıç!`;
+  } else {
+    const wd = Math.round((wt.thisWeek - wt.lastWeek) / wt.lastWeek * 100);
+    if (wd > 0) weekNote = `Geçen haftaya göre <b>%${wd} daha fazla</b> soru çözdün (${wt.thisWeek} / ${wt.lastWeek}). Tempoyu koru!`;
+    else if (wd < 0) weekNote = `Geçen haftaya göre <b>%${Math.abs(wd)} daha az</b> soru çözdün (${wt.thisWeek} / ${wt.lastWeek}). Bugün kısa bir test tempoyu geri getirir.`;
+    else weekNote = `Geçen haftayla aynı tempodasın (${wt.thisWeek} soru). İstikrar iyi gidiyor!`;
+  }
+
   const isNewUser = !p.sessions.length && !active;
   const posBanner = isNewUser ? `
     <section class="pos-banner" aria-label="Neden bu platform">
@@ -352,7 +381,7 @@ function renderDashboard() {
   if (active) qTiles.push(`<button class="quick-tile" data-go="resume"><span class="isq" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("arrow")}</span><span class="qt-txt"><b>Devam Et</b><span>Son testine dön</span></span></button>`);
   qTiles.push(`<button class="quick-tile" data-go="quicktest"><span class="isq" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("soru")}</span><span class="qt-txt"><b>Hızlı Test</b><span>10 karışık soru</span></span></button>`);
   qTiles.push(`<button class="quick-tile" data-go="review"><span class="isq" style="background:rgba(245,158,11,.14);color:var(--yellow)">${svgIcon("yanlis")}</span><span class="qt-txt"><b>Yanlışlarım${due ? ` (${due})` : ""}</b><span>Yanlışları tekrar et</span></span></button>`);
-  qTiles.push(`<button class="quick-tile" data-go="deneme"><span class="isq" style="background:rgba(22,163,74,.13);color:var(--green)">${svgIcon("deneme")}</span><span class="qt-txt"><b>Mini Deneme</b><span>Süreli deneme çöz</span></span></button>`);
+  qTiles.push(`<button class="quick-tile" data-go="deneme"><span class="isq" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("deneme")}</span><span class="qt-txt"><b>Mini Deneme</b><span>Süreli deneme çöz</span></span></button>`);
 
   const onboardCard = isNewUser ? `
     <section class="onboard-card" aria-label="Başlangıç">
@@ -365,28 +394,34 @@ function renderDashboard() {
     </section>` : "";
 
   const detailBlocks = isNewUser ? "" : `
-    <h2 class="dash-section-title">İstatistiklerin</h2>
-    <section class="panel" aria-label="Ders performansı">
-      <h2 class="dash-h2">Ders performansı</h2>
-      <div class="perf-list">${perfRows}</div>
-      <button class="link-all" data-go="istatistik">Tümünü Gör</button>
-    </section>
+    <div class="dash-details">
+      <button class="details-toggle" type="button" aria-expanded="false">İstatistiklerin</button>
+      <h2 class="dash-section-title">İstatistiklerin</h2>
+      <div class="details-body">
+        <section class="panel" aria-label="Ders performansı">
+          <h2 class="dash-h2">Ders performansı</h2>
+          <div class="perf-list">${perfRows}</div>
+          <button class="link-all" data-go="istatistik">Tümünü Gör</button>
+        </section>
 
-    <div class="dash-row2">
-      <section class="panel" aria-label="Haftalık ilerleme">
-        <h2 class="dash-h2">Haftalık ilerleme</h2>
-        <div class="week-chart">${weekBars}</div>
-      </section>
-      <section class="panel" aria-label="Son çalışmalar">
-        <h2 class="dash-h2">Son çalışmalar</h2>
-        <div class="recent-list">${recentRows}</div>
-        ${recent.length ? `<button class="link-all" data-go="istatistik">Tümünü Gör</button>` : ""}
-      </section>
-    </div>
+        <div class="dash-row2">
+          <section class="panel" aria-label="Haftalık ilerleme">
+            <h2 class="dash-h2">Haftalık ilerleme</h2>
+            <div class="week-chart">${weekBars}</div>
+            <p class="week-note">${weekNote}</p>
+          </section>
+          <section class="panel" aria-label="Son çalışmalar">
+            <h2 class="dash-h2">Son çalışmalar</h2>
+            <div class="recent-list">${recentRows}</div>
+            ${recent.length ? `<button class="link-all" data-go="istatistik">Tümünü Gör</button>` : ""}
+          </section>
+        </div>
 
-    <div class="tip-banner">
-      <span class="tip-ic">${svgIcon("bulb")}</span>
-      <p>Zorlandığın konuları düzenli tekrar ederek ilerlemeni hızlandırabilirsin.</p>
+        <div class="tip-banner">
+          <span class="tip-ic">${svgIcon("bulb")}</span>
+          <p>Zorlandığın konuları düzenli tekrar ederek ilerlemeni hızlandırabilirsin.</p>
+        </div>
+      </div>
     </div>`;
 
   app.innerHTML = `
@@ -442,6 +477,11 @@ function renderDashboard() {
   `;
   bindGo();
   app.querySelectorAll("[data-quick]").forEach(b => b.onclick = () => startQuickTest(parseInt(b.dataset.quick, 10)));
+  app.querySelectorAll(".details-toggle").forEach(b => b.onclick = () => {
+    const c = b.closest(".dash-details"); if (!c) return;
+    const open = c.classList.toggle("open");
+    b.setAttribute("aria-expanded", open ? "true" : "false");
+  });
   app.querySelectorAll(".weak-go").forEach(b => b.onclick = () => startUnitPractice(b.dataset.sub, b.dataset.unit));
   app.querySelectorAll("[data-session]").forEach(b => b.onclick = () => {
     if (b.dataset.noreview) { notify("Bu eski oturumda ayrıntılı kayıt yok.", "info"); return; }
