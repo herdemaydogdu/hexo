@@ -88,47 +88,65 @@
     [{ term: "Aşındırıcı", def: "Asit/baz; deri-metal aşındırır" }, { term: "Seyreltme kuralı", def: "Asit suya eklenir" }, { term: "MSDS", def: "Güvenlik bilgi formu" }]));
 
   /* 5 */ units.push(U("kim-model", "Atom Modelleri",
-    "Dalton'dan modern (kuantum) modele atomun tarihsel gelişimi.",
-    "<ul>" +
-    "<li><b>Dalton:</b> Atom bölünemez, içi dolu berk küre.</li>" +
-    "<li><b>Thomson:</b> Üzümlü kek — pozitif hamur içinde gömülü elektronlar; <b>elektronu</b> (katot ışınları) buldu.</li>" +
-    "<li><b>Rutherford:</b> Merkezde küçük, pozitif, kütlenin çoğunu taşıyan <b>çekirdek</b>; çevre boşluk (altın levha deneyi).</li>" +
-    "<li><b>Bohr:</b> Elektronlar belirli enerjili <b>kararlı yörüngelerde</b> dolanır.</li>" +
-    "<li><b>Modern (kuantum):</b> Elektronun yeri kesin bilinmez; yalnızca bulunma olasılığı yüksek <b>orbitaller</b> tanımlanır.</li>" +
-    "</ul>" +
-    "<p>Model gelişimi bilimin birikimli ve düzeltilebilir olduğunu gösterir; her model bir öncekinin eksiğini tamamlar.</p>",
-    ["Atom modellerini sırayla açıklar.", "Her modelin katkısını belirtir."],
-    ["Çekirdeği Thomson'a atfetmek (Rutherford).", "Bohr yörüngesi ile orbitali karıştırmak."],
-    [{ term: "Thomson", def: "Elektron; üzümlü kek" }, { term: "Rutherford", def: "Çekirdek; altın levha" }, { term: "Bohr", def: "Kararlı enerji yörüngeleri" }]));
+    "Dalton'dan modern kuantum modeline atomun anlayışının deney temelli gelişimi.",
+    "<p>Atomun yapısı tek bir kişi tarafından değil, her biri bir öncekinin açıklayamadığı gözlemi çözen bir dizi modelle anlaşıldı. Bu gelişim, bilimin nasıl işlediğinin de güzel bir örneğidir: bir model yeni bir deney sonucuyla çeliştiğinde terk edilmez, düzeltilir. Modelleri ezberlerken 'hangi deney, hangi eksiği ortaya çıkardı ve yeni model neyi ekledi' zincirini kurmak en sağlam yöntemdir.</p>" +
+    "<h3>Dalton (1803) — İçi dolu berk küre</h3>" +
+    "<p>Modern atom teorisinin başlangıcıdır. Dalton'a göre atom bölünemez, içi dolu, berk (som) bir küredir; aynı elementin atomları özdeştir. Kütlenin korunumu ve sabit oranlar yasasını açıkladı ancak atomun iç yapısı ve elektrik olayları hakkında hiçbir şey söyleyemedi. <b>Eksiği:</b> Atom yüklü tanecikler içerir mi sorusuna yanıtsız kaldı.</p>" +
+    "<h3>Thomson (1897) — Üzümlü kek</h3>" +
+    "<p>Katot ışınları deneyiyle <b>elektronu</b> keşfetti; böylece atomun bölünebildiği anlaşıldı. Modeline göre atom, artı yüklü bir hamur içine gömülmüş eksi elektronlardan oluşur (üzümlü kek / karpuz modeli) ve toplamda nötrdür. <b>Eksiği:</b> Kütlenin ve artı yükün atomda nasıl dağıldığını yanlış varsaydı.</p>" +
+    "<h3>Rutherford (1911) — Çekirdekli atom</h3>" +
+    "<p><b>Altın levha (α-ışını saçılması)</b> deneyinde ışınların çoğu levhadan geçti, çok azı büyük açıyla saptı. Bu, atomun büyük bölümünün <b>boşluk</b> olduğunu, kütlenin ve artı yükün ise merkezdeki küçücük <b>çekirdekte</b> toplandığını kanıtladı. Elektronlar çekirdek çevresinde dolanır. <b>Eksiği:</b> Dönen elektronun neden enerji kaybedip çekirdeğe düşmediğini açıklayamadı.</p>" +
+    "<h3>Bohr (1913) — Kararlı enerji katmanları</h3>" +
+    "<p>Hidrojenin çizgi spektrumundan yola çıkarak elektronların gelişigüzel değil, <b>belirli enerjili kararlı yörüngelerde (katmanlarda)</b> dolandığını öne sürdü. Elektron ancak katman atlarken enerji alır ya da yayar; kendi katmanında enerji kaybetmez. <b>Eksiği:</b> Yalnızca tek elektronlu sistemleri (H) açıklayabildi.</p>" +
+    "<h3>Modern (Kuantum) Model</h3>" +
+    "<p>Elektronun yeri ve hızı aynı anda kesin bilinemez (belirsizlik); bu yüzden yörünge yerine, elektronun <b>bulunma olasılığının yüksek olduğu bölgeler</b> olan <b>orbitaller</b> tanımlanır. Bugün geçerli olan modeldir.</p>",
+    ["Atom modellerini tarihsel sırayla ve dayandıkları deneyle açıklar.", "Her modelin katkısını ve açıklayamadığı eksiği belirtir.", "Bohr yörüngesi ile kuantum orbitalini ayırt eder."],
+    ["Elektronu Rutherford'a, çekirdeği Thomson'a atfetmek (elektron: Thomson, çekirdek: Rutherford).", "Bohr'un 'yörünge'si ile modern modelin 'orbital'ini aynı sanmak.", "Altın levha deneyini elektronun keşfi sanmak (o çekirdeğin keşfidir)."],
+    [{ term: "Thomson", def: "Elektron; üzümlü kek; katot ışınları" }, { term: "Rutherford", def: "Çekirdek; altın levha (α saçılması)" }, { term: "Bohr", def: "Kararlı enerji katmanları; çizgi spektrumu" }, { term: "Orbital", def: "Elektronun yüksek bulunma olasılığı bölgesi" }]));
 
   /* 6 */ units.push(U("kim-atom", "Atomun Yapısı",
-    "Proton, nötron, elektron; atom/kütle numarası, izotop-izobar-izoton ve iyonlar.",
-    "<p>Atom; merkezde <b>çekirdek</b> (proton p⁺ + nötron n⁰) ve çevresinde <b>elektronlar</b> (e⁻) içerir. Proton +, elektron −, nötron yüksüzdür.</p>" +
-    "<h3>Temel tanımlar</h3>" +
+    "Atom altı tanecikler, atom/kütle numarası, iyonlar ve izotop-izobar-izoton-izoelektronik türleri.",
+    "<p>Atom, bir elementin özelliğini taşıyan en küçük yapı taşıdır. İki temel bölgeden oluşur: kütlenin neredeyse tamamını (%99,9'unu) barındıran, hacimce çok küçük ve <b>artı yüklü çekirdek</b> ile çekirdeği saran, hacimce çok büyük ama kütlece ihmal edilebilir <b>elektron bulutu</b>. Ölçek olarak düşünürsek: atom bir stadyum ise çekirdek sahanın ortasındaki bir bilye kadardır; aradaki uzayın tamamı elektronların dolaştığı boşluktur. Bu boşluk, maddenin katı görünmesine rağmen aslında ne kadar 'seyrek' olduğunu gösterir.</p>" +
+    "<h3>Atom altı tanecikler</h3>" +
+    "<p>Çekirdekte <b>proton (p⁺)</b> ve <b>nötron (n⁰)</b>, çevrede <b>elektron (e⁻)</b> bulunur. Proton ile nötronun kütlesi yaklaşık eşittir (~1 akb) ve her ikisine birlikte <b>nükleon</b> denir. Elektronun kütlesi protonun yaklaşık 1/1836'sı kadar olduğundan atom kütlesine katkısı yok sayılır.</p>" +
     "<ul>" +
-    "<li><b>Atom numarası (Z)</b> = proton sayısı; elementi belirler.</li>" +
-    "<li><b>Kütle numarası (A)</b> = proton + nötron.</li>" +
-    "<li>Nötr atomda <b>proton = elektron</b>.</li>" +
-    "<li><b>İyon:</b> e⁻ alırsa anyon (−), verirse katyon (+).</li>" +
+    "<li><b>Proton:</b> +1 yüklü, ~1 akb kütleli. Sayısı elementin kimliğidir; değişirse element değişir.</li>" +
+    "<li><b>Nötron:</b> yüksüz, ~1 akb kütleli. Çekirdeği bir arada tutup kararlılığı sağlar.</li>" +
+    "<li><b>Elektron:</b> −1 yüklü, kütlesi ihmal edilir. Kimyasal tepkimeleri (bağ, iyonlaşma) belirleyen tanecik odur.</li>" +
     "</ul>" +
-    "<h3>Türler</h3>" +
-    "<p><b>İzotop:</b> p aynı, n farklı. <b>İzobar:</b> A aynı. <b>İzoton:</b> n aynı. <b>İzoelektronik:</b> e⁻ sayısı aynı. Örn. ₁₁²³Na: 11 p, 11 e, 12 n.</p>",
-    ["Z ve A'dan p, n, e bulur.", "İzotop-izobar-izoton-izoelektronik ayırır."],
-    ["Katyonda e⁻ = p almak.", "n = A−Z bulmayı unutmak."],
-    [{ term: "Z", def: "Proton sayısı" }, { term: "A", def: "p + n" }, { term: "İzotop", def: "p aynı, n farklı" }]));
+    "<h3>Atom numarası, kütle numarası ve iyonlar</h3>" +
+    "<div class=\"formula\">Z = proton sayısı &nbsp;|&nbsp; A = proton + nötron &nbsp;⇒&nbsp; nötron = A − Z</div>" +
+    "<p><b>Atom numarası (Z)</b> proton sayısıdır ve elementi tanımlar (tüm karbon atomlarının Z'si 6'dır). <b>Kütle numarası (A)</b> çekirdekteki nükleon (p+n) toplamıdır. Gösterim <sub>Z</sub><sup>A</sup>X biçimindedir. <b>Nötr</b> atomda proton = elektron olduğundan yük sıfırdır. Atom elektron alır ya da verirse <b>iyon</b> oluşur: elektron <b>veren</b> tanecikte e⁻ < p⁺ olur ve <b>katyon (+)</b>; elektron <b>alan</b> tanecikte e⁻ > p⁺ olur ve <b>anyon (−)</b> meydana gelir. Dikkat: iyonlaşmada proton sayısı asla değişmez, yalnızca elektron sayısı değişir. Örneğin ₁₂Mg²⁺ tanecikte 12 proton ama 10 elektron vardır.</p>" +
+    "<h3>Atom türleri (aynılık ilişkileri)</h3>" +
+    "<ul>" +
+    "<li><b>İzotop:</b> Proton (Z) aynı, nötron (dolayısıyla A) farklı. Aynı elementin farklı kütleli hâlleridir; kimyasal özellikleri aynı, fiziksel özellikleri (kütle, yoğunluk) farklıdır. Örn. ₁₇³⁵Cl ve ₁₇³⁷Cl.</li>" +
+    "<li><b>İzobar:</b> Kütle numarası (A) aynı, proton farklı ⇒ farklı elementlerdir. Örn. ₁₈⁴⁰Ar ve ₂₀⁴⁰Ca.</li>" +
+    "<li><b>İzoton:</b> Nötron sayısı aynı, proton farklı. Örn. ₆¹⁴C ve ₇¹⁵N (ikisinde de 8 nötron).</li>" +
+    "<li><b>İzoelektronik:</b> Elektron sayısı aynı olan tür (çoğunlukla iyonlar). Örn. Na⁺, Mg²⁺, F⁻, O²⁻ ve Ne — hepsi 10 elektronludur.</li>" +
+    "</ul>" +
+    "<h3>Çözümlü örnek</h3>" +
+    "<p><b>Soru:</b> ₁₇³⁷Cl⁻ iyonunda kaç proton, nötron ve elektron vardır?</p>" +
+    "<p><b>Çözüm:</b> Z = 17 ⇒ 17 proton. Nötron = A − Z = 37 − 17 = 20. İyon 1 elektron <b>almış</b> (−1 yük) olduğundan elektron = 17 + 1 = <b>18</b>. Sonuç: 17 p, 20 n, 18 e⁻.</p>",
+    ["Z ve A'dan proton, nötron ve elektron sayısını hesaplar.", "İzotop, izobar, izoton ve izoelektronik türleri ayırt eder.", "İyon oluşumunu proton sayısını değiştirmeden açıklar."],
+    ["İyonlaşmada proton sayısının değiştiğini sanmak (yalnız elektron değişir).", "Katyonda elektronu protona eşit almak.", "Nötronu A − Z ile bulmayı unutup A'yı nötron sanmak.", "İzotopların fiziksel özelliklerini de aynı sanmak."],
+    [{ term: "Z (atom numarası)", def: "Proton sayısı; elementin kimliği" }, { term: "A (kütle numarası)", def: "Proton + nötron (nükleon)" }, { term: "İzotop", def: "Z aynı, nötron/A farklı" }, { term: "İzoelektronik", def: "Elektron sayısı eşit türler" }, { term: "Katyon", def: "Elektron vermiş, artı yüklü" }]));
 
   /* 7 */ units.push(U("kim-yerlesim", "Periyodik Sistemde Yerleşim Esasları",
-    "Elektron dizilimi ile periyot ve grup belirleme.",
-    "<p>Elementler artan <b>atom numarasına</b> göre sıralanır. Elektronlar enerji katmanlarına dizilir; son katman <b>değerlik (valans)</b> elektronlarıdır.</p>" +
-    "<h3>Yer bulma</h3>" +
-    "<ul>" +
-    "<li><b>Periyot no</b> = katman (kabuk) sayısı. 7 periyot vardır.</li>" +
-    "<li><b>A grubu no</b> = değerlik elektron sayısı.</li>" +
-    "</ul>" +
-    "<p>Örn. ₁₁Na: 2)8)1 → 3. periyot, 1A. ₁₇Cl: 2)8)7 → 3. periyot, 7A. Baş gruplar (A) ve geçiş metalleri (B) tabloyu oluşturur.</p>",
-    ["Dizilimden periyot ve grubu bulur.", "Değerlik elektronunu belirler."],
-    ["Periyot ile grubu ters almak.", "B grubuna A kuralı uygulamak."],
-    [{ term: "Periyot", def: "Katman sayısı" }, { term: "A grup no", def: "Değerlik e⁻ sayısı" }, { term: "₁₁Na", def: "3. periyot 1A" }]));
+    "Katman elektron dizilimi ile bir elementin periyot ve grup yerini bulma.",
+    "<p>Periyodik tablo rastgele bir liste değil, elementlerin <b>elektron dizilimine</b> göre düzenlenmiş bir haritadır. Mendeleyev elementleri artan kütleye göre dizip benzer özellikleri alt alta getirmişti; bugünkü tablo ise artan <b>atom numarasına (proton sayısına)</b> göre sıralanır. Bir elementin tablodaki yerini bilmek, onun metal mi ametal mi olduğunu, kaç bağ yapacağını ve komşularıyla nasıl benzeştiğini önceden söyleyebilmek demektir. Bu yüzden 'yer bulma' kimyanın en çok işe yarayan becerisidir.</p>" +
+    "<h3>Elektronların katmanlara dizilişi</h3>" +
+    "<p>Elektronlar çekirdekten dışa doğru enerji <b>katmanlarına (kabuklarına)</b> yerleşir. TYT düzeyinde katman kapasiteleri sırayla 2, 8, 8... olarak alınır; içteki katman dolmadan dıştakine geçilmez. En dıştaki katmandaki elektronlara <b>değerlik (valans) elektronları</b> denir ve bir elementin kimyasal davranışını bunlar belirler.</p>" +
+    "<div class=\"formula\">Periyot no = katman (kabuk) sayısı &nbsp;|&nbsp; A grup no = değerlik elektron sayısı</div>" +
+    "<h3>Yer bulma kuralı</h3>" +
+    "<p>Elementin elektronlarını katmanlara dizince, <b>kaç katman kullandıysan periyot numarası</b>, <b>en dış katmandaki elektron sayısı</b> ise A grubu numarasıdır. Tablo 7 periyot ve 8 A grubundan (baş gruplar) oluşur; ortadaki bloklar B grubu (geçiş) metalleridir.</p>" +
+    "<h3>Çözümlü örnekler</h3>" +
+    "<p><b>₁₁Na:</b> Dizilim 2 ) 8 ) 1. Üç katman kullanıldı ⇒ <b>3. periyot</b>; son katmanda 1 elektron ⇒ <b>1A grubu</b>. Yani Na bir alkali metaldir.</p>" +
+    "<p><b>₁₇Cl:</b> Dizilim 2 ) 8 ) 7. Üç katman ⇒ <b>3. periyot</b>; son katmanda 7 elektron ⇒ <b>7A grubu</b> (halojen).</p>" +
+    "<p><b>₂₀Ca:</b> Dizilim 2 ) 8 ) 8 ) 2. Dört katman ⇒ <b>4. periyot</b>; son katmanda 2 elektron ⇒ <b>2A grubu</b>.</p>" +
+    "<p>Aynı <b>grup</b>taki elementlerin değerlik elektronu eşit olduğundan kimyasal özellikleri benzerdir; aynı <b>periyot</b>ta soldan sağa gidildikçe özellikler kademeli değişir.</p>",
+    ["Bir elementin elektron dizilimini katmanlara yapar.", "Dizilimden periyot ve A grup numarasını bulur.", "Değerlik elektronu ile kimyasal benzerliği ilişkilendirir."],
+    ["Periyot ile grubu ters almak (periyot = katman, grup = son katman elektronu).", "İç katman dolmadan dış katmana elektron yerleştirmek.", "B grubu (geçiş) elementlerine A grubu kuralını uygulamak."],
+    [{ term: "Periyot", def: "Kullanılan katman sayısı" }, { term: "A grup no", def: "Değerlik (son katman) elektron sayısı" }, { term: "Değerlik elektronu", def: "Kimyasal davranışı belirler" }, { term: "₁₇Cl", def: "2)8)7 → 3. periyot, 7A" }]));
 
   /* 8 */ units.push(U("kim-siniflama", "Elementlerin Sınıflandırılması",
     "Metal, ametal, yarı metal, soy gaz ve grup adları.",
