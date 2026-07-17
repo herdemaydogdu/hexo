@@ -73,7 +73,8 @@ const routes = {
   oyunlar: renderGamesMenu,
   istatistik: renderStats,
   resume: resumeActiveSession,
-  review: startReviewQuiz
+  review: startReviewQuiz,
+  quicktest: () => startQuickTest(10)
 };
 
 /* P1-5: Yanlış Defteri tekrar oturumu */
@@ -226,6 +227,36 @@ function weeklyData() {
   return out;
 }
 
+/* Tüm oturumlardan ünite bazlı en zayıf konular — kişiselleştirilmiş öneri için.
+   Yeterli veri (minTotal soru) olan ve başarısı %70 altı konuları düşükten yükseğe sıralar. */
+function weakUnitsAll(minTotal) {
+  const g = {};
+  loadProgress().sessions.forEach(s => {
+    const A = Array.isArray(s.answers) ? s.answers : [];
+    A.forEach(a => {
+      const q = questionById[a.questionId]; if (!q) return;
+      const key = q.subject + "|" + q.unit;
+      const o = g[key] || (g[key] = { subject: q.subject, unit: q.unit, correct: 0, total: 0 });
+      o.total++; if (a.isCorrect) o.correct++;
+    });
+  });
+  return Object.keys(g).map(k => {
+    const o = g[k];
+    o.pct = Math.round(o.correct / o.total * 100);
+    const sub = getSubject(o.subject), unit = getUnit(o.subject, o.unit);
+    o.subName = sub ? sub.name : o.subject;
+    o.unitName = unit ? unit.name : o.unit;
+    return o;
+  }).filter(o => o.total >= (minTotal || 3) && o.pct < 70).sort((a, b) => a.pct - b.pct);
+}
+
+/* Hızlı karışık test — menüye uğramadan doğrudan n soruluk açıklamalı test başlatır. */
+function startQuickTest(n) {
+  const pool = shuffle(D.questions.slice());
+  if (!pool.length) { notify("Soru bulunamadı.", "info"); return; }
+  runQuiz({ title: "Hızlı Test", subjectId: "karisik", questions: pool.slice(0, n || 10), timed: false, showExplain: true });
+}
+
 function renderDashboard() {
   const p = loadProgress();
   const active = getActiveSession();
@@ -302,13 +333,36 @@ function renderDashboard() {
       </div>
     </section>` : "";
 
+  const weakAll = weakUnitsAll(3);
+  const rec = weakAll[0];
+  const recCard = rec ? `
+    <section class="reco-card" aria-label="Sana özel öneri">
+      <span class="reco-ic">${svgIcon("target")}</span>
+      <div class="reco-body">
+        <span class="reco-eyebrow">Sana özel öneri</span>
+        <p class="reco-text"><b>${rec.subName} · ${rec.unitName}</b> konusunda başarın <b>%${rec.pct}</b>. 10 soruluk hedefli bir tekrar netini yükseltir.</p>
+      </div>
+      <button class="btn reco-btn weak-go" data-sub="${rec.subject}" data-unit="${rec.unit}">Bu konuyu çalış ${svgIcon("arrow")}</button>
+    </section>` : "";
+
+  const qTiles = [];
+  if (active) qTiles.push(`<button class="quick-tile" data-go="resume"><span class="isq" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("arrow")}</span><span class="qt-txt"><b>Devam Et</b><span>Son testine dön</span></span></button>`);
+  qTiles.push(`<button class="quick-tile" data-go="quicktest"><span class="isq" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("soru")}</span><span class="qt-txt"><b>Hızlı Test</b><span>10 karışık soru</span></span></button>`);
+  qTiles.push(`<button class="quick-tile" data-go="review"><span class="isq" style="background:rgba(245,158,11,.14);color:var(--yellow)">${svgIcon("yanlis")}</span><span class="qt-txt"><b>Yanlışlarım${due ? ` (${due})` : ""}</b><span>Yanlışları tekrar et</span></span></button>`);
+  qTiles.push(`<button class="quick-tile" data-go="deneme"><span class="isq" style="background:rgba(22,163,74,.13);color:var(--green)">${svgIcon("deneme")}</span><span class="qt-txt"><b>Mini Deneme</b><span>Süreli deneme çöz</span></span></button>`);
+
   app.innerHTML = `
-    <h1 class="sr-only">TYT Öğrenci Paneli</h1>
-    <div class="tyt-countdown" role="img" aria-label="TYT'ye ${daysLeft} gün kaldı">
-      <span class="tc-ic">${svgIcon("deneme")}</span>
-      <div class="tc-num"><b>${bigNum}</b><span>${bigLbl}</span></div>
-      <div class="tc-meta"><b>TYT'ye Kalan Süre</b><span>${tcSub}</span></div>
-    </div>
+    <header class="dash-top">
+      <div class="dash-hello">
+        <h1 class="dash-title">Çalışma Panelin</h1>
+        <p class="dash-lede">Bugün nereden devam edeceğini aşağıda bulacaksın.</p>
+      </div>
+      <span class="tyt-pill" title="${tcSub}" aria-label="TYT'ye ${daysLeft} gün kaldı">
+        <span class="tp-ic">${svgIcon("deneme")}</span>
+        <span class="tp-txt"><b>${bigNum}</b> ${bigLbl} · TYT</span>
+      </span>
+    </header>
+    ${recCard}
     ${posBanner}
 
     <div class="dash-row2">
@@ -337,13 +391,10 @@ function renderDashboard() {
         </div>
       </section>
 
-      <section class="panel quick-panel" aria-label="Hızlı erişim">
-        <h2 class="dash-h2">Hızlı erişim</h2>
+      <section class="panel quick-panel" aria-label="Hızlı aksiyonlar">
+        <h2 class="dash-h2">Hızlı aksiyonlar</h2>
         <nav class="quick-row q2">
-          <button class="quick-tile" data-go="quiz"><span class="isq" style="background:rgba(79,110,242,.12);color:var(--primary)">${svgIcon("soru")}</span><span class="qt-txt"><b>Soru Çöz</b><span>Sorulara başla</span></span></button>
-          <button class="quick-tile" data-go="deneme"><span class="isq" style="background:rgba(22,163,74,.13);color:var(--green)">${svgIcon("deneme")}</span><span class="qt-txt"><b>Mini Deneme</b><span>Kısa deneme çöz</span></span></button>
-          <button class="quick-tile" data-go="konu"><span class="isq" style="background:rgba(124,108,240,.14);color:var(--primary-2)">${svgIcon("konu")}</span><span class="qt-txt"><b>Konu Çalış</b><span>Anlatımları oku</span></span></button>
-          <button class="quick-tile" data-go="review"><span class="isq" style="background:rgba(245,158,11,.14);color:var(--yellow)">${svgIcon("yanlis")}</span><span class="qt-txt"><b>Yanlışlarım${due ? ` (${due})` : ""}</b><span>Yanlışları tekrar et</span></span></button>
+          ${qTiles.join("")}
         </nav>
       </section>
     </div>
@@ -372,6 +423,7 @@ function renderDashboard() {
     </div>
   `;
   bindGo();
+  app.querySelectorAll(".weak-go").forEach(b => b.onclick = () => startUnitPractice(b.dataset.sub, b.dataset.unit));
   app.querySelectorAll("[data-session]").forEach(b => b.onclick = () => {
     if (b.dataset.noreview) { notify("Bu eski oturumda ayrıntılı kayıt yok.", "info"); return; }
     const s = p.sessions[parseInt(b.dataset.session, 10)];

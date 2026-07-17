@@ -1408,3 +1408,33 @@ html { overflow-x: hidden; }
   /* Geniş tabloyu (min-width:620px) taşırmadan kaydırılabilir yap */
   .panel:has(.stat-table) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }
+
+/* ============================================================
+   DASHBOARD ÖNCELİK 1 (2026-07-17): küçük TYT pill, karşılama başlığı,
+   kişiselleştirilmiş öneri kartı. Dosya sonunda → cascade'i kazanır.
+   ============================================================ */
+.dash-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.dash-hello .dash-title { font-size: 26px; font-weight: 800; letter-spacing: -.6px; margin: 0; color: var(--text); }
+.dash-hello .dash-lede { margin: 4px 0 0; color: var(--muted, #667); font-size: 14.5px; }
+
+/* TYT geri sayımı — artık küçük, ikincil bir etiket (eski büyük hero kaldırıldı) */
+.tyt-pill { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; padding: 8px 14px; border-radius: 999px; background: linear-gradient(120deg, #4f46e5, #4f6ef2 60%, #14b8c4); color: #fff; box-shadow: 0 6px 16px rgba(79,110,242,.28); white-space: nowrap; }
+.tyt-pill .tp-ic { display: inline-flex; }
+.tyt-pill .tp-ic .ic { width: 16px; height: 16px; }
+.tyt-pill .tp-txt { font-size: 13px; font-weight: 600; }
+.tyt-pill .tp-txt b { font-size: 15px; font-weight: 800; }
+
+/* Kişiselleştirilmiş öneri kartı — dashboard'un görsel odağı */
+.reco-card { display: flex; align-items: center; gap: 16px; padding: 18px 20px; margin-bottom: 20px; border-radius: var(--r-xl, 18px); background: linear-gradient(135deg, rgba(79,110,242,.10), rgba(20,184,196,.07)); border: 1px solid rgba(79,110,242,.22); box-shadow: 0 10px 26px rgba(79,110,242,.12); }
+.reco-card .reco-ic { flex-shrink: 0; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: #fff; color: var(--primary); box-shadow: 0 2px 8px rgba(20,28,64,.08); }
+.reco-card .reco-ic .ic { width: 22px; height: 22px; }
+.reco-body { flex: 1; min-width: 0; }
+.reco-eyebrow { display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: .4px; text-transform: uppercase; color: var(--primary); margin-bottom: 3px; }
+.reco-text { margin: 0; font-size: 15px; line-height: 1.5; color: var(--text); }
+.reco-btn { flex-shrink: 0; }
+@media (max-width: 640px) {
+  .dash-top { flex-direction: column-reverse; align-items: stretch; gap: 12px; }
+  .tyt-pill { align-self: flex-start; }
+  .reco-card { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .reco-btn { width: 100%; justify-content: center; }
+}
