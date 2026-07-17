@@ -13,14 +13,15 @@ import {
   CheckCircle2,
   TrendingUp,
 } from "lucide-react";
+import useProgress from "./useProgress";
 
 /**
- * TYT Hazırlık — Dashboard Layout iskeleti
+ * TYT Hazırlık — Dashboard Layout (localStorage'a bağlı)
  * Tailwind CSS · minimalist · yumuşak pastel tonlar (uçuk mavi / soft lila / mint)
- * Tek dosya, bağımsız çalışır. Örnek veriler bileşen içinde tutulur.
+ * Veri: useProgress hook'u (tyt_progress_v1) — StatCard ve ProgressRow'a dinamik akar.
  */
 
-// ——— Örnek veri (skeleton; gerçek veriyle değiştirilebilir) ———
+// ——— Sidebar navigasyonu (statik) ———
 const NAV = [
   { id: "dashboard", label: "Ana Sayfa", icon: LayoutDashboard },
   { id: "konu", label: "Konu Anlatımı", icon: BookOpen },
@@ -29,27 +30,23 @@ const NAV = [
   { id: "istatistik", label: "İstatistik", icon: BarChart3 },
 ];
 
-const STATS = [
-  { label: "Bugün çözülen", value: "42", hint: "hedefin 50", icon: Target, tint: "sky" },
-  { label: "Günlük seri", value: "7", hint: "gün üst üste", icon: Flame, tint: "rose" },
-  { label: "Ortalama net", value: "68", hint: "son 5 deneme", icon: TrendingUp, tint: "violet" },
-  { label: "Tamamlanan konu", value: "23", hint: "48 konudan", icon: CheckCircle2, tint: "emerald" },
-];
-
-const PROGRESS = [
-  { subject: "Türkçe", value: 74, tint: "sky" },
-  { subject: "Matematik", value: 58, tint: "violet" },
-  { subject: "Sosyal Bilimler", value: 81, tint: "emerald" },
-  { subject: "Fen Bilimleri", value: 46, tint: "rose" },
-];
+// ——— Stat kartı key'i -> ikon eşlemesi (hook veriyi, Layout ikonu verir) ———
+const STAT_ICON = {
+  today: Target,
+  streak: Flame,
+  net: TrendingUp,
+  topics: CheckCircle2,
+};
 
 // ——— Pastel renk eşlemeleri (Tailwind çekirdek sınıfları) ———
 const TINT = {
-  sky: { soft: "bg-sky-50", chip: "bg-sky-100 text-sky-600", bar: "bg-sky-400", ring: "ring-sky-200" },
-  violet: { soft: "bg-violet-50", chip: "bg-violet-100 text-violet-600", bar: "bg-violet-400", ring: "ring-violet-200" },
-  emerald: { soft: "bg-emerald-50", chip: "bg-emerald-100 text-emerald-600", bar: "bg-emerald-400", ring: "ring-emerald-200" },
-  rose: { soft: "bg-rose-50", chip: "bg-rose-100 text-rose-600", bar: "bg-rose-400", ring: "ring-rose-200" },
+  sky: { chip: "bg-sky-100 text-sky-600", bar: "bg-sky-400" },
+  violet: { chip: "bg-violet-100 text-violet-600", bar: "bg-violet-400" },
+  emerald: { chip: "bg-emerald-100 text-emerald-600", bar: "bg-emerald-400" },
+  rose: { chip: "bg-rose-100 text-rose-600", bar: "bg-rose-400" },
+  teal: { chip: "bg-teal-100 text-teal-600", bar: "bg-teal-400" },
 };
+const tintOf = (t) => TINT[t] || TINT.sky;
 
 function NavItem({ item, active, onClick }) {
   const Icon = item.icon;
@@ -58,9 +55,7 @@ function NavItem({ item, active, onClick }) {
       onClick={onClick}
       className={
         "group flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition-colors " +
-        (active
-          ? "bg-violet-100 text-violet-700"
-          : "text-slate-500 hover:bg-slate-100 hover:text-slate-700")
+        (active ? "bg-violet-100 text-violet-700" : "text-slate-500 hover:bg-slate-100 hover:text-slate-700")
       }
     >
       <Icon className="h-5 w-5" strokeWidth={1.8} />
@@ -70,8 +65,8 @@ function NavItem({ item, active, onClick }) {
 }
 
 function StatCard({ stat }) {
-  const Icon = stat.icon;
-  const t = TINT[stat.tint];
+  const Icon = STAT_ICON[stat.key] || Target;
+  const t = tintOf(stat.tint);
   return (
     <div className="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
       <div className={"mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl " + t.chip}>
@@ -85,7 +80,7 @@ function StatCard({ stat }) {
 }
 
 function ProgressRow({ row }) {
-  const t = TINT[row.tint];
+  const t = tintOf(row.tint);
   return (
     <div>
       <div className="mb-1.5 flex items-center justify-between">
@@ -93,10 +88,7 @@ function ProgressRow({ row }) {
         <span className="text-sm font-semibold text-slate-800">%{row.value}</span>
       </div>
       <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
-        <div
-          className={"h-full rounded-full transition-all " + t.bar}
-          style={{ width: row.value + "%" }}
-        />
+        <div className={"h-full rounded-full transition-all " + t.bar} style={{ width: row.value + "%" }} />
       </div>
     </div>
   );
@@ -104,6 +96,9 @@ function ProgressRow({ row }) {
 
 export default function DashboardLayout() {
   const [active, setActive] = useState("dashboard");
+
+  // ——— localStorage ilerlemesini oku (backend gelene kadar) ———
+  const { ready, stats, progressRows, weakest, overall, streak } = useProgress({ dailyGoal: 50 });
 
   return (
     <div className="flex min-h-screen bg-slate-50 font-sans text-slate-800">
@@ -121,23 +116,18 @@ export default function DashboardLayout() {
 
         <nav className="flex flex-1 flex-col gap-1">
           {NAV.map((item) => (
-            <NavItem
-              key={item.id}
-              item={item}
-              active={active === item.id}
-              onClick={() => setActive(item.id)}
-            />
+            <NavItem key={item.id} item={item} active={active === item.id} onClick={() => setActive(item.id)} />
           ))}
         </nav>
 
-        {/* Sidebar alt: motivasyon kartı */}
+        {/* Sidebar alt: dinamik seri kartı */}
         <div className="mt-4 rounded-3xl bg-gradient-to-br from-violet-50 to-sky-50 p-4">
           <div className="flex items-center gap-2 text-violet-600">
             <Flame className="h-4 w-4" strokeWidth={2} />
-            <span className="text-xs font-semibold">7 günlük seri</span>
+            <span className="text-xs font-semibold">{streak} günlük seri</span>
           </div>
           <p className="mt-1.5 text-xs leading-relaxed text-slate-500">
-            Bugünkü hedefini tamamla, serini sürdür.
+            {streak > 0 ? "Bugünkü hedefini tamamla, serini sürdür." : "İlk testini çöz, serini başlat."}
           </p>
         </div>
       </aside>
@@ -169,56 +159,73 @@ export default function DashboardLayout() {
 
         {/* ——— Main içerik ——— */}
         <main className="flex-1 space-y-8 p-6">
-          {/* Öne çıkan öneri şeridi */}
+          {/* Öne çıkan öneri şeridi — en zayıf dersten dinamik */}
           <section className="flex flex-col gap-4 rounded-3xl bg-gradient-to-r from-sky-100 via-violet-100 to-emerald-100 p-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wide text-violet-500">Sana özel öneri</p>
               <p className="mt-1 max-w-md text-sm leading-relaxed text-slate-600">
-                <span className="font-semibold text-slate-800">Matematik · Temel Kavramlar</span> konusunda başarın %46.
-                10 soruluk hedefli bir tekrar netini yükseltir.
+                {weakest ? (
+                  <>
+                    <span className="font-semibold text-slate-800">{weakest.subject}</span> dersindeki başarın %{weakest.value}.
+                    Bu derse odaklı kısa bir tekrar netini yükseltir.
+                  </>
+                ) : (
+                  <>Henüz yeterli veri yok. Kısa bir <span className="font-semibold text-slate-800">seviye testi</span> çözerek başla.</>
+                )}
               </p>
             </div>
             <button className="inline-flex items-center justify-center gap-1.5 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-violet-600 shadow-sm hover:bg-violet-50">
-              Bu konuyu çalış
+              {weakest ? "Bu derse çalış" : "Seviye testine başla"}
               <ChevronRight className="h-4 w-4" strokeWidth={2} />
             </button>
           </section>
 
-          {/* İstatistik kartları */}
+          {/* İstatistik kartları — hook'tan */}
           <section>
             <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-400">Bugünkü durum</h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-              {STATS.map((s) => (
-                <StatCard key={s.label} stat={s} />
+              {stats.map((s) => (
+                <StatCard key={s.key} stat={s} />
               ))}
             </div>
           </section>
 
           {/* İlerleme + haftalık özet */}
           <section className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {/* Ders bazlı ilerleme çubukları */}
+            {/* Ders bazlı ilerleme çubukları — hook'tan */}
             <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm lg:col-span-2">
               <div className="mb-5 flex items-center justify-between">
                 <h2 className="text-base font-bold text-slate-800">Ders bazlı ilerleme</h2>
                 <button className="text-xs font-medium text-violet-500 hover:text-violet-600">Tümünü gör</button>
               </div>
-              <div className="space-y-5">
-                {PROGRESS.map((r) => (
-                  <ProgressRow key={r.subject} row={r} />
-                ))}
-              </div>
+
+              {progressRows.length > 0 ? (
+                <div className="space-y-5">
+                  {progressRows.map((r) => (
+                    <ProgressRow key={r.subject} row={r} />
+                  ))}
+                </div>
+              ) : (
+                <p className="py-8 text-center text-sm text-slate-400">
+                  {ready ? "Henüz ders verisi yok — birkaç soru çöz, ilerlemen burada belirsin." : "İlerleme verisi bulunamadı."}
+                </p>
+              )}
             </div>
 
-            {/* Haftalık hedef (placeholder halka) */}
+            {/* Genel tamamlanma halkası — ilerlemelerin ortalaması */}
             <div className="flex flex-col items-center justify-center rounded-3xl border border-slate-100 bg-white p-6 text-center shadow-sm">
-              <h2 className="mb-4 self-start text-base font-bold text-slate-800">Haftalık hedef</h2>
+              <h2 className="mb-4 self-start text-base font-bold text-slate-800">Genel tamamlanma</h2>
               <div className="relative flex h-36 w-36 items-center justify-center rounded-full bg-gradient-to-br from-sky-100 to-violet-100">
                 <div className="flex h-28 w-28 flex-col items-center justify-center rounded-full bg-white">
-                  <span className="text-2xl font-bold text-slate-800">%72</span>
-                  <span className="text-xs text-slate-400">tamamlandı</span>
+                  <span className="text-2xl font-bold text-slate-800">%{overall}</span>
+                  <span className="text-xs text-slate-400">ortalama</span>
                 </div>
               </div>
-              <p className="mt-5 text-sm text-slate-500">Bu hafta 5 günde 210 soru çözdün.</p>
+              <p className="mt-5 text-sm text-slate-500">
+                {progressRows.length
+                  ? `${progressRows.length} derste ortalama başarı %${overall}.`
+                  : "Veri geldikçe burada özetlenecek."}
+              </p>
             </div>
           </section>
         </main>

@@ -149,30 +149,44 @@
     [{ term: "Periyot", def: "Kullanılan katman sayısı" }, { term: "A grup no", def: "Değerlik (son katman) elektron sayısı" }, { term: "Değerlik elektronu", def: "Kimyasal davranışı belirler" }, { term: "₁₇Cl", def: "2)8)7 → 3. periyot, 7A" }]));
 
   /* 8 */ units.push(U("kim-siniflama", "Elementlerin Sınıflandırılması",
-    "Metal, ametal, yarı metal, soy gaz ve grup adları.",
+    "Metal, ametal, yarı metal ve soy gaz sınıfları ile özel grup adları.",
+    "<p>Yüz on sekiz elementi tek tek ezberlemek yerine, ortak davranışlarına göre birkaç sınıfa ayırmak öğrenmeyi kolaylaştırır. Bir elementin hangi sınıfa girdiğini, çoğu zaman tablodaki yerine ve değerlik elektron sayısına bakarak söyleyebiliriz. Sınıflandırmanın temel ölçütü, elementin elektron <b>verme mi alma mı</b> eğiliminde olduğudur; bu eğilim onun fiziksel görünümünü ve tepkime biçimini de belirler.</p>" +
+    "<h3>Metaller</h3>" +
+    "<p>Tablonun sol ve orta bölümünde yer alırlar. Değerlik elektron sayısı azdır (genelde 1-3), bu yüzden elektron <b>vererek katyon</b> oluştururlar. Parlaktırlar, ısı ve elektriği iyi iletir, dövülüp tel-levha hâline getirilebilirler (işlenebilir). Cıva dışında oda koşullarında katıdırlar.</p>" +
+    "<h3>Ametaller</h3>" +
+    "<p>Tablonun sağ üst bölümündedir. Değerlik elektron sayısı çoktur, elektron <b>alarak anyon</b> oluşturmaya eğilimlidir. Genelde mat, kırılgan ve ısı-elektrik yalıtkanıdır (grafit önemli bir istisnadır, iletir). Katı, sıvı (Br) ve gaz hâlde bulunabilirler.</p>" +
+    "<h3>Yarı metaller (Metaloidler)</h3>" +
+    "<p>Metal ile ametal arasındaki sınır basamağında yer alan <b>B, Si, Ge, As, Sb, Te</b> elementleridir. Hem metal hem ametal özelliği gösterir; en tipik yönleri <b>yarı iletken</b> olmaları ve bu yüzden elektronik/çip sanayisinde kullanılmalarıdır.</p>" +
+    "<h3>Soy (asal) gazlar — 8A</h3>" +
+    "<p>Son katmanları tam dolu (2 veya 8 elektron) olduğundan <b>kararlıdırlar</b>; elektron alıp verme eğilimleri yoktur, bu nedenle normal koşullarda tepkimeye girmez ve tek atomlu (monoatomik) hâlde gaz olarak bulunurlar.</p>" +
+    "<h3>Özel grup adları</h3>" +
     "<ul>" +
-    "<li><b>Metaller:</b> Elektron verir (katyon), parlak, ısı-elektrik iletir, tel-levha olur. Tablonun solu.</li>" +
-    "<li><b>Ametaller:</b> Elektron alır (anyon), kırılgan, yalıtkan (grafit hariç). Sağ üst.</li>" +
-    "<li><b>Yarı metaller (B, Si, Ge, As, Sb, Te):</b> Yarı iletken.</li>" +
-    "<li><b>Soy gazlar (8A):</b> Son katmanı dolu, kararlı; tepkimeye girmez.</li>" +
+    "<li><b>1A — Alkali metaller</b> (H hariç): en aktif metaller.</li>" +
+    "<li><b>2A — Toprak alkali metaller.</b></li>" +
+    "<li><b>7A — Halojenler:</b> en aktif ametaller.</li>" +
+    "<li><b>8A — Soy gazlar:</b> kararlı, tepkimez.</li>" +
     "</ul>" +
-    "<p>Grup adları: 1A alkali metaller, 2A toprak alkali metaller, 7A halojenler, 8A soy gazlar. <b>Hidrojen ametaldir</b> (1A'da yazılsa da).</p>",
-    ["Metal-ametal-yarı metal-soy gazı ayırır.", "Grup adlarını eşleştirir."],
-    ["Hidrojeni metal sanmak.", "Soy gazı tepkimeye giriyor sanmak."],
-    [{ term: "1A", def: "Alkali metaller" }, { term: "7A", def: "Halojenler" }, { term: "8A", def: "Soy gazlar" }]));
+    "<p><b>Önemli istisna:</b> Hidrojen 1A grubunda yazılır ama bir <b>ametaldir</b>; alkali metallerden sayılmaz.</p>",
+    ["Metal, ametal, yarı metal ve soy gazı özellikleriyle ayırt eder.", "Özel grup adlarını (alkali, halojen vb.) eşleştirir.", "Bir elementin elektron alma/verme eğilimini sınıfıyla ilişkilendirir."],
+    ["Hidrojeni alkali metal (metal) sanmak — hidrojen ametaldir.", "Soy gazların tepkimeye girdiğini düşünmek.", "Tüm ametalleri yalıtkan sanmak (grafit iletkendir)."],
+    [{ term: "Metal", def: "Elektron verir, katyon, iletken, işlenebilir" }, { term: "Ametal", def: "Elektron alır, anyon, kırılgan/yalıtkan" }, { term: "Yarı metal", def: "B,Si,Ge,As,Sb,Te; yarı iletken" }, { term: "1A / 7A / 8A", def: "Alkali / Halojen / Soy gaz" }]));
 
   /* 9 */ units.push(U("kim-periyodik", "Periyodik Özelliklerin Değişme Eğilimleri",
-    "Atom yarıçapı, iyonlaşma enerjisi, elektron ilgisi ve elektronegatiflik.",
-    "<ul>" +
-    "<li><b>Atom yarıçapı:</b> Grupta aşağı <b>artar</b>, periyotta sağa <b>azalır</b>.</li>" +
-    "<li><b>İyonlaşma enerjisi:</b> (e⁻ koparma) yarıçapın tersi: sağa <b>artar</b>, aşağı azalır.</li>" +
-    "<li><b>Elektron ilgisi</b> ve <b>elektronegatiflik:</b> sağa artar, aşağı azalır. En elektronegatif element <b>F</b>.</li>" +
-    "<li><b>Metalik özellik</b> aşağı-sola artar; ametalik yukarı-sağa artar.</li>" +
-    "</ul>" +
-    "<p>Katyon atomundan küçük, anyon büyüktür. İzoelektronik türlerde çekirdek yükü büyük olanın yarıçapı küçüktür.</p>",
-    ["Periyodik eğilim yönlerini bilir.", "İyon yarıçaplarını karşılaştırır."],
-    ["Yarıçap ile iyonlaşma enerjisini aynı yönde sanmak.", "Katyonu atomundan büyük sanmak."],
-    [{ term: "Atom yarıçapı", def: "Sağa azalır, aşağı artar" }, { term: "İyonlaşma enerjisi", def: "Sağa artar" }, { term: "En elektronegatif", def: "Flor (F)" }]));
+    "Atom yarıçapı, iyonlaşma enerjisi, elektron ilgisi, elektronegatiflik ve metalik özelliğin tablo boyunca değişimi.",
+    "<p>Periyodik tablonun gücü, özelliklerin gelişigüzel değil <b>düzenli bir yönelimle (trend)</b> değişmesinden gelir. Bu değişimin arkasında iki basit etken vardır: (1) soldan sağa gidildikçe artan <b>çekirdek yükü (proton sayısı)</b> elektronları daha güçlü çeker; (2) yukarıdan aşağı inildikçe artan <b>katman sayısı</b> hem yarıçapı büyütür hem de dış elektronların çekirdeğe uzaklığını artırıp bağını zayıflatır. Trendleri ezberlemek yerine bu iki etkenle akıl yürütürsen tüm eğilimleri kendin çıkarabilirsin.</p>" +
+    "<h3>Atom yarıçapı</h3>" +
+    "<p>Periyotta <b>soldan sağa azalır</b> (artan çekirdek yükü elektron bulutunu içe çeker), grupta <b>yukarıdan aşağı artar</b> (yeni katmanlar eklenir). Yani tablonun sol-alt köşesindeki elementler en büyük, sağ-üst köşedekiler en küçük yarıçaplıdır.</p>" +
+    "<h3>İyonlaşma enerjisi</h3>" +
+    "<p>Nötr bir atomdan gaz hâlde bir elektron koparmak için gereken enerjidir. Yarıçapla <b>ters</b> davranır: küçük ve çekirdeğe sıkı bağlı atomdan elektron koparmak zordur. Bu yüzden periyotta <b>sağa artar</b>, grupta <b>aşağı azalır</b>. Bir atomdan sırayla 1., 2., 3.... iyonlaşma enerjileri hep artar; çünkü artı yükü artan taneciğin elektronunu koparmak giderek zorlaşır.</p>" +
+    "<h3>Elektron ilgisi ve elektronegatiflik</h3>" +
+    "<p><b>Elektron ilgisi</b> bir atomun elektron alırken açığa çıkardığı enerji, <b>elektronegatiflik</b> ise bir bağdaki ortak elektronları kendine çekme gücüdür. Her ikisi de periyotta <b>sağa artar</b>, grupta <b>aşağı azalır</b>. Tablodaki (soy gazlar hariç) <b>en elektronegatif element flor (F)</b>'dur; genel sıralama F > O > N ≈ Cl biçiminde hatırlanır.</p>" +
+    "<h3>Metalik / ametalik özellik</h3>" +
+    "<p>Metalik özellik (elektron verme eğilimi) sol-alta doğru <b>artar</b>; ametalik özellik (elektron alma eğilimi) sağ-üste doğru artar. Yani en metalik elementler sol altta, en ametalik elementler (soy gazlar hariç) sağ üsttedir.</p>" +
+    "<h3>İyon yarıçapları</h3>" +
+    "<p><b>Katyon</b>, elektron kaybedip çoğu zaman bir katman eksildiği için kendi <b>atomundan küçüktür</b>. <b>Anyon</b>, elektron kazanıp elektron-elektron itmesi arttığı için kendi <b>atomundan büyüktür</b>. <b>İzoelektronik</b> türlerde (elektron sayısı eşit) proton sayısı <b>en fazla</b> olan, elektronları en güçlü çektiğinden en küçük yarıçaplıdır. Örn. O²⁻ > F⁻ > Na⁺ > Mg²⁺ (hepsi 10 e⁻).</p>",
+    ["Atom yarıçapı, iyonlaşma enerjisi ve elektronegatiflik trendlerini çekirdek yükü/katman mantığıyla açıklar.", "Atom ile iyon yarıçaplarını karşılaştırır.", "İzoelektronik türleri yarıçapa göre sıralar."],
+    ["Atom yarıçapı ile iyonlaşma enerjisini aynı yönde değişiyor sanmak (tersidir).", "Katyonu kendi atomundan büyük sanmak.", "En elektronegatif elementi soy gaz seçmek (soy gazlar bu sıralamaya alınmaz; cevap F)."],
+    [{ term: "Atom yarıçapı", def: "Sağa azalır, aşağı artar" }, { term: "İyonlaşma enerjisi", def: "Sağa artar, aşağı azalır (yarıçapın tersi)" }, { term: "En elektronegatif", def: "Flor (F)" }, { term: "İzoelektronik yarıçap", def: "Proton çok olan en küçük" }]));
 
   /* 10 */ units.push(U("kim-turler", "Kimyasal Türler ve Etkileşimlerin Sınıflandırılması",
     "Atom-molekül-iyon türleri ve güçlü-zayıf etkileşim ayrımı.",
