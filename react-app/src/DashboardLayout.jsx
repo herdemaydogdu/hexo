@@ -1,44 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   LayoutDashboard,
   BookOpen,
   PenSquare,
   Timer,
   BarChart3,
-  Search,
   Bell,
-  ChevronRight,
   Flame,
   Target,
   CheckCircle2,
   TrendingUp,
+  Play,
+  ChevronRight,
+  LogOut,
+  ChevronDown,
+  CalendarDays,
+  Sparkles,
+  Loader2,
+  Menu,
+  X,
 } from "lucide-react";
-import useProgress from "./useProgress";
+import { supabase } from "./supabaseClient";
+import useDashboardData from "./useDashboardData";
+import Quiz from "./Quiz.jsx";
 
 /**
- * TYT Hazırlık — Dashboard Layout (localStorage'a bağlı)
- * Tailwind CSS · minimalist · yumuşak pastel tonlar (uçuk mavi / soft lila / mint)
- * Veri: useProgress hook'u (tyt_progress_v1) — StatCard ve ProgressRow'a dinamik akar.
+ * TYT Hazırlık — Dashboard (Supabase'e bağlı)
+ * Pastel · minimalist · günlük hedef odaklı.
  */
 
-// ——— Sidebar navigasyonu (statik) ———
+// Yalnızca "dashboard" uygulanmış durumda; diğerleri "Yakında".
 const NAV = [
-  { id: "dashboard", label: "Ana Sayfa", icon: LayoutDashboard },
-  { id: "konu", label: "Konu Anlatımı", icon: BookOpen },
-  { id: "quiz", label: "Soru Çöz", icon: PenSquare },
-  { id: "deneme", label: "Deneme Sınavı", icon: Timer },
-  { id: "istatistik", label: "İstatistik", icon: BarChart3 },
+  { id: "dashboard", label: "Ana Sayfa", icon: LayoutDashboard, ready: true },
+  { id: "konu", label: "Konu Anlatımı", icon: BookOpen, ready: false },
+  { id: "quiz", label: "Soru Çöz", icon: PenSquare, ready: true },
+  { id: "deneme", label: "Deneme Sınavı", icon: Timer, ready: false },
+  { id: "istatistik", label: "İstatistik", icon: BarChart3, ready: false },
 ];
 
-// ——— Stat kartı key'i -> ikon eşlemesi (hook veriyi, Layout ikonu verir) ———
-const STAT_ICON = {
-  today: Target,
-  streak: Flame,
-  net: TrendingUp,
-  topics: CheckCircle2,
-};
-
-// ——— Pastel renk eşlemeleri (Tailwind çekirdek sınıfları) ———
 const TINT = {
   sky: { chip: "bg-sky-100 text-sky-600", bar: "bg-sky-400" },
   violet: { chip: "bg-violet-100 text-violet-600", bar: "bg-violet-400" },
@@ -48,13 +47,31 @@ const TINT = {
 };
 const tintOf = (t) => TINT[t] || TINT.sky;
 
+// TYT (YKS 1. oturum) tarihi — değişirse burayı güncelle.
+const EXAM_DATE = "2027-06-19";
+
+// Türkçe sayı formatı (ondalıkta virgül).
+const fmt = (n, d = 0) =>
+  new Intl.NumberFormat("tr-TR", { maximumFractionDigits: d }).format(Number(n) || 0);
+
 function NavItem({ item, active, onClick }) {
   const Icon = item.icon;
+  if (!item.ready) {
+    return (
+      <div className="flex w-full cursor-not-allowed items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium text-slate-300">
+        <Icon className="h-5 w-5" strokeWidth={1.8} />
+        <span>{item.label}</span>
+        <span className="ml-auto rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-400">
+          Yakında
+        </span>
+      </div>
+    );
+  }
   return (
     <button
       onClick={onClick}
       className={
-        "group flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition-colors " +
+        "flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition-colors " +
         (active ? "bg-violet-100 text-violet-700" : "text-slate-500 hover:bg-slate-100 hover:text-slate-700")
       }
     >
@@ -64,17 +81,64 @@ function NavItem({ item, active, onClick }) {
   );
 }
 
-function StatCard({ stat }) {
-  const Icon = STAT_ICON[stat.key] || Target;
-  const t = tintOf(stat.tint);
+function ProfileMenu({ email }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    const onDoc = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", onDoc);
+    return () => document.removeEventListener("mousedown", onDoc);
+  }, []);
+  const initial = (email || "?").charAt(0).toUpperCase();
   return (
-    <div className="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm transition-shadow hover:shadow-md">
-      <div className={"mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl " + t.chip}>
-        <Icon className="h-5 w-5" strokeWidth={1.8} />
+    <div className="relative" ref={ref}>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-label="Profil menüsü"
+        aria-expanded={open}
+        className="flex items-center gap-2 rounded-2xl p-1 pr-2 hover:bg-slate-100"
+      >
+        <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-emerald-200 to-sky-200 text-sm font-bold text-white">
+          {initial}
+        </span>
+        <ChevronDown className="h-4 w-4 text-slate-400" strokeWidth={2} />
+      </button>
+      {open && (
+        <div className="absolute right-0 z-20 mt-2 w-56 overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-lg">
+          <div className="border-b border-slate-100 px-4 py-3">
+            <p className="text-xs text-slate-400">Giriş yapıldı</p>
+            <p className="truncate text-sm font-medium text-slate-700">{email || "—"}</p>
+          </div>
+          <button
+            onClick={() => supabase?.auth.signOut()}
+            className="flex w-full items-center gap-2 px-4 py-3 text-sm font-medium text-rose-600 hover:bg-rose-50"
+          >
+            <LogOut className="h-4 w-4" strokeWidth={1.8} />
+            Çıkış Yap
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function StatCard({ card }) {
+  const Icon = card.icon;
+  const t = tintOf(card.tint);
+  return (
+    <div className="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm">
+      <div className="mb-3 flex items-center justify-between">
+        <div className={"inline-flex h-10 w-10 items-center justify-center rounded-2xl " + t.chip}>
+          <Icon className="h-5 w-5" strokeWidth={1.8} />
+        </div>
+        <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
+          {card.scope}
+        </span>
       </div>
-      <p className="text-2xl font-bold tracking-tight text-slate-800">{stat.value}</p>
-      <p className="mt-1 text-sm font-medium text-slate-500">{stat.label}</p>
-      <p className="mt-0.5 text-xs text-slate-400">{stat.hint}</p>
+      <p className="text-2xl font-bold tracking-tight text-slate-800">{card.value}</p>
+      <p className="mt-0.5 text-sm font-medium text-slate-500">{card.label}</p>
     </div>
   );
 }
@@ -85,7 +149,7 @@ function ProgressRow({ row }) {
     <div>
       <div className="mb-1.5 flex items-center justify-between">
         <span className="text-sm font-medium text-slate-600">{row.subject}</span>
-        <span className="text-sm font-semibold text-slate-800">%{row.value}</span>
+        <span className="text-sm font-semibold text-slate-800">%{fmt(row.value)}</span>
       </div>
       <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
         <div className={"h-full rounded-full transition-all " + t.bar} style={{ width: row.value + "%" }} />
@@ -96,35 +160,99 @@ function ProgressRow({ row }) {
 
 export default function DashboardLayout() {
   const [active, setActive] = useState("dashboard");
+  const [email, setEmail] = useState("");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // ——— localStorage ilerlemesini oku (backend gelene kadar) ———
-  const { ready, stats, progressRows, weakest, overall, streak } = useProgress({ dailyGoal: 50 });
+  const {
+    dailyGoal, solvedToday, streak, avgNet, completedTopics,
+    progressRows, weakest, resume, ready, loading, error, refresh,
+  } = useDashboardData();
+
+  useEffect(() => {
+    supabase?.auth.getUser().then(({ data }) => setEmail(data?.user?.email || ""));
+  }, []);
+
+  // İlk yükleme: veri gelene kadar spinner (0/boş titremesini önler).
+  if (loading && !ready) {
+    return (
+      <div className="grid min-h-screen place-items-center bg-slate-50 font-sans text-slate-400">
+        <span className="inline-flex items-center gap-2 text-sm">
+          <Loader2 className="h-5 w-5 animate-spin" strokeWidth={2} /> Yükleniyor…
+        </span>
+      </div>
+    );
+  }
+
+  // Günlük hedef halkası
+  const goalPct = Math.min(100, dailyGoal ? Math.round((solvedToday / dailyGoal) * 100) : 0);
+  const remaining = Math.max(0, (dailyGoal || 0) - (solvedToday || 0));
+  const C = 2 * Math.PI * 40;
+  const ringOff = C * (1 - goalPct / 100);
+
+  const daysLeft = Math.max(
+    0,
+    Math.ceil((new Date(EXAM_DATE + "T00:00:00") - new Date()) / 86400000)
+  );
+
+  const cards = [
+    { key: "today", icon: Target, tint: "sky", value: fmt(solvedToday), label: "Çözülen soru", scope: "Bugün" },
+    { key: "streak", icon: Flame, tint: "rose", value: fmt(streak), label: "Günlük seri", scope: "gün" },
+    { key: "net", icon: TrendingUp, tint: "violet", value: fmt(avgNet, 1), label: "Ortalama net", scope: "Tüm denemeler" },
+    { key: "topics", icon: CheckCircle2, tint: "emerald", value: fmt(completedTopics), label: "Biten konu", scope: "Toplam" },
+  ];
 
   return (
     <div className="flex min-h-screen bg-slate-50 font-sans text-slate-800">
-      {/* ——— Sidebar ——— */}
-      <aside className="hidden w-64 flex-col border-r border-slate-100 bg-white/70 p-5 backdrop-blur md:flex">
+      {/* ——— Mobil scrim ——— */}
+      {sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          className="fixed inset-0 z-30 bg-slate-900/20 md:hidden"
+          aria-hidden="true"
+        />
+      )}
+
+      {/* ——— Sidebar (mobilde çekmece) ——— */}
+      <aside
+        className={
+          "fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-slate-100 bg-white p-5 transition-transform duration-200 md:static md:z-auto md:translate-x-0 md:bg-white/70 md:backdrop-blur " +
+          (sidebarOpen ? "translate-x-0" : "-translate-x-full")
+        }
+      >
         <div className="mb-8 flex items-center gap-3 px-2">
           <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-300 to-violet-300 text-sm font-bold text-white">
             TYT
           </div>
-          <div>
+          <div className="flex-1">
             <p className="text-sm font-bold leading-tight text-slate-800">TYT Hazırlık</p>
-            <p className="text-xs text-slate-400">Öğrenci Paneli</p>
           </div>
+          <button
+            onClick={() => setSidebarOpen(false)}
+            aria-label="Menüyü kapat"
+            className="flex h-8 w-8 items-center justify-center rounded-xl text-slate-400 hover:bg-slate-100 md:hidden"
+          >
+            <X className="h-5 w-5" strokeWidth={1.8} />
+          </button>
         </div>
 
         <nav className="flex flex-1 flex-col gap-1">
           {NAV.map((item) => (
-            <NavItem key={item.id} item={item} active={active === item.id} onClick={() => setActive(item.id)} />
+            <NavItem
+              key={item.id}
+              item={item}
+              active={active === item.id}
+              onClick={() => {
+                setActive(item.id);
+                setSidebarOpen(false);
+              }}
+            />
           ))}
         </nav>
 
-        {/* Sidebar alt: dinamik seri kartı */}
         <div className="mt-4 rounded-3xl bg-gradient-to-br from-violet-50 to-sky-50 p-4">
           <div className="flex items-center gap-2 text-violet-600">
             <Flame className="h-4 w-4" strokeWidth={2} />
-            <span className="text-xs font-semibold">{streak} günlük seri</span>
+            <span className="text-xs font-semibold">{fmt(streak)} günlük seri</span>
           </div>
           <p className="mt-1.5 text-xs leading-relaxed text-slate-500">
             {streak > 0 ? "Bugünkü hedefini tamamla, serini sürdür." : "İlk testini çöz, serini başlat."}
@@ -132,102 +260,165 @@ export default function DashboardLayout() {
         </div>
       </aside>
 
-      {/* ——— Sağ kolon: Header + Main ——— */}
+      {/* ——— Sağ kolon ——— */}
       <div className="flex flex-1 flex-col">
-        {/* ——— Header ——— */}
+        {/* Header */}
         <header className="sticky top-0 z-10 flex items-center gap-4 border-b border-slate-100 bg-white/70 px-6 py-4 backdrop-blur">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            aria-label="Menüyü aç"
+            className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-slate-500 hover:bg-slate-200 md:hidden"
+          >
+            <Menu className="h-5 w-5" strokeWidth={1.8} />
+          </button>
           <div className="flex-1">
-            <h1 className="text-lg font-bold tracking-tight text-slate-800">Merhaba, Herdem 👋</h1>
+            <h1 className="text-lg font-bold tracking-tight text-slate-800">Merhaba! 👋</h1>
             <p className="text-xs text-slate-400">Bugün çalışmaya kaldığın yerden devam et.</p>
           </div>
-
-          <div className="hidden items-center gap-2 rounded-2xl bg-slate-100 px-3 py-2 sm:flex">
-            <Search className="h-4 w-4 text-slate-400" strokeWidth={1.8} />
-            <input
-              placeholder="Konu ara…"
-              className="w-32 bg-transparent text-sm text-slate-600 placeholder-slate-400 focus:outline-none"
-            />
-          </div>
-
-          <button className="relative flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-slate-500 hover:bg-slate-200">
+          <span
+            className="hidden items-center gap-1.5 rounded-full bg-gradient-to-r from-violet-100 to-sky-100 px-3 py-1.5 text-xs font-semibold text-violet-700 sm:inline-flex"
+            title="TYT'ye kalan gün (YKS 1. oturum)"
+          >
+            <CalendarDays className="h-3.5 w-3.5" strokeWidth={2} />
+            TYT'ye {fmt(daysLeft)} gün
+          </span>
+          <button
+            aria-label="Bildirimler (yakında)"
+            title="Bildirimler — yakında"
+            className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-slate-400 hover:bg-slate-200"
+          >
             <Bell className="h-5 w-5" strokeWidth={1.8} />
-            <span className="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-rose-400" />
           </button>
-
-          <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-emerald-200 to-sky-200" />
+          <ProfileMenu email={email} />
         </header>
 
-        {/* ——— Main içerik ——— */}
-        <main className="flex-1 space-y-8 p-6">
-          {/* Öne çıkan öneri şeridi — en zayıf dersten dinamik */}
-          <section className="flex flex-col gap-4 rounded-3xl bg-gradient-to-r from-sky-100 via-violet-100 to-emerald-100 p-6 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-violet-500">Sana özel öneri</p>
-              <p className="mt-1 max-w-md text-sm leading-relaxed text-slate-600">
+        {/* Main */}
+        <main className="flex-1 space-y-6 p-6">
+          {error && (
+            <div className="rounded-2xl border border-rose-100 bg-rose-50 px-4 py-3 text-sm text-rose-600">
+              Veri yüklenemedi: {error}
+            </div>
+          )}
+
+          {active === "quiz" && <Quiz onFinish={refresh} />}
+
+          {active === "dashboard" && (
+            <>
+          {/* ——— Hero: Kaldığın yer + Günlük hedef ——— */}
+          <section className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+            {/* Kaldığın yerden devam et */}
+            <div className="flex flex-col justify-between rounded-3xl border border-slate-100 bg-white p-6 shadow-sm lg:col-span-2">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">Kaldığın yerden devam et</p>
+                {resume ? (
+                  <div className="mt-2 flex items-center gap-3">
+                    <span className={"grid h-11 w-11 place-items-center rounded-2xl " + tintOf(resume.tint).chip}>
+                      <BookOpen className="h-5 w-5" strokeWidth={1.8} />
+                    </span>
+                    <div>
+                      <p className="text-lg font-bold text-slate-800">{resume.subject}</p>
+                      <p className="text-sm text-slate-400">Bu derste doğru oranın %{fmt(resume.value)}</p>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="mt-2 text-sm text-slate-500">
+                    Henüz bir çalışman yok. İlk dersini seçip başlayabilirsin.
+                  </p>
+                )}
+              </div>
+              <button
+                title="Çalışma sayfası yakında bağlanacak"
+                className="mt-5 inline-flex w-fit items-center gap-2 rounded-2xl bg-violet-500 px-5 py-3 text-sm font-semibold text-white hover:bg-violet-600"
+              >
+                <Play className="h-4 w-4" strokeWidth={2} fill="currentColor" />
+                {resume ? "Devam Et" : "Çalışmaya Başla"}
+              </button>
+            </div>
+
+            {/* Günlük hedef (halka + CTA) */}
+            <div className="flex flex-col items-center rounded-3xl border border-slate-100 bg-white p-6 text-center shadow-sm">
+              <p className="self-start text-xs font-semibold uppercase tracking-wide text-slate-400">Günlük hedef</p>
+              <div className="relative my-3 flex h-32 w-32 items-center justify-center">
+                <svg className="h-32 w-32 -rotate-90" viewBox="0 0 96 96">
+                  <circle cx="48" cy="48" r="40" fill="none" stroke="#eef2f7" strokeWidth="9" />
+                  <circle
+                    cx="48"
+                    cy="48"
+                    r="40"
+                    fill="none"
+                    stroke="#8b5cf6"
+                    strokeWidth="9"
+                    strokeLinecap="round"
+                    strokeDasharray={C}
+                    strokeDashoffset={ringOff}
+                  />
+                </svg>
+                <div className="absolute flex flex-col">
+                  <span className="text-xl font-bold text-slate-800">
+                    {fmt(solvedToday)}/{fmt(dailyGoal)}
+                  </span>
+                  <span className="text-xs text-slate-400">soru</span>
+                </div>
+              </div>
+              <p className="text-sm text-slate-500">
+                {remaining > 0 ? `Hedefine ${fmt(remaining)} soru kaldı` : "Bugünkü hedefini tamamladın 🎯"}
+              </p>
+            </div>
+          </section>
+
+          {/* ——— Kişiselleştirilmiş öneri (kompakt şerit) ——— */}
+          <section className="flex flex-col gap-3 rounded-2xl border border-violet-100 bg-violet-50/60 px-5 py-3.5 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-2.5">
+              <Sparkles className="h-4 w-4 shrink-0 text-violet-500" strokeWidth={2} />
+              <p className="text-sm text-slate-600">
                 {weakest ? (
                   <>
-                    <span className="font-semibold text-slate-800">{weakest.subject}</span> dersindeki başarın %{weakest.value}.
-                    Bu derse odaklı kısa bir tekrar netini yükseltir.
+                    En düşük başarın <span className="font-semibold text-slate-800">{weakest.subject}</span> (%{fmt(weakest.value)}) — önce buna odaklan.
                   </>
                 ) : (
-                  <>Henüz yeterli veri yok. Kısa bir <span className="font-semibold text-slate-800">seviye testi</span> çözerek başla.</>
+                  <>Birkaç soru çözünce sana özel öneri burada belirir.</>
                 )}
               </p>
             </div>
-            <button className="inline-flex items-center justify-center gap-1.5 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-violet-600 shadow-sm hover:bg-violet-50">
-              {weakest ? "Bu derse çalış" : "Seviye testine başla"}
-              <ChevronRight className="h-4 w-4" strokeWidth={2} />
-            </button>
+            {weakest && (
+              <button className="inline-flex shrink-0 items-center justify-center gap-1 rounded-xl bg-violet-500 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-600">
+                {weakest.subject} tekrarına başla
+                <ChevronRight className="h-4 w-4" strokeWidth={2} />
+              </button>
+            )}
           </section>
 
-          {/* İstatistik kartları — hook'tan */}
+          {/* ——— Özet kartları ——— */}
           <section>
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-400">Bugünkü durum</h2>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-              {stats.map((s) => (
-                <StatCard key={s.key} stat={s} />
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-400">Durumun</h2>
+            <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
+              {cards.map((c) => (
+                <StatCard key={c.key} card={c} />
               ))}
             </div>
           </section>
 
-          {/* İlerleme + haftalık özet */}
-          <section className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {/* Ders bazlı ilerleme çubukları — hook'tan */}
-            <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm lg:col-span-2">
-              <div className="mb-5 flex items-center justify-between">
-                <h2 className="text-base font-bold text-slate-800">Ders bazlı ilerleme</h2>
-                <button className="text-xs font-medium text-violet-500 hover:text-violet-600">Tümünü gör</button>
-              </div>
-
-              {progressRows.length > 0 ? (
-                <div className="space-y-5">
-                  {progressRows.map((r) => (
-                    <ProgressRow key={r.subject} row={r} />
-                  ))}
-                </div>
-              ) : (
-                <p className="py-8 text-center text-sm text-slate-400">
-                  {ready ? "Henüz ders verisi yok — birkaç soru çöz, ilerlemen burada belirsin." : "İlerleme verisi bulunamadı."}
-                </p>
-              )}
+          {/* ——— Ders bazlı doğru oranı ——— */}
+          <section className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div className="mb-1 flex items-center justify-between">
+              <h2 className="text-base font-bold text-slate-800">Ders bazlı başarı</h2>
+              <span className="text-xs font-medium text-slate-400">doğru / çözülen</span>
             </div>
-
-            {/* Genel tamamlanma halkası — ilerlemelerin ortalaması */}
-            <div className="flex flex-col items-center justify-center rounded-3xl border border-slate-100 bg-white p-6 text-center shadow-sm">
-              <h2 className="mb-4 self-start text-base font-bold text-slate-800">Genel tamamlanma</h2>
-              <div className="relative flex h-36 w-36 items-center justify-center rounded-full bg-gradient-to-br from-sky-100 to-violet-100">
-                <div className="flex h-28 w-28 flex-col items-center justify-center rounded-full bg-white">
-                  <span className="text-2xl font-bold text-slate-800">%{overall}</span>
-                  <span className="text-xs text-slate-400">ortalama</span>
-                </div>
+            <p className="mb-5 text-xs text-slate-400">Yüzdeler, o derste çözdüğün sorulardaki doğru oranını gösterir.</p>
+            {progressRows.length > 0 ? (
+              <div className="space-y-4">
+                {progressRows.map((r) => (
+                  <ProgressRow key={r.id} row={r} />
+                ))}
               </div>
-              <p className="mt-5 text-sm text-slate-500">
-                {progressRows.length
-                  ? `${progressRows.length} derste ortalama başarı %${overall}.`
-                  : "Veri geldikçe burada özetlenecek."}
+            ) : (
+              <p className="py-6 text-center text-sm text-slate-400">
+                Henüz ders verisi yok — birkaç soru çöz, başarın burada belirsin.
               </p>
-            </div>
+            )}
           </section>
+            </>
+          )}
         </main>
       </div>
     </div>

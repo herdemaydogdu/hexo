@@ -1,9 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// GitHub Pages proje sitesi alt yolda sunulur: https://herdemaydogdu.github.io/hexo/
-// base bu alt yola ayarlanmazsa build sonrası JS/CSS yolları 404 verir.
+// Netlify (ve yerel geliştirme) siteyi kök dizinde sunar → base "/".
+// Not: GitHub Pages'e (alt yol /hexo/) dönersen base'i "/hexo/" yap.
 export default defineConfig({
   plugins: [react()],
-  base: "/hexo/",
+  base: "/",
 });
