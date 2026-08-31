@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { supabase } from "./supabaseClient";
 import {
   Puzzle, Brain, Layers, Zap, ArrowLeft, RotateCcw, Volume2, VolumeX,
-  Check, X, Timer, Trophy, Shuffle,
+  Check, X, Timer, Trophy, Shuffle, CalendarClock,
 } from "lucide-react";
 
 /**
@@ -47,6 +47,11 @@ const DIFFS = {
   // Zor'da eşleştirme ters yöne döner: tanımı okuyup terimi bulursun (hatırlama yönü daha zor).
   zor:   { name: "Zor",   pairs: 8, time: 45, reverse: true },
 };
+
+/* Leitner kutuları: doğru bilinen kart bir üst kutuya çıkar, aralık uzar.
+   Yanlış/emin değil → 1. kutuya düşer ve aynı gün tekrar gelir. */
+const BOX_DAYS = { 1: 0, 2: 1, 3: 3, 4: 7, 5: 21 };
+const nextDue = (box) => new Date(Date.now() + (BOX_DAYS[box] ?? 0) * 86400000 + (box === 1 ? 10 * 60000 : 0)).toISOString();
 
 const SOFT_SHADOW = "0 1px 2px rgba(15,23,42,.04), 0 14px 34px -18px rgba(15,23,42,.16)";
 const SFX_KEY = "tyt-oyun-ses";
@@ -98,6 +103,8 @@ export default function Games({ guest = false, onAuth, seed, onSeedUsed }) {
   const [bests, setBests] = useState({});       // "game|unit_id" → en iyi skor
   const [muted, setMuted] = useState(() => localStorage.getItem(SFX_KEY) === "0");
   const [seedUnit, setSeedUnit] = useState(null);   // ders notundan gelen ünite
+  const [dueCount, setDueCount] = useState(0);      // tekrar zamanı gelen kart sayısı
+  const [reviewCards, setReviewCards] = useState(null); // karışık tekrar oturumu
 
   const game = gameId ? GAME_BY_ID[gameId] : null;
   const subject = SUBJECTS.find((s) => s.id === subjectId) || SUBJECTS[0];
@@ -135,6 +142,39 @@ export default function Games({ guest = false, onAuth, seed, onSeedUsed }) {
     setBests(map);
   }, [userId]);
   useEffect(() => { loadBests(); }, [loadBests]);
+
+  /* Tekrar zamanı gelen kart sayısı */
+  const loadDue = useCallback(async () => {
+    if (!userId) { setDueCount(0); return; }
+    const { count } = await supabase
+      .from("card_reviews").select("term", { count: "exact", head: true })
+      .eq("user_id", userId).lte("due_at", new Date().toISOString());
+    setDueCount(count || 0);
+  }, [userId]);
+  useEffect(() => { loadDue(); }, [loadDue]);
+
+  /* Tekrar oturumunu kur: vadesi gelen kartları ünitelerinin tanımlarıyla birleştir */
+  async function startReview() {
+    if (!userId) { onAuth?.(); return; }
+    sfx.tap();
+    const { data: rows } = await supabase
+      .from("card_reviews").select("unit_id,term,box")
+      .eq("user_id", userId).lte("due_at", new Date().toISOString())
+      .order("due_at").limit(30);
+    if (!rows?.length) return;
+    const unitIds = [...new Set(rows.map((r) => r.unit_id))];
+    const { data: tops } = await supabase.from("topics").select("unit_id,name,pairs").in("unit_id", unitIds);
+    const defOf = new Map();
+    for (const t of tops || []) for (const pr of t.pairs || []) defOf.set(t.unit_id + "|" + pr.term, pr.def);
+    const cards = rows
+      .map((r) => ({ uid: r.unit_id, box: r.box, term: r.term, def: defOf.get(r.unit_id + "|" + r.term) }))
+      .filter((c) => c.def);
+    if (!cards.length) return;
+    setReviewCards(shuffle(cards));
+    setGameId("flashcard");
+    setUnit({ unit_id: null, name: "Bugünün tekrarı" });
+    setView("play");
+  }
 
   /* Ünite listesi */
   useEffect(() => {
@@ -206,8 +246,9 @@ export default function Games({ guest = false, onAuth, seed, onSeedUsed }) {
         game={game} subject={subject} unit={unit} diff={diff}
         best={bests[game.id + "|" + unit.unit_id]}
         userId={userId}
+        reviewCards={reviewCards}
         onSave={saveResult}
-        onExit={() => setView("units")}
+        onExit={() => { setReviewCards(null); loadDue(); setView(reviewCards ? "menu" : "units"); }}
       />
     );
   }
@@ -285,6 +326,34 @@ export default function Games({ guest = false, onAuth, seed, onSeedUsed }) {
             })}
           </div>
         </div>
+      )}
+
+      {/* Bugünün tekrarı — Leitner kuyruğu */}
+      {!gameId && !seedUnit && !guest && (
+        dueCount > 0 ? (
+          <button
+            onClick={startReview}
+            className="mb-3 flex w-full items-center gap-4 rounded-3xl border border-violet-100 bg-gradient-to-br from-violet-50 to-sky-50 p-5 text-left transition-all duration-200 hover:-translate-y-0.5"
+            style={{ boxShadow: SOFT_SHADOW }}
+          >
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-violet-500">
+              <CalendarClock className="h-5 w-5" strokeWidth={1.8} />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-base font-semibold text-slate-800">Bugünün tekrarı</span>
+              <span className="mt-0.5 block text-sm font-light text-slate-500">
+                Unutmak üzere olduğun <b className="font-semibold text-violet-600">{dueCount} kart</b> hazır.
+                Bilgi kartı olarak gelir; bildiklerin daha seyrek sorulur.
+              </span>
+            </span>
+          </button>
+        ) : (
+          <p className="mb-3 rounded-2xl bg-slate-50 px-4 py-3 text-sm font-light text-slate-400">
+            Tekrar kuyruğun şu an boş. Bilgi Kartları oynarken verdiğin
+            “biliyorum / tekrar bak” kararları kuyruğu doldurur; bildiğin kartlar
+            1 → 3 → 7 → 21 gün aralıklarla geri gelir.
+          </p>
+        )
       )}
 
       {/* 1) Oyun seç */}
@@ -449,7 +518,7 @@ function BackBar({ label, onClick }) {
 /* Oyun motoru — seçilen oyunu kurar, bitince sonucu üst bileşene verir   */
 /* ===================================================================== */
 
-function GameRunner({ game, subject, unit, diff, best, userId, onSave, onExit }) {
+function GameRunner({ game, subject, unit, diff, best, userId, reviewCards, onSave, onExit }) {
   const [phase, setPhase] = useState("loading"); // loading | play | done
   const [data, setData] = useState(null);
   const [result, setResult] = useState(null);
@@ -461,8 +530,10 @@ function GameRunner({ game, subject, unit, diff, best, userId, onSave, onExit })
     (async () => {
       setPhase("loading");
       startedAt.current = Date.now();
-      if (game.needs === "pairs") {
-        const all = unit.pairs || [];
+      if (reviewCards) {
+        if (!cancel) { setData(reviewCards); setPhase("play"); }
+      } else if (game.needs === "pairs") {
+        const all = (unit.pairs || []).map((p) => ({ ...p, uid: unit.unit_id }));
         const n = game.id === "flashcard" ? all.length : Math.min(DIFFS[diff].pairs, all.length);
         if (!cancel) { setData(shuffle(all).slice(0, n)); setPhase("play"); }
       } else {
@@ -490,6 +561,19 @@ function GameRunner({ game, subject, unit, diff, best, userId, onSave, onExit })
   }
 
   const replay = () => { setResult(null); setNonce((n) => n + 1); };
+
+  /* Bilgi Kartları'nda verilen her karar Leitner kutusuna işlenir:
+     "Biliyorum" bir üst kutuya çıkarır ve aralığı uzatır, "Tekrar bak" 1. kutuya düşürür. */
+  const recordCard = useCallback(async (card, known) => {
+    if (!userId || !card?.uid || !card?.term) return;
+    const box = Math.max(1, Math.min(5, known ? (card.box || 0) + 1 : 1));
+    try {
+      await supabase.from("card_reviews").upsert({
+        user_id: userId, unit_id: card.uid, term: card.term,
+        box, due_at: nextDue(box), last_seen: new Date().toISOString(),
+      }, { onConflict: "user_id,unit_id,term" });
+    } catch { /* kayıt olmasa da tekrar akışı bozulmaz */ }
+  }, [userId]);
 
   /* Hızlı Yarış'ta verilen her cevap normal soru çözümü gibi kaydedilir:
      günlük seri, çözülen soru sayacı ve zayıf ders analizi böylece oyunu da sayar. */
@@ -530,7 +614,7 @@ function GameRunner({ game, subject, unit, diff, best, userId, onSave, onExit })
         <>
           {game.id === "matching"  && <MatchingGame pairs={data} subject={subject} reverse={DIFFS[diff].reverse} onFinish={finish} />}
           {game.id === "memory"    && <MemoryGame   pairs={data} subject={subject} onFinish={finish} />}
-          {game.id === "flashcard" && <FlashcardGame pairs={data} subject={subject} onFinish={finish} />}
+          {game.id === "flashcard" && <FlashcardGame pairs={data} subject={subject} onMark={recordCard} onFinish={finish} />}
           {game.id === "timeattack" && (
             data.length
               ? <TimeAttackGame questions={data} subject={subject} seconds={DIFFS[diff].time} onAnswer={recordAnswer} onFinish={finish} />
@@ -767,7 +851,7 @@ function MemoryGame({ pairs, subject, onFinish }) {
 
 /* --------------------------- 3) Bilgi Kartları -------------------------- */
 
-function FlashcardGame({ pairs, subject, onFinish }) {
+function FlashcardGame({ pairs, subject, onMark, onFinish }) {
   const [i, setI] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [known, setKnown] = useState(() => new Set());
@@ -775,6 +859,7 @@ function FlashcardGame({ pairs, subject, onFinish }) {
 
   function mark(isKnown) {
     sfx.tap();
+    onMark?.(card, isKnown);
     const next = new Set(known);
     if (isKnown) next.add(i); else next.delete(i);
     setKnown(next);
