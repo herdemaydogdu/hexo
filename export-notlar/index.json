@@ -1,0 +1,1338 @@
+[
+  {
+    "subject": "turkce",
+    "unit_id": "tr-sozcuk",
+    "name": "Sözcükte Anlam",
+    "sort_order": 0,
+    "question_count": 25,
+    "karakter": 6831
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-cumle",
+    "name": "Cümlede Anlam",
+    "sort_order": 1,
+    "question_count": 25,
+    "karakter": 7543
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-paragraf",
+    "name": "Paragraf",
+    "sort_order": 2,
+    "question_count": 25,
+    "karakter": 6005
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-ses",
+    "name": "Ses Bilgisi",
+    "sort_order": 3,
+    "question_count": 25,
+    "karakter": 4715
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-yazim",
+    "name": "Yazım Kuralları",
+    "sort_order": 4,
+    "question_count": 25,
+    "karakter": 7455
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-noktalama",
+    "name": "Noktalama İşaretleri",
+    "sort_order": 5,
+    "question_count": 25,
+    "karakter": 5023
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-adlar",
+    "name": "Sözcük Türleri: Ad, Sıfat, Zamir, Zarf",
+    "sort_order": 6,
+    "question_count": 25,
+    "karakter": 19737
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-edat",
+    "name": "Edat, Bağlaç ve Ünlem",
+    "sort_order": 7,
+    "question_count": 25,
+    "karakter": 8351
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-anlatim",
+    "name": "Anlatım Biçimleri ve Düşünceyi Geliştirme Yolları",
+    "sort_order": 8,
+    "question_count": 25,
+    "karakter": 5188
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-bozukluk",
+    "name": "Anlatım Bozuklukları",
+    "sort_order": 9,
+    "question_count": 25,
+    "karakter": 11098
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-ogeler",
+    "name": "Cümlenin Ögeleri",
+    "sort_order": 10,
+    "question_count": 25,
+    "karakter": 11026
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-fiil",
+    "name": "Fiiller (Kip, Kişi, Ek Fiil)",
+    "sort_order": 11,
+    "question_count": 25,
+    "karakter": 13428
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-tamlama",
+    "name": "Tamlamalar",
+    "sort_order": 12,
+    "question_count": 25,
+    "karakter": 9259
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-yapi",
+    "name": "Sözcükte Yapı ve Ekler",
+    "sort_order": 13,
+    "question_count": 25,
+    "karakter": 4611
+  },
+  {
+    "subject": "turkce",
+    "unit_id": "tr-fiilimsi",
+    "name": "Fiilimsiler",
+    "sort_order": 14,
+    "question_count": 25,
+    "karakter": 8035
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-temel",
+    "name": "Temel Kavramlar ve Sayı Kümeleri",
+    "sort_order": 0,
+    "question_count": 25,
+    "karakter": 44324
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-bolme",
+    "name": "Bölme ve Bölünebilme",
+    "sort_order": 1,
+    "question_count": 25,
+    "karakter": 27316
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-uslu",
+    "name": "Üslü Sayılar",
+    "sort_order": 2,
+    "question_count": 25,
+    "karakter": 24177
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-koklu",
+    "name": "Köklü Sayılar",
+    "sort_order": 3,
+    "question_count": 25,
+    "karakter": 21851
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-oran",
+    "name": "Oran ve Orantı",
+    "sort_order": 4,
+    "question_count": 25,
+    "karakter": 18113
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-problem",
+    "name": "Problem Çözme — Genel Stratejiler",
+    "sort_order": 5,
+    "question_count": 25,
+    "karakter": 16633
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-ondalik",
+    "name": "Ondalık Gösterim",
+    "sort_order": 6,
+    "question_count": 25,
+    "karakter": 27867
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-esitsizlik",
+    "name": "Basit Eşitsizlikler",
+    "sort_order": 7,
+    "question_count": 25,
+    "karakter": 30062
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-mutlak",
+    "name": "Mutlak Değer",
+    "sort_order": 8,
+    "question_count": 25,
+    "karakter": 23598
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-carpan",
+    "name": "Çarpanlara Ayırma",
+    "sort_order": 9,
+    "question_count": 25,
+    "karakter": 22404
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-denklem",
+    "name": "Denklem Çözme",
+    "sort_order": 10,
+    "question_count": 25,
+    "karakter": 32456
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-sayi",
+    "name": "Sayı Problemleri",
+    "sort_order": 11,
+    "question_count": 25,
+    "karakter": 18072
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-yas",
+    "name": "Yaş Problemleri",
+    "sort_order": 12,
+    "question_count": 25,
+    "karakter": 15010
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-yuzde",
+    "name": "Yüzde, Kâr-Zarar ve Faiz Problemleri",
+    "sort_order": 13,
+    "question_count": 25,
+    "karakter": 15671
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-hareket",
+    "name": "Hareket (Hız) Problemleri",
+    "sort_order": 14,
+    "question_count": 25,
+    "karakter": 16407
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-isci",
+    "name": "İşçi ve Havuz Problemleri",
+    "sort_order": 15,
+    "question_count": 25,
+    "karakter": 15138
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-kesirprob",
+    "name": "Kesir Problemleri",
+    "sort_order": 16,
+    "question_count": 25,
+    "karakter": 15352
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-karisim",
+    "name": "Karışım Problemleri",
+    "sort_order": 17,
+    "question_count": 25,
+    "karakter": 15018
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-kume",
+    "name": "Kümeler",
+    "sort_order": 18,
+    "question_count": 25,
+    "karakter": 20834
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-mantik",
+    "name": "Mantık",
+    "sort_order": 19,
+    "question_count": 25,
+    "karakter": 24439
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-fonksiyon",
+    "name": "Fonksiyonlar",
+    "sort_order": 20,
+    "question_count": 25,
+    "karakter": 29910
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-polinom",
+    "name": "Polinomlar",
+    "sort_order": 21,
+    "question_count": 25,
+    "karakter": 23411
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-olasilik",
+    "name": "Permütasyon, Kombinasyon ve Olasılık",
+    "sort_order": 22,
+    "question_count": 25,
+    "karakter": 24074
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-istatistik",
+    "name": "Veri, Grafik ve Temel İstatistik",
+    "sort_order": 23,
+    "question_count": 25,
+    "karakter": 24263
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-rasyonel",
+    "name": "Rasyonel Sayılar",
+    "sort_order": 24,
+    "question_count": 25,
+    "karakter": 35710
+  },
+  {
+    "subject": "matematik",
+    "unit_id": "mat-ebobekok",
+    "name": "EBOB – EKOK",
+    "sort_order": 25,
+    "question_count": 25,
+    "karakter": 27038
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-konum",
+    "name": "Türkiye'nin Konumu",
+    "sort_order": 0,
+    "question_count": 25,
+    "karakter": 24660
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-iklim",
+    "name": "İklim ve Bitki Örtüsü",
+    "sort_order": 1,
+    "question_count": 25,
+    "karakter": 25837
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-giris",
+    "name": "Felsefeyi Tanıma",
+    "sort_order": 2,
+    "question_count": 1,
+    "karakter": 379
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "din-bilgi",
+    "name": "Bilgi ve İnanç",
+    "sort_order": 3,
+    "question_count": 2,
+    "karakter": 1869
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-harita",
+    "name": "Harita Bilgisi",
+    "sort_order": 4,
+    "question_count": 25,
+    "karakter": 22360
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-dunya",
+    "name": "Dünya'nın Şekli ve Hareketleri",
+    "sort_order": 5,
+    "question_count": 25,
+    "karakter": 31590
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-atmosfer",
+    "name": "Atmosfer, Sıcaklık, Basınç ve Rüzgârlar",
+    "sort_order": 6,
+    "question_count": 25,
+    "karakter": 27207
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-ickuvvet",
+    "name": "İç Kuvvetler",
+    "sort_order": 7,
+    "question_count": 25,
+    "karakter": 20663
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-diskuvvet",
+    "name": "Dış Kuvvetler",
+    "sort_order": 8,
+    "question_count": 25,
+    "karakter": 47295
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-su",
+    "name": "Su Kaynakları",
+    "sort_order": 9,
+    "question_count": 25,
+    "karakter": 34714
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-toprak",
+    "name": "Topraklar",
+    "sort_order": 10,
+    "question_count": 25,
+    "karakter": 27198
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-nufus",
+    "name": "Nüfus",
+    "sort_order": 11,
+    "question_count": 25,
+    "karakter": 43084
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-goc",
+    "name": "Göçler",
+    "sort_order": 12,
+    "question_count": 25,
+    "karakter": 34227
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-yerlesme",
+    "name": "Yerleşmeler",
+    "sort_order": 13,
+    "question_count": 25,
+    "karakter": 43061
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "cog-ekonomi",
+    "name": "Ekonomik Faaliyetler",
+    "sort_order": 14,
+    "question_count": 25,
+    "karakter": 54174
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "din-insan",
+    "name": "İnsan ve Din",
+    "sort_order": 15,
+    "question_count": 25,
+    "karakter": 1706
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "din-inanc",
+    "name": "İslam ve İnanç",
+    "sort_order": 16,
+    "question_count": 25,
+    "karakter": 1537
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "din-ibadet",
+    "name": "İslam ve İbadetler",
+    "sort_order": 17,
+    "question_count": 25,
+    "karakter": 1524
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "din-muhammed",
+    "name": "Hz. Muhammed'in Hayatı ve Örnekliği",
+    "sort_order": 18,
+    "question_count": 25,
+    "karakter": 1397
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "din-kuran",
+    "name": "Kur'an'ın Anlaşılması",
+    "sort_order": 19,
+    "question_count": 25,
+    "karakter": 1319
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "din-mezhep",
+    "name": "İslam Düşüncesinde Yorumlar (Mezhepler)",
+    "sort_order": 20,
+    "question_count": 25,
+    "karakter": 1617
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "din-ahlak",
+    "name": "Ahlak ve Değerler",
+    "sort_order": 21,
+    "question_count": 25,
+    "karakter": 1417
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "din-medeniyet",
+    "name": "İslam ve Bilim, Kültür ve Medeniyet",
+    "sort_order": 22,
+    "question_count": 25,
+    "karakter": 1362
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-ilkcag",
+    "name": "İlk Çağ Felsefesi (MÖ 6 – MS 2)",
+    "sort_order": 23,
+    "question_count": 25,
+    "karakter": 1775
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-ortacag",
+    "name": "Orta Çağ Felsefesi (MS 2 – MS 15)",
+    "sort_order": 24,
+    "question_count": 25,
+    "karakter": 1297
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-1517",
+    "name": "15. – 17. Yüzyıl Felsefesi",
+    "sort_order": 25,
+    "question_count": 25,
+    "karakter": 1309
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-1819",
+    "name": "18. – 19. Yüzyıl Felsefesi",
+    "sort_order": 26,
+    "question_count": 25,
+    "karakter": 1216
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-20yy",
+    "name": "20. Yüzyıl Felsefesi",
+    "sort_order": 27,
+    "question_count": 25,
+    "karakter": 1394
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-dusunme",
+    "name": "Felsefe ile Düşünme",
+    "sort_order": 28,
+    "question_count": 25,
+    "karakter": 1906
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-varlik",
+    "name": "Varlık Felsefesi",
+    "sort_order": 29,
+    "question_count": 25,
+    "karakter": 1771
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-bilim",
+    "name": "Bilim Felsefesi",
+    "sort_order": 30,
+    "question_count": 25,
+    "karakter": 1656
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-ahlak",
+    "name": "Ahlak Felsefesi",
+    "sort_order": 31,
+    "question_count": 25,
+    "karakter": 1630
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-sanat",
+    "name": "Sanat Felsefesi",
+    "sort_order": 32,
+    "question_count": 25,
+    "karakter": 1531
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-din",
+    "name": "Din Felsefesi",
+    "sort_order": 33,
+    "question_count": 25,
+    "karakter": 1639
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-siyaset",
+    "name": "Siyaset Felsefesi",
+    "sort_order": 34,
+    "question_count": 25,
+    "karakter": 1696
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "fel-bilgi",
+    "name": "Bilgi Felsefesi",
+    "sort_order": 35,
+    "question_count": 25,
+    "karakter": 1145
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "din-islam",
+    "name": "Din ve İslam",
+    "sort_order": 36,
+    "question_count": 4,
+    "karakter": 929
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-bilim",
+    "name": "Tarih Bilimi ve Zaman",
+    "sort_order": 37,
+    "question_count": 26,
+    "karakter": 28939
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-ilkcag",
+    "name": "İlk Çağ Uygarlıkları",
+    "sort_order": 38,
+    "question_count": 27,
+    "karakter": 52017
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-ilkturk",
+    "name": "İslamiyet Öncesi Türk Tarihi",
+    "sort_order": 39,
+    "question_count": 27,
+    "karakter": 45206
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-islam",
+    "name": "İslam Tarihi ve Medeniyeti",
+    "sort_order": 40,
+    "question_count": 27,
+    "karakter": 42292
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-turkislam",
+    "name": "İlk Türk-İslam Devletleri",
+    "sort_order": 41,
+    "question_count": 26,
+    "karakter": 292
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-selcuklu",
+    "name": "Türkiye Tarihi ve Selçuklular",
+    "sort_order": 42,
+    "question_count": 27,
+    "karakter": 284
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-kurulus",
+    "name": "Osmanlı Kuruluş ve Devletleşme",
+    "sort_order": 43,
+    "question_count": 26,
+    "karakter": 283
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-klasik",
+    "name": "Osmanlı Klasik Dönem",
+    "sort_order": 44,
+    "question_count": 26,
+    "karakter": 260
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-degisim",
+    "name": "Değişim Çağında Osmanlı",
+    "sort_order": 45,
+    "question_count": 26,
+    "karakter": 262
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-modern",
+    "name": "19. Yüzyıl Osmanlı Modernleşmesi",
+    "sort_order": 46,
+    "question_count": 26,
+    "karakter": 303
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-20yy",
+    "name": "20. Yüzyıl Başlarında Osmanlı",
+    "sort_order": 47,
+    "question_count": 27,
+    "karakter": 280
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-milli",
+    "name": "Millî Mücadele",
+    "sort_order": 48,
+    "question_count": 26,
+    "karakter": 274
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-inkilap",
+    "name": "Atatürk İlke ve İnkılapları",
+    "sort_order": 49,
+    "question_count": 26,
+    "karakter": 278
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-politika",
+    "name": "Atatürk Dönemi İç ve Dış Politika",
+    "sort_order": 50,
+    "question_count": 26,
+    "karakter": 271
+  },
+  {
+    "subject": "sosyal",
+    "unit_id": "tar-cagdas",
+    "name": "Çağdaş Türk ve Dünya Tarihi",
+    "sort_order": 51,
+    "question_count": 26,
+    "karakter": 273
+  },
+  {
+    "subject": "fen",
+    "unit_id": "fiz-hareket",
+    "name": "Hareket",
+    "sort_order": 0,
+    "question_count": 25,
+    "karakter": 2012
+  },
+  {
+    "subject": "fen",
+    "unit_id": "fiz-kuvvet",
+    "name": "Kuvvet ve Hareket",
+    "sort_order": 1,
+    "question_count": 25,
+    "karakter": 1206
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-hucre",
+    "name": "Hucre",
+    "sort_order": 2,
+    "question_count": 25,
+    "karakter": 1186
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-madde",
+    "name": "Hücre Zarından Madde Geçişleri",
+    "sort_order": 3,
+    "question_count": 25,
+    "karakter": 875
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-siniflandirma",
+    "name": "Canlıların Sınıflandırılması",
+    "sort_order": 4,
+    "question_count": 25,
+    "karakter": 726
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-alemler",
+    "name": "Canlılar Dünyası: Âlemler",
+    "sort_order": 5,
+    "question_count": 25,
+    "karakter": 809
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-virus",
+    "name": "Virüsler",
+    "sort_order": 6,
+    "question_count": 25,
+    "karakter": 653
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-mitoz",
+    "name": "Mitoz ve Hücre Döngüsü",
+    "sort_order": 7,
+    "question_count": 25,
+    "karakter": 765
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-eseysiz",
+    "name": "Eşeysiz Üreme",
+    "sort_order": 8,
+    "question_count": 25,
+    "karakter": 668
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-mayoz",
+    "name": "Mayoz ve Eşeyli Üreme",
+    "sort_order": 9,
+    "question_count": 25,
+    "karakter": 702
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-ekosistem",
+    "name": "Ekosistem Ekolojisi ve Çevre",
+    "sort_order": 10,
+    "question_count": 0,
+    "karakter": 929
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-ortak",
+    "name": "Canlıların Ortak Özellikleri",
+    "sort_order": 11,
+    "question_count": 25,
+    "karakter": 944
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-organizasyon",
+    "name": "Canlılarda Organizasyon",
+    "sort_order": 12,
+    "question_count": 25,
+    "karakter": 765
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-bilesen",
+    "name": "Canlilarin Temel Bilesenleri",
+    "sort_order": 13,
+    "question_count": 25,
+    "karakter": 1198
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-inorganik",
+    "name": "İnorganik Bileşikler: Su, Mineraller, Asit-Baz-Tuz",
+    "sort_order": 14,
+    "question_count": 25,
+    "karakter": 775
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-karbonhidrat",
+    "name": "Karbonhidratlar",
+    "sort_order": 15,
+    "question_count": 25,
+    "karakter": 808
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-lipit",
+    "name": "Lipitler (Yağlar)",
+    "sort_order": 16,
+    "question_count": 25,
+    "karakter": 744
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-protein",
+    "name": "Proteinler",
+    "sort_order": 17,
+    "question_count": 25,
+    "karakter": 690
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-enzim",
+    "name": "Enzimler",
+    "sort_order": 18,
+    "question_count": 25,
+    "karakter": 722
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-vitamin",
+    "name": "Vitaminler ve Hormonlar",
+    "sort_order": 19,
+    "question_count": 25,
+    "karakter": 731
+  },
+  {
+    "subject": "fen",
+    "unit_id": "biy-nukleik",
+    "name": "Nükleik Asitler ve ATP",
+    "sort_order": 20,
+    "question_count": 25,
+    "karakter": 717
+  },
+  {
+    "subject": "fen",
+    "unit_id": "fiz-giris",
+    "name": "Fizik Bilimine Giriş",
+    "sort_order": 21,
+    "question_count": 25,
+    "karakter": 1532
+  },
+  {
+    "subject": "fen",
+    "unit_id": "fiz-madde",
+    "name": "Madde ve Özkütle",
+    "sort_order": 22,
+    "question_count": 25,
+    "karakter": 1238
+  },
+  {
+    "subject": "fen",
+    "unit_id": "fiz-enerji",
+    "name": "İş, Güç ve Enerji",
+    "sort_order": 23,
+    "question_count": 25,
+    "karakter": 1194
+  },
+  {
+    "subject": "fen",
+    "unit_id": "fiz-isi",
+    "name": "Isı ve Sıcaklık",
+    "sort_order": 24,
+    "question_count": 25,
+    "karakter": 1311
+  },
+  {
+    "subject": "fen",
+    "unit_id": "fiz-elektrostatik",
+    "name": "Elektrostatik",
+    "sort_order": 25,
+    "question_count": 25,
+    "karakter": 1292
+  },
+  {
+    "subject": "fen",
+    "unit_id": "fiz-elektrik",
+    "name": "Elektrik ve Manyetizma",
+    "sort_order": 26,
+    "question_count": 25,
+    "karakter": 1252
+  },
+  {
+    "subject": "fen",
+    "unit_id": "fiz-basinc",
+    "name": "Basınç ve Kaldırma Kuvveti",
+    "sort_order": 27,
+    "question_count": 25,
+    "karakter": 1317
+  },
+  {
+    "subject": "fen",
+    "unit_id": "fiz-dalga",
+    "name": "Dalgalar",
+    "sort_order": 28,
+    "question_count": 25,
+    "karakter": 1206
+  },
+  {
+    "subject": "fen",
+    "unit_id": "fiz-optik",
+    "name": "Optik",
+    "sort_order": 29,
+    "question_count": 25,
+    "karakter": 1277
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-simya",
+    "name": "Simyadan Kimyaya",
+    "sort_order": 30,
+    "question_count": 25,
+    "karakter": 840
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-disiplin",
+    "name": "Kimya Disiplinleri ve Çalışma Alanları",
+    "sort_order": 31,
+    "question_count": 25,
+    "karakter": 740
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-sembol",
+    "name": "Kimyanın Sembolik Dili",
+    "sort_order": 32,
+    "question_count": 25,
+    "karakter": 621
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-guvenlik",
+    "name": "Kimyada İş Sağlığı ve Güvenliği",
+    "sort_order": 33,
+    "question_count": 25,
+    "karakter": 647
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-model",
+    "name": "Atom Modelleri",
+    "sort_order": 34,
+    "question_count": 25,
+    "karakter": 2208
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-atom",
+    "name": "Atomun Yapısı",
+    "sort_order": 35,
+    "question_count": 25,
+    "karakter": 2867
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-yerlesim",
+    "name": "Periyodik Sistemde Yerleşim Esasları",
+    "sort_order": 36,
+    "question_count": 25,
+    "karakter": 1938
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-siniflama",
+    "name": "Elementlerin Sınıflandırılması",
+    "sort_order": 37,
+    "question_count": 25,
+    "karakter": 1941
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-periyodik",
+    "name": "Periyodik Özelliklerin Değişme Eğilimleri",
+    "sort_order": 38,
+    "question_count": 25,
+    "karakter": 2346
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-turler",
+    "name": "Kimyasal Türler ve Etkileşimlerin Sınıflandırılması",
+    "sort_order": 39,
+    "question_count": 25,
+    "karakter": 537
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-guclu",
+    "name": "Güçlü Etkileşimler",
+    "sort_order": 40,
+    "question_count": 25,
+    "karakter": 686
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-zayif",
+    "name": "Zayıf Etkileşimler",
+    "sort_order": 41,
+    "question_count": 25,
+    "karakter": 664
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-degisim",
+    "name": "Fiziksel ve Kimyasal Değişimler",
+    "sort_order": 42,
+    "question_count": 25,
+    "karakter": 579
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-hal",
+    "name": "Maddenin Fiziksel Hâlleri",
+    "sort_order": 43,
+    "question_count": 25,
+    "karakter": 603
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-katisivi",
+    "name": "Katılar ve Sıvılar",
+    "sort_order": 44,
+    "question_count": 25,
+    "karakter": 687
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-gaz",
+    "name": "Gazlar ve Plazma",
+    "sort_order": 45,
+    "question_count": 25,
+    "karakter": 696
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-su",
+    "name": "Su ve Hayat",
+    "sort_order": 46,
+    "question_count": 25,
+    "karakter": 678
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-cevre",
+    "name": "Çevre Kimyası",
+    "sort_order": 47,
+    "question_count": 25,
+    "karakter": 604
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-kanun",
+    "name": "Kimyanın Temel Kanunları",
+    "sort_order": 48,
+    "question_count": 25,
+    "karakter": 547
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-mol",
+    "name": "Mol Kavramı",
+    "sort_order": 49,
+    "question_count": 25,
+    "karakter": 506
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-tepkime",
+    "name": "Kimyasal Tepkimeler ve Denklemler",
+    "sort_order": 50,
+    "question_count": 25,
+    "karakter": 603
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-hesap",
+    "name": "Kimyasal Tepkimelerde Hesaplamalar",
+    "sort_order": 51,
+    "question_count": 25,
+    "karakter": 529
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-karisim1",
+    "name": "Homojen ve Heterojen Karışımlar - I",
+    "sort_order": 52,
+    "question_count": 25,
+    "karakter": 671
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-karisim2",
+    "name": "Homojen ve Heterojen Karışımlar - II",
+    "sort_order": 53,
+    "question_count": 25,
+    "karakter": 633
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-ayirma",
+    "name": "Ayırma ve Saflaştırma Teknikleri",
+    "sort_order": 54,
+    "question_count": 25,
+    "karakter": 739
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-asitbaz",
+    "name": "Asitlerin ve Bazların Özellikleri",
+    "sort_order": 55,
+    "question_count": 25,
+    "karakter": 585
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-asittepkime",
+    "name": "Asitlerin ve Bazların Tepkimeleri",
+    "sort_order": 56,
+    "question_count": 25,
+    "karakter": 532
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-tuz",
+    "name": "Asitler, Bazlar ve Tuzlar",
+    "sort_order": 57,
+    "question_count": 25,
+    "karakter": 552
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-gunluk",
+    "name": "Yaygın Günlük Hayat Kimyasalları",
+    "sort_order": 58,
+    "question_count": 25,
+    "karakter": 592
+  },
+  {
+    "subject": "fen",
+    "unit_id": "kim-kozmetik",
+    "name": "Kozmetikler, İlaçlar ve Gıdalar",
+    "sort_order": 59,
+    "question_count": 25,
+    "karakter": 632
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-acilar",
+    "name": "Açılar ve Paralel Doğrular",
+    "sort_order": 0,
+    "question_count": 25,
+    "karakter": 25592
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-alan",
+    "name": "Üçgende Alan",
+    "sort_order": 6,
+    "question_count": 25,
+    "karakter": 21850
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-ucgen-aci",
+    "name": "Üçgende Açılar ve Kenar Bağıntıları",
+    "sort_order": 1,
+    "question_count": 25,
+    "karakter": 26785
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-eslik-benzerlik",
+    "name": "Üçgenlerde Eşlik ve Benzerlik",
+    "sort_order": 2,
+    "question_count": 25,
+    "karakter": 25697
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-yardimci",
+    "name": "Üçgende Yardımcı Elemanlar",
+    "sort_order": 3,
+    "question_count": 25,
+    "karakter": 28791
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-pisagor",
+    "name": "Dik Üçgen: Pisagor ve Öklid",
+    "sort_order": 4,
+    "question_count": 25,
+    "karakter": 23827
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-trigonometri",
+    "name": "Trigonometrik Oranlar ve Birim Çember",
+    "sort_order": 5,
+    "question_count": 25,
+    "karakter": 25111
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-cokgen",
+    "name": "Çokgenler ve Dörtgenler",
+    "sort_order": 7,
+    "question_count": 25,
+    "karakter": 25172
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-paralelkenar",
+    "name": "Paralelkenar",
+    "sort_order": 8,
+    "question_count": 25,
+    "karakter": 23183
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-dikdortgen-kare",
+    "name": "Dikdörtgen ve Kare",
+    "sort_order": 9,
+    "question_count": 25,
+    "karakter": 21766
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-eskenar-deltoid",
+    "name": "Eşkenar Dörtgen ve Deltoid",
+    "sort_order": 10,
+    "question_count": 25,
+    "karakter": 23740
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-yamuk",
+    "name": "Yamuk",
+    "sort_order": 11,
+    "question_count": 25,
+    "karakter": 25682
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-prizma",
+    "name": "Dik Prizmalar ve Küp",
+    "sort_order": 12,
+    "question_count": 25,
+    "karakter": 26048
+  },
+  {
+    "subject": "geometri",
+    "unit_id": "geo-piramit",
+    "name": "Dik Piramit ve Düzgün Dörtyüzlü",
+    "sort_order": 13,
+    "question_count": 25,
+    "karakter": 26869
+  }
+]

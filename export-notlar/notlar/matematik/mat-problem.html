@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Problem Çözme — Genel Stratejiler</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Problem Çözme — Genel Stratejiler</h2>
+
+<p>TYT'nin son yıllardaki en ayırt edici soruları, <b>bilinen bir formülle çözülemeyen</b> sorulardır. Bunlara <b>rutin olmayan problemler</b> denir: verileri dikkatle çözümlemeyi, gerektiğinde şekil çizmeyi, sistematik denemeyi ve yaratıcı bir hamle yapmayı gerektirirler. Bu ünitede yeni bir konu öğrenmeyeceksin; öğrendiğin her şeyi <u>nasıl kullanacağını</u> öğreneceksin. <b>Kritik bilgi:</b> bu sorular zor değil, <b>tanıdık değil</b>. Doğru stratejiyi seçtiğinde çoğu birkaç satırda biter.</p>
+
+<h3>1) Rutin Olmayan Problem Nedir?</h3>
+<p class="formula">TANIM — Bilinen bir yöntem ya da formülle doğrudan çözülemeyen; verilerin <b>dikkatli analizini</b>, <b>yaratıcı bir girişimi</b> ve bir ya da daha fazla <b>stratejinin birlikte kullanılmasını</b> gerektiren problemlere <b>rutin olmayan problem</b> denir.<br/>
+<u>Bu problemlerde sayısal-görsel mantık, örüntüler, sayma ve geometri bilgilerine sıklıkla başvurulur.</u></p>
+<p class="formula">GENEL ADIMLAR —<br/>
+<b>1)</b> <u>Verileri belirle</u> — soruda söylenen her sayıyı ve koşulu ayrı ayrı yaz.<br/>
+<b>2)</b> <u>İsteneni anla</u> — "en çok", "en az", "kaç farklı" gibi kelimelerin altını çiz.<br/>
+<b>3)</b> <u>Gerektiğinde şekil çiz, liste ya da tablo yap</u> — görselleştirme, gizli bilgiyi açığa çıkarır.<br/>
+<b>4)</b> <u>Sistematik düşün</u> — rastgele deneme yerine düzenli sırayla ilerle.<br/>
+<b>5)</b> <u>Akıl yürüt</u> — bulduğun sonucun problemin bağlamında anlamlı olup olmadığını sorgula.</p>
+
+<h3>2) Sekiz Temel Strateji</h3>
+<table>
+<tr><th>#</th><th>Strateji</th><th>Ne zaman kullanılır?</th></tr>
+<tr><td>1</td><td><b>Şekil / şema çizme</b></td><td>Konum, sıralama, kesişim, yol içeren sorular</td></tr>
+<tr><td>2</td><td><b>Tablo kurma</b></td><td>Birden fazla değişken ve durum bir arada verilmişse</td></tr>
+<tr><td>3</td><td><b>Sistematik listeleme</b></td><td>"Kaç farklı", "hangi durumlarda" tipi sorular</td></tr>
+<tr><td>4</td><td><b>Örüntü arama</b></td><td>Tekrar eden bir yapı ya da dizi varsa</td></tr>
+<tr><td>5</td><td><b>Geriye doğru çalışma</b></td><td>Sonuç verilip başlangıç soruluyorsa</td></tr>
+<tr><td>6</td><td><b>Uç değer deneme</b></td><td>"En çok / en az kaç olabilir?" soruları</td></tr>
+<tr><td>7</td><td><b>Basitleştirme</b></td><td>Sayılar büyükse küçük bir örnekle mantığı bul, sonra genelle</td></tr>
+<tr><td>8</td><td><b>Şıklardan gitme</b></td><td>Denklem kurmak uzun sürüyorsa; şıkkı yerine koy, tutanı bul</td></tr>
+</table>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Uç değer stratejisi karar şeması">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — "En çok / en az" sorularında uç değer refleksi</text>
+  <rect x="200" y="40" width="240" height="34" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+  <text x="320" y="62" font-size="12" font-weight="700" fill="#334155" text-anchor="middle">Bir büyüklüğü EN BÜYÜK yapmak</text>
+  <line x1="320" y1="74" x2="320" y2="92" stroke="#64748b" stroke-width="2"/>
+  <line x1="150" y1="92" x2="490" y2="92" stroke="#64748b" stroke-width="2"/>
+  <line x1="150" y1="92" x2="150" y2="110" stroke="#64748b" stroke-width="2"/>
+  <line x1="490" y1="92" x2="490" y2="110" stroke="#64748b" stroke-width="2"/>
+  <rect x="40" y="110" width="220" height="58" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="150" y="132" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">Katkısı BÜYÜK olanı</text>
+  <text x="150" y="152" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">MAKSİMUM yap</text>
+  <rect x="380" y="110" width="220" height="58" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="490" y="132" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">Katkısı KÜÇÜK olanı</text>
+  <text x="490" y="152" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">MİNİMUM yap</text>
+  <line x1="26" y1="186" x2="614" y2="186" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="204" font-size="10" fill="#475569">Ama bir kısıt daha vardır: değişkenler genelde TAM SAYI olmak zorundadır. Bu yüzden en uç değer her zaman geçerli olmaz.</text>
+  <text x="26" y="220" font-size="10" fill="#475569">Yöntem: uç değerden başla, tam sayı koşulu sağlanana kadar birer birer geri gel. İlk uyan değer cevabı verir.</text>
+  <text x="26" y="236" font-size="10" fill="#475569">Kontrol: bulduğun değerleri asıl denklemde yerine koy; hem denklem hem "tam sayı" koşulu sağlanmalı.</text>
+</svg>
+
+<h3>3) Çözümlü Örnekler</h3>
+<p class="formula">ÖRNEK (PDF) — Bir köydeki ailelere ramazan kolisi dağıtılacaktır. Ailedeki birey sayısı <b>3 ve daha az ise 2 paket</b>, <b>3'ten fazla ise 3 paket</b> verilecektir. Hiçbir ailede birey sayısı <b>8'den fazla değildir</b>. Toplam <b>79 koli</b> dağıtıldığına göre köyün nüfusu <b>en çok</b> kaç kişi olabilir?</p>
+<ul>
+<li><b>Adım 1 — Değişkenleri kur:</b> Birey sayısı 3 ve daha az olan aile sayısı <b>x</b>, 3'ten fazla olan aile sayısı <b>y</b> olsun.</li>
+<li><b>Adım 2 — Koli denklemi:</b> <b>2x + 3y = 79</b>.</li>
+<li><b>Adım 3 — "En çok" için strateji:</b> Nüfusu büyütmek istiyoruz. Kalabalık aileler (en fazla 8 kişi) 3 paket alıyor, küçük aileler (en fazla 3 kişi) 2 paket. <u>Kişi başına verim kalabalık ailelerde daha yüksek</u> → <b>y'yi maksimum, x'i minimum</b> yapmalıyız.</li>
+<li><b>Adım 4 — Tam sayı kısıtı:</b> x = 0 için 3y = 79 → y tam sayı değil. x = 1 için 3y = 77 → yine tam sayı değil. <b>x = 2</b> için 3y = 75 → <b>y = 25</b> ✓</li>
+<li><b>Adım 5 — Nüfusu maksimize et:</b> Küçük ailelerin her biri en fazla 3 kişi, büyük ailelerin her biri en fazla 8 kişi olabilir: <b>2 · 3 + 25 · 8 = 6 + 200 = 206 kişi</b>.</li>
+<li><b>Ders:</b> İki aşamalı bir en büyükleme yapıldı — önce <u>aile sayısı dağılımı</u>, sonra <u>her ailenin birey sayısı</u>. <b>"En çok" sorularında her serbest değişkeni ayrı ayrı uç değerine taşımalısın.</b></li>
+</ul>
+<p class="formula">ÖRNEK (PDF) — Aslı, ilk egzersize <b>14.45</b>'te başlamış, hiç ara vermeden son egzersizi <b>15.03</b>'te bitirmiştir. Her egzersize eşit süre ayırmıştır. Toplam <b>24 egzersiz</b> yaptığına göre, egzersizlerden kaç tanesi <b>dakika başında</b> başlamıştır?</p>
+<ul>
+<li><b>Adım 1 — Toplam süre:</b> 15.03 − 14.45 = <b>18 dakika</b> = 18 · 60 = <b>1080 saniye</b>.</li>
+<li><b>Adım 2 — Bir egzersizin süresi:</b> 1080 / 24 = <b>45 saniye</b>.</li>
+<li><b>Adım 3 — Örüntüyü ara (kritik hamle):</b> Başlangıç saatlerini yazalım:<br/>
+1. egzersiz 14:45:00 &nbsp;·&nbsp; 2. egzersiz 14:45:45 &nbsp;·&nbsp; 3. egzersiz 14:46:30 &nbsp;·&nbsp; 4. egzersiz 14:47:15 &nbsp;·&nbsp; <b>5. egzersiz 14:48:00</b></li>
+<li><b>Adım 4 — Örüntüyü gör:</b> Dakika başında başlayanlar <b>her 4 egzersizde bir</b> tekrar ediyor. <u>Neden? 45 saniyenin 60 saniyeyle ortak katı 180 saniyedir; 180/45 = 4, yani dört egzersizde bir tam dakikaya denk gelinir.</u></li>
+<li><b>Adım 5 — Say:</b> 1, 5, 9, 13, 17, 21 → <b>6 egzersiz</b>.</li>
+<li><b>Ders:</b> Formül yoktu; <u>ilk birkaç terimi yazıp örüntüyü görmek</u> soruyu çözdü. <b>Bu, rutin olmayan problemlerin en sık kullanılan stratejisidir.</b></li>
+</ul>
+<p class="formula">ÖRNEK (geriye doğru çalışma) — Bir kişi parasının önce <b>yarısını</b>, sonra kalanın <b>üçte birini</b> harcamış, geriye <b>200 TL</b> kalmıştır. Başlangıçta kaç TL'si vardı?</p>
+<ul>
+<li><b>İleri yönde uzun yol:</b> Denklem kurup çözmek mümkün ama <u>sondan başlamak daha hızlıdır</u>.</li>
+<li><b>Adım 1 — Son adımı ters çevir:</b> Kalanın 1/3'ü harcandıysa geriye <b>2/3</b> kalmıştır → 200 TL, o anki paranın 2/3'ü → o anki para = 200 · 3/2 = <b>300 TL</b>.</li>
+<li><b>Adım 2 — Bir önceki adımı ters çevir:</b> Paranın yarısı harcandıysa 300 TL, başlangıcın <b>yarısıdır</b> → başlangıç = <b>600 TL</b>.</li>
+<li><b>Kontrol:</b> 600 → yarısı gitti, 300 kaldı → 300'ün 1/3'ü (100) gitti, <b>200 kaldı</b> ✓</li>
+<li><b>Ders:</b> "Sonuç verilmiş, başlangıç soruluyor" ifadesi görüldüğünde <b>geriye doğru çalışma</b> refleksi devreye girmelidir; her işlemi tersine çevirerek ilerlersin.</li>
+</ul>
+<p class="formula">ÖRNEK (sistematik listeleme) — Üzerinde <b>1, 2, 3, 4</b> yazan dört karttan üçü seçilip yan yana dizilerek üç basamaklı sayılar oluşturuluyor. Bu sayılardan kaç tanesi <b>çifttir</b>?</p>
+<ul>
+<li><b>Adım 1 — Koşulu belirle:</b> Sayının çift olması için <b>birler basamağı 2 ya da 4</b> olmalıdır.</li>
+<li><b>Adım 2 — Sistematik say:</b> Birler basamağı için <b>2 seçenek</b> (2 veya 4). Kalan üç karttan yüzler için <b>3</b>, onlar için <b>2</b> seçenek.</li>
+<li><b>Adım 3 — Çarp:</b> 2 · 3 · 2 = <b>12 sayı</b>.</li>
+<li><b>Kontrol yöntemi:</b> Toplam üç basamaklı sayı sayısı 4·3·2 = 24'tür. Birler basamağı eşit dağıldığına göre çift olanlar tam yarısı = 12 ✓ <u>İki farklı yoldan aynı sonuca varmak, sayma sorularında en güvenilir doğrulamadır.</u></li>
+<li><b>Ders:</b> Sayma sorularında <b>en kısıtlı basamaktan başla</b>. Burada birler basamağı kısıtlıydı, önce onu doldurduk.</li>
+</ul>
+
+<h3>4) "En Çok / En Az" Sorularının Anatomisi</h3>
+<p class="formula">TEMEL REFLEKS — Bir toplamı sabit tutup bir büyüklüğü en büyük yapmak istiyorsan, <b>diğerlerini en küçük</b> yapmalısın (ve tersi). <u>Ama iki kısıt daima kontrol edilmelidir:</u><br/>
+<b>1)</b> Değişkenler genelde <b>tam sayı</b> olmalıdır.<br/>
+<b>2)</b> Değişkenler genelde <b>pozitif</b> (ya da problemde verilen alt sınırın üstünde) olmalıdır.<br/>
+<u>Bu yüzden "en uç" değer çoğu zaman doğrudan alınamaz; uçtan başlayıp koşullar sağlanana kadar geri gelirsin.</u></p>
+<p class="formula">FARKLI SAYILAR KOŞULU — "Birbirinden farklı pozitif tam sayılar" ifadesi geçiyorsa, bir sayıyı en büyük yapmak için diğerlerini <b>1, 2, 3, …</b> gibi mümkün olan en küçük farklı değerlere atarsın.<br/>
+<u>Örnek: Toplamları 30 olan birbirinden farklı 4 pozitif tam sayıdan en büyüğü en çok kaç olabilir? → Diğerleri 1, 2, 3 olsun (toplam 6) → en büyük = 30 − 6 = <b>24</b>.</u></p>
+<p class="formula">ÖRNEK — Toplamları <b>50</b> olan <b>birbirinden farklı 5 pozitif tam sayının</b> en küçüğü <b>en çok</b> kaç olabilir?</p>
+<ul>
+<li><b>Strateji:</b> En küçüğü büyütmek istiyoruz → sayıları <b>olabildiğince birbirine yakın</b> seçmeliyiz. <u>Çünkü biri çok büyürse diğerlerine az kalır.</u></li>
+<li><b>Deneme 1:</b> 8, 9, 10, 11, 12 → toplam <b>50</b> ✓ En küçüğü <b>8</b>.</li>
+<li><b>Deneme 2 (daha büyük olur mu?):</b> En küçük 9 olsaydı: 9, 10, 11, 12, 13 → toplam 55 &gt; 50. Olmaz.</li>
+<li><b>Sonuç:</b> En küçüğün alabileceği en büyük değer <b>8</b>'dir.</li>
+<li><b>Ders:</b> "En küçüğü en çok" ve "en büyüğü en az" tipi sorularda sayılar <b>ardışığa yakın</b> seçilir; "en büyüğü en çok" tipinde ise diğerleri <b>minimuma</b> itilir. <u>Hangi yöne gideceğini sorunun ifadesi belirler.</u></li>
+</ul>
+
+<h3>5) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>En çok / en az</b></td><td>"En fazla kaç olabilir?"</td><td>Bir uçta maksimize, diğerlerini minimize et. <b>Tam sayı</b> koşulunu kontrol et.</td></tr>
+<tr><td>2</td><td><b>Örüntü / tekrar</b></td><td>Zaman, sıra, döngü içeren durumlar</td><td>İlk 4-5 terimi <b>yaz</b>, tekrar aralığını bul, bölme-kalan kullan.</td></tr>
+<tr><td>3</td><td><b>Geriye doğru</b></td><td>Son durum verilmiş, ilk durum soruluyor</td><td>İşlemleri <b>tersine</b> uygula: harcama → bölme, ekleme → çıkarma.</td></tr>
+<tr><td>4</td><td><b>Sistematik sayma</b></td><td>"Kaç farklı … oluşturulabilir?"</td><td><b>En kısıtlı</b> yerden başla; seçenekleri çarp. İki yoldan doğrula.</td></tr>
+<tr><td>5</td><td><b>Tablo / eşleştirme</b></td><td>Kişi-meslek-şehir gibi çoklu eşleşme</td><td><b>Tablo çiz</b>, kesin bilgileri işaretle, eleme yap.</td></tr>
+<tr><td>6</td><td><b>Şekil-alan mantığı</b></td><td>Kare, dikdörtgen, kesme-birleştirme</td><td><b>Şekil çiz</b>; korunan büyüklüğü (alan, çevre) belirle.</td></tr>
+<tr><td>7</td><td><b>Tam sayı çözümü</b></td><td>ax + by = c biçiminde iki bilinmeyen</td><td>Bir değişkeni <b>sistematik dene</b>; diğerinin tam sayı çıktığı ilk değeri bul.</td></tr>
+<tr><td>8</td><td><b>Basitleştirme</b></td><td>Sayılar aşırı büyük ya da soyut</td><td>Küçük bir örnekle <b>mantığı çıkar</b>, sonra genelle.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 7) — <b>3x + 5y = 47</b> denklemini sağlayan kaç farklı <b>pozitif tam sayı</b> (x, y) ikilisi vardır?</p>
+<ul>
+<li><b>Strateji:</b> Katsayısı büyük olanı (y) sistematik dene; böylece deneme sayısı az olur.</li>
+<li><b>y = 1:</b> 3x = 42 → x = 14 ✓ &nbsp;<b>y = 2:</b> 3x = 37 → tam sayı değil ✗ &nbsp;<b>y = 3:</b> 3x = 32 ✗ &nbsp;<b>y = 4:</b> 3x = 27 → x = 9 ✓</li>
+<li><b>y = 5:</b> 3x = 22 ✗ &nbsp;<b>y = 6:</b> 3x = 17 ✗ &nbsp;<b>y = 7:</b> 3x = 12 → x = 4 ✓ &nbsp;<b>y = 8:</b> 3x = 7 ✗ &nbsp;<b>y = 9:</b> 3x = 2 ✗ &nbsp;<u>y = 10 için sağ taraf negatif olur, dur.</u></li>
+<li><b>Sonuç:</b> (14, 1), (9, 4), (4, 7) → <b>3 ikili</b>.</li>
+<li><b>Örüntü gözlemi:</b> Çözümler y'de <b>3'er</b>, x'te <b>5'er</b> atlıyor — yani katsayılar yer değiştirerek adım aralığını veriyor. <u>Bir çözümü bulduktan sonra diğerlerini bu adımlarla türetebilirsin; hepsini tek tek denemeye gerek kalmaz.</u></li>
+</ul>
+
+<h3>6) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Rutin olmayan problem:</b> Doğrudan bir formülle çözülemeyen, strateji gerektiren problem.</li>
+<li><b>Strateji:</b> Problemi çözülebilir hâle getiren yaklaşım (şekil çizme, tablo kurma, geriye çalışma…).</li>
+<li><b>Örüntü:</b> Belirli bir kuralla tekrar eden düzen.</li>
+<li><b>Sistematik listeleme:</b> Olasılıkları rastgele değil, belirli bir sırayla yazma yöntemi.</li>
+<li><b>Uç değer:</b> Bir değişkenin alabileceği en büyük ya da en küçük değer.</li>
+<li><b>Kısıt:</b> Değişkenlerin uyması gereken koşul (tam sayı olma, pozitif olma, üst sınır gibi).</li>
+<li><b>Geriye doğru çalışma:</b> Son durumdan başlayıp işlemleri tersine uygulayarak başlangıcı bulma.</li>
+<li><b>Basitleştirme:</b> Büyük sayılı bir problemi küçük sayılarla modelleyip mantığı çıkarma.</li>
+</ul>
+
+<h3>7) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Tam sayı koşulunu atlamak:</b> Uç değeri doğrudan almak çoğu zaman <b>tam sayı vermez</b>; bir-iki adım geri gelmek gerekir.</li>
+<li><b>"En çok" ile "en az"ı ters yorumlamak:</b> Bir büyüklüğü büyütmek için diğerlerini <b>küçültürsün</b>; hangi yöne gittiğini soruyu okuyarak belirle.</li>
+<li><b>"Farklı sayılar" koşulunu görmezden gelmek:</b> Sayılar birbirinden farklıysa en küçükler <b>1, 2, 3, …</b> olarak atanır.</li>
+<li><b>Örüntüyü birkaç terim yazmadan tahmin etmek:</b> <u>En az 4-5 terim yaz</u>; ilk üç terim yanıltabilir.</li>
+<li><b>Sayma sorularında sırayı yanlış kurmak:</b> <b>En kısıtlı basamaktan</b> başlamazsan sayım şişer ya da eksilir.</li>
+<li><b>Denklem kurmakta ısrar etmek:</b> Bazı sorular denklemle değil, <b>deneme-listeleme</b> ile daha hızlı biter.</li>
+<li><b>Şekil çizmeden ilerlemek:</b> Konum, sıralama ve geometri içeren sorularda şekil, gizli veriyi açığa çıkarır.</li>
+<li><b>Sonucu bağlamda sorgulamamak:</b> Kişi sayısı, paket sayısı gibi büyüklükler <b>pozitif tam sayı</b> olmalıdır.</li>
+<li><b>Zaman sorularında saniyeye inmemek:</b> Dakika-saniye karışıksa <b>hepsini saniyeye çevir</b>; bölme-kalan mantığı ancak öyle çalışır.</li>
+<li><b>Şıkları kullanmayı akla getirmemek:</b> Kurulum uzun sürüyorsa <b>şıkkı yerine koymak</b> meşru ve hızlı bir yoldur.</li>
+</ul>
+
+<h3>8) Özet Kartı</h3>
+<ul>
+<li><b>Adımlar:</b> Verileri belirle → isteneni anla → şekil/tablo → sistematik düşün → akıl yürüt.</li>
+<li><b>Sekiz strateji:</b> Şekil çizme · tablo · listeleme · örüntü · geriye çalışma · uç değer · basitleştirme · şıktan gitme.</li>
+<li><b>En çok/en az:</b> Birini büyütmek için <b>diğerlerini küçült</b>; sonra <b>tam sayı</b> koşulunu kontrol et.</li>
+<li><b>Farklı sayılar:</b> En küçükleri <b>1, 2, 3, …</b> ata. "En küçüğü en çok" isteniyorsa sayıları <b>ardışığa yakın</b> seç.</li>
+<li><b>Örüntü:</b> İlk <b>4-5 terimi yaz</b>, tekrar aralığını bul, <b>bölme-kalan</b> ile n. terime git.</li>
+<li><b>Geriye çalışma:</b> Sonuç verilmişse işlemleri <b>tersine</b> uygula.</li>
+<li><b>Sayma:</b> <b>En kısıtlı</b> yerden başla, seçenekleri çarp, <b>ikinci bir yoldan doğrula</b>.</li>
+<li><b>Tam sayı çözümü:</b> ax + by = c için bir değişkeni dene; çözümler <b>b'şer ve a'şar</b> atlar.</li>
+<li><b>Zaman:</b> Karışık birimleri <b>saniyeye çevir</b>.</li>
+<li><b>Bitirirken:</b> Sonucu <b>bağlamda sorgula</b> — pozitif mi, tam sayı mı, mantıklı mı?</li>
+</ul>
+
+</body></html>

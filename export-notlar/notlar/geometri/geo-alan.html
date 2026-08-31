@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Üçgende Alan</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Üçgende Alan</h2>
+
+<p>Alan konusunun tek bir formülü vardır: <b>taban çarpı yükseklik bölü iki</b>. Ama bu ünitedeki asıl beceri formülü uygulamak değil, <b>alanları birbirine oranlamaktır</b>. Sınavda "şu bölgenin alanı kaçtır?" diye sorulduğunda genellikle hiçbir uzunluk verilmez — sadece bir oran verilir. Bu yüzden burada iki şey öğreneceğiz: alanı <b>hesaplamanın</b> yolları ve alanı <b>karşılaştırmanın</b> yolları. İkincisi, TYT'de çok daha çok işine yarayacak.</p>
+
+<h3>1) Temel Alan Formülü</h3>
+<p class="formula">TEMEL KURAL (PDF) — Bir üçgenin alanı, <b>bir kenarı ile o kenara ait yüksekliğin çarpımının yarısıdır</b>.<br/>
+<b>A(ABC) = (a · h<sub>a</sub>)/2 = (b · h<sub>b</sub>)/2 = (c · h<sub>c</sub>)/2</b><br/>
+<u>Üç ifade de aynı sayıyı verir — hangi kenarı taban seçtiğin fark etmez, yeter ki o kenarın <b>kendi yüksekliğini</b> kullanasın.</u><br/>
+<b>Neden bölü 2?</b> <u>Bir üçgenin aynısından ikincisini alıp 180° döndürerek yapıştırırsan tam bir <b>paralelkenar</b> elde edersin. Paralelkenarın alanı taban × yükseklik olduğu için üçgen onun yarısıdır.</u></p>
+<p class="formula">ÜÇGEN ÇEŞİDİNE GÖRE (PDF) —<br/>
+• <b>Dar açılı üçgende:</b> Üç yükseklik de üçgenin <b>içindedir</b>.<br/>
+• <b>Dik üçgende:</b> İki dik kenar birbirinin yüksekliğidir → <b>A = (dik kenarların çarpımı)/2 = (b · c)/2</b>. <u>Ayrıca hipotenüse ait yükseklikle A = (a · h<sub>a</sub>)/2 de yazılabilir; ikisini eşitleyince <b>h<sub>a</sub> = (b·c)/a</b> çıkar.</u><br/>
+• <b>Geniş açılı üçgende:</b> İki yükseklik üçgenin <b>DIŞINA</b>, kenarın uzantısına düşer. <u>Formül değişmez; sadece yüksekliği çizerken kenarı uzatman gerekir.</u></p>
+<svg viewBox="0 0 640 255" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Üçgen çeşitlerinde taban ve yükseklik">
+  <rect x="0" y="0" width="640" height="255" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Formül aynı, yüksekliğin yeri değişir</text>
+  <polygon points="95,65 45,180 165,180" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <line x1="95" y1="65" x2="95" y2="180" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4"/>
+  <rect x="95" y="165" width="14" height="14" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="102" y="130" font-size="11" font-weight="700" fill="#dc2626">h</text>
+  <text x="105" y="197" font-size="11" font-weight="700" fill="#15803d">a</text>
+  <text x="105" y="220" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">DAR AÇILI</text>
+  <text x="105" y="238" font-size="10" fill="#475569" text-anchor="middle">Üç yükseklik de içeride</text>
+  <polygon points="255,65 255,180 375,180" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <rect x="255" y="166" width="14" height="14" fill="none" stroke="#0369a1" stroke-width="1.6"/>
+  <text x="240" y="125" font-size="11" font-weight="700" fill="#0369a1">c</text>
+  <text x="312" y="197" font-size="11" font-weight="700" fill="#0369a1">b</text>
+  <text x="315" y="220" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">DİK ÜÇGEN</text>
+  <text x="315" y="238" font-size="10" fill="#475569" text-anchor="middle">A = (b · c) / 2</text>
+  <polygon points="450,80 490,180 610,180" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <line x1="450" y1="80" x2="450" y2="180" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4"/>
+  <line x1="450" y1="180" x2="490" y2="180" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3"/>
+  <rect x="450" y="166" width="14" height="14" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="456" y="135" font-size="11" font-weight="700" fill="#dc2626">h</text>
+  <text x="548" y="197" font-size="11" font-weight="700" fill="#b45309">a</text>
+  <text x="470" y="196" font-size="9" fill="#64748b">uzantı</text>
+  <text x="530" y="220" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">GENİŞ AÇILI</text>
+  <text x="530" y="238" font-size="10" fill="#475569" text-anchor="middle">Yükseklik DIŞARIYA düşer</text>
+</svg>
+<p class="formula">ÇOK KULLANIŞLI SONUÇ — Alan tek bir sayı olduğu için:<br/>
+<b>a · h<sub>a</sub> = b · h<sub>b</sub> = c · h<sub>c</sub></b><br/>
+<u>Yani bir üçgende <b>kenarlar ile onlara ait yükseklikler TERS ORANTILIDIR</b>. En uzun kenarın yüksekliği en kısadır. Bu, "bir yüksekliği bilip diğerini bulma" sorularının tek adımlık çözümüdür.</u><br/>
+<b>Örnek:</b> a = 8, h<sub>a</sub> = 6 ise alan 24'tür. b = 12 ise 12 · h<sub>b</sub> = 8 · 6 = 48 → <b>h<sub>b</sub> = 4</b>.</p>
+<p class="formula">TRİGONOMETRİK ALAN FORMÜLÜ (PDF) — İki kenar ve <b>aralarındaki açı</b> biliniyorsa yüksekliğe hiç gerek yoktur:<br/>
+<b>A(ABC) = (1/2) · b · c · sin A</b><br/>
+<u>Neden? C'den [AB]'ye inen yükseklik h = b·sin A'dır (sin = karşı/hipotenüs). Bunu A = (c·h)/2 formülünde yerine koyarsan sonuç çıkar.</u><br/>
+<b>EŞKENAR ÜÇGENİN ALANI:</b> Kenarı <b>a</b> olan eşkenar üçgende iki kenar a, aralarındaki açı 60° → A = (1/2)·a·a·sin 60° = <b>(a²√3) / 4</b><br/>
+<u>Aynı sonuca yükseklikten de gidilir: eşkenar üçgende yükseklik <b>(a√3)/2</b>'dir (30-60-90 üçgeninden).</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trigonometrik alan ve eşkenar üçgen alanı">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — İki kenar + aradaki açı, ve eşkenar üçgen</text>
+  <polygon points="110,60 50,190 210,190" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="210" y1="190" x2="210" y2="118" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="110" y1="60" x2="210" y2="118" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <path d="M 96 84 A 30 30 0 0 0 133 92" fill="none" stroke="#b45309" stroke-width="2"/>
+  <text x="112" y="92" font-size="11" font-weight="700" fill="#b45309">A</text>
+  <text x="70" y="120" font-size="12" font-weight="700" fill="#0369a1">c</text>
+  <text x="170" y="118" font-size="12" font-weight="700" fill="#0369a1">b</text>
+  <text x="216" y="158" font-size="10" font-weight="700" fill="#dc2626">h = b·sin A</text>
+  <text x="130" y="216" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">A = (1/2) · b · c · sin A</text>
+  <text x="130" y="236" font-size="10" fill="#475569" text-anchor="middle">İki kenar ve ARALARINDAKİ açı yeter.</text>
+  <line x1="270" y1="45" x2="270" y2="240" stroke="#e2e8f0" stroke-width="1.5"/>
+  <polygon points="390,70 330,180 450,180" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <line x1="390" y1="70" x2="390" y2="180" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 3"/>
+  <rect x="390" y="166" width="14" height="14" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="352" y="180" font-size="9" font-weight="700" fill="#15803d">60°</text>
+  <text x="424" y="180" font-size="9" font-weight="700" fill="#15803d">60°</text>
+  <text x="390" y="92" font-size="9" font-weight="700" fill="#15803d" text-anchor="middle">60°</text>
+  <text x="345" y="120" font-size="11" font-weight="700" fill="#15803d">a</text>
+  <text x="428" y="120" font-size="11" font-weight="700" fill="#15803d">a</text>
+  <text x="396" y="135" font-size="10" font-weight="700" fill="#dc2626">a√3/2</text>
+  <text x="390" y="204" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">a</text>
+  <text x="390" y="228" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">A = (a²√3) / 4</text>
+  <line x1="480" y1="45" x2="480" y2="240" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="498" y="72" font-size="11" font-weight="700" fill="#334155">Alan formülleri</text>
+  <text x="498" y="94" font-size="11" font-weight="700" fill="#0369a1">A = (taban · yükseklik)/2</text>
+  <text x="498" y="116" font-size="11" font-weight="700" fill="#0369a1">Dik üçgen: A = (b·c)/2</text>
+  <text x="498" y="138" font-size="11" font-weight="700" fill="#15803d">A = (1/2)·b·c·sin A</text>
+  <text x="498" y="160" font-size="11" font-weight="700" fill="#b45309">Eşkenar: A = a²√3/4</text>
+  <text x="498" y="186" font-size="10" font-weight="700" fill="#b91c1c">a·hₐ = b·h_b = c·h_c</text>
+  <text x="498" y="204" font-size="10" fill="#475569">Kenar ile yüksekliği</text>
+  <text x="498" y="218" font-size="10" fill="#475569">TERS orantılıdır:</text>
+  <text x="498" y="234" font-size="10" fill="#475569">uzun kenar → kısa yükseklik.</text>
+</svg>
+
+<h3>2) Alan Oranları — Ünitenin Kalbi</h3>
+<p class="formula">KURAL 1 — ORTAK YÜKSEKLİK (PDF): Bir üçgende bir köşeden karşı kenara çizilen doğru parçası üçgeni iki parçaya ayırırsa, <b>bu parçaların alanları tabanlarıyla orantılıdır</b>:<br/>
+<b>A(ABD) / A(ADC) = |BD| / |DC|</b><br/>
+<u>Neden? İki küçük üçgenin tepe noktası ortak (A) olduğu için <b>yükseklikleri aynıdır</b>. Alan = taban × ortak yükseklik / 2 olduğundan, alanlar yalnızca tabanlara bağlıdır.</u><br/>
+<b>Sonuç:</b> <u>Bir kenarortay üçgeni iki eşit alana böler (tabanlar eşit olduğu için). Bir açıortay ise |BD|/|DC| = c/b oranında böler.</u></p>
+<p class="formula">KURAL 2 — ORTAK TABAN (PDF): İki üçgenin <b>tabanı ortaksa</b>, alanları <b>yüksekliklerle</b> orantılıdır:<br/>
+<b>A(DBC) / A(ABC) = |DF| / |AE|</b> &nbsp;<u>(DF ve AE, ortak [BC] tabanına ait yükseklikler)</u><br/>
+<b>Çok kullanışlı sonuç:</b> <u>Bir doğruya paralel bir doğru üzerindeki <b>tüm noktalar</b> o doğruya eşit uzaklıktadır. Yani tabanı sabit tutup tepe noktasını tabana paralel bir doğru üzerinde gezdirirsen <b>alan DEĞİŞMEZ</b>.</u></p>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Alan oranları: ortak yükseklik ve ortak taban">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Alan oranlarının iki temel kuralı</text>
+  <polygon points="120,55 45,195 250,195" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="120" y1="55" x2="127" y2="195" stroke="#dc2626" stroke-width="2.5"/>
+  <circle cx="127" cy="195" r="4" fill="#dc2626"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="114" y="47">A</text><text x="32" y="211">B</text><text x="254" y="211">C</text><text x="123" y="213">D</text>
+  </g>
+  <text x="84" y="188" font-size="11" font-weight="700" fill="#15803d">m</text>
+  <text x="186" y="188" font-size="11" font-weight="700" fill="#b45309">n</text>
+  <text x="145" y="235" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">A(ABD) / A(ADC) = m / n</text>
+  <text x="145" y="252" font-size="10" fill="#475569" text-anchor="middle">Tepe ortak → yükseklik ortak → alan tabanla orantılı</text>
+  <line x1="290" y1="45" x2="290" y2="255" stroke="#e2e8f0" stroke-width="1.5"/>
+  <line x1="340" y1="195" x2="560" y2="195" stroke="#0369a1" stroke-width="2.5"/>
+  <polygon points="410,60 340,195 560,195" fill="none" stroke="#0369a1" stroke-width="2"/>
+  <polygon points="470,125 340,195 560,195" fill="none" stroke="#16a34a" stroke-width="2"/>
+  <line x1="410" y1="60" x2="410" y2="195" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <line x1="470" y1="125" x2="470" y2="195" stroke="#16a34a" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="404" y="52">A</text><text x="476" y="120">D</text>
+    <text x="330" y="211">B</text><text x="564" y="211">C</text>
+    <text x="406" y="211">E</text><text x="466" y="211">F</text>
+  </g>
+  <text x="386" y="130" font-size="10" font-weight="700" fill="#dc2626">AE</text>
+  <text x="476" y="165" font-size="10" font-weight="700" fill="#16a34a">DF</text>
+  <text x="450" y="235" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">A(DBC) / A(ABC) = DF / AE</text>
+  <text x="450" y="252" font-size="10" fill="#475569" text-anchor="middle">Taban ortak → alan yükseklikle orantılı</text>
+</svg>
+<p class="formula">KURAL 3 — BENZERLİK (PDF): İki üçgen benzer ve benzerlik oranı <b>k</b> ise:<br/>
+<b>A(DEF) / A(ABC) = k²</b><br/>
+<u>Kenarlar k katına çıkarken alan k² katına çıkar — çünkü alan iki boyutludur. (Bu, eşlik-benzerlik ünitesinde kurduğumuz kuralın alan hâlidir.)</u><br/>
+<b>KURAL 4 — AĞIRLIK MERKEZİ (PDF):</b> G noktası ABC üçgeninin ağırlık merkezi olmak üzere <b>kenarortaylar üçgeni ALTI EŞİT ALANA ayırır</b>.<br/>
+<u>Sonuç: her küçük üçgen toplam alanın <b>1/6</b>'sı, her kenarortayın ayırdığı yarı <b>1/2</b>'si, G ile bir kenarın oluşturduğu üçgen ise <b>1/3</b>'üdür.</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kenarortaylar altı eşit alan oluşturur">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — Kenarortaylar üçgeni altı EŞİT alana böler</text>
+  <polygon points="160,55 60,200 260,200" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <g stroke="#b45309" stroke-width="1.8">
+    <line x1="160" y1="55" x2="160" y2="200"/>
+    <line x1="60" y1="200" x2="210" y2="127"/>
+    <line x1="260" y1="200" x2="110" y2="127"/>
+  </g>
+  <circle cx="160" cy="152" r="4.5" fill="#b45309"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="154" y="47">A</text><text x="47" y="216">B</text><text x="264" y="216">C</text>
+    <text x="168" y="149">G</text><text x="156" y="216">D</text><text x="214" y="124">E</text><text x="98" y="124">F</text>
+  </g>
+  <g font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">
+    <text x="140" y="108">S</text><text x="182" y="108">S</text>
+    <text x="112" y="160">S</text><text x="210" y="160">S</text>
+    <text x="136" y="192">S</text><text x="186" y="192">S</text>
+  </g>
+  <text x="160" y="236" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">Altı bölgenin alanı da eşittir.</text>
+  <line x1="300" y1="45" x2="300" y2="240" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="320" y="70" font-size="11" font-weight="700" fill="#334155">Alan oranı kuralları — dört madde</text>
+  <text x="320" y="94" font-size="11" font-weight="700" fill="#0369a1">1) Tepe ortak → alanlar TABANLARLA orantılı</text>
+  <text x="320" y="114" font-size="11" font-weight="700" fill="#16a34a">2) Taban ortak → alanlar YÜKSEKLİKLERLE orantılı</text>
+  <text x="320" y="134" font-size="11" font-weight="700" fill="#b45309">3) Benzer üçgenler → alan oranı k²</text>
+  <text x="320" y="154" font-size="11" font-weight="700" fill="#b91c1c">4) Kenarortaylar → altı eşit alan</text>
+  <text x="320" y="180" font-size="10" fill="#475569">Ağırlık merkezinden çıkan sonuçlar:</text>
+  <text x="320" y="198" font-size="10" fill="#475569">• Her küçük üçgen toplamın 1/6'sı</text>
+  <text x="320" y="214" font-size="10" fill="#475569">• Bir kenarortayın ayırdığı yarı 1/2'si</text>
+  <text x="320" y="230" font-size="10" fill="#475569">• G ile bir kenarın üçgeni 1/3'ü</text>
+</svg>
+<p class="formula">ÖRNEK — ABC üçgeninin alanı <b>60 cm²</b>'dir. D ∈ [BC] olmak üzere <b>|BD| / |DC| = 2/3</b> ise A(ABD) ve A(ADC) kaç cm²'dir?</p>
+<ul>
+<li><b>Adım 1 — Kuralı seç:</b> İki üçgenin tepe noktası ortak (A) → <b>alanlar tabanlarla orantılıdır</b>.</li>
+<li><b>Adım 2 — Parçalara isim ver:</b> Alanlar <b>2k</b> ve <b>3k</b> olsun → 2k + 3k = 60 → <b>k = 12</b>.</li>
+<li><b>Adım 3:</b> A(ABD) = 2·12 = <b>24 cm²</b> &nbsp;·&nbsp; A(ADC) = 3·12 = <b>36 cm²</b>.</li>
+<li><b>Kontrol:</b> 24 + 36 = 60 ✓ &nbsp;·&nbsp; 24/36 = 2/3 ✓</li>
+<li><b>Ders:</b> <u>Alan oranı sorularında <b>hiçbir uzunluğu bulmana gerek yoktur</b>. Oranı gör, parçalara 2k–3k de, topla. Bu, sınavda 15 saniyelik bir işlemdir.</u></li>
+</ul>
+<p class="formula">ÖRNEK — Bir ABC üçgeninde <b>|AB| = 8 cm</b>, <b>|AC| = 10 cm</b> ve <b>m(Â) = 30°</b>'dir. Üçgenin alanı kaç cm²'dir?</p>
+<ul>
+<li><b>Formül:</b> A = (1/2)·|AB|·|AC|·sin A = (1/2)·8·10·sin 30°.</li>
+<li><b>Değer:</b> sin 30° = 1/2 → A = (1/2)·80·(1/2) = <b>20 cm²</b>.</li>
+<li><b>Kontrol (yükseklikle):</b> <u>C'den [AB]'ye inen yükseklik h = 10·sin 30° = 5 → A = (8·5)/2 = 20 ✓</u></li>
+<li><b>Dikkat:</b> <u>Formülde kullanılan açı, <b>o iki kenarın ARASINDAKİ</b> açı olmalıdır. Başka bir açı verilirse formül doğrudan uygulanamaz.</u></li>
+</ul>
+
+<h3>3) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Doğrudan alan</b></td><td>Taban ve yükseklik verilmiş</td><td><b>(taban × yükseklik)/2</b>.</td></tr>
+<tr><td>2</td><td><b>Dik üçgen alanı</b></td><td>Dik açı işareti</td><td><b>(dik kenarların çarpımı)/2</b>.</td></tr>
+<tr><td>3</td><td><b>Yükseklik bulma</b></td><td>Alan ve bir kenar verilmiş</td><td><b>a·h<sub>a</sub> = b·h<sub>b</sub></b> ters orantısı.</td></tr>
+<tr><td>4</td><td><b>Trigonometrik alan</b></td><td>İki kenar + aradaki açı</td><td><b>(1/2)·b·c·sin A</b>.</td></tr>
+<tr><td>5</td><td><b>Eşkenar üçgen</b></td><td>Üç kenar eşit</td><td><b>a²√3/4</b>.</td></tr>
+<tr><td>6</td><td><b>Ortak tepe (taban oranı)</b></td><td>Bir köşeden karşı kenara doğru</td><td>Alanlar <b>tabanlarla</b> orantılı.</td></tr>
+<tr><td>7</td><td><b>Ortak taban (yükseklik oranı)</b></td><td>Aynı taban, farklı tepe</td><td>Alanlar <b>yüksekliklerle</b> orantılı.</td></tr>
+<tr><td>8</td><td><b>Paralel doğru üzerinde tepe</b></td><td>Tepe noktası tabana paralel doğruda</td><td>Alan <b>DEĞİŞMEZ</b>.</td></tr>
+<tr><td>9</td><td><b>Kenarortay</b></td><td>Orta nokta işareti</td><td>Alanı <b>iki eşit</b> parçaya böler.</td></tr>
+<tr><td>10</td><td><b>Ağırlık merkezi</b></td><td>Üç kenarortay çizilmiş</td><td><b>Altı eşit alan</b>; her biri 1/6.</td></tr>
+<tr><td>11</td><td><b>Benzerlik + alan</b></td><td>Paralel doğru ya da benzer üçgen</td><td>Alan oranı <b>k²</b>.</td></tr>
+<tr><td>12</td><td><b>Taralı bölge</b></td><td>Şeklin bir kısmı boyanmış</td><td><b>Bütün − boş</b> ya da parçaları <b>oranla</b> topla.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 11) — ABC üçgeninde [DE] // [BC] olmak üzere <b>|AD|/|DB| = 1/2</b>'dir. ADE üçgeninin alanı <b>8 cm²</b> ise <b>DBCE yamuğunun</b> alanı kaç cm²'dir?</p>
+<ul>
+<li><b>Adım 1 — Benzerlik oranı:</b> DE // BC olduğu için ADE ~ ABC. Oran <b>parça/BÜTÜN</b> ile kurulur: |AD|/|AB| = 1/(1+2) = <b>1/3</b> → <b>k = 1/3</b>.</li>
+<li><b>Adım 2 — Alan oranı:</b> A(ADE)/A(ABC) = k² = <b>1/9</b>.</li>
+<li><b>Adım 3 — Büyük üçgenin alanı:</b> 8/A(ABC) = 1/9 → <b>A(ABC) = 72 cm²</b>.</li>
+<li><b>Adım 4 — Yamuk:</b> A(DBCE) = 72 − 8 = <b>64 cm²</b>.</li>
+<li><b>Sık hata:</b> <u>k'yı 1/2 almak. |AD|/|DB| parça/parçadır; <b>benzerlik oranı için parça/BÜTÜN gerekir</b>. Bu tek adım sonucu 4 kat değiştirir.</u></li>
+</ul>
+
+<h3>4) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Alan:</b> Bir şeklin kapladığı yüzey büyüklüğü; birimi kare birimdir (cm², m²).</li>
+<li><b>Taban:</b> Alan hesabında seçilen kenar.</li>
+<li><b>Yükseklik:</b> Seçilen tabana karşı köşeden indirilen dikme.</li>
+<li><b>h<sub>a</sub>:</b> a kenarına ait yükseklik.</li>
+<li><b>Trigonometrik alan formülü:</b> A = (1/2)·b·c·sin A.</li>
+<li><b>Eşkenar üçgen alanı:</b> a²√3/4.</li>
+<li><b>Ortak yükseklik kuralı:</b> Tepe ortak ise alanlar tabanlarla orantılıdır.</li>
+<li><b>Ortak taban kuralı:</b> Taban ortak ise alanlar yüksekliklerle orantılıdır.</li>
+<li><b>Benzerlikte alan oranı:</b> k² (benzerlik oranının karesi).</li>
+<li><b>Ağırlık merkezi (G):</b> Kenarortayların kesişimi; üçgeni altı eşit alana böler.</li>
+</ul>
+
+<h3>5) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Yanlış yüksekliği kullanmak:</b> Seçtiğin tabanın <b>kendi</b> yüksekliğini kullan; a ile h<sub>b</sub> çarpılmaz.</li>
+<li><b>Geniş açılı üçgende yüksekliği içeride aramak:</b> Yükseklik <b>kenarın uzantısına</b> düşebilir.</li>
+<li><b>Bölü 2'yi unutmak:</b> Taban × yükseklik <b>paralelkenarın</b> alanıdır; üçgen onun yarısıdır.</li>
+<li><b>Trigonometrik formülde yanlış açıyı kullanmak:</b> Açı, iki kenarın <b>ARASINDAKİ</b> açı olmalıdır.</li>
+<li><b>Alan oranını k sanmak:</b> Benzerlikte <b>alan oranı k²</b>'dir.</li>
+<li><b>Benzerlik oranını parça/parça kurmak:</b> DE // BC durumunda <b>k = parça/BÜTÜN</b>'dür.</li>
+<li><b>Ortak yükseklik ile ortak tabanı karıştırmak:</b> <u>Tepe ortaksa tabanlarla, taban ortaksa yüksekliklerle orantılıdır.</u></li>
+<li><b>Açıortayı kenarortay sanmak:</b> Alanı <b>eşit</b> bölen kenarortaydır; açıortay <b>c/b</b> oranında böler.</li>
+<li><b>Ağırlık merkezinde 1/6 yerine 1/3 kullanmak:</b> Küçük üçgenler <b>1/6</b>, G ile bir kenarın üçgeni <b>1/3</b>'tür.</li>
+<li><b>Birimi karesiz yazmak:</b> Alan birimi daima <b>kare birimdir</b> (cm², m²).</li>
+<li><b>Taralı alanda gereksiz hesap:</b> Çoğu zaman <b>bütünden çıkarmak</b> ya da oran kullanmak yeterlidir.</li>
+</ul>
+
+<h3>6) Özet Kartı</h3>
+<ul>
+<li><b>A = (taban × yükseklik) / 2</b> — hangi kenarı seçersen seç, <b>kendi</b> yüksekliğiyle.</li>
+<li><b>Dik üçgen:</b> <b>A = (dik kenarların çarpımı)/2</b>; hipotenüs yüksekliği <b>h = bc/a</b>.</li>
+<li><b>a·h<sub>a</sub> = b·h<sub>b</sub> = c·h<sub>c</sub></b> → kenar ile yüksekliği <b>ters orantılı</b>.</li>
+<li><b>A = (1/2)·b·c·sin A</b> — açı iki kenarın <b>arasında</b> olmalı.</li>
+<li><b>Eşkenar üçgen:</b> <b>A = a²√3/4</b>, yükseklik <b>a√3/2</b>.</li>
+<li><b>Tepe ortak → alanlar TABANLARLA orantılı.</b></li>
+<li><b>Taban ortak → alanlar YÜKSEKLİKLERLE orantılı.</b></li>
+<li><b>Tepe, tabana paralel bir doğruda gezerse alan DEĞİŞMEZ.</b></li>
+<li><b>Kenarortay</b> alanı iki eşit parçaya böler; <b>üç kenarortay altı eşit alan</b> oluşturur.</li>
+<li><b>Benzerlikte alan oranı = k²</b>; k daima <b>parça/bütün</b> ile kurulur.</li>
+<li><b>Taralı bölge:</b> önce <b>bütünden çıkarmayı</b> dene.</li>
+<li><b>Oran verilmişse uzunluk aramaya girme;</b> parçalara <b>2k, 3k</b> deyip topla.</li>
+</ul>
+
+</body></html>

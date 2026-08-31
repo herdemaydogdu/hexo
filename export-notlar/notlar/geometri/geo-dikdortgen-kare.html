@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dikdörtgen ve Kare</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Dikdörtgen ve Kare</h2>
+
+<p>Paralelkenara <b>tek bir şart</b> eklersek dikdörtgen olur: bir açısı 90°. Bir şart daha eklersek — tüm kenarlar eşit — kare olur. Yani bu ünitede yeni bir şey öğrenmiyoruz; <b>paralelkenarın özelliklerine ekleme yapıyoruz</b>. Kazandığımız şey büyük: dik açı sayesinde <b>Pisagor teoremi devreye giriyor</b> ve artık köşegen uzunluğunu hesaplayabiliyoruz. Karede ise simetri o kadar güçlenir ki köşegenler aynı anda açıortay, orta dikme ve simetri ekseni hâline gelir.</p>
+
+<h3>1) Dikdörtgen</h3>
+<p class="formula">TANIM (PDF) — <b>Açılarından birinin ölçüsü 90° olan paralelkenara dikdörtgen</b> denir.<br/>
+<u>Neden "biri" yeterli? Paralelkenarda komşu açılar bütünler olduğu için bir açı 90° ise komşusu da 180 − 90 = 90° olur; karşılıklı açılar eşit olduğu için <b>dördü de 90°</b> çıkar. Tek şart, dört şartı doğuruyor.</u><br/>
+<b>PARALELKENARDAN MİRAS ALDIKLARI:</b><br/>
+• Karşılıklı kenarlar <b>paralel ve eşit</b>: |AB| = |DC| = a, |AD| = |BC| = b<br/>
+• Köşegenler birbirini <b>ortalar</b><br/>
+• <b>Ç(ABCD) = 2(a + b)</b></p>
+<p class="formula">DİKDÖRTGENE ÖZEL — <b>KÖŞEGENLER EŞİTTİR</b> (PDF):<br/>
+<b>|AC| = |BD|</b> &nbsp;ve&nbsp; <b>|AO| = |OC| = |DO| = |OB|</b><br/>
+<u>Yani köşegenlerin kesim noktası O, <b>dört köşeye de eşit uzaklıktadır</b> → dikdörtgenin <b>çevrel çemberinin merkezidir</b>. Bu, "dik üçgende hipotenüs kenarortayı = hipotenüsün yarısı" bilgisinin dörtgendeki karşılığıdır.</u><br/>
+<b>KÖŞEGEN UZUNLUĞU:</b> Dik açı sayesinde Pisagor uygulanabilir:<br/>
+<b>Köşegen = √(a² + b²)</b><br/>
+<u>Örnek: kenarları 6 ve 8 olan dikdörtgende köşegen √(36+64) = <b>10</b>'dur (3-4-5 üçlüsünün 2 katı).</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dikdörtgenin özellikleri">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Dikdörtgende köşegenler EŞİTTİR ve birbirini ortalar</text>
+  <rect x="80" y="80" width="200" height="110" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="80" y1="80" x2="280" y2="190" stroke="#dc2626" stroke-width="2"/>
+  <line x1="280" y1="80" x2="80" y2="190" stroke="#dc2626" stroke-width="2"/>
+  <circle cx="180" cy="135" r="4.5" fill="#dc2626"/>
+  <g stroke="#0369a1" stroke-width="1.5" fill="none">
+    <rect x="80" y="80" width="13" height="13"/><rect x="267" y="80" width="13" height="13"/>
+    <rect x="80" y="177" width="13" height="13"/><rect x="267" y="177" width="13" height="13"/>
+  </g>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="68" y="74">D</text><text x="284" y="74">C</text><text x="68" y="206">A</text><text x="284" y="206">B</text>
+    <text x="186" y="132">O</text>
+  </g>
+  <text x="180" y="206" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">a</text>
+  <text x="64" y="140" font-size="11" font-weight="700" fill="#0369a1">b</text>
+  <text x="180" y="228" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">|AC| = |BD| · |AO| = |OB| = |OC| = |OD|</text>
+  <text x="180" y="246" font-size="10" fill="#475569" text-anchor="middle">O, dört köşeye eşit uzaklıkta → çevrel çemberin merkezi</text>
+  <line x1="320" y1="45" x2="320" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="340" y="70" font-size="11" font-weight="700" fill="#334155">Paralelkenardan miras</text>
+  <text x="340" y="90" font-size="10" fill="#475569">• Karşılıklı kenarlar paralel ve eşit</text>
+  <text x="340" y="106" font-size="10" fill="#475569">• Köşegenler birbirini ortalar</text>
+  <text x="340" y="122" font-size="10" fill="#475569">• Ç = 2(a + b)</text>
+  <text x="340" y="148" font-size="11" font-weight="700" fill="#b91c1c">Dikdörtgene özel</text>
+  <text x="340" y="168" font-size="11" font-weight="700" fill="#0369a1">Tüm açılar 90°</text>
+  <text x="340" y="188" font-size="11" font-weight="700" fill="#0369a1">Köşegenler EŞİT</text>
+  <text x="340" y="208" font-size="12" font-weight="700" fill="#15803d">Köşegen = √(a² + b²)</text>
+  <text x="340" y="230" font-size="10" fill="#475569">Dik açı → Pisagor kullanılabilir hâle gelir.</text>
+</svg>
+<p class="formula">DİKDÖRTGENDE ALAN (PDF) — <b>A(ABCD) = |AB| · |BC| = a · b</b><br/>
+<u>Paralelkenar formülünün (a·h) özel hâlidir: dikdörtgende yükseklik zaten komşu kenardır.</u><br/>
+<b>ALAN ÖZELLİKLERİ (PDF):</b><br/>
+<b>1)</b> E ∈ [DC] ise <b>A(ABCD) = 2 · A(AEB)</b> → <u>AEB üçgeninin alanı daima dikdörtgenin <b>yarısıdır</b>, E nerede olursa olsun.</u><br/>
+<b>2)</b> Köşegenler kesişim noktası E olmak üzere dört üçgenin alanları <b>eşittir</b>: A(AEB) = A(BEC) = A(CED) = A(DEA) = <b>Alan/4</b>.<br/>
+<b>3)</b> [EF] iki karşılıklı kenar üzerindeki noktaları birleştiriyorsa <b>A(AFEC) = 2·A(ABF) = 2·A(EDC)</b> tipi bağıntılar doğar.</p>
+<svg viewBox="0 0 640 255" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dikdörtgende alan özellikleri">
+  <rect x="0" y="0" width="640" height="255" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Dikdörtgende iki temel alan bağıntısı</text>
+  <rect x="60" y="90" width="180" height="105" fill="#f8fafc" stroke="#0369a1" stroke-width="2.5"/>
+  <polygon points="60,195 240,195 145,90" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <circle cx="145" cy="90" r="4" fill="#0284c7"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="48" y="86">D</text><text x="244" y="86">C</text><text x="48" y="211">A</text><text x="244" y="211">B</text>
+    <text x="140" y="82">E</text>
+  </g>
+  <text x="150" y="160" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">Alan / 2</text>
+  <text x="150" y="230" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">A(ABCD) = 2 · A(AEB)</text>
+  <text x="150" y="248" font-size="10" fill="#475569" text-anchor="middle">E, [DC] üzerinde NEREDE olursa olsun.</text>
+  <line x1="290" y1="45" x2="290" y2="250" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="340" y="90" width="180" height="105" fill="#f8fafc" stroke="#16a34a" stroke-width="2.5"/>
+  <line x1="340" y1="90" x2="520" y2="195" stroke="#b45309" stroke-width="2"/>
+  <line x1="520" y1="90" x2="340" y2="195" stroke="#b45309" stroke-width="2"/>
+  <circle cx="430" cy="142" r="4" fill="#b45309"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="328" y="86">D</text><text x="524" y="86">C</text><text x="328" y="211">A</text><text x="524" y="211">B</text>
+    <text x="436" y="139">E</text>
+  </g>
+  <g font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">
+    <text x="430" y="110">S</text><text x="380" y="147">S</text><text x="482" y="147">S</text><text x="430" y="185">S</text>
+  </g>
+  <text x="430" y="230" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">Köşegenler DÖRT EŞİT alan oluşturur</text>
+  <text x="430" y="248" font-size="10" fill="#475569" text-anchor="middle">Her biri = Alan / 4</text>
+</svg>
+
+<h3>2) Kare</h3>
+<p class="formula">TANIM (PDF) — <b>Dört kenar uzunluğu eşit olan dikdörtgene kare</b> denir.<br/>
+<u>Kare aynı zamanda <b>paralelkenar, dikdörtgen ve eşkenar dörtgendir</b> — dörtgenler hiyerarşisinin en alt (en özel) noktasıdır. Bu yüzden yukarıdaki tüm şekillerin özellikleri karede geçerlidir.</u><br/>
+<b>TEMEL BİLGİLER:</b><br/>
+• <b>|AB| = |BC| = |CD| = |DA| = a</b><br/>
+• <b>m(Â) = m(B̂) = m(Ĉ) = m(D̂) = 90°</b><br/>
+• <b>Ç(ABCD) = 4a</b> &nbsp;·&nbsp; <b>A(ABCD) = a²</b></p>
+<p class="formula">KAREDE KÖŞEGENLER (PDF) — <u>Karenin gücü köşegenlerinden gelir; üç özelliği birden taşırlar:</u><br/>
+<b>1)</b> Köşegen uzunlukları <b>EŞİTTİR</b> (dikdörtgenden miras).<br/>
+<b>2)</b> Birbirlerini <b>DİK ORTALARLAR</b> (eşkenar dörtgenden miras).<br/>
+<b>3)</b> Aynı zamanda <b>AÇIORTAYDIRLAR</b> → her köşedeki 90°'yi ikiye bölerler, yani <b>45°</b>'lik açılar oluştururlar.<br/>
+<b>KÖŞEGEN UZUNLUĞU:</b> Köşegen, kenarları a olan bir <b>45-45-90 üçgeninin hipotenüsüdür</b>:<br/>
+<b>Köşegen = a√2</b><br/>
+<b>ALANIN KÖŞEGENLE İFADESİ:</b> e = köşegen olmak üzere a = e/√2 → <b>A = e² / 2</b></p>
+<svg viewBox="0 0 640 255" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Karede köşegenler">
+  <rect x="0" y="0" width="640" height="255" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Karede köşegenler: eşit + dik ortalar + açıortay</text>
+  <rect x="90" y="60" width="130" height="130" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <line x1="90" y1="60" x2="220" y2="190" stroke="#dc2626" stroke-width="2"/>
+  <line x1="220" y1="60" x2="90" y2="190" stroke="#dc2626" stroke-width="2"/>
+  <circle cx="155" cy="125" r="4.5" fill="#dc2626"/>
+  <rect x="155" y="111" width="14" height="14" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="78" y="54">D</text><text x="224" y="54">C</text><text x="78" y="206">A</text><text x="224" y="206">B</text>
+    <text x="162" y="146">K</text>
+  </g>
+  <text x="100" y="182" font-size="9" font-weight="700" fill="#b45309">45°</text>
+  <text x="196" y="182" font-size="9" font-weight="700" fill="#b45309">45°</text>
+  <text x="100" y="80" font-size="9" font-weight="700" fill="#b45309">45°</text>
+  <text x="196" y="80" font-size="9" font-weight="700" fill="#b45309">45°</text>
+  <text x="155" y="206" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">a</text>
+  <text x="200" y="115" font-size="10" font-weight="700" fill="#b91c1c">a√2</text>
+  <text x="155" y="230" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">Köşegen = a√2</text>
+  <text x="155" y="248" font-size="10" fill="#475569" text-anchor="middle">Köşegenler dik ortalar ve açıortaydır (45°).</text>
+  <line x1="280" y1="45" x2="280" y2="250" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="300" y="70" font-size="11" font-weight="700" fill="#334155">Kare = tüm miraslar birlikte</text>
+  <text x="300" y="92" font-size="10" fill="#475569">Paralelkenardan: köşegenler birbirini ORTALAR</text>
+  <text x="300" y="110" font-size="10" fill="#475569">Dikdörtgenden: köşegenler EŞİT + açılar 90°</text>
+  <text x="300" y="128" font-size="10" fill="#475569">Eşkenar dörtgenden: köşegenler DİK + açıortay</text>
+  <text x="300" y="154" font-size="11" font-weight="700" fill="#0369a1">Ç = 4a &#160;·&#160; A = a²</text>
+  <text x="300" y="176" font-size="11" font-weight="700" fill="#15803d">Köşegen e = a√2 &#160;→&#160; a = e/√2</text>
+  <text x="300" y="198" font-size="11" font-weight="700" fill="#b45309">A = e² / 2 &#160;(köşegenden alan)</text>
+  <text x="300" y="222" font-size="10" fill="#475569">Köşegen, kenarları a olan 45-45-90 üçgeninin</text>
+  <text x="300" y="236" font-size="10" fill="#475569">hipotenüsüdür; bu yüzden a√2 çıkar.</text>
+</svg>
+<p class="formula">ÖRNEK — Bir karenin <b>çevresi 32 cm</b>'dir. <b>a)</b> Kenar uzunluğu kaçtır? <b>b)</b> Alanı kaçtır? <b>c)</b> Köşegen uzunluğu kaçtır? <b>d)</b> Köşegeni 10√2 olan bir karenin alanı kaçtır?</p>
+<ul>
+<li><b>a)</b> Ç = 4a = 32 → <b>a = 8 cm</b>.</li>
+<li><b>b)</b> A = a² = <b>64 cm²</b>.</li>
+<li><b>c)</b> Köşegen = a√2 = <b>8√2 cm</b>.</li>
+<li><b>d)</b> e = a√2 = 10√2 → <b>a = 10</b> → A = <b>100 cm²</b>. <u>Kısayol: A = e²/2 = (10√2)²/2 = 200/2 = 100 ✓</u></li>
+<li><b>Ders:</b> <u>Karede <b>kenar, çevre, alan ve köşegen</b> birbirine tek adımla bağlıdır. Hangisi verilirse önce <b>kenarı</b> bul, gerisi kendiliğinden gelir.</u></li>
+</ul>
+
+<h3>3) PDF Örneği — Dikdörtgende Öklid ve Pisagor</h3>
+<p class="formula">SORU (PDF) — ABCD dikdörtgeninde [AC] köşegen, <b>[BE] ⊥ [AC]</b>, <b>|AE| = 8 cm</b> ve <b>|EC| = 2 cm</b>'dir. <b>|DE| = x</b> kaç santimetredir?</p>
+<svg viewBox="0 0 640 265" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dikdörtgende Öklid uygulaması">
+  <rect x="0" y="0" width="640" height="265" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — Yardımcı dikme çizerek Öklid + Pisagor</text>
+  <rect x="60" y="80" width="240" height="120" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="60" y1="80" x2="300" y2="200" stroke="#334155" stroke-width="2"/>
+  <line x1="300" y1="80" x2="252" y2="176" stroke="#dc2626" stroke-width="2"/>
+  <line x1="60" y1="200" x2="108" y2="104" stroke="#16a34a" stroke-width="2" stroke-dasharray="5 4"/>
+  <line x1="60" y1="200" x2="252" y2="176" stroke="#b45309" stroke-width="2"/>
+  <circle cx="252" cy="176" r="4" fill="#dc2626"/>
+  <circle cx="108" cy="104" r="4" fill="#16a34a"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="48" y="74">A</text><text x="304" y="74">B</text><text x="304" y="216">C</text><text x="48" y="216">D</text>
+    <text x="258" y="172">E</text><text x="112" y="98">K</text>
+  </g>
+  <text x="76" y="98" font-size="10" font-weight="700" fill="#334155">2</text>
+  <text x="170" y="132" font-size="10" font-weight="700" fill="#334155">6</text>
+  <text x="272" y="196" font-size="10" font-weight="700" fill="#334155">2</text>
+  <text x="80" y="152" font-size="10" font-weight="700" fill="#16a34a">4</text>
+  <text x="160" y="200" font-size="11" font-weight="700" fill="#b45309">x</text>
+  <text x="180" y="238" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">|DK| = 4 · |KE| = 6 → x = √(16 + 36) = 2√13</text>
+  <text x="180" y="256" font-size="10" fill="#475569" text-anchor="middle">|AE| = 8, |EC| = 2 olduğu için |AC| = 10; |AK| = |EC| = 2.</text>
+  <line x1="340" y1="45" x2="340" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="360" y="70" font-size="11" font-weight="700" fill="#334155">Çözüm adımları</text>
+  <text x="360" y="92" font-size="10" fill="#475569">1) [DK] ⊥ [AC] olacak biçimde yardımcı dikme çiz.</text>
+  <text x="360" y="112" font-size="10" fill="#475569">2) EBC üçgeni ile KDA üçgeni EŞTİR</text>
+  <text x="360" y="126" font-size="10" fill="#475569">&#160;&#160;&#160;→ |DK| = |EB| ve |AK| = |EC| = 2</text>
+  <text x="360" y="148" font-size="10" font-weight="700" fill="#16a34a">3) ADC dik üçgeninde ÖKLİD:</text>
+  <text x="360" y="164" font-size="10" font-weight="700" fill="#16a34a">&#160;&#160;&#160;|DK|² = |AK| · |KC| = 2 · 8 = 16 → |DK| = 4</text>
+  <text x="360" y="186" font-size="10" font-weight="700" fill="#b45309">4) |KE| = |AE| − |AK| = 8 − 2 = 6</text>
+  <text x="360" y="208" font-size="10" font-weight="700" fill="#b91c1c">5) DKE dik üçgeninde PİSAGOR:</text>
+  <text x="360" y="224" font-size="10" font-weight="700" fill="#b91c1c">&#160;&#160;&#160;x² = 4² + 6² = 52 → x = 2√13 cm</text>
+  <text x="360" y="248" font-size="10" fill="#475569">Ders: dikdörtgende köşegene dikme varsa</text>
+  <text x="360" y="262" font-size="10" fill="#475569">DİĞER köşeden de dikme çiz — simetri iş görür.</text>
+</svg>
+<p class="formula">ÇÖZÜMÜN MANTIĞI — <u>Bu soru, geometrinin üç aracını arka arkaya kullanmanın güzel bir örneğidir:</u><br/>
+<b>1. Yardımcı çizim:</b> B'den köşegene dikme varsa, <b>D'den de dikme çiz</b>. Dikdörtgenin merkezî simetrisi sayesinde bu iki dikme birbirinin eşi olur.<br/>
+<b>2. Eşlik:</b> EBC ve KDA üçgenleri eştir → <b>|AK| = |EC| = 2</b> ve |DK| = |EB|.<br/>
+<b>3. Öklid:</b> ADC dik üçgeninde (D'de dik açı var) hipotenüse inen dikme [DK] için <b>|DK|² = |AK|·|KC| = 2·8 = 16</b> → |DK| = 4.<br/>
+<b>4. Pisagor:</b> |KE| = 8 − 2 = 6 olduğu için DKE dik üçgeninde <b>x² = 4² + 6² = 52</b> → <b>x = 2√13 cm</b>.<br/>
+<u><b>Genel ders:</b> Şekilde bir köşeden dikme çizilmişse, <b>simetrik köşeden de çiz</b>. Bu tek hamle çoğu zaman eş üçgen doğurur ve soruyu açar.</u></p>
+
+<h3>4) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Çevre / alan</b></td><td>İki kenar verilmiş</td><td><b>Ç = 2(a+b)</b>, <b>A = a·b</b>.</td></tr>
+<tr><td>2</td><td><b>Köşegen uzunluğu</b></td><td>Dikdörtgende köşegen isteniyor</td><td><b>√(a² + b²)</b>; Pisagor üçlüsü ara.</td></tr>
+<tr><td>3</td><td><b>Köşegen parçası</b></td><td>Köşegenler kesişiyor</td><td>Dört parça da <b>eşittir</b> (köşegen/2).</td></tr>
+<tr><td>4</td><td><b>Karede köşegen</b></td><td>Kenar ya da köşegen verilmiş</td><td><b>e = a√2</b>.</td></tr>
+<tr><td>5</td><td><b>Köşegenden alan</b></td><td>Karede köşegen verilmiş</td><td><b>A = e²/2</b>.</td></tr>
+<tr><td>6</td><td><b>Karede 45°</b></td><td>Köşegen çizilmiş</td><td>Köşegen açıortaydır → <b>45-45-90</b> üçgeni.</td></tr>
+<tr><td>7</td><td><b>Kenar üzerindeki nokta</b></td><td>E ∈ [DC], üçgen alanı</td><td>A(AEB) = <b>Alan/2</b>.</td></tr>
+<tr><td>8</td><td><b>Köşegenler + alan</b></td><td>İki köşegen çizilmiş</td><td><b>Dört eşit alan</b>, her biri Alan/4.</td></tr>
+<tr><td>9</td><td><b>Köşegene dikme</b></td><td>Bir köşeden köşegene dikme</td><td><b>Diğer köşeden de dikme çiz</b>; Öklid uygula.</td></tr>
+<tr><td>10</td><td><b>Katlama</b></td><td>Dikdörtgen kâğıt katlanmış</td><td>Katlanan parçalar <b>eşit</b>; dik üçgen kur.</td></tr>
+<tr><td>11</td><td><b>Kare içinde kare</b></td><td>İç içe kareler</td><td>Benzerlik ya da <b>alan farkı</b> kullan.</td></tr>
+<tr><td>12</td><td><b>Günlük hayat</b></td><td>Zemin, duvar, çerçeve</td><td>Alanı <b>a·b</b>, çevreyi <b>2(a+b)</b> ile modelle.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 10) — Kenarları <b>|AB| = 8 cm</b> ve <b>|BC| = 6 cm</b> olan ABCD dikdörtgeni şeklindeki bir kâğıt, <b>[AC] köşegeni boyunca</b> katlanıyor. Üst üste gelen (ortak) bölgenin alanı kaç cm²'dir?</p>
+<ul>
+<li><b>Adım 1 — Ne oluyor?</b> [AC] boyunca katlayınca ACD üçgeni, ABC üçgeninin üzerine düşer. D noktasının görüntüsü D′ olsun. <u>Ortak bölge, [AC] ile [CD′]'nin [AB]'yi kestiği F noktasının belirlediği <b>AFC üçgenidir</b>.</u></li>
+<li><b>Adım 2 — İkizkenarlığı gör:</b> Katlama bir simetri olduğu için m(AĈD) = m(AĈD′). Ayrıca [AB] // [DC] olduğundan m(AĈD) = m(CÂF) (<b>iç ters açılar</b>). Buradan <b>m(CÂF) = m(AĈF)</b> → <b>AFC üçgeni ikizkenardır</b> → <b>|FA| = |FC|</b>.</li>
+<li><b>Adım 3 — Denklemi kur:</b> |BF| = t densin. O hâlde |AF| = 8 − t ve FBC dik üçgeninde |FC| = √(t² + 36).<br/>
+<b>|FA| = |FC|</b> → (8 − t)² = t² + 36 → 64 − 16t + t² = t² + 36 → 16t = 28 → <b>t = 7/4 cm</b>.</li>
+<li><b>Adım 4 — Alan:</b> A(AFC) = A(ABC) − A(FBC) = (8·6)/2 − (t·6)/2 = 24 − (7/4)·3 = 24 − 5,25 = <b>18,75 cm²</b>.</li>
+<li><b>Kontrol:</b> |AF| = 8 − 7/4 = 25/4 = 6,25 ve |FC| = √((7/4)² + 36) = √(3,0625 + 36) = √39,0625 = <b>6,25</b> ✓ İkizkenarlık sağlandı.</li>
+<li><b>Ders:</b> <u>Katlama sorularında sıra hep aynıdır: <b>(1)</b> katlanan parçalar eşittir, <b>(2)</b> simetri + paralellik <b>ikizkenar üçgen</b> doğurur, <b>(3)</b> bilinmeyene t deyip <b>Pisagor</b> kur.</u></li>
+</ul>
+
+<h3>5) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Dikdörtgen:</b> Bir açısı 90° olan paralelkenar; tüm açıları 90°'dir.</li>
+<li><b>Kare:</b> Dört kenarı eşit olan dikdörtgen.</li>
+<li><b>Köşegen:</b> Karşılıklı köşeleri birleştiren doğru parçası.</li>
+<li><b>Dikdörtgende köşegen:</b> √(a² + b²); iki köşegen eşittir.</li>
+<li><b>Karede köşegen:</b> a√2; köşegenler dik ortalar ve açıortaydır.</li>
+<li><b>Çevrel çember merkezi:</b> Dikdörtgende köşegenlerin kesim noktası.</li>
+<li><b>Dikdörtgen alanı:</b> a · b. <b>Kare alanı:</b> a² = e²/2.</li>
+<li><b>Simetri ekseni:</b> Dikdörtgende 2, karede 4 tanedir.</li>
+</ul>
+
+<h3>6) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Dikdörtgende köşegenleri dik sanmak:</b> Köşegenler <b>eşittir</b> ama <b>dik değildir</b> (karede dik olurlar).</li>
+<li><b>Karede köşegeni 2a sanmak:</b> Köşegen <b>a√2 ≈ 1,41a</b>'dır.</li>
+<li><b>Köşegenden alanda bölmeyi unutmak:</b> Karede <b>A = e²/2</b>, e² değil.</li>
+<li><b>Kare alanını 4a sanmak:</b> <b>4a çevredir</b>, alan <b>a²</b>'dir.</li>
+<li><b>Paralelkenar özelliklerini kullanmamak:</b> Dikdörtgen ve kare <b>paralelkenardır</b>; tüm o özellikler geçerlidir.</li>
+<li><b>Köşegenin açıortay olduğunu her dörtgende sanmak:</b> Bu yalnızca <b>kare ve eşkenar dörtgende</b> geçerlidir; dikdörtgende değildir.</li>
+<li><b>Dikdörtgende köşegen açısını 45° sanmak:</b> 45° yalnızca <b>karede</b> çıkar.</li>
+<li><b>Köşegene dikme sorusunda tek dikme çizmek:</b> <b>Simetrik köşeden de çiz</b>; eş üçgen doğar.</li>
+<li><b>Katlamada eşit parçaları işaretlememek:</b> Katlanan bölge <b>aynadaki görüntüsüdür</b>; uzunluk ve açılar korunur.</li>
+<li><b>Simetri eksenlerini karıştırmak:</b> Dikdörtgende <b>2</b>, karede <b>4</b> simetri ekseni vardır.</li>
+<li><b>Birim yazmamak:</b> Alan <b>cm²</b>, çevre <b>cm</b> ile ifade edilir.</li>
+</ul>
+
+<h3>7) Özet Kartı</h3>
+<ul>
+<li><b>Dikdörtgen = bir açısı 90° olan paralelkenar</b> → dört açı da 90°.</li>
+<li><b>Ç = 2(a + b)</b> &nbsp;·&nbsp; <b>A = a · b</b>.</li>
+<li><b>Dikdörtgende köşegenler EŞİT</b> ve birbirini <b>ortalar</b>; <b>köşegen = √(a² + b²)</b>.</li>
+<li><b>Köşegenlerin kesim noktası dört köşeye eşit uzaklıktadır</b> (çevrel çember merkezi).</li>
+<li><b>E ∈ [DC] ise A(AEB) = Alan/2</b>; köşegenler <b>dört eşit alan</b> oluşturur.</li>
+<li><b>Kare = dört kenarı eşit dikdörtgen</b>; aynı zamanda paralelkenar ve eşkenar dörtgendir.</li>
+<li><b>Ç = 4a</b> &nbsp;·&nbsp; <b>A = a²</b> &nbsp;·&nbsp; <b>köşegen = a√2</b> &nbsp;·&nbsp; <b>A = e²/2</b>.</li>
+<li><b>Karede köşegenler:</b> eşit + <b>dik ortalar</b> + <b>açıortay</b> → <b>45°</b>'lik açılar.</li>
+<li><b>Köşegene dikme sorularında:</b> <b>simetrik köşeden de dikme çiz</b>, Öklid uygula.</li>
+<li><b>Katlama:</b> katlanan parçalar eşit; genellikle <b>ikizkenar üçgen</b> doğar.</li>
+<li><b>Simetri ekseni:</b> dikdörtgende <b>2</b>, karede <b>4</b>.</li>
+<li><b>Dikdörtgende 45° yoktur</b>; 45° karenin köşegenine özgüdür.</li>
+</ul>
+
+</body></html>

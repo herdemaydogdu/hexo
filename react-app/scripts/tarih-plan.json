@@ -1,0 +1,215 @@
+{
+  "kaynak": "ayt-tarih.pdf (MEBİ TYT-AYT Tarih Konu Özetleri, 244 sayfa, 73 konu) — C:\\Users\\aydog\\OneDrive\\Desktop\\tyt\\tarih-tyt ayt",
+  "not": "pypdf indeksi = kitap sayfa numarası + 1. Her turda done=false olan İLK üniteyi işle, Supabase'e dollar-quote + md5 yöntemiyle yaz, done: true yap.",
+  "derinlik": "Coğrafya/matematik/geometri seviyesi: sebep-sonuç önce ezber sonra, her alt başlıkta 'neden böyle oldu' açıklaması, zorunlu SORU TİPLERİ tablosu, kavram sözlüğü, sık karıştırılanlar, özet kartı. Tarih görsel değil kronolojik bir branş olduğu için ünite başına 2-3 SVG (zaman şeridi, sebep-sonuç şeması, karşılaştırma tablosu görselleştirmesi) hedeflenir.",
+  "uniteler": [
+    {
+      "sira": 1,
+      "unit_id": "tar-bilim",
+      "name": "Tarih Bilimi ve Zaman",
+      "pdf_konular": [
+        "1. İnsanlığın Hafızası Tarih",
+        "2. Zamanın Taksimi"
+      ],
+      "pdf_index": "10-14",
+      "done": true
+    },
+    {
+      "sira": 2,
+      "unit_id": "tar-ilkcag",
+      "name": "İlk Çağ Uygarlıkları",
+      "pdf_konular": [
+        "3. İnsanlığın İlk İzleri - Yazının İcadı",
+        "4. İlk Çağ'da Başlıca Medeniyet Havzaları",
+        "5. İnsan ve Göç",
+        "6. Kabileden Devlete",
+        "7. Kanunlar Doğuyor",
+        "8. Orta Çağ'da Siyasi Yapılar",
+        "9. Tarımdan Ticarete Ekonomi",
+        "10. Orta Çağ'da Ordu",
+        "11. Kanunlar Gelişiyor"
+      ],
+      "pdf_index": "15-36",
+      "done": true
+    },
+    {
+      "sira": 3,
+      "unit_id": "tar-ilkturk",
+      "name": "İslamiyet Öncesi Türk Tarihi",
+      "pdf_konular": [
+        "12. Avrasya'da İlk Türk İzleri - Coğrafya ile Oluşan Yaşam Tarzı",
+        "13. Boylardan Devlete-I",
+        "14. Boylardan Devlete-II",
+        "15. Kavimler Göçü"
+      ],
+      "pdf_index": "37-49",
+      "done": true
+    },
+    {
+      "sira": 4,
+      "unit_id": "tar-islam",
+      "name": "İslam Tarihi ve Medeniyeti",
+      "pdf_konular": [
+        "16. İslamiyet'in Doğduğu Dönemde Dünya - İslamiyet Yayılıyor",
+        "17. Emeviler (661-750)",
+        "18. Abbasi Devleti ve Türkler - Bilim Medeniyeti"
+      ],
+      "pdf_index": "51-59",
+      "done": true
+    },
+    {
+      "sira": 5,
+      "unit_id": "tar-turkislam",
+      "name": "İlk Türk-İslam Devletleri",
+      "pdf_konular": [
+        "19. Türklerin İslamiyet'i Kabulü",
+        "20. İslamiyet'in Türk Devlet ve Toplum Yapısına Etkisi",
+        "21. Büyük Selçuklu Devleti"
+      ],
+      "pdf_index": "61-69",
+      "done": true
+    },
+    {
+      "sira": 6,
+      "unit_id": "tar-selcuklu",
+      "name": "Türkiye Tarihi ve Selçuklular",
+      "pdf_konular": [
+        "22. Türklerin Anadolu'ya Yerleşme Süreci",
+        "23. Anadolu'nun İlk Siyasi Teşekkülleri",
+        "24. Hilal ve Haç Mücadelesi",
+        "25. Moğol İstilası ve Anadolu"
+      ],
+      "pdf_index": "70-79",
+      "done": true
+    },
+    {
+      "sira": 7,
+      "unit_id": "tar-kurulus",
+      "name": "Osmanlı Kuruluş ve Devletleşme",
+      "pdf_konular": [
+        "26. Osmanlı Beyliği'nin Kuruluşu ve İlk Fetihleri",
+        "27. Rumeli'deki İskân ve İstimâlet Politikası",
+        "28. Anadolu'da Türk Siyasi Birliğini Sağlama Çabaları",
+        "29. Devletleşme Sürecinde Savaşçılar ve Askerler",
+        "30. Anadolu'nun Mutasavvıfları - Yönetici Sınıf"
+      ],
+      "pdf_index": "81-94",
+      "done": true
+    },
+    {
+      "sira": 8,
+      "unit_id": "tar-klasik",
+      "name": "Osmanlı Klasik Dönem",
+      "pdf_konular": [
+        "31. İstanbul'un Fethi ve Sonuçları",
+        "32. Türk İslam Dünyasında Birliği Sağlama Çabaları",
+        "33. Dünyanın Muhteşem Gücü Osmanlı",
+        "34. Stratejik Siyaset ve Dünya Gücü Osmanlı",
+        "35. Saray ve Şehir Kültürü - Devlet İdaresi",
+        "36. Millet Sistemi - Kültürel Değişim",
+        "37. Osmanlı Toprak Sistemi - Lonca - Vakıflar"
+      ],
+      "pdf_index": "96-115",
+      "done": true
+    },
+    {
+      "sira": 9,
+      "unit_id": "tar-degisim",
+      "name": "Değişim Çağında Osmanlı",
+      "pdf_konular": [
+        "38. Uzun Savaşlardan Diplomasiye",
+        "39. Okyanusların Önem Kazanması",
+        "40. Fetihlerden Savunmaya",
+        "41. Avrupa'da Değişim Çağı",
+        "42. Osmanlı Devleti'nde Değişim",
+        "43. İsyanlar ve Düzeni Koruma Çalışmaları"
+      ],
+      "pdf_index": "117-135",
+      "done": true
+    },
+    {
+      "sira": 10,
+      "unit_id": "tar-modern",
+      "name": "19. Yüzyıl Osmanlı Modernleşmesi",
+      "pdf_konular": [
+        "44. İhtilaller Çağı - Sömürgeciliğin Küresel Etkileri",
+        "45. Modern Orduya Geçiş",
+        "46. XIX. Yüzyılda Sosyal Hayattaki Değişimler",
+        "47. Osmanlı'ya Yönelik Tehditler-I",
+        "48. Demokratikleşme Hareketleri",
+        "49. Osmanlı Devleti'nde Darbeler",
+        "50. Osmanlı'ya Yönelik Tehditler-II",
+        "51. Sanayileşme Çabaları",
+        "52. XIX-XX. Yüzyılda Osmanlı Nüfusu"
+      ],
+      "pdf_index": "137-163",
+      "done": true
+    },
+    {
+      "sira": 11,
+      "unit_id": "tar-20yy",
+      "name": "20. Yüzyıl Başlarında Osmanlı",
+      "pdf_konular": [
+        "53. Mustafa Kemal'in Lider Olarak Yetişmesi",
+        "54. 20. Yüzyıl Başlarında Osmanlı Devleti",
+        "55. I. Dünya Savaşı Sürecinde Osmanlı Devleti",
+        "56. I. Dünya Savaşı'nın Sonuçları"
+      ],
+      "pdf_index": "165-178",
+      "done": true
+    },
+    {
+      "sira": 12,
+      "unit_id": "tar-milli",
+      "name": "Millî Mücadele",
+      "pdf_konular": [
+        "57. Millî Mücadele'ye Hazırlık Dönemi-I",
+        "58. Millî Mücadele'ye Hazırlık Dönemi-II",
+        "59. Büyük Millet Meclisi'nin Açılması - Sevr",
+        "60. Doğu, Güney ve Batı Cepheleri",
+        "61. Millî Mücadele'nin Sona Ermesi ve Lozan"
+      ],
+      "pdf_index": "180-198",
+      "done": false
+    },
+    {
+      "sira": 13,
+      "unit_id": "tar-inkilap",
+      "name": "Atatürk İlke ve İnkılapları",
+      "pdf_konular": [
+        "62. Atatürk İlkeleri - Siyasi ve Hukuk Alanındaki Gelişmeler",
+        "63. Atatürk Dönemi'nde Yapılan İnkılaplar"
+      ],
+      "pdf_index": "200-207",
+      "done": false
+    },
+    {
+      "sira": 14,
+      "unit_id": "tar-politika",
+      "name": "Atatürk Dönemi İç ve Dış Politika",
+      "pdf_konular": [
+        "64. Atatürk Dönemi İç Politikadaki Gelişmeler",
+        "65. İki Dünya Savaşı Arasındaki Dönemde Dünya",
+        "66. Atatürk Dönemi Türk Dış Politikası",
+        "67. II. Dünya Savaşı Sürecinde Türkiye"
+      ],
+      "pdf_index": "209-222",
+      "done": false
+    },
+    {
+      "sira": 15,
+      "unit_id": "tar-cagdas",
+      "name": "Çağdaş Türk ve Dünya Tarihi",
+      "pdf_konular": [
+        "68. II. Dünya Savaşı Sonrası Gelişmeler",
+        "69. 1960 Sonrasında Türk Dış Politikası",
+        "70. 1960 Sonrası Dünyadaki Siyasi Gelişmeler",
+        "71. Türkiye'deki Siyasi, Ekonomik, Sosyokültürel Hayat",
+        "72. 1990 Sonrasında Türkiye",
+        "73. 1990 Sonrası Siyasi Gelişmelerin Türkiye'ye Etkileri"
+      ],
+      "pdf_index": "224-241",
+      "done": false
+    }
+  ]
+}

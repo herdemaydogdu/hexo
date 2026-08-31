@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Fonksiyonlar</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Fonksiyonlar</h2>
+
+<p>Fonksiyon, matematiğin "makine" kavramıdır: içine bir <b>girdi</b> atarsın, dışarı <b>tek bir çıktı</b> verir. Bütün konunun temeli bu "tek bir" ifadesindedir — aynı girdiye iki farklı çıktı veren bir kural fonksiyon değildir. TYT'de fonksiyon soruları formül ezberi değil, <b>kuralı doğru okuma</b> ve <b>grafiği doğru yorumlama</b> becerisini ölçer. Bu ünitede önce fonksiyonun ne olduğunu makine benzetmesiyle kuracağız, sonra çeşitlerini, dört işlemi, bileşkeyi, tersi ve grafik yorumunu sırayla ekleyeceğiz.</p>
+
+<h3>1) Fonksiyon Kavramı ve Gösterimi</h3>
+<p class="formula">TANIM — A ve B boş kümeden farklı iki küme olmak üzere, <b>A kümesinin HER elemanını B kümesinin BİR ve YALNIZ BİR elemanına</b> eşleyen ilişkiye <b>A'dan B'ye tanımlı fonksiyon</b> denir. <b>f: A → B</b> biçiminde gösterilir.<br/>
+• <b>(x, y) ∈ f ⇒ y = f(x)</b> — burada <b>x bağımsız değişken</b>, <b>y bağımlı değişkendir</b>.<br/>
+• <b>A → tanım kümesi</b> &nbsp;·&nbsp; <b>B → değer kümesi</b> &nbsp;·&nbsp; <b>f(A) → görüntü kümesi</b><br/>
+• <b>f(A) ⊆ B</b> — <u>görüntü kümesi daima değer kümesinin bir alt kümesidir.</u></p>
+<p class="formula">FONKSİYON OLMANIN İKİ ŞARTI — <u>Tanımdaki iki kelime iki ayrı şarttır:</u><br/>
+<b>1) "HER"</b> → Tanım kümesinde <b>açıkta kalan eleman olmamalı</b>.<br/>
+<b>2) "YALNIZ BİR"</b> → Tanım kümesindeki bir elemandan <b>iki ok çıkmamalı</b>.<br/>
+<u>Değer kümesinde açıkta eleman kalması ise sorun değildir — bu yalnızca fonksiyonun "içine" olduğunu gösterir.</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fonksiyon olma şartları">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Hangisi fonksiyondur?</text>
+  <g stroke="#64748b" stroke-width="1.5" fill="none">
+    <ellipse cx="60" cy="120" rx="32" ry="55"/><ellipse cx="160" cy="120" rx="32" ry="55"/>
+    <ellipse cx="270" cy="120" rx="32" ry="55"/><ellipse cx="370" cy="120" rx="32" ry="55"/>
+    <ellipse cx="480" cy="120" rx="32" ry="55"/><ellipse cx="580" cy="120" rx="32" ry="55"/>
+  </g>
+  <g fill="#334155" font-size="11">
+    <circle cx="60" cy="90" r="3"/><circle cx="60" cy="120" r="3"/><circle cx="60" cy="150" r="3"/>
+    <circle cx="160" cy="90" r="3"/><circle cx="160" cy="120" r="3"/><circle cx="160" cy="150" r="3"/>
+    <circle cx="270" cy="90" r="3"/><circle cx="270" cy="120" r="3"/><circle cx="270" cy="150" r="3"/>
+    <circle cx="370" cy="90" r="3"/><circle cx="370" cy="120" r="3"/><circle cx="370" cy="150" r="3"/>
+    <circle cx="480" cy="90" r="3"/><circle cx="480" cy="120" r="3"/><circle cx="480" cy="150" r="3"/>
+    <circle cx="580" cy="90" r="3"/><circle cx="580" cy="120" r="3"/><circle cx="580" cy="150" r="3"/>
+  </g>
+  <g stroke="#16a34a" stroke-width="1.6">
+    <line x1="63" y1="90" x2="157" y2="90"/><line x1="63" y1="120" x2="157" y2="90"/><line x1="63" y1="150" x2="157" y2="150"/>
+  </g>
+  <g stroke="#dc2626" stroke-width="1.6">
+    <line x1="273" y1="90" x2="367" y2="90"/><line x1="273" y1="120" x2="367" y2="150"/>
+    <line x1="483" y1="90" x2="577" y2="90"/><line x1="483" y1="90" x2="577" y2="150"/><line x1="483" y1="120" x2="577" y2="120"/><line x1="483" y1="150" x2="577" y2="150"/>
+  </g>
+  <text x="110" y="196" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">FONKSİYONDUR</text>
+  <text x="110" y="212" font-size="10" fill="#475569" text-anchor="middle">Her elemandan tam bir ok çıkıyor.</text>
+  <text x="110" y="226" font-size="10" fill="#475569" text-anchor="middle">B'de boşta eleman kalması sorun değil.</text>
+  <text x="320" y="196" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">FONKSİYON DEĞİL</text>
+  <text x="320" y="212" font-size="10" fill="#475569" text-anchor="middle">Üçüncü elemandan hiç ok çıkmıyor:</text>
+  <text x="320" y="226" font-size="10" fill="#475569" text-anchor="middle">"HER eleman" şartı bozuldu.</text>
+  <text x="530" y="196" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">FONKSİYON DEĞİL</text>
+  <text x="530" y="212" font-size="10" fill="#475569" text-anchor="middle">Birinci elemandan iki ok çıkıyor:</text>
+  <text x="530" y="226" font-size="10" fill="#475569" text-anchor="middle">"YALNIZ BİR" şartı bozuldu.</text>
+</svg>
+<p class="formula">FONKSİYON SAYISI (PDF) — s(A) = m ve s(B) = n olmak üzere <b>A'dan B'ye tanımlanabilecek fonksiyon sayısı n<sup>m</sup></b>'dir.<br/>
+<u>Neden? A'daki her eleman için B'den <b>bağımsız olarak</b> bir görüntü seçilir; m tane eleman, her biri için n seçenek → çarpma ilkesiyle n·n·…·n = n<sup>m</sup>.</u><br/>
+<b>Bire bir fonksiyon sayısı:</b> Görüntüler tekrar edemeyeceği için seçenekler birer azalır → <b>P(n, m) = n·(n−1)·…·(n−m+1)</b>.<br/>
+<b>Örnek:</b> s(A) = 3, s(B) = 4 ise fonksiyon sayısı 4³ = <b>64</b>, bire bir fonksiyon sayısı 4·3·2 = <b>24</b>'tür.</p>
+
+<h3>2) Fonksiyon Sorularında Dikkat Edilecekler</h3>
+<p class="formula">KURAL BAŞKA BİR İFADEYE BAĞLI VERİLDİYSE — <b>f(3x − 2)</b> gibi bir gösterimde <b>iki farklı teknik</b> vardır:<br/>
+<b>Teknik 1 (tek bir değer isteniyorsa):</b> Parantez içini istenen sayıya <b>eşitle</b>.<br/>
+<u>f(7) isteniyorsa 3x − 2 = 7 → x = 3 alınır, kuralda x yerine 3 yazılır.</u><br/>
+<b>Teknik 2 (f(x) kuralının kendisi isteniyorsa):</b> Sağ tarafı <b>parantez içindeki ifade cinsinden</b> yeniden düzenle.<br/>
+<u>f(3x − 2) = 9x² − 12x + 13 = (9x² − 12x + 4) + 9 = <b>(3x − 2)² + 9</b> → dolayısıyla <b>f(x) = x² + 9</b>.</u></p>
+<p class="formula">ÖRNEK — <b>f(2x + 1) = 4x² + 4x + 7</b> ise <b>f(x)</b> ve <b>f(5)</b> kaçtır?</p>
+<ul>
+<li><b>f(x) için (Teknik 2):</b> Sağ tarafta (2x + 1)² = 4x² + 4x + 1 olduğunu fark et → 4x² + 4x + 7 = (2x + 1)² + 6 → <b>f(x) = x² + 6</b>.</li>
+<li><b>f(5) için (Teknik 1 ile kontrol):</b> 2x + 1 = 5 → x = 2 → 4·4 + 4·2 + 7 = 16 + 8 + 7 = <b>31</b>.</li>
+<li><b>Bulduğumuz kuralla doğrulama:</b> f(5) = 5² + 6 = <b>31</b> ✓ <u>İki yöntemin aynı sonucu vermesi, kuralı doğru çıkardığımızın kanıtıdır.</u></li>
+</ul>
+<p class="formula">TANIM ve GÖRÜNTÜ ARALIĞI (PDF) — Tanım kümesi bir aralıksa, <b>uç noktaların görüntülerini bulmak yeterlidir</b>; açık uç açık, kapalı uç kapalı kalır.<br/>
+<u>Örnek: f(x) = 2x + 1 ve A = (1, 4] ise f(1) = 3, f(4) = 9 → görüntü kümesi <b>(3, 9]</b>.</u><br/>
+<b>DİKKAT:</b> Fonksiyon <u>çift dereceli terim içeriyorsa ya da parçalı verilmişse</u> uç noktalar yetmez — <b>kritik noktaların (tepe noktası, kırılma noktası) görüntüleri de incelenmelidir</b>.<br/>
+<u>Örnek: f(x) = x² ve A = [−3, 2] ise uçlar 9 ve 4 verir ama en küçük değer <b>x = 0'da 0</b>'dır → görüntü [0, 9].</u></p>
+
+<h3>3) Fonksiyon Çeşitleri: İçine, Örten, Bire Bir, Eşit</h3>
+<table>
+<tr><th>Çeşit</th><th>Koşul</th><th>Sezgisel anlamı</th></tr>
+<tr><td><b>İçine</b></td><td><b>f(A) ≠ B</b></td><td>Değer kümesinde <b>eşleşmemiş eleman kalıyor</b>.</td></tr>
+<tr><td><b>Örten</b></td><td><b>f(A) = B</b></td><td>Değer kümesindeki <b>her elemana en az bir ok</b> geliyor.</td></tr>
+<tr><td><b>Bire bir</b></td><td>x₁ ≠ x₂ ⇒ f(x₁) ≠ f(x₂)</td><td>Farklı girdiler <b>farklı çıktılar</b> veriyor; hiçbir elemana iki ok gelmiyor.</td></tr>
+<tr><td><b>Eşit</b></td><td>∀x ∈ A için f(x) = g(x)</td><td>Aynı tanım ve değer kümesinde <b>aynı sonucu veren</b> iki fonksiyon.</td></tr>
+</table>
+<p class="formula">DİKKAT — <b>Bire bir ile örten birbirinden bağımsız iki özelliktir.</b> Bir fonksiyon dördü de olabilir: sadece bire bir, sadece örten, hem bire bir hem örten, ya da hiçbiri.<br/>
+<u>Bire birlik tanım kümesi tarafını, örtenlik değer kümesi tarafını denetler.</u><br/>
+<b>Kritik sonuç:</b> Bir fonksiyonun <b>tersinin olabilmesi için hem bire bir hem örten olması</b> gerekir. Bu yüzden bu ayrım ezber değil, ters fonksiyonun ön koşuludur.<br/>
+<b>Grafikten okuma:</b> Grafik üzerinde <u>her yatay doğru grafiği en çok bir noktada kesiyorsa</u> fonksiyon <b>bire birdir</b>.</p>
+
+<h3>4) Birim ve Sabit Fonksiyon</h3>
+<p class="formula">BİRİM (ÖZDEŞLİK) FONKSİYON — f: A → A olmak üzere ∀x ∈ A için <b>f(x) = x</b> ise f birim fonksiyondur; <b>I</b> ile gösterilir.<br/>
+• Her eleman <b>kendisiyle</b> eşlenir; grafik üzerindeki tüm noktalar <b>(x, x)</b> biçimindedir, yani grafik <b>y = x</b> doğrusudur.<br/>
+<b>SABİT FONKSİYON</b> — Tanım kümesindeki bütün elemanlar <b>tek bir</b> elemanla eşleniyorsa: <b>f(x) = c</b>.<br/>
+• Sabit fonksiyonun kuralında <b>değişken (x) bulunmaz</b>; grafiği <b>x eksenine paralel bir doğrudur</b>.<br/>
+<b>PDF NOTU:</b> f(x) = (ax + b)/(cx + d) fonksiyonunun sabit fonksiyon olması için <b>a/c = b/d</b> olmalıdır.<br/>
+<u>Neden? Pay ile payda orantılıysa pay = k·payda olur ve kesir her x için k'ye eşitlenir.</u></p>
+
+<h3>5) Doğrusal ve Parçalı Fonksiyon</h3>
+<p class="formula">DOĞRUSAL FONKSİYON — <b>f(x) = mx + n</b> biçimindeki fonksiyonlardır; grafiği bir <b>doğrudur</b>.<br/>
+• <b>m = eğim</b> (x'in katsayısı) — <u>x bir birim arttığında y'nin ne kadar değiştiğini söyler</u>.<br/>
+• <b>n = y eksenini kestiği nokta</b> — <u>başlangıç değeri</u>.<br/>
+• <b>Eğim formülü:</b> A(x₁, y₁) ve B(x₂, y₂) için <b>m = (y₂ − y₁)/(x₂ − x₁)</b>.<br/>
+<b>Pratik çizim:</b> İki nokta yeterlidir; en kolayı <b>eksenleri kestiği noktalardır</b> — y için x = 0, x için f(x) = 0 yaz.</p>
+<p class="formula">PARÇALI FONKSİYON — Tanım kümesinin <b>farklı alt aralıklarında farklı kurallarla</b> tanımlanan fonksiyondur.<br/>
+• Aralıkların uç noktalarına <b>kritik noktalar</b> denir; sorular neredeyse her zaman <u>bu noktalar etrafında kurgulanır</u>.<br/>
+<b>İşleyiş:</b> Verilen x değerinin <b>hangi aralığa düştüğünü belirle</b>, o aralığın kuralını kullan. <u>Yanlış aralığın kuralını seçmek, bu konudaki bir numaralı hata kaynağıdır.</u></p>
+<p class="formula">ÖRNEK — f(x) = <b>x + 3</b> (x &lt; 1); <b>x²</b> (1 ≤ x &lt; 3); <b>2x − 1</b> (x ≥ 3) parçalı fonksiyonu için <b>f(−2) + f(2) + f(4)</b> kaçtır?</p>
+<ul>
+<li><b>f(−2):</b> −2 &lt; 1 olduğu için <u>birinci</u> kural → −2 + 3 = <b>1</b>.</li>
+<li><b>f(2):</b> 1 ≤ 2 &lt; 3 olduğu için <u>ikinci</u> kural → 2² = <b>4</b>.</li>
+<li><b>f(4):</b> 4 ≥ 3 olduğu için <u>üçüncü</u> kural → 2·4 − 1 = <b>7</b>.</li>
+<li><b>Toplam:</b> 1 + 4 + 7 = <b>12</b>.</li>
+<li><b>Kritik nokta kontrolü:</b> <u>x = 1 ikinci kurala dahildir (f(1) = 1), x = 3 üçüncü kurala dahildir (f(3) = 5).</u> Eşitliğin hangi tarafta olduğuna her zaman bak; grafikte dahil olmayan uç <b>içi boş yuvarlakla</b> gösterilir.</li>
+</ul>
+
+<h3>6) Çift ve Tek Fonksiyon</h3>
+<p class="formula">ÇİFT FONKSİYON — ∀x için <b>f(−x) = f(x)</b>.<br/>
+• Grafiği <b>y eksenine göre simetriktir</b>.<br/>
+• Kuralında değişkenin <b>yalnızca çift dereceli</b> terimleri bulunur. <u>Örnek: f(x) = x², f(x) = 3, f(x) = cos x.</u><br/>
+<b>TEK FONKSİYON</b> — ∀x için <b>f(−x) = −f(x)</b>.<br/>
+• Grafiği <b>orijine göre simetriktir</b>.<br/>
+• Kuralında değişkenin <b>yalnızca tek dereceli</b> terimleri bulunur. <u>Örnek: f(x) = x, f(x) = x³, f(x) = sin x.</u></p>
+<p class="formula">DİKKAT — <b>Her fonksiyon ya çift ya tek olmak zorunda değildir.</b><br/>
+<u>f(x) = x² + x fonksiyonunda hem çift hem tek dereceli terim vardır: f(−x) = x² − x, ne f(x)'e ne de −f(x)'e eşittir → <b>ne çift ne tektir</b>.</u><br/>
+<b>Sabit terim çift dereceli sayılır</b> (c = c·x⁰), bu yüzden f(x) = x² + 5 çifttir; ama f(x) = x³ + 5 <b>tek değildir</b> — <u>sabit terim tekliği bozar</u>.<br/>
+<b>Pratik test:</b> Kuralda x yerine <b>−x</b> yaz. Aynı ifade çıkarsa çift, tamamen işaret değiştirirse tek, ikisi de değilse hiçbiri.</p>
+
+<h3>7) Fonksiyonlarda Dört İşlem</h3>
+<p class="formula">TANIMLAR — f: A → ℝ ve g: B → ℝ olmak üzere (A ∩ B ≠ ∅):<br/>
+• <b>(f + g)(x) = f(x) + g(x)</b> &nbsp;·&nbsp; <b>(f − g)(x) = f(x) − g(x)</b><br/>
+• <b>(f · g)(x) = f(x) · g(x)</b> &nbsp;·&nbsp; <b>(f/g)(x) = f(x)/g(x)</b>, <u>g(x) ≠ 0</u><br/>
+• <b>(c · f)(x) = c · f(x)</b><br/>
+<b>DİKKAT:</b> Dört işlem yalnızca <b>tanım kümelerinin ORTAK elemanları</b> üzerinde yapılabilir; sonuç fonksiyonunun tanım kümesi <b>A ∩ B</b>'dir. Bölmede ayrıca <u>paydayı sıfır yapan değerler tanım kümesinden çıkarılır</u>.</p>
+<p class="formula">ÖRNEK — f(x) = 2x − 3 ve g(x) = x² + 1 için (f + g)(2), (f · g)(1) ve (f/g)(0) kaçtır?</p>
+<ul>
+<li><b>(f + g)(2):</b> f(2) = 1, g(2) = 5 → <b>6</b>. <u>Ya da önce kural: (f+g)(x) = x² + 2x − 2 → 4 + 4 − 2 = 6 ✓</u></li>
+<li><b>(f · g)(1):</b> f(1) = −1, g(1) = 2 → <b>−2</b>.</li>
+<li><b>(f/g)(0):</b> f(0) = −3, g(0) = 1 → <b>−3</b>. <u>g(x) = x² + 1 hiçbir zaman 0 olmadığı için bölme her x için tanımlıdır.</u></li>
+<li><b>Zaman kazandıran seçim:</b> <u>Tek bir noktadaki değer isteniyorsa önce sayıları yerine koy; kural isteniyorsa cebirsel işlem yap.</u> Sınavda gereksiz cebir yapmak en büyük zaman kaybıdır.</li>
+</ul>
+
+<h3>8) Grafik Çizme ve Yorumlama</h3>
+<p class="formula">GRAFİKTEN OKUMA (PDF) —<br/>
+• <b>Tanım kümesi:</b> Grafik noktalarının <b>birinci bileşenleri (apsis)</b> — yani x ekseni üzerindeki izdüşüm.<br/>
+• <b>Görüntü kümesi:</b> Grafik noktalarının <b>ikinci bileşenleri (ordinat)</b> — yani y ekseni üzerindeki izdüşüm.<br/>
+• <b>f(x) &gt; 0</b> → grafiğin <b>x ekseninin ÜSTÜNDE</b> kaldığı aralıklar.<br/>
+• <b>f(x) &lt; 0</b> → grafiğin <b>x ekseninin ALTINDA</b> kaldığı aralıklar.<br/>
+• <b>Simetri testi:</b> y eksenine göre simetrikse <b>çift</b>, orijine göre simetrikse <b>tek</b> fonksiyondur.<br/>
+<b>Düşey doğru testi:</b> <u>x eksenine dik çizilen her doğru grafiği en çok bir noktada kesiyorsa çizim bir fonksiyondur</u> — bu, "yalnız bir görüntü" şartının grafiksel karşılığıdır.</p>
+<svg viewBox="0 0 640 270" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Doğrusal fonksiyon grafiği ve ters fonksiyon simetrisi">
+  <rect x="0" y="0" width="640" height="270" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — f(x) = 2x + 1 ile tersi, y = x doğrusuna göre simetriktir</text>
+  <g stroke="#cbd5e1" stroke-width="1">
+    <line x1="60" y1="60" x2="300" y2="60"/><line x1="60" y1="100" x2="300" y2="100"/>
+    <line x1="60" y1="140" x2="300" y2="140"/><line x1="60" y1="180" x2="300" y2="180"/><line x1="60" y1="220" x2="300" y2="220"/>
+    <line x1="100" y1="50" x2="100" y2="240"/><line x1="140" y1="50" x2="140" y2="240"/>
+    <line x1="220" y1="50" x2="220" y2="240"/><line x1="260" y1="50" x2="260" y2="240"/>
+  </g>
+  <line x1="50" y1="140" x2="310" y2="140" stroke="#334155" stroke-width="2"/>
+  <line x1="180" y1="45" x2="180" y2="250" stroke="#334155" stroke-width="2"/>
+  <text x="316" y="144" font-size="11" fill="#334155">x</text><text x="172" y="42" font-size="11" fill="#334155">y</text>
+  <line x1="70" y1="250" x2="270" y2="50" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="252" y="66" font-size="10" fill="#64748b">y = x</text>
+  <line x1="120" y1="240" x2="240" y2="0" stroke="#0284c7" stroke-width="2.5"/>
+  <text x="238" y="52" font-size="11" font-weight="700" fill="#0369a1">f(x) = 2x + 1</text>
+  <line x1="60" y1="120" x2="300" y2="60" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="230" y="80" font-size="11" font-weight="700" fill="#15803d">f⁻¹(x) = (x − 1)/2</text>
+  <circle cx="180" cy="100" r="4" fill="#0284c7"/><text x="186" y="98" font-size="10" fill="#0369a1">(0, 1)</text>
+  <circle cx="220" cy="140" r="4" fill="#16a34a"/><text x="226" y="156" font-size="10" fill="#15803d">(1, 0)</text>
+  <line x1="340" y1="50" x2="340" y2="250" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="360" y="70" font-size="11" font-weight="700" fill="#334155">Grafikten neler okunur?</text>
+  <text x="360" y="92" font-size="10" fill="#475569">• Eğim m = 2 → x bir birim artınca y iki birim artar.</text>
+  <text x="360" y="110" font-size="10" fill="#475569">• n = 1 → doğru y eksenini (0, 1) noktasında keser.</text>
+  <text x="360" y="128" font-size="10" fill="#475569">• f(x) = 0 → x = −1/2; bu noktanın sağında f(x) &gt; 0.</text>
+  <text x="360" y="146" font-size="10" fill="#475569">• (0, 1) ∈ f ise (1, 0) ∈ f⁻¹ — koordinatlar yer değiştirir.</text>
+  <text x="360" y="164" font-size="10" fill="#475569">• İki grafik y = x doğrusuna göre birbirinin aynadaki</text>
+  <text x="360" y="178" font-size="10" fill="#475569">&#160;&#160;görüntüsüdür; kesişimleri y = x üzerindedir.</text>
+  <text x="360" y="200" font-size="10" font-weight="700" fill="#b91c1c">Düşey doğru testi:</text>
+  <text x="360" y="216" font-size="10" fill="#475569">x eksenine dik her doğru çizimi en çok BİR noktada</text>
+  <text x="360" y="230" font-size="10" fill="#475569">kesmelidir; iki kez keserse o çizim fonksiyon değildir.</text>
+  <text x="360" y="248" font-size="10" fill="#475569">Yatay doğru testi ise BİRE BİRLİĞİ denetler.</text>
+</svg>
+
+<h3>9) Bileşke Fonksiyon</h3>
+<p class="formula">TANIM — f: A → B ve g: B → C fonksiyonları için ∀x ∈ A olmak üzere:<br/>
+<b>(g ο f)(x) = g[f(x)]</b> &nbsp;— "g bileşke f" okunur, <b>g ο f : A → C</b>.<br/>
+<b>İŞLEM YÖNÜ: SAĞDAN SOLA.</b> <u>Önce içteki (sağdaki) f uygulanır, çıkan sonuç g'ye girdi olur. İki makinenin arka arkaya bağlanması gibidir: birincinin çıktısı ikincinin girdisidir.</u></p>
+<p class="formula">ÖZELLİKLER —<br/>
+• <b>Değişme özelliği YOKTUR:</b> <b>f ο g ≠ g ο f</b> &nbsp;<u>(bu, konunun en çok hata yapılan noktasıdır)</u><br/>
+• <b>Birleşme özelliği VARDIR:</b> f ο g ο h = (f ο g) ο h = f ο (g ο h)<br/>
+• <b>Birim fonksiyonla bileşke değiştirmez:</b> <b>f ο I = I ο f = f</b><br/>
+• f ve g <b>bire bir</b> ise g ο f de bire birdir; ikisi <b>örten</b> ise g ο f de örtendir.</p>
+<p class="formula">ÖRNEK — f(x) = 2x − 1 ve g(x) = x² + 3 için (g ο f)(x), (f ο g)(x) ve (g ο f)(2) kaçtır?</p>
+<ul>
+<li><b>(g ο f)(x) = g[f(x)] = g(2x − 1) = (2x − 1)² + 3 = <b>4x² − 4x + 4</b></b>. <u>g'nin kuralındaki x'in yerine f(x) yazıldı.</u></li>
+<li><b>(f ο g)(x) = f[g(x)] = f(x² + 3) = 2(x² + 3) − 1 = <b>2x² + 5</b></b>.</li>
+<li><b>Sonuçlar farklı</b> → <u>f ο g ≠ g ο f olduğunun somut kanıtı. Hangisinin içte olduğunu asla karıştırma.</u></li>
+<li><b>(g ο f)(2):</b> Kural kullanmadan da olur → f(2) = 3, sonra g(3) = 9 + 3 = <b>12</b>. <u>Tek bir değer isteniyorsa bileşke kuralını hiç açmadan adım adım ilerlemek çok daha hızlıdır.</u></li>
+</ul>
+
+<h3>10) Ters Fonksiyon</h3>
+<p class="formula">TANIM — f: A → B <b>bire bir ve örten</b> ise, (g ο f)(x) = x ve (f ο g)(y) = y koşullarını sağlayan g fonksiyonuna f'nin <b>ters fonksiyonu</b> denir: <b>f<sup>−1</sup></b>.<br/>
+<b>Temel mantık:</b> <b>y = f(x) ⇔ x = f<sup>−1</sup>(y)</b>, yani <b>(x, y) ∈ f ⇒ (y, x) ∈ f<sup>−1</sup></b>.<br/>
+<u>Ters fonksiyon, makineyi ters çalıştırmaktır: çıktıyı verip girdiyi geri istersin.</u><br/>
+<b>ÖN KOŞUL:</b> Tersinin var olması için f'nin <b>hem bire bir hem örten</b> olması <u>zorunludur</u>.</p>
+<p class="formula">ÖZELLİKLER —<br/>
+• <b>f ο f<sup>−1</sup> = f<sup>−1</sup> ο f = I</b> &nbsp;<u>(tersiyle bileşkesi birim fonksiyondur)</u><br/>
+• <b>(f ο g)<sup>−1</sup> = g<sup>−1</sup> ο f<sup>−1</sup></b> &nbsp;<u>(sıra TERS döner — ceket-gömlek kuralı: giyerken gömlek önce, çıkarırken ceket önce)</u><br/>
+• <b>(f<sup>−1</sup>)<sup>−1</sup> = f</b><br/>
+• <b>y = f(x) ile y = f<sup>−1</sup>(x) grafikleri y = x doğrusuna göre SİMETRİKTİR.</b><br/>
+<b>Hazır formül (PDF):</b> f(x) = (ax + b)/(cx + d) ise <b>f<sup>−1</sup>(x) = (−dx + b)/(cx − a)</b>.</p>
+<p class="formula">ÖRNEK — <b>f(x) = 3x − 5</b> olmak üzere <b>f<sup>−1</sup>(4)</b> kaçtır?</p>
+<ul>
+<li><b>Uzun yol:</b> y = 3x − 5 → x = (y + 5)/3 → f<sup>−1</sup>(x) = (x + 5)/3 → f<sup>−1</sup>(4) = 9/3 = <b>3</b>.</li>
+<li><b>TEST TEKNİĞİ (kısa yol):</b> <u>f<sup>−1</sup>(4) demek, "f'nin hangi girdisi 4 çıktısını verir?" demektir.</u> Doğrudan <b>f(x) = 4</b> yaz: 3x − 5 = 4 → 3x = 9 → x = <b>3</b>.</li>
+<li><b>Kural:</b> <b>Tek bir noktada f<sup>−1</sup> değeri isteniyorsa ters fonksiyonu HİÇ bulma</b>; sadece f(x) = (istenen sayı) denklemini çöz. Bu, sınavda en az yarım dakika kazandırır.</li>
+<li><b>Doğrulama:</b> f(3) = 3·3 − 5 = 4 ✓ <u>f ile f<sup>−1</sup>'in girdi-çıktısı yer değiştirdiği için bu kontrol her zaman yapılabilir.</u></li>
+</ul>
+<p class="formula">ÖRNEK — <b>f(x) = (2x + 1)/(x − 3)</b> fonksiyonunun tersi nedir?</p>
+<ul>
+<li><b>Formülle:</b> a = 2, b = 1, c = 1, d = −3 → f<sup>−1</sup>(x) = (−(−3)x + 1)/(1·x − 2) = <b>(3x + 1)/(x − 2)</b>.</li>
+<li><b>Formülsüz (mantığıyla):</b> y = (2x + 1)/(x − 3) → y(x − 3) = 2x + 1 → xy − 3y = 2x + 1 → xy − 2x = 3y + 1 → x(y − 2) = 3y + 1 → x = (3y + 1)/(y − 2) ✓</li>
+<li><b>Ders:</b> <u>Formülü unutsan bile "y'yi yalnız bırak, sonra x ile y'yi yer değiştir" adımı her zaman çalışır.</u> Formül sadece hız kazandırır.</li>
+</ul>
+
+<h3>11) Doğrusal Fonksiyon Hikâyeleri</h3>
+<p class="formula">MANTIK (PDF) — Bağımsız değişken sabit hızla artarken bağımlı değişken de <b>sabit miktarda</b> değişiyorsa ilişki <b>doğrusaldır</b>.<br/>
+<b>f(x) = mx + n</b> kalıbında:<br/>
+• <b>n = başlangıç değeri</b> (x = 0 iken durum: açılış ücreti, ilk boy, ilk birikim)<br/>
+• <b>m = değişim hızı</b> (her birim için artış/azalış: birim fiyat, günlük artış, saatlik ücret)<br/>
+<u>Azalan bir durumda (yanan mum, tükenen depo) m negatiftir.</u><br/>
+<b>PDF örnekleri:</b> yol–zaman, harcanan yakıt–yol, bitki boyu–zaman, çalışma süresi–çözülen soru sayısı, mum boyu–yanma süresi, yükseklik–sıcaklık, ürün sayısı–ödenecek ücret.</p>
+<p class="formula">ÖRNEK — Bir taksi <b>25 TL açılış ücreti</b> alıyor ve <b>her km için 8 TL</b> ekliyor. <b>a)</b> Ücret fonksiyonunu yaz. <b>b)</b> 12 km'lik yolculuk kaç TL? <b>c)</b> 145 TL ödeyen kaç km gitmiştir?</p>
+<ul>
+<li><b>a)</b> Başlangıç değeri 25, değişim hızı 8 → <b>f(x) = 8x + 25</b>. <u>Grafiği y eksenini 25'te kesen, eğimi 8 olan bir doğrudur.</u></li>
+<li><b>b)</b> f(12) = 8·12 + 25 = 96 + 25 = <b>121 TL</b>.</li>
+<li><b>c)</b> Burada <u>ters yönde</u> soruluyor: 8x + 25 = 145 → 8x = 120 → x = <b>15 km</b>. <u>Bu aslında f<sup>−1</sup>(145) hesabıdır — ters fonksiyonun günlük hayattaki karşılığı budur.</u></li>
+<li><b>Grafik yorumu:</b> Eğim 8 olduğu için <u>her 1 km'de doğru 8 birim yükselir</u>. İki farklı taksi karşılaştırılıyorsa <b>dik olan daha pahalı km ücreti</b>, y eksenini yukarıda kesen <b>daha yüksek açılış ücreti</b> demektir.</li>
+</ul>
+
+<h3>12) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Değer hesaplama</b></td><td>f(x) verilmiş, f(3) isteniyor</td><td>x yerine sayıyı yaz. Parçalıysa <b>önce aralığı seç</b>.</td></tr>
+<tr><td>2</td><td><b>Dolaylı kural</b></td><td>f(3x − 2) = … biçiminde</td><td>Tek değer için <b>parantez içini eşitle</b>; kural için <b>sağı yeniden düzenle</b>.</td></tr>
+<tr><td>3</td><td><b>Görüntü kümesi</b></td><td>Tanım aralığı verilmiş</td><td>Uç noktaların görüntüleri + <b>kritik nokta kontrolü</b>.</td></tr>
+<tr><td>4</td><td><b>Fonksiyon sayısı</b></td><td>s(A) = m, s(B) = n</td><td>Tümü <b>n<sup>m</sup></b>, bire bir olanlar <b>P(n, m)</b>.</td></tr>
+<tr><td>5</td><td><b>Çeşit belirleme</b></td><td>"bire bir/örten midir?"</td><td>Bire bir → <b>yatay doğru testi</b>; örten → <b>f(A) = B mi?</b></td></tr>
+<tr><td>6</td><td><b>Sabit/birim fonksiyon</b></td><td>Kuralda bilinmeyen katsayı</td><td>Sabitse <b>a/c = b/d</b>; birimse <b>f(x) = x</b> özdeşliğini kur.</td></tr>
+<tr><td>7</td><td><b>Çift/tek fonksiyon</b></td><td>f(−x) sorulmuş ya da simetri</td><td>x yerine <b>−x</b> yaz. Grafikte y ekseni → çift, orijin → tek.</td></tr>
+<tr><td>8</td><td><b>Dört işlem</b></td><td>(f + g)(2), (f·g)(x)</td><td>Tek değer isteniyorsa <b>önce sayıyı yerine koy</b>.</td></tr>
+<tr><td>9</td><td><b>Bileşke</b></td><td>(g ο f)(x) ya da f[g(2)]</td><td><b>İçten dışa</b> ilerle. Tek değerde kuralı açma.</td></tr>
+<tr><td>10</td><td><b>Ters fonksiyon</b></td><td>f<sup>−1</sup>(a) isteniyor</td><td><b>f(x) = a</b> denklemini çöz — tersi bulma.</td></tr>
+<tr><td>11</td><td><b>Bileşke + ters birlikte</b></td><td>(f ο g)<sup>−1</sup>(x)</td><td><b>g<sup>−1</sup> ο f<sup>−1</sup></b> — sıra ters döner.</td></tr>
+<tr><td>12</td><td><b>Grafik yorumu / hikâye</b></td><td>Doğru grafiği, tablo, günlük hayat</td><td><b>n = başlangıç</b>, <b>m = değişim hızı</b>. Eğimi iki noktadan hesapla.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 11) — f(x) = x + 4 ve g(x) = 2x olmak üzere <b>(f ο g)<sup>−1</sup>(10)</b> kaçtır?</p>
+<ul>
+<li><b>En hızlı yol:</b> Önce bileşkeyi kur → (f ο g)(x) = f(2x) = <b>2x + 4</b>. Sonra <u>tersini bulmadan</u> 2x + 4 = 10 → x = <b>3</b>.</li>
+<li><b>Kuralla doğrulama:</b> (f ο g)<sup>−1</sup> = g<sup>−1</sup> ο f<sup>−1</sup>; f<sup>−1</sup>(x) = x − 4, g<sup>−1</sup>(x) = x/2 → (g<sup>−1</sup> ο f<sup>−1</sup>)(10) = g<sup>−1</sup>(6) = <b>3</b> ✓</li>
+<li><b>Ders:</b> <u>Sıralamanın ters döndüğünü hatırlamak önemlidir ama sınavda bileşkeyi kurup denklem çözmek neredeyse her zaman daha hızlıdır.</u> Kuralı kavramsal soruların, denklemi hesap sorularının aracı olarak düşün.</li>
+</ul>
+
+<h3>13) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Fonksiyon:</b> Tanım kümesinin her elemanını değer kümesinin bir ve yalnız bir elemanına eşleyen ilişki.</li>
+<li><b>Tanım kümesi (A):</b> Girdilerin kümesi.</li>
+<li><b>Değer kümesi (B):</b> Çıktıların seçildiği küme.</li>
+<li><b>Görüntü kümesi f(A):</b> Gerçekten kullanılan çıktılar; f(A) ⊆ B.</li>
+<li><b>Bağımsız değişken (x):</b> Serbestçe seçilen girdi. <b>Bağımlı değişken (y):</b> x'e göre belirlenen çıktı.</li>
+<li><b>İçine fonksiyon:</b> f(A) ≠ B; değer kümesinde boşta eleman var.</li>
+<li><b>Örten fonksiyon:</b> f(A) = B; her elemana en az bir ok geliyor.</li>
+<li><b>Bire bir fonksiyon:</b> Farklı girdiler farklı çıktılar veriyor.</li>
+<li><b>Eşit fonksiyonlar:</b> Tanım kümesindeki her x için aynı değeri veren fonksiyonlar.</li>
+<li><b>Birim (özdeşlik) fonksiyon:</b> I(x) = x; grafiği y = x doğrusu.</li>
+<li><b>Sabit fonksiyon:</b> f(x) = c; grafiği x eksenine paralel doğru.</li>
+<li><b>Doğrusal fonksiyon:</b> f(x) = mx + n; m eğim, n y-kesim noktası.</li>
+<li><b>Parçalı fonksiyon:</b> Farklı aralıklarda farklı kuralla tanımlı fonksiyon.</li>
+<li><b>Kritik nokta:</b> Parçalı fonksiyonda aralıkların uç noktası.</li>
+<li><b>Çift fonksiyon:</b> f(−x) = f(x); y eksenine göre simetrik.</li>
+<li><b>Tek fonksiyon:</b> f(−x) = −f(x); orijine göre simetrik.</li>
+<li><b>Bileşke fonksiyon:</b> (g ο f)(x) = g[f(x)]; sağdan sola uygulanır.</li>
+<li><b>Ters fonksiyon:</b> f<sup>−1</sup>; girdi ile çıktıyı yer değiştirir, f ο f<sup>−1</sup> = I.</li>
+<li><b>Eğim (m):</b> (y₂ − y₁)/(x₂ − x₁); değişim hızı.</li>
+<li><b>Apsis / ordinat:</b> Bir noktanın birinci (x) / ikinci (y) bileşeni.</li>
+</ul>
+
+<h3>14) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Değer kümesi ile görüntü kümesini karıştırmak:</b> <b>f(A) ⊆ B</b>; eşit olmaları yalnızca örten fonksiyonlarda gerçekleşir.</li>
+<li><b>Bileşkede sırayı ters uygulamak:</b> <b>(g ο f)(x) = g[f(x)]</b> — <u>içteki önce çalışır</u>. f ο g ≠ g ο f.</li>
+<li><b>f<sup>−1</sup>(x) ile 1/f(x)'i karıştırmak:</b> <b>f<sup>−1</sup> ters FONKSİYONDUR, çarpmaya göre ters DEĞİLDİR.</b></li>
+<li><b>Ters fonksiyonu gereksiz yere bulmak:</b> f<sup>−1</sup>(a) için sadece <b>f(x) = a</b> çöz.</li>
+<li><b>Tersi olmayan fonksiyona ters aramak:</b> Ters için <b>bire bir VE örten</b> olma şartı gerekir.</li>
+<li><b>(f ο g)<sup>−1</sup> = f<sup>−1</sup> ο g<sup>−1</sup> sanmak:</b> Doğrusu <b>g<sup>−1</sup> ο f<sup>−1</sup></b>; sıra ters döner.</li>
+<li><b>Parçalı fonksiyonda yanlış aralığın kuralını kullanmak:</b> Önce <u>x hangi aralıkta</u> onu belirle; eşitliğin hangi parçaya dahil olduğuna dikkat et.</li>
+<li><b>Çift dereceli fonksiyonlarda uç noktalarla yetinmek:</b> Görüntü kümesinde <b>tepe/dip noktasını</b> da hesapla (f(x) = x², A = [−3, 2] → görüntü [0, 9], [4, 9] değil).</li>
+<li><b>"Ne çift ne tek" seçeneğini gözden kaçırmak:</b> f(x) = x² + x gibi karma dereceli fonksiyonlar hiçbiri değildir.</li>
+<li><b>Tek fonksiyona sabit terim eklemek:</b> f(x) = x³ tektir ama <b>x³ + 5 tek değildir</b>.</li>
+<li><b>Dört işlemde tanım kümesini unutmak:</b> Sonuç <b>A ∩ B</b> üzerinde tanımlıdır; bölmede <b>g(x) ≠ 0</b>.</li>
+<li><b>Fonksiyon sayısında tabanı şaşırmak:</b> A'dan B'ye <b>n<sup>m</sup></b> (taban = değer kümesinin eleman sayısı, üs = tanım kümesininki).</li>
+<li><b>Eğimi ters hesaplamak:</b> <b>m = Δy/Δx</b>, yani <u>dikeydeki değişim bölü yataydaki değişim</u>.</li>
+<li><b>Grafikte içi boş yuvarlağı yok saymak:</b> İçi boş nokta o değerin <b>dahil olmadığını</b> gösterir.</li>
+</ul>
+
+<h3>15) Özet Kartı</h3>
+<ul>
+<li><b>Fonksiyon şartı:</b> HER elemandan çıkacak, YALNIZ BİR ok çıkacak.</li>
+<li><b>f(A) ⊆ B</b> &nbsp;·&nbsp; örtense f(A) = B, içineyse f(A) ≠ B.</li>
+<li><b>Fonksiyon sayısı n<sup>m</sup></b>, bire bir olanların sayısı <b>P(n, m)</b>.</li>
+<li><b>f(3x − 2) tipi:</b> tek değer için <b>parantez içini eşitle</b>, kural için <b>sağı o ifade cinsinden yaz</b>.</li>
+<li><b>Birim:</b> I(x) = x &nbsp;·&nbsp; <b>Sabit:</b> f(x) = c; (ax+b)/(cx+d) sabitse <b>a/c = b/d</b>.</li>
+<li><b>Doğrusal:</b> f(x) = mx + n; <b>m = eğim = değişim hızı</b>, <b>n = başlangıç değeri</b>.</li>
+<li><b>Parçalı:</b> Önce aralığı seç, sonra kuralı uygula; kritik noktalara dikkat.</li>
+<li><b>Çift:</b> f(−x) = f(x), y eksenine simetrik &nbsp;·&nbsp; <b>Tek:</b> f(−x) = −f(x), orijine simetrik.</li>
+<li><b>Dört işlem:</b> A ∩ B üzerinde; bölmede g(x) ≠ 0.</li>
+<li><b>Bileşke:</b> <b>(g ο f)(x) = g[f(x)]</b>, sağdan sola; <b>f ο g ≠ g ο f</b>; <b>f ο I = f</b>.</li>
+<li><b>Ters:</b> bire bir + örten şart; <b>f ο f<sup>−1</sup> = I</b>; <b>(f ο g)<sup>−1</sup> = g<sup>−1</sup> ο f<sup>−1</sup></b>; grafikler <b>y = x</b>'e simetrik.</li>
+<li><b>Hazır ters:</b> f(x) = (ax + b)/(cx + d) → <b>f<sup>−1</sup>(x) = (−dx + b)/(cx − a)</b>.</li>
+<li><b>Test tekniği:</b> <b>f<sup>−1</sup>(a)</b> için ters bulma, <b>f(x) = a</b> çöz.</li>
+<li><b>Grafik:</b> düşey doğru testi → fonksiyon mu; yatay doğru testi → bire bir mi.</li>
+</ul>
+
+</body></html>

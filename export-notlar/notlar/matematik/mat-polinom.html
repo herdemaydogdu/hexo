@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Polinomlar</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Polinomlar</h2>
+
+<p>Polinom, "toplanmış çarpımlar" demektir: değişkenin <b>doğal sayı kuvvetlerinin</b> sabitlerle çarpılıp toplanmasıyla kurulan ifadelerdir. Bu ünitedeki soruların büyük bölümü <b>uzun işlem gerektirmez</b>; neredeyse tamamı iki hamleyle çözülür: <b>x yerine akıllı bir sayı yaz</b> (1, 0, −1 ya da bölenin kökü) ve <b>bölme eşitliğini kur</b>. Aşağıda önce kavramları oturtacağız, sonra bu iki hamlenin nerede işe yaradığını tek tek göstereceğiz.</p>
+
+<h3>1) Polinom Kavramı</h3>
+<p class="formula">TANIM — x bir değişken, n ∈ ℕ ve a₀, a₁, …, a<sub>n</sub> birer gerçek sayı olmak üzere<br/>
+<b>P(x) = a<sub>n</sub>x<sup>n</sup> + a<sub>n−1</sub>x<sup>n−1</sup> + … + a₂x² + a₁x + a₀</b><br/>
+biçimindeki ifadeye <b>gerçek katsayılı, bir değişkenli polinom</b> denir.<br/>
+• <b>a₀, a₁, …, a<sub>n</sub> → katsayılar</b><br/>
+• <b>Derece:</b> Değişkenin aldığı <b>en büyük üs</b>; <b>der[P(x)]</b> ile gösterilir.<br/>
+• <b>Baş katsayı:</b> En büyük dereceli terimin katsayısı (a<sub>n</sub>).<br/>
+• <b>Sabit terim:</b> a₀.</p>
+<p class="formula">POLİNOM OLMANIN ŞARTI — <u>Üsler DOĞAL SAYI olmalıdır.</u> Bu yüzden aşağıdakiler <b>polinom değildir</b>:<br/>
+• <b>x<sup>−2</sup></b> ya da <b>1/x</b> &nbsp;<u>(negatif üs)</u><br/>
+• <b>√x = x<sup>1/2</sup></b> &nbsp;<u>(kesirli üs)</u><br/>
+• <b>2<sup>x</sup></b> &nbsp;<u>(değişken üste)</u><br/>
+<b>Sınav tuzağı:</b> "P(x) = x<sup>m−3</sup> + 2x + 1 bir polinom ise m'nin alabileceği en küçük değer?" tipi sorularda <b>m − 3 ≥ 0 → m ≥ 3</b> koşulu aranır.</p>
+<p class="formula">DEĞİŞKENE SAYI YAZMA — <u>Bu ünitenin bir numaralı tekniğidir:</u><br/>
+• <b>Katsayılar toplamı = P(1)</b> &nbsp;<u>(x = 1 yazınca tüm kuvvetler 1 olur, geriye katsayılar kalır)</u><br/>
+• <b>Sabit terim = P(0)</b> &nbsp;<u>(x = 0 yazınca değişkenli her terim silinir)</u><br/>
+• <b>Çift dereceli terimlerin katsayıları toplamı = [P(1) + P(−1)] / 2</b><br/>
+• <b>Tek dereceli terimlerin katsayıları toplamı = [P(1) − P(−1)] / 2</b><br/>
+<u>Neden? P(−1) hesaplanırken tek dereceli terimler işaret değiştirir, çift dereceliler değişmez. İkisini toplarsan tekler yok olur, çıkarırsan çiftler yok olur — tam olarak denklem sistemindeki yok etme yöntemi.</u></p>
+<p class="formula">ÖRNEK — <b>P(x) = 3x⁴ − 2x³ + x² + 5x − 4</b> polinomunda katsayılar toplamı, sabit terim, çift ve tek dereceli terimlerin katsayı toplamları kaçtır?</p>
+<ul>
+<li><b>Katsayılar toplamı:</b> P(1) = 3 − 2 + 1 + 5 − 4 = <b>3</b>.</li>
+<li><b>Sabit terim:</b> P(0) = <b>−4</b>. <u>(Zaten ifadenin sonundaki sayı.)</u></li>
+<li><b>P(−1):</b> 3 + 2 + 1 − 5 − 4 = <b>−3</b>.</li>
+<li><b>Çift dereceli:</b> [3 + (−3)]/2 = <b>0</b>. <u>Doğrudan kontrol: 3 + 1 − 4 = 0 ✓</u></li>
+<li><b>Tek dereceli:</b> [3 − (−3)]/2 = <b>3</b>. <u>Doğrudan kontrol: −2 + 5 = 3 ✓</u></li>
+<li><b>Ders:</b> Formüller <u>uzun polinomlarda</u> gerçekten hız kazandırır; kısa polinomlarda gözle saymak yeterlidir. Formülü kullanacaksan <b>sabit terimin çift dereceli sayıldığını</b> (a₀ = a₀·x⁰) unutma.</li>
+</ul>
+
+<h3>2) Özel Polinomlar</h3>
+<table>
+<tr><th>Tür</th><th>Tanım</th><th>Derecesi</th></tr>
+<tr><td><b>Sabit polinom</b></td><td>P(x) = a₀ &nbsp;(a₀ ≠ 0)</td><td><b>0</b></td></tr>
+<tr><td><b>Sıfır polinomu</b></td><td>P(x) = 0</td><td><b>Belirsizdir</b></td></tr>
+<tr><td><b>Eşit polinomlar</b></td><td>Dereceleri aynı, aynı dereceli terimlerin katsayıları karşılıklı eşit</td><td>—</td></tr>
+</table>
+<p class="formula">DİKKAT — <b>Sabit polinomun derecesi 0'dır, sıfır polinomunun derecesi ise BELİRSİZDİR.</b> <u>Bu iki durum sınavda bilerek karıştırılır.</u><br/>
+<b>Eşitlik kuralı:</b> P(x) = Q(x) ise <b>a₀ = b₀, a₁ = b₁, …, a<sub>n</sub> = b<sub>n</sub></b>.<br/>
+<u>Yani iki polinom "her x için eşitse" katsayıları teker teker eşitlenir — bu, bilinmeyen katsayı bulma sorularının çözüm yoludur.</u><br/>
+<b>Pratik alternatif:</b> Eşitlikte <b>x yerine uygun sayılar yazmak</b> çoğu zaman katsayı eşitlemekten daha hızlıdır.</p>
+
+<h3>3) Toplama, Çıkarma ve Derece Kuralları</h3>
+<p class="formula">TOPLAMA/ÇIKARMA — <b>Dereceleri aynı olan terimlerin katsayıları toplanır ya da çıkarılır.</b><br/>
+<b>P(x) ± Q(x) = (a<sub>n</sub> ± b<sub>n</sub>)x<sup>n</sup> + (a<sub>n−1</sub> ± b<sub>n−1</sub>)x<sup>n−1</sup> + … + (a₀ ± b₀)</b><br/>
+<b>DERECE (PDF):</b> der[P(x)] = m ve der[Q(x)] = n olmak üzere <b>m ≠ n ise der[P(x) ± Q(x)] = büyük olan</b>.<br/>
+<b>KRİTİK İSTİSNA:</b> <u>m = n ise derece BÜYÜK OLANA EŞİT OLMAYABİLİR</u> — baş katsayılar birbirini götürebilir.<br/>
+<u>Örnek: P(x) = x³ + 2x, Q(x) = −x³ + 5 → P(x) + Q(x) = 2x + 5, derecesi 3 değil <b>1</b>'dir.</u></p>
+<p class="formula">ÇARPMA ve DERECE KURALLARI — der[P(x)] = m, der[Q(x)] = n olmak üzere:<br/>
+• <b>der[P(x) · Q(x)] = m + n</b> &nbsp;<u>(dereceler toplanır)</u><br/>
+• <b>der[k · P(x)] = m</b> &nbsp;<u>(k ≠ 0 sabitle çarpmak dereceyi değiştirmez)</u><br/>
+• <b>der[(P(x))<sup>k</sup>] = k · m</b><br/>
+• <b>der[P(Q(x))] = m · n</b> &nbsp;<u>(bileşkede dereceler ÇARPILIR)</u><br/>
+• <b>der[P(x) / Q(x)] = m − n</b> &nbsp;<u>(tam bölünüyorsa)</u><br/>
+<b>Çarpma işleminin kendisi:</b> P(x)'in her terimi Q(x)'in her terimiyle çarpılır, benzer terimler toplanır ve sonuç x'in <b>azalan kuvvetlerine</b> göre sıralanır.</p>
+<p class="formula">ÖRNEK (PDF) — P(x) = 6x³ − 4x² + 5 ve Q(x) = −2x² + 5x için R(x) = P(x)·Q(x) polinomunu ve derecesini bulunuz.</p>
+<ul>
+<li><b>Çarpım:</b> (6x³ − 4x² + 5)(−2x² + 5x)<br/>
+= −12x⁵ + 30x⁴ + 8x⁴ − 20x³ − 10x² + 25x</li>
+<li><b>Benzer terimler toplanır:</b> R(x) = <b>−12x⁵ + 38x⁴ − 20x³ − 10x² + 25x</b>.</li>
+<li><b>Derece:</b> der[R(x)] = <b>5</b>. <u>Kuralla kontrol: 3 + 2 = 5 ✓ — dereceyi bulmak için çarpımı açmaya hiç gerek yoktu.</u></li>
+<li><b>Test refleksi:</b> <u>Soru yalnızca DERECE soruyorsa çarpımı asla açma; sadece dereceleri topla. Belirli bir terimin KATSAYISI soruluyorsa da tüm çarpımı yapma — sadece o dereceyi üreten terim çiftlerini çarp.</u><br/>
+Örnek: yukarıdaki çarpımda x⁴'ün katsayısı için 6x³·5x ve (−4x²)·(−2x²) yeter → 30 + 8 = <b>38</b>.</li>
+</ul>
+
+<h3>4) Polinomlarda Bölme İşlemi</h3>
+<p class="formula">BÖLME EŞİTLİĞİ — der[P(x)] ≥ der[Q(x)] olmak üzere:<br/>
+<b>P(x) = Q(x) · B(x) + K(x)</b><br/>
+<b>Bölünen = Bölen · Bölüm + Kalan</b><br/>
+• <b>der[K(x)] &lt; der[Q(x)]</b> &nbsp;<u>(kalanın derecesi bölenden KÜÇÜK olmak zorundadır — işlemin ne zaman biteceğini bu söyler)</u><br/>
+• <b>der[B(x)] = der[P(x)] − der[Q(x)]</b><br/>
+• <b>K(x) = 0</b> ise P(x), Q(x)'e <b>tam (kalansız) bölünüyor</b> denir.</p>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Polinomlarda bölme eşitliği şeması">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Bölme eşitliği: bütün soruların çıkış noktası</text>
+  <rect x="40" y="44" width="150" height="34" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="115" y="66" font-size="13" font-weight="700" fill="#0369a1" text-anchor="middle">P(x) — Bölünen</text>
+  <rect x="230" y="44" width="130" height="34" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="295" y="66" font-size="13" font-weight="700" fill="#15803d" text-anchor="middle">Q(x) — Bölen</text>
+  <rect x="230" y="94" width="130" height="34" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="295" y="116" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle">B(x) — Bölüm</text>
+  <rect x="40" y="94" width="150" height="34" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="115" y="116" font-size="13" font-weight="700" fill="#b91c1c" text-anchor="middle">K(x) — Kalan</text>
+  <text x="40" y="162" font-size="15" font-weight="700" fill="#334155">P(x) = Q(x) · B(x) + K(x)</text>
+  <line x1="26" y1="180" x2="614" y2="180" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="200" font-size="11" font-weight="700" fill="#b91c1c">der[K(x)] &lt; der[Q(x)]</text>
+  <text x="180" y="200" font-size="10" fill="#475569">— kalan bölenden küçük dereceli olmak zorunda; işlem burada biter.</text>
+  <text x="26" y="220" font-size="11" font-weight="700" fill="#b45309">der[B(x)] = der[P(x)] − der[Q(x)]</text>
+  <text x="240" y="220" font-size="10" fill="#475569">— bölümün derecesi çıkarma ile bulunur.</text>
+  <text x="26" y="240" font-size="11" font-weight="700" fill="#0369a1">Q(x) 1. dereceden ise K(x) bir SAYI;</text>
+  <text x="250" y="240" font-size="10" fill="#475569">2. dereceden ise K(x) = ax + b biçimindedir. Kalanın biçimini bölen belirler.</text>
+  <line x1="400" y1="52" x2="480" y2="52" stroke="#64748b" stroke-width="1.5"/>
+  <text x="490" y="56" font-size="10" fill="#475569">Sınavda P(x) hiç</text>
+  <line x1="400" y1="72" x2="480" y2="72" stroke="#64748b" stroke-width="1.5"/>
+  <text x="490" y="76" font-size="10" fill="#475569">açılmadan, eşitliğe</text>
+  <line x1="400" y1="92" x2="480" y2="92" stroke="#64748b" stroke-width="1.5"/>
+  <text x="490" y="96" font-size="10" fill="#475569">bölenin kökü yazılarak</text>
+  <line x1="400" y1="112" x2="480" y2="112" stroke="#64748b" stroke-width="1.5"/>
+  <text x="490" y="116" font-size="10" fill="#475569">çözülür.</text>
+</svg>
+<p class="formula">UZUN BÖLME NASIL YAPILIR? —<br/>
+<b>1.</b> Bölünen ve bölen, değişkenin <b>azalan kuvvetlerine</b> göre yazılır. <u>Eksik derece varsa 0 katsayılı olarak boş bırakılır.</u><br/>
+<b>2.</b> Bölünenin en büyük dereceli terimi, bölenin en büyük dereceli terimine <b>bölünür</b>; çıkan sonuç bölümün ilk terimidir.<br/>
+<b>3.</b> Bu terim bölen polinomla <b>çarpılır</b> ve bölünenden <b>çıkarılır</b>.<br/>
+<b>4.</b> Elde edilen yeni polinomla aynı işlem, <b>kalanın derecesi bölenin derecesinden küçük olana kadar</b> tekrarlanır.</p>
+<p class="formula">ÖRNEK — <b>P(x) = 2x³ + 3x² − 5x + 4</b> polinomunun <b>Q(x) = x² − 1</b> ile bölümündeki bölüm ve kalanı bulunuz.</p>
+<ul>
+<li><b>1. adım:</b> 2x³ ÷ x² = <b>2x</b> → 2x·(x² − 1) = 2x³ − 2x. Çıkar: (2x³ + 3x² − 5x + 4) − (2x³ − 2x) = <b>3x² − 3x + 4</b>.</li>
+<li><b>2. adım:</b> 3x² ÷ x² = <b>3</b> → 3·(x² − 1) = 3x² − 3. Çıkar: (3x² − 3x + 4) − (3x² − 3) = <b>−3x + 7</b>.</li>
+<li><b>Durma noktası:</b> der[−3x + 7] = 1 &lt; der[x² − 1] = 2 → <u>işlem biter</u>.</li>
+<li><b>Sonuç:</b> <b>B(x) = 2x + 3</b>, <b>K(x) = −3x + 7</b>.</li>
+<li><b>Doğrulama (her zaman yap):</b> (x² − 1)(2x + 3) + (−3x + 7) = 2x³ + 3x² − 2x − 3 − 3x + 7 = <b>2x³ + 3x² − 5x + 4</b> ✓</li>
+<li><b>Derece kontrolü:</b> der[B] = 3 − 2 = 1 ✓ &nbsp;·&nbsp; der[K] = 1 &lt; 2 ✓</li>
+</ul>
+
+<h3>5) Bölme Yapmadan Kalan Bulma</h3>
+<p class="formula">KALAN TEOREMİ (PDF) — <b>P(x) polinomunun (x − a) ile bölümünden kalan P(a)'dır.</b><br/>
+<u>Neden? Bölme eşitliğinde P(x) = (x − a)·B(x) + K yazıp x = a koyarsak (x − a) çarpanı sıfırlanır ve geriye P(a) = K kalır. Tüm konu bu tek satırdan doğar.</u><br/>
+<b>ÇARPAN (BÖLÜNEBİLME) TEOREMİ:</b> <b>P(a) = 0 ⇔ (x − a), P(x) polinomunun bir çarpanıdır.</b><br/>
+• Bu durumda <b>x = a</b> sayısına P(x)'in <b>sıfırı (kökü)</b> denir.<br/>
+<b>Genelleme:</b> (ax − b) ile bölümünden kalan <b>P(b/a)</b>'dır — <u>böleni sıfır yapan değeri yaz, kural değişmiyor</u>.</p>
+<p class="formula">ÖRNEK (PDF) — <b>P(x) = x³ − 2x² + 6x − 5</b> polinomunun bir çarpanının <b>(x − 1)</b> olduğunu gösteriniz.</p>
+<ul>
+<li><b>Bölenin kökü:</b> x − 1 = 0 → x = 1.</li>
+<li><b>Kalan:</b> P(1) = 1 − 2 + 6 − 5 = <b>0</b>.</li>
+<li><b>Sonuç:</b> Kalan sıfır olduğu için <b>(x − 1), P(x)'in çarpanıdır</b> ve x = 1, P(x)'in bir köküdür.</li>
+<li><b>Bölümü de istersek:</b> Uzun bölmeyle P(x) = (x − 1)(x² − x + 5) bulunur. <u>Ama soru sadece "çarpan mıdır?" diye soruyorsa tek satırlık P(1) hesabı yeterlidir.</u></li>
+</ul>
+<p class="formula">İKİNCİ DERECEDEN BÖLEN — Bölen 2. dereceden ise <b>kalan en fazla 1. derecedendir</b>: <b>K(x) = ax + b</b>.<br/>
+Bölen <b>çarpanlarına ayrılabiliyorsa</b> (örneğin (x − 1)(x + 2)) her kök için ayrı denklem kurulur:<br/>
+<b>P(x) = (x − 1)(x + 2)·B(x) + ax + b</b><br/>
+• x = 1 → <b>P(1) = a + b</b> &nbsp;·&nbsp; x = −2 → <b>P(−2) = −2a + b</b><br/>
+<u>İki bilinmeyenli denklem sistemi çözülür. Bu, TYT'nin en klasik polinom sorusudur.</u></p>
+<p class="formula">ÖRNEK — Bir <b>P(x)</b> polinomunun <b>(x − 1)</b> ile bölümünden kalan <b>3</b>, <b>(x + 2)</b> ile bölümünden kalan <b>−3</b>'tür. P(x)'in <b>(x − 1)(x + 2)</b> ile bölümünden kalan nedir?</p>
+<ul>
+<li><b>Adım 1 — Kalanın biçimi:</b> Bölen 2. dereceden olduğu için <b>K(x) = ax + b</b> yazılır.</li>
+<li><b>Adım 2 — Eşitliği kur:</b> P(x) = (x − 1)(x + 2)·B(x) + ax + b.</li>
+<li><b>Adım 3 — Kökleri yaz:</b><br/>
+x = 1 → P(1) = a + b = <b>3</b> &nbsp;<u>(çünkü kalan teoremine göre P(1), (x−1) ile bölümündeki kalandır)</u><br/>
+x = −2 → P(−2) = −2a + b = <b>−3</b></li>
+<li><b>Adım 4 — Çöz:</b> Birinciden ikinciyi çıkar: 3a = 6 → <b>a = 2</b>, buradan <b>b = 1</b>.</li>
+<li><b>Sonuç:</b> <b>K(x) = 2x + 1</b>.</li>
+<li><b>Kontrol:</b> K(1) = 3 ✓ &nbsp;·&nbsp; K(−2) = −4 + 1 = −3 ✓ <u>Kalan polinomu, köklerde asıl polinomla aynı değeri vermek zorundadır — bu her zaman uygulanabilir bir doğrulamadır.</u></li>
+</ul>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kalan bulma karar şeması">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Kalanı bulmak için hangi yolu seçmeliyim?</text>
+  <rect x="200" y="40" width="240" height="32" rx="9" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+  <text x="320" y="61" font-size="12" font-weight="700" fill="#334155" text-anchor="middle">Bölen kaçıncı dereceden?</text>
+  <line x1="320" y1="72" x2="320" y2="88" stroke="#64748b" stroke-width="2"/>
+  <line x1="150" y1="88" x2="490" y2="88" stroke="#64748b" stroke-width="2"/>
+  <line x1="150" y1="88" x2="150" y2="104" stroke="#64748b" stroke-width="2"/>
+  <line x1="490" y1="88" x2="490" y2="104" stroke="#64748b" stroke-width="2"/>
+  <rect x="35" y="104" width="230" height="76" rx="9" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="150" y="124" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">1. DERECEDEN: (x − a)</text>
+  <text x="150" y="144" font-size="13" font-weight="700" fill="#0369a1" text-anchor="middle">Kalan = P(a)</text>
+  <text x="150" y="162" font-size="10" fill="#0369a1" text-anchor="middle">Kalan bir SAYIDIR. (ax − b) için</text>
+  <text x="150" y="175" font-size="10" fill="#0369a1" text-anchor="middle">böleni sıfırlayan b/a yazılır.</text>
+  <rect x="375" y="104" width="230" height="76" rx="9" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="490" y="124" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">2. DERECEDEN</text>
+  <text x="490" y="144" font-size="13" font-weight="700" fill="#15803d" text-anchor="middle">Kalan = ax + b</text>
+  <text x="490" y="162" font-size="10" fill="#15803d" text-anchor="middle">Çarpanlara ayrılıyorsa her kök için</text>
+  <text x="490" y="175" font-size="10" fill="#15803d" text-anchor="middle">bir denklem kur, sistemi çöz.</text>
+  <line x1="26" y1="196" x2="614" y2="196" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="214" font-size="10" fill="#475569">Genel kural: kalanın derecesi bölenin derecesinden DAİMA küçüktür. n. dereceden bölen için kalan en fazla (n−1). derecedendir.</text>
+  <text x="26" y="230" font-size="10" fill="#475569">Bölen çarpanlarına ayrılmıyorsa (örn. x² + 1) böleni sıfırlayan gerçek sayı yoktur; bu durumda uzun bölme ya da x² = −1 dönüşümü kullanılır.</text>
+  <text x="26" y="246" font-size="10" fill="#475569">Tam bölünme soruluyorsa tek şart: kalan = 0. Yani bölenin her kökü için P(kök) = 0 denklemi kurulur.</text>
+</svg>
+<p class="formula">P(f(x)) BİÇİMİNDE VERİLEN POLİNOMLAR — <u>Bu tip, fonksiyonlar ünitesindeki teknikle birebir aynıdır:</u><br/>
+<b>Değişkeni eşitle.</b> P(2x + 1) verilmişse <b>P(1)</b> için 2x + 1 = 1 → x = 0, <b>P(0)</b> için 2x + 1 = 0 → x = −1/2 yazılır.<br/>
+<u>Yani "P(2x+1)'in katsayılar toplamı" ile "P(x)'in katsayılar toplamı" TAMAMEN FARKLI şeylerdir; hangi polinomun sorulduğuna dikkat et.</u></p>
+<p class="formula">ÖRNEK — <b>P(2x + 1) = 4x² + 6x + 5</b> ise <b>P(x)</b> polinomunun katsayılar toplamı ve sabit terimi kaçtır?</p>
+<ul>
+<li><b>Katsayılar toplamı = P(1):</b> 2x + 1 = 1 → x = 0 → sağ tarafa yaz: 4·0 + 6·0 + 5 = <b>5</b>.</li>
+<li><b>Sabit terim = P(0):</b> 2x + 1 = 0 → x = −1/2 → 4·(1/4) + 6·(−1/2) + 5 = 1 − 3 + 5 = <b>3</b>.</li>
+<li><b>İstersek P(x)'i de bulabiliriz:</b> 2x + 1 = t → x = (t − 1)/2 → 4·(t−1)²/4 + 3(t − 1) + 5 = (t−1)² + 3t − 3 + 5 = t² + t + 3 → <b>P(x) = x² + x + 3</b>.</li>
+<li><b>Doğrulama:</b> P(1) = 1 + 1 + 3 = 5 ✓ &nbsp;·&nbsp; P(0) = 3 ✓</li>
+<li><b>Ders:</b> <u>Soru sadece P(1) veya P(0) istiyorsa P(x)'i bulmak zaman kaybıdır.</u> Değişkeni eşitleyip tek işlemde bitir.</li>
+</ul>
+
+<h3>6) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Polinom olma koşulu</b></td><td>Üste bilinmeyen var</td><td>Üsler <b>doğal sayı</b> olmalı; her üs için ≥ 0 koşulu yaz.</td></tr>
+<tr><td>2</td><td><b>Katsayılar toplamı</b></td><td>"katsayılar toplamı kaçtır"</td><td><b>P(1)</b>. Değişken f(x) ise <b>f(x) = 1</b> yapan x'i yaz.</td></tr>
+<tr><td>3</td><td><b>Sabit terim</b></td><td>"sabit terim kaçtır"</td><td><b>P(0)</b>. Değişken f(x) ise <b>f(x) = 0</b> yapan x'i yaz.</td></tr>
+<tr><td>4</td><td><b>Çift/tek dereceli katsayılar</b></td><td>"çift dereceli terimlerin katsayıları"</td><td><b>[P(1) ± P(−1)] / 2</b> (çift için +, tek için −).</td></tr>
+<tr><td>5</td><td><b>Derece hesabı</b></td><td>der[P·Q], der[P(Q(x))]</td><td>Çarpımda <b>topla</b>, bileşkede <b>çarp</b>, bölmede <b>çıkar</b>.</td></tr>
+<tr><td>6</td><td><b>Toplamda derece düşmesi</b></td><td>Aynı dereceli iki polinom toplanıyor</td><td>Baş katsayılar <b>götürebilir</b>; dereceyi peşinen büyük olan sanma.</td></tr>
+<tr><td>7</td><td><b>Eşit polinomlar</b></td><td>P(x) = Q(x), katsayı aranıyor</td><td>Katsayıları <b>karşılıklı eşitle</b> ya da uygun x değerleri yaz.</td></tr>
+<tr><td>8</td><td><b>Belirli terimin katsayısı</b></td><td>"çarpımda x³'ün katsayısı"</td><td>Tüm çarpımı açma; <b>sadece o dereceyi üreten çiftleri</b> çarp.</td></tr>
+<tr><td>9</td><td><b>Bölme eşitliği</b></td><td>Bölüm/kalan/bölen aranıyor</td><td><b>P = Q·B + K</b> yaz; der[K] &lt; der[Q] koşulunu kullan.</td></tr>
+<tr><td>10</td><td><b>(x − a) ile kalan</b></td><td>1. dereceden bölen</td><td><b>P(a)</b> — bölme yapma.</td></tr>
+<tr><td>11</td><td><b>Tam bölünme / çarpan</b></td><td>"tam bölünüyorsa", "çarpanıdır"</td><td><b>P(kök) = 0</b> denklemini kur.</td></tr>
+<tr><td>12</td><td><b>2. dereceden bölenle kalan</b></td><td>(x−a)(x−b) ile bölüm</td><td><b>K(x) = ax + b</b>; iki kök, iki denklem, sistemi çöz.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 11) — <b>P(x) = x³ + mx² − 4x + 6</b> polinomu <b>(x − 2)</b> ile <b>tam bölünüyorsa</b> m kaçtır?</p>
+<ul>
+<li><b>Tam bölünme = kalan sıfır</b> → <b>P(2) = 0</b>.</li>
+<li><b>Hesap:</b> 2³ + m·2² − 4·2 + 6 = 8 + 4m − 8 + 6 = 4m + 6.</li>
+<li><b>Denklem:</b> 4m + 6 = 0 → <b>m = −3/2</b>.</li>
+<li><b>Kontrol:</b> P(x) = x³ − (3/2)x² − 4x + 6 → P(2) = 8 − 6 − 8 + 6 = <b>0</b> ✓</li>
+<li><b>Ders:</b> <u>"Tam bölünüyor", "kalansız bölünüyor", "bir çarpanıdır" ve "x = a bir köküdür" ifadelerinin dördü de aynı denklemi kurdurur: <b>P(a) = 0</b>.</u> Soruda hangisinin geçtiğine bakmadan aynı hamleyi yap.</li>
+</ul>
+
+<h3>7) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Polinom:</b> Değişkenin doğal sayı kuvvetlerinin sabitlerle çarpılıp toplanmasıyla oluşan ifade.</li>
+<li><b>Derece:</b> Değişkenin en büyük üssü; der[P(x)].</li>
+<li><b>Baş katsayı:</b> En büyük dereceli terimin katsayısı.</li>
+<li><b>Sabit terim:</b> Değişken içermeyen terim; P(0)'a eşittir.</li>
+<li><b>Katsayılar toplamı:</b> Tüm katsayıların toplamı; P(1)'e eşittir.</li>
+<li><b>Sabit polinom:</b> P(x) = a₀ (a₀ ≠ 0); derecesi 0.</li>
+<li><b>Sıfır polinomu:</b> P(x) = 0; derecesi belirsizdir.</li>
+<li><b>Eşit polinomlar:</b> Aynı dereceli terimlerin katsayıları karşılıklı eşit olan polinomlar.</li>
+<li><b>Bölünen / bölen / bölüm / kalan:</b> P(x) = Q(x)·B(x) + K(x) eşitliğindeki dört polinom.</li>
+<li><b>Bölme eşitliği:</b> Bölünen = Bölen · Bölüm + Kalan.</li>
+<li><b>Tam bölünme:</b> Kalanın sıfır olması durumu.</li>
+<li><b>Kalan teoremi:</b> P(x)'in (x − a) ile bölümünden kalan P(a)'dır.</li>
+<li><b>Çarpan teoremi:</b> P(a) = 0 ⇔ (x − a), P(x)'in bir çarpanıdır.</li>
+<li><b>Polinomun sıfırı (kökü):</b> P(a) = 0 koşulunu sağlayan a sayısı.</li>
+</ul>
+
+<h3>8) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Polinom olma şartını atlamak:</b> Negatif üs, kesirli üs ve değişken üs polinom yapmaz.</li>
+<li><b>Sıfır polinomu ile sabit polinomu karıştırmak:</b> Sabit polinomun derecesi <b>0</b>, sıfır polinomunun derecesi <b>belirsiz</b>.</li>
+<li><b>Toplamada dereceyi kesin sanmak:</b> Aynı dereceli polinomlarda baş katsayılar <b>götürebilir</b>, derece düşer.</li>
+<li><b>Bileşkede dereceleri toplamak:</b> der[P(Q(x))] = m·<b>n</b>; çarpımdır, toplam değildir.</li>
+<li><b>Kalanın derecesini kontrol etmemek:</b> Daima <b>der[K] &lt; der[Q]</b>. 2. dereceden bölene "kalan bir sayıdır" demek yanlıştır.</li>
+<li><b>Kalan teoreminde işaret hatası:</b> <b>(x + 2)</b> ile bölümünde kalan <b>P(−2)</b>'dir, P(2) değil. <u>Böleni SIFIR yapan değeri yaz.</u></li>
+<li><b>(ax − b) bölende a'yı yok saymak:</b> Kalan <b>P(b/a)</b>'dır.</li>
+<li><b>P(2x+1)'in katsayılar toplamını P(x)'inki sanmak:</b> Hangi polinomun sorulduğuna bak; değişkeni <b>1'e eşitle</b>.</li>
+<li><b>Çift dereceli katsayılarda sabit terimi unutmak:</b> a₀ = a₀·x⁰ olduğu için <b>çift dereceli sayılır</b>.</li>
+<li><b>Uzun bölmede eksik dereceyi atlamak:</b> x³ + 1 bölünüyorsa <b>x² ve x terimleri 0 katsayılı</b> olarak yer tutmalıdır.</li>
+<li><b>Belirli terimin katsayısı için tüm çarpımı açmak:</b> Sadece <b>o dereceyi üreten terim çiftlerini</b> çarp.</li>
+<li><b>Bölme sonucunu doğrulamamak:</b> <b>Q·B + K</b> işlemi P'yi vermelidir; 10 saniyelik bu kontrol yanlış işaretleri yakalar.</li>
+</ul>
+
+<h3>9) Özet Kartı</h3>
+<ul>
+<li><b>Polinom şartı:</b> Üsler <b>doğal sayı</b> olmalı.</li>
+<li><b>Katsayılar toplamı = P(1)</b> &nbsp;·&nbsp; <b>Sabit terim = P(0)</b>.</li>
+<li><b>Çift dereceli katsayılar = [P(1) + P(−1)]/2</b> &nbsp;·&nbsp; <b>Tek dereceli = [P(1) − P(−1)]/2</b>.</li>
+<li><b>Sabit polinom derecesi 0</b>, <b>sıfır polinomunun derecesi belirsiz</b>.</li>
+<li><b>der[P·Q] = m + n</b> &nbsp;·&nbsp; <b>der[P<sup>k</sup>] = k·m</b> &nbsp;·&nbsp; <b>der[P(Q(x))] = m·n</b> &nbsp;·&nbsp; <b>der[P/Q] = m − n</b>.</li>
+<li><b>Toplamda derece:</b> m ≠ n ise büyük olan; m = n ise <b>düşebilir</b>.</li>
+<li><b>Bölme eşitliği:</b> <b>P(x) = Q(x)·B(x) + K(x)</b>, <b>der[K] &lt; der[Q]</b>, <b>der[B] = der[P] − der[Q]</b>.</li>
+<li><b>Kalan teoremi:</b> (x − a) ile bölümünden kalan <b>P(a)</b>; (ax − b) için <b>P(b/a)</b>.</li>
+<li><b>Çarpan teoremi:</b> <b>P(a) = 0 ⇔ (x − a) çarpandır</b> ⇔ tam bölünür ⇔ a bir köktür.</li>
+<li><b>2. dereceden bölende kalan:</b> <b>K(x) = ax + b</b>; her kök bir denklem verir.</li>
+<li><b>P(f(x)) tipinde:</b> istenen değeri elde etmek için <b>f(x)'i o sayıya eşitle</b>.</li>
+<li><b>Her bölmeden sonra:</b> <b>Q·B + K = P</b> kontrolünü yap.</li>
+</ul>
+
+</body></html>

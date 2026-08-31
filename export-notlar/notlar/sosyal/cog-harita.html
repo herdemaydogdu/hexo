@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Harita Bilgisi</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Harita Bilgisi</h2>
+
+<h3>1) Temel Kavramlar: Harita, Kroki, Kartografya</h3>
+<p>Yeryüzünün tamamına ya da bir bölümüne ait <b>kuş bakışı görünüşün belli bir oranda küçültülerek düzlem üzerine aktarılmasına harita</b>, harita bilimine ise <b>kartografya</b> denir.</p>
+<p>Bir çizimin harita sayılabilmesi için üç şart gerekir: <b>düzleme aktarılmış olmak</b>, <b>kuş bakışı görünüme sahip olmak</b> ve <b>belirli bir küçültme oranı (ölçek) taşımak</b>. Bir alanın kuş bakışı görünümünün <b>ölçek kullanılmadan</b> (kabataslak) düzleme aktarılmasına ise <b>kroki</b> denir.</p>
+<p class="formula">DİKKAT: Kuş bakışı görünüm ve düzleme aktarma, kroki ile haritanın <b>ortak</b> özelliğidir. Aradaki tek fark <b>ölçektir</b>: haritada ölçek vardır, kroki kabataslak çizimdir. Sınavda "kroki ile harita arasındaki fark" sorulursa cevap ölçektir.</p>
+
+<h3>2) Projeksiyon Yöntemleri</h3>
+<p>Dünya'nın <b>küresel şeklinden</b> dolayı haritalarda kaçınılmaz olarak bozulmalar meydana gelir. Hataları en aza indirmek ve küre üzerindeki yerleri düzleme aktarabilmek için geliştirilen yöntemlere <b>projeksiyon yöntemleri</b> denir.</p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Silindirik, konik ve düzlem projeksiyon">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="26" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Üç projeksiyon: yüzeyin küreye değdiği yerde bozulma en azdır</text>
+  <g>
+    <rect x="60" y="70" width="110" height="120" fill="none" stroke="#0284c7" stroke-width="2"/>
+    <circle cx="115" cy="130" r="48" fill="#e0f2fe" stroke="#334155" stroke-width="1.5"/>
+    <line x1="60" y1="130" x2="170" y2="130" stroke="#dc2626" stroke-width="2"/>
+    <text x="66" y="60" font-size="12" font-weight="700" fill="#0369a1">Silindirik</text>
+    <text x="52" y="212" font-size="10" fill="#475569">Ekvator doğru,</text>
+    <text x="52" y="226" font-size="10" fill="#475569">kutuplarda bozulma ↑</text>
+  </g>
+  <g>
+    <polygon points="270,60 340,190 200,190" fill="none" stroke="#16a34a" stroke-width="2"/>
+    <circle cx="270" cy="140" r="45" fill="#dcfce7" stroke="#334155" stroke-width="1.5"/>
+    <line x1="228" y1="120" x2="312" y2="120" stroke="#dc2626" stroke-width="2"/>
+    <text x="238" y="50" font-size="12" font-weight="700" fill="#15803d">Konik</text>
+    <text x="196" y="212" font-size="10" fill="#475569">Orta enlemler doğru →</text>
+    <text x="196" y="226" font-size="10" fill="#475569">TÜRKİYE için en uygun</text>
+  </g>
+  <g>
+    <line x1="410" y1="70" x2="560" y2="70" stroke="#9a3412" stroke-width="3"/>
+    <circle cx="485" cy="130" r="52" fill="#fed7aa" stroke="#334155" stroke-width="1.5"/>
+    <circle cx="485" cy="78" r="4" fill="#dc2626"/>
+    <text x="432" y="60" font-size="12" font-weight="700" fill="#9a3412">Düzlem</text>
+    <text x="410" y="212" font-size="10" fill="#475569">Kutupta doğru, Ekvator'a</text>
+    <text x="410" y="226" font-size="10" fill="#475569">gidildikçe bozulma ↑ (dar alanlar)</text>
+  </g>
+</svg>
+<ul>
+<li><b>Silindirik projeksiyon:</b> Model küreye sarılmış silindir bir düzlemin, Dünya'nın eksenine paralel bir hat boyunca kesilerek açılmasıyla elde edilir. <b>Ekvator'dan kutuplara gidildikçe bozulmalar artar</b> — bu yüzden bu haritalarda <u>Grönland</u>, gerçekte olduğundan çok daha büyük görünür.</li>
+<li><b>Konik projeksiyon:</b> Model küreye koni şeklinde bir düzlemin sarılmasıyla oluşturulur. <b>Orta enlemlerden Ekvator ve kutuplara gidildikçe bozulma artar.</b> <u>Türkiye</u> orta kuşakta olduğu için <b>Türkiye haritalarının çiziminde en uygun yöntem budur</b>.</li>
+<li><b>Düzlem projeksiyon:</b> Bir düzlemin kutup noktalarına teğet geçirilmesiyle oluşur. <b>Kutup bölgelerinden Ekvator'a gidildikçe bozulma artar</b>; <b>dar alanların</b> çiziminde tercih edilir.</li>
+</ul>
+
+<h3>3) Haritayı Oluşturan Temel Unsurlar</h3>
+<ul>
+<li><b>Başlık:</b> Haritanın hangi amaçla hazırlandığını gösterir.</li>
+<li><b>Lejant (açıklamalar / harita anahtarı):</b> Haritada kullanılan işaret ve sembollerin ne ifade ettiğini gösterir; haritanın kolay anlaşılmasını sağlar.</li>
+<li><b>Coğrafi koordinatlar:</b> Haritanın Ekvator ve Greenwich'e göre konumunu gösterir.</li>
+<li><b>Yön oku:</b> Yönleri gösterir. <b>Coğrafi koordinat kullanılmışsa yön oku kullanılmayabilir</b> (paralel-meridyen ağı zaten yönü verir).</li>
+<li><b>Ölçek:</b> Küçültme oranıdır; <b>kesir ölçek</b> ve <b>çizgi ölçek</b> olmak üzere iki çeşittir.</li>
+</ul>
+<p class="formula">DİKKAT: Ölçek değişse de <b>gerçek alan, gerçek uzunluk, yükselti ve coğrafi koordinatlar DEĞİŞMEZ</b>. Ölçek yalnızca haritadaki görüntüyü (harita uzunluğu, harita alanı, ayrıntı düzeyi) değiştirir.</p>
+
+<h3>4) Harita Çeşitleri</h3>
+<p><b>a) Ölçeklerine göre:</b></p>
+<ul>
+<li><b>Büyük ölçekli haritalar:</b> Ölçeği <b>1/200.000'den büyük</b> olanlar (plan, topoğrafya haritaları).</li>
+<li><b>Orta ölçekli haritalar:</b> Ölçeği <b>1/200.000 ile 1/500.000 arasında</b> olanlar (bir ile ait deprem, ulaşım haritaları).</li>
+<li><b>Küçük ölçekli haritalar:</b> Ölçeği <b>1/500.000'den küçük</b>, ayrıntının en az olduğu haritalar (ülke, kıta, dünya haritaları).</li>
+</ul>
+<table>
+<tr><th>Özellik</th><th>Büyük ölçekli harita</th><th>Küçük ölçekli harita</th></tr>
+<tr><td>Ölçeğin paydası</td><td>Küçüktür</td><td>Büyüktür</td></tr>
+<tr><td>Küçültme oranı</td><td>Azdır</td><td>Fazladır</td></tr>
+<tr><td>Hata oranı</td><td>Azdır</td><td>Fazladır</td></tr>
+<tr><td>Ayrıntıyı gösterme gücü</td><td>Fazladır</td><td>Azdır</td></tr>
+<tr><td>Düzlemde kapladığı alan</td><td>Geniştir</td><td>Dardır</td></tr>
+<tr><td>İzohipsler arası yükselti farkı</td><td>Azdır</td><td>Fazladır</td></tr>
+<tr><td>Gösterilen (gerçek) alan</td><td>Dardır</td><td>Geniştir</td></tr>
+</table>
+<p><b>b) Kullanım amaçlarına göre:</b></p>
+<ul>
+<li><b>Genel haritalar:</b> Bölgenin doğal unsurlarını (deniz, göl, akarsu, bitki örtüsü, engebe) ve yapay unsurlarını (bina, köprü, yol) kartografik işaretlerle gösterir. Örnek: <u>Türkiye fiziki haritası, Türkiye idari bölünüş haritası</u>.</li>
+<li><b>Tematik haritalar:</b> Topoğrafik altlık üzerine tek bir konuya ait mekânsal verilerin (jeoloji, maden, ulaşım, sıcaklık, basınç, denizcilik, turizm) aktarılmasıyla oluşur. Örnek: <u>Türkiye toprak haritası, Mardin ili jeoloji haritası, Türkiye nüfus yoğunluğu haritası, su ürünleri haritası</u>.</li>
+</ul>
+
+<h3>5) Ölçek Çevirme</h3>
+<p><b>Kesir ölçek</b> küçültme oranını kesirli sayıyla (1/200.000), <b>çizgi (grafik) ölçek</b> ise eşit aralıklara bölünmüş bir doğru üzerinde gösterir.</p>
+<p><b>Kesir → çizgi:</b> 1/200.000 ölçeğinde haritadaki <b>1 cm</b>, gerçekte <b>200.000 cm = 2 km</b>'dir. Buna göre çizgi ölçeğin her 1 cm'lik bölmesi 2 km'yi gösterir (2 – 0 – 2 – 4 – 6 – 8 km).</p>
+<p><b>Çizgi → kesir:</b> Çentikler arası <b>2 cm</b> ve bu aralık gerçekte <b>10 km</b> ise, 1 cm = 5 km demektir. 5 km = <b>500.000 cm</b> olduğundan kesir ölçek <b>1/500.000</b>'dir.</p>
+<p class="formula">BİRİM ÇEVİRME: 1 km = 100.000 cm · 1 m = 100 cm · 1 km² = 10.000.000.000 cm² (10<sup>10</sup>). Hesaplarda ölçeğin paydası daima <b>cm</b> cinsindendir; sonucu km'ye çevirmeyi unutmayın.</p>
+
+<h3>6) Uzunluk Hesaplamaları</h3>
+<p><b>Kuş uçuşu uzaklık:</b> Yükselti ve çukurların dikkate alınmadığı, iki nokta arasındaki doğrusal uzaklıktır. Haritada iki nokta arasına doğru çizilir, kâğıt/cetvelle işaretlenir, işaretli kâğıdın başlangıcı çizgi ölçeğin <b>0</b> noktasına konur ve karşılık gelen değer okunur.</p>
+<p class="formula">TEMEL ÜÇLÜ: <b>Gerçek Uzunluk = Harita Uzunluğu × Ölçek Paydası</b> · <b>Harita Uzunluğu = Gerçek Uzunluk ÷ Ölçek Paydası</b> · <b>Ölçek = Harita Uzunluğu ÷ Gerçek Uzunluk</b></p>
+<ul>
+<li><b>Örnek (gerçek uzunluk):</b> 1/400.000 ölçekli haritada 20 cm ölçülen iki şehir arası gerçekte kaç km? → GU = 20 × 400.000 = 8.000.000 cm = <b>80 km</b>.</li>
+<li><b>Örnek (harita uzunluğu):</b> Aralarında 450 km olan K ve L kentleri 1/3.000.000 ölçekli haritada kaç cm ile gösterilir? → 450 km = 45.000.000 cm; HU = 45.000.000 ÷ 3.000.000 = <b>15 cm</b>.</li>
+<li><b>Örnek (ölçek):</b> Gerçek uzunluğu 200 km, harita uzunluğu 40 cm olan akarsuyun haritasının ölçeği? → 200 km = 20.000.000 cm; Ö = 40 / 20.000.000 = <b>1/500.000</b>.</li>
+</ul>
+
+<h3>7) Alan ve Eğim Hesaplamaları</h3>
+<p><b>Gerçek alan</b>, harita alanı ile <b>ölçek paydasının karesi</b> çarpılarak bulunur (iz düşüm alanıdır):</p>
+<p class="formula">Gerçek Alan = Harita Alanı × (Ölçek Paydası)²<br>
+<b>Örnek:</b> 1/600.000 ölçekli haritada 8 cm² gösterilen göl gerçekte kaç km²? → 8 × (600.000)² = 8 × 360.000.000.000 = 2.880.000.000.000 cm² = <b>288 km²</b>.</p>
+<p><b>Eğim</b>, iki nokta arasındaki yükselti farkının yatay uzaklığa oranıdır:</p>
+<p class="formula">Eğim = (Yükselti farkı ÷ Yatay uzaklık) × 100 (binde için ×1000)<br>
+<b>Örnek:</b> K-L arası yükselti farkı 400 m, uzaklık 5 km = 5.000 m → (400 / 5.000) × 100 = <b>%8</b>.</p>
+<p class="formula">DİKKAT: Eğim hesaplamalarında <b>gerçek uzaklık metreye dönüştürülmelidir</b>. En sık hata km'yi metreye çevirmeden bölmektir.</p>
+
+<h3>8) Coğrafi Bilgi Sistemleri (CBS) ve Uzaktan Algılama</h3>
+<ul>
+<li><b>CBS:</b> Mekânsal verileri <b>elde etmek, depolamak, kontrol etmek, işlemek, analiz etmek ve görüntülemek</b> için kullanılan sistemdir. Bileşenleri: <b>donanım</b> (bilgisayar), <b>yazılım</b> (CBS programları), <b>coğrafi veriler</b>, <b>yöntemler</b> ve <b>kullanıcı</b>. Aynı yerin farklı özelliklere ait haritaları bu yöntemle üretilebilir.</li>
+<li><b>Uzaktan algılama:</b> Atmosfere, uzaya veya yeryüzünden belirli uzaklıklara yerleştirilen platformlara monte edilmiş ölçüm aletleriyle doğal ve yapay nesneler hakkında <b>bilgi alma ve değerlendirme</b> tekniğidir.</li>
+</ul>
+<p>Elde edilen mekânsal veriler haritaya üç yöntemle aktarılır:</p>
+<ul>
+<li><b>Noktasal:</b> Evler, elektrik direkleri, volkanik dağlar, otobüs durakları.</li>
+<li><b>Çizgisel:</b> Akarsular, fay hatları, sıradağlar, yollar.</li>
+<li><b>Alansal:</b> Ormanlar, göller, millî parklar, denizler.</li>
+</ul>
+<p class="formula">DİKKAT: CBS; <b>ulaşım, turizm, savunma, sanayi, tarım, ormancılık, afet yönetimi</b> gibi pek çok alanda kullanılır ve kullanımı her geçen gün artmaktadır.</p>
+
+<h3>9) Yer Şekillerinin Haritada Gösterimi</h3>
+<ul>
+<li><b>Kabartma yöntemi:</b> Yer şekillerine ait kabartmaların yapılıp boyanmasıyla elde edilen <b>üç boyutlu</b> haritalardır. <b>Yatay ve dikey iki ölçek</b> kullanılır; yer şekilleri <b>gerçeğe en yakın</b> biçimde gösterilir.</li>
+<li><b>Renklendirme yöntemi:</b> Yükselti basamakları renklerle gösterilir: deniz seviyesine yakın yerler <b>yeşil</b>; yükselti arttıkça <b>sarı, turuncu, kahverengi</b> ve tonları; buzullar ve kalıcı karlar <b>beyaz</b>; su kaynakları <b>mavi</b> (mavi koyulaştıkça derinlik artar).</li>
+<li><b>Eş yükselti eğrisi (izohips) yöntemi:</b> Deniz seviyesinden itibaren <b>aynı yükseltideki noktaların birleştirilmesiyle</b> elde edilen eğrilerdir; en yaygın yöntemlerden biridir. Deniz ve göllerde aynı derinlikteki noktaları birleştiren eğrilere <b>eş derinlik eğrisi (izobat)</b> denir.</li>
+</ul>
+<p class="formula">DİKKAT: Renklendirme yöntemiyle hazırlanan haritalarda renkler <b>ova ve plato gibi yer şekillerini değil, yalnızca yükseltiyi</b> gösterir. Yeşil renk "ova" demek değildir; sadece "alçak" demektir.</p>
+
+<h3>10) İzohipslerin Özellikleri</h3>
+<ul>
+<li>İç içe çizilen <b>kapalı eğrilerdir</b>.</li>
+<li>En içteki eğri <b>en yüksek</b>, en dıştaki eğri <b>en alçak</b> yeri gösterir (<b>çukur alanlar hariç</b>).</li>
+<li>Aynı izohips üzerindeki bütün noktaların <b>yükseltisi aynıdır</b>.</li>
+<li><b>Kıyı çizgisi 0 metre</b> ile gösterilir; 0 metre eğrisinden sonraki ilk eğrinin değeri <b>izohipsler arası yükselti farkını (eküidistans)</b> verir.</li>
+<li>Eküidistans değeri <b>eşittir</b> ve haritanın <b>ölçeğine bağlı olarak değişir</b>.</li>
+<li>Eğimin fazla olduğu yerlerde izohipsler <b>sık</b>, az olduğu yerlerde <b>seyrek</b> çizilir.</li>
+<li>Birbirini çevrelemeyen komşu iki izohipsin yükseltisi <b>aynıdır</b>.</li>
+<li>Bir akarsuyun <b>her iki tarafı aynı yükselti değeriyle</b> başlar.</li>
+<li>Her eğri başka bir yüksekliği gösterdiği için eğriler <b>birbirini kesmez</b>.</li>
+</ul>
+<svg viewBox="0 0 640 340" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="İzohips haritasında yer şekilleri">
+  <rect x="0" y="0" width="640" height="340" fill="#f8fafc" rx="10"/>
+  <text x="20" y="26" font-size="13" font-weight="700" fill="#334155">Şekil 2 — İzohips haritasında yer şekilleri</text>
+  <path d="M40,300 Q160,270 300,285 T600,290" fill="none" stroke="#0284c7" stroke-width="2"/>
+  <text x="44" y="318" font-size="11" fill="#0369a1">0 m — kıyı çizgisi (deniz)</text>
+  <g fill="none" stroke="#b45309" stroke-width="1.6">
+    <path d="M70,250 Q150,215 230,235 Q290,250 340,225 Q420,190 520,215 Q570,228 600,240"/>
+    <path d="M95,215 Q160,185 225,205 Q285,222 335,195 Q415,160 505,185 Q555,198 585,210"/>
+    <path d="M130,182 Q175,160 220,175 Q280,195 330,168 Q400,138 480,158"/>
+  </g>
+  <ellipse cx="200" cy="150" rx="52" ry="30" fill="none" stroke="#b45309" stroke-width="1.6"/>
+  <ellipse cx="200" cy="148" rx="30" ry="17" fill="none" stroke="#b45309" stroke-width="1.6"/>
+  <circle cx="200" cy="147" r="3" fill="#dc2626"/>
+  <text x="176" y="132" font-size="11" font-weight="700" fill="#dc2626">zirve</text>
+  <ellipse cx="430" cy="132" rx="48" ry="26" fill="none" stroke="#b45309" stroke-width="1.6"/>
+  <ellipse cx="430" cy="130" rx="26" ry="14" fill="none" stroke="#b45309" stroke-width="1.6"/>
+  <circle cx="430" cy="129" r="3" fill="#dc2626"/>
+  <text x="404" y="112" font-size="11" font-weight="700" fill="#dc2626">tepe</text>
+  <text x="292" y="150" font-size="11" font-weight="700" fill="#334155">boyun</text>
+  <path d="M300,168 L305,182" stroke="#334155" stroke-width="1"/>
+  <path d="M335,195 L332,255 L338,300" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+  <text x="344" y="250" font-size="11" font-weight="700" fill="#0369a1">vadi (akarsu)</text>
+  <text x="344" y="266" font-size="10" fill="#475569">eğriler yükseltiye doğru büklüm yapar</text>
+  <path d="M120,300 L118,250 L122,200" fill="none" stroke="#16a34a" stroke-width="2"/>
+  <text x="60" y="196" font-size="11" font-weight="700" fill="#15803d">sırt</text>
+  <text x="40" y="182" font-size="10" fill="#475569">(alçalan yöne büklüm)</text>
+  <polygon points="500,285 545,262 590,285 545,300" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+  <text x="512" y="316" font-size="11" font-weight="700" fill="#9a3412">delta</text>
+  <g stroke="#b45309" stroke-width="1.6" fill="none">
+    <ellipse cx="255" cy="272" rx="34" ry="16"/>
+  </g>
+  <line x1="255" y1="256" x2="255" y2="266" stroke="#dc2626" stroke-width="1.5"/>
+  <polygon points="255,268 250,258 260,258" fill="#dc2626"/>
+  <text x="222" y="252" font-size="10" font-weight="700" fill="#dc2626">çukur (içe ok)</text>
+  <text x="470" y="204" font-size="10" fill="#475569">sık eğri = dik yamaç</text>
+  <text x="80" y="120" font-size="10" fill="#475569">seyrek eğri = az eğim</text>
+</svg>
+<p><b>İzohips haritalarında yer şekilleri:</b></p>
+<ul>
+<li><b>Tepe:</b> Çevresine göre yüksekte kalan yer. <b>Boyun:</b> İki tepe arasında kalan alçak yer. <b>Zirve (doruk):</b> Dağ ya da tepenin en yüksek noktası; nokta (.) veya üçgen ile gösterilir.</li>
+<li><b>Yamaç:</b> Vadi ve tepelerin kenarları ile sırtların iki tarafında kalan kısımlar.</li>
+<li><b>Vadi:</b> Eğrilerin <b>yükseltinin arttığı yöne</b> doğru yaptığı büklümler. <b>Sırt:</b> Eğrilerin <b>yükseltinin azaldığı yöne</b> doğru yaptığı büklümler.</li>
+<li><b>Delta:</b> Akarsuyun taşıdığı alüvyonların denize döküldüğü yerde birikmesiyle oluşan, denize doğru <b>çıkıntı</b>. <b>Haliç:</b> Akarsu ağzının karaya doğru <b>girinti</b> yaparak sularla dolmasıyla oluşur.</li>
+<li><b>Plato:</b> Akarsularla yarılmış, etrafına göre yüksekte kalan düzlük. <b>Ova:</b> Etrafına göre alçakta kalmış düz alan.</li>
+<li><b>Şelale:</b> Akarsu yatağı üzerinde izohipslerin birbirine <b>çok yaklaşması</b> eğimin arttığını ve şelale oluşumunu gösterir.</li>
+<li><b>Falez (yalıyar):</b> İzohipslerin <b>deniz kıyısında</b> birbirine çok yaklaştığı yerlerde oluşur.</li>
+<li><b>Çukur alanlar:</b> Etrafına göre alçakta kalan kapalı çukurlar <b>içe dönük ok</b> işaretiyle gösterilir.</li>
+</ul>
+
+<h3>11) Profil Çıkarma</h3>
+<p>İzohips (topoğrafya) haritalarından kesit (profil) çıkarılabilir. Aşamaları:</p>
+<ul>
+<li>Profil çıkarılacak alan iki nokta ile belirlenir ve bu noktalar arasına bir <b>doğru</b> çizilir.</li>
+<li>Bu doğrultudaki eş yükselti eğrilerinin <b>yükselti değerleri</b> bulunur.</li>
+<li>Bu eğrilerin yükseltilerine göre <b>iz düşümleri</b> alınır.</li>
+<li>İz düşümü alınan noktalar <b>birleştirilir</b>.</li>
+</ul>
+<svg viewBox="0 0 640 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="İzohips haritasından profil çıkarma">
+  <rect x="0" y="0" width="640" height="300" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Profil çıkarma: eğri değerleri yükseklik eksenine iz düşürülür</text>
+  <g fill="none" stroke="#b45309" stroke-width="1.5">
+    <ellipse cx="240" cy="80" rx="150" ry="42"/>
+    <ellipse cx="240" cy="80" rx="106" ry="29"/>
+    <ellipse cx="240" cy="80" rx="62" ry="17"/>
+  </g>
+  <line x1="70" y1="80" x2="410" y2="80" stroke="#dc2626" stroke-width="2"/>
+  <circle cx="90" cy="80" r="4" fill="#dc2626"/><circle cx="390" cy="80" r="4" fill="#dc2626"/>
+  <text x="78" y="70" font-size="11" font-weight="700" fill="#dc2626">K</text>
+  <text x="386" y="70" font-size="11" font-weight="700" fill="#dc2626">L</text>
+  <text x="404" y="86" font-size="10" fill="#475569">100 m</text>
+  <text x="352" y="86" font-size="10" fill="#475569">200 m</text>
+  <text x="300" y="86" font-size="10" fill="#475569">300 m</text>
+  <line x1="90" y1="150" x2="90" y2="270" stroke="#334155" stroke-width="1.5"/>
+  <line x1="90" y1="270" x2="480" y2="270" stroke="#334155" stroke-width="1.5"/>
+  <g stroke="#94a3b8" stroke-width="0.8" stroke-dasharray="3 3">
+    <line x1="90" y1="240" x2="480" y2="240"/><line x1="90" y1="210" x2="480" y2="210"/><line x1="90" y1="180" x2="480" y2="180"/>
+  </g>
+  <text x="62" y="244" font-size="10" fill="#475569">100</text>
+  <text x="62" y="214" font-size="10" fill="#475569">200</text>
+  <text x="62" y="184" font-size="10" fill="#475569">300</text>
+  <text x="58" y="164" font-size="10" fill="#475569">m</text>
+  <polyline points="110,270 150,240 200,210 240,180 290,210 340,240 390,270" fill="none" stroke="#16a34a" stroke-width="2.5"/>
+  <g stroke="#dc2626" stroke-width="0.8" stroke-dasharray="2 3">
+    <line x1="150" y1="80" x2="150" y2="240"/><line x1="240" y1="80" x2="240" y2="180"/><line x1="340" y1="80" x2="340" y2="240"/>
+  </g>
+  <text x="230" y="292" font-size="11" fill="#15803d">K–L profili (kesit)</text>
+</svg>
+
+<h3>12) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Harita:</b> Kuş bakışı görünümün belli oranda küçültülerek düzleme aktarılması.</li>
+<li><b>Kroki:</b> Ölçeksiz, kabataslak kuş bakışı çizim.</li>
+<li><b>Kartografya:</b> Harita bilimi.</li>
+<li><b>Projeksiyon:</b> Küre yüzeyini düzleme aktarma yöntemi (silindirik, konik, düzlem).</li>
+<li><b>Lejant:</b> Harita işaret ve sembollerini açıklayan bölüm (harita anahtarı).</li>
+<li><b>Ölçek:</b> Küçültme oranı; kesir ya da çizgi ölçek olarak gösterilir.</li>
+<li><b>İzohips (eş yükselti eğrisi):</b> Aynı yükseltideki noktaları birleştiren eğri. <b>İzobat:</b> Aynı derinlikteki noktaları birleştiren eğri.</li>
+<li><b>Eküidistans:</b> İki komşu izohips arasındaki yükselti farkı.</li>
+<li><b>Boyun:</b> İki tepe arasındaki alçak geçiş alanı. <b>Zirve:</b> En yüksek nokta.</li>
+<li><b>Delta / haliç:</b> Akarsu ağzında oluşan çıkıntı / girinti.</li>
+<li><b>Falez (yalıyar):</b> Deniz kıyısındaki dik yamaç.</li>
+<li><b>CBS:</b> Mekânsal verileri toplayan, işleyen ve görüntüleyen coğrafi bilgi sistemi.</li>
+<li><b>Uzaktan algılama:</b> Uzaktaki platformlardaki aletlerle yeryüzü hakkında bilgi toplama tekniği.</li>
+</ul>
+
+<h3>13) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Büyük ölçek – küçük ölçek:</b> "Büyük ölçek" paydası <b>küçük</b> olan haritadır (1/25.000 > 1/1.000.000). Payda büyüdükçe ölçek küçülür, ayrıntı azalır, gösterilen alan genişler.</li>
+<li><b>Ölçek değişince ne değişir?</b> Harita uzunluğu, harita alanı ve ayrıntı <b>değişir</b>; gerçek uzunluk, gerçek alan, yükselti ve koordinatlar <b>değişmez</b>.</li>
+<li><b>Alan hesabında karesi:</b> Uzunlukta ölçek paydasıyla <b>çarpılır</b>, alanda paydanın <b>karesiyle</b> çarpılır. En sık hata alanda kare almayı unutmaktır.</li>
+<li><b>Vadi mi sırt mı?</b> Büklüm <b>yüksek yöne</b> ise vadi, <b>alçak yöne</b> ise sırttır. Vadi tabanında akarsu bulunur.</li>
+<li><b>Renk ≠ yer şekli:</b> Renklendirmede yeşil "ova", kahverengi "dağ" demek değildir; renkler yalnızca <b>yükselti</b> basamağını gösterir.</li>
+<li><b>Konik projeksiyon</b> orta enlemler için, <b>silindirik</b> Ekvator çevresi için, <b>düzlem</b> kutup bölgeleri ve dar alanlar için uygundur; Türkiye için doğru cevap <b>konik</b>tir.</li>
+<li><b>Eğimde birim:</b> Yükselti farkı m, yatay uzaklık da <b>m</b> olmalıdır; km bırakılırsa sonuç 1000 kat yanlış çıkar.</li>
+<li><b>İzohips sıklığı:</b> Sık eğri <b>dik eğim</b>, seyrek eğri <b>az eğim</b> demektir; sıklık yükseltiyi değil eğimi anlatır.</li>
+</ul>
+
+<h3>14) Özet Kartı</h3>
+<ul>
+<li>Harita = kuş bakışı + düzlem + ölçek; kroki ölçeksizdir.</li>
+<li>Projeksiyon: silindirik (Ekvator), konik (orta enlem → Türkiye), düzlem (kutup/dar alan).</li>
+<li>Unsurlar: başlık, lejant, koordinatlar, yön oku, ölçek. Ölçek değişse gerçek alan/uzunluk/yükselti/koordinat değişmez.</li>
+<li>Ölçek türleri: büyük (&gt;1/200.000), orta (1/200.000–1/500.000), küçük (&lt;1/500.000); büyük ölçek = az küçültme, çok ayrıntı, dar alan.</li>
+<li>GU = HU × ÖP · HU = GU ÷ ÖP · Ö = HU ÷ GU · GA = HA × ÖP² · Eğim = (Δh ÷ yatay uzaklık) × 100.</li>
+<li>Yer şekli gösterimi: kabartma (3 boyutlu), renklendirme (yalnız yükselti), izohips (en yaygın).</li>
+<li>İzohips: kapalı eğriler, kesişmez, kıyı 0 m, sık eğri dik yamaç; vadi yüksek yöne, sırt alçak yöne büklüm.</li>
+<li>CBS bileşenleri: donanım, yazılım, veri, yöntem, kullanıcı; uzaktan algılama verileri noktasal/çizgisel/alansal gösterilir.</li>
+</ul>
+
+</body></html>

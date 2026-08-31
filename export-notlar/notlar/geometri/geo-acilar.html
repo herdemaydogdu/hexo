@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Açılar ve Paralel Doğrular</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Açılar ve Paralel Doğrular</h2>
+
+<p>Geometrinin tamamı üç şey üzerine kuruludur: <b>uzunluk</b>, <b>açı</b> ve <b>alan</b>. Bu ünite ikincisini kuruyor — ve aslında geometrinin <b>alfabesidir</b>. Üçgen, dörtgen, çember konularında yapacağın her açı hesabı buradaki birkaç kuralın tekrarıdır. İyi haber şu: bu ünitede ezberlenecek formül neredeyse yoktur; öğrenilecek olan <b>şekle bakıp doğru ilişkiyi görmektir</b>. Bu yüzden aşağıdaki her kuralı bir çizimle birlikte vereceğiz — çünkü geometride kural, gördüğün andan itibaren senindir.</p>
+
+<h3>1) Açı Kavramı ve Gösterimi</h3>
+<p class="formula">TANIM — Düzlemde <b>başlangıç noktaları ortak olan iki ışının</b> birleşiminin oluşturduğu açıklığa <b>açı</b> denir.<br/>
+• <b>[OA</b> ve <b>[OB</b> ışınlarına açının <b>kolları (kenarları)</b>, <b>O</b> noktasına açının <b>köşesi</b> denir.<br/>
+• <b>Adlandırma:</b> Köşe ve kollar üzerindeki noktalar kullanılır: <b>AÔB</b>, <b>BÔA</b> ya da kısaca <b>Ô</b>.<br/>
+<u>Dikkat: adlandırmada <b>köşe daima ORTADA</b> yazılır. AÔB ile BÔA aynı açıdır ama AÔB ile OÂB farklı açılardır.</u></p>
+<p class="formula">AÇININ ÖLÇÜSÜ — Tam çember yayının (çevresinin) <b>360 eş parçasından birini</b> gören merkez açının ölçüsüne <b>1 derecelik açı</b> denir ve <b>1°</b> ile gösterilir.<br/>
+<u>Yani derece, "çemberin kaçta kaçını gördüğünü" ölçen bir birimdir. 360 sayısının seçilmiş olması tarihseldir (Babil, 60 tabanlı sayı sistemi); matematiksel bir zorunluluk değildir — ama 360'ın çok sayıda böleni olması onu pratikte çok kullanışlı yapar.</u><br/>
+<b>Alt birimler:</b> <b>1° = 60′ (dakika)</b> &nbsp;·&nbsp; <b>1′ = 60″ (saniye)</b></p>
+
+<h3>2) Açı Çeşitleri</h3>
+<table>
+<tr><th>Açı</th><th>Ölçüsü</th><th>Nasıl tanınır?</th></tr>
+<tr><td><b>Dar açı</b></td><td><b>0° &lt; α &lt; 90°</b></td><td>Dik açıdan <b>küçük</b>.</td></tr>
+<tr><td><b>Dik açı</b></td><td><b>α = 90°</b></td><td>Kollar birbirine <b>dik</b>; şekilde küçük kareyle gösterilir.</td></tr>
+<tr><td><b>Geniş açı</b></td><td><b>90° &lt; α &lt; 180°</b></td><td>Dik açıdan büyük, doğru açıdan küçük.</td></tr>
+<tr><td><b>Doğru açı</b></td><td><b>α = 180°</b></td><td>Kollar <b>zıt ışın</b>; açı düz bir doğru gibi görünür.</td></tr>
+<tr><td><b>Tam açı</b></td><td><b>α = 360°</b></td><td>Bir tam tur; kollar <b>üst üste</b> gelir.</td></tr>
+</table>
+<svg viewBox="0 0 640 210" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Açı çeşitleri">
+  <rect x="0" y="0" width="640" height="210" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Açı çeşitleri</text>
+  <g stroke="#0369a1" stroke-width="2.5" stroke-linecap="round">
+    <line x1="55" y1="140" x2="115" y2="140"/><line x1="55" y1="140" x2="94" y2="94"/>
+    <line x1="180" y1="140" x2="240" y2="140"/><line x1="180" y1="140" x2="180" y2="80"/>
+    <line x1="330" y1="140" x2="390" y2="140"/><line x1="330" y1="140" x2="292" y2="94"/>
+    <line x1="450" y1="140" x2="520" y2="140"/><line x1="450" y1="140" x2="410" y2="140"/>
+  </g>
+  <g fill="#0369a1">
+    <circle cx="55" cy="140" r="3.5"/><circle cx="180" cy="140" r="3.5"/>
+    <circle cx="330" cy="140" r="3.5"/><circle cx="465" cy="140" r="3.5"/>
+  </g>
+  <path d="M 80 140 A 25 25 0 0 0 71 121" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <rect x="180" y="120" width="20" height="20" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <path d="M 355 140 A 25 25 0 0 0 313 122" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <path d="M 490 140 A 25 25 0 0 0 440 140" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <circle cx="575" cy="130" r="26" fill="none" stroke="#0369a1" stroke-width="2.5"/>
+  <circle cx="575" cy="130" r="3.5" fill="#0369a1"/>
+  <line x1="575" y1="130" x2="575" y2="104" stroke="#0369a1" stroke-width="2.5"/>
+  <path d="M 575 108 A 22 22 0 1 1 556 118" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <g font-size="11" font-weight="700" fill="#334155" text-anchor="middle">
+    <text x="85" y="175">DAR AÇI</text><text x="200" y="175">DİK AÇI</text>
+    <text x="340" y="175">GENİŞ AÇI</text><text x="465" y="175">DOĞRU AÇI</text><text x="575" y="175">TAM AÇI</text>
+  </g>
+  <g font-size="10" fill="#475569" text-anchor="middle">
+    <text x="85" y="192">0° &lt; α &lt; 90°</text><text x="200" y="192">α = 90°</text>
+    <text x="340" y="192">90° &lt; α &lt; 180°</text><text x="465" y="192">α = 180°</text><text x="575" y="192">α = 360°</text>
+  </g>
+</svg>
+
+<h3>3) Açı İkilileri</h3>
+<p class="formula">TÜMLER AÇILAR — Ölçüleri toplamı <b>90°</b> olan iki açıdır.<br/>
+<b>x + y = 90°</b> &nbsp;·&nbsp; <u>x'in tümleri = <b>90° − x</b></u><br/>
+<b>BÜTÜNLER AÇILAR</b> — Ölçüleri toplamı <b>180°</b> olan iki açıdır.<br/>
+<b>a + b = 180°</b> &nbsp;·&nbsp; <u>a'nın bütünleri = <b>180° − a</b></u><br/>
+<b>KOMŞU AÇILAR</b> — <b>Birer ışını (kolu) ortak</b> olan açılardır.<br/>
+• Hem komşu hem tümler → <b>komşu tümler açılar</b><br/>
+• Hem komşu hem bütünler → <b>komşu bütünler açılar</b><br/>
+<u>Kritik ayrım: "tümler/bütünler" olmak için açıların <b>yan yana durması gerekmez</b>; sadece ölçüleri toplamına bakılır. Komşuluk ise konumla ilgilidir. İkisi bir arada olursa "komşu tümler / komşu bütünler" denir.</u></p>
+<p class="formula">TERS AÇILAR — Birbirini kesen iki doğrunun oluşturduğu açılardan <b>komşu OLMAYAN</b> açılara <b>ters açılar</b> denir.<br/>
+<b>Ters açıların ölçüleri BİRBİRİNE EŞİTTİR.</b><br/>
+<u>Neden? İki doğru kesiştiğinde dört açı oluşur ve yan yana duran her ikisi bütünlerdir. a + b = 180° ve b + c = 180° ise a = c olmak zorundadır. Yani ters açıların eşitliği bir ezber değil, bütünlerlikten çıkan bir sonuçtur.</u><br/>
+<b>AÇIORTAY</b> — Bir açıyı <b>iki eş açıya bölen</b> ışındır. m(AÔC) = m(CÔB) ise [OC, AÔB açısının açıortayıdır.</p>
+<svg viewBox="0 0 640 240" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tümler, bütünler ve ters açılar">
+  <rect x="0" y="0" width="640" height="240" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Tümler, bütünler ve ters açılar</text>
+  <g stroke="#0369a1" stroke-width="2.5" stroke-linecap="round">
+    <line x1="60" y1="160" x2="150" y2="160"/><line x1="60" y1="160" x2="60" y2="75"/>
+    <line x1="60" y1="160" x2="129" y2="111"/>
+  </g>
+  <circle cx="60" cy="160" r="3.5" fill="#0369a1"/>
+  <rect x="60" y="140" width="20" height="20" fill="none" stroke="#94a3b8" stroke-width="1.6"/>
+  <text x="97" y="152" font-size="13" font-weight="700" fill="#dc2626">x</text>
+  <text x="74" y="118" font-size="13" font-weight="700" fill="#16a34a">y</text>
+  <text x="105" y="192" font-size="12" font-weight="700" fill="#334155" text-anchor="middle">TÜMLER</text>
+  <text x="105" y="210" font-size="12" font-weight="700" fill="#334155" text-anchor="middle">x + y = 90°</text>
+  <text x="105" y="228" font-size="10" fill="#475569" text-anchor="middle">Kollar dik açı oluşturuyor.</text>
+  <line x1="220" y1="160" x2="380" y2="160" stroke="#0369a1" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="300" y1="160" x2="345" y2="90" stroke="#0369a1" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="300" cy="160" r="3.5" fill="#0369a1"/>
+  <text x="330" y="148" font-size="13" font-weight="700" fill="#dc2626">a</text>
+  <text x="272" y="148" font-size="13" font-weight="700" fill="#16a34a">b</text>
+  <text x="300" y="192" font-size="12" font-weight="700" fill="#334155" text-anchor="middle">KOMŞU BÜTÜNLER</text>
+  <text x="300" y="210" font-size="12" font-weight="700" fill="#334155" text-anchor="middle">a + b = 180°</text>
+  <text x="300" y="228" font-size="10" fill="#475569" text-anchor="middle">Kollar doğru açı oluşturuyor, bir kol ortak.</text>
+  <line x1="450" y1="185" x2="600" y2="105" stroke="#0369a1" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="450" y1="105" x2="600" y2="185" stroke="#0369a1" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="525" cy="145" r="3.5" fill="#0369a1"/>
+  <text x="525" y="118" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle">a</text>
+  <text x="525" y="180" font-size="13" font-weight="700" fill="#dc2626" text-anchor="middle">a</text>
+  <text x="484" y="152" font-size="13" font-weight="700" fill="#16a34a" text-anchor="middle">b</text>
+  <text x="566" y="152" font-size="13" font-weight="700" fill="#16a34a" text-anchor="middle">b</text>
+  <text x="525" y="205" font-size="12" font-weight="700" fill="#334155" text-anchor="middle">TERS AÇILAR</text>
+  <text x="525" y="223" font-size="10" fill="#475569" text-anchor="middle">Komşu olmayanlar eşittir; a + b = 180°.</text>
+</svg>
+<p class="formula">ÖRNEK — Bir açının <b>tümlerinin 3 katı</b>, o açının <b>bütünlerine</b> eşit olduğuna göre açının ölçüsü kaç derecedir?</p>
+<ul>
+<li><b>Adım 1 — Değişken ver:</b> Açı x olsun. <u>Tümleri (90 − x)</u>, <u>bütünleri (180 − x)</u>'tir.</li>
+<li><b>Adım 2 — Denklemi kur:</b> Soru cümlesini olduğu gibi yaz: <b>3(90 − x) = 180 − x</b>.</li>
+<li><b>Adım 3 — Çöz:</b> 270 − 3x = 180 − x → 270 − 180 = 3x − x → 90 = 2x → <b>x = 45°</b>.</li>
+<li><b>Doğrulama:</b> Tümleri 45°, üç katı 135°; bütünleri 180 − 45 = 135° ✓</li>
+<li><b>Ders:</b> <u>Bu tip sorularda tek yapman gereken "tümler = 90 − x, bütünler = 180 − x" yazıp cümleyi denkleme çevirmektir. Şekil çizmeye bile gerek yoktur.</u></li>
+</ul>
+
+<h3>4) Paralel İki Doğrunun Bir Kesenle Yaptığı Açılar</h3>
+<p class="formula">KURULUM — <b>d₁ // d₂</b> paralel doğruları, <b>d₃</b> keseni tarafından kesilsin. Oluşan <b>8 açı</b> yalnızca <b>iki farklı ölçüye</b> sahiptir: birbirine eşit dört <b>dar</b> ve birbirine eşit dört <b>geniş</b> açı. Bu ikisinin toplamı da <b>180°</b>'dir.<br/>
+<u>Yani gerçekte ezberlenecek dört isim yok, tek bir gerçek var: <b>aynı görünenler eşit, farklı görünenler bütünler</b>. Aşağıdaki isimler bu gerçeğin konumsal adlarıdır.</u></p>
+<table>
+<tr><th>Açı ikilisi</th><th>Tanım</th><th>Bağıntı</th></tr>
+<tr><td><b>Yöndeş açılar</b></td><td><b>Aynı yönlü</b> açılar</td><td><b>Eşittir</b> (A₁=B₁, A₂=B₂, A₃=B₃, A₄=B₄)</td></tr>
+<tr><td><b>İç ters açılar</b></td><td>Paralel doğruların <b>arasında</b>, kesenin <b>zıt</b> taraflarında</td><td><b>Eşittir</b> (A₃=B₁, A₄=B₂)</td></tr>
+<tr><td><b>Dış ters açılar</b></td><td>Paralel doğruların <b>dışında</b>, kesenin <b>zıt</b> taraflarında</td><td><b>Eşittir</b> (A₁=B₃, A₂=B₄)</td></tr>
+<tr><td><b>Karşı durumlu açılar</b></td><td>Paralel doğruların <b>arasında</b>, kesenin <b>aynı</b> tarafında</td><td><b>Toplamları 180°</b></td></tr>
+</table>
+<svg viewBox="0 0 640 280" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Paralel iki doğrunun bir kesenle yaptığı açılar">
+  <rect x="0" y="0" width="640" height="280" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Paralel doğrular ve kesen: 8 açı, 2 farklı ölçü</text>
+  <line x1="50" y1="90" x2="400" y2="90" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="50" y1="210" x2="400" y2="210" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="150" y1="45" x2="330" y2="255" stroke="#b45309" stroke-width="2.5"/>
+  <text x="408" y="94" font-size="12" font-weight="700" fill="#0369a1">d₁</text>
+  <text x="408" y="214" font-size="12" font-weight="700" fill="#0369a1">d₂</text>
+  <text x="336" y="262" font-size="12" font-weight="700" fill="#b45309">d₃</text>
+  <circle cx="188" cy="90" r="4" fill="#334155"/><circle cx="291" cy="210" r="4" fill="#334155"/>
+  <text x="176" y="82" font-size="11" font-weight="700" fill="#334155">A</text>
+  <text x="300" y="204" font-size="11" font-weight="700" fill="#334155">B</text>
+  <g font-size="12" font-weight="700" fill="#dc2626">
+    <text x="152" y="80">1</text><text x="212" y="76">2</text>
+  </g>
+  <g font-size="12" font-weight="700" fill="#16a34a">
+    <text x="160" y="112">3</text><text x="205" y="114">4</text>
+  </g>
+  <g font-size="12" font-weight="700" fill="#dc2626">
+    <text x="255" y="200">1</text><text x="315" y="196">2</text>
+  </g>
+  <g font-size="12" font-weight="700" fill="#16a34a">
+    <text x="263" y="232">3</text><text x="308" y="234">4</text>
+  </g>
+  <text x="60" y="250" font-size="10" fill="#475569">Kırmızı numaralar bir ölçüyü, yeşil numaralar diğerini gösterir.</text>
+  <text x="60" y="266" font-size="10" fill="#475569">Kırmızı + yeşil = 180°.</text>
+  <line x1="430" y1="45" x2="430" y2="265" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="450" y="66" font-size="11" font-weight="700" fill="#334155">YÖNDEŞ (eşit)</text>
+  <text x="450" y="84" font-size="10" fill="#475569">A₁ = B₁ · A₂ = B₂ · A₃ = B₃ · A₄ = B₄</text>
+  <text x="450" y="110" font-size="11" font-weight="700" fill="#15803d">İÇ TERS (eşit)</text>
+  <text x="450" y="128" font-size="10" fill="#475569">A₃ = B₁ · A₄ = B₂ — "Z" harfi biçiminde durur.</text>
+  <text x="450" y="154" font-size="11" font-weight="700" fill="#b45309">DIŞ TERS (eşit)</text>
+  <text x="450" y="172" font-size="10" fill="#475569">A₁ = B₃ · A₂ = B₄</text>
+  <text x="450" y="198" font-size="11" font-weight="700" fill="#b91c1c">KARŞI DURUMLU (bütünler)</text>
+  <text x="450" y="216" font-size="10" fill="#475569">A₄ + B₂ = 180° · A₃ + B₁ = 180°</text>
+  <text x="450" y="234" font-size="10" fill="#475569">"C" ya da "U" harfi biçiminde durur.</text>
+  <text x="450" y="258" font-size="10" font-weight="700" fill="#334155">Pratik: dar açılar birbirine, geniş açılar</text>
+  <text x="450" y="272" font-size="10" font-weight="700" fill="#334155">birbirine eşittir; dar + geniş = 180°.</text>
+</svg>
+<p class="formula">EN HIZLI YÖNTEM — <u>İsimleri hiç kullanmadan çözebilirsin:</u><br/>
+<b>1.</b> Şekildeki açının <b>dar mı geniş mi</b> olduğuna bak.<br/>
+<b>2.</b> Aradığın açı da <b>aynı türdense EŞİTTİR</b>, <b>farklı türdense BÜTÜNLERDİR</b> (toplamları 180°).<br/>
+<u>Bu tek cümle, yöndeş–iç ters–dış ters–karşı durumlu ayrımının tamamının yerine geçer. Sınavda ismini bulmaya çalışırken zaman kaybetme.</u></p>
+
+<h3>5) Zikzak (Kırık Doğru) Problemleri</h3>
+<p class="formula">TEMEL HAMLE — Paralel iki doğru arasında bir <b>kırılma noktası</b> varsa, o noktadan <b>paralellere paralel bir doğru çizilir</b>. Böylece kırık şekil, bildiğimiz paralel-kesen durumuna dönüşür.<br/>
+<u>Bu ünitedeki en önemli tek beceri budur. Şekil karmaşık göründüğünde çözüm neredeyse her zaman "köşeden paralel çiz"tir.</u></p>
+<p class="formula">İKİ TEMEL SONUÇ (PDF) — [AB] // [CD] olmak üzere:<br/>
+<b>• Z (zikzak) durumu:</b> Kırılma yoksa iç ters açılar eşittir → <b>x = y</b><br/>
+<b>• Kuş (tepe) durumu:</b> Aralarda bir tepe noktası varsa → <b>x + y = z</b><br/>
+<u>Yani tepedeki açı, alt ve üstteki açıların toplamına eşittir. Çünkü tepeden çizilen paralel, z açısını tam olarak x ve y'ye böler.</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zikzak kuralı ve tepeden paralel çizme">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — Tepeden paralel çiz: z = x + y</text>
+  <line x1="45" y1="70" x2="270" y2="70" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="45" y1="205" x2="270" y2="205" stroke="#0369a1" stroke-width="2.5"/>
+  <text x="278" y="74" font-size="11" font-weight="700" fill="#0369a1">A—B</text>
+  <text x="278" y="209" font-size="11" font-weight="700" fill="#0369a1">C—D</text>
+  <line x1="45" y1="137" x2="270" y2="137" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="278" y="141" font-size="10" fill="#64748b">yardımcı</text>
+  <line x1="75" y1="70" x2="215" y2="137" stroke="#b45309" stroke-width="2.5"/>
+  <line x1="215" y1="137" x2="85" y2="205" stroke="#b45309" stroke-width="2.5"/>
+  <circle cx="215" cy="137" r="4" fill="#b45309"/>
+  <text x="96" y="88" font-size="13" font-weight="700" fill="#dc2626">x</text>
+  <text x="104" y="196" font-size="13" font-weight="700" fill="#16a34a">y</text>
+  <text x="192" y="128" font-size="13" font-weight="700" fill="#dc2626">x</text>
+  <text x="192" y="156" font-size="13" font-weight="700" fill="#16a34a">y</text>
+  <text x="228" y="142" font-size="13" font-weight="700" fill="#b91c1c">z</text>
+  <text x="150" y="234" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">z = x + y</text>
+  <line x1="310" y1="45" x2="310" y2="240" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="330" y="66" font-size="11" font-weight="700" fill="#334155">Neden işliyor?</text>
+  <text x="330" y="86" font-size="10" fill="#475569">Tepe noktasından paralellere paralel bir doğru çizilir.</text>
+  <text x="330" y="102" font-size="10" fill="#475569">Bu doğru, z açısını iki parçaya ayırır.</text>
+  <text x="330" y="118" font-size="10" fill="#475569">Üstteki parça, x ile İÇ TERS olduğu için x'e eşittir.</text>
+  <text x="330" y="134" font-size="10" fill="#475569">Alttaki parça, y ile İÇ TERS olduğu için y'ye eşittir.</text>
+  <text x="330" y="150" font-size="10" font-weight="700" fill="#b91c1c">Dolayısıyla z = x + y olur.</text>
+  <text x="330" y="176" font-size="11" font-weight="700" fill="#334155">Testere (birden fazla tepe) kuralı</text>
+  <text x="330" y="196" font-size="10" fill="#475569">Her tepeden paralel çizilirse şu sonuç çıkar:</text>
+  <text x="330" y="212" font-size="10" font-weight="700" fill="#15803d">Sola bakan açıların toplamı = sağa bakan açıların toplamı</text>
+  <text x="330" y="232" font-size="10" fill="#475569">Tepe sayısı arttıkça bu kural hesabı çok kısaltır.</text>
+</svg>
+<p class="formula">ÖRNEK — <b>d₁ // d₂</b> olmak üzere, aralarındaki bir tepe noktasında oluşan açı <b>115°</b>'dir. Tepeden d₁'e bakan açı <b>40°</b> ise d₂'ye bakan açı kaç derecedir?</p>
+<ul>
+<li><b>Kural:</b> z = x + y → <b>115 = 40 + y</b>.</li>
+<li><b>Çözüm:</b> y = 115 − 40 = <b>75°</b>.</li>
+<li><b>Mantıkla kontrol:</b> <u>Tepeden paralel çizdiğimizde 115°'lik açı 40° ve 75° olarak ikiye ayrılır; bu iki parça sırasıyla üstteki ve alttaki açıyla iç ters olduğu için onlara eşittir.</u></li>
+<li><b>Sık hata:</b> <u>115 − 40 yerine 180 − 115 − 40 gibi işlemler yapmak. Tepe açısı, iki açının TOPLAMIDIR; bütünlerlik burada devreye girmez.</u></li>
+</ul>
+<p class="formula">ÖRNEK — Şekilde <b>d₁ // d₂</b>, kesenin d₁ ile yaptığı açılardan biri <b>3x + 10</b>, d₂ ile yaptığı ve <b>karşı durumlu</b> olan açı <b>x + 30</b>'dur. x kaçtır?</p>
+<ul>
+<li><b>Adım 1 — İlişkiyi belirle:</b> Karşı durumlu açılar <b>bütünlerdir</b> → toplamları <b>180°</b>.</li>
+<li><b>Adım 2 — Denklem:</b> (3x + 10) + (x + 30) = 180 → 4x + 40 = 180 → 4x = 140 → <b>x = 35</b>.</li>
+<li><b>Adım 3 — Açıları bul:</b> 3·35 + 10 = <b>115°</b> &nbsp;·&nbsp; 35 + 30 = <b>65°</b>.</li>
+<li><b>Doğrulama:</b> 115 + 65 = 180 ✓ <u>Biri geniş, biri dar — karşı durumlu açılarda beklenen tam olarak budur.</u></li>
+<li><b>Ders:</b> <u>Denklemi kurmadan önce "bu ikili eşit mi bütünler mi?" sorusunu cevapla. Yanlış ilişkiyi seçmek, işlem doğru olsa bile sonucu bozar. Kontrol yolu basit: iki açı da dar ya da ikisi de genişse EŞİT, biri dar biri genişse BÜTÜNLERDİR.</u></li>
+</ul>
+
+<h3>6) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Tümler / bütünler</b></td><td>"tümlerinin 2 katı", "bütünleri"</td><td><b>90 − x</b> ve <b>180 − x</b> yaz, cümleyi denkleme çevir.</td></tr>
+<tr><td>2</td><td><b>Ters açı</b></td><td>Kesişen iki doğru</td><td>Komşu olmayanlar <b>eşit</b>, komşular <b>bütünler</b>.</td></tr>
+<tr><td>3</td><td><b>Açıortay</b></td><td>"açıortay", eş açı işaretleri</td><td>Açıyı <b>2a</b> gibi yaz; iki eş parça oluşsun.</td></tr>
+<tr><td>4</td><td><b>Paralel + kesen</b></td><td>d₁ // d₂ ve bir kesen</td><td><b>Aynı tür eşit, farklı tür bütünler.</b></td></tr>
+<tr><td>5</td><td><b>Z (iç ters)</b></td><td>Z harfine benzeyen şekil</td><td>İki açı <b>eşittir</b>.</td></tr>
+<tr><td>6</td><td><b>Kuş / tepe</b></td><td>Paraleller arasında bir tepe</td><td><b>z = x + y</b>; tepeden paralel çiz.</td></tr>
+<tr><td>7</td><td><b>Testere</b></td><td>Paraleller arasında çok tepe</td><td>Her tepeden <b>paralel çiz</b>; sol toplam = sağ toplam.</td></tr>
+<tr><td>8</td><td><b>Cebirli açı</b></td><td>Açılar 3x+10 gibi verilmiş</td><td>Önce <b>ilişkiyi</b> belirle, sonra denklem kur.</td></tr>
+<tr><td>9</td><td><b>Açıortay + paralel</b></td><td>Hem açıortay hem paralellik</td><td>Eş açıları <b>a, a</b> ile işaretle; iç ters ilişkisini ara.</td></tr>
+<tr><td>10</td><td><b>Saat açısı</b></td><td>"saat 4'ü 20 geçe"</td><td>Akrep <b>0,5°/dk</b>, yelkovan <b>6°/dk</b>; farkı al.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 3) — Bir açının açıortayı ile bu açının <b>bütünler</b> açısının açıortayı arasındaki açı kaç derecedir?</p>
+<ul>
+<li><b>Kurulum:</b> Açı <b>2a</b>, bütünleri <b>2b</b> olsun. Komşu bütünler oldukları için <b>2a + 2b = 180°</b> → <b>a + b = 90°</b>.</li>
+<li><b>Açıortaylar:</b> Birinci açıortay ilk açıyı ikiye böler (a, a), ikincisi diğerini böler (b, b).</li>
+<li><b>Aradaki açı:</b> Ortadaki bölge <b>a + b</b> kadardır → <b>90°</b>.</li>
+<li><b>Sonuç:</b> <u>Açı kaç derece olursa olsun, komşu bütünler açıların açıortayları daima <b>DİKTİR</b>. Bu, sınavda doğrudan sorulabilen bir sonuçtur.</u></li>
+<li><b>Ders:</b> <u>Açıortay gördüğünde açıya <b>2a</b> demek, kesirlerden kurtulmanı sağlar. Bu küçük alışkanlık geometri boyunca işine yarayacak.</u></li>
+</ul>
+<p class="formula">SAAT AÇISI (Tip 10) — <u>Sık çıkan ama kolay bir alt tiptir:</u><br/>
+• <b>Yelkovan:</b> 60 dakikada 360° → <b>dakikada 6°</b><br/>
+• <b>Akrep:</b> 12 saatte 360°, yani 60 dakikada 30° → <b>dakikada 0,5°</b><br/>
+<b>Örnek:</b> Saat <b>4:20</b>'de akrep ve yelkovan arasındaki dar açı?<br/>
+• Yelkovan 12'den itibaren: 20 · 6 = <b>120°</b><br/>
+• Akrep 12'den itibaren: 4 · 30 + 20 · 0,5 = 120 + 10 = <b>130°</b><br/>
+• <b>Fark: 10°</b><br/>
+<u>Akrebin de hareket ettiğini unutmamak, bu tipteki tek gerçek zorluktur.</u></p>
+
+<h3>7) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Açı:</b> Başlangıç noktaları ortak iki ışının oluşturduğu açıklık.</li>
+<li><b>Kol (kenar):</b> Açıyı oluşturan ışınlar. <b>Köşe:</b> Ortak başlangıç noktası.</li>
+<li><b>Derece:</b> Tam çemberin 360'ta birini gören merkez açı.</li>
+<li><b>Dar açı:</b> 0° &lt; α &lt; 90°. <b>Dik açı:</b> 90°. <b>Geniş açı:</b> 90° &lt; α &lt; 180°.</li>
+<li><b>Doğru açı:</b> 180°. <b>Tam açı:</b> 360°.</li>
+<li><b>Tümler açılar:</b> Toplamları 90° olan açılar.</li>
+<li><b>Bütünler açılar:</b> Toplamları 180° olan açılar.</li>
+<li><b>Komşu açılar:</b> Bir kolu ortak olan açılar.</li>
+<li><b>Ters açılar:</b> Kesişen iki doğrunun komşu olmayan açıları; eşittirler.</li>
+<li><b>Açıortay:</b> Bir açıyı iki eş açıya bölen ışın.</li>
+<li><b>Kesen:</b> İki doğruyu kesen üçüncü doğru.</li>
+<li><b>Yöndeş açılar:</b> Aynı yönlü açılar; paralellikte eşittirler.</li>
+<li><b>İç ters açılar:</b> Paraleller arasında, kesenin zıt taraflarında; eşittirler.</li>
+<li><b>Dış ters açılar:</b> Paraleller dışında, kesenin zıt taraflarında; eşittirler.</li>
+<li><b>Karşı durumlu açılar:</b> Paraleller arasında, kesenin aynı tarafında; toplamları 180°.</li>
+</ul>
+
+<h3>8) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Tümler ile bütünleri karıştırmak:</b> <b>Tümler 90°</b>, <b>bütünler 180°</b>. <u>Hatırlatma: "tüm" kısa kelime → küçük sayı (90); "bütün" uzun kelime → büyük sayı (180).</u></li>
+<li><b>Ters açıları bütünler sanmak:</b> Ters açılar <b>EŞİTTİR</b>; komşu olanlar bütünlerdir.</li>
+<li><b>Paralellikte yanlış ilişki seçmek:</b> <b>Aynı tür (ikisi de dar/geniş) → eşit</b>, <b>farklı tür → bütünler</b>.</li>
+<li><b>Karşı durumluları eşit sanmak:</b> Toplamları <b>180°</b>'dir, eşit değildirler.</li>
+<li><b>Paralellik verilmediği hâlde kural uygulamak:</b> <u>Yöndeş/iç ters eşitlikleri YALNIZCA doğrular paralelse geçerlidir. Şekilde "//" işareti yoksa bu kuralları kullanma.</u></li>
+<li><b>Tepe açısında toplama yerine çıkarma yapmak:</b> <b>z = x + y</b>; tepedeki açı diğer ikisinin toplamıdır.</li>
+<li><b>Yardımcı paralel çizmeyi denememek:</b> Kırık şekil gördüğünde ilk hamle <b>köşeden paralel çizmektir</b>.</li>
+<li><b>Açıortayda kesirle uğraşmak:</b> Açıya <b>2a</b> de, yarısı <b>a</b> olsun.</li>
+<li><b>Açı adlandırmada köşeyi ortaya yazmamak:</b> <b>AÔB</b> doğru, <b>OÂB</b> farklı bir açıdır.</li>
+<li><b>Saat sorusunda akrebi sabit saymak:</b> Akrep de dakikada <b>0,5°</b> ilerler.</li>
+<li><b>Şekle güvenip ölçmek:</b> <u>Geometri şekilleri ölçekli çizilmez; "dik görünüyor" diye dik kabul etme. Yalnızca <b>verilen</b> bilgileri kullan.</u></li>
+</ul>
+
+<h3>9) Özet Kartı</h3>
+<ul>
+<li><b>Açı:</b> ortak başlangıçlı iki ışın; adlandırmada <b>köşe ortada</b>.</li>
+<li><b>Dar &lt; 90° &lt; Geniş &lt; 180° = Doğru</b> &nbsp;·&nbsp; <b>Tam açı = 360°</b>.</li>
+<li><b>Tümler: x + y = 90°</b> &nbsp;·&nbsp; <b>Bütünler: a + b = 180°</b>.</li>
+<li><b>Ters açılar EŞİTTİR</b>; komşu açılar bütünlerdir.</li>
+<li><b>Açıortay</b> açıyı iki eş parçaya böler → açıya <b>2a</b> de.</li>
+<li><b>Komşu bütünler açıların açıortayları birbirine DİKTİR.</b></li>
+<li><b>Paralel + kesen:</b> yöndeş, iç ters, dış ters <b>eşit</b>; karşı durumlu <b>bütünler</b>.</li>
+<li><b>En hızlı yol:</b> aynı tür açılar eşit, farklı tür açılar bütünler.</li>
+<li><b>Kırılma noktası varsa:</b> o noktadan <b>paralel çiz</b>.</li>
+<li><b>Tepe (kuş) kuralı:</b> <b>z = x + y</b>.</li>
+<li><b>Testere kuralı:</b> sola bakan açıların toplamı = sağa bakan açıların toplamı.</li>
+<li><b>Saat:</b> yelkovan <b>6°/dk</b>, akrep <b>0,5°/dk</b>.</li>
+<li><b>Paralellik verilmemişse</b> paralellik kuralları kullanılamaz; şekle bakıp ölçme.</li>
+</ul>
+
+</body></html>

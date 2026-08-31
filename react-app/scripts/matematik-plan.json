@@ -1,0 +1,326 @@
+{
+  "kaynak_pdf": "tyt matematik/tyt-matematik.pdf",
+  "project_id": "jmoimahqkiepgdmwnovs",
+  "aciklama": "MEBİ TYT Matematik Konu Özetleri (160 sayfa, 129 konu). Konu 1-91 matematik, 92-129 geometridir; bu plan yalnızca MATEMATİK bölümünü kapsar. Mevcut 26 matematik ünitesinin taslak içeriği derin anlatımla değiştirilir (soru bankası ve ünite yapısı korunur). Her çalıştırmada done=false olan İLK ünite işlenir. pdf_index = pypdf sayfa indeksi (kitap sayfası + 1).",
+  "yaklasim": [
+    "Formülü kuru kuruya verme: her kuralın ARKASINDAKİ MANTIĞI önce sezgisel olarak kur, sonra formülleştir",
+    "Her alt başlıkta en az bir ÇÖZÜMLÜ ÖRNEK; çözümün her adımında 'neden bu adım' açıklaması",
+    "SORU TİPLERİ bölümü zorunlu: o konudan TYT'de kaç farklı kalıpta soru gelir, her kalıbın tanınma işareti ve çözüm refleksi",
+    "Hesap kısayolları ve pratik yöntemler ayrı kutuda (test tekniği)",
+    "Sık yapılan hatalar / sınav tuzakları bölümü zorunlu"
+  ],
+  "bicim_kurallari": [
+    "Tek <h2> ünite adı; bölümler <h3>; paragraf <p>; liste <ul><li>; vurgu <b>, örnek/özel isim <u>",
+    "KURAL/MANTIK/İPUCU/DİKKAT kutuları: <p class=\"formula\">",
+    "Karşılaştırma ve kural tabloları <table><tr><th>/<td> ile",
+    "Şekil, sayı doğrusu, grafik, Venn şeması için satır içi <svg viewBox=... width=\"100%\">; Markdown KULLANMA",
+    "Çözümlü örnekler: <p class=\"formula\">ÖRNEK — …</p> ardından adım adım <ul><li>",
+    "Her ünitede: Soru Tipleri + Kavram Sözlüğü + Sınavda Sık Karıştırılanlar + Özet Kartı bölümleri zorunlu"
+  ],
+  "konular": [
+    {
+      "sira": 1,
+      "unit_id": "mat-temel",
+      "name": "Temel Kavramlar ve Sayı Kümeleri",
+      "pdf_konular": [
+        "1. Sayı Kümeleri",
+        "2. Temel İşlemler",
+        "3. Tek ve Çift Sayılar",
+        "4. Pozitif ve Negatif Sayılar",
+        "5. Ardışık Sayılar",
+        "6. Sayı Basamakları",
+        "7. Asal ve Aralarında Asal Sayılar"
+      ],
+      "pdf_index": "10-19",
+      "done": true
+    },
+    {
+      "sira": 2,
+      "unit_id": "mat-bolme",
+      "name": "Bölme ve Bölünebilme",
+      "pdf_konular": [
+        "8. Tam Sayılarda Kalanlı Bölme İşlemi",
+        "9. Bölünebilme Kuralları 1",
+        "10. Bölünebilme Kuralları 2"
+      ],
+      "pdf_index": "19-22",
+      "done": true
+    },
+    {
+      "sira": 3,
+      "unit_id": "mat-ebobekok",
+      "name": "EBOB – EKOK",
+      "pdf_konular": [
+        "11. Asal Çarpanlar",
+        "12. Ebob-Ekok Kavramları ve Özellikleri",
+        "13. Ebob Ekok Problemleri",
+        "14. Periyodik Problemler"
+      ],
+      "pdf_index": "23-26",
+      "done": true
+    },
+    {
+      "sira": 4,
+      "unit_id": "mat-rasyonel",
+      "name": "Rasyonel Sayılar",
+      "pdf_konular": ["15. Rasyonel Sayılarda İşlemler"],
+      "pdf_index": "27-28",
+      "done": true
+    },
+    {
+      "sira": 5,
+      "unit_id": "mat-ondalik",
+      "name": "Ondalık Gösterim",
+      "pdf_konular": ["16. Ondalıklı ve Devirli Ondalıklı Sayılar"],
+      "pdf_index": "28-30",
+      "done": true
+    },
+    {
+      "sira": 6,
+      "unit_id": "mat-esitsizlik",
+      "name": "Basit Eşitsizlikler",
+      "pdf_konular": [
+        "17. Gerçek Sayılar Kümesinde Aralık Kavramı",
+        "19. Basit Eşitsizlikler",
+        "21. Birinci Dereceden İki Bilinmeyenli Eşitsizlikler",
+        "22. Birinci Dereceden İki Bilinmeyenli Eşitsizlik Sistemleri"
+      ],
+      "pdf_index": "30-31, 33, 35-36",
+      "done": true
+    },
+    {
+      "sira": 7,
+      "unit_id": "mat-denklem",
+      "name": "Denklem Çözme",
+      "pdf_konular": [
+        "18. Birinci Dereceden Bir Bilinmeyenli Denklemler",
+        "20. Birinci Dereceden İki Bilinmeyenli Denklemler",
+        "83. İkinci Dereceden Bir Bilinmeyenli Denklemler",
+        "84. İkinci Dereceden Denklemlerin Çözüm Kümesi",
+        "85. Diskriminant Kavramı",
+        "86. Karmaşık Sayılar",
+        "87. Kök – Katsayı İlişkisi"
+      ],
+      "pdf_index": "32, 34, 103-107",
+      "done": true
+    },
+    {
+      "sira": 8,
+      "unit_id": "mat-mutlak",
+      "name": "Mutlak Değer",
+      "pdf_konular": [
+        "23. Mutlak Değer Kavramı ve Özellikleri",
+        "24. Mutlak Değerli Denklemler ve Eşitsizlikler"
+      ],
+      "pdf_index": "37-39",
+      "done": true
+    },
+    {
+      "sira": 9,
+      "unit_id": "mat-uslu",
+      "name": "Üslü Sayılar",
+      "pdf_konular": [
+        "25. Üslü İfadeler ve Özellikleri",
+        "26. Üslü İfade İçeren Denklemler ve Eşitsizlikler"
+      ],
+      "pdf_index": "40-42",
+      "done": true
+    },
+    {
+      "sira": 10,
+      "unit_id": "mat-koklu",
+      "name": "Köklü Sayılar",
+      "pdf_konular": [
+        "27. Köklü İfadeler ve Özellikleri",
+        "28. Köklü İfadeleri İçeren Denklemler ve Eşitsizlikler"
+      ],
+      "pdf_index": "43-45",
+      "done": true
+    },
+    {
+      "sira": 11,
+      "unit_id": "mat-oran",
+      "name": "Oran ve Orantı",
+      "pdf_konular": [
+        "29. Oran - Orantı Kavramı ve Özellikleri",
+        "30. Oran - Orantı Problemleri"
+      ],
+      "pdf_index": "46-47",
+      "done": true
+    },
+    {
+      "sira": 12,
+      "unit_id": "mat-sayi",
+      "name": "Sayı Problemleri",
+      "pdf_konular": ["31. Sayı Problemleri"],
+      "pdf_index": "48",
+      "done": true
+    },
+    {
+      "sira": 13,
+      "unit_id": "mat-kesirprob",
+      "name": "Kesir Problemleri",
+      "pdf_konular": ["32. Kesir Problemleri"],
+      "pdf_index": "49",
+      "done": true
+    },
+    {
+      "sira": 14,
+      "unit_id": "mat-yas",
+      "name": "Yaş Problemleri",
+      "pdf_konular": ["33. Yaş Problemleri"],
+      "pdf_index": "50",
+      "done": true
+    },
+    {
+      "sira": 15,
+      "unit_id": "mat-isci",
+      "name": "İşçi ve Havuz Problemleri",
+      "pdf_konular": ["34. İşçi Problemleri"],
+      "pdf_index": "51",
+      "done": true
+    },
+    {
+      "sira": 16,
+      "unit_id": "mat-yuzde",
+      "name": "Yüzde, Kâr-Zarar ve Faiz Problemleri",
+      "pdf_konular": ["35. Yüzde Problemleri", "36. Kâr – Zarar Problemleri"],
+      "pdf_index": "52-53",
+      "done": true
+    },
+    {
+      "sira": 17,
+      "unit_id": "mat-karisim",
+      "name": "Karışım Problemleri",
+      "pdf_konular": ["37. Karışım Problemleri"],
+      "pdf_index": "54",
+      "done": true
+    },
+    {
+      "sira": 18,
+      "unit_id": "mat-hareket",
+      "name": "Hareket (Hız) Problemleri",
+      "pdf_konular": ["38. Hareket Problemleri"],
+      "pdf_index": "55",
+      "done": true
+    },
+    {
+      "sira": 19,
+      "unit_id": "mat-problem",
+      "name": "Problem Çözme — Genel Stratejiler",
+      "pdf_konular": ["39. Rutin Olmayan Problemler"],
+      "pdf_index": "56",
+      "done": true
+    },
+    {
+      "sira": 20,
+      "unit_id": "mat-mantik",
+      "name": "Mantık",
+      "pdf_konular": [
+        "40. Önermeler",
+        "41. Bileşik Önermeler",
+        "42. Koşullu Önerme",
+        "43. İki Yönlü Koşullu Önerme",
+        "44. Niceleyiciler",
+        "45. Tanım, Aksiyom, Teorem ve İspat"
+      ],
+      "pdf_index": "57-64",
+      "done": true
+    },
+    {
+      "sira": 21,
+      "unit_id": "mat-kume",
+      "name": "Kümeler",
+      "pdf_konular": [
+        "46. Kümelerde Temel Kavramlar",
+        "47. Alt Küme",
+        "48. Kümelerde Kesişim ve Birleşim",
+        "49. Kümelerde Fark ve Tümleme",
+        "50. Küme Problemleri",
+        "51. Sıralı İkililer ve Kartezyen Çarpım"
+      ],
+      "pdf_index": "65-70",
+      "done": true
+    },
+    {
+      "sira": 22,
+      "unit_id": "mat-olasilik",
+      "name": "Permütasyon, Kombinasyon ve Olasılık",
+      "pdf_konular": [
+        "52. Saymanın Temel İlkesi",
+        "53. Faktöriyel Kavramı",
+        "54. Permütasyon",
+        "55. Tekrarlı Permütasyon",
+        "56. Kombinasyon Kavramı ve Özellikleri",
+        "57. Kombinasyon Problemleri",
+        "58. Kombinasyon ve Geometri",
+        "59. Binom Açılımı",
+        "60. Olasılıkta Temel Kavramlar",
+        "61. Basit Olayların Olasılıkları"
+      ],
+      "pdf_index": "71-81",
+      "done": true
+    },
+    {
+      "sira": 23,
+      "unit_id": "mat-fonksiyon",
+      "name": "Fonksiyonlar",
+      "pdf_konular": [
+        "62. Fonksiyon Kavramı ve Gösterimi",
+        "63-64. Fonksiyon Sorularında Dikkat Edilecekler",
+        "65. İçine, Örten, Birebir ve Eşit Fonksiyonlar",
+        "66. Birim ve Sabit Fonksiyon",
+        "67. Doğrusal ve Parçalı Fonksiyon",
+        "68. Çift ve Tek Fonksiyon",
+        "69. Fonksiyonlarda Dört İşlem",
+        "70. Fonksiyon Grafiklerini Çizme",
+        "71. İki Fonksiyonun Bileşkesi",
+        "72. Bir Fonksiyonun Tersi",
+        "73. Fonksiyon Grafikleri ile İlgili Uygulamalar"
+      ],
+      "pdf_index": "82-93",
+      "done": true
+    },
+    {
+      "sira": 24,
+      "unit_id": "mat-polinom",
+      "name": "Polinomlar",
+      "pdf_konular": [
+        "74. Polinom Kavramı",
+        "75. Polinomlarda Toplama, Çıkarma ve Çarpma",
+        "76. Polinomlarda Bölme İşlemi",
+        "77. Bölme İşlemi Yapmadan Kalan Bulma"
+      ],
+      "pdf_index": "94-97",
+      "done": true
+    },
+    {
+      "sira": 25,
+      "unit_id": "mat-carpan",
+      "name": "Çarpanlara Ayırma",
+      "pdf_konular": [
+        "78. Ortak Çarpan Parantezine Alma",
+        "79. Tam Kare ve İki Kare Farkı Özdeşlikleri",
+        "80. Tam Küp, İki Küp Farkı ve Toplamı",
+        "81. Üç Terimli İfadelerin Çarpanlara Ayrılması",
+        "82. Rasyonel İfadelerin Sadeleştirilmesi"
+      ],
+      "pdf_index": "98-102",
+      "done": true
+    },
+    {
+      "sira": 26,
+      "unit_id": "mat-istatistik",
+      "name": "Veri, Grafik ve Temel İstatistik",
+      "pdf_konular": [
+        "88. Veri",
+        "89. Merkezî Yayılım Ölçüleri",
+        "90. Histogram",
+        "91. Grafik Çeşitleri"
+      ],
+      "pdf_index": "108-111",
+      "done": true
+    }
+  ],
+  "geometri_notu": "PDF konu 92-129 geometridir (açılar, üçgen, benzerlik, açıortay-kenarortay-yükseklik, Pisagor-Öklid, trigonometri, alan, çokgenler, dörtgenler, katı cisimler). Matematik bittikten sonra ayrı bir geometri-plan.json ile işlenecek; geometri branşında şu an yalnızca 2 ünite var, önce ünite yapısı kurulmalı."
+}

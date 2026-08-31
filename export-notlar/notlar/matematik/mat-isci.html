@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>İşçi ve Havuz Problemleri</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>İşçi ve Havuz Problemleri</h2>
+
+<p>İşçi ve havuz problemleri tek bir fikirle çözülür: <b>süreyi değil, BİRİM ZAMANDA YAPILAN İŞİ topla.</b> "Bir işçi işi 4 günde, diğeri 6 günde bitiriyorsa birlikte 10 günde bitirirler" demek, bu konuda yapılabilecek en büyük hatadır — birlikte çalışınca iş <u>daha çabuk</u> biter, daha geç değil. Süreler toplanmaz; <b>hızlar toplanır</b>. Bu ünitede önce bu ayrımı kuracağız, sonra kesirle uğraşmadan çözmeyi sağlayan <b>EKOK yöntemini</b> öğreneceğiz.</p>
+
+<h3>1) Temel Fikir: Birim Zamanda Yapılan İş</h3>
+<p class="formula">TANIM — Bir işçi bir işin tamamını <b>x günde</b> yapıyorsa:<br/>
+• <b>Bir günde işin 1/x'ini</b> yapar.<br/>
+• <b>a günde işin a/x'ini</b> yapar.<br/>
+<u>Buradaki 1/x sayısı işçinin "hızıdır". İş bittiğinde toplam iş 1'e (bütüne) eşit olur.</u></p>
+<p class="formula">BİRLİKTE ÇALIŞMA — Birinci işçi işi <b>a günde</b>, ikinci işçi <b>b günde</b> bitiriyorsa ve birlikte <b>x günde</b> bitiriyorlarsa:<br/>
+<b>1/a + 1/b = 1/x</b><br/>
+<u>Neden toplanıyor? Çünkü bir günde birinci 1/a, ikinci 1/b kadar iş yapar; birlikte çalıştıklarında bir günde yaptıkları iş bunların toplamıdır. Bu toplam da 1/x'e eşit olmalıdır.</u><br/>
+<b>DİKKAT:</b> Toplanan şey <u>hızlardır</u>, süreler değil. Sonuçta bulduğun 1/x'i <b>ters çevirmeyi</b> unutma — soru x'i istiyor, 1/x'i değil.</p>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Süreler değil hızlar toplanır">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Süreler toplanmaz, hızlar toplanır</text>
+  <rect x="30" y="44" width="270" height="110" rx="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="165" y="68" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">YANLIŞ DÜŞÜNCE</text>
+  <text x="165" y="90" font-size="11" fill="#b91c1c" text-anchor="middle">"4 gün + 6 gün = 10 gün"</text>
+  <text x="165" y="112" font-size="11" fill="#b91c1c" text-anchor="middle">Birlikte çalışınca iş nasıl</text>
+  <text x="165" y="128" font-size="11" fill="#b91c1c" text-anchor="middle">daha GEÇ bitsin?</text>
+  <text x="165" y="146" font-size="10" fill="#b91c1c" text-anchor="middle">Mantık kontrolü anında elemeli</text>
+  <rect x="340" y="44" width="270" height="110" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="475" y="68" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">DOĞRU DÜŞÜNCE</text>
+  <text x="475" y="90" font-size="11" fill="#15803d" text-anchor="middle">1 günde: 1/4 + 1/6 = 5/12</text>
+  <text x="475" y="112" font-size="11" fill="#15803d" text-anchor="middle">Tüm iş için: 12/5 = 2,4 gün</text>
+  <text x="475" y="134" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">Sonuç ikisinden de KÜÇÜK ✓</text>
+  <line x1="26" y1="176" x2="614" y2="176" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="196" font-size="10" fill="#475569">Kontrol kuralı: birlikte çalışma süresi, HER İKİ işçinin tek başına süresinden de küçük çıkmalıdır.</text>
+  <text x="26" y="212" font-size="10" fill="#475569">Ayrıca sonuç, hızlı olanın süresinin yarısından büyük olmalıdır (iki eşit işçi olsa yarı sürede biterdi).</text>
+  <text x="26" y="228" font-size="10" fill="#475569">Yani 4 ve 6 gün için sonuç mutlaka 2 ile 4 arasındadır. 2,4 bu aralıkta ✓ Şıkları saniyede eler.</text>
+  <text x="26" y="244" font-size="10" fill="#475569">Havuz problemlerinde de aynı mantık: dolduran musluklar POZİTİF, boşaltan musluklar NEGATİF hız katkısı yapar.</text>
+</svg>
+
+<h3>2) EKOK Yöntemi — Kesirsiz Çözüm</h3>
+<p>Formülle uğraşmak yerine, işin toplam miktarına <b>sürelerin EKOK'u kadar birim</b> vermek çok daha hızlıdır. Böylece herkesin günlük iş miktarı <u>tam sayı</u> çıkar.</p>
+<p class="formula">YÖNTEM — <b>1)</b> Verilen sürelerin EKOK'unu bul, toplam işe <b>EKOK kadar birim</b> (ya da EKOK·k) de. <b>2)</b> Her işçinin günlük iş miktarını hesapla: <u>toplam iş / o işçinin süresi</u>. <b>3)</b> Soruyu tam sayılarla çöz.<br/>
+<u>Örnek: Süreler 4 ve 6 gün → EKOK = 12 → toplam iş 12 birim → birinci işçi günde 3 birim, ikinci işçi günde 2 birim. Birlikte günde 5 birim → 12/5 = 2,4 gün.</u> <b>Hiç kesir görmedik.</b></p>
+<p class="formula">ÖRNEK (PDF) — Cem bir işi <b>4 günde</b>, Caner aynı işi <b>6 günde</b> bitirebilmektedir. İkisi birlikte işe başladıktan <b>2 gün sonra Cem işi bırakıyor</b>. Kalan işi Caner kaç günde bitirir?</p>
+<ul>
+<li><b>Adım 1 — EKOK:</b> EKOK(4, 6) = 12 → toplam iş <b>12k</b> birim olsun.</li>
+<li><b>Adım 2 — Günlük hızlar:</b> Cem 12k/4 = <b>3k</b>, &nbsp;Caner 12k/6 = <b>2k</b>.</li>
+<li><b>Adım 3 — İlk 2 gün:</b> Birlikte günde 3k + 2k = 5k → 2 günde <b>10k</b> iş yapılır.</li>
+<li><b>Adım 4 — Kalan iş:</b> 12k − 10k = <b>2k</b>.</li>
+<li><b>Adım 5 — Caner tek başına:</b> Günde 2k yaptığına göre 2k işi <b>1 günde</b> bitirir.</li>
+<li><b>Ders:</b> Aynı soruyu kesirle çözmek (1/4 + 1/6 = 5/12, 2 günde 10/12, kalan 2/12, 6·(2/12) = 1 gün) mümkün ama daha uzun. <u>EKOK yöntemi bütün payda işlemlerini ortadan kaldırdı.</u></li>
+</ul>
+
+<h3>3) Ters Orantı: İşçi Sayısı ve Süre</h3>
+<p class="formula">TEMEL İLİŞKİ — Aynı güçteki işçiler için <b>işçi sayısı × süre = sabit</b> (iş miktarı aynıysa). Yani işçi sayısı ile süre <b>ters orantılıdır</b>.<br/>
+<u>Sezgi: İşçi sayısını iki katına çıkarırsan süre yarıya iner. Toplam "işçi-gün" miktarı değişmez.</u></p>
+<p class="formula">ÖRNEK (PDF) — Aynı güçteki <b>8 işçinin 12 günde</b> boyayabileceği bir duvarı, aynı güçteki <b>6 işçi</b> kaç günde boyar?</p>
+<ul>
+<li><b>Adım 1 — İlişkiyi belirle:</b> İşçi sayısı azalırsa süre artar → <b>ters orantı</b>.</li>
+<li><b>Adım 2 — Çarpımlar eşit:</b> 8 · 12 = 6 · x → 96 = 6x → <b>x = 16 gün</b>.</li>
+<li><b>Mantık kontrolü:</b> İşçi sayısı 8'den 6'ya, yani 3/4'üne düştü → süre 4/3 katına çıkmalı: 12 · 4/3 = 16 ✓</li>
+<li><b>Tuzak:</b> Ters orantıda <u>çapraz çarpım yapılmaz</u>. 8/12 = 6/x kurarsan x = 9 bulursun; işçi azalırken sürenin azalması saçmadır.</li>
+</ul>
+<p class="formula">GENİŞLETİLMİŞ BAĞINTI — İş miktarı da değişiyorsa üç büyüklük birden devreye girer:<br/>
+<b>(İşçi₁ × Gün₁) / İş₁ = (İşçi₂ × Gün₂) / İş₂</b><br/>
+<u>Yani "işçi-gün" miktarı yapılan işle doğru orantılıdır. Çalışma saati de varsa çarpanlara onu da ekle: (İşçi × Gün × Saat) / İş sabittir.</u></p>
+<p class="formula">ÖRNEK — <b>5 işçi, günde 8 saat</b> çalışarak bir işi <b>6 günde</b> bitiriyor. <b>4 işçi, günde 10 saat</b> çalışırsa aynı işi kaç günde bitirir?</p>
+<ul>
+<li><b>Adım 1 — Toplam iş gücü sabittir:</b> 5 · 8 · 6 = 4 · 10 · x.</li>
+<li><b>Adım 2 — Hesapla:</b> 240 = 40x → <b>x = 6 gün</b>.</li>
+<li><b>Yorum:</b> İşçi sayısı azaldı ama günlük çalışma saati arttı; ikisi birbirini dengeledi. <u>Bu tip sorularda her çarpanı ayrı ayrı yazmak, hangi etkinin baskın olduğunu görmeni sağlar.</u></li>
+</ul>
+
+<h3>4) Havuz Problemleri — Boşaltan Musluk</h3>
+<p class="formula">TEMEL FARK — Havuz problemleri işçi problemleriyle aynıdır; tek fark <b>boşaltan muslukların NEGATİF hız</b> katkısı yapmasıdır.<br/>
+• A musluğu havuzu <b>a saatte doldurur</b> → hızı <b>+1/a</b><br/>
+• B musluğu havuzu <b>b saatte boşaltır</b> → hızı <b>−1/b</b><br/>
+• İkisi birlikte açıksa net hız: <b>1/a − 1/b</b><br/>
+<b>KRİTİK KONTROL:</b> Eğer <b>1/a &lt; 1/b</b> ise (yani boşaltma daha hızlıysa) net hız negatiftir ve <u>havuz hiç dolmaz</u>. Soruda böyle bir durum çıkarsa cevabı "dolmaz" olarak vermelisin.</p>
+<p class="formula">ÖRNEK — Bir havuzu A musluğu <b>6 saatte</b> doldurmakta, B musluğu <b>12 saatte</b> boşaltmaktadır. <b>Havuz boşken</b> iki musluk birlikte açılırsa havuz kaç saatte dolar?</p>
+<ul>
+<li><b>Adım 1 — EKOK yöntemi:</b> EKOK(6, 12) = 12 → havuz hacmi <b>12 birim</b>.</li>
+<li><b>Adım 2 — Hızlar:</b> A: 12/6 = <b>+2 birim/saat</b>, &nbsp;B: 12/12 = <b>−1 birim/saat</b>.</li>
+<li><b>Adım 3 — Net hız:</b> 2 − 1 = <b>+1 birim/saat</b>.</li>
+<li><b>Adım 4 — Süre:</b> 12 birim / 1 birim-saat = <b>12 saat</b>.</li>
+<li><b>Kontrol:</b> Net hız pozitif olduğu için havuz dolar ✓ <u>B musluğu 12 saat yerine 4 saatte boşaltsaydı net hız 2 − 3 = −1 olurdu ve havuz hiç dolmazdı.</u></li>
+</ul>
+<p class="formula">KISMİ DOLU HAVUZ — Havuz başlangıçta belli bir kesir kadar doluysa, <b>doldurulması gereken miktar</b> geriye kalan kısımdır. <u>Örnek: 12 birimlik havuzun 1/3'ü doluysa 4 birim var, doldurulacak 8 birim kalmıştır; süre 8/net hız olarak hesaplanır.</u> <b>Bu ayrıntıyı atlamak, tam havuz süresini yazmaya yol açar.</b></p>
+
+<h3>5) Farklı Güçteki İşçiler ve Karma Durumlar</h3>
+<p class="formula">GÜÇ ORANI — "A işçisi B'den 2 kat hızlıdır" ifadesi, <b>A'nın günlük iş miktarının 2 katı</b> olduğu anlamına gelir; <u>süresinin 2 katı değil, yarısı</u> olur. <b>Hız ile süre ters orantılıdır.</b><br/>
+<u>Örnek: B işi 12 günde bitiriyorsa, 2 kat hızlı olan A işi 6 günde bitirir.</u></p>
+<p class="formula">ÖRNEK — Bir işi A <b>10 günde</b>, B <b>15 günde</b> bitiriyor. İkisi birlikte başlıyor; <b>4 gün sonra</b> B ayrılıyor. İşin tamamı kaç günde biter?</p>
+<ul>
+<li><b>Adım 1 — EKOK:</b> EKOK(10, 15) = 30 → toplam iş <b>30 birim</b>. A günde <b>3</b>, B günde <b>2</b> birim.</li>
+<li><b>Adım 2 — İlk 4 gün:</b> Birlikte günde 5 birim → 4 · 5 = <b>20 birim</b> yapılır.</li>
+<li><b>Adım 3 — Kalan:</b> 30 − 20 = <b>10 birim</b>, bunu A tek başına yapacak.</li>
+<li><b>Adım 4 — A'nın süresi:</b> 10 / 3 = <b>10/3 gün</b> ≈ 3,33 gün.</li>
+<li><b>Adım 5 — SORUYA DÖN:</b> Soru "işin tamamı kaç günde biter?" diye soruyor → 4 + 10/3 = <b>22/3 gün</b> ≈ 7,33 gün.</li>
+<li><b>Uyarı:</b> "Kalan işi A kaç günde bitirir?" sorulsaydı cevap 10/3 olurdu. <u>İki soru arasındaki fark, ilk 4 günün eklenip eklenmemesidir.</u></li>
+</ul>
+
+<h3>6) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Birlikte bitirme süresi</b></td><td>"A x günde, B y günde… birlikte?"</td><td><b>1/a + 1/b = 1/x</b> ya da EKOK yöntemi. Sonuç ikisinden de küçük olmalı.</td></tr>
+<tr><td>2</td><td><b>Biri ayrılıyor / sonradan katılıyor</b></td><td>"2 gün sonra … işi bırakıyor"</td><td>EKOK ile birim ver; <b>yapılan işi</b> hesapla, <b>kalanı</b> tek kişiye böl.</td></tr>
+<tr><td>3</td><td><b>İşçi sayısı – süre</b></td><td>"8 işçi 12 günde… 6 işçi?"</td><td><b>İşçi × Gün = sabit</b> (ters orantı). Çapraz çarpma yapma.</td></tr>
+<tr><td>4</td><td><b>Üç değişkenli (saat dâhil)</b></td><td>"5 işçi günde 8 saat…"</td><td><b>(İşçi × Gün × Saat) / İş</b> sabittir.</td></tr>
+<tr><td>5</td><td><b>Havuz – dolduran/boşaltan</b></td><td>"A doldurur, B boşaltır"</td><td>Boşaltana <b>negatif hız</b> ver; net hızı bul. Negatifse havuz dolmaz.</td></tr>
+<tr><td>6</td><td><b>Kısmen dolu havuz</b></td><td>"Havuzun 1/3'ü doluyken"</td><td>Doldurulacak miktar = <b>kalan kısım</b>; tam hacmi kullanma.</td></tr>
+<tr><td>7</td><td><b>Güç oranı</b></td><td>"A, B'den 3 kat hızlıdır"</td><td>Hız 3 katıysa <b>süre 1/3'tür</b>. Hız ile süre ters orantılı.</td></tr>
+<tr><td>8</td><td><b>Verim / ücret paylaşımı</b></td><td>"Yaptıkları işle orantılı olarak paylaşılıyor"</td><td>Herkesin <b>yaptığı iş miktarını</b> hesapla; ücreti bu oranda böl.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 8) — Bir işi A <b>6 günde</b>, B <b>12 günde</b> bitirebiliyor. İkisi birlikte çalışıp işi bitiriyor ve <b>900 TL</b> alıyorlar. Bu para <b>yaptıkları işle orantılı</b> paylaşılırsa A kaç TL alır?</p>
+<ul>
+<li><b>Adım 1 — EKOK:</b> EKOK(6, 12) = 12 → toplam iş 12 birim. A günde <b>2</b>, B günde <b>1</b> birim.</li>
+<li><b>Adım 2 — Birlikte süre:</b> Günde 3 birim → 12/3 = <b>4 gün</b>.</li>
+<li><b>Adım 3 — Kimin ne kadar iş yaptığı:</b> A: 4 · 2 = <b>8 birim</b>, &nbsp;B: 4 · 1 = <b>4 birim</b>. Oran <b>2 : 1</b>.</li>
+<li><b>Adım 4 — Parayı böl:</b> 900 TL'yi 2:1 oranında → A: <b>600 TL</b>, B: 300 TL.</li>
+<li><b>Kısayol:</b> Aynı süre çalışıyorlarsa ücret oranı doğrudan <b>hız oranına</b> eşittir; iş miktarlarını hesaplamaya bile gerek yoktur. <u>Ama biri erken ayrılıyorsa mutlaka yapılan işi hesapla.</u></li>
+</ul>
+
+<h3>7) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Birim zamanda yapılan iş (hız):</b> Bir işçinin bir günde (ya da saatte) bitirdiği iş miktarı; süresi x ise 1/x'tir.</li>
+<li><b>Toplam iş:</b> Bitirilmesi gereken işin tamamı; genellikle 1 ya da sürelerin EKOK'u kadar birim alınır.</li>
+<li><b>EKOK yöntemi:</b> Toplam işe sürelerin EKOK'u kadar birim vererek kesirlerden kurtulma tekniği.</li>
+<li><b>İşçi-gün:</b> İşçi sayısı ile gün sayısının çarpımı; aynı iş için sabittir.</li>
+<li><b>Net hız:</b> Aynı anda çalışan tüm etkilerin toplamı; boşaltan musluklar negatif katkı yapar.</li>
+<li><b>Kalan iş:</b> Belirli bir süre sonra bitirilmemiş olan kısım; sonraki hesabın başlangıcıdır.</li>
+<li><b>Güç oranı:</b> İki işçinin hızlarının oranı; sürelerinin oranının tersidir.</li>
+</ul>
+
+<h3>8) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Süreleri toplamak:</b> 4 gün + 6 gün = 10 gün <u>yanlıştır</u>. <b>Hızlar toplanır</b>, süreler değil.</li>
+<li><b>1/x'i cevap yazmak:</b> Formülden 1/x çıkar; <b>ters çevirip x'i yazmayı</b> unutma.</li>
+<li><b>Ters orantıda çapraz çarpmak:</b> İşçi sayısı–süre ilişkisinde <b>satırlar</b> çarpılır: 8·12 = 6·x.</li>
+<li><b>Boşaltan musluğa pozitif hız vermek:</b> Boşaltma <b>negatif</b> katkıdır; net hızı hesapla.</li>
+<li><b>Net hız negatifken süre hesaplamak:</b> Boşaltma daha hızlıysa havuz <b>hiç dolmaz</b>.</li>
+<li><b>Kısmen dolu havuzda tam hacmi kullanmak:</b> Doldurulacak miktar <b>kalan kısımdır</b>.</li>
+<li><b>Güç oranını süreye doğrudan uygulamak:</b> "2 kat hızlı" demek süresi <b>yarısı</b> demektir, iki katı değil.</li>
+<li><b>Soruyu yarım cevaplamak:</b> "Kalan işi kaç günde bitirir?" ile "İş toplam kaç günde biter?" farklı sorulardır.</li>
+<li><b>Mantık kontrolünü atlamak:</b> Birlikte çalışma süresi, <u>her iki işçinin süresinden de küçük</u> olmalıdır.</li>
+<li><b>Ücret paylaşımında süreyi kullanmak:</b> Paylaşım <b>yapılan iş miktarına</b> göredir; farklı süreler çalışılmışsa hızları doğrudan kullanamazsın.</li>
+</ul>
+
+<h3>9) Özet Kartı</h3>
+<ul>
+<li><b>Temel:</b> İşi x günde bitiren, bir günde <b>1/x</b>'ini yapar.</li>
+<li><b>Birlikte:</b> <b>1/a + 1/b = 1/x</b>. Hızlar toplanır, süreler toplanmaz.</li>
+<li><b>EKOK yöntemi:</b> Toplam işe <b>EKOK kadar birim</b> ver; herkesin günlük işi tam sayı olur.</li>
+<li><b>Kontrol:</b> Birlikte süre, <b>en hızlının süresinden küçük</b>, <b>en hızlının yarısından büyük</b> olmalı.</li>
+<li><b>İşçi–süre:</b> <b>İşçi × Gün = sabit</b> (ters orantı).</li>
+<li><b>Genel bağıntı:</b> <b>(İşçi × Gün × Saat) / İş</b> sabittir.</li>
+<li><b>Havuz:</b> Dolduran <b>+1/a</b>, boşaltan <b>−1/b</b>. Net hız negatifse <b>havuz dolmaz</b>.</li>
+<li><b>Kısmi dolu:</b> Doldurulacak miktar = <b>kalan kısım</b>.</li>
+<li><b>Güç oranı:</b> Hız k katıysa <b>süre 1/k</b> katıdır.</li>
+<li><b>Ayrılma/katılma:</b> Yapılan işi hesapla → <b>kalanı</b> bul → kalan hıza böl. Soru toplam süreyi istiyorsa <b>geçen günleri ekle</b>.</li>
+<li><b>Ücret:</b> <b>Yapılan iş miktarıyla</b> orantılı paylaştır.</li>
+</ul>
+
+</body></html>

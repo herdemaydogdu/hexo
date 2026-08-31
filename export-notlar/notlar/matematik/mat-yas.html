@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yaş Problemleri</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Yaş Problemleri</h2>
+
+<p>Yaş problemleri, problem türleri arasında <b>en kolay sistemleştirilebilen</b> olanıdır; çünkü tek bir değişmez kurala dayanır: <b>iki kişi arasındaki yaş farkı ASLA değişmez.</b> Bugün aramızda 8 yaş varsa, 10 yıl önce de 8 yaş vardı, 20 yıl sonra da 8 yaş olacak. Buna karşılık <u>yaşların oranı sürekli değişir</u> — ve soruların çoğu tam olarak bu ayrımı ölçer. Bu ünitede önce zaman tablosunu kuracağız, sonra "yaşında iken" gibi kafa karıştıran ifadeleri mekanik olarak çevirmeyi öğreneceğiz.</p>
+
+<h3>1) Temel Kural: Fark Sabittir</h3>
+<p class="formula">DEĞİŞMEZ — İki kişi arasındaki <b>yaş farkı zamandan bağımsızdır</b>. <u>Neden? Çünkü geçen her yıl her ikisinin yaşına da aynı miktarda eklenir; fark alındığında bu eklemeler birbirini götürür.</u> <b>(x + a) − (y + a) = x − y.</b><br/>
+<b>Buna karşılık ORAN değişir:</b> Bugün 10 ve 5 yaşındaki iki kişinin yaş oranı 2 iken, 5 yıl sonra 15 ve 10 olurlar ve oran 1,5'e düşer. <u>"Yaşı, kardeşinin yaşının 2 katıdır" gibi ifadeler sadece belirli bir an için geçerlidir; bu yüzden hangi ana ait olduğunu mutlaka işaretle.</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Yaş farkının sabit kalması ve oranın değişmesi">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Fark sabit kalır, oran değişir</text>
+  <g font-size="11" font-weight="700" fill="#475569">
+    <text x="30" y="60">5 yıl önce</text><text x="250" y="60">Şimdi</text><text x="450" y="60">5 yıl sonra</text>
+  </g>
+  <rect x="30" y="70" width="120" height="28" rx="6" fill="#bfdbfe" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="90" y="89" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">Ali: 5</text>
+  <rect x="30" y="104" width="120" height="28" rx="6" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="90" y="123" font-size="12" font-weight="700" fill="#c2410c" text-anchor="middle">Can: 0</text>
+  <rect x="250" y="70" width="120" height="28" rx="6" fill="#bfdbfe" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="310" y="89" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">Ali: 10</text>
+  <rect x="250" y="104" width="120" height="28" rx="6" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="310" y="123" font-size="12" font-weight="700" fill="#c2410c" text-anchor="middle">Can: 5</text>
+  <rect x="450" y="70" width="120" height="28" rx="6" fill="#bfdbfe" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="510" y="89" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">Ali: 15</text>
+  <rect x="450" y="104" width="120" height="28" rx="6" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="510" y="123" font-size="12" font-weight="700" fill="#c2410c" text-anchor="middle">Can: 10</text>
+  <rect x="30" y="146" width="120" height="26" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="90" y="164" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">FARK = 5</text>
+  <rect x="250" y="146" width="120" height="26" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="310" y="164" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">FARK = 5</text>
+  <rect x="450" y="146" width="120" height="26" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="510" y="164" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">FARK = 5</text>
+  <g font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">
+    <text x="90" y="192">ORAN: tanımsız</text><text x="310" y="192">ORAN = 2</text><text x="510" y="192">ORAN = 1,5</text>
+  </g>
+  <line x1="26" y1="206" x2="614" y2="206" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="224" font-size="10" fill="#475569">Yeşil satır hiç değişmiyor: yaş farkı zamandan bağımsızdır. Kırmızı satır sürekli değişiyor: oran zamana bağlıdır.</text>
+  <text x="26" y="240" font-size="10" fill="#475569">Sonuç: "kaç yıl sonra" tipi sorularda farkı sabit tutup oran koşulunu denklem olarak yaz.</text>
+</svg>
+
+<h3>2) Zaman Tablosu — Standart Kurulum</h3>
+<p class="formula">TABLO YÖNTEMİ — Şimdiki yaşlara <b>x, y, z</b> denirse:<br/>
+• <b>a yıl ÖNCE:</b> x − a, &nbsp;y − a, &nbsp;z − a &nbsp;→&nbsp; <b>yaşları toplamı = (x + y + z) − 3a</b><br/>
+• <b>ŞİMDİ:</b> x, y, z &nbsp;→&nbsp; toplam = x + y + z<br/>
+• <b>b yıl SONRA:</b> x + b, &nbsp;y + b, &nbsp;z + b &nbsp;→&nbsp; <b>yaşları toplamı = (x + y + z) + 3b</b><br/>
+<b>KRİTİK NOKTA:</b> Kişi sayısı kadar çarpan gelir. <u>Üç kişinin toplam yaşı, 5 yıl sonra 5 değil <b>15</b> artar (3 × 5). Bu, yaş problemlerindeki en sık hatadır.</u></p>
+<p class="formula">DOĞUM ZAMANI OYNAMALARI — <b>a yıl önce doğsaydı</b> şimdiki yaşı <b>x + a</b> olurdu (daha yaşlı olurdu). <b>b yıl sonra doğsaydı</b> şimdiki yaşı <b>x − b</b> olurdu. <u>Mantık: doğum tarihi geriye gidince yaş artar, ileriye gidince azalır.</u></p>
+<p class="formula">"YAŞINDA İKEN" ÇEVİRİSİ — Bu ifade en çok kafa karıştıran kalıptır. x &gt; y olmak üzere:<br/>
+• <b>Kişi 1, Kişi 2'nin yaşında iken:</b> Kişi 1 → <b>y</b>, &nbsp;Kişi 2 → <b>2y − x</b><br/>
+• <b>Kişi 2, Kişi 1'in yaşına geldiğinde:</b> Kişi 1 → <b>2x − y</b>, &nbsp;Kişi 2 → <b>x</b><br/>
+<u>Nasıl türetilir? "Kişi 1, Kişi 2'nin yaşında iken" demek, geriye (x − y) yıl gitmek demektir. O zaman Kişi 2'nin yaşı y − (x − y) = 2y − x olur. Diğeri de aynı mantıkla ileri gitmedir.</u><br/>
+<b>Ezberlemek yerine:</b> "aradan geçen süre = yaş farkı" cümlesini hatırla; gerisi toplama-çıkarmadır.</p>
+
+<h3>3) Çözümlü Örnekler</h3>
+<p class="formula">ÖRNEK (PDF) — Kardeşi doğduğunda Efe <b>8 yaşındadır</b>. Kardeşi Efe'nin yaşına geldiğinde, Efe ile kardeşinin yaşları toplamı <b>annelerinin yaşının yarısına</b> eşit olacaktır. Buna göre <b>Efe doğduğunda annesi kaç yaşındaydı?</b></p>
+<ul>
+<li><b>Adım 1 — Farkı belirle:</b> Kardeşi doğduğunda Efe 8 yaşındaysa aralarındaki <b>yaş farkı 8</b>'dir ve bu fark hiç değişmez.</li>
+<li><b>Adım 2 — "Yaşına geldiğinde"yi çöz:</b> Kardeşi, Efe'nin (o anki) yaşına gelmesi için <u>fark kadar</u>, yani <b>8 yıl</b> geçmesi gerekir. O anda <b>kardeş 8</b>, <b>Efe 16</b> yaşındadır.</li>
+<li><b>Adım 3 — Toplamı yaz:</b> 8 + 16 = <b>24</b>.</li>
+<li><b>Adım 4 — Anne koşulu:</b> Bu toplam annenin yaşının yarısı ise annenin o andaki yaşı <b>2 · 24 = 48</b>'dir.</li>
+<li><b>Adım 5 — Geriye dön:</b> O anda Efe 16 yaşında. Efe doğduğunda annesi <b>48 − 16 = 32</b> yaşındaydı.</li>
+<li><b>Kritik ayrıntı:</b> Adım 2'de "kardeş Efe'nin yaşına geldiğinde" ifadesi <u>bugünden</u> değil, <u>kardeşin doğduğu andan</u> itibaren ölçülür. <b>Hangi ana göre konuşulduğunu her cümlede işaretlemek bu tür soruların anahtarıdır.</b></li>
+</ul>
+<p class="formula">ÖRNEK — Bir baba ile oğlunun yaşları toplamı <b>50</b>'dir. <b>5 yıl sonra</b> babanın yaşı oğlunun yaşının <b>3 katı</b> olacaktır. Babanın bugünkü yaşı kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Değişken:</b> Oğlun bugünkü yaşı <b>x</b> ise babanın yaşı <b>50 − x</b>'tir. <u>İki bilinmeyen yerine tek bilinmeyen: toplam verildiği için bu her zaman mümkündür.</u></li>
+<li><b>Adım 2 — 5 yıl sonrası:</b> Oğul <b>x + 5</b>, baba <b>55 − x</b>.</li>
+<li><b>Adım 3 — Koşulu yaz:</b> 55 − x = 3(x + 5) → 55 − x = 3x + 15 → 40 = 4x → <b>x = 10</b>.</li>
+<li><b>Sonuç:</b> Oğul 10, <b>baba 40</b> yaşındadır.</li>
+<li><b>Kontrol:</b> 5 yıl sonra oğul 15, baba 45 → 45 = 3 · 15 ✓ &nbsp;·&nbsp; Bugün 10 + 40 = 50 ✓</li>
+<li><b>Dikkat:</b> Koşul <u>5 yıl sonrası</u> için verildi; bugünkü yaşlara uygulamak en yaygın hatadır.</li>
+</ul>
+<p class="formula">ÖRNEK — Ali'nin yaşı Berk'in yaşının <b>3 katıdır</b>. <b>6 yıl sonra</b> Ali'nin yaşı Berk'in yaşının <b>2 katı</b> olacaktır. Bugün kaç yaşındadırlar?</p>
+<ul>
+<li><b>Adım 1 — Oranı k yöntemiyle yaz:</b> Berk <b>x</b>, Ali <b>3x</b>.</li>
+<li><b>Adım 2 — 6 yıl sonra:</b> Berk <b>x + 6</b>, Ali <b>3x + 6</b>.</li>
+<li><b>Adım 3 — Koşul:</b> 3x + 6 = 2(x + 6) → 3x + 6 = 2x + 12 → <b>x = 6</b>.</li>
+<li><b>Sonuç:</b> Berk <b>6</b>, Ali <b>18</b> yaşındadır.</li>
+<li><b>Kontrol:</b> 6 yıl sonra 12 ve 24 → 24 = 2 · 12 ✓</li>
+<li><b>Sezgi kontrolü:</b> Fark bugün 12, 6 yıl sonra da 12 ✓ <u>Yaş farkının sabit kaldığını doğrulamak, kurulumun doğruluğunu anında test eder.</u></li>
+</ul>
+<p class="formula">ÖRNEK — Üç kardeşin yaşları toplamı bugün <b>36</b>'dır. <b>4 yıl sonra</b> yaşları toplamı kaç olur?</p>
+<ul>
+<li><b>Yanlış refleks:</b> 36 + 4 = 40 demek. <u>Bu, tek kişi varmış gibi düşünmektir.</u></li>
+<li><b>Doğru:</b> Her kardeşin yaşı 4 artar, üç kardeş var → toplam <b>3 × 4 = 12</b> artar → <b>36 + 12 = 48</b>.</li>
+<li><b>Genel formül:</b> n kişinin yaşları toplamı, b yıl sonra <b>n·b</b> kadar artar; a yıl önce <b>n·a</b> kadar azdı.</li>
+<li><b>Ters yön:</b> Aynı üç kardeşin 4 yıl önceki yaşları toplamı 36 − 12 = <b>24</b>'tür.</li>
+</ul>
+
+<h3>4) Ortalama Yaş ve Grup Değişimi</h3>
+<p class="formula">ORTALAMA YAŞ — <b>Ortalama = Yaşlar toplamı / Kişi sayısı</b>. Zaman geçtikçe <u>ortalama, geçen süre kadar artar</u> (kişi sayısı değişmiyorsa). <u>Örnek: 5 kişilik bir grubun yaş ortalaması bugün 20 ise, 3 yıl sonra 23 olur — çünkü toplam 15 artar, kişi sayısı sabit kalır.</u></p>
+<p class="formula">GRUBA KATILMA / AYRILMA — Kişi sayısı değişiyorsa ortalamayı doğrudan takip edemezsin; <b>önce toplamı hesapla</b>. <u>Örnek: 5 kişinin yaş ortalaması 20 ise toplam 100'dür. Gruba 30 yaşında biri katılırsa yeni toplam 130, kişi sayısı 6, yeni ortalama 130/6 ≈ 21,7 olur.</u><br/>
+<b>Pratik sezgi:</b> Ortalamadan <u>büyük</u> biri katılırsa ortalama <b>yükselir</b>, küçük biri katılırsa <b>düşer</b>. Ortalamaya eşit biri katılırsa <b>değişmez</b>.</p>
+
+<h3>5) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>İki kişi, iki zaman</b></td><td>"Bugün … 5 yıl sonra … katı olacak"</td><td>Bugüne x ve y de; koşulu <b>doğru zamana</b> uygula. Farkın sabitliğiyle kontrol et.</td></tr>
+<tr><td>2</td><td><b>Toplam verilmiş</b></td><td>"Yaşları toplamı 50 ise…"</td><td>Birine <b>x</b>, diğerine <b>(toplam − x)</b> de; tek denklemle bitir.</td></tr>
+<tr><td>3</td><td><b>Grup toplamı, zaman kayması</b></td><td>"Üç kardeşin yaşları toplamı… yıl sonra"</td><td>Toplam <b>n × b</b> kadar artar. Kişi sayısını unutma.</td></tr>
+<tr><td>4</td><td><b>"Yaşında iken" kalıbı</b></td><td>"Kardeşi onun yaşına geldiğinde…"</td><td><b>Aradan geçen süre = yaş farkı.</b> Tabloyu o ana taşı.</td></tr>
+<tr><td>5</td><td><b>Doğum anı sorusu</b></td><td>"O doğduğunda annesi kaç yaşındaydı?"</td><td>Anne − çocuk farkı sabittir; farkı bul, doğrudan yaz.</td></tr>
+<tr><td>6</td><td><b>Kaç yıl sonra/önce?</b></td><td>"Kaç yıl sonra yaşı … katı olur?"</td><td>Bilinmeyen <b>zaman</b>ı t alarak (x+t) ve (y+t) yaz; denklemi t için çöz.</td></tr>
+<tr><td>7</td><td><b>Ortalama yaş</b></td><td>"Grubun yaş ortalaması…"</td><td><b>Önce toplama çevir</b>; kişi sayısı değişiyorsa ortalamayı doğrudan taşıma.</td></tr>
+<tr><td>8</td><td><b>Oran değişimi</b></td><td>"Yaşları oranı 3/1 iken 2/1 oluyor"</td><td>Oranı <b>k yöntemiyle</b> yaz (x ve 3x); zaman koşulunu ekle.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 6) — Bugün <b>32</b> ve <b>8</b> yaşında olan baba ile oğulun yaşları, <b>kaç yıl sonra</b> babanınki oğlununkinin <b>2 katı</b> olur?</p>
+<ul>
+<li><b>Adım 1 — Zamanı bilinmeyen yap:</b> t yıl sonra baba <b>32 + t</b>, oğul <b>8 + t</b>.</li>
+<li><b>Adım 2 — Koşul:</b> 32 + t = 2(8 + t) → 32 + t = 16 + 2t → <b>t = 16</b>.</li>
+<li><b>Sonuç:</b> <b>16 yıl sonra</b> (baba 48, oğul 24) ✓</li>
+<li><b>Kısayol:</b> Fark 24'tür ve sabittir. Oran 2 olduğunda büyük yaş, farkın <u>2 katıdır</u> (çünkü 2y − y = y = fark). Yani oğul <b>24</b>, baba 48 olur → aradan 24 − 8 = <b>16 yıl</b> geçer. <u>Bu kısayol, "oran k olduğunda küçük yaş = fark/(k−1)" genel kuralından gelir.</u></li>
+<li><b>Genel kural:</b> Fark F ve istenen oran k ise <b>küçük yaş = F/(k − 1)</b>. <u>Buradan geçmesi gereken süre hemen bulunur.</u></li>
+</ul>
+
+<h3>6) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Yaş farkı:</b> İki kişinin yaşları arasındaki fark; <b>zamandan bağımsız olarak sabittir</b>.</li>
+<li><b>Yaş oranı:</b> İki yaşın bölümü; zamanla <u>değişir</u>, 1'e yaklaşır.</li>
+<li><b>Zaman tablosu:</b> Kişilerin geçmiş, şimdiki ve gelecek yaşlarının satır satır yazıldığı düzen.</li>
+<li><b>"Yaşında iken":</b> Aradan yaş farkı kadar zaman geçmesi ya da geri gidilmesi demektir.</li>
+<li><b>Doğum anı:</b> Bir kişinin yaşının sıfır olduğu an; diğerinin yaşı o anda ikisinin farkına eşittir.</li>
+<li><b>Yaş ortalaması:</b> Yaşlar toplamının kişi sayısına bölümü.</li>
+</ul>
+
+<h3>7) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Grup toplamında kişi sayısını unutmak:</b> n kişinin yaşları toplamı b yıl sonra <b>n·b</b> kadar artar, b kadar değil.</li>
+<li><b>Koşulu yanlış zamana uygulamak:</b> "5 yıl sonra 3 katı" ifadesini bugünkü yaşlara yazmak en yaygın hatadır.</li>
+<li><b>Yaş farkını değişken sanmak:</b> Fark hiçbir zaman değişmez; değişen orandır.</li>
+<li><b>Oranı sabit sanmak:</b> "Yaşı iki katıdır" ifadesi yalnızca <u>o an</u> için doğrudur.</li>
+<li><b>"Yaşında iken"i bugüne göre okumak:</b> Bu ifade, aradan <b>yaş farkı kadar</b> süre geçmesini anlatır; referans anı dikkatle belirle.</li>
+<li><b>Negatif yaş çıkmasını görmezden gelmek:</b> "a yıl önce" hesabında yaş negatif çıkıyorsa o kişi henüz doğmamıştır; kurulumu gözden geçir.</li>
+<li><b>Ortalamayı doğrudan taşımak:</b> Gruba biri katılıp ayrılıyorsa ortalama değil <b>toplam</b> üzerinden ilerle.</li>
+<li><b>Soruyu tamamlamadan bitirmek:</b> x'i buldun diye durma; soru babanın mı oğulun mu yaşını istiyor, tekrar oku.</li>
+<li><b>Fark kontrolünü atlamak:</b> Bulduğun iki yaşın farkı, problemdeki farkla aynı çıkmalıdır — <u>bu, tek satırlık bir doğrulama sağlar</u>.</li>
+</ul>
+
+<h3>8) Özet Kartı</h3>
+<ul>
+<li><b>Altın kural:</b> <b>Yaş farkı sabittir</b>, yaş oranı değişir.</li>
+<li><b>Zaman tablosu:</b> a yıl önce → x − a &nbsp;·&nbsp; şimdi → x &nbsp;·&nbsp; b yıl sonra → x + b.</li>
+<li><b>Grup toplamı:</b> n kişide toplam, b yıl sonra <b>n·b</b> artar; a yıl önce <b>n·a</b> azdı.</li>
+<li><b>Doğum oynaması:</b> a yıl önce doğsaydı <b>x + a</b>; b yıl sonra doğsaydı <b>x − b</b>.</li>
+<li><b>"Yaşında iken":</b> aradan geçen süre = <b>yaş farkı</b>. x &gt; y için: Kişi 2 → <b>2y − x</b>; ileri yönde Kişi 1 → <b>2x − y</b>.</li>
+<li><b>Toplam verilmişse:</b> birine x, diğerine <b>(toplam − x)</b> de.</li>
+<li><b>Oran verilmişse:</b> <b>k yöntemi</b> — x ve 3x gibi yaz.</li>
+<li><b>Oran kısayolu:</b> Fark F, istenen oran k ise <b>küçük yaş = F/(k − 1)</b>.</li>
+<li><b>Ortalama:</b> toplam / kişi sayısı. Kişi sayısı sabitse ortalama <b>geçen süre kadar</b> artar; değişiyorsa <b>toplamdan</b> git.</li>
+<li><b>Doğrulama:</b> Bulduğun yaşların <b>farkını kontrol et</b>; problemdeki farkla uyuşmalı.</li>
+</ul>
+
+</body></html>

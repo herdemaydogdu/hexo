@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Temel Kavramlar ve Sayı Kümeleri</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Temel Kavramlar ve Sayı Kümeleri</h2>
+
+<p>Bu ünite TYT matematiğin <b>alfabesidir</b>. Buradaki her kavram ilerideki tüm konularda tekrar tekrar karşına çıkar: bölünebilme, EBOB-EKOK, problemler, hatta fonksiyonlar. Bu yüzden burada <b>formül ezberlemek yerine mantığı kurmak</b> çok daha kârlıdır — çünkü sınavda sorulan şey genelde formülün kendisi değil, formülün <b>hangi durumda devreye gireceğidir</b>.</p>
+
+<h3>1) Sayı Kümeleri — Sayılar Neden Genişledi?</h3>
+<p>Sayı kümeleri gökten inmedi; her biri <b>çözülemeyen bir problemi çözmek için</b> icat edildi. Bu zinciri anlarsan hangi sayının hangi kümede olduğunu ezberlemene gerek kalmaz.</p>
+<p class="formula">MANTIK ZİNCİRİ — <b>Saymak</b> gerekti → <u>doğal sayılar (ℕ)</u> doğdu. Ama "3'ten 5 çıkar" diyemiyorduk; <b>borç ve eksilme</b> gerekti → <u>tam sayılar (ℤ)</u>. Ama "1 ekmeği 3 kişiye böl" diyemiyorduk; <b>paylaşım</b> gerekti → <u>rasyonel sayılar (ℚ)</u>. Ama kenarı 1 olan karenin köşegeni (√2) hiçbir kesirle yazılamıyordu; <b>ölçme</b> gerekti → <u>irrasyonel sayılar (ℚ')</u>. İkisinin birleşimi <u>gerçek sayılar (ℝ)</u>dır.</p>
+<table>
+<tr><th>Küme</th><th>Sembol</th><th>Tanım</th><th>Örnek</th></tr>
+<tr><td><b>Rakamlar</b></td><td>—</td><td>Sayıları <b>yazmak için kullanılan semboller</b>. Toplam <b>10 tanedir</b></td><td>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}</td></tr>
+<tr><td><b>Doğal sayılar</b></td><td><b>ℕ</b></td><td>Sıfırdan başlayan, birer artan sayılar</td><td>ℕ = {0, 1, 2, 3, …}</td></tr>
+<tr><td><b>Tam sayılar</b></td><td><b>ℤ</b></td><td>Doğal sayılara negatiflerin eklenmesiyle oluşur</td><td>ℤ = {…, −3, −2, −1, 0, 1, 2, 3, …}</td></tr>
+<tr><td><b>Rasyonel sayılar</b></td><td><b>ℚ</b></td><td>a, b tam sayı ve <b>b ≠ 0</b> olmak üzere <b>a/b</b> biçiminde <b>yazılabilen</b> sayılar</td><td>3/4 , −5 , 0,25 , 0,333… , 7</td></tr>
+<tr><td><b>İrrasyonel sayılar</b></td><td><b>ℚ'</b></td><td>a/b biçiminde <b>yazılamayan</b> sayılar</td><td>√2 , √5 , ∛3 , π , e</td></tr>
+<tr><td><b>Gerçek (reel) sayılar</b></td><td><b>ℝ</b></td><td><b>ℚ ∪ ℚ' = ℝ.</b> Sayı doğrusundaki her noktaya bir gerçek sayı karşılık gelir</td><td>Yukarıdakilerin hepsi</td></tr>
+</table>
+<p><b>Bir sayının irrasyonel olduğunu üç işaretten tanırsın:</b></p>
+<ul>
+<li><b>Kök dışına tam olarak çıkamaz.</b> <u>√9 = 3 → rasyonel</u>, ama <u>√10 → irrasyonel</u>.</li>
+<li><b>Virgülden sonrası ne biter ne de devreder.</b> <u>0,25 biter → rasyonel</u>; <u>0,3333… devreder → rasyonel</u>; <u>π = 3,14159265… ne biter ne devreder → irrasyonel</u>.</li>
+<li><b>İki tam sayının oranı olarak yazılamaz.</b></li>
+</ul>
+<p class="formula">DİKKAT — <b>√−2, √−9 gibi karekök içinde negatif sayı bulunan ifadeler gerçek sayı belirtmez</b> (TYT düzeyinde tanımsızdır). Ama <b>∛−8 = −2</b> tanımlıdır: <u>kök derecesi tek ise içerisi negatif olabilir</u>. Bu ayrım her yıl en az bir soruda tuzak olarak kullanılır.</p>
+<p class="formula">KRİTİK — Kümeler arasında <b>ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ</b> içerme ilişkisi vardır. Yani <b>her doğal sayı aynı zamanda bir tam sayı, her tam sayı aynı zamanda bir rasyonel sayıdır</b>. "5 rasyonel midir?" sorusunun cevabı <b>evettir</b>, çünkü 5 = 5/1 yazılabilir. Öğrencilerin en sık yaptığı hata, kümeleri birbirinden ayrık sanmaktır. <u>Ayrık olan tek çift: ℚ ve ℚ' — bir sayı ya rasyoneldir ya irrasyonel, ikisi birden olamaz.</u></p>
+<svg viewBox="0 0 640 320" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sayı kümeleri Venn şeması ve sayı doğrusu">
+  <rect x="0" y="0" width="640" height="320" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Sayı kümelerinin iç içe geçmesi ve sayı doğrusundaki yerleri</text>
+  <rect x="30" y="40" width="330" height="180" rx="16" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="42" y="60" font-size="12" font-weight="700" fill="#0369a1">ℝ  gerçek sayılar</text>
+  <rect x="44" y="70" width="200" height="140" rx="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="56" y="88" font-size="11" font-weight="700" fill="#15803d">ℚ  rasyonel</text>
+  <rect x="58" y="98" width="150" height="102" rx="12" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+  <text x="70" y="116" font-size="11" font-weight="700" fill="#a16207">ℤ  tam sayılar</text>
+  <rect x="72" y="126" width="104" height="64" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="84" y="144" font-size="11" font-weight="700" fill="#b91c1c">ℕ  doğal</text>
+  <text x="84" y="162" font-size="10" fill="#7f1d1d">0, 1, 2, 3…</text>
+  <text x="84" y="178" font-size="9" fill="#7f1d1d">saymak için</text>
+  <text x="188" y="146" font-size="9" fill="#a16207">−1, −2,</text>
+  <text x="188" y="160" font-size="9" fill="#a16207">−3 …</text>
+  <text x="188" y="176" font-size="9" fill="#a16207">borç için</text>
+  <text x="216" y="120" font-size="9" fill="#15803d">3/4 , 0,25</text>
+  <text x="216" y="136" font-size="9" fill="#15803d">0,333…</text>
+  <text x="216" y="152" font-size="9" fill="#15803d">paylaşım</text>
+  <rect x="256" y="70" width="96" height="140" rx="14" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="268" y="88" font-size="11" font-weight="700" fill="#6d28d9">ℚ'  irrasyonel</text>
+  <text x="268" y="112" font-size="10" fill="#5b21b6">√2 , √5</text>
+  <text x="268" y="130" font-size="10" fill="#5b21b6">∛3 , π , e</text>
+  <text x="268" y="154" font-size="9" fill="#5b21b6">ölçme için</text>
+  <text x="268" y="176" font-size="9" fill="#5b21b6">ne biter</text>
+  <text x="268" y="190" font-size="9" fill="#5b21b6">ne devreder</text>
+  <text x="42" y="240" font-size="10" fill="#475569">ℚ ∪ ℚ' = ℝ  ·  ℚ ∩ ℚ' = ∅  (bir sayı ikisi birden olamaz)</text>
+  <line x1="390" y1="150" x2="620" y2="150" stroke="#334155" stroke-width="2"/>
+  <polygon points="620,150 610,145 610,155" fill="#334155"/>
+  <polygon points="390,150 400,145 400,155" fill="#334155"/>
+  <g stroke="#334155" stroke-width="1.5">
+    <line x1="410" y1="144" x2="410" y2="156"/><line x1="445" y1="144" x2="445" y2="156"/>
+    <line x1="480" y1="144" x2="480" y2="156"/><line x1="515" y1="144" x2="515" y2="156"/>
+    <line x1="550" y1="144" x2="550" y2="156"/><line x1="585" y1="144" x2="585" y2="156"/>
+  </g>
+  <g font-size="10" fill="#334155" text-anchor="middle">
+    <text x="410" y="172">−2</text><text x="445" y="172">−1</text><text x="480" y="172">0</text>
+    <text x="515" y="172">1</text><text x="550" y="172">2</text><text x="585" y="172">3</text>
+  </g>
+  <g fill="#7c3aed">
+    <circle cx="529" cy="150" r="4"/><circle cx="590" cy="150" r="4"/>
+  </g>
+  <text x="512" y="128" font-size="9" font-weight="700" fill="#6d28d9">√2 ≈ 1,41</text>
+  <text x="566" y="112" font-size="9" font-weight="700" fill="#6d28d9">π ≈ 3,14</text>
+  <circle cx="428" cy="150" r="4" fill="#16a34a"/>
+  <text x="404" y="128" font-size="9" font-weight="700" fill="#15803d">−1,5</text>
+  <text x="390" y="196" font-size="10" font-weight="700" fill="#334155">Her gerçek sayı doğruda BİR nokta;</text>
+  <text x="390" y="212" font-size="10" font-weight="700" fill="#334155">doğrudaki her nokta BİR gerçek sayı.</text>
+  <text x="390" y="234" font-size="10" fill="#475569">Sağdaki sayı daima soldakinden büyüktür —</text>
+  <text x="390" y="248" font-size="10" fill="#475569">negatiflerde bu kural en çok karıştırılan yerdir:</text>
+  <text x="390" y="262" font-size="10" font-weight="700" fill="#b91c1c">−5 &lt; −2  (mutlak değeri büyük olan küçüktür)</text>
+  <text x="26" y="290" font-size="10" fill="#475569">Sınav refleksi: "Bu sayı hangi kümededir?" sorusunda önce EN İÇ kümeden başla. 4 doğaldır → dolayısıyla tam, rasyonel ve gerçektir de.</text>
+  <text x="26" y="306" font-size="10" fill="#475569">−4 doğal DEĞİLDİR ama tamdır. 4/3 tam değildir ama rasyoneldir. √4 = 2 olduğu için irrasyonel DEĞİLDİR — sadeleşmeye dikkat!</text>
+</svg>
+
+<h3>2) Temel İşlemler ve Gerçek Sayıların Özellikleri</h3>
+<p>Aşağıdaki özellikler kulağa "apaçık" gelir; ama sınavda <b>doğrudan özellik adı sorularak</b> ya da <b>bir işlemin neden yapılabildiğini gerekçelendirmen istenerek</b> karşına çıkar. Her birinin <b>tek cümlelik özünü</b> aklında tut.</p>
+<table>
+<tr><th>Özellik</th><th>Ne der?</th><th>Sembolle</th></tr>
+<tr><td><b>Kapalılık</b></td><td>İki gerçek sayıyı toplarsan ya da çarparsan sonuç <b>yine gerçek sayıdır</b>; kümeden dışarı çıkmazsın</td><td>a, b ∈ ℝ → a + b ∈ ℝ ve a · b ∈ ℝ</td></tr>
+<tr><td><b>Değişme</b></td><td>Sıra değişince sonuç değişmez</td><td>a + b = b + a , a · b = b · a</td></tr>
+<tr><td><b>Birleşme</b></td><td>Gruplama (parantezleme) değişince sonuç değişmez</td><td>(a + b) + c = a + (b + c) , (a·b)·c = a·(b·c)</td></tr>
+<tr><td><b>Birim (etkisiz) eleman</b></td><td>Sayıyı <b>değiştirmeyen</b> eleman. Toplamada <b>0</b>, çarpmada <b>1</b></td><td>a + 0 = a , a · 1 = a</td></tr>
+<tr><td><b>Ters eleman</b></td><td>Sayıyı <b>birim elemana götüren</b> eleman</td><td>Toplama tersi: <b>−a</b> (a + (−a) = 0) · Çarpma tersi: <b>1/a</b> (a · 1/a = 1)</td></tr>
+<tr><td><b>Yutan eleman</b></td><td>Neyle çarparsan çarp sonucu <b>kendine çeken</b> eleman: <b>0</b></td><td>a · 0 = 0</td></tr>
+<tr><td><b>Dağılma</b></td><td>Çarpma, toplama ve çıkarma <b>üzerine dağılır</b></td><td>a·(b + c) = a·b + a·c , a·(b − c) = a·b − a·c</td></tr>
+</table>
+<p class="formula">DİKKAT — <b>Gerçek sayılarda 0'ın çarpmaya göre tersi YOKTUR</b>, çünkü 1/0 tanımsızdır. Bu, "hangi sayının çarpma tersi yoktur?" sorusunun tek cevabıdır. Ayrıca <b>çıkarma ve bölmede değişme ve birleşme özelliği YOKTUR</b>: <u>5 − 3 ≠ 3 − 5</u> ve <u>8 : 4 ≠ 4 : 8</u>. Soruda "aşağıdaki işlemlerden hangisinde değişme özelliği vardır?" denirse cevap <b>toplama veya çarpmadır</b>.</p>
+<p><b>Dağılma özelliğinin gerçek kullanımı — ters yönde:</b> Sınavda dağılma özelliğini genelde <b>açmak için değil, toplamak için</b> kullanırsın. Bu "ortak parantez" refleksidir ve ileride Çarpanlara Ayırma ünitesinin de temelidir.</p>
+<p class="formula">ÖRNEK — <b>37 · 96 + 37 · 4</b> işleminin sonucu kaçtır?</p>
+<ul>
+<li>Klasik yol: iki çarpmayı da yap, sonra topla → <b>uzun ve hatalı</b>.</li>
+<li>Dağılma özelliğini <b>tersine</b> oku: ortak çarpan <b>37</b> parantezine al → <b>37 · (96 + 4)</b>.</li>
+<li>= 37 · 100 = <b>3700</b>. Tek satır, saniyeler içinde.</li>
+</ul>
+<p><b>İşlem önceliği (öncelik sırası):</b></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="İşlem önceliği basamakları">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — İşlem önceliği ve örnek bir hesabın adımları</text>
+  <g stroke="#334155" stroke-width="1.5">
+    <rect x="26" y="44" width="150" height="30" rx="8" fill="#ede9fe"/>
+    <rect x="26" y="84" width="150" height="30" rx="8" fill="#e0f2fe"/>
+    <rect x="26" y="124" width="150" height="30" rx="8" fill="#dcfce7"/>
+    <rect x="26" y="164" width="150" height="30" rx="8" fill="#fef9c3"/>
+  </g>
+  <g font-size="11" font-weight="700" fill="#334155">
+    <text x="40" y="64">1 · Üs (kuvvet)</text>
+    <text x="40" y="104">2 · Parantez içi</text>
+    <text x="40" y="144">3 · Çarpma – Bölme</text>
+    <text x="40" y="184">4 · Toplama – Çıkarma</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="2" fill="none">
+    <path d="M101,74 L101,84"/><path d="M101,114 L101,124"/><path d="M101,154 L101,164"/>
+  </g>
+  <line x1="200" y1="40" x2="200" y2="210" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="222" y="60" font-size="12" font-weight="700" fill="#334155">(2³ − 5) : 3 · 5 + 2</text>
+  <g font-size="11" fill="#475569">
+    <text x="222" y="88">1) Önce üs:  2³ = 8</text>
+    <text x="222" y="110">2) Parantez içi:  (8 − 5) = 3</text>
+    <text x="222" y="132">3) Soldan sağa çarpma-bölme:  3 : 3 = 1, sonra 1 · 5 = 5</text>
+    <text x="222" y="154">4) Toplama:  5 + 2 = 7</text>
+  </g>
+  <rect x="222" y="168" width="80" height="26" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="248" y="186" font-size="12" font-weight="700" fill="#15803d">= 7</text>
+  <text x="26" y="226" font-size="10" fill="#475569">KRİTİK: Art arda gelen ÇARPMA ve BÖLME işlemlerinde daima SOLDAN SAĞA gidilir. "3 : 3 · 5" ifadesinde önce 3:3 yapılır (=1), sonra ·5 → 5.</text>
+  <text x="26" y="242" font-size="10" fill="#475569">Eğer önce 3·5 = 15 yapıp 3:15 deseydin 1/5 bulurdun — bu, TYT'de en sık düşülen işlem hatasıdır. Art arda toplama-çıkarmada ise sıra serbesttir.</text>
+</svg>
+
+<h3>3) Pozitif ve Negatif Sayılar — İşaret Analizi</h3>
+<p>TYT'de "sayının kendisini bul" sorularından çok <b>"sayının işaretini bul"</b> soruları çıkar. Bu tip sorularda sayıyı asla hesaplamazsın; sadece <b>işaretleri takip edersin</b>. Bu yüzden işaret kuralları ezber değil, <b>refleks</b> olmalıdır.</p>
+<table>
+<tr><th>İşlem</th><th>Kural</th><th>Hafızada tutma yolu</th></tr>
+<tr><td><b>Çarpma / Bölme</b></td><td>(+)·(+) = + · (−)·(−) = + · (+)·(−) = − · (−)·(+) = −</td><td><b>Aynı işaretliler artı, ters işaretliler eksi.</b> Bölmede de kural birebir aynıdır</td></tr>
+<tr><td><b>Toplama — aynı işaretli</b></td><td>(+) + (+) = + · (−) + (−) = −</td><td>Aynı yöne itiyorlar: <b>mutlak değerler toplanır, işaret korunur</b></td></tr>
+<tr><td><b>Toplama — ters işaretli</b></td><td>Sonucun işareti <b>mutlak değerce büyük olanın</b> işaretidir</td><td>Halat çekme: <b>güçlü olan tarafa gider</b>; mutlak değerce büyükten küçük çıkarılır</td></tr>
+</table>
+<p><b>Kuvvet (üs) alırken işaret:</b></p>
+<ul>
+<li><b>Pozitif sayının bütün kuvvetleri pozitiftir:</b> a &gt; 0 ise aⁿ &gt; 0. Üs tek de olsa çift de olsa fark etmez.</li>
+<li><b>Negatif sayıda üssün tekliği-çiftliği belirleyicidir:</b> <b>n çift ise aⁿ &gt; 0</b>, <b>n tek ise aⁿ &lt; 0</b>. Sebebi basittir: (−2)⁴ = (−2)(−2)(−2)(−2) — eksiler ikişer ikişer eşleşip artıya döner; tek sayıda eksi varsa biri eşsiz kalır ve sonucu eksi yapar.</li>
+</ul>
+<p class="formula">DİKKAT — <b>(−2)⁴ ile −2⁴ aynı şey DEĞİLDİR.</b> Birincisinde üs <u>parantezin tamamına</u>, yani −2'ye aittir: (−2)⁴ = <b>16</b>. İkincisinde üs <u>yalnızca 2'ye</u> aittir, eksi dışarıda bekler: −2⁴ = −(2⁴) = <b>−16</b>. Bu ayrım her yıl mutlaka bir soruda kullanılır ve parantezi görmeyen öğrenci yanlış işaretle şıkkı bulur.</p>
+<p class="formula">ÖRNEK — a ve b sıfırdan farklı gerçek sayılardır. <b>a²·b⁵ &lt; 0</b> ve <b>a⁷·b⁸ &gt; 0</b> olduğuna göre a ve b sayılarının işaretleri nedir?</p>
+<ul>
+<li><b>Adım 1 — Çift üslüleri ele:</b> a² ve b⁸ üsleri çift olduğu için tabanları ne olursa olsun <b>kesinlikle pozitiftir</b>. Bunlar işaret üzerinde etkisiz; birer "+1" gibi düşün.</li>
+<li><b>Adım 2 — Tek üslüleri konuştur:</b> b⁵ ve a⁷ üsleri tek olduğu için <b>işaretleri tabanlarının işaretiyle aynıdır</b>. Yani b⁵'in işareti = b'nin işareti, a⁷'nin işareti = a'nın işareti.</li>
+<li><b>Adım 3 — Birinci koşul:</b> a²·b⁵ &lt; 0 → (+)·(b'nin işareti) &lt; 0 → <b>b &lt; 0</b>.</li>
+<li><b>Adım 4 — İkinci koşul:</b> a⁷·b⁸ &gt; 0 → (a'nın işareti)·(+) &gt; 0 → <b>a &gt; 0</b>.</li>
+<li><b>Sonuç:</b> <b>a pozitif, b negatiftir.</b> Dikkat et: tek bir sayı bile hesaplamadık, sadece üslerin tekliğine-çiftliğine baktık.</li>
+</ul>
+<p><b>Toplamın işaretinden çıkarım yapma (çok sorulur):</b></p>
+<ul>
+<li><b>a + b &gt; 0 ise:</b> ya <u>ikisi de pozitiftir</u>, ya da <u>ters işaretlidirler ve pozitif olan mutlak değerce büyüktür</u>.</li>
+<li><b>a + b &lt; 0 ise:</b> ya <u>ikisi de negatiftir</u>, ya da <u>ters işaretlidirler ve negatif olan mutlak değerce büyüktür</u>.</li>
+<li><b>a + b = 0 ise:</b> ya <u>ikisi de sıfırdır</u>, ya da <u>ters işaretli ve mutlak değerce eşittirler</u> (yani b = −a).</li>
+</ul>
+<p class="formula">KRİTİK — <b>Sıfır ne pozitif ne negatiftir.</b> Bu yüzden "a ≥ 0" ile "a &gt; 0" bambaşka şeylerdir. Soru "a pozitif bir gerçek sayı" diyorsa a = 0 <u>olamaz</u>; "a negatif değildir" diyorsa a = 0 <u>olabilir</u>. Ayrıca <b>−0 = +0 = 0</b>'dır; sıfırın önündeki işaret onu değiştirmez.</p>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="İşaret kuralları ve kuvvet tablosu">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — İşaret refleksleri: çarpma, kuvvet ve toplama</text>
+  <text x="30" y="52" font-size="11" font-weight="700" fill="#0369a1">ÇARPMA / BÖLME</text>
+  <g stroke="#334155" stroke-width="1.2">
+    <rect x="30" y="60" width="52" height="30" fill="#dcfce7"/><rect x="82" y="60" width="52" height="30" fill="#fee2e2"/>
+    <rect x="30" y="90" width="52" height="30" fill="#fee2e2"/><rect x="82" y="90" width="52" height="30" fill="#dcfce7"/>
+  </g>
+  <g font-size="13" font-weight="700" text-anchor="middle">
+    <text x="56" y="80" fill="#15803d">+</text><text x="108" y="80" fill="#b91c1c">−</text>
+    <text x="56" y="110" fill="#b91c1c">−</text><text x="108" y="110" fill="#15803d">+</text>
+  </g>
+  <g font-size="10" font-weight="700" fill="#475569">
+    <text x="48" y="54">(+)</text><text x="100" y="54">(−)</text>
+    <text x="14" y="80">(+)</text><text x="14" y="110">(−)</text>
+  </g>
+  <text x="30" y="142" font-size="10" fill="#475569">Aynı işaret → +</text>
+  <text x="30" y="158" font-size="10" fill="#475569">Ters işaret → −</text>
+  <line x1="170" y1="40" x2="170" y2="180" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="196" y="52" font-size="11" font-weight="700" fill="#6d28d9">KUVVET ALIRKEN</text>
+  <g stroke="#334155" stroke-width="1.2">
+    <rect x="196" y="60" width="120" height="28" fill="#ede9fe"/>
+    <rect x="196" y="88" width="120" height="28" fill="#dcfce7"/>
+    <rect x="196" y="116" width="120" height="28" fill="#fee2e2"/>
+  </g>
+  <g font-size="11" font-weight="700">
+    <text x="206" y="79" fill="#5b21b6">a &gt; 0  →  aⁿ &gt; 0  (hep +)</text>
+    <text x="206" y="107" fill="#15803d">a &lt; 0, n ÇİFT  →  aⁿ &gt; 0</text>
+    <text x="206" y="135" fill="#b91c1c">a &lt; 0, n TEK  →  aⁿ &lt; 0</text>
+  </g>
+  <text x="196" y="162" font-size="10" fill="#475569">Sebep: eksiler ikişer eşleşip artıya döner;</text>
+  <text x="196" y="176" font-size="10" fill="#475569">tek sayıda eksi varsa biri eşsiz kalır.</text>
+  <line x1="350" y1="40" x2="350" y2="180" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="376" y="52" font-size="11" font-weight="700" fill="#b45309">TERS İŞARETLİ TOPLAMA</text>
+  <line x1="376" y1="92" x2="596" y2="92" stroke="#334155" stroke-width="2"/>
+  <circle cx="420" cy="92" r="5" fill="#dc2626"/>
+  <circle cx="560" cy="92" r="5" fill="#16a34a"/>
+  <text x="404" y="82" font-size="10" font-weight="700" fill="#b91c1c">−7</text>
+  <text x="550" y="82" font-size="10" font-weight="700" fill="#15803d">+3</text>
+  <text x="474" y="112" font-size="10" font-weight="700" fill="#334155">−7 + 3 = −4</text>
+  <text x="376" y="134" font-size="10" fill="#475569">Halat çekme: mutlak değerce BÜYÜK</text>
+  <text x="376" y="148" font-size="10" fill="#475569">olan tarafa gider. |−7| &gt; |+3| olduğu için</text>
+  <text x="376" y="162" font-size="10" fill="#475569">sonuç NEGATİF; 7 − 3 = 4 büyüklüğünde.</text>
+  <text x="26" y="204" font-size="10" fill="#475569">Sınav refleksi: "a·b &lt; 0" gördüğünde beynin otomatik olarak "a ve b ters işaretli" demeli. "a·b &gt; 0" gördüğünde "aynı işaretli".</text>
+  <text x="26" y="220" font-size="10" fill="#475569">"a/b &lt; 0" da tamamen aynı bilgiyi verir — bölmede işaret kuralı çarpmayla birebir aynıdır.</text>
+  <text x="26" y="236" font-size="10" fill="#475569">Tuzak: (−2)⁴ = +16 ama −2⁴ = −16. Parantez varsa eksi de üsse dâhildir; yoksa eksi dışarıda kalır.</text>
+  <text x="26" y="252" font-size="10" fill="#475569">Tuzak: a² ≥ 0 her zaman doğrudur ama a² &gt; 0 yalnızca a ≠ 0 iken doğrudur. Soru "sıfırdan farklı" demediyse eşitlik durumunu unutma.</text>
+</svg>
+
+<h3>4) Tek ve Çift Sayılar</h3>
+<p>Tek-çift analizi, bir denklemi <b>çözmeden</b> hakkında bilgi edinmenin en güçlü yoludur. Özellikle "aşağıdakilerden hangisi kesinlikle çifttir?" tipi sorularda kullanılır.</p>
+<table>
+<tr><th>Kavram</th><th>Tanım</th><th>Genel gösterim</th></tr>
+<tr><td><b>Çift sayı</b></td><td><b>2 ile kalansız bölünebilen</b> tam sayılar</td><td>n ∈ ℤ olmak üzere <b>2n</b> · {…, −4, −2, 0, 2, 4, …}</td></tr>
+<tr><td><b>Tek sayı</b></td><td>2 ile bölündüğünde <b>1 kalanını veren</b> tam sayılar</td><td>n ∈ ℤ olmak üzere <b>2n + 1</b> veya <b>2n − 1</b> · {…, −3, −1, 1, 3, …}</td></tr>
+</table>
+<p class="formula">KRİTİK — <b>Sıfır çift sayıdır</b> (2 ile kalansız bölünür: 0 = 2·0). Ayrıca <b>negatif sayılar da tek ya da çift olabilir</b>: −6 çifttir, −7 tektir. "Tek-çift sadece pozitiflerde olur" sanmak yaygın bir hatadır. Ancak <b>kesirler ve ondalıklı sayılar için tek-çift kavramı tanımsızdır</b>: 3,5 ne tektir ne çift.</p>
+<table>
+<tr><th>+ veya −</th><th>T</th><th>Ç</th></tr>
+<tr><td><b>T</b></td><td><b>Ç</b></td><td><b>T</b></td></tr>
+<tr><td><b>Ç</b></td><td><b>T</b></td><td><b>Ç</b></td></tr>
+</table>
+<table>
+<tr><th>×</th><th>T</th><th>Ç</th></tr>
+<tr><td><b>T</b></td><td><b>T</b></td><td><b>Ç</b></td></tr>
+<tr><td><b>Ç</b></td><td><b>Ç</b></td><td><b>Ç</b></td></tr>
+</table>
+<p><b>Bu tabloları ezberlemene gerek yok — iki cümleye indirgenir:</b></p>
+<ul>
+<li><b>Toplama-çıkarmada:</b> <u>İkisi de aynı türdense (ikisi de tek ya da ikisi de çift) sonuç ÇİFT; farklı türdense sonuç TEK.</u> Mantığı: 2n + 2m = 2(n+m) → çift. (2n+1) + (2m+1) = 2(n+m+1) → yine çift.</li>
+<li><b>Çarpmada:</b> <u>Sonucun tek olması için ÇARPILAN HER SAYININ tek olması gerekir. Araya bir tane bile çift girerse sonuç çifttir.</u> Mantığı: çift sayının içinde bir 2 çarpanı vardır; o 2 çarpımdan asla kaybolmaz.</li>
+</ul>
+<p><b>Kuvvet alırken:</b> Tⁿ = <b>T</b> ve Çⁿ = <b>Ç</b> (n pozitif tam sayı). Yani <b>kuvvet almak sayının tek-çift kimliğini değiştirmez</b>. Tekin her kuvveti tek, çiftin her kuvveti çifttir.</p>
+<p class="formula">ÖRNEK — a ve b tam sayı olmak üzere <b>3a + 5b</b> ifadesi tek sayıdır. Buna göre <b>a + b</b> ifadesi hakkında ne söylenebilir?</p>
+<ul>
+<li><b>Adım 1:</b> 3 ve 5 tek sayılardır. <b>Tek × a</b> çarpımının tek-çiftliği <u>a ile aynıdır</u> (tek sayıyla çarpmak kimliği değiştirmez). Aynı şekilde 5b'nin kimliği b ile aynıdır.</li>
+<li><b>Adım 2:</b> Öyleyse 3a + 5b'nin tek-çiftliği, <b>a + b</b>'nin tek-çiftliğiyle birebir aynıdır.</li>
+<li><b>Adım 3:</b> 3a + 5b tek verildiğine göre <b>a + b de tektir</b>.</li>
+<li><b>Genel ders:</b> Bir ifadenin tek-çiftliğini incelerken <b>tek katsayıları görmezden gelebilirsin</b>; sadece çift katsayılar ve sabitler önemlidir. Örneğin 4a + 7b + 6 ifadesinde 4a ve 6 kesinlikle çifttir, dolayısıyla ifadenin kimliğini <b>tek başına 7b, yani b</b> belirler.</li>
+</ul>
+
+<h3>5) Ardışık Sayılar</h3>
+<p><b>Ardışık sayılar</b>, belirli bir kurala göre art arda gelen sayılardır. Terimler arasındaki farklar eşittir; bu ortak değere <b>ortak fark</b> denir. Bu konudaki iki formülü ezberlemek yerine <b>nereden geldiklerini</b> görürsen asla karıştırmazsın.</p>
+<table>
+<tr><th>Tür</th><th>Ortak fark</th><th>Genel gösterim</th><th>Örnek</th></tr>
+<tr><td><b>Ardışık tam sayılar</b></td><td><b>1</b></td><td>n, n+1, n+2, …</td><td>7, 8, 9, 10</td></tr>
+<tr><td><b>Ardışık çift sayılar</b></td><td><b>2</b></td><td>2n, 2n+2, 2n+4, …</td><td>24, 26, 28, 30</td></tr>
+<tr><td><b>Ardışık tek sayılar</b></td><td><b>2</b></td><td>2n+1, 2n+3, 2n+5, …</td><td>−29, −27, −25</td></tr>
+</table>
+<p class="formula">TERİM SAYISI — <b>Terim Sayısı = (Son Terim − İlk Terim) / Ortak Fark + 1</b><br/><u>Neden "+1" var?</u> Çünkü bölme işlemi sana <b>aradaki aralık sayısını</b> verir, terim sayısını değil. 3, 4, 5 dizisinde (5−3)/1 = 2 çıkar ama 3 terim vardır. Parmaklarını düşün: 5 parmak arasında 4 boşluk vardır. <b>Boşluk sayısı + 1 = nesne sayısı.</b> Bu yüzden +1 eklenir.</p>
+<p class="formula">TERİMLER TOPLAMI — <b>Toplam = ((İlk Terim + Son Terim) / 2) · Terim Sayısı</b><br/><u>Neden?</u> Bu, <b>ortalama × adet</b> formülünün ta kendisidir. Ardışık bir dizide sayılar düzgün dağıldığı için <b>ortalama, ilk ve son terimin ortasıdır</b>. Gauss'un çocukken bulduğu numara: 1+2+…+100 dizisinde baştan ve sondan eşleştir — 1+100 = 101, 2+99 = 101, 3+98 = 101… Her eşin toplamı aynı! 50 eş × 101 = 5050.</p>
+<p><b>Sık kullanılan özel toplamlar:</b></p>
+<ul>
+<li><b>1 + 2 + 3 + … + n = n·(n+1) / 2</b> — ilk n doğal sayının toplamı.</li>
+<li><b>1 + 3 + 5 + … + (2n−1) = n²</b> — ilk n tek sayının toplamı. <u>Görsel ispatı çok şıktır: 1 kare, yanına 3 kare ekle → 2×2 kare olur; yanına 5 ekle → 3×3 olur. Her seferinde bir sonraki tam kareye ulaşırsın.</u></li>
+<li><b>2 + 4 + 6 + … + 2n = n·(n+1)</b> — ilk n çift sayının toplamı. <u>Dikkat: bu, birinci formülün 2 katıdır; çünkü her terim 2 ile çarpılmıştır.</u></li>
+</ul>
+<p class="formula">ORTANCA TERİM — Terim sayısı <b>tek</b> olan bir ardışık dizide <b>ortanca terim = (İlk + Son) / 2</b>'dir ve bu aynı zamanda <b>dizinin aritmetik ortalamasına eşittir</b>. Bu yüzden "5 ardışık sayının toplamı 100 ise ortancası kaçtır?" sorusunda hesap yapmana gerek yok: <b>100 : 5 = 20</b>. Toplamı terim sayısına bölmek doğrudan ortancayı verir.</p>
+<p class="formula">ÖRNEK — <b>17 + 19 + 21 + … + 61</b> toplamı kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Diziyi tanı:</b> Ardışık tek sayılar, ortak fark <b>2</b>.</li>
+<li><b>Adım 2 — Terim sayısı:</b> (61 − 17) / 2 + 1 = 44/2 + 1 = 22 + 1 = <b>23 terim</b>.</li>
+<li><b>Adım 3 — Toplam:</b> ((17 + 61)/2) · 23 = (78/2) · 23 = 39 · 23 = <b>897</b>.</li>
+<li><b>Kontrol refleksi:</b> 39 zaten ortanca terimdir (17 ile 61'in tam ortası). 23 terimin ortalaması 39 ise toplam 39·23 olmalı — mantık tutarlı.</li>
+</ul>
+<p class="formula">ÖRNEK — Ardışık <b>5 tam sayının</b> toplamı 155'tir. En büyüğü kaçtır?</p>
+<ul>
+<li><b>Yanlış yol:</b> x, x+1, x+2, x+3, x+4 deyip 5x + 10 = 155 çözmek. Doğrudur ama uzundur.</li>
+<li><b>Doğru refleks:</b> Terim sayısı <b>tek</b> olduğu için ortancayı doğrudan bul: 155 : 5 = <b>31</b>.</li>
+<li>Ortanca 31 ise dizi: 29, 30, <b>31</b>, 32, 33. En büyüğü <b>33</b>.</li>
+<li><b>Genel kural:</b> Ardışık sayı problemlerinde <b>terim sayısı tekse ortadaki terime x de</b>, çiftse iki ortadakine x ve x+d de. Bu, denklemi en sade hâline getirir.</li>
+</ul>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ardışık sayılarda terim sayısı ve Gauss eşleştirmesi">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — "+1" nereden geliyor ve Gauss eşleştirmesi neden işe yarıyor?</text>
+  <text x="26" y="50" font-size="11" font-weight="700" fill="#0369a1">A · Terim sayısındaki +1</text>
+  <g>
+    <circle cx="60" cy="80" r="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+    <circle cx="120" cy="80" r="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+    <circle cx="180" cy="80" r="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+    <circle cx="240" cy="80" r="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  </g>
+  <g font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">
+    <text x="60" y="84">3</text><text x="120" y="84">5</text><text x="180" y="84">7</text><text x="240" y="84">9</text>
+  </g>
+  <g stroke="#dc2626" stroke-width="2">
+    <line x1="72" y1="80" x2="108" y2="80"/><line x1="132" y1="80" x2="168" y2="80"/><line x1="192" y1="80" x2="228" y2="80"/>
+  </g>
+  <g font-size="9" fill="#b91c1c" text-anchor="middle">
+    <text x="90" y="70">1</text><text x="150" y="70">2</text><text x="210" y="70">3</text>
+  </g>
+  <text x="26" y="112" font-size="10" fill="#475569">(9 − 3) : 2 = 3  →  bu 3, ARALIK sayısıdır (kırmızı çizgiler).</text>
+  <text x="26" y="128" font-size="10" font-weight="700" fill="#15803d">Daire (terim) sayısı ise 4'tür → aralık + 1. İşte "+1" bu.</text>
+  <line x1="300" y1="40" x2="300" y2="150" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="326" y="50" font-size="11" font-weight="700" fill="#6d28d9">B · Gauss eşleştirmesi</text>
+  <g font-size="12" font-weight="700" fill="#334155">
+    <text x="330" y="80">1</text><text x="372" y="80">2</text><text x="414" y="80">3</text>
+    <text x="470" y="80">…</text>
+    <text x="512" y="80">98</text><text x="556" y="80">99</text><text x="596" y="80">100</text>
+  </g>
+  <g stroke="#7c3aed" stroke-width="1.6" fill="none">
+    <path d="M334,88 Q470,132 600,88"/>
+    <path d="M376,88 Q470,120 562,88"/>
+    <path d="M418,88 Q470,110 518,88"/>
+  </g>
+  <text x="440" y="146" font-size="10" font-weight="700" fill="#6d28d9">her eşin toplamı 101</text>
+  <text x="326" y="166" font-size="10" fill="#475569">50 eş × 101 = 5050</text>
+  <text x="326" y="182" font-size="10" fill="#475569">Formülle: ((1+100)/2)·100 = 50,5 · 100 = 5050 ✓</text>
+  <line x1="26" y1="196" x2="614" y2="196" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="216" font-size="10" fill="#475569">Sınav refleksi 1: Terim sayısı TEK ise → ortanca = toplam / terim sayısı. Denklem kurmadan cevaba gidersin.</text>
+  <text x="26" y="232" font-size="10" fill="#475569">Sınav refleksi 2: "n ardışık sayının toplamı" ifadesinde n tekse toplam daima n'in katıdır. 5 ardışık sayının toplamı 5'in katı olmak ZORUNDADIR.</text>
+  <text x="26" y="248" font-size="10" fill="#475569">Bu, şıkları eleme silahıdır: "5 ardışık tam sayının toplamı aşağıdakilerden hangisi OLAMAZ?" sorusunda 5'e bölünmeyen şık cevaptır.</text>
+</svg>
+
+<h3>6) Sayı Basamakları ve Çözümleme</h3>
+<p>Bir sayıyı oluşturan rakamlardan her birinin sayı içindeki yerine <b>basamak</b> denir. Basamak konusunun tamamı tek bir fikre dayanır: <b>bir rakamın değeri, bulunduğu yere bağlıdır.</b></p>
+<table>
+<tr><th>Basamak</th><th>On binler</th><th>Binler</th><th>Yüzler</th><th>Onlar</th><th>Birler</th></tr>
+<tr><td><b>Rakam (sayı değeri)</b></td><td>a</td><td>b</td><td>c</td><td>d</td><td>e</td></tr>
+<tr><td><b>Basamak değeri</b></td><td>a · 10000</td><td>b · 1000</td><td>c · 100</td><td>d · 10</td><td>e · 1</td></tr>
+</table>
+<ul>
+<li><b>Sayı değeri:</b> Rakamın <b>kendisi</b>. 4726 sayısında 7'nin sayı değeri <b>7</b>'dir.</li>
+<li><b>Basamak değeri:</b> Rakam × bulunduğu basamağın değeri. 4726 sayısında 7 yüzler basamağındadır, basamak değeri <b>700</b>'dür.</li>
+<li><b>Çözümleme:</b> Sayıyı basamak değerlerinin toplamı olarak yazmak. <b>abcde = 10000a + 1000b + 100c + 10d + e</b></li>
+</ul>
+<p class="formula">DİKKAT — <b>Basamak sayısı belli olan bir sayının ilk (en soldaki) rakamı 0 olamaz.</b> "abc üç basamaklı bir sayıdır" dendiğinde <b>a ≠ 0</b>'dır ama b ve c sıfır olabilir. Ayrıca <b>abc gösterimi a·b·c çarpımı DEĞİLDİR</b>; üzerinde çizgi olan bu gösterim <u>rakamları a, b, c olan üç basamaklı sayıyı</u> ifade eder. Bu iki hata en sık yapılanlardır.</p>
+<p><b>Ezberlenmesi gereken değil, türetilmesi gereken bağıntılar:</b></p>
+<p class="formula">AB + BA = 11·(A + B) — <u>Nereden geldi?</u> AB = 10A + B, BA = 10B + A. Toplarsan: 10A + B + 10B + A = <b>11A + 11B = 11(A+B)</b>. Yani <b>iki basamaklı bir sayı ile rakamları yer değiştirmişinin toplamı DAİMA 11'in katıdır.</b></p>
+<p class="formula">AB − BA = 9·(A − B) — <u>Aynı mantıkla:</u> (10A + B) − (10B + A) = <b>9A − 9B = 9(A−B)</b>. Yani <b>fark DAİMA 9'un katıdır.</b> Bu iki sonuç, bölünebilme sorularında kestirme yol olarak sürekli kullanılır.</p>
+<p><b>Sayıyı parçalara ayırma (çok işe yarar):</b></p>
+<ul>
+<li><b>ABCDE = 1000·AB + CDE</b> — soldan iki basamağı ayır, geriye üç basamak kalır.</li>
+<li><b>ABCDE = 100·ABC + DE</b> — soldan üç basamağı ayır.</li>
+<li><b>ABCDE = 10·ABCD + E</b> — sadece son rakamı ayır.</li>
+<li><b>Pratik sonuç:</b> Bir tam sayının sonuna eklenen her sıfır sayıyı <b>10 katına</b> çıkarır.</li>
+</ul>
+<p class="formula">ÖRNEK — İki basamaklı <b>AB</b> sayısı ile rakamları yer değiştirmiş <b>BA</b> sayısının farkı 36'dır. Buna göre A − B kaçtır?</p>
+<ul>
+<li><b>Adım 1:</b> AB − BA = 9(A − B) bağıntısını kullan.</li>
+<li><b>Adım 2:</b> 9(A − B) = 36 → <b>A − B = 4</b>.</li>
+<li><b>Not:</b> Sayıların kendisini bulmaya gerek yok. Uygun birçok sayı vardır (51−15, 62−26, 73−37…) ve hepsinde rakamlar farkı 4'tür.</li>
+</ul>
+
+<h3>7) Asal Sayılar ve Aralarında Asal Sayılar</h3>
+<p><b>Asal sayı:</b> <b>1 ve kendisinden başka pozitif böleni olmayan, 1'den büyük</b> tam sayılardır: <u>2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47…</u></p>
+<ul>
+<li><b>2 en küçük asal sayıdır ve TEK ÇİFT asal sayıdır.</b> Diğer bütün çift sayılar 2'ye bölünebildiği için asal olamaz.</li>
+<li><b>Negatif asal sayı yoktur</b>; asallık tanımı 1'den büyük tam sayılar için yapılır.</li>
+<li><b>1 asal DEĞİLDİR</b> (tek pozitif böleni vardır, tanım "1 ve kendisi" der; 1'de bu ikisi çakışır).</li>
+<li><b>Ardışık tam sayı olan asal çifti yalnızca 2 ve 3'tür.</b> Çünkü 3'ten sonra ardışık iki sayıdan biri mutlaka çift olur.</li>
+</ul>
+<p><b>Aralarında asal sayılar:</b> <b>1'den başka pozitif ortak böleni olmayan</b> pozitif tam sayılardır. Yani <b>EBOB'ları 1'dir.</b></p>
+<ul>
+<li><b>1 ile bütün pozitif tam sayılar aralarında asaldır.</b></li>
+<li><b>Aralarında asal olan sayıların kendileri asal olmak zorunda değildir:</b> <u>8 ile 9 aralarında asaldır</u> ama ikisi de asal sayı değildir.</li>
+<li><b>Ardışık tam sayılar daima aralarında asaldır.</b> <u>Neden? Ortak bölenleri d olsaydı, farkları olan 1'i de bölmesi gerekirdi; 1'i bölen tek pozitif sayı 1'dir.</u></li>
+<li><b>Ardışık tek tam sayılar da aralarında asaldır.</b></li>
+<li><b>Ardışık çift tam sayılar aralarında asal DEĞİLDİR</b>, çünkü ikisi de 2'ye bölünür — ortak bölenleri en az 2'dir.</li>
+</ul>
+<p class="formula">ÖRNEK — a, b ve c asal sayılardır ve <b>a²ᵇ − 2ᶜ = 121</b> eşitliği veriliyor. <b>a + b·c</b> kaçtır?</p>
+<ul>
+<li><b>Adım 1 — 121'i tanı:</b> 121 = <b>11²</b>. Sağ tarafı bu biçimde yazmak, sol taraftaki kare ile eşleştirme yapmayı sağlar.</li>
+<li><b>Adım 2 — Eşleştir:</b> a² · (2ᵇ − 2ᶜ biçimindeki yapı) düşünüldüğünde a = <b>11</b> ve geriye 2ᵇ − 2ᶜ = 2 kalır.</li>
+<li><b>Adım 3 — İkinci denklem:</b> 2ᵇ − 2ᶜ = 2 → b − c = 1, yani <b>farkı 1 olan iki asal sayı</b> aranıyor.</li>
+<li><b>Adım 4 — Kritik bilgi:</b> Aralarındaki fark 1 olan asal sayılar <b>yalnızca 2 ve 3'tür</b> (yukarıdaki kural). Öyleyse <b>b = 3, c = 2</b>.</li>
+<li><b>Sonuç:</b> a + b·c = 11 + 3·2 = <b>17</b>.</li>
+<li><b>Ders:</b> "Asal sayılardır" ifadesi gördüğünde <b>2'nin özel konumunu</b> düşün. Asal sayı sorularının çoğu, 2'nin tek çift asal olması ya da 2-3 ikilisinin ardışıklığı üzerine kuruludur.</li>
+</ul>
+<p class="formula">ÖRNEK — <b>2a + 3b</b> ile <b>2a − 3b</b> aralarında asal sayılardır ve <b>22·(2a − 3b) = 18·(2a + 3b)</b> eşitliği veriliyor. a kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Sadeleştir:</b> Her iki tarafı 2'ye böl → <b>11·(2a − 3b) = 9·(2a + 3b)</b>.</li>
+<li><b>Adım 2 — Aralarında asallığı kullan:</b> 11 ve 9 aralarında asaldır. Eşitliğin sağlanması için <b>2a + 3b = 11</b> ve <b>2a − 3b = 9</b> olmalıdır. <u>Neden? Çünkü (2a−3b) ile (2a+3b) de aralarında asal verilmiş; birinin diğerine "geçebilmesi" ancak karşılıklı katsayılara eşit olmalarıyla mümkündür.</u></li>
+<li><b>Adım 3 — Taraf tarafa topla:</b> (2a + 3b) + (2a − 3b) = 11 + 9 → 4a = 20 → <b>a = 5</b>.</li>
+</ul>
+
+<h3>8) Soru Tipleri — Bu Üniteden Kaç Kalıpta Soru Gelir?</h3>
+<p>Bu konudan TYT'de gelen sorular <b>yedi kalıba</b> indirgenir. Her kalıbın bir <b>tanınma işareti</b> (soruda seni uyaran ifade) ve bir <b>çözüm refleksi</b> vardır.</p>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td><b>1</b></td><td><b>Küme kimliği</b></td><td>"Aşağıdakilerden hangisi rasyonel / irrasyonel / tam sayıdır?"</td><td>Önce <b>sadeleştir</b> (√4 = 2, 8/2 = 4). Sonra en iç kümeden dışa doğru sor: doğal mı? tam mı? rasyonel mi?</td></tr>
+<tr><td><b>2</b></td><td><b>İşaret belirleme</b></td><td>"a·b &lt; 0", "a/b &gt; 0", "aⁿ·bᵐ &lt; 0" verilmiş, işaret isteniyor</td><td>Sayıyı hesaplama. <b>Çift üslüleri ele (hep +), tek üslüleri tabanla eşitle.</b> Sonra işaret çarpımını çöz</td></tr>
+<tr><td><b>3</b></td><td><b>Tek-çift analizi</b></td><td>"kesinlikle çifttir", "tek sayıdır", "hangisi daima…"</td><td><b>Tek katsayıları yok say</b>, çift katsayılı terimleri "çift" diye işaretle, kalanı topla. Ya da <b>en küçük uygun sayıları deneyerek</b> şık ele</td></tr>
+<tr><td><b>4</b></td><td><b>Ardışık sayı toplamı</b></td><td>"ardışık … sayının toplamı", "17+19+…+61"</td><td>Terim sayısı → toplam formülü. <b>Terim sayısı tekse ortanca = toplam/terim sayısı</b> kestirmesini kullan</td></tr>
+<tr><td><b>5</b></td><td><b>Basamak / çözümleme</b></td><td>"iki basamaklı AB sayısı", "rakamları yer değiştirilirse"</td><td><b>AB = 10A + B</b> aç. Toplam soruluyorsa 11(A+B), fark soruluyorsa 9(A−B) kestirmesine geç</td></tr>
+<tr><td><b>6</b></td><td><b>Asal sayı avı</b></td><td>"a, b, c asal sayılardır", "aralarında asaldır"</td><td><b>2'nin özel konumunu</b> düşün (tek çift asal). Ardışıklık varsa 2-3 ikilisini test et. Denklemi <b>çarpanlarına ayır</b></td></tr>
+<tr><td><b>7</b></td><td><b>İşlem önceliği / pratik hesap</b></td><td>Uzun bir işlem zinciri, büyük sayılarla çarpım</td><td><b>Ortak parantez</b> ara (dağılma özelliğini tersine kullan). Üs → parantez → çarpma/bölme (soldan sağa) → toplama/çıkarma</td></tr>
+</table>
+<p class="formula">TEST TEKNİĞİ — Bu ünitedeki soruların yaklaşık yarısı <b>"kesinlikle / daima / her zaman"</b> kelimesini içerir. Bu kelimeyi gördüğünde <b>tek bir karşı örnek bulmak şıkkı elemeye yeter</b>. Denemeye başlayacağın sayılar sabittir: <b>0, 1, −1, 2, −2 ve bir kesir (1/2).</b> Bu beş sayı, TYT'deki "daima doğru mudur?" sorularının neredeyse tamamını çözer. Özellikle <b>0 ve 1</b>'i denemeyi unutma; hazırlanan tuzakların çoğu tam da bu ikisinde patlar.</p>
+<p class="formula">ÖRNEK — a bir gerçek sayı olmak üzere aşağıdakilerden hangisi <b>daima doğrudur</b>? &nbsp;<b>I.</b> a² &gt; a &nbsp; <b>II.</b> a² ≥ 0 &nbsp; <b>III.</b> a³ &gt; 0</p>
+<ul>
+<li><b>I'i test et:</b> a = 1/2 alalım → a² = 1/4, ama 1/4 &gt; 1/2 <b>yanlış</b>. Ayrıca a = 1 alsak 1 &gt; 1 yine yanlış. <b>I daima doğru değil.</b> (0 ile 1 arasındaki sayıların karesi kendisinden küçüktür — bu bilgi tek başına çok soru çözer.)</li>
+<li><b>II'yi test et:</b> Herhangi bir gerçek sayının karesi negatif olamaz; a = 0 için 0 ≥ 0 da sağlanır. <b>II daima doğru.</b></li>
+<li><b>III'ü test et:</b> a = −2 alalım → a³ = −8 &lt; 0. <b>III yanlış.</b></li>
+<li><b>Cevap:</b> Yalnız <b>II</b>. Dikkat et: hiçbir cebir yapmadık, sadece <u>doğru sayıları denedik</u>.</li>
+</ul>
+
+<h3>9) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Rakam:</b> Sayıları yazmaya yarayan 10 sembolden her biri (0–9).</li>
+<li><b>Sayı:</b> Rakamların birleşiminden oluşan, bir çokluk bildiren ifade. <u>Rakam sonludur (10 tane), sayı sonsuzdur.</u></li>
+<li><b>Doğal sayı (ℕ):</b> 0'dan başlayan, birer artan sayılar.</li>
+<li><b>Tam sayı (ℤ):</b> Doğal sayılar ve negatifleri.</li>
+<li><b>Rasyonel sayı (ℚ):</b> b ≠ 0 olmak üzere a/b biçiminde yazılabilen sayı.</li>
+<li><b>İrrasyonel sayı (ℚ'):</b> a/b biçiminde yazılamayan; ondalık açılımı ne biten ne devreden sayı.</li>
+<li><b>Gerçek (reel) sayı (ℝ):</b> Rasyonel ve irrasyonellerin birleşimi; sayı doğrusunun tamamı.</li>
+<li><b>Kapalılık:</b> Bir işlemin sonucunun aynı kümede kalması özelliği.</li>
+<li><b>Birim (etkisiz) eleman:</b> İşlem sonucunu değiştirmeyen eleman; toplamada 0, çarpmada 1.</li>
+<li><b>Yutan eleman:</b> Çarpımda sonucu kendine çeken eleman: 0.</li>
+<li><b>Ters eleman:</b> Sayıyı birim elemana götüren eleman; toplama tersi −a, çarpma tersi 1/a.</li>
+<li><b>Dağılma özelliği:</b> a·(b + c) = a·b + a·c. Tersine kullanımı "ortak parantezine alma"dır.</li>
+<li><b>Çift sayı:</b> 2 ile kalansız bölünen tam sayı; 2n biçiminde yazılır. <u>0 çifttir.</u></li>
+<li><b>Tek sayı:</b> 2 ile bölündüğünde 1 kalanını veren tam sayı; 2n ± 1 biçiminde yazılır.</li>
+<li><b>Ardışık sayılar:</b> Terimler arasındaki farkı sabit olan, art arda gelen sayılar.</li>
+<li><b>Ortak fark:</b> Ardışık dizide iki komşu terim arasındaki sabit fark.</li>
+<li><b>Ortanca terim:</b> Terim sayısı tek olan dizide tam ortadaki terim; (ilk + son)/2'ye eşittir.</li>
+<li><b>Basamak:</b> Bir rakamın sayı içindeki konumu.</li>
+<li><b>Sayı değeri:</b> Rakamın kendisi.</li>
+<li><b>Basamak değeri:</b> Rakam × bulunduğu basamağın ağırlığı.</li>
+<li><b>Çözümleme:</b> Sayıyı basamak değerlerinin toplamı olarak yazma.</li>
+<li><b>Asal sayı:</b> 1 ve kendisinden başka pozitif böleni olmayan, 1'den büyük tam sayı.</li>
+<li><b>Aralarında asal:</b> 1'den başka ortak pozitif böleni olmayan sayılar; EBOB'ları 1'dir.</li>
+<li><b>Mutlak değer:</b> Bir sayının sayı doğrusunda sıfıra olan uzaklığı; daima negatif olmayan bir değerdir.</li>
+</ul>
+
+<h3>10) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Rakam ≠ sayı:</b> "İki basamaklı kaç sayı vardır?" (90 tane) ile "kaç rakam vardır?" (10 tane) bambaşka sorulardır.</li>
+<li><b>Kümeler ayrık değil, iç içedir:</b> 5 hem doğal, hem tam, hem rasyonel, hem gerçektir. "5 rasyonel değildir" demek yanlıştır. <u>Sadece ℚ ve ℚ' ayrıktır.</u></li>
+<li><b>Sadeleştirmeden karar verme:</b> √4 irrasyonel <b>değildir</b> (= 2). √(16/4) = 2 de rasyoneldir. Kök gördün diye "irrasyonel" deme; önce sadeleştir.</li>
+<li><b>√ içinde negatif olmaz ama ∛ içinde olur:</b> √−9 tanımsız, ∛−8 = −2 tanımlı.</li>
+<li><b>(−2)⁴ ≠ −2⁴:</b> Birincisi +16, ikincisi −16. Parantez, eksiyi de üsse dâhil eder.</li>
+<li><b>Sıfır ne pozitif ne negatiftir</b> ama <b>çifttir</b>. "Pozitif tam sayı" dendiğinde 0 dâhil değildir; "doğal sayı" dendiğinde dâhildir.</li>
+<li><b>a² ≥ 0 daima doğru, a² &gt; 0 yalnızca a ≠ 0 iken doğru.</b> Soru "sıfırdan farklı" demediyse eşitliği unutma.</li>
+<li><b>0 ile 1 arasındaki sayıların karesi küçülür:</b> (1/2)² = 1/4 &lt; 1/2. "Kare almak büyütür" genellemesi yanlıştır.</li>
+<li><b>Negatiflerde büyüklük ters döner:</b> −5 &lt; −2'dir. Mutlak değeri büyük olan negatif sayı, sayısal olarak küçüktür.</li>
+<li><b>Art arda çarpma-bölmede daima soldan sağa:</b> 12 : 3 · 2 = 8'dir, 2 değil.</li>
+<li><b>Çıkarma ve bölmede değişme özelliği yoktur:</b> 5 − 3 ≠ 3 − 5, 8 : 4 ≠ 4 : 8.</li>
+<li><b>0'ın çarpmaya göre tersi yoktur</b> (1/0 tanımsız), ama toplamaya göre tersi vardır (0'ın kendisi).</li>
+<li><b>Terim sayısında +1'i unutma:</b> (Son − İlk)/Fark <b>aralık sayısını</b> verir, terim sayısını değil.</li>
+<li><b>abc gösterimi çarpım değildir:</b> Üç basamaklı sayıyı ifade eder ve <b>a ≠ 0</b>'dır.</li>
+<li><b>1 asal değildir; 2 tek çift asaldır.</b> "En küçük asal sayı" 2'dir, 1 değil.</li>
+<li><b>Aralarında asal olmak, asal olmak demek değildir:</b> 8 ve 9 aralarında asaldır ama ikisi de asal sayı değildir.</li>
+<li><b>Ardışık çift sayılar aralarında asal değildir</b> (ortak bölenleri 2'dir); ardışık tam sayılar ve ardışık tek sayılar aralarında asaldır.</li>
+</ul>
+
+<h3>11) Özet Kartı</h3>
+<ul>
+<li><b>Küme zinciri:</b> ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ · ℚ ∪ ℚ' = ℝ · ℚ ∩ ℚ' = ∅. Rakam 10 tanedir; sayı sonsuzdur.</li>
+<li><b>İrrasyonel tanıma:</b> kök dışına çıkamaz · ondalığı ne biter ne devreder · a/b yazılamaz. Örnek: √2, √5, ∛3, π, e.</li>
+<li><b>Özellikler:</b> kapalılık · değişme · birleşme · birim (0 ve 1) · ters (−a ve 1/a) · yutan (0) · dağılma. <b>Çıkarma ve bölmede değişme-birleşme YOK.</b></li>
+<li><b>İşlem önceliği:</b> üs → parantez → çarpma/bölme (soldan sağa) → toplama/çıkarma.</li>
+<li><b>İşaret:</b> aynı işaret çarpımı +, ters işaret çarpımı −. a &gt; 0 → aⁿ &gt; 0. a &lt; 0 → n çiftse +, n tekse −.</li>
+<li><b>Tek-çift:</b> T+T = Ç, Ç+Ç = Ç, T+Ç = T · T·T = T, geri kalan tüm çarpımlar Ç · Tⁿ = T, Çⁿ = Ç. <b>0 çifttir.</b></li>
+<li><b>Ardışık:</b> Terim sayısı = (Son − İlk)/Fark + 1 · Toplam = ((İlk + Son)/2) · Terim sayısı · Terim sayısı tekse ortanca = Toplam / Terim sayısı.</li>
+<li><b>Özel toplamlar:</b> 1+2+…+n = n(n+1)/2 · 1+3+…+(2n−1) = n² · 2+4+…+2n = n(n+1).</li>
+<li><b>Basamak:</b> abcde = 10000a + 1000b + 100c + 10d + e · AB + BA = 11(A+B) · AB − BA = 9(A−B) · ilk rakam 0 olamaz.</li>
+<li><b>Asal:</b> 2, 3, 5, 7, 11, 13, 17, 19, 23, 29… · 2 tek çift asaldır · 1 asal değildir · negatif asal yoktur · ardışık asal ikilisi yalnız 2-3.</li>
+<li><b>Aralarında asal:</b> EBOB = 1 · ardışık tam sayılar ve ardışık tek sayılar daima aralarında asal · ardışık çift sayılar değil.</li>
+<li><b>Test refleksi:</b> "daima / kesinlikle" gördüğünde <b>0, 1, −1, 2, −2, 1/2</b> ile karşı örnek ara. Bir tek karşı örnek şıkkı eler.</li>
+</ul>
+
+</body></html>

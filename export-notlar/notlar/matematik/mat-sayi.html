@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sayı Problemleri</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Sayı Problemleri</h2>
+
+<p>Problem soruları matematik bilgisini değil, <b>okuduğunu denkleme çevirme becerisini</b> ölçer. Bu ünitede öğreneceğin şey yeni bir formül değil, bir <u>çeviri dili</u>: Türkçe cümleleri cebirsel ifadelere dönüştürmek. Bu dili kurduğunda sayı problemleri, yaş problemleri, işçi problemleri — hepsi aynı iskeleti paylaşır. <b>Kritik alışkanlık:</b> soruyu okurken hemen hesaba başlama; önce <u>"neye x diyeceğim?"</u> sorusunu cevapla. Doğru seçilen bir bilinmeyen, çözümün yarısıdır.</p>
+
+<h3>1) Problem Çözme Yöntemi</h3>
+<p class="formula">BEŞ ADIM — Her problem şu sırayla çözülür:<br/>
+<b>1)</b> Problemde <u>verilen</u> bilgileri belirle.<br/>
+<b>2)</b> Problemde <u>istenen</u> bilgiyi belirle.<br/>
+<b>3)</b> İstenen veriye uygun bir <b>değişken ata</b> (genellikle x).<br/>
+<b>4)</b> Verilere göre <b>denklem ya da eşitsizlik yaz</b>.<br/>
+<b>5)</b> Denklemi çöz ve <u>sorunun sorduğu şeyi</u> yazdığından emin ol.</p>
+<p class="formula">HANGİSİNE x DİYECEĞİM? — Bu kararı doğru vermek işlemleri yarıya indirir. Üç pratik kural:<br/>
+• <b>Genellikle en küçük ya da en bilinmeyen büyüklüğe x de</b>; diğerleri onun cinsinden kolay yazılır.<br/>
+• <b>Kesir varsa paydaların EKOK'u kadar x al.</b> <u>Örnek: "bir sayının 1/3'ü ve 1/4'ü" geçiyorsa sayıya 12x de; kesirler tamamen yok olur.</u><br/>
+• <b>Sorunun istediği büyüklüğe x demek her zaman en iyisi değildir</b>; bazen başka bir büyüklüğe x deyip sonunda dönüşüm yapmak daha kısadır.<br/>
+<b>SON ADIMI UNUTMA:</b> x'i bulmak çözümün sonu değildir. Soru "x kaçtır?" değil, çoğu zaman "2x + 5 kaçtır?" diye sorar. <u>Bulduğun sayıyı yazmadan önce soruyu tekrar oku.</u></p>
+
+<h3>2) Sözel İfadeden Cebirsel İfadeye — Çeviri Sözlüğü</h3>
+<p>Aşağıdaki tablo bu ünitenin kalbidir. Bu çevirileri refleks hâline getirdiğinde, problem okurken zihnin doğrudan denklem yazmaya başlar.</p>
+<table>
+<tr><th>Sözel ifade</th><th>Cebirsel karşılığı</th></tr>
+<tr><td>Bir sayı</td><td><b>x</b></td></tr>
+<tr><td>Bir sayının <b>5 fazlası</b></td><td>x + 5</td></tr>
+<tr><td>Bir sayının <b>5 eksiği</b></td><td>x − 5</td></tr>
+<tr><td>Bir sayıdan <b>5 eksik</b> olan sayı</td><td>x − 5 &nbsp;<u>(aynı şey)</u></td></tr>
+<tr><td>Bir sayının <b>5 katı</b></td><td>5x</td></tr>
+<tr><td>Bir sayının <b>5 katının 14 eksiği</b></td><td>5x − 14</td></tr>
+<tr><td>Bir sayının <b>5 eksiğinin 3 katı</b></td><td>3(x − 5) &nbsp;<u>parantez zorunlu</u></td></tr>
+<tr><td>Bir sayının <b>yarısının 7 fazlası</b></td><td>x/2 + 7</td></tr>
+<tr><td>Bir sayının <b>karesi ile kendisinin toplamı</b></td><td>x² + x</td></tr>
+<tr><td>Bir sayının <b>iki katı ile yarısının toplamı</b></td><td>2x + x/2</td></tr>
+<tr><td>İki sayının <b>toplamı 20</b></td><td>x + y = 20 &nbsp;ya da&nbsp; <b>x ve 20 − x</b></td></tr>
+<tr><td>Farkları 8 olan iki sayı</td><td><b>x ve x − 8</b></td></tr>
+<tr><td>Bir sayının <b>tersi</b></td><td>1/x</td></tr>
+<tr><td>Bir sayının <b>%20 fazlası</b></td><td>1,2x &nbsp;ya da&nbsp; x + x/5</td></tr>
+<tr><td>Ardışık iki tam sayı</td><td>x, x + 1</td></tr>
+<tr><td>Ardışık iki çift (ya da tek) sayı</td><td>x, x + 2</td></tr>
+</table>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sözel ifadenin cebirsel ifadeye çevrilmesi ve parantez farkı">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — "…in …i" ifadelerinde sıra ve parantez</text>
+  <rect x="30" y="44" width="270" height="94" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="165" y="68" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">"5 eksiğinin 3 katı"</text>
+  <text x="165" y="90" font-size="11" fill="#15803d" text-anchor="middle">Önce 5 çıkar, SONRA 3 ile çarp</text>
+  <text x="165" y="114" font-size="16" font-weight="700" fill="#15803d" text-anchor="middle">3(x − 5)</text>
+  <text x="165" y="132" font-size="10" fill="#15803d" text-anchor="middle">x = 9 için → 3·4 = 12</text>
+  <rect x="340" y="44" width="270" height="94" rx="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="475" y="68" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">"3 katının 5 eksiği"</text>
+  <text x="475" y="90" font-size="11" fill="#b91c1c" text-anchor="middle">Önce 3 ile çarp, SONRA 5 çıkar</text>
+  <text x="475" y="114" font-size="16" font-weight="700" fill="#b91c1c" text-anchor="middle">3x − 5</text>
+  <text x="475" y="132" font-size="10" fill="#b91c1c" text-anchor="middle">x = 9 için → 27 − 5 = 22</text>
+  <line x1="26" y1="160" x2="614" y2="160" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="180" font-size="10" fill="#475569">Aynı sayılar, farklı sıra, tamamen farklı sonuç: 12 ile 22. Bu, problem sorularında en pahalı okuma hatasıdır.</text>
+  <text x="26" y="196" font-size="10" fill="#475569">Kural: cümleyi SONDAN başa oku. En son söylenen işlem, en son yapılan işlemdir ve parantezi belirler.</text>
+  <text x="26" y="212" font-size="10" fill="#475569">"…nın …i" ifadesi ÇARPMA demektir: "60'ın 2/5'i" → 60 · 2/5 = 24. Zincirlenirse hepsi çarpılır.</text>
+  <text x="26" y="228" font-size="10" fill="#475569">"90 sayısının 1/3'ünün 2/5'i" → 90 · (1/3) · (2/5) = 12. Soldan sağa sırayla çarpmak yeterlidir.</text>
+  <text x="26" y="244" font-size="10" fill="#475569">Kesir zinciri varsa paydaların EKOK'u kadar x seç: "x'in 1/4'ünün 5/6'sı" için x = 12k almak işlemi tam sayıya çevirir.</text>
+</svg>
+<p class="formula">EN KRİTİK OKUMA FARKI — <b>"3 katının 5 eksiği" = 3x − 5</b> &nbsp;ama&nbsp; <b>"5 eksiğinin 3 katı" = 3(x − 5)</b>. <u>Türkçede son söylenen işlem en dışta yapılır.</u> Cümleyi sondan başa okumak bu ayrımı otomatik yapmanı sağlar.</p>
+
+<h3>3) Kesirli Sayı Problemleri</h3>
+<p class="formula">TEMEL ÇEVİRİ — <b>"…nın …i"</b> ifadesi daima <b>ÇARPMA</b> demektir:<br/>
+<u>60 sayısının 2/5'i → 60 · (2/5) = 24</u><br/>
+<u>90 sayısının 1/3'ünün 2/5'i → 90 · (1/3) · (2/5) = 12</u><br/>
+<u>Bir sayının 1/4'ünün 5/6'sı → x · (1/4) · (5/6)</u></p>
+<p class="formula">EKOK HİLESİ — "Bir sayının 1/a'sının 1/b'si" tipi ifadelerde <b>paydaların EKOK'u kadar x al</b>. <u>Örnek: 1/3 ve 1/4 geçiyorsa sayıya 12x de; bütün kesirler tam sayıya döner ve işlem kolaylaşır.</u> <b>Bu, kesir problemlerinin standart açılış hamlesidir.</b></p>
+<p class="formula">ÖRNEK (PDF) — Göktuğ, çözmesi gereken soruların <b>1/3'ünü günde 25 soru</b>, kalan kısmını <b>günde 20 soru</b> çözerek toplam <b>14 günde</b> bitirmiştir. Çözmesi gereken soru sayısı kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Akıllı değişken seç:</b> Soruların 1/3'ü geçtiği için toplam sayıya <b>3x</b> diyelim. Böylece 1/3'lük kısım <b>x</b>, kalan 2/3'lük kısım <b>2x</b> olur; kesir kalmaz.</li>
+<li><b>Adım 2 — Süreleri yaz:</b> x soruyu günde 25'ten → <b>x/25</b> gün. 2x soruyu günde 20'den → <b>2x/20</b> gün.</li>
+<li><b>Adım 3 — Denklemi kur:</b> x/25 + 2x/20 = 14.</li>
+<li><b>Adım 4 — Çöz:</b> EKOK(25, 20) = 100 → 4x/100 + 10x/100 = 14 → 14x/100 = 14 → <b>x = 100</b>.</li>
+<li><b>Adım 5 — SORUYA DÖN:</b> Soru x'i değil, <u>toplam soru sayısını</u> istiyor: <b>3x = 300 soru</b>.</li>
+<li><b>Ders:</b> Adım 1'de 3x seçmek, bütün çözümü kesirsiz hâle getirdi. Adım 5 ise bu ünitenin en kritik alışkanlığı — x = 100 yazıp geçen soruyu kaybeder.</li>
+</ul>
+<p class="formula">ÖRNEK (PDF) — Bir telin bir ucundan <b>1/6'sı</b> kesilirse <b>orta noktası 15 cm</b> yer değiştirmektedir. Telin ilk uzunluğu kaç cm'dir?</p>
+<ul>
+<li><b>Kilit fikir:</b> Bir ucundan k kadar kesilirse <u>orta nokta k/2 kadar kayar</u>. <b>Neden? Yeni orta nokta, kalan parçanın ortasıdır ve bu nokta kesilen miktarın yarısı kadar öteye kayar.</b></li>
+<li><b>Adım 1:</b> Telin boyu x olsun. Kesilen miktar <b>x/6</b>.</li>
+<li><b>Adım 2 — Kaymayı yaz:</b> (x/6)/2 = 15 → <b>x/12 = 15</b>.</li>
+<li><b>Adım 3:</b> <b>x = 180 cm</b>.</li>
+<li><b>Kontrol:</b> 180 cm telin 30 cm'i kesilir, 150 cm kalır. İlk orta nokta 90, yeni orta nokta 30 + 75 = 105 → kayma 15 cm ✓</li>
+</ul>
+
+<h3>4) Ardışık Sayı Problemleri</h3>
+<p class="formula">GÖSTERİMLER — <b>Ardışık tam sayılar:</b> x, x+1, x+2, … &nbsp;·&nbsp; <b>Ardışık çift ya da tek sayılar:</b> x, x+2, x+4, … <u>(çift ve tek için gösterim aynıdır; farkı başlangıç değeri belirler)</u><br/>
+<b>SİMETRİK GÖSTERİM — Çok güçlü bir kısayol:</b> Ardışık sayıların sayısı <u>tek</u> ise ortadakine x diyerek yaz. <u>Üç ardışık sayı: x−1, x, x+1 → toplam 3x. Beş ardışık sayı: x−2, x−1, x, x+1, x+2 → toplam 5x.</u> <b>Böylece toplam anında ortadakinin katına döner.</b></p>
+<p class="formula">ÖRNEK — Ardışık üç tam sayının toplamı <b>72</b> ise en büyüğü kaçtır?</p>
+<ul>
+<li><b>Simetrik gösterim:</b> Sayılar x−1, x, x+1 → toplam = <b>3x</b>.</li>
+<li><b>Denklem:</b> 3x = 72 → <b>x = 24</b> (ortadaki sayı).</li>
+<li><b>En büyüğü:</b> x + 1 = <b>25</b>.</li>
+<li><b>Klasik yol daha uzun:</b> x + (x+1) + (x+2) = 72 → 3x + 3 = 72 → x = 23 → en büyük 25. <u>Aynı sonuç, ama simetrik gösterimde toplama-çıkarma yok.</u></li>
+<li><b>Genel kural:</b> Ardışık <b>n</b> sayının toplamı, n tekse <b>n × ortadaki</b>; n çiftse <b>n × (ortadaki iki sayının ortalaması)</b>.</li>
+</ul>
+
+<h3>5) Basamak Problemleri</h3>
+<p class="formula">BASAMAK GÖSTERİMİ — Rakamları a ve b olan <b>iki basamaklı</b> bir sayı <b>10a + b</b> ile gösterilir; <u>ab yan yana yazımı çarpma demek değildir</u>. Üç basamaklı sayı: <b>100a + 10b + c</b>.<br/>
+<b>Kısıtlar:</b> Baştaki rakam <b>sıfır olamaz</b> (a ≠ 0) ve her rakam <b>0–9</b> arasındadır. <u>Bu iki kısıt, "kaç farklı sayı vardır?" sorularının cevabını belirler.</u></p>
+<p class="formula">RAKAMLARIN YER DEĞİŞTİRMESİ — İki basamaklı bir sayının rakamları yer değiştirirse yeni sayı <b>10b + a</b> olur. Bu iki sayı arasındaki ilişkiler her yıl sorulur:<br/>
+• <b>Fark:</b> (10a + b) − (10b + a) = <b>9(a − b)</b> → <u>fark daima 9'un katıdır</u><br/>
+• <b>Toplam:</b> (10a + b) + (10b + a) = <b>11(a + b)</b> → <u>toplam daima 11'in katıdır</u><br/>
+<b>Bu iki sonuç, şık elemede doğrudan kullanılır.</b></p>
+<p class="formula">ÖRNEK — İki basamaklı bir sayının rakamları toplamı <b>11</b>'dir. Rakamları yer değiştirdiğinde sayı <b>27 artmaktadır</b>. Bu sayı kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Gösterim:</b> Sayı 10a + b, yeni sayı 10b + a. Verilen: <b>a + b = 11</b>.</li>
+<li><b>Adım 2 — Artışı yaz:</b> (10b + a) − (10a + b) = 27 → <b>9(b − a) = 27</b> → <b>b − a = 3</b>.</li>
+<li><b>Adım 3 — Sistemi çöz:</b> a + b = 11 ve b − a = 3 → toplarsak 2b = 14 → <b>b = 7</b>, <b>a = 4</b>.</li>
+<li><b>Sonuç:</b> Sayı <b>47</b>. <u>Kontrol: 74 − 47 = 27 ✓ ve 4 + 7 = 11 ✓</u></li>
+<li><b>Kısayol sezgisi:</b> "27 artıyor" bilgisi görüldüğünde 27 = 9 · 3 olduğundan rakamlar farkının 3 olduğu <u>anında</u> yazılabilir.</li>
+</ul>
+
+<h3>6) Çözümlü Örnekler</h3>
+<p class="formula">ÖRNEK (PDF) — Bir kafedeki <b>46 masanın</b> bir kısmı üç kişilik, diğerleri iki kişiliktir. Toplam müşteri kapasitesi <b>117</b> olduğuna göre <b>iki kişilik masa sayısı</b> kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Değişken:</b> İki kişilik masa sayısı <b>x</b> olsun. O hâlde üç kişilik masa sayısı <b>46 − x</b>'tir. <u>İki bilinmeyen yerine tek bilinmeyen kullanmak, denklemi tek satıra indirir.</u></li>
+<li><b>Adım 2 — Kapasite denklemi:</b> 2x + 3(46 − x) = 117.</li>
+<li><b>Adım 3 — Aç ve topla:</b> 2x + 138 − 3x = 117 → −x = −21 → <b>x = 21</b>.</li>
+<li><b>Sonuç:</b> İki kişilik masa sayısı <b>21</b>, üç kişilik masa sayısı 25.</li>
+<li><b>Kontrol:</b> 21·2 + 25·3 = 42 + 75 = 117 ✓ &nbsp;·&nbsp; 21 + 25 = 46 ✓</li>
+<li><b>Genel kalıp:</b> "Toplam sayı ve toplam değer verilmiş, iki türden kaç tane var?" tipi soruların hepsi bu iskeleti kullanır — <b>biri x, diğeri (toplam − x)</b>.</li>
+</ul>
+<p class="formula">ÖRNEK — Bir sayının <b>3 katının 8 eksiği</b>, aynı sayının <b>2 katının 5 fazlasına</b> eşittir. Bu sayı kaçtır?</p>
+<ul>
+<li><b>Çeviri:</b> 3x − 8 = 2x + 5.</li>
+<li><b>Çöz:</b> 3x − 2x = 5 + 8 → <b>x = 13</b>.</li>
+<li><b>Kontrol:</b> 3·13 − 8 = 31 &nbsp;·&nbsp; 2·13 + 5 = 31 ✓</li>
+<li><b>Dikkat:</b> "3 katının 8 eksiği" ile "8 eksiğinin 3 katı" farklıdır. İkincisi 3(x − 8) olurdu ve sonuç değişirdi.</li>
+</ul>
+
+<h3>7) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Doğrudan çeviri</b></td><td>"Bir sayının … katının … eksiği …"</td><td>Cümleyi <b>sondan başa</b> oku, parantezleri doğru yerleştir, denklemi kur.</td></tr>
+<tr><td>2</td><td><b>Kesirli pay</b></td><td>"…nın 1/3'ü, kalanın 2/5'i…"</td><td>Toplam miktara <b>paydaların EKOK'u kadar x</b> de; kesirler yok olur.</td></tr>
+<tr><td>3</td><td><b>İki tür sayma</b></td><td>"46 masanın bir kısmı 3 kişilik…"</td><td>Birine <b>x</b>, diğerine <b>(toplam − x)</b> de; değer denklemini kur.</td></tr>
+<tr><td>4</td><td><b>Ardışık sayılar</b></td><td>"Ardışık üç tam sayının toplamı…"</td><td><b>Simetrik gösterim:</b> ortadakine x de; toplam anında n·x olur.</td></tr>
+<tr><td>5</td><td><b>Basamak / rakam</b></td><td>"Rakamları yer değiştirdiğinde…"</td><td><b>10a + b</b> yaz. Fark <b>9(a−b)</b>, toplam <b>11(a+b)</b>.</td></tr>
+<tr><td>6</td><td><b>Toplam–fark</b></td><td>"Toplamları 40, farkları 6 olan iki sayı"</td><td>Büyük = (T+F)/2, küçük = (T−F)/2. <u>Denklem kurmadan doğrudan hesapla.</u></td></tr>
+<tr><td>7</td><td><b>Kalanlı bölme kalıbı</b></td><td>"Bir sayının 7'ye bölümünden kalan 3 ise…"</td><td><b>Sayı = 7k + 3</b> yaz; koşulları bu ifade üzerinde uygula.</td></tr>
+<tr><td>8</td><td><b>Eşitsizlikli problem</b></td><td>"…en fazla / en az kaç olabilir?"</td><td>Denklem yerine <b>eşitsizlik</b> kur; sonucu <u>tam sayıya yuvarlarken yönü kontrol et</u>.</td></tr>
+<tr><td>9</td><td><b>Geometrik kılıflı</b></td><td>Tel kesme, ip bölme, uzunluk kaydırma</td><td>Şekli zihinde çiz; orta nokta kaymasında <b>kesilen miktarın yarısı</b> kuralını kullan.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 6) — Toplamları <b>40</b>, farkları <b>6</b> olan iki sayı kaçtır?</p>
+<ul>
+<li><b>Formülle:</b> Büyük = (40 + 6)/2 = <b>23</b>, &nbsp;Küçük = (40 − 6)/2 = <b>17</b>.</li>
+<li><b>Neden işliyor?</b> x + y = T ve x − y = F denklemlerini <u>taraf tarafa toplarsan</u> 2x = T + F çıkar; çıkarırsan 2y = T − F. <b>Yani formül aslında yok etme yönteminin sonucudur.</b></li>
+<li><b>Kontrol:</b> 23 + 17 = 40 ✓ &nbsp;23 − 17 = 6 ✓</li>
+<li><b>Kullanım alanı:</b> Bu kalıp yaş, para ve karışım problemlerinde de aynen çalışır; iki bilinmeyenli sistemi tek satırda bitirir.</li>
+</ul>
+
+<h3>8) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Değişken (bilinmeyen):</b> Problemde değeri aranan büyüklüğü temsil eden harf.</li>
+<li><b>Denklem kurma:</b> Sözel bilgiyi matematiksel eşitliğe dönüştürme işlemi.</li>
+<li><b>Ardışık sayılar:</b> Birbirini takip eden sayılar; tam sayılarda fark 1, çift/tek sayılarda 2'dir.</li>
+<li><b>Simetrik gösterim:</b> Ardışık sayıları ortadakine göre yazma tekniği (x−1, x, x+1).</li>
+<li><b>Basamak gösterimi:</b> İki basamaklı sayının <b>10a + b</b>, üç basamaklının <b>100a + 10b + c</b> biçiminde yazılması.</li>
+<li><b>Rakam:</b> 0–9 arasındaki semboller; sayıyı oluşturan yapı taşları.</li>
+<li><b>Sayı:</b> Rakamların basamak değerleriyle oluşturduğu bütün.</li>
+<li><b>Kontrol (sağlama):</b> Bulunan değerin problemin metnindeki tüm koşulları sağlayıp sağlamadığının denenmesi.</li>
+</ul>
+
+<h3>9) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>"3 katının 5 eksiği" ile "5 eksiğinin 3 katı"nı karıştırmak:</b> Birincisi 3x − 5, ikincisi 3(x − 5). <u>Cümleyi sondan başa oku.</u></li>
+<li><b>x'i bulup soruyu bitirmiş sanmak:</b> Soru çoğu zaman x'i değil, <b>x'e bağlı başka bir ifadeyi</b> ister.</li>
+<li><b>İki basamaklı sayıyı a·b yazmak:</b> Doğrusu <b>10a + b</b>'dir; yan yana yazım çarpma değildir.</li>
+<li><b>Baştaki rakamın sıfır olabileceğini varsaymak:</b> İki basamaklı sayıda <b>a ≠ 0</b>'dır.</li>
+<li><b>Rakam ile sayıyı karıştırmak:</b> "Rakamları toplamı 11" ile "sayı 11" tamamen farklı bilgilerdir.</li>
+<li><b>Kesirli problemde x'i kötü seçmek:</b> Paydaların EKOK'u kadar x almazsan gereksiz kesirlerle boğuşursun.</li>
+<li><b>"Kalan" ifadesini yanlış okumak:</b> "Kalanın 2/5'i" ifadesi <u>toplamın</u> 2/5'i değil, <b>geriye kalan kısmın</b> 2/5'idir.</li>
+<li><b>Ardışık çift sayılarda farkı 1 almak:</b> Ardışık çift (ya da tek) sayıların farkı <b>2</b>'dir.</li>
+<li><b>Toplam–fark formülünde bölmeyi unutmak:</b> Büyük sayı <b>(T + F)/2</b>'dir, T + F değil.</li>
+<li><b>Orta nokta kaymasında tam miktarı almak:</b> Bir uçtan k kesilirse orta nokta <b>k/2</b> kayar.</li>
+<li><b>Negatif ya da kesirli sonucu sorgulamamak:</b> "Kişi sayısı", "masa sayısı" gibi büyüklükler <u>pozitif tam sayı</u> olmalıdır; değilse bir yerde hata vardır.</li>
+<li><b>Sağlama yapmamak:</b> Bulduğun değeri <b>problemin metnindeki her koşula</b> tek tek uygula; tek koşulu sağlaması yetmez.</li>
+</ul>
+
+<h3>10) Özet Kartı</h3>
+<ul>
+<li><b>Yöntem:</b> Verilenleri belirle → isteneni belirle → değişken ata → denklem kur → çöz → <b>soruya dön</b>.</li>
+<li><b>Değişken seçimi:</b> Kesir varsa <b>paydaların EKOK'u kadar x</b>; iki tür varsa <b>x ve (toplam − x)</b>.</li>
+<li><b>Çeviri:</b> "…in …i" = <b>çarpma</b>. "…nın 5 fazlası" = x + 5. "…nın 5 katı" = 5x.</li>
+<li><b>Sıra kuralı:</b> <b>3x − 5</b> ("3 katının 5 eksiği") ≠ <b>3(x − 5)</b> ("5 eksiğinin 3 katı"). Cümleyi sondan oku.</li>
+<li><b>Ardışık:</b> Tam sayılar x, x+1, … &nbsp;·&nbsp; çift/tek x, x+2, … &nbsp;·&nbsp; <b>simetrik gösterimde toplam = n · ortadaki</b>.</li>
+<li><b>Basamak:</b> İki basamaklı <b>10a + b</b>, üç basamaklı <b>100a + 10b + c</b>. <b>a ≠ 0</b>, rakamlar 0–9.</li>
+<li><b>Yer değiştirme:</b> Fark = <b>9(a − b)</b> &nbsp;·&nbsp; Toplam = <b>11(a + b)</b>.</li>
+<li><b>Toplam–fark:</b> Büyük = <b>(T + F)/2</b>, Küçük = <b>(T − F)/2</b>.</li>
+<li><b>Kalanlı bölme:</b> "7'ye bölümünden kalan 3" → sayı = <b>7k + 3</b>.</li>
+<li><b>Tel/ip kesme:</b> Bir uçtan k kesilirse orta nokta <b>k/2</b> kadar kayar.</li>
+<li><b>Bitirirken:</b> Sonucun <u>anlamlı</u> olduğunu kontrol et (pozitif, tam sayı) ve <b>tüm koşullarda sağlama</b> yap.</li>
+</ul>
+
+</body></html>

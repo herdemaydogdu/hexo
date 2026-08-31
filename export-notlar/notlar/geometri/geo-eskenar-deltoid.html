@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Eşkenar Dörtgen ve Deltoid</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Eşkenar Dörtgen ve Deltoid</h2>
+
+<p>Bu ünitede dörtgenler ailesinin <b>köşegenleri dik olan</b> iki üyesini işleyeceğiz. Diklik, bir dörtgende bulunabilecek en verimli özelliktir: köşegenler dik kesişince şekil <b>dört dik üçgene</b> ayrılır ve Pisagor devreye girer. Ayrıca köşegenleri dik olan her dörtgende alan tek bir formülle bulunur: <b>köşegenlerin çarpımının yarısı</b>. Eşkenar dörtgen ile deltoidin ortak noktası budur; farkları ise <b>simetrinin ne kadar ileri gittiğidir</b>.</p>
+
+<h3>1) Eşkenar Dörtgen</h3>
+<p class="formula">TANIM (PDF) — <b>Kenar uzunlukları eşit olan paralelkenara eşkenar dörtgen</b> denir.<br/>
+<u>Eşkenar dörtgen aynı zamanda <b>paralelkenardır</b> ve paralelkenarın tüm özelliklerini taşır: karşılıklı kenarlar paralel, karşılıklı açılar eşit, komşu açılar bütünler, köşegenler birbirini ortalar.</u><br/>
+<b>|AB| = |BC| = |CD| = |DA| = a</b> &nbsp;·&nbsp; <b>Ç(ABCD) = 4a</b></p>
+<p class="formula">EŞKENAR DÖRTGENE ÖZEL — KÖŞEGENLER (PDF) — <u>Üç özelliği birden taşırlar:</u><br/>
+<b>1)</b> Köşegenler birbirini <b>DİK KESER</b>: <b>[AC] ⊥ [BD]</b><br/>
+<b>2)</b> Köşegenler birbirini <b>ORTALAR</b> (paralelkenardan miras)<br/>
+<b>3)</b> Köşegenler aynı zamanda <b>AÇIORTAYDIR</b> — her köşedeki açıyı ikiye bölerler<br/>
+<u>Neden dik? Dört kenar eşit olduğu için ABC ve ADC üçgenleri ikizkenardır ve [AC] ortak tabandır. İkizkenar üçgende tepeden inen doğru hem açıortay hem yüksekliktir → [BD] hem açıortay hem [AC]'ye diktir.</u><br/>
+<b>SONUÇ — Dört eş dik üçgen:</b> Köşegenler eşkenar dörtgeni <b>dört eş dik üçgene</b> ayırır. Bu yüzden köşegen yarıları ile kenar arasında Pisagor bağıntısı vardır:<br/>
+<b>a² = (e/2)² + (f/2)²</b> &nbsp;<u>(e ve f köşegen uzunlukları)</u></p>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Eşkenar dörtgende köşegenler">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Köşegenler dik ortalar ve açıortaydır → dört eş dik üçgen</text>
+  <polygon points="160,200 280,130 160,60 40,130" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="160" y1="60" x2="160" y2="200" stroke="#dc2626" stroke-width="2"/>
+  <line x1="40" y1="130" x2="280" y2="130" stroke="#dc2626" stroke-width="2"/>
+  <rect x="160" y="116" width="14" height="14" fill="none" stroke="#dc2626" stroke-width="1.6"/>
+  <circle cx="160" cy="130" r="4" fill="#dc2626"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="154" y="218">A</text><text x="286" y="134">B</text><text x="154" y="54">C</text><text x="28" y="134">D</text>
+    <text x="167" y="147">O</text>
+  </g>
+  <text x="100" y="180" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="226" y="180" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="226" y="88" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="100" y="88" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="168" y="172" font-size="10" font-weight="700" fill="#b91c1c">e/2</text>
+  <text x="108" y="124" font-size="10" font-weight="700" fill="#b91c1c">f/2</text>
+  <text x="160" y="238" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">a² = (e/2)² + (f/2)²</text>
+  <text x="160" y="254" font-size="10" fill="#475569" text-anchor="middle">Dört eş dik üçgen → Pisagor doğrudan kullanılır.</text>
+  <line x1="320" y1="45" x2="320" y2="255" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="340" y="70" font-size="11" font-weight="700" fill="#334155">Paralelkenardan miras</text>
+  <text x="340" y="90" font-size="10" fill="#475569">Karşılıklı kenarlar paralel · karşılıklı açılar eşit</text>
+  <text x="340" y="106" font-size="10" fill="#475569">Komşu açılar bütünler · köşegenler ortalar</text>
+  <text x="340" y="132" font-size="11" font-weight="700" fill="#b91c1c">Eşkenar dörtgene özel</text>
+  <text x="340" y="152" font-size="11" font-weight="700" fill="#0369a1">1) Dört kenar EŞİT (Ç = 4a)</text>
+  <text x="340" y="172" font-size="11" font-weight="700" fill="#0369a1">2) Köşegenler DİK kesişir</text>
+  <text x="340" y="192" font-size="11" font-weight="700" fill="#0369a1">3) Köşegenler AÇIORTAYDIR</text>
+  <text x="340" y="216" font-size="10" fill="#475569">Neden dik? Dört kenar eşit → oluşan üçgenler</text>
+  <text x="340" y="230" font-size="10" fill="#475569">ikizkenar → tepeden inen doğru hem açıortay</text>
+  <text x="340" y="244" font-size="10" fill="#475569">hem yükseklik olur.</text>
+</svg>
+<p class="formula">EŞKENAR DÖRTGENDE ALAN (PDF) — <b>İki farklı formül vardır:</b><br/>
+<b>A(ABCD) = (e · f) / 2</b> &nbsp;<u>(köşegenlerin çarpımının yarısı)</u><br/>
+<b>A(ABCD) = a · h</b> &nbsp;<u>(paralelkenar formülü — eşkenar dörtgen bir paralelkenardır)</u><br/>
+<b>Neden (e·f)/2?</b> <u>Köşegenler dörtgeni dört dik üçgene ayırır. Her birinin dik kenarları e/2 ve f/2 olduğu için her birinin alanı (e/2)(f/2)/2 = ef/8'dir. Dördü birlikte <b>4 · ef/8 = ef/2</b> eder.</u><br/>
+<b>Not (PDF):</b> Eşkenar dörtgende <b>iki farklı kenara ait yükseklikler eşittir</b> (|DF| = |DE| = h) — çünkü tüm kenarlar eşittir ve alan tektir.</p>
+<p class="formula">ÖRNEK — Bir eşkenar dörtgenin köşegenleri <b>16 cm</b> ve <b>12 cm</b>'dir. <b>a)</b> Alanı kaçtır? <b>b)</b> Kenar uzunluğu kaçtır? <b>c)</b> Çevresi kaçtır? <b>d)</b> Yüksekliği kaçtır?</p>
+<ul>
+<li><b>a)</b> A = (16 · 12)/2 = <b>96 cm²</b>.</li>
+<li><b>b)</b> Köşegen yarıları 8 ve 6 → a² = 8² + 6² = 64 + 36 = 100 → <b>a = 10 cm</b>. <u>(3-4-5 üçlüsünün 2 katı.)</u></li>
+<li><b>c)</b> Ç = 4a = <b>40 cm</b>.</li>
+<li><b>d)</b> A = a · h → 96 = 10 · h → <b>h = 9,6 cm</b>.</li>
+<li><b>Ders:</b> <u>Eşkenar dörtgende <b>köşegenler verilmişse her şey bulunabilir</b>: alan doğrudan, kenar Pisagor'la, yükseklik alan formülünden. Köşegen yarılarının Pisagor üçlüsü oluşturup oluşturmadığına bak.</u></li>
+</ul>
+<p class="formula">ÖZEL DURUM — 60°'lik eşkenar dörtgen: <u>Bir açısı 60° ise kısa köşegen, kenar uzunluğuna eşittir</u> — çünkü o köşegen şekli <b>iki eşkenar üçgene</b> böler. Bir açısı 120° ise uzun köşegen <b>a√3</b> olur.<br/>
+<b>Kontrol:</b> a = 10 için kısa köşegen 10, uzun köşegen 10√3 → alan = (10 · 10√3)/2 = <b>50√3</b> ✓ (aynı sonuç a·h = 10 · 5√3 ile de bulunur).</p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Eşkenar dörtgende alan">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Aynı alan, iki farklı formül</text>
+  <polygon points="140,195 250,130 140,65 30,130" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <line x1="140" y1="65" x2="140" y2="195" stroke="#b45309" stroke-width="2"/>
+  <line x1="30" y1="130" x2="250" y2="130" stroke="#b45309" stroke-width="2"/>
+  <text x="148" y="100" font-size="11" font-weight="700" fill="#b45309">e</text>
+  <text x="200" y="122" font-size="11" font-weight="700" fill="#b45309">f</text>
+  <text x="140" y="222" font-size="12" font-weight="700" fill="#b45309" text-anchor="middle">A = (e · f) / 2</text>
+  <text x="140" y="240" font-size="10" fill="#475569" text-anchor="middle">Dört dik üçgenin toplamı</text>
+  <line x1="290" y1="45" x2="290" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+  <polygon points="340,190 460,190 530,95 410,95" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="410" y1="95" x2="410" y2="190" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4"/>
+  <rect x="410" y="176" width="14" height="14" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="418" y="146" font-size="11" font-weight="700" fill="#dc2626">h</text>
+  <text x="400" y="207" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="435" y="222" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">A = a · h</text>
+  <text x="435" y="240" font-size="10" fill="#475569" text-anchor="middle">Paralelkenar formülü (eşkenar dörtgen bir paralelkenardır)</text>
+  <line x1="560" y1="45" x2="560" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="574" y="74" font-size="10" font-weight="700" fill="#334155">Bağıntılar</text>
+  <text x="574" y="96" font-size="10" font-weight="700" fill="#b91c1c">Ç = 4a</text>
+  <text x="574" y="118" font-size="10" font-weight="700" fill="#b91c1c">a² = (e/2)²</text>
+  <text x="574" y="132" font-size="10" font-weight="700" fill="#b91c1c">&#160;&#160;&#160;&#160;+ (f/2)²</text>
+  <text x="574" y="158" font-size="10" fill="#475569">60°'lik açı</text>
+  <text x="574" y="172" font-size="10" fill="#475569">varsa kısa</text>
+  <text x="574" y="186" font-size="10" fill="#475569">köşegen = a</text>
+  <text x="574" y="208" font-size="10" fill="#475569">120° varsa</text>
+  <text x="574" y="222" font-size="10" fill="#475569">uzun köşegen</text>
+  <text x="574" y="236" font-size="10" fill="#475569">= a√3</text>
+</svg>
+
+<h3>2) Deltoid</h3>
+<p class="formula">TANIM (PDF) — Bir ABCD dörtgeninde <b>|DC| = |BC|</b> ve <b>|AD| = |AB|</b> ise bu dörtgene <b>deltoid</b> denir.<br/>
+<u>Yani deltoidde <b>iki çift KOMŞU kenar eşittir</b>. (Paralelkenarda ise <b>karşılıklı</b> kenarlar eşitti — fark budur.) Uçurtma şekline benzediği için "uçurtma dörtgeni" de denir.</u><br/>
+<b>ÖZELLİKLER (PDF):</b><br/>
+<b>1)</b> Köşegenler diktir: <b>[AC] ⊥ [BD]</b><br/>
+<b>2)</b> <b>|DK| = |KB|</b> → <u>simetri ekseni olan köşegen ([AC]), diğerini <b>ORTALAR</b>; ama kendisi ortalanmaz.</u><br/>
+<b>3)</b> [AC] köşegeni aynı zamanda <b>AÇIORTAYDIR</b> (A ve C köşelerindeki açıları böler).<br/>
+<b>4)</b> <b>m(CD̂A) = m(CB̂A)</b> → <u>simetri ekseni üzerinde olmayan iki köşedeki açılar <b>eşittir</b>.</u><br/>
+<b>ALAN:</b> <b>A(ABCD) = (e · f) / 2</b> &nbsp;<u>(köşegenleri dik olan her dörtgende aynı formül)</u></p>
+<svg viewBox="0 0 640 265" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Deltoidin özellikleri">
+  <rect x="0" y="0" width="640" height="265" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Deltoid: iki çift KOMŞU kenar eşit, bir simetri ekseni</text>
+  <polygon points="160,60 240,140 160,240 80,140" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <line x1="160" y1="60" x2="160" y2="240" stroke="#dc2626" stroke-width="2.5"/>
+  <line x1="80" y1="140" x2="240" y2="140" stroke="#0284c7" stroke-width="2"/>
+  <rect x="160" y="126" width="14" height="14" fill="none" stroke="#dc2626" stroke-width="1.6"/>
+  <circle cx="160" cy="140" r="4" fill="#dc2626"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="154" y="52">A</text><text x="246" y="144">B</text><text x="154" y="258">C</text><text x="68" y="144">D</text>
+    <text x="167" y="158">K</text>
+  </g>
+  <text x="106" y="94" font-size="10" font-weight="700" fill="#b45309">a</text>
+  <text x="206" y="94" font-size="10" font-weight="700" fill="#b45309">a</text>
+  <text x="106" y="200" font-size="10" font-weight="700" fill="#15803d">b</text>
+  <text x="206" y="200" font-size="10" font-weight="700" fill="#15803d">b</text>
+  <text x="120" y="134" font-size="9" font-weight="700" fill="#0284c7">f/2</text>
+  <text x="196" y="134" font-size="9" font-weight="700" fill="#0284c7">f/2</text>
+  <text x="160" y="262" font-size="10" font-weight="700" fill="#b91c1c" text-anchor="middle">[AC] simetri ekseni · [BD]'yi ortalar</text>
+  <line x1="290" y1="45" x2="290" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="310" y="70" font-size="11" font-weight="700" fill="#334155">Deltoidin dört özelliği</text>
+  <text x="310" y="94" font-size="11" font-weight="700" fill="#b45309">1) |AD| = |AB| ve |CD| = |CB|</text>
+  <text x="310" y="114" font-size="10" fill="#475569">&#160;&#160;&#160;(KOMŞU kenarlar eşit — karşılıklı değil!)</text>
+  <text x="310" y="136" font-size="11" font-weight="700" fill="#b91c1c">2) [AC] ⊥ [BD]</text>
+  <text x="310" y="158" font-size="11" font-weight="700" fill="#0284c7">3) [AC], [BD]'yi ORTALAR (|DK| = |KB|)</text>
+  <text x="310" y="176" font-size="10" fill="#475569">&#160;&#160;&#160;Ama [BD], [AC]'yi ortalamaz!</text>
+  <text x="310" y="198" font-size="11" font-weight="700" fill="#15803d">4) [AC] açıortaydır · m(D) = m(B)</text>
+  <text x="310" y="222" font-size="11" font-weight="700" fill="#b91c1c">A = (e · f) / 2</text>
+  <text x="310" y="244" font-size="10" fill="#475569">Eşkenar dörtgen aslında ÖZEL bir deltoiddir:</text>
+  <text x="310" y="258" font-size="10" fill="#475569">iki köşegen de birbirini ortalarsa deltoid → eşkenar dörtgen.</text>
+</svg>
+<p class="formula">EŞKENAR DÖRTGEN İLE DELTOİD ARASINDAKİ FARK — <u>İkisi de köşegenleri dik olan dörtgenlerdir; fark simetrinin derecesindedir:</u></p>
+<table>
+<tr><th>Özellik</th><th>Eşkenar dörtgen</th><th>Deltoid</th></tr>
+<tr><td><b>Eşit kenarlar</b></td><td>Dördü de eşit</td><td>İki çift <b>komşu</b> kenar eşit</td></tr>
+<tr><td><b>Köşegenler dik mi?</b></td><td><b>Evet</b></td><td><b>Evet</b></td></tr>
+<tr><td><b>Köşegenler birbirini ortalar mı?</b></td><td><b>İkisi de ortalar</b></td><td><b>Yalnızca biri</b> diğerini ortalar</td></tr>
+<tr><td><b>Köşegenler açıortay mı?</b></td><td><b>İkisi de</b></td><td><b>Yalnızca simetri ekseni</b></td></tr>
+<tr><td><b>Alan</b></td><td>(e·f)/2</td><td>(e·f)/2</td></tr>
+<tr><td><b>Paralelkenar mı?</b></td><td><b>Evet</b></td><td><b>Hayır</b> (özel hâli hariç)</td></tr>
+</table>
+<p class="formula">ÖNEMLİ İLİŞKİ — <u>Eşkenar dörtgen, aslında <b>her iki köşegeni de birbirini ortalayan</b> özel bir deltoiddir.</u> Bu yüzden dörtgenler soyağacında eşkenar dörtgen, <b>hem paralelkenarın hem deltoidin</b> altında yer alır.<br/>
+<b>Sonuç:</b> Deltoid için geçerli olan "köşegenler dik" ve "alan = (e·f)/2" bilgileri, eşkenar dörtgende ve <b>karede</b> de doğrudur.</p>
+<p class="formula">ÖRNEK — Köşegen uzunlukları <b>10 cm</b> ve <b>8 cm</b> olan bir deltoidin alanı kaçtır? Aynı köşegenlere sahip bir eşkenar dörtgenin çevresi kaçtır?</p>
+<ul>
+<li><b>Deltoidin alanı:</b> A = (10 · 8)/2 = <b>40 cm²</b>.</li>
+<li><b>Eşkenar dörtgenin kenarı:</b> Köşegenler <b>birbirini ortaladığı</b> için yarıları 5 ve 4 → a = √(25 + 16) = <b>√41 cm</b>.</li>
+<li><b>Çevre:</b> 4√41 cm.</li>
+<li><b>Kritik fark:</b> <u>Deltoidde köşegenlerden <b>yalnızca biri</b> ortalandığı için kenarları köşegenlerden doğrudan bulamazsın — hangi köşegenin ortalandığı ve parçaların uzunluğu ayrıca verilmelidir. Eşkenar dörtgende ise ikisi de ortalandığı için kenar tek adımda çıkar.</u></li>
+</ul>
+
+<h3>3) PDF Örneği — Yamuk İçinde Deltoid</h3>
+<p class="formula">SORU (PDF) — Şekilde ABCD bir yamuk, DEBC bir deltoiddir. <b>[AB] // [CD]</b>, <b>|DC| = |DE| = 6 cm</b> ve <b>|AE| = 4 cm</b>'dir. Buna göre <b>|AB|</b> kaç santimetredir?</p>
+<svg viewBox="0 0 640 265" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Yamuk içinde deltoid">
+  <rect x="0" y="0" width="640" height="265" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — Deltoidin açıortayı + paralellik = ikizkenar üçgen</text>
+  <polygon points="60,210 213,210 232,80 140,80" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <polygon points="140,80 92,158 213,210 232,80" fill="#fef3c7" fill-opacity="0.6" stroke="#d97706" stroke-width="2"/>
+  <line x1="140" y1="80" x2="213" y2="210" stroke="#dc2626" stroke-width="2"/>
+  <circle cx="92" cy="158" r="4" fill="#16a34a"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="48" y="226">A</text><text x="215" y="226">B</text><text x="238" y="74">C</text><text x="130" y="74">D</text>
+    <text x="76" y="156">E</text>
+  </g>
+  <text x="68" y="190" font-size="10" font-weight="700" fill="#15803d">4</text>
+  <text x="108" y="120" font-size="10" font-weight="700" fill="#b45309">6</text>
+  <text x="186" y="74" font-size="10" font-weight="700" fill="#b45309">6</text>
+  <text x="136" y="226" font-size="11" font-weight="700" fill="#b91c1c">x = ?</text>
+  <text x="160" y="118" font-size="9" font-weight="700" fill="#dc2626">α</text>
+  <text x="180" y="146" font-size="9" font-weight="700" fill="#dc2626">α</text>
+  <text x="196" y="196" font-size="9" font-weight="700" fill="#dc2626">α</text>
+  <text x="150" y="250" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">|AD| = 4 + 6 = 10 → |AB| = 10 cm</text>
+  <line x1="290" y1="45" x2="290" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="310" y="70" font-size="11" font-weight="700" fill="#334155">Çözüm adımları</text>
+  <text x="310" y="94" font-size="10" fill="#475569">1) DEBC deltoidinde [BD] simetri eksenidir</text>
+  <text x="310" y="108" font-size="10" font-weight="700" fill="#dc2626">&#160;&#160;&#160;→ [BD] AÇIORTAYDIR: m(EDB) = m(BDC)</text>
+  <text x="310" y="132" font-size="10" fill="#475569">2) [AB] // [DC] olduğu için</text>
+  <text x="310" y="146" font-size="10" font-weight="700" fill="#0369a1">&#160;&#160;&#160;m(BDC) = m(ABD)&#160;&#160;(iç ters açılar)</text>
+  <text x="310" y="170" font-size="10" font-weight="700" fill="#15803d">3) m(ADB) = m(EDB) = m(BDC) = m(ABD)</text>
+  <text x="310" y="186" font-size="10" font-weight="700" fill="#15803d">&#160;&#160;&#160;→ ABD üçgeni İKİZKENARDIR</text>
+  <text x="310" y="210" font-size="10" font-weight="700" fill="#b91c1c">4) |AB| = |AD| = |AE| + |ED| = 4 + 6 = 10 cm</text>
+  <text x="310" y="234" font-size="10" fill="#475569">Ders: açıortay + paralellik gördüğün her yerde</text>
+  <text x="310" y="248" font-size="10" fill="#475569">İKİZKENAR üçgen ara — bu kalıp her şekilde çalışır.</text>
+</svg>
+<p class="formula">ÇÖZÜMÜN MANTIĞI — <u>Bu soru, farklı ünitelerden üç bilgiyi tek zincirde birleştiriyor:</u><br/>
+<b>1. Deltoid özelliği:</b> DEBC deltoidinde <b>[BD] simetri eksenidir</b> → D ve B köşelerindeki açıları böler → <b>m(ED̂B) = m(BD̂C)</b>.<br/>
+<b>2. Paralellik:</b> [AB] // [DC] olduğu için <b>m(BD̂C) = m(AB̂D)</b> (iç ters açılar).<br/>
+<b>3. Zinciri kapat:</b> E ∈ [AD] olduğu için m(AD̂B) = m(ED̂B). Üçünü birleştirince <b>m(AD̂B) = m(AB̂D)</b> çıkar → <b>ABD üçgeni ikizkenardır</b>.<br/>
+<b>4. Sonuç:</b> |AB| = |AD| = |AE| + |ED| = 4 + 6 = <b>10 cm</b>.<br/>
+<u><b>Genel kural:</b> <b>Açıortay + paralellik = ikizkenar üçgen.</b> Bu kalıbı paralelkenarda da görmüştük; burada deltoidin açıortayıyla aynı sonuç doğuyor. Şekilde bu ikili varsa hemen ikizkenarlık ara.</u></p>
+
+<h3>4) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Köşegenlerden alan</b></td><td>İki köşegen verilmiş</td><td><b>(e·f)/2</b> — hem eşkenar dörtgen hem deltoid.</td></tr>
+<tr><td>2</td><td><b>Köşegenden kenar</b></td><td>Eşkenar dörtgende köşegenler</td><td><b>a² = (e/2)² + (f/2)²</b>.</td></tr>
+<tr><td>3</td><td><b>Çevre</b></td><td>Kenar ya da köşegenler verilmiş</td><td><b>Ç = 4a</b>.</td></tr>
+<tr><td>4</td><td><b>Yükseklik</b></td><td>Alan ve kenar verilmiş</td><td><b>A = a·h</b> → h = A/a.</td></tr>
+<tr><td>5</td><td><b>60° / 120°</b></td><td>Eşkenar dörtgende özel açı</td><td>Kısa köşegen = <b>a</b>, uzun köşegen = <b>a√3</b>.</td></tr>
+<tr><td>6</td><td><b>Köşegen açıortaydır</b></td><td>Köşegen çizilmiş, açı isteniyor</td><td>Açıyı <b>ikiye böler</b>; ikizkenar üçgenler doğar.</td></tr>
+<tr><td>7</td><td><b>Deltoidde açı</b></td><td>Simetri ekseni verilmiş</td><td><b>m(D) = m(B)</b>; toplam 360°.</td></tr>
+<tr><td>8</td><td><b>Deltoidde ortalanan köşegen</b></td><td>|DK| = |KB| işareti</td><td>Yalnızca <b>bir</b> köşegen ortalanır.</td></tr>
+<tr><td>9</td><td><b>Açıortay + paralellik</b></td><td>Yamuk/paralelkenar içinde deltoid</td><td><b>İkizkenar üçgen</b> ara.</td></tr>
+<tr><td>10</td><td><b>Dört dik üçgen</b></td><td>Köşegenler çizilmiş</td><td>Her biri <b>eş dik üçgen</b>; Pisagor kur.</td></tr>
+<tr><td>11</td><td><b>Şekil ayırt etme</b></td><td>"hangisi eşkenar dörtgendir"</td><td>Dört kenar eşit + paralelkenar mı?</td></tr>
+<tr><td>12</td><td><b>Karma dörtgen</b></td><td>Kare/eşkenar dörtgen birlikte</td><td>Kare, <b>her ikisinin</b> özelliklerini taşır.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 5) — Bir kenarı <b>8 cm</b> ve bir açısı <b>60°</b> olan eşkenar dörtgenin <b>alanı</b> kaç cm²'dir?</p>
+<ul>
+<li><b>Adım 1 — Kısa köşegeni bul:</b> 60°'lik açının karşısındaki köşegen, iki eşit kenarla <b>eşkenar üçgen</b> oluşturur → <b>kısa köşegen = 8 cm</b>.</li>
+<li><b>Adım 2 — Uzun köşegeni bul:</b> Köşegen yarıları 4 ve x olmak üzere 4² + x² = 8² → x² = 48 → x = 4√3 → <b>uzun köşegen = 8√3 cm</b>.</li>
+<li><b>Adım 3 — Alan:</b> A = (8 · 8√3)/2 = <b>32√3 cm²</b>.</li>
+<li><b>Alternatif (trigonometrik):</b> <u>Eşkenar dörtgen bir paralelkenardır → A = a·a·sin 60° = 8·8·(√3/2) = <b>32√3</b> ✓</u></li>
+<li><b>Ders:</b> <u>Eşkenar dörtgende <b>60° gördüğünde eşkenar üçgen</b>, <b>120° gördüğünde 30-60-90</b> üçgeni ara. Bu iki açı en sık sorulanlardır.</u></li>
+</ul>
+
+<h3>5) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Eşkenar dörtgen:</b> Dört kenarı eşit olan paralelkenar.</li>
+<li><b>Deltoid:</b> İki çift komşu kenarı eşit olan dörtgen.</li>
+<li><b>Simetri ekseni:</b> Deltoidde eşit kenarların birleştiği köşeleri birleştiren köşegen.</li>
+<li><b>Köşegen (e, f):</b> Karşılıklı köşeleri birleştiren doğru parçaları.</li>
+<li><b>Eşkenar dörtgende alan:</b> (e·f)/2 = a·h.</li>
+<li><b>Deltoidde alan:</b> (e·f)/2.</li>
+<li><b>Kenar-köşegen bağıntısı:</b> a² = (e/2)² + (f/2)² (yalnızca eşkenar dörtgende).</li>
+</ul>
+
+<h3>6) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Deltoidde her iki köşegeni ortalanmış sanmak:</b> Deltoidde <b>yalnızca simetri ekseni</b> diğerini ortalar.</li>
+<li><b>Kenar-köşegen bağıntısını deltoide uygulamak:</b> a² = (e/2)² + (f/2)² <b>yalnızca eşkenar dörtgende</b> geçerlidir.</li>
+<li><b>Alanı e·f sanmak:</b> <b>(e·f)/2</b>'dir; 2'ye bölmeyi unutma.</li>
+<li><b>Eşkenar dörtgeni "düzgün dörtgen" sanmak:</b> Kenarlar eşit ama <b>açılar eşit değildir</b>; düzgün dörtgen <b>karedir</b>.</li>
+<li><b>Deltoidi paralelkenar sanmak:</b> Deltoidde <b>karşılıklı kenarlar paralel değildir</b>.</li>
+<li><b>Köşegenleri eşit sanmak:</b> Eşkenar dörtgende köşegenler <b>dik</b>tir ama <b>eşit değildir</b> (eşit olursa <b>kare</b> olur).</li>
+<li><b>60°'de köşegeni a√3 sanmak:</b> 60°'nin karşısındaki <b>kısa</b> köşegen <b>a</b>'dır; a√3 olan <b>uzun</b> köşegendir.</li>
+<li><b>Deltoidde dört açının hepsini eşit sanmak:</b> Yalnızca <b>simetri ekseni üzerinde OLMAYAN</b> iki açı eşittir.</li>
+<li><b>Açıortay + paralellik kalıbını kaçırmak:</b> Bu ikili <b>daima ikizkenar üçgen</b> doğurur.</li>
+<li><b>Paralelkenar özelliklerini kullanmamak:</b> Eşkenar dörtgen <b>paralelkenardır</b> — tüm o özellikler geçerlidir.</li>
+</ul>
+
+<h3>7) Özet Kartı</h3>
+<ul>
+<li><b>Eşkenar dörtgen = dört kenarı eşit paralelkenar</b>; <b>Ç = 4a</b>.</li>
+<li><b>Köşegenler:</b> <b>dik</b> + birbirini <b>ortalar</b> + <b>açıortay</b>.</li>
+<li><b>a² = (e/2)² + (f/2)²</b> — dört eş dik üçgenden gelir.</li>
+<li><b>Alan = (e·f)/2 = a·h = a²·sin α</b>.</li>
+<li><b>60° varsa kısa köşegen = a</b> &nbsp;·&nbsp; <b>120° varsa uzun köşegen = a√3</b>.</li>
+<li><b>Deltoid = iki çift KOMŞU kenarı eşit dörtgen.</b></li>
+<li><b>Deltoidde:</b> köşegenler <b>dik</b>; <b>yalnızca simetri ekseni</b> diğerini ortalar ve açıortaydır.</li>
+<li><b>Deltoidde simetri ekseni üzerinde olmayan iki açı EŞİTTİR.</b></li>
+<li><b>Deltoid alanı = (e·f)/2</b> — köşegenleri dik olan her dörtgende aynı.</li>
+<li><b>Eşkenar dörtgen, her iki köşegeni de ortalanan özel bir deltoiddir.</b></li>
+<li><b>Kare = eşkenar dörtgen + dikdörtgen</b>; iki ailenin de tüm özelliklerini taşır.</li>
+<li><b>Açıortay + paralellik = ikizkenar üçgen</b> — bu kalıp her şekilde çalışır.</li>
+</ul>
+
+</body></html>

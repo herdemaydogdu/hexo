@@ -40,24 +40,37 @@ const sb = createClient(url, key, { auth: { persistSession: false } });
 const questions = JSON.parse(readFileSync(join(here, "data", "questions.json"), "utf8"));
 const topics = JSON.parse(readFileSync(join(here, "data", "topics.json"), "utf8"));
 
+// Geçici ağ hatalarına karşı otomatik yeniden deneme (4 deneme, artan bekleme).
+async function withRetry(label, fn, tries = 4) {
+  let lastErr;
+  for (let a = 1; a <= tries; a++) {
+    try {
+      const res = await fn();
+      if (res && res.error) throw res.error;
+      return res;
+    } catch (e) {
+      lastErr = e;
+      if (a < tries) await new Promise((r) => setTimeout(r, 1000 * a));
+    }
+  }
+  throw new Error(label + ": " + (lastErr?.message || lastErr));
+}
+
 async function seed() {
   console.log(`Bağlanılıyor: ${url}`);
 
   // 1) Konular (upsert — subject+unit_id benzersiz)
   console.log(`Konular yükleniyor: ${topics.length}`);
-  const { error: te } = await sb.from("topics").upsert(topics, { onConflict: "subject,unit_id" });
-  if (te) throw new Error("topics: " + te.message);
+  await withRetry("topics", () => sb.from("topics").upsert(topics, { onConflict: "subject,unit_id" }));
 
   // 2) Sorular (temizle + yeniden yükle → idempotent)
   console.log("Eski sorular siliniyor…");
-  const { error: de } = await sb.from("questions").delete().gt("id", 0);
-  if (de) throw new Error("questions delete: " + de.message);
+  await withRetry("questions delete", () => sb.from("questions").delete().gt("id", 0));
 
   console.log(`Sorular yükleniyor: ${questions.length}`);
-  const B = 500;
+  const B = 300;
   for (let i = 0; i < questions.length; i += B) {
-    const { error } = await sb.from("questions").insert(questions.slice(i, i + B));
-    if (error) throw new Error(`questions insert @${i}: ` + error.message);
+    await withRetry(`questions @${i}`, () => sb.from("questions").insert(questions.slice(i, i + B)));
     process.stdout.write(`  ${Math.min(i + B, questions.length)}/${questions.length}\r`);
   }
   console.log("\nTamamlandı ✔  (sorular + konular yüklendi)");
@@ -65,5 +78,5 @@ async function seed() {
 
 seed().catch((e) => {
   console.error("\nHATA:", e.message);
-  process.exit(1);
+  process.exitCode = 1;
 });

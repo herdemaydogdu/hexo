@@ -1,3 +1,238 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ders Notları — js/data'dan gelen konu anlatımı HTML'i için okuma stili */
+.notes-content { color: #334155; line-height: 1.8; font-size: 15px; }
+.notes-content h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.3px; margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1px solid #eef2f7; color: #1e293b; }
+.notes-content h3 { font-size: 16px; font-weight: 700; margin: 22px 0 8px; color: #6d28d9; }
+.notes-content p { margin: 0 0 12px; }
+.notes-content ul, .notes-content ol { margin: 0 0 14px; padding-left: 22px; }
+.notes-content ul { list-style: disc; }
+.notes-content ol { list-style: decimal; }
+.notes-content li { margin-bottom: 6px; }
+.notes-content b, .notes-content strong { color: #6d28d9; font-weight: 700; }
+.notes-content .formula { display: block; background: #f5f3ff; border: 1px solid #ddd6fe; border-left: 3px solid #8b5cf6; border-radius: 10px; padding: 10px 14px; margin: 12px 0; font-family: ui-monospace, "SF Mono", monospace; font-size: 14px; color: #1e293b; overflow-x: auto; }
+.notes-content table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+.notes-content th, .notes-content td { border: 1px solid #e2e8f0; padding: 6px 10px; text-align: left; }
+.notes-content th { background: #f8fafc; font-weight: 700; }
+
+/* ============================================================
+   Scrollbar — kalın standart çubuk yerine ince, şeffaf, sessiz
+   ============================================================ */
+
+/* Tamamen gizle (yatay sekme şeritleri için) */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* İnce, yalnızca üzerine gelince beliren zarif çubuk */
+.scrollbar-slim { scrollbar-width: thin; scrollbar-color: transparent transparent; }
+.scrollbar-slim:hover { scrollbar-color: rgba(148, 163, 184, .3) transparent; }
+.scrollbar-slim::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-slim::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-slim::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 999px;
+  transition: background-color .3s ease;
+}
+.scrollbar-slim:hover::-webkit-scrollbar-thumb { background-color: rgba(148, 163, 184, .28); }
+.scrollbar-slim::-webkit-scrollbar-thumb:hover { background-color: rgba(100, 116, 139, .42); }
+.scrollbar-slim::-webkit-scrollbar-corner { background: transparent; }
+
+/* ============================================================
+   LectureNotesView — havadar, pastel, göz yormayan okuma tipografisi
+   Kapkara yerine antrasit (#334155 / slate-700); geniş satır aralığı;
+   paragraflar arasında nefes payı.
+   ============================================================ */
+.lecture-prose {
+  color: #334155;
+  font-size: 16.5px;
+  line-height: 2;                 /* leading-loose */
+  letter-spacing: .005em;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+.lecture-prose > *:first-child { margin-top: 0; }
+
+.lecture-prose h2 {
+  font-size: 30px; font-weight: 700; letter-spacing: -0.7px;
+  color: #1e293b; line-height: 1.35;
+  margin: 0 0 28px; padding-bottom: 0;
+}
+.lecture-prose h2::after {
+  content: ""; display: block; width: 44px; height: 3px; margin-top: 18px;
+  border-radius: 999px; background: var(--lec, #4fd1ac); opacity: .75;
+}
+
+.lecture-prose h3 {
+  position: relative; font-size: 17.5px; font-weight: 600; line-height: 1.5;
+  color: #334155; margin: 48px 0 18px; padding-left: 16px;
+}
+.lecture-prose h3::before {
+  content: ""; position: absolute; left: 0; top: 5px; bottom: 5px; width: 3px;
+  border-radius: 999px; background: var(--lec, #4fd1ac); opacity: .7;
+}
+
+/* Paragraflar arası nefes payı */
+.lecture-prose p { margin: 0 0 26px; }
+.lecture-prose p:last-child { margin-bottom: 0; }
+
+.lecture-prose ul, .lecture-prose ol { margin: 0 0 26px; padding-left: 26px; }
+.lecture-prose ul { list-style: disc; }
+.lecture-prose ol { list-style: decimal; }
+.lecture-prose li { margin-bottom: 14px; padding-left: 4px; }
+.lecture-prose li:last-child { margin-bottom: 0; }
+.lecture-prose li::marker { color: var(--lec, #94a3b8); opacity: .55; }
+
+/* Vurgu: sert siyah değil, koyu antrasit */
+.lecture-prose b, .lecture-prose strong { color: #1e293b; font-weight: 600; }
+.lecture-prose u {
+  text-decoration: none;
+  background: linear-gradient(180deg, transparent 62%, var(--lec-soft, #e4f7f1) 62%);
+  padding: 0 2px; border-radius: 2px;
+}
+
+/* Bilgi kutusu — pastel zemin, kenarlık yerine yumuşak renk şeridi */
+.lecture-prose .formula {
+  display: block; position: relative;
+  background: var(--lec-tint, #f8fafc);
+  border: none; border-radius: 18px;
+  padding: 20px 24px 20px 26px; margin: 32px 0;
+  font-family: inherit; font-size: 15px; line-height: 1.9;
+  color: #475569; overflow-x: auto;
+  box-shadow: inset 3px 0 0 var(--lec, #4fd1ac);
+}
+.lecture-prose .formula b, .lecture-prose .formula strong { color: #334155; }
+
+/* Tablolar — çizgi yerine boşlukla ayrılan, hafif satırlı düzen */
+.lecture-prose table {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  margin: 32px 0; font-size: 14.5px; line-height: 1.75;
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 0 0 1px #f1f5f9;
+}
+.lecture-prose th, .lecture-prose td {
+  border: none; border-bottom: 1px solid #f1f5f9;
+  padding: 14px 18px; text-align: left; vertical-align: top;
+}
+.lecture-prose tr:last-child td { border-bottom: none; }
+.lecture-prose th {
+  background: var(--lec-tint, #f8fafc);
+  font-weight: 600; color: #475569;
+  font-size: 13.5px; letter-spacing: .02em;
+}
+.lecture-prose td { color: #475569; }
+.lecture-prose tbody tr:hover td { background: #fcfdfe; }
+
+/* Şekiller (satır içi SVG) — kartın içinde nefes alsın */
+.lecture-prose svg { display: block; margin: 32px 0; border-radius: 18px; }
+
+/* Defter görünümü — sıcak kâğıt + spiral kenar + serif başlıklar */
+.notebook-page {
+  position: relative;
+  background:
+    linear-gradient(90deg, #fef3c7 0 34px, transparent 34px),
+    repeating-linear-gradient(#fffdf6 0 30px, #f5efdd 30px 31px);
+  background-color: #fffdf6;
+  padding-left: 48px;
+}
+.notebook-page::before {
+  content: "";
+  position: absolute;
+  left: 16px; top: 18px; bottom: 18px; width: 6px;
+  border-radius: 6px;
+  background-image: radial-gradient(circle at center, #d97706 0 2.5px, transparent 3px);
+  background-size: 6px 22px;
+  background-repeat: repeat-y;
+  opacity: .55;
+}
+.notebook-page .notes-content h2 {
+  font-family: Georgia, Cambria, "Times New Roman", serif;
+  color: #92400e;
+  border-bottom-color: #fde68a;
+}
+.notebook-page .notes-content h3 { color: #b45309; }
+.notebook-page .notes-content b,
+.notebook-page .notes-content strong { color: #b45309; }
+.notebook-page .notes-content .formula {
+  background: #fffbeb; border-color: #fde68a; border-left-color: #d97706;
+}
+@media (max-width: 640px) { .notebook-page { padding-left: 40px; } }
+
+/* Kişisel not editörü (contentEditable — zengin metin) */
+.note-editor:empty::before {
+  content: attr(data-placeholder);
+  color: #cbd5e1; font-weight: 300; pointer-events: none;
+}
+.note-editor { caret-color: #64748b; }
+.note-editor p { margin: 0 0 14px; }
+.note-editor ul { list-style: disc; padding-left: 22px; margin: 10px 0; }
+.note-editor ol { list-style: decimal; padding-left: 22px; margin: 10px 0; }
+.note-editor li { margin: 6px 0; }
+.note-editor li::marker { color: #cbd5e1; }
+.note-editor b, .note-editor strong { color: #334155; font-weight: 600; }
+.note-editor a { color: #38bdf8; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ============================================================
+   DEFTER — premium (referans hedefi): serif, krem kâğıt, spiral,
+   kırmızı kenar çizgisi, numaralı bölüm rozetleri, altın ayraç.
+   ============================================================ */
+.nb-wrap { position: relative; }
+.nb-coils {
+  position: absolute; left: 8px; top: 14px; bottom: 14px; width: 46px; z-index: 3;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='16'%3E%3Cg transform='rotate(-32 23 8)'%3E%3Cellipse cx='23' cy='8' rx='16' ry='6.4' fill='none' stroke='%2326262b' stroke-width='3.4'/%3E%3Cellipse cx='23' cy='6.6' rx='16' ry='6.4' fill='none' stroke='%239a9aa2' stroke-width='0.9'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-y;
+  background-position: left top;
+}
+.notebook-page {
+  background-color: #ffffff !important;
+  background-image:
+    repeating-linear-gradient(180deg, transparent 0 33px, var(--nb-ruled, rgba(124,108,240,.07)) 33px 34px),
+    linear-gradient(180deg, #ffffff, var(--nb-soft, #f6f3ff)) !important;
+  border: 1px solid #ece7fb !important;
+  border-radius: 22px !important;
+  box-shadow: 0 22px 46px rgba(76,61,143,.16), 0 2px 6px rgba(20,20,40,.05) !important;
+  padding: 32px 44px 44px 72px !important;
+  font-family: "Source Serif 4", Georgia, serif;
+  color: #2b2b3a;
+}
+.notebook-page::before { display: none; }
+.notebook-page::after {
+  content: ""; position: absolute; left: 62px; top: 18px; bottom: 18px; width: 1.5px;
+  background: var(--nb, #c4b5fd); opacity: .55;
+}
+.notebook-page .notes-content { counter-reset: nbsec; color: #2b2b3a; font-size: 15.5px; line-height: 1.85; }
+.notebook-page .notes-content h2 {
+  font-family: "Lora", Georgia, serif; font-size: 30px; font-weight: 700; letter-spacing: -.5px;
+  color: #2b2b3a; border: none; padding: 0; margin: 0 0 4px;
+}
+.notebook-page .notes-content h2::after {
+  content: ""; display: block; width: 68px; height: 2px; margin: 10px 0 20px;
+  background: linear-gradient(90deg, var(--nb, #7c6cf0), transparent); border-radius: 2px;
+}
+.notebook-page .notes-content h3 {
+  font-family: "Lora", Georgia, serif; display: flex; align-items: center; gap: 10px;
+  font-size: 18px; font-weight: 600; color: #2b2b3a; margin: 26px 0 10px; padding: 0;
+}
+.notebook-page .notes-content h3::before {
+  content: ""; flex: none; width: 9px; height: 9px; border-radius: 3px;
+  background: var(--nb, #6d5bb8); transform: rotate(45deg);
+}
+.notebook-page .notes-content b, .notebook-page .notes-content strong { color: var(--nb-dark, #4c3d8f); }
+.notebook-page .notes-content ul li::marker { color: var(--nb, #6d5bb8); }
+.notebook-page .notes-content .formula {
+  background: var(--nb-soft, #f5f3ff); border: 1px solid var(--nb, #ddd6fe); border-left: 3px solid var(--nb, #7c6cf0);
+  border-radius: 12px; padding: 12px 16px; color: #2b2b3a;
+}
+
+/* İki sayfa modu — içerik iki kolona bölünür (açık kitap hissi) */
+.notebook-page.two-page .notes-content { column-count: 2; column-gap: 54px; column-rule: 1px solid rgba(124,108,240,.18); }
+.notebook-page.two-page .notes-content h2 { column-span: all; }
+.notebook-page .notes-content h3,
+.notebook-page .notes-content li { break-inside: avoid; }
+@media (max-width: 640px) {
+  .notebook-page { padding-left: 64px !important; }
+  .nb-coils { width: 46px; }
+  .notebook-page.two-page .notes-content { column-count: 1; }
+}

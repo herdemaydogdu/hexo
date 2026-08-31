@@ -1,0 +1,171 @@
+{
+  "kaynak_pdf": "coğrafya tyt/tyt-cografya.pdf",
+  "project_id": "jmoimahqkiepgdmwnovs",
+  "aciklama": "MEBİ TYT Coğrafya Konu Özetleri (122 sayfa, 38 konu) sitedeki 13 coğrafya ünitesine dağıtılmıştır. Her çalıştırmada done=false olan İLK ünite işlenir: PDF'teki ilgili konuların TAMAMI okunur, neden-sonuç zincirleri, SVG harita/şekil çizimleri, kavram sözlüğü ve karşılaştırma tablolarıyla derin ders notuna dönüştürülür. pdf_index = pypdf sayfa indeksi (kitap sayfası + 1).",
+  "bicim_kurallari": [
+    "Tek <h2> ünite adı; bölümler <h3>; paragraf <p>; liste <ul><li>; vurgu <b>, örnek/yer adı <u>",
+    "DİKKAT/KRİTİK/İPUCU kutuları: <p class=\"formula\">",
+    "Karşılaştırmalar <table><tr><th>/<td> ile (site .lecture-prose tabloyu stillendirir)",
+    "Şekil/harita için satır içi <svg viewBox=... width=\"100%\">; Markdown KULLANMA",
+    "Her ünitede: Kavram Sözlüğü + Sınavda Sık Karıştırılanlar + Özet Kartı bölümleri zorunlu"
+  ],
+  "konular": [
+    {
+      "sira": 1,
+      "unit_id": "cog-dunya",
+      "name": "Dünya'nın Şekli ve Hareketleri",
+      "pdf_konular": [
+        "1. Doğa ve İnsan Etkileşimi",
+        "2. Coğrafyanın Konusu ve Bölümleri",
+        "3. Dünya'nın Şekli ve Günlük Hareketi",
+        "4. Dünya'nın Yıllık Hareketi ve Eksen Eğikliği"
+      ],
+      "pdf_index": "10-19",
+      "done": true
+    },
+    {
+      "sira": 2,
+      "unit_id": "cog-konum",
+      "name": "Türkiye'nin Konumu",
+      "pdf_konular": [
+        "5. Koordinat Sistemi",
+        "6. Yerel Saat ve Ulusal Saat",
+        "7. Türkiye'nin Konumu"
+      ],
+      "pdf_index": "20-24",
+      "done": true
+    },
+    {
+      "sira": 3,
+      "unit_id": "cog-harita",
+      "name": "Harita Bilgisi",
+      "pdf_konular": [
+        "8. Harita Unsurları ve Harita Çeşitleri",
+        "9. Haritalarda Hesaplamalar",
+        "10. Yeryüzü Şekillerinin Haritalara Aktarılması"
+      ],
+      "pdf_index": "25-32",
+      "done": true
+    },
+    {
+      "sira": 4,
+      "unit_id": "cog-atmosfer",
+      "name": "Atmosfer, Sıcaklık, Basınç ve Rüzgârlar",
+      "pdf_konular": [
+        "11. Atmosfer, Hava Durumu ve İklim",
+        "12. Sıcaklık",
+        "13. Basınç ve Rüzgârlar",
+        "14. Nem ve Yağış",
+        "38'in meteorolojik afet kısmı: şiddetli rüzgârlar, sel ve taşkın, çığ"
+      ],
+      "pdf_index": "33-44 (+118-120)",
+      "done": true
+    },
+    {
+      "sira": 5,
+      "unit_id": "cog-iklim",
+      "name": "İklim ve Bitki Örtüsü",
+      "pdf_konular": [
+        "15. İklim Tipleri",
+        "16. Türkiye İklimi",
+        "29. Dünyada ve Türkiye'de Bitkiler"
+      ],
+      "pdf_index": "43-49, 89-92",
+      "done": true
+    },
+    {
+      "sira": 6,
+      "unit_id": "cog-ickuvvet",
+      "name": "İç Kuvvetler",
+      "pdf_konular": [
+        "20. Dünya'nın Tektonik Oluşumu ve Jeolojik Zamanlar",
+        "21. İç Kuvvetler ve Kayaçlar",
+        "37'nin deprem, tsunami ve volkanik faaliyet kısmı"
+      ],
+      "pdf_index": "61-65 (+115-116)",
+      "done": true
+    },
+    {
+      "sira": 7,
+      "unit_id": "cog-diskuvvet",
+      "name": "Dış Kuvvetler",
+      "pdf_konular": [
+        "22. Dış Kuvvetler (Çözülme, Kütle Hareketleri, Rüzgârlar, Buzullar)",
+        "23. Dış Kuvvetler (Akarsular)",
+        "24. Dış Kuvvetler (Karstik Şekiller, Dalgalar, Akıntılar)",
+        "25. Türkiye'de Ana Yer Şekilleri, İç ve Dış Kuvvetler",
+        "37'nin kütle hareketleri ve erozyon kısmı"
+      ],
+      "pdf_index": "66-77 (+116-117)",
+      "done": true
+    },
+    {
+      "sira": 8,
+      "unit_id": "cog-su",
+      "name": "Su Kaynakları",
+      "pdf_konular": [
+        "26. Dünyada Su Kaynakları",
+        "27. Türkiye'de Su Kaynakları"
+      ],
+      "pdf_index": "78-84",
+      "done": true
+    },
+    {
+      "sira": 9,
+      "unit_id": "cog-toprak",
+      "name": "Topraklar",
+      "pdf_konular": [
+        "28. Dünyada ve Türkiye'de Topraklar"
+      ],
+      "pdf_index": "85-88",
+      "done": true
+    },
+    {
+      "sira": 10,
+      "unit_id": "cog-nufus",
+      "name": "Nüfus",
+      "pdf_konular": [
+        "30. Nüfusun Özellikleri ve Gelişimi",
+        "31. Nüfusun Dağılışı ve Nüfus Piramitleri",
+        "32. Türkiye Nüfusu"
+      ],
+      "pdf_index": "93-102",
+      "done": true
+    },
+    {
+      "sira": 11,
+      "unit_id": "cog-goc",
+      "name": "Göçler",
+      "pdf_konular": [
+        "33. Göçler"
+      ],
+      "pdf_index": "103-106",
+      "done": true
+    },
+    {
+      "sira": 12,
+      "unit_id": "cog-yerlesme",
+      "name": "Yerleşmeler",
+      "pdf_konular": [
+        "17. Yerleşme ve Türkiye'de Yerleşmeler",
+        "18. Bölge Sınıflandırılması ve Türleri"
+      ],
+      "pdf_index": "50-59",
+      "done": true
+    },
+    {
+      "sira": 13,
+      "unit_id": "cog-ekonomi",
+      "name": "Ekonomik Faaliyetler",
+      "pdf_konular": [
+        "19. Doğal Çevrenin Kullanımı",
+        "34. Ekonomik Faaliyetler",
+        "35. Uluslararası Ulaşım Hatları",
+        "36. Afetlerin Genel Özellikleri ve Sınıflandırılması",
+        "38'in orman yangınları ve salgın hastalıklar kısmı"
+      ],
+      "pdf_index": "59-60, 107-114 (+120-121)",
+      "done": true
+    }
+  ]
+}

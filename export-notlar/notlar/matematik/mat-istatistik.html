@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Veri, Grafik ve Temel İstatistik</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Veri, Grafik ve Temel İstatistik</h2>
+
+<p>İstatistik, bir sayı yığınını <b>anlaşılır tek bir cümleye</b> indirme sanatıdır. Bunu iki soruyla yapar: <b>"Veriler nerede toplanmış?"</b> (merkezî eğilim: ortalama, mod, medyan) ve <b>"Ne kadar dağılmışlar?"</b> (yayılım: açıklık, standart sapma). Grafikler ise bu iki bilgiyi göze gösterir. TYT'de bu konu genellikle <b>kolay puan</b> demektir — çünkü sorular hesap değil, <u>doğru ölçüyü seçme</u> ve <u>grafiği doğru okuma</u> üzerine kuruludur.</p>
+
+<h3>1) Veri Kavramı</h3>
+<p class="formula">TANIM — Bir sonuç çıkarmak ya da çözüme ulaşmak için <b>gözlem, deney, araştırma</b> gibi yöntemlerle elde edilen her bilgiye <b>veri</b> denir.<br/>
+<b>KESİKLİ VERİ:</b> Belirli bir aralıktaki <b>her gerçek sayı değerini alamayan</b> veriler.<br/>
+<u>Örnek: sınıftaki öğrenci sayısı, atılan zarın üst yüzü, bir ailedeki çocuk sayısı. (2,5 öğrenci olmaz.)</u><br/>
+<b>SÜREKLİ VERİ:</b> Belirli bir aralıktaki <b>her gerçek sayı değerini alabilen</b> veriler.<br/>
+<u>Örnek: boy, kilo, sıcaklık, geçen süre. (168,4 cm olabilir.)</u><br/>
+<b>Neden önemli?</b> <u>Grafik seçimi bu ayrıma bağlıdır: kesikli veriler için <b>sütun grafiği</b>, sürekli veriler için <b>çizgi grafiği</b> kullanılır.</u></p>
+
+<h3>2) Merkezî Eğilim Ölçüleri</h3>
+<p class="formula">ARİTMETİK ORTALAMA — Tüm verilerin toplanıp veri sayısına bölünmesiyle elde edilir; <b>X̄</b> ile gösterilir.<br/>
+<b>X̄ = (x₁ + x₂ + … + x<sub>n</sub>) / n</b><br/>
+<b>En kullanışlı hâli:</b> <u><b>Verilerin toplamı = n · X̄</b></u> — <u>sınav sorularının %80'i bu tek satırla çözülür.</u></p>
+<p class="formula">TEPE DEĞER (MOD) — Bir veri grubunda <b>en çok tekrar eden</b> veridir.<br/>
+• Bir dağılımın <b>birden fazla tepe değeri olabilir</b>; hiç olmayabilir de.<br/>
+<b>ORTANCA (MEDYAN)</b> — Veriler <b>sıralandıktan sonra</b> tam ortadaki değerdir.<br/>
+• <b>n tek ise:</b> <b>(n+1)/2</b>. terim.<br/>
+• <b>n çift ise:</b> <b>n/2</b>. terim ile <b>(n/2 + 1)</b>. terimin <b>ortalamasıdır</b>.<br/>
+• <u>Her veri grubunun <b>yalnız bir</b> ortancası vardır.</u><br/>
+<b>SIRALAMA ZORUNLU:</b> <u>Medyan bulmadan önce veriler MUTLAKA sıralanır. En sık yapılan hata bu adımı atlamaktır.</u></p>
+<p class="formula">HANGİ ÖLÇÜ NE ZAMAN? (PDF DİKKAT) —<br/>
+• <b>Aritmetik ortalama</b> veri grubunun <b>genel durumu</b> hakkında bilgi verir.<br/>
+• <b>Tepe değer ve ortanca</b>, veri grubundaki <b>uç değerlerden ortalamaya göre DAHA AZ etkilenir</b>.<br/>
+<u>Neden? Ortalama tüm sayıları toplar; tek bir aşırı büyük değer toplamı ve dolayısıyla ortalamayı yukarı çeker. Medyan ise sadece sıradaki konuma bakar, uç değerin ne kadar büyük olduğu onu ilgilendirmez.</u><br/>
+<b>Somut örnek:</b> 5 kişinin maaşı 10, 12, 13, 14, <b>200</b> bin TL olsun. Ortalama <b>49,8</b> bin (kimseyi temsil etmiyor!), medyan <b>13</b> bin (grubu gerçekten temsil ediyor). <u>Bu yüzden gelir dağılımı gibi uç değer içeren verilerde medyan tercih edilir.</u></p>
+<p class="formula">ÖRNEK — <b>4, 7, 15, 7, 12, 9</b> veri grubunun aritmetik ortalaması, tepe değeri ve ortancası kaçtır?</p>
+<ul>
+<li><b>Aritmetik ortalama:</b> (4 + 7 + 15 + 7 + 12 + 9)/6 = 54/6 = <b>9</b>.</li>
+<li><b>Tepe değer (mod):</b> İki kez geçen tek veri <b>7</b>'dir.</li>
+<li><b>Ortanca (medyan):</b> Önce <u>sırala</u> → 4, 7, 7, 9, 12, 15. n = 6 <b>çift</b> olduğu için 3. ve 4. terimlerin ortalaması → (7 + 9)/2 = <b>8</b>.</li>
+<li><b>Dikkat:</b> <u>Sıralamadan medyan bulmaya kalksaydın 3. ve 4. terimler 15 ve 7 olurdu ve 11 gibi tamamen yanlış bir sonuç çıkardı.</u></li>
+</ul>
+
+<h3>3) Ortalama Soruları için Test Teknikleri</h3>
+<p class="formula">TEKNİK 1 — TOPLAMA GEÇ. <b>Ortalama verilmişse hemen toplamı yaz: Toplam = n · X̄.</b><br/>
+<u>Ortalama üzerinden düşünmek karışıktır; toplam üzerinden düşünmek doğrusaldır. Eleman eklendiğinde/çıkarıldığında toplam da o kadar değişir.</u><br/>
+<b>TEKNİK 2 — AĞIRLIKLI ORTALAMA.</b> İki grup birleştirilirken <b>ortalamaların ortalaması ALINMAZ</b>:<br/>
+<b>X̄<sub>birleşik</sub> = (n₁·X̄₁ + n₂·X̄₂) / (n₁ + n₂)</b><br/>
+<u>Grupların eleman sayısı eşitse (ve yalnızca o zaman) basit ortalama doğru sonucu verir.</u></p>
+<p class="formula">ÖRNEK — <b>5</b> kişilik bir grubun yaş ortalaması <b>24</b>'tür. Gruba <b>30</b> yaşında biri katılırsa yeni ortalama kaç olur?</p>
+<ul>
+<li><b>Adım 1 — Toplama geç:</b> 5 · 24 = <b>120</b>.</li>
+<li><b>Adım 2 — Yeni toplam:</b> 120 + 30 = <b>150</b>, yeni kişi sayısı <b>6</b>.</li>
+<li><b>Adım 3:</b> 150/6 = <b>25</b>.</li>
+<li><b>Sezgisel kontrol:</b> <u>Katılan kişi (30), eski ortalamadan 6 fazla. Bu fazlalık 6 kişiye paylaştırılır: 6/6 = 1 → ortalama 1 artar: 24 + 1 = 25 ✓</u> Bu "fazlalık paylaştırma" yöntemi sınavda çok daha hızlıdır.</li>
+</ul>
+<p class="formula">ÖRNEK — <b>20</b> kişilik bir sınıfın not ortalaması <b>60</b>, <b>30</b> kişilik başka bir sınıfın <b>70</b>'tir. İki sınıfın <b>birleşik</b> ortalaması kaçtır?</p>
+<ul>
+<li><b>Yanlış refleks:</b> (60 + 70)/2 = 65. <u>Sınıfların eleman sayıları farklı olduğu için bu YANLIŞTIR.</u></li>
+<li><b>Doğru çözüm:</b> (20·60 + 30·70)/(20 + 30) = (1200 + 2100)/50 = 3300/50 = <b>66</b>.</li>
+<li><b>Neden 65'ten büyük?</b> <u>Kalabalık olan sınıf (30 kişi) daha yüksek ortalamaya sahip; sonuç onun tarafına çekilir. Ağırlıklı ortalama daima kalabalık grubun ortalamasına daha yakındır.</u></li>
+<li><b>Kontrol tekniği:</b> Sonuç mutlaka <b>60 ile 70 arasında</b> çıkmalıdır. Bu aralığın dışında bir sayı bulduysan işlem hatalıdır.</li>
+</ul>
+
+<h3>4) Merkezî Yayılım Ölçüleri</h3>
+<p class="formula">AÇIKLIK — Bir veri grubundaki <b>en büyük değer ile en küçük değer arasındaki fark</b>.<br/>
+<b>Açıklık = En büyük − En küçük</b><br/>
+• <b>Açıklık büyükse:</b> veri grubu <b>heterojen</b> (uç değerler birbirinden uzak).<br/>
+• <b>Açıklık küçükse:</b> veri grubu <b>homojen</b> (veriler birbirine yakın).<br/>
+<u>PDF'in uyarısı: sadece açıklığa bakarak yapılan yorum <b>yüzeyseldir</b> — çünkü açıklık yalnızca iki uç değere bakar, aradaki 100 veriyi görmez. Bu yüzden standart sapmaya ihtiyaç vardır.</u></p>
+<p class="formula">STANDART SAPMA (S) — Verilerin <b>aritmetik ortalamadan uzaklıklarının</b> bir ölçüsüdür; veri grubundaki sayıların birbirine yakınlığını ölçer.<br/>
+<b>HESAP ADIMLARI (PDF):</b><br/>
+<b>I.</b> Aritmetik ortalama hesaplanır.<br/>
+<b>II.</b> Her ölçümün ortalamadan <b>farkı</b> alınır.<br/>
+<b>III.</b> Farkların <b>kareleri</b> alınıp <b>toplanır</b>.<br/>
+<b>IV.</b> Bulunan değer <b>(n − 1)</b>'e bölünür ve <b>karekökü</b> alınır.<br/>
+<b>S = √[ Σ(x<sub>i</sub> − X̄)² / (n − 1) ]</b><br/>
+<u>Neden kare alınıyor? Farkların toplamı her zaman SIFIR çıkar (artılar eksileri götürür). Kare almak işaretleri yok eder ve büyük sapmaları daha ağır cezalandırır. Sonunda karekök alınması, sonucu verilerle aynı birime döndürmek içindir.</u></p>
+<p class="formula">STANDART SAPMANIN YORUMU (PDF) —<br/>
+• <b>S küçükse:</b> puanlar <b>düzenli, tutarlı, istikrarlı</b>; veri grubu <b>homojen</b>; veriler birbirine ve ortalamaya <b>yakın</b>.<br/>
+• <b>S büyükse:</b> puanlar <b>düzensiz, tutarsız, istikrarsız</b>; veri grubu <b>heterojen</b>; veriler ortalamadan <b>uzak</b>.<br/>
+<u>Sınav yorumu: "Hangi öğrenci daha istikrarlıdır?" sorusunun cevabı <b>standart sapması küçük olandır</b> — ortalaması yüksek olan değil.</u></p>
+<p class="formula">ÖRNEK — <b>4, 6, 8, 10, 12</b> veri grubunun açıklığı ve standart sapması kaçtır?</p>
+<ul>
+<li><b>Açıklık:</b> 12 − 4 = <b>8</b>.</li>
+<li><b>I — Ortalama:</b> (4 + 6 + 8 + 10 + 12)/5 = 40/5 = <b>8</b>.</li>
+<li><b>II — Farklar:</b> −4, −2, 0, 2, 4. <u>(Toplamları 0 — bu her zaman böyledir ve iyi bir kontroldür.)</u></li>
+<li><b>III — Kareler ve toplam:</b> 16 + 4 + 0 + 4 + 16 = <b>40</b>.</li>
+<li><b>IV — Böl ve kök al:</b> 40/(5 − 1) = 10 → <b>S = √10 ≈ 3,16</b>.</li>
+<li><b>Yorum:</b> <u>Veriler ortalamadan ortalama olarak yaklaşık 3 birim sapıyor. Açıklık 8 iken standart sapmanın 3,16 çıkması, verilerin uçlarda yığılmadığını, düzenli dağıldığını gösterir.</u></li>
+</ul>
+<p class="formula">DEĞİŞMEZLİK KURALLARI — <u>Bu tablo, en çok soru üretilen ve en çok hata yapılan yerdir:</u></p>
+<table>
+<tr><th>İşlem</th><th>Ortalama</th><th>Medyan / Mod</th><th>Açıklık</th><th>Standart sapma</th></tr>
+<tr><td><b>Her veriye k EKLENİRSE</b></td><td>k artar</td><td>k artar</td><td><b>DEĞİŞMEZ</b></td><td><b>DEĞİŞMEZ</b></td></tr>
+<tr><td><b>Her veri k ile ÇARPILIRSA</b></td><td>k katına çıkar</td><td>k katına çıkar</td><td>k katına çıkar</td><td>|k| katına çıkar</td></tr>
+</table>
+<p class="formula">NEDEN? — <u>Her veriye aynı sayıyı eklemek, tüm veri grubunu sayı doğrusunda <b>kaydırmaktır</b>. Veriler birbirine göre hiç hareket etmediği için <b>yayılım</b> (açıklık, standart sapma) değişmez; sadece merkez kayar. Çarpma ise veriler arasındaki mesafeleri de büyütür, bu yüzden yayılım ölçüleri de değişir.</u></p>
+
+<h3>5) Histogram</h3>
+<p class="formula">TANIM — Gruplandırılmış bir veri grubunda verilerin <b>tekrar etme sayılarının BİTİŞİK dikdörtgen sütunlarla</b> gösterimine <b>histogram</b> denir.<br/>
+<u>Sütunların bitişik olması, verinin <b>gruplandırılmış/aralıklı</b> olduğunu belirtir; sütun grafiğinde sütunlar ayrıktır. Tek görsel fark budur ama anlamı tamamen farklıdır.</u></p>
+<p class="formula">OLUŞTURMA ADIMLARI (PDF) —<br/>
+<b>1.</b> Veriler <b>küçükten büyüğe</b> sıralanır.<br/>
+<b>2.</b> <b>Veri açıklığı</b> hesaplanır (en büyük − en küçük).<br/>
+<b>3.</b> <b>Grup sayısı</b> seçilir.<br/>
+<b>4.</b> <b>Grup genişliği</b> hesaplanır: <u>açıklık ÷ grup sayısı işleminin sonucundan BÜYÜK olan en küçük doğal sayı</u>.<br/>
+<b>5.</b> Veriler en küçükten başlanarak gruplara ayrılıp tablo hâline getirilir.<br/>
+<b>6.</b> Tabloya bakılarak histogram çizilir.<br/>
+<b>DİKKAT:</b> Gruplar <b>yatay</b>, frekanslar <b>dikey</b> eksene yazılır; veri olmayan bölge <b>zikzakla</b> gösterilir.</p>
+<p class="formula">ÖRNEK (PDF) — Bir gruptaki üyelerin yaşları: <b>3, 4, 8, 8, 10, 12, 13, 16, 17</b>. Üç gruplu histogramı oluşturunuz.</p>
+<ul>
+<li><b>Açıklık:</b> 17 − 3 = <b>14</b>.</li>
+<li><b>Grup genişliği:</b> 14 ÷ 3 = 4,67 → <u>bundan büyük en küçük doğal sayı</u> → <b>5</b>.</li>
+<li><b>Gruplar:</b> 3–7, 8–12, 13–17.</li>
+<li><b>Frekanslar:</b> 3–7 → {3, 4} = <b>2 kişi</b> &nbsp;·&nbsp; 8–12 → {8, 8, 10, 12} = <b>4 kişi</b> &nbsp;·&nbsp; 13–17 → {13, 16, 17} = <b>3 kişi</b>.</li>
+<li><b>Kontrol:</b> 2 + 4 + 3 = 9 ✓ <u>Frekansların toplamı daima veri sayısını vermelidir; vermiyorsa bir veri yanlış gruba yazılmıştır.</u></li>
+</ul>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Yaş gruplarına göre histogram">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Histogram: sütunlar BİTİŞİKTİR (gruplandırılmış veri)</text>
+  <line x1="80" y1="210" x2="380" y2="210" stroke="#334155" stroke-width="2"/>
+  <line x1="80" y1="50" x2="80" y2="210" stroke="#334155" stroke-width="2"/>
+  <g stroke="#cbd5e1" stroke-width="1">
+    <line x1="80" y1="175" x2="380" y2="175"/><line x1="80" y1="140" x2="380" y2="140"/>
+    <line x1="80" y1="105" x2="380" y2="105"/><line x1="80" y1="70" x2="380" y2="70"/>
+  </g>
+  <g font-size="10" fill="#475569" text-anchor="end">
+    <text x="74" y="214">0</text><text x="74" y="179">1</text><text x="74" y="144">2</text>
+    <text x="74" y="109">3</text><text x="74" y="74">4</text>
+  </g>
+  <rect x="80" y="140" width="100" height="70" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <rect x="180" y="70" width="100" height="140" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+  <rect x="280" y="105" width="100" height="105" fill="#7dd3fc" stroke="#0284c7" stroke-width="2"/>
+  <g font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">
+    <text x="130" y="180">2</text><text x="230" y="145">4</text><text x="330" y="162">3</text>
+  </g>
+  <g font-size="11" fill="#334155" text-anchor="middle">
+    <text x="130" y="228">3 – 7</text><text x="230" y="228">8 – 12</text><text x="330" y="228">13 – 17</text>
+  </g>
+  <text x="230" y="246" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">Yaş grupları</text>
+  <text x="90" y="42" font-size="11" font-weight="700" fill="#334155">Kişi sayısı</text>
+  <line x1="410" y1="45" x2="410" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="430" y="66" font-size="11" font-weight="700" fill="#334155">Veri: 3, 4, 8, 8, 10, 12, 13, 16, 17</text>
+  <text x="430" y="90" font-size="10" fill="#475569">Açıklık = 17 − 3 = 14</text>
+  <text x="430" y="108" font-size="10" fill="#475569">Grup sayısı = 3 → 14 ÷ 3 = 4,67</text>
+  <text x="430" y="126" font-size="10" fill="#475569">Grup genişliği = 5 (üstteki en küçük doğal sayı)</text>
+  <text x="430" y="150" font-size="10" font-weight="700" fill="#b45309">Frekans toplamı = 2 + 4 + 3 = 9 = veri sayısı ✓</text>
+  <text x="430" y="176" font-size="10" fill="#475569">Histogram sütunları BİTİŞİK çizilir; sütun</text>
+  <text x="430" y="190" font-size="10" fill="#475569">grafiğinde ise sütunlar ARALIKLIDIR.</text>
+  <text x="430" y="212" font-size="10" fill="#475569">Gruplar yatay, frekanslar dikey eksende olur.</text>
+  <text x="430" y="230" font-size="10" fill="#475569">Veri olmayan başlangıç bölgesi zikzakla gösterilir.</text>
+</svg>
+
+<h3>6) Grafik Çeşitleri</h3>
+<table>
+<tr><th>Grafik</th><th>Ne gösterir?</th><th>Ne zaman kullanılır?</th><th>Veri türü</th></tr>
+<tr><td><b>Çizgi grafiği</b></td><td>Noktaların düz çizgilerle birleştirilmesi</td><td>Verilerin <b>zamana bağlı değişimi</b> inceleniyorsa</td><td><b>Sürekli</b></td></tr>
+<tr><td><b>Sütun grafiği</b></td><td>Yatay ya da düşey sütunlar</td><td>Veri gruplarını <b>karşılaştırmak</b> için</td><td><b>Kesikli</b></td></tr>
+<tr><td><b>Daire grafiği</b></td><td>Daire dilimleri</td><td>Verilerin <b>bütüne oranı</b> karşılaştırılıyorsa</td><td>Oransal</td></tr>
+<tr><td><b>Histogram</b></td><td>Bitişik sütunlar</td><td><b>Gruplandırılmış</b> veri dağılımı için</td><td>Aralıklı</td></tr>
+</table>
+<p class="formula">DAİRE GRAFİĞİNİN MATEMATİĞİ — Veriler daire grafiğine <b>merkez açıyla orantılı</b> yerleştirilir:<br/>
+<b>Merkez açı = (Verinin değeri / Toplam) · 360°</b><br/>
+<b>Yüzde = (Verinin değeri / Toplam) · 100</b><br/>
+<u>Kısayol: <b>%1 = 3,6°</b>. Yani 25° lik bir dilim yaklaşık %6,94'tür; %25'lik bir dilim tam 90°'dir.</u><br/>
+<b>Kontrol:</b> Tüm merkez açıların toplamı <b>360°</b>, tüm yüzdelerin toplamı <b>100</b> olmalıdır.</p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grafik çeşitleri karşılaştırması">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Hangi grafiği ne zaman kullanmalı?</text>
+  <line x1="40" y1="170" x2="180" y2="170" stroke="#334155" stroke-width="1.6"/>
+  <line x1="40" y1="60" x2="40" y2="170" stroke="#334155" stroke-width="1.6"/>
+  <polyline points="55,150 90,110 125,125 160,75" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+  <g fill="#0284c7">
+    <circle cx="55" cy="150" r="3.5"/><circle cx="90" cy="110" r="3.5"/>
+    <circle cx="125" cy="125" r="3.5"/><circle cx="160" cy="75" r="3.5"/>
+  </g>
+  <text x="110" y="192" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">Çizgi grafiği</text>
+  <text x="110" y="208" font-size="10" fill="#475569" text-anchor="middle">Zamana bağlı DEĞİŞİM</text>
+  <text x="110" y="222" font-size="10" fill="#475569" text-anchor="middle">Sürekli veri</text>
+  <line x1="240" y1="170" x2="380" y2="170" stroke="#334155" stroke-width="1.6"/>
+  <line x1="240" y1="60" x2="240" y2="170" stroke="#334155" stroke-width="1.6"/>
+  <rect x="255" y="120" width="22" height="50" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <rect x="290" y="85" width="22" height="85" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <rect x="325" y="135" width="22" height="35" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <rect x="355" y="100" width="22" height="70" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+  <text x="310" y="192" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">Sütun grafiği</text>
+  <text x="310" y="208" font-size="10" fill="#475569" text-anchor="middle">Grupları KARŞILAŞTIRMA</text>
+  <text x="310" y="222" font-size="10" fill="#475569" text-anchor="middle">Kesikli veri · sütunlar ayrık</text>
+  <circle cx="500" cy="115" r="55" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <path d="M 500 115 L 500 60 A 55 55 0 0 1 548 142 Z" fill="#fdba74" stroke="#d97706" stroke-width="2"/>
+  <path d="M 500 115 L 548 142 A 55 55 0 0 1 470 167 Z" fill="#fca5a5" stroke="#d97706" stroke-width="2"/>
+  <text x="500" y="192" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">Daire grafiği</text>
+  <text x="500" y="208" font-size="10" fill="#475569" text-anchor="middle">Bütüne ORAN</text>
+  <text x="500" y="222" font-size="10" fill="#475569" text-anchor="middle">Merkez açı = (veri/toplam)·360°</text>
+  <text x="320" y="243" font-size="10" font-weight="700" fill="#b91c1c" text-anchor="middle">Histogram sütun grafiğine benzer ama sütunları BİTİŞİKTİR; gruplandırılmış veri içindir.</text>
+</svg>
+
+<h3>7) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Ortalama hesabı</b></td><td>Veri listesi verilmiş</td><td>Topla, <b>n</b>'e böl.</td></tr>
+<tr><td>2</td><td><b>Eksik veri bulma</b></td><td>Ortalama verilmiş, bir veri bilinmiyor</td><td><b>Toplam = n·X̄</b> kur, bilinmeyeni çöz.</td></tr>
+<tr><td>3</td><td><b>Eleman ekleme/çıkarma</b></td><td>"gruba katılırsa / ayrılırsa"</td><td>Toplamı güncelle; ya da <b>fazlalığı n'e paylaştır</b>.</td></tr>
+<tr><td>4</td><td><b>Ağırlıklı ortalama</b></td><td>İki grup birleşiyor</td><td><b>(n₁X̄₁ + n₂X̄₂)/(n₁+n₂)</b> — basit ortalama alma.</td></tr>
+<tr><td>5</td><td><b>Medyan bulma</b></td><td>"ortanca kaçtır"</td><td><b>Önce sırala</b>; n çiftse iki ortancanın ortalaması.</td></tr>
+<tr><td>6</td><td><b>Mod bulma</b></td><td>"tepe değer"</td><td>En çok tekrar eden; <b>birden fazla olabilir</b>.</td></tr>
+<tr><td>7</td><td><b>Ölçü karşılaştırma</b></td><td>Uç değer içeren veri</td><td>Uç değer varsa <b>medyan</b> daha temsilcidir.</td></tr>
+<tr><td>8</td><td><b>Açıklık</b></td><td>"açıklık kaçtır"</td><td><b>En büyük − En küçük</b>.</td></tr>
+<tr><td>9</td><td><b>Standart sapma hesabı</b></td><td>Küçük veri grubu</td><td>Dört adımı uygula; <b>(n−1)</b>'e bölmeyi unutma.</td></tr>
+<tr><td>10</td><td><b>Standart sapma yorumu</b></td><td>"daha istikrarlı / tutarlı"</td><td><b>S küçük olan</b> daha tutarlıdır.</td></tr>
+<tr><td>11</td><td><b>Değişmezlik</b></td><td>"her veriye 5 eklenirse"</td><td>Ekleme → <b>yayılım değişmez</b>; çarpma → <b>hepsi değişir</b>.</td></tr>
+<tr><td>12</td><td><b>Histogram / grafik okuma</b></td><td>Şekil verilmiş</td><td>Frekans toplamı = veri sayısı; <b>eksen birimlerini oku</b>.</td></tr>
+<tr><td>13</td><td><b>Daire grafiği</b></td><td>Merkez açı ya da yüzde</td><td><b>(veri/toplam)·360°</b>; %1 = 3,6°.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 11) — <b>2, 5, 8, 11, 14</b> veri grubunun ortalaması 8, standart sapması ise yaklaşık 4,74'tür. <b>a)</b> Her veriye <b>3</b> eklenirse, <b>b)</b> her veri <b>2</b> ile çarpılırsa ortalama, açıklık ve standart sapma ne olur?</p>
+<ul>
+<li><b>a) Her veriye 3 eklenirse:</b> Yeni veriler 5, 8, 11, 14, 17.<br/>
+Ortalama: 8 + 3 = <b>11</b> &nbsp;·&nbsp; Açıklık: 17 − 5 = <b>12</b> (eskisi de 14 − 2 = 12, <b>değişmedi</b>) &nbsp;·&nbsp; Standart sapma: <b>4,74 (değişmedi)</b>.</li>
+<li><b>b) Her veri 2 ile çarpılırsa:</b> Yeni veriler 4, 10, 16, 22, 28.<br/>
+Ortalama: 8 · 2 = <b>16</b> &nbsp;·&nbsp; Açıklık: 28 − 4 = <b>24</b> (12 · 2) &nbsp;·&nbsp; Standart sapma: 4,74 · 2 = <b>9,48</b>.</li>
+<li><b>Görsel sezgi:</b> <u>(a) tüm noktaları sayı doğrusunda sağa kaydırmaktır — aralarındaki mesafe aynı kalır. (b) noktaları birbirinden uzaklaştırmaktır — mesafeler de iki katına çıkar.</u></li>
+<li><b>Sınav notu:</b> Bu tip sorularda <b>hiçbir hesap yapman gerekmez</b>; tabloyu bilmek yeterlidir.</li>
+</ul>
+
+<h3>8) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Veri:</b> Gözlem, deney ya da araştırmayla elde edilen bilgi.</li>
+<li><b>Kesikli veri:</b> Aradaki her değeri alamayan veri (öğrenci sayısı gibi).</li>
+<li><b>Sürekli veri:</b> Aradaki her değeri alabilen veri (boy, sıcaklık gibi).</li>
+<li><b>Aritmetik ortalama (X̄):</b> Toplam ÷ veri sayısı.</li>
+<li><b>Tepe değer (mod):</b> En çok tekrar eden veri.</li>
+<li><b>Ortanca (medyan):</b> Sıralanmış verinin tam ortasındaki değer.</li>
+<li><b>Merkezî eğilim ölçüleri:</b> Ortalama, mod, medyan.</li>
+<li><b>Açıklık:</b> En büyük değer − en küçük değer.</li>
+<li><b>Standart sapma (S):</b> Verilerin ortalamadan uzaklıklarının ölçüsü.</li>
+<li><b>Merkezî yayılım ölçüleri:</b> Açıklık, standart sapma.</li>
+<li><b>Homojen veri:</b> Yayılımı küçük, birbirine yakın veriler.</li>
+<li><b>Heterojen veri:</b> Yayılımı büyük, birbirinden uzak veriler.</li>
+<li><b>Frekans:</b> Bir verinin ya da grubun tekrar sayısı.</li>
+<li><b>Histogram:</b> Gruplandırılmış verinin bitişik sütunlarla gösterimi.</li>
+<li><b>Grup genişliği:</b> Açıklık ÷ grup sayısı sonucundan büyük en küçük doğal sayı.</li>
+<li><b>Merkez açı:</b> Daire grafiğinde bir dilimin açısı; (veri/toplam)·360°.</li>
+</ul>
+
+<h3>9) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Medyan için sıralamamak:</b> <b>Ortanca bulmadan önce veriler MUTLAKA sıralanır.</b></li>
+<li><b>Çift sayıda veride tek terim almak:</b> n çiftse <b>iki ortancanın ortalaması</b> alınır.</li>
+<li><b>Ortalamaların ortalamasını almak:</b> Farklı büyüklükteki gruplarda <b>ağırlıklı ortalama</b> kullanılır.</li>
+<li><b>Standart sapmada n'e bölmek:</b> Bu müfredatta <b>(n − 1)</b>'e bölünür.</li>
+<li><b>Karekök almayı unutmak:</b> Kareler toplamı ÷ (n−1) <b>varyanstır</b>; standart sapma onun <b>karekökü</b>dür.</li>
+<li><b>Ekleme işleminde yayılımı değiştirmek:</b> Her veriye aynı sayı eklenirse <b>açıklık ve standart sapma DEĞİŞMEZ</b>.</li>
+<li><b>Uç değerde ortalamaya güvenmek:</b> Aşırı büyük/küçük değer varsa <b>medyan</b> daha temsilcidir.</li>
+<li><b>"Ortalaması yüksek olan daha tutarlıdır" demek:</b> Tutarlılığı <b>standart sapma</b> belirler, ortalama değil.</li>
+<li><b>Histogram ile sütun grafiğini karıştırmak:</b> Histogramda sütunlar <b>bitişik</b>, sütun grafiğinde <b>ayrıktır</b>.</li>
+<li><b>Grup genişliğinde aşağı yuvarlamak:</b> Bölümden <b>BÜYÜK</b> en küçük doğal sayı alınır (4,67 → 5).</li>
+<li><b>Mod sayısını tek sanmak:</b> <b>Birden fazla mod olabilir</b>; ama medyan daima tektir.</li>
+<li><b>Daire grafiğinde 100 ile 360'ı karıştırmak:</b> Yüzde için <b>·100</b>, merkez açı için <b>·360</b>.</li>
+<li><b>Grafik eksenlerinin birimini okumamak:</b> Sütun yüksekliği <b>ölçeğe</b> göre okunur; "bin kişi", "milyon TL" gibi ifadeleri atlama.</li>
+</ul>
+
+<h3>10) Özet Kartı</h3>
+<ul>
+<li><b>Kesikli veri → sütun grafiği</b>, <b>sürekli veri → çizgi grafiği</b>.</li>
+<li><b>X̄ = Toplam / n</b> &nbsp;·&nbsp; en kullanışlı hâli: <b>Toplam = n · X̄</b>.</li>
+<li><b>Mod:</b> en çok tekrar eden (birden fazla olabilir). <b>Medyan:</b> sıralı verinin ortası (daima tek).</li>
+<li><b>n tek → (n+1)/2. terim</b> &nbsp;·&nbsp; <b>n çift → n/2 ve (n/2 + 1). terimlerin ortalaması</b>.</li>
+<li><b>Uç değer varsa medyan</b>, genel durum için <b>ortalama</b>.</li>
+<li><b>Ağırlıklı ortalama:</b> <b>(n₁X̄₁ + n₂X̄₂)/(n₁ + n₂)</b>; sonuç iki ortalama arasında olmalı.</li>
+<li><b>Açıklık = En büyük − En küçük</b>.</li>
+<li><b>S = √[Σ(x − X̄)² / (n − 1)]</b> — ortalama, fark, kare, topla, (n−1)'e böl, kök al.</li>
+<li><b>S küçük → homojen, tutarlı, istikrarlı</b> &nbsp;·&nbsp; <b>S büyük → heterojen, düzensiz</b>.</li>
+<li><b>Her veriye k eklenirse:</b> ortalama +k, <b>yayılım DEĞİŞMEZ</b>.</li>
+<li><b>Her veri k ile çarpılırsa:</b> ortalama, açıklık ve S de <b>k katına</b> çıkar.</li>
+<li><b>Grup genişliği:</b> (açıklık ÷ grup sayısı)'ndan <b>büyük en küçük doğal sayı</b>.</li>
+<li><b>Histogram bitişik, sütun grafiği ayrık.</b></li>
+<li><b>Merkez açı = (veri/toplam)·360°</b> &nbsp;·&nbsp; <b>%1 = 3,6°</b>.</li>
+</ul>
+
+</body></html>

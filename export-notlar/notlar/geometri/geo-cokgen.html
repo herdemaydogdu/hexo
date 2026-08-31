@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Çokgenler ve Dörtgenler</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Çokgenler ve Dörtgenler</h2>
+
+<p>Üçgeni bitirdik; artık kenar sayısını artırıyoruz. İyi haber şu: <b>her çokgen üçgenlere bölünebilir</b>. Bu yüzden bu ünitedeki bütün formüller aslında "üçgenin iç açıları 180°'dir" bilgisinin uzantısıdır. Beşgenin iç açı toplamını ezberlemene gerek yok — kaç üçgene bölündüğünü sayman yeterli. Ünitenin ikinci yarısında dörtgenlere geçeceğiz ve <b>dörtgenler ailesinin soyağacını</b> kuracağız: kare neden hem dikdörtgen hem eşkenar dörtgendir, paralelkenar neden aynı zamanda yamuktur?</p>
+
+<h3>1) Çokgen Kavramı</h3>
+<p class="formula">TANIM (PDF) — n ≥ 3 olmak üzere düzlemde <b>herhangi üçü doğrusal olmayan</b> A₁, A₂, …, A<sub>n</sub> noktalarını ardışık birleştiren doğru parçalarının birleşimine <b>çokgen</b> denir.<br/>
+• Bu doğru parçalarına çokgenin <b>kenarları</b>, noktalara <b>köşeleri</b> denir.<br/>
+• <b>Köşegen:</b> Çokgenin <b>komşu OLMAYAN</b> iki köşesini birleştiren doğru parçası.<br/>
+• Bir çokgende <b>köşe sayısı = kenar sayısı</b>dır.<br/>
+• Çokgenler kenar sayılarına göre adlandırılır: üçgen, dörtgen, beşgen, altıgen…</p>
+<p class="formula">DÖRT TEMEL FORMÜL (PDF) — n kenarlı bir çokgende:<br/>
+<b>• Bir köşeden çizilen köşegen sayısı: n − 3</b><br/>
+<b>• Toplam köşegen sayısı: n(n − 3) / 2</b><br/>
+<b>• İç açıların ölçüleri toplamı: (n − 2) · 180°</b><br/>
+<b>• Dış açıların ölçüleri toplamı: 360°</b> &nbsp;<u>(kenar sayısından BAĞIMSIZ!)</u></p>
+<p class="formula">FORMÜLLER NEREDEN GELİYOR? — <u>Üçünü de ezberlemeden türetebilirsin:</u><br/>
+<b>n − 3:</b> Bir köşeden diğer n − 1 köşeye doğru çizilebilir; ama <u>iki komşu köşeye giden zaten kenardır</u>, kendine de çizilemez → n − 1 − 2 = <b>n − 3</b>.<br/>
+<b>n(n−3)/2:</b> Her köşeden n − 3 köşegen çıkar, n köşe var → n(n−3). Ama her köşegeni <u>iki ucundan iki kez saydık</u> → <b>2'ye bölünür</b>.<br/>
+<b>(n−2)·180:</b> Bir köşeden çizilen n − 3 köşegen, çokgeni <b>n − 2 üçgene</b> ayırır. Her üçgen 180° verdiği için toplam <b>(n − 2)·180°</b>'dir.<br/>
+<b>360:</b> Her köşede iç açı + dış açı = 180°. Toplam n·180°'den iç açılar toplamını çıkar: n·180 − (n−2)·180 = <b>360°</b>.</p>
+<svg viewBox="0 0 640 265" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Çokgende köşegenler ve üçgenlere ayrılma">
+  <rect x="0" y="0" width="640" height="265" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Bir köşeden çizilen köşegenler çokgeni (n − 2) üçgene böler</text>
+  <polygon points="160,60 84,115 113,205 207,205 236,115" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="160" y1="60" x2="113" y2="205" stroke="#dc2626" stroke-width="2"/>
+  <line x1="160" y1="60" x2="207" y2="205" stroke="#dc2626" stroke-width="2"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="154" y="52">A</text><text x="70" y="112">B</text><text x="100" y="220">C</text>
+    <text x="204" y="220">D</text><text x="242" y="112">E</text>
+  </g>
+  <g font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">
+    <text x="126" y="150">1</text><text x="160" y="165">2</text><text x="196" y="150">3</text>
+  </g>
+  <text x="160" y="240" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">n = 5 → 5 − 3 = 2 köşegen → 3 üçgen</text>
+  <text x="160" y="258" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">İç açılar toplamı = 3 · 180° = 540°</text>
+  <line x1="290" y1="45" x2="290" y2="255" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="312" y="70" font-size="11" font-weight="700" fill="#334155">n kenarlı çokgende</text>
+  <text x="312" y="94" font-size="12" font-weight="700" fill="#0369a1">Bir köşeden köşegen: n − 3</text>
+  <text x="312" y="118" font-size="12" font-weight="700" fill="#0369a1">Toplam köşegen: n(n − 3)/2</text>
+  <text x="312" y="142" font-size="12" font-weight="700" fill="#15803d">İç açılar toplamı: (n − 2)·180°</text>
+  <text x="312" y="166" font-size="12" font-weight="700" fill="#b45309">Dış açılar toplamı: 360°</text>
+  <text x="312" y="192" font-size="10" fill="#475569">Dış açı toplamı kenar sayısından BAĞIMSIZDIR —</text>
+  <text x="312" y="206" font-size="10" fill="#475569">üçgende de, yüzgende de 360°'dir.</text>
+  <text x="312" y="230" font-size="10" fill="#475569">Toplam köşegende 2'ye bölme, her köşegeni iki</text>
+  <text x="312" y="244" font-size="10" fill="#475569">ucundan iki kez saymamak içindir.</text>
+</svg>
+<p class="formula">ÖRNEK — <b>a)</b> On kenarlı bir çokgenin kaç köşegeni vardır? <b>b)</b> İç açıları toplamı 1440° olan çokgen kaç kenarlıdır?</p>
+<ul>
+<li><b>a)</b> n(n−3)/2 = 10·7/2 = <b>35 köşegen</b>.</li>
+<li><b>b)</b> (n − 2)·180 = 1440 → n − 2 = 8 → <b>n = 10</b>. <u>Yani yine on kenarlı (ongen).</u></li>
+<li><b>Hızlı kontrol:</b> <u>İç açı toplamı daima 180'in katıdır. 1440/180 = 8 sayısı doğrudan "8 üçgene ayrılmış" demektir; kenar sayısı bunun 2 fazlasıdır.</u></li>
+</ul>
+
+<h3>2) Düzgün Çokgenler</h3>
+<p class="formula">TANIM (PDF) — <b>Bütün kenar uzunlukları eşit</b> ve <b>bütün iç (ya da dış) açılarının ölçüleri eşit</b> olan çokgenlere <b>düzgün çokgen</b> denir.<br/>
+<u>Eşkenar üçgen ve kare dışındaki düzgün çokgenler adlandırılırken başına <b>"düzgün"</b> kelimesi getirilir: düzgün beşgen, düzgün altıgen…</u><br/>
+<b>Neden iki şart birden gerekli?</b> <u>Eşkenar dörtgende tüm kenarlar eşittir ama açılar eşit değildir; dikdörtgende tüm açılar eşittir ama kenarlar eşit değildir. İkisi birden sağlandığında <b>kare</b> elde edilir. Yani "düzgün" olmak için tek şart yetmez.</u></p>
+<p class="formula">DÜZGÜN ÇOKGEN FORMÜLLERİ (PDF) — Tüm açılar eşit olduğu için toplamı kenar sayısına bölmek yeterlidir:<br/>
+<b>• Bir iç açı = (n − 2) · 180° / n</b><br/>
+<b>• Bir dış açı = 360° / n</b><br/>
+<b>• Bir iç açı + bir dış açı = 180°</b> &nbsp;<u>(bütünler)</u><br/>
+<b>Pratik yol:</b> <u>Önce <b>dış açıyı</b> hesapla (360/n çok daha kolaydır), sonra 180'den çıkararak iç açıyı bul. Bu, uzun formülle uğraşmaktan hızlıdır.</u></p>
+<table>
+<tr><th>Düzgün çokgen</th><th>n</th><th>İç açılar toplamı</th><th>Bir iç açı</th><th>Bir dış açı</th></tr>
+<tr><td><b>Eşkenar üçgen</b></td><td>3</td><td>180°</td><td><b>60°</b></td><td>120°</td></tr>
+<tr><td><b>Kare</b></td><td>4</td><td>360°</td><td><b>90°</b></td><td>90°</td></tr>
+<tr><td><b>Düzgün beşgen</b></td><td>5</td><td>540°</td><td><b>108°</b></td><td>72°</td></tr>
+<tr><td><b>Düzgün altıgen</b></td><td>6</td><td>720°</td><td><b>120°</b></td><td>60°</td></tr>
+<tr><td><b>Düzgün sekizgen</b></td><td>8</td><td>1080°</td><td><b>135°</b></td><td>45°</td></tr>
+</table>
+<svg viewBox="0 0 640 235" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Düzgün çokgenler">
+  <rect x="0" y="0" width="640" height="235" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Düzgün çokgenler ve bir iç açıları</text>
+  <polygon points="80,75 41,142 119,142" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="80" y="170" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">Eşkenar üçgen</text>
+  <text x="80" y="190" font-size="13" font-weight="700" fill="#15803d" text-anchor="middle">60°</text>
+  <text x="80" y="208" font-size="10" fill="#475569" text-anchor="middle">dış açı 120°</text>
+  <polygon points="232,88 168,88 168,152 232,152" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <text x="200" y="170" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">Kare</text>
+  <text x="200" y="190" font-size="13" font-weight="700" fill="#0369a1" text-anchor="middle">90°</text>
+  <text x="200" y="208" font-size="10" fill="#475569" text-anchor="middle">dış açı 90°</text>
+  <polygon points="330,75 287,106 304,156 356,156 373,106" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <text x="330" y="170" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">Düzgün beşgen</text>
+  <text x="330" y="190" font-size="13" font-weight="700" fill="#b45309" text-anchor="middle">108°</text>
+  <text x="330" y="208" font-size="10" fill="#475569" text-anchor="middle">dış açı 72°</text>
+  <polygon points="480,75 441,98 441,142 480,165 519,142 519,98" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="480" y="170" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">Düzgün altıgen</text>
+  <text x="480" y="190" font-size="13" font-weight="700" fill="#b91c1c" text-anchor="middle">120°</text>
+  <text x="480" y="208" font-size="10" fill="#475569" text-anchor="middle">dış açı 60°</text>
+  <text x="320" y="230" font-size="10" font-weight="700" fill="#334155" text-anchor="middle">Pratik: önce dış açıyı bul (360/n), sonra iç açı = 180 − dış açı. Kenar sayısı arttıkça iç açı büyür, dış açı küçülür.</text>
+</svg>
+<p class="formula">ÖRNEK — <b>a)</b> Bir düzgün çokgenin bir dış açısı 24° ise kaç kenarlıdır? <b>b)</b> Bir düzgün çokgenin bir iç açısı 150° ise kaç köşegeni vardır?</p>
+<ul>
+<li><b>a)</b> 360/n = 24 → <b>n = 15</b> (düzgün onbeşgen).</li>
+<li><b>b)</b> Önce dış açı: 180 − 150 = <b>30°</b> → n = 360/30 = <b>12</b>. Köşegen sayısı = 12·9/2 = <b>54</b>.</li>
+<li><b>Ders:</b> <u>İç açı verildiğinde doğrudan (n−2)·180/n = 150 denklemini kurmak yerine <b>önce dış açıya geç</b>. Tek çıkarma işlemiyle basit bir bölmeye indirgenir.</u></li>
+</ul>
+
+<h3>3) Dörtgenler ve Özellikleri</h3>
+<p class="formula">TANIM (PDF) — Herhangi üçü doğrusal olmayan <b>dört noktayı ardışık birleştiren</b> doğru parçalarının oluşturduğu kapalı düzlemsel şekle <b>dörtgen</b> denir.<br/>
+• <b>Dışbükey (konveks) dörtgen:</b> Her iç açısının ölçüsü <b>180°'den küçük</b>.<br/>
+• <b>İçbükey (konkav) dörtgen:</b> Bir iç açısının ölçüsü <b>180°'den büyük</b> (içeri çökmüş görünür).<br/>
+<b>TEMEL AÇI BİLGİLERİ:</b><br/>
+<b>• İç açılar toplamı = 360°</b> &nbsp;<u>((4−2)·180 = 360)</u><br/>
+<b>• Dış açılar toplamı = 360°</b><br/>
+<u>Dörtgen, iç ve dış açı toplamı <b>eşit olan tek çokgendir</b> — bu, sınavda hoş bir ayrıntıdır.</u></p>
+<p class="formula">DÖRTGENİN DÖRT ÖZEL BAĞINTISI (PDF) —<br/>
+<b>1) Açıortay bağıntısı:</b> [BE] ve [CE], B ve C köşelerinin iç açıortayları ise<br/>
+<b>m(BÊC) = [m(Â) + m(D̂)] / 2</b><br/>
+<b>2) Dik köşegenler:</b> [AC] ⊥ [BD] ise <b>|AB|² + |DC|² = |BC|² + |AD|²</b><br/>
+<b>3) Orta noktalar dörtgeni (Varignon):</b> E, F, G, H kenarların orta noktaları ise <b>EFGH bir PARALELKENARDIR</b> ve<br/>
+<b>Ç(EFGH) = |AC| + |BD|</b> &nbsp;<u>(çevresi köşegenlerin toplamına eşittir)</u><br/>
+<b>4) Karşıt açıortaylar:</b> [BF], ABC açısının ve [DE], ADC açısının açıortayı ise <b>m(DÊF) = |m(Â) − m(Ĉ)| / 2</b></p>
+<svg viewBox="0 0 640 270" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Orta noktalar dörtgeni ve köşegenler">
+  <rect x="0" y="0" width="640" height="270" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Kenar orta noktaları birleştirilirse daima PARALELKENAR çıkar</text>
+  <polygon points="120,50 50,140 140,230 230,120" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="120" y1="50" x2="140" y2="230" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="50" y1="140" x2="230" y2="120" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <polygon points="85,95 95,185 185,175 175,85" fill="#dcfce7" fill-opacity="0.7" stroke="#16a34a" stroke-width="2.5"/>
+  <g fill="#16a34a">
+    <circle cx="85" cy="95" r="3.5"/><circle cx="95" cy="185" r="3.5"/>
+    <circle cx="185" cy="175" r="3.5"/><circle cx="175" cy="85" r="3.5"/>
+  </g>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="114" y="42">A</text><text x="36" y="145">B</text><text x="136" y="248">C</text><text x="236" y="118">D</text>
+  </g>
+  <g fill="#15803d" font-size="10" font-weight="700">
+    <text x="66" y="92">E</text><text x="78" y="192">F</text><text x="190" y="188">G</text><text x="180" y="78">H</text>
+  </g>
+  <text x="145" y="262" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">Ç(EFGH) = |AC| + |BD|</text>
+  <line x1="280" y1="45" x2="280" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="300" y="70" font-size="11" font-weight="700" fill="#334155">Dörtgende dört özel bağıntı</text>
+  <text x="300" y="94" font-size="10" font-weight="700" fill="#0369a1">1) İç açıortaylar: m(BEC) = [m(A) + m(D)] / 2</text>
+  <text x="300" y="118" font-size="10" font-weight="700" fill="#b45309">2) Köşegenler dik ise: AB² + DC² = BC² + AD²</text>
+  <text x="300" y="142" font-size="10" font-weight="700" fill="#15803d">3) Orta noktalar → PARALELKENAR</text>
+  <text x="300" y="158" font-size="10" fill="#475569">&#160;&#160;&#160;Çevresi = köşegenlerin toplamı</text>
+  <text x="300" y="174" font-size="10" fill="#475569">&#160;&#160;&#160;Alanı = dörtgenin alanının YARISI</text>
+  <text x="300" y="198" font-size="10" font-weight="700" fill="#b91c1c">4) Karşıt açıortaylar: m(DEF) = |m(A) − m(C)| / 2</text>
+  <text x="300" y="224" font-size="10" fill="#475569">Neden paralelkenar çıkıyor? Her kenar, bir üçgenin</text>
+  <text x="300" y="238" font-size="10" fill="#475569">ORTA TABANIDIR → köşegene paralel ve yarısı kadar.</text>
+  <text x="300" y="254" font-size="10" fill="#475569">Karşılıklı kenarlar aynı köşegene paralel olur.</text>
+</svg>
+<p class="formula">VARIGNON'U ANLAMAK — <u>Neden orta noktalar hep paralelkenar veriyor?</u><br/>
+ABD üçgeninde E ve H, [AB] ve [AD]'nin orta noktalarıdır → <b>[EH] bir orta tabandır</b> → EH // BD ve |EH| = |BD|/2.<br/>
+Aynı şekilde CBD üçgeninde <b>[FG] de orta tabandır</b> → FG // BD ve |FG| = |BD|/2.<br/>
+<b>Sonuç:</b> [EH] // [FG] ve |EH| = |FG| → <u>karşılıklı iki kenarı hem paralel hem eşit olan dörtgen <b>paralelkenardır</b></u>. Diğer kenar çifti için de [AC] köşegeniyle aynı akıl yürütülür.<br/>
+<b>Çevre:</b> 2·(|BD|/2) + 2·(|AC|/2) = <b>|AC| + |BD|</b> ✓</p>
+
+<h3>4) Dörtgenler Ailesi — Hiyerarşi</h3>
+<p class="formula">GENELDEN ÖZELE (PDF) — Dörtgenler birbirinin <b>alt kümesidir</b>:<br/>
+• <b>Paralelkenar aynı zamanda YAMUKTUR</b> (en az iki kenarı paralel).<br/>
+• <b>Dikdörtgen aynı zamanda PARALELKENARDIR</b> (karşılıklı kenarları paralel).<br/>
+• <b>Eşkenar dörtgen aynı zamanda PARALELKENAR ve DELTOİTTİR</b>.<br/>
+• <b>Kare aynı zamanda EŞKENAR DÖRTGEN ve DİKDÖRTGENDİR</b>.<br/>
+<u>Bu yüzden "kare bir dikdörtgen midir?" sorusunun cevabı <b>EVET</b>'tir. Ama "her dikdörtgen kare midir?" sorusunun cevabı <b>HAYIR</b>'dır — hiyerarşi tek yönlüdür.</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dörtgenler hiyerarşisi">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — Dörtgenler ailesinin soyağacı (yukarıdan aşağı özelleşir)</text>
+  <rect x="240" y="42" width="130" height="30" rx="8" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+  <text x="305" y="62" font-size="12" font-weight="700" fill="#334155" text-anchor="middle">DÖRTGENLER</text>
+  <line x1="305" y1="72" x2="305" y2="86" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="190" y1="86" x2="470" y2="86" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="190" y1="86" x2="190" y2="100" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="470" y1="86" x2="470" y2="100" stroke="#64748b" stroke-width="1.8"/>
+  <rect x="135" y="100" width="110" height="28" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="190" y="119" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">YAMUK</text>
+  <rect x="415" y="100" width="110" height="28" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="470" y="119" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">DELTOİD</text>
+  <line x1="190" y1="128" x2="190" y2="148" stroke="#64748b" stroke-width="1.8"/>
+  <rect x="135" y="148" width="110" height="28" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="190" y="167" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">PARALELKENAR</text>
+  <line x1="190" y1="176" x2="190" y2="188" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="115" y1="188" x2="320" y2="188" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="115" y1="188" x2="115" y2="200" stroke="#64748b" stroke-width="1.8"/>
+  <line x1="320" y1="188" x2="320" y2="200" stroke="#64748b" stroke-width="1.8"/>
+  <rect x="55" y="200" width="120" height="28" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="115" y="219" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">DİKDÖRTGEN</text>
+  <rect x="252" y="200" width="136" height="28" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="320" y="219" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">EŞKENAR DÖRTGEN</text>
+  <line x1="470" y1="128" x2="470" y2="200" stroke="#64748b" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <line x1="388" y1="214" x2="415" y2="214" stroke="#64748b" stroke-width="1.8"/>
+  <rect x="415" y="200" width="90" height="28" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="460" y="219" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">KARE</text>
+  <line x1="175" y1="214" x2="252" y2="214" stroke="#64748b" stroke-width="1.8" stroke-dasharray="3 3"/>
+  <text x="565" y="120" font-size="10" font-weight="700" fill="#334155">Okuma yönü:</text>
+  <text x="565" y="138" font-size="10" fill="#475569">Aşağıdaki her şekil,</text>
+  <text x="565" y="152" font-size="10" fill="#475569">üstündekinin ÖZEL</text>
+  <text x="565" y="166" font-size="10" fill="#475569">bir hâlidir.</text>
+  <text x="565" y="188" font-size="10" font-weight="700" fill="#b91c1c">Kare hem dikdörtgen</text>
+  <text x="565" y="202" font-size="10" font-weight="700" fill="#b91c1c">hem eşkenar dörtgen</text>
+  <text x="565" y="216" font-size="10" font-weight="700" fill="#b91c1c">hem paralelkenar</text>
+  <text x="565" y="230" font-size="10" font-weight="700" fill="#b91c1c">hem yamuktur.</text>
+</svg>
+<p class="formula">YAMUĞUN TEMEL BİLGİLERİ (PDF) — <u>Ayrıntısı kendi ünitesinde işlenecek; burada temel iki bilgiyi kuruyoruz:</u><br/>
+<b>TANIM:</b> <b>En az iki kenarı paralel</b> olan dörtgene <b>yamuk</b> denir. [AB] // [DC] ise [AB] <b>alt taban</b>, [DC] <b>üst tabandır</b>.<br/>
+<b>Yan kenardaki açılar bütünlerdir:</b> <b>x + y = 180°</b> &nbsp;<u>(paralel doğrularda karşı durumlu açılar)</u><br/>
+<b>ORTA TABAN:</b> Yan kenarların orta noktalarını birleştiren doğru parçası:<br/>
+<b>|EF| = (a + c) / 2</b> &nbsp;<u>(tabanların aritmetik ortalaması)</u><br/>
+<b>Köşegenlerin orta tabanda ayırdığı parça:</b> <b>|KL| = (a − c) / 2</b> &nbsp;<u>(tabanların farkının yarısı)</u></p>
+<p class="formula">ÖRNEK — Bir ABCD dörtgeninde <b>m(Â) = 110°</b> ve <b>m(D̂) = 70°</b>'dir. B ve C köşelerinin iç açıortayları E noktasında kesişiyorsa <b>m(BÊC)</b> kaç derecedir?</p>
+<ul>
+<li><b>Formülle:</b> m(BÊC) = [m(Â) + m(D̂)]/2 = (110 + 70)/2 = <b>90°</b>.</li>
+<li><b>Formülsüz kanıt:</b> <u>Dörtgende m(B̂) + m(Ĉ) = 360 − 180 = 180°. Açıortaylar bunları yarıya böler → BEC üçgeninde E'ye komşu iki açının toplamı 90°. Dolayısıyla m(BÊC) = 180 − 90 = <b>90°</b> ✓</u></li>
+<li><b>Not:</b> <u>m(Â) + m(D̂) = 180° olduğunda açıortayların <b>daima dik kesiştiğini</b> gösterdik — bu, yamuk sorularında sık kullanılan bir sonuçtur.</u></li>
+</ul>
+
+<h3>5) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Köşegen sayısı</b></td><td>"kaç köşegeni vardır"</td><td><b>n(n−3)/2</b>.</td></tr>
+<tr><td>2</td><td><b>Kenar sayısı bulma</b></td><td>Köşegen sayısı verilmiş</td><td>n(n−3)/2 = k denklemini çöz.</td></tr>
+<tr><td>3</td><td><b>İç açı toplamı</b></td><td>"iç açıları toplamı"</td><td><b>(n−2)·180°</b>; 180'e bölüp 2 ekle.</td></tr>
+<tr><td>4</td><td><b>Düzgün çokgende açı</b></td><td>"bir iç açısı"</td><td>Önce <b>dış açı = 360/n</b>, sonra 180 − dış.</td></tr>
+<tr><td>5</td><td><b>Açıdan kenar sayısı</b></td><td>Bir iç ya da dış açı verilmiş</td><td>Dış açıya geç → <b>n = 360 / dış açı</b>.</td></tr>
+<tr><td>6</td><td><b>Dörtgende açı</b></td><td>Üç açı verilmiş</td><td>Toplam <b>360°</b>.</td></tr>
+<tr><td>7</td><td><b>Dörtgende açıortay</b></td><td>İki açıortay kesişiyor</td><td><b>[m(A) + m(D)]/2</b>.</td></tr>
+<tr><td>8</td><td><b>Dik köşegen</b></td><td>Köşegenler dik kesişiyor</td><td><b>AB² + DC² = BC² + AD²</b>.</td></tr>
+<tr><td>9</td><td><b>Orta noktalar dörtgeni</b></td><td>Dört orta nokta birleştirilmiş</td><td><b>Paralelkenar</b>; çevre = köşegen toplamı.</td></tr>
+<tr><td>10</td><td><b>Hiyerarşi</b></td><td>"her kare dikdörtgendir" tipi</td><td><b>Aşağıdan yukarı</b> doğru daima doğru.</td></tr>
+<tr><td>11</td><td><b>Yamukta orta taban</b></td><td>Orta noktalar işaretli</td><td><b>(a + c)/2</b>.</td></tr>
+<tr><td>12</td><td><b>Düzgün çokgen + üçgen</b></td><td>Merkez ya da köşegen açıları</td><td>Düzgün çokgen <b>ikizkenar üçgenlere</b> ayrılır.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 12) — Bir <b>düzgün beşgende</b> bir köşegen çizilirse, oluşan üçgenin açıları kaç derecedir?</p>
+<ul>
+<li><b>Adım 1 — İç açı:</b> Düzgün beşgende bir iç açı <b>108°</b>'dir.</li>
+<li><b>Adım 2 — Üçgeni tanı:</b> Köşegen, iki komşu kenarla bir üçgen oluşturur. Bu iki kenar <b>eşit</b> olduğu için üçgen <b>ikizkenardır</b>; tepe açısı 108°'dir.</li>
+<li><b>Adım 3 — Taban açıları:</b> (180 − 108)/2 = <b>36°</b>.</li>
+<li><b>Sonuç:</b> Üçgenin açıları <b>108°, 36°, 36°</b>.</li>
+<li><b>Ders:</b> <u>Düzgün çokgen sorularının anahtarı şudur: <b>çokgeni ikizkenar üçgenlere ayır</b>. Kenarlar eşit olduğu için oluşan her üçgen ikizkenardır ve açıları kolayca hesaplanır.</u></li>
+</ul>
+
+<h3>6) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Çokgen:</b> Üçü doğrusal olmayan noktaların ardışık birleştirilmesiyle oluşan kapalı şekil.</li>
+<li><b>Köşegen:</b> Komşu olmayan iki köşeyi birleştiren doğru parçası.</li>
+<li><b>Düzgün çokgen:</b> Tüm kenarları ve tüm açıları eşit olan çokgen.</li>
+<li><b>Dışbükey (konveks):</b> Tüm iç açıları 180°'den küçük olan çokgen.</li>
+<li><b>İçbükey (konkav):</b> Bir iç açısı 180°'den büyük olan çokgen.</li>
+<li><b>Dörtgen:</b> Dört kenarlı çokgen; iç ve dış açıları toplamı 360°.</li>
+<li><b>Yamuk:</b> En az iki kenarı paralel olan dörtgen.</li>
+<li><b>Alt taban / üst taban:</b> Yamukta paralel olan iki kenar.</li>
+<li><b>Orta taban:</b> Yamukta yan kenarların orta noktalarını birleştiren parça; (a + c)/2.</li>
+<li><b>Deltoid:</b> İki çift komşu kenarı eşit olan dörtgen.</li>
+<li><b>Varignon paralelkenarı:</b> Bir dörtgenin kenar orta noktalarının oluşturduğu paralelkenar.</li>
+</ul>
+
+<h3>7) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Köşegen sayısında 2'ye bölmeyi unutmak:</b> <b>n(n−3)/2</b> — her köşegen iki kez sayılır.</li>
+<li><b>Bir köşeden çizilen köşegeni toplam sanmak:</b> Bir köşeden <b>n−3</b>, toplamda <b>n(n−3)/2</b>.</li>
+<li><b>İç açı toplamında n·180 yazmak:</b> Doğrusu <b>(n−2)·180</b>; çokgen n değil <b>n−2</b> üçgene ayrılır.</li>
+<li><b>Dış açı toplamını n'e bağlamak:</b> Dış açılar toplamı <b>daima 360°</b>'dir.</li>
+<li><b>Düzgün çokgende bir açıyı toplamla karıştırmak:</b> <b>Bir</b> iç açı için toplamı <b>n'e böl</b>.</li>
+<li><b>"Tüm kenarları eşit → düzgün" sanmak:</b> Eşkenar dörtgen düzgün <b>değildir</b>; açılar da eşit olmalı.</li>
+<li><b>Hiyerarşiyi ters okumak:</b> Her kare dikdörtgendir ama <b>her dikdörtgen kare değildir</b>.</li>
+<li><b>Paralelkenarı yamuk saymamak:</b> Paralelkenar <b>yamuğun özel hâlidir</b>.</li>
+<li><b>Orta taban formülünü fark sanmak:</b> Orta taban <b>(a + c)/2</b>; köşegenlerin ayırdığı parça <b>(a − c)/2</b>.</li>
+<li><b>Varignon'un alanını çevreyle karıştırmak:</b> Çevre = <b>köşegenlerin toplamı</b>, alan = dörtgen alanının <b>yarısı</b>.</li>
+<li><b>Dörtgen açıortay formülünde toplam yerine fark kullanmak:</b> <b>Komşu köşelerin açıortayları</b> için toplam, karşıt köşeler için fark kullanılır.</li>
+</ul>
+
+<h3>8) Özet Kartı</h3>
+<ul>
+<li><b>Bir köşeden köşegen: n − 3</b> &nbsp;·&nbsp; <b>Toplam köşegen: n(n−3)/2</b>.</li>
+<li><b>İç açılar toplamı: (n − 2)·180°</b> &nbsp;·&nbsp; <b>Dış açılar toplamı: 360°</b> (n'den bağımsız).</li>
+<li><b>Düzgün çokgen:</b> bir iç açı <b>(n−2)·180/n</b>, bir dış açı <b>360/n</b>; ikisi <b>bütünler</b>.</li>
+<li><b>Pratik:</b> önce <b>dış açıyı</b> bul, iç açıyı 180'den çıkararak al.</li>
+<li><b>Beşgen 108°/72°</b> &nbsp;·&nbsp; <b>Altıgen 120°/60°</b> &nbsp;·&nbsp; <b>Sekizgen 135°/45°</b>.</li>
+<li><b>Dörtgende iç açılar toplamı = dış açılar toplamı = 360°.</b></li>
+<li><b>İç açıortaylar:</b> <b>m(BEC) = [m(A) + m(D)]/2</b>.</li>
+<li><b>Köşegenler dikse:</b> <b>AB² + DC² = BC² + AD²</b>.</li>
+<li><b>Orta noktalar → paralelkenar;</b> çevre = <b>köşegenlerin toplamı</b>, alan = <b>yarısı</b>.</li>
+<li><b>Hiyerarşi:</b> kare ⊂ dikdörtgen & eşkenar dörtgen ⊂ paralelkenar ⊂ yamuk ⊂ dörtgen.</li>
+<li><b>Yamukta orta taban = (a + c)/2</b>; köşegenlerin ayırdığı orta parça <b>(a − c)/2</b>.</li>
+<li><b>Düzgün çokgen soruları:</b> şekli <b>ikizkenar üçgenlere</b> ayır.</li>
+</ul>
+
+</body></html>

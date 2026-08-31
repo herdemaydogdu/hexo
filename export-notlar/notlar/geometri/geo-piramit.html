@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dik Piramit ve Düzgün Dörtyüzlü</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Dik Piramit ve Düzgün Dörtyüzlü</h2>
+
+<p>Prizmada tabanı <b>yukarı kaydırıyorduk</b>; piramitte ise tabanı <b>tek bir noktada topluyoruz</b>. Bu küçük fark iki büyük sonuç doğurur: yanal yüzler artık dikdörtgen değil <b>üçgendir</b>, ve hacim artık taban×yükseklik değil onun <b>üçte biridir</b>. Geometrinin geri kalanı aynıdır — piramit soruları da sonunda <b>bir dik üçgen bulup Pisagor yazmaya</b> iner. Bu ünitede öğreneceğin şey, piramidin içindeki <b>üç kritik dik üçgeni</b> ayırt etmektir.</p>
+
+<h3>1) Piramit: Tanım ve Elemanlar</h3>
+<p class="formula">TANIM (PDF) — Bir çokgen ile bu çokgenin <b>düzlemi dışında</b> bir T noktası alınsın. Çokgenin noktalarıyla T noktasından geçen doğruların kümesine <b>piramidal yüzey</b>, bu yüzeyin bütün ayrıtlarını kesen bir düzlemle sınırlanan katı cisme <b>piramit</b> denir. T noktasına <b>tepe noktası</b> denir; piramit (T, ABCDE…) ile gösterilir.<br/>
+<b>ELEMANLAR (PDF):</b><br/>
+• <b>Taban:</b> Piramidin alt yüzeyindeki çokgen.<br/>
+• <b>Yanal yüzler:</b> Tepe noktasıyla taban kenarlarının oluşturduğu <b>üçgensel</b> bölgeler (TAB, TBC, TCD…).<br/>
+• <b>Yanal ayrıtlar:</b> [TA], [TB], [TC]… — tepeyi taban köşelerine bağlayan parçalar.<br/>
+• <b>Taban ayrıtları:</b> [AB], [BC], [CD]… — tabandaki çokgenin kenarları.<br/>
+<u><b>Prizmayla en kritik fark:</b> Prizmada yanal yüzler <b>dikdörtgendi</b>; piramitte <b>üçgendir</b>. Bu yüzden yanal alan formülünde bir "bölü 2" belirir.</u><br/>
+<b>İSİMLENDİRME:</b> Piramit de tabanındaki çokgene göre adlandırılır: <b>üçgen piramit, dörtgen piramit, beşgen piramit, altıgen piramit…</b></p>
+<p class="formula">DİK PİRAMİT (PDF) — Tepe noktası ile tabandaki çokgenin <b>ağırlık merkezini</b> birleştiren doğru parçası, çokgenin düzlemine <b>dik</b> ise bu piramide <b>dik piramit</b>; bu parçanın uzunluğuna <b>piramidin yüksekliği (h)</b> denir.<br/>
+<u>Yani tepe, tabanın tam ortasının üstündedir — piramit "yamuk durmaz". Yüksekliğin ayağı H, tabanın merkezidir; bütün hesaplar bu H noktasından başlar.</u><br/>
+<b>DÜZGÜN DİK PİRAMİT (PDF):</b> Tabanı <b>düzgün çokgen</b> ve yan yüzleri <b>eş ikizkenar üçgen</b> olan dik piramit. <u>Düzgün piramitte <b>yanal ayrıtların hepsi eştir</b> ve bütün yan yüzler aynı yüksekliğe sahiptir — bu yüzden yanal alanı tek bir çarpımla bulabiliriz.</u><br/>
+<b>YAN YÜZ YÜKSEKLİĞİ (h<sub>Y</sub>):</b> <u>Tepeden bir <b>taban kenarının orta noktasına</b> inen parça. Piramidin yüksekliği (h) ile karıştırılmamalıdır: h tabana <b>dik</b> iner, h<sub>Y</sub> ise <b>yan yüzün üzerinde</b> yatar. Her zaman <b>h<sub>Y</sub> &gt; h</b>'dir.</u></p>
+<svg viewBox="0 0 640 275" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kare piramidin elemanları">
+  <rect x="0" y="0" width="640" height="275" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Dik piramidin elemanları</text>
+  <polygon points="70,235 230,235 285,198 125,198" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+  <polygon points="70,235 230,235 178,70" fill="#bae6fd" stroke="#0369a1" stroke-width="2"/>
+  <line x1="178" y1="70" x2="285" y2="198" stroke="#0369a1" stroke-width="2"/>
+  <line x1="178" y1="70" x2="125" y2="198" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="178" y1="70" x2="178" y2="216" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="178" y1="70" x2="150" y2="235" stroke="#16a34a" stroke-width="2"/>
+  <circle cx="178" cy="216" r="3.5" fill="#dc2626"/>
+  <circle cx="150" cy="235" r="3.5" fill="#16a34a"/>
+  <g fill="#334155" font-size="10" font-weight="700">
+    <text x="58" y="251">A</text><text x="232" y="251">B</text><text x="290" y="212">C</text><text x="114" y="212">D</text>
+    <text x="172" y="62">T</text><text x="186" y="230">H</text><text x="140" y="252">M</text>
+  </g>
+  <text x="186" y="150" font-size="10" font-weight="700" fill="#dc2626">h</text>
+  <text x="140" y="160" font-size="10" font-weight="700" fill="#15803d">h</text>
+  <text x="148" y="164" font-size="8" font-weight="700" fill="#15803d">Y</text>
+  <text x="240" y="140" font-size="10" font-weight="700" fill="#b45309">yanal ayrıt</text>
+  <text x="200" y="266" font-size="10" font-weight="700" fill="#0369a1" text-anchor="middle">taban ayrıtı</text>
+  <line x1="330" y1="45" x2="330" y2="270" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="350" y="70" font-size="11" font-weight="700" fill="#334155">İki "yükseklik"i ayır</text>
+  <text x="350" y="94" font-size="11" font-weight="700" fill="#dc2626">h — piramidin yüksekliği</text>
+  <text x="350" y="110" font-size="10" fill="#475569">Tepeden tabanın MERKEZİNE (H) iner,</text>
+  <text x="350" y="124" font-size="10" fill="#475569">tabana diktir. Hacimde bu kullanılır.</text>
+  <text x="350" y="148" font-size="11" font-weight="700" fill="#15803d">h(Y) — yan yüz yüksekliği</text>
+  <text x="350" y="164" font-size="10" fill="#475569">Tepeden taban kenarının ORTASINA (M)</text>
+  <text x="350" y="178" font-size="10" fill="#475569">iner, yan yüzün üzerindedir.</text>
+  <text x="350" y="192" font-size="10" fill="#475569">Yanal alanda bu kullanılır.</text>
+  <text x="350" y="216" font-size="11" font-weight="700" fill="#b91c1c">Her zaman h(Y) &gt; h</text>
+  <text x="350" y="232" font-size="10" fill="#475569">Çünkü h(Y), h'nin hipotenüsüdür.</text>
+  <text x="350" y="256" font-size="10" font-weight="700" fill="#b45309">Yanal yüzler ÜÇGEN (prizmada dikdörtgendi)</text>
+  <text x="350" y="270" font-size="10" fill="#475569">Bu yüzden yanal alanda "bölü 2" vardır.</text>
+</svg>
+<p class="formula">n KENARLI TABANI OLAN PİRAMİTTE —<br/>
+<b>Köşe sayısı = n + 1</b> &nbsp;<u>(tabandaki n köşe + tepe)</u><br/>
+<b>Ayrıt sayısı = 2n</b> &nbsp;<u>(n taban ayrıtı + n yanal ayrıt)</u><br/>
+<b>Yüz sayısı = n + 1</b> &nbsp;<u>(n yanal yüz + 1 taban)</u><br/>
+<b>Euler kontrolü:</b> <u>(n+1) − 2n + (n+1) = <b>2</b> ✓</u><br/>
+<u><b>Prizmayla kıyas:</b> Prizmada 2n köşe / 3n ayrıt / n+2 yüz vardı. Piramitte üst taban tek noktaya çöktüğü için n köşe ve n ayrıt kaybolur, 1 tepe eklenir.</u></p>
+
+<h3>2) Piramidin İçindeki Üç Dik Üçgen</h3>
+<p class="formula">BÜTÜN PİRAMİT SORULARININ ANAHTARI — Tabanın merkezi H olmak üzere:<br/>
+<b>1) Yükseklik üçgeni (T-H-M):</b> Dik kenarlar <b>h</b> ve <b>|HM| (taban merkezinin kenara uzaklığı = apotem)</b>, hipotenüs <b>h<sub>Y</sub></b> →<br/>
+&nbsp;&nbsp;&nbsp;<b>h<sub>Y</sub>² = h² + |HM|²</b><br/>
+<b>2) Yanal ayrıt üçgeni (T-H-A):</b> Dik kenarlar <b>h</b> ve <b>|HA| (merkezin köşeye uzaklığı = yarıçap)</b>, hipotenüs <b>yanal ayrıt</b> →<br/>
+&nbsp;&nbsp;&nbsp;<b>|TA|² = h² + |HA|²</b><br/>
+<b>3) Yan yüz üçgeni (T-M-A):</b> Yan yüzün kendi içinde, ikizkenar üçgenin yüksekliği h<sub>Y</sub>'dir →<br/>
+&nbsp;&nbsp;&nbsp;<b>|TA|² = h<sub>Y</sub>² + (taban ayrıtı / 2)²</b><br/>
+<u><b>KARE tabanlı piramitte</b> (taban ayrıtı a): |HM| = <b>a/2</b>, |HA| = <b>a√2/2</b> (yarım köşegen). Bu iki değeri karıştırmak, konudaki en yaygın hatadır.</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Piramitteki iki temel dik üçgen">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Piramidi çözen iki dik üçgen</text>
+  <polygon points="55,205 185,205 55,85" fill="#dcfce7" stroke="#16a34a" stroke-width="2.2"/>
+  <rect x="55" y="191" width="14" height="14" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+  <g fill="#334155" font-size="10" font-weight="700">
+    <text x="44" y="221">H</text><text x="188" y="221">M</text><text x="46" y="78">T</text>
+  </g>
+  <text x="36" y="148" font-size="10" font-weight="700" fill="#dc2626">h</text>
+  <text x="110" y="221" font-size="10" font-weight="700" fill="#0369a1">apotem</text>
+  <text x="128" y="140" font-size="10" font-weight="700" fill="#15803d">h(Y)</text>
+  <text x="120" y="241" font-size="10" font-weight="700" fill="#15803d" text-anchor="middle">h(Y)² = h² + apotem²</text>
+  <line x1="230" y1="45" x2="230" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+  <polygon points="265,205 415,205 265,85" fill="#fef3c7" stroke="#d97706" stroke-width="2.2"/>
+  <rect x="265" y="191" width="14" height="14" fill="none" stroke="#d97706" stroke-width="1.6"/>
+  <g fill="#334155" font-size="10" font-weight="700">
+    <text x="254" y="221">H</text><text x="418" y="221">A</text><text x="256" y="78">T</text>
+  </g>
+  <text x="246" y="148" font-size="10" font-weight="700" fill="#dc2626">h</text>
+  <text x="310" y="221" font-size="10" font-weight="700" fill="#0369a1">yarıçap (merkez → köşe)</text>
+  <text x="348" y="140" font-size="10" font-weight="700" fill="#b45309">yanal ayrıt</text>
+  <text x="340" y="241" font-size="10" font-weight="700" fill="#b45309" text-anchor="middle">|TA|² = h² + yarıçap²</text>
+  <line x1="450" y1="45" x2="450" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="468" y="68" font-size="11" font-weight="700" fill="#334155">Kare tabanda (kenar a)</text>
+  <rect x="480" y="82" width="80" height="80" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.8"/>
+  <line x1="480" y1="162" x2="560" y2="82" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <line x1="520" y1="122" x2="520" y2="162" stroke="#16a34a" stroke-width="2"/>
+  <line x1="520" y1="122" x2="560" y2="162" stroke="#d97706" stroke-width="2"/>
+  <circle cx="520" cy="122" r="3" fill="#dc2626"/>
+  <text x="524" y="118" font-size="9" font-weight="700" fill="#dc2626">H</text>
+  <text x="524" y="152" font-size="9" font-weight="700" fill="#15803d">a/2</text>
+  <text x="556" y="146" font-size="9" font-weight="700" fill="#b45309">a√2/2</text>
+  <text x="468" y="188" font-size="10" font-weight="700" fill="#15803d">Apotem = a/2 (kenar ortasına)</text>
+  <text x="468" y="204" font-size="10" font-weight="700" fill="#b45309">Yarıçap = a√2/2 (köşeye)</text>
+  <text x="468" y="226" font-size="10" fill="#475569">Bu ikisini karıştırmak, konunun</text>
+  <text x="468" y="240" font-size="10" font-weight="700" fill="#b91c1c">en yaygın hatasıdır.</text>
+</svg>
+
+<h3>3) Yanal Alan ve Yüzey Alanı</h3>
+<p class="formula">DÜZGÜN PİRAMİTTE (PDF) — Taban çevresi <b>Ç<sub>T</sub></b>, yan yüz yüksekliği <b>h<sub>Y</sub></b>, taban alanı <b>A<sub>T</sub></b> olmak üzere:<br/>
+<b>Yanal alan: A<sub>Y</sub> = (Ç<sub>T</sub> · h<sub>Y</sub>) / 2</b><br/>
+<b>Toplam (yüzey) alan: A = A<sub>T</sub> + A<sub>Y</sub></b><br/>
+<u><b>Neden bölü 2?</b> Her yan yüz bir üçgendir: alanı (taban ayrıtı · h<sub>Y</sub>)/2. n tane yüzü toplarsan taban ayrıtları toplamı = Ç<sub>T</sub> olur → A<sub>Y</sub> = (Ç<sub>T</sub>·h<sub>Y</sub>)/2. <b>Prizmadaki Ç·h formülünün yarısı</b> — çünkü orada dikdörtgen, burada üçgen var.</u><br/>
+<b>DİKKAT:</b> <u>Formülde <b>h değil h<sub>Y</sub></b> vardır. Yanal alanda piramidin yüksekliğini kullanmak en sık yapılan hatadır; önce Şekil 2'deki üçgenden h<sub>Y</sub>'yi bul.</u></p>
+<p class="formula">ÖRNEK — Taban ayrıtı <b>6 cm</b>, yüksekliği <b>4 cm</b> olan <b>kare</b> dik piramitte <b>a)</b> yan yüz yüksekliğini, <b>b)</b> yanal alanı, <b>c)</b> yüzey alanını, <b>d)</b> yanal ayrıtı bulunuz.</p>
+<ul>
+<li><b>a)</b> Apotem = a/2 = 3 cm → h<sub>Y</sub>² = 4² + 3² = 25 → <b>h<sub>Y</sub> = 5 cm</b> <u>(3-4-5!)</u></li>
+<li><b>b)</b> Ç<sub>T</sub> = 4 · 6 = 24 cm → A<sub>Y</sub> = (24 · 5)/2 = <b>60 cm²</b>.</li>
+<li><b>c)</b> A<sub>T</sub> = 6² = 36 cm² → A = 36 + 60 = <b>96 cm²</b>.</li>
+<li><b>d)</b> Yarıçap = a√2/2 = 3√2 → |TA|² = 4² + (3√2)² = 16 + 18 = 34 → <b>|TA| = √34 cm</b>.</li>
+<li><b>Ders:</b> <u>Aynı h ile <b>iki farklı</b> dik üçgen kurduk. Hangi uzunluğu istediğini gör: <b>kenar ortasına</b> gidiyorsan apotem, <b>köşeye</b> gidiyorsan yarıçap.</u></li>
+</ul>
+
+<h3>4) Piramidin Hacmi</h3>
+<p class="formula">TEMEL FORMÜL (PDF) — <b>Herhangi bir piramidin hacmi, taban alanı ile yüksekliğinin çarpımının üçte biridir:</b><br/>
+<b>V = (1/3) · A<sub>T</sub> · h</b><br/>
+<b>NEDEN 1/3? (PDF'in kanıtı):</b> <u>Bir <b>üçgen dik prizma</b> alalım. Bu prizma, uygun şekilde kesilerek <b>üç tane eş hacimli üçgen piramide</b> ayrılabilir. Prizmanın hacmi A<sub>T</sub>·h olduğuna göre, her bir piramidin hacmi bunun <b>1/3</b>'ü olur.</u><br/>
+<u><b>Kanıtın iskeleti:</b> Prizmanın tabanları eş olan ABC ve A′B′C′ üçgenleridir. (A′, C-AB) ile (B, C′-A′B′) piramitlerinin <b>taban alanları ve yükseklikleri eşit</b> olduğundan hacimleri de eşittir. Benzer şekilde A′-AC ile C-C′A′ eş olduğundan (B, A′-AC) ile (B, C′-A′C) piramitlerinin de hacimleri eşittir. Sonuçta prizma, <b>aynı hacimli üç piramide</b> ayrılmış olur.</u><br/>
+<b>Aynı taban, aynı yükseklik:</b> <u><b>Piramit = prizmanın üçte biri.</b> Bu cümle, konudaki bütün karşılaştırma sorularının cevabıdır.</u></p>
+<svg viewBox="0 0 640 245" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Prizma üç eş piramide ayrılır">
+  <rect x="0" y="0" width="640" height="245" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Neden 1/3? Üçgen prizma üç eş piramide ayrılır</text>
+  <polygon points="50,195 140,195 112,168" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+  <polygon points="50,95 140,95 112,68" fill="#bae6fd" stroke="#0369a1" stroke-width="2"/>
+  <line x1="50" y1="95" x2="50" y2="195" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="140" y1="95" x2="140" y2="195" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="112" y1="68" x2="112" y2="168" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="95" y="220" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">Üçgen dik prizma</text>
+  <text x="95" y="236" font-size="10" font-weight="700" fill="#0369a1" text-anchor="middle">Hacim = A(T) · h</text>
+  <text x="165" y="145" font-size="20" font-weight="700" fill="#b91c1c">=</text>
+  <polygon points="205,195 265,195 205,95" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <line x1="205" y1="95" x2="265" y2="195" stroke="#d97706" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <text x="235" y="220" font-size="10" font-weight="700" fill="#b45309" text-anchor="middle">piramit 1</text>
+  <text x="285" y="145" font-size="18" font-weight="700" fill="#b91c1c">+</text>
+  <polygon points="320,195 380,195 380,95" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <line x1="320" y1="195" x2="380" y2="95" stroke="#d97706" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <text x="350" y="220" font-size="10" font-weight="700" fill="#b45309" text-anchor="middle">piramit 2</text>
+  <text x="400" y="145" font-size="18" font-weight="700" fill="#b91c1c">+</text>
+  <polygon points="435,195 495,95 435,95" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <line x1="435" y1="195" x2="495" y2="95" stroke="#d97706" stroke-width="1.4" stroke-dasharray="3 3"/>
+  <text x="465" y="220" font-size="10" font-weight="700" fill="#b45309" text-anchor="middle">piramit 3</text>
+  <line x1="520" y1="45" x2="520" y2="240" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="536" y="76" font-size="11" font-weight="700" fill="#334155">Sonuç</text>
+  <text x="536" y="100" font-size="10" fill="#475569">Üç piramidin taban alanları</text>
+  <text x="536" y="114" font-size="10" fill="#475569">ve yükseklikleri eşit →</text>
+  <text x="536" y="128" font-size="10" font-weight="700" fill="#0369a1">hacimleri de eşit.</text>
+  <text x="536" y="154" font-size="11" font-weight="700" fill="#b91c1c">V = (1/3) · A(T) · h</text>
+  <text x="536" y="180" font-size="10" fill="#475569">Aynı taban ve aynı yükseklikte</text>
+  <text x="536" y="194" font-size="10" font-weight="700" fill="#15803d">piramit = prizmanın 1/3'ü</text>
+  <text x="536" y="220" font-size="10" fill="#475569">Hacimde h kullanılır,</text>
+  <text x="536" y="234" font-size="10" font-weight="700" fill="#b45309">h(Y) DEĞİL.</text>
+</svg>
+<p class="formula">ÖRNEK — Taban ayrıtı <b>6 cm</b>, yüksekliği <b>4 cm</b> olan kare dik piramidin hacmi kaçtır? Aynı tabana ve yüksekliğe sahip prizmanın hacmiyle karşılaştırınız.</p>
+<ul>
+<li><b>Piramit:</b> V = (1/3) · 36 · 4 = <b>48 cm³</b>.</li>
+<li><b>Prizma:</b> V = 36 · 4 = 144 cm³ → piramit tam olarak <b>üçte biri</b> ✓</li>
+<li><b>Ders:</b> <u>Hacimde <b>h</b> (piramidin yüksekliği) kullanılır. Bir önceki örnekte bulduğumuz h<sub>Y</sub> = 5 buraya <b>girmez</b>.</u></li>
+</ul>
+
+<h3>5) Düzgün Dörtyüzlü</h3>
+<p class="formula">TANIM (PDF) — <b>Tüm yüzleri eşkenar üçgen</b> olan üçgen piramide <b>düzgün dörtyüzlü</b> denir. <u>Dört yüzü de eş eşkenar üçgendir; hangi yüzünü taban seçersen seç aynı cisimdir.</u><br/>
+Bir ayrıtının uzunluğu <b>a</b> birim olan düzgün dörtyüzlüde:<br/>
+• <b>Yan yüz yüksekliği = a√3 / 2</b> &nbsp;<u>(eşkenar üçgenin yüksekliği)</u><br/>
+• <b>Yüksekliği = a√6 / 3</b><br/>
+• <b>Yüzey alanı = a²√3</b> &nbsp;<u>(4 tane eşkenar üçgen: 4 · a²√3/4 = a²√3)</u><br/>
+• <b>Hacmi = a³√2 / 12</b> &nbsp;<u>(V = (1/3)·(a²√3/4)·(a√6/3) = a³√18/36 = a³√2/12)</u><br/>
+<u><b>Yüksekliği nereden geliyor?</b> Taban eşkenar üçgeninin ağırlık merkezi, köşeye kenarortayın <b>2/3</b>'ü kadar uzaktır: (2/3)·(a√3/2) = a√3/3. Yanal ayrıt a olduğundan h² = a² − (a√3/3)² = a² − a²/3 = 2a²/3 → h = a√(2/3) = <b>a√6/3</b> ✓ Yine <b>Şekil 2'deki ikinci dik üçgen</b>.</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Düzgün dörtyüzlü">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — Düzgün dörtyüzlü: dört eş eşkenar üçgen</text>
+  <polygon points="60,210 200,210 130,75" fill="#bae6fd" stroke="#0369a1" stroke-width="2.2"/>
+  <polygon points="60,210 200,210 175,180" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.6"/>
+  <line x1="130" y1="75" x2="175" y2="180" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="130" y1="75" x2="130" y2="199" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <circle cx="130" cy="199" r="3" fill="#dc2626"/>
+  <g fill="#334155" font-size="10" font-weight="700">
+    <text x="48" y="226">A</text><text x="204" y="226">B</text><text x="180" y="176">C</text><text x="124" y="68">T</text>
+  </g>
+  <text x="120" y="232" font-size="10" font-weight="700" fill="#0369a1">a</text>
+  <text x="136" y="150" font-size="10" font-weight="700" fill="#dc2626">h</text>
+  <text x="82" y="140" font-size="10" font-weight="700" fill="#0369a1">a</text>
+  <text x="176" y="140" font-size="10" font-weight="700" fill="#0369a1">a</text>
+  <text x="130" y="246" font-size="10" font-weight="700" fill="#334155" text-anchor="middle">Tüm ayrıtlar eşit → tüm yüzler eşkenar üçgen</text>
+  <line x1="250" y1="45" x2="250" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="270" y="70" font-size="11" font-weight="700" fill="#334155">Ayrıtı a olan düzgün dörtyüzlüde</text>
+  <text x="270" y="96" font-size="11" font-weight="700" fill="#15803d">Yan yüz yüksekliği = a√3 / 2</text>
+  <text x="270" y="112" font-size="10" fill="#475569">(eşkenar üçgenin yüksekliği)</text>
+  <text x="270" y="136" font-size="11" font-weight="700" fill="#dc2626">Yükseklik = a√6 / 3</text>
+  <text x="270" y="152" font-size="10" fill="#475569">h² = a² − (a√3/3)² = 2a²/3</text>
+  <text x="270" y="176" font-size="11" font-weight="700" fill="#0369a1">Yüzey alanı = a²√3</text>
+  <text x="270" y="192" font-size="10" fill="#475569">4 · (a²√3/4) — dört eş yüz</text>
+  <text x="270" y="216" font-size="11" font-weight="700" fill="#b45309">Hacim = a³√2 / 12</text>
+  <text x="270" y="232" font-size="10" fill="#475569">(1/3)·(a²√3/4)·(a√6/3)</text>
+  <line x1="470" y1="45" x2="470" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="488" y="76" font-size="11" font-weight="700" fill="#334155">Karıştırma</text>
+  <text x="488" y="100" font-size="10" font-weight="700" fill="#15803d">a√3/2 → yan yüz yüksekliği</text>
+  <text x="488" y="114" font-size="10" fill="#475569">(yüzün üzerinde yatar)</text>
+  <text x="488" y="138" font-size="10" font-weight="700" fill="#dc2626">a√6/3 → cismin yüksekliği</text>
+  <text x="488" y="152" font-size="10" fill="#475569">(tabana dik iner)</text>
+  <text x="488" y="178" font-size="10" fill="#475569">√3 yüzeyde,</text>
+  <text x="488" y="192" font-size="10" font-weight="700" fill="#b91c1c">√6 cismin içinde.</text>
+  <text x="488" y="216" font-size="10" fill="#475569">Ayrıt sayısı 6, yüz 4,</text>
+  <text x="488" y="230" font-size="10" fill="#475569">köşe 4 → 4 − 6 + 4 = 2 ✓</text>
+</svg>
+<p class="formula">ÖRNEK (PDF) — (T, ABC) düzgün piramidinde <b>|AB| = |AT| = 6 cm</b>'dir. Piramidin hacmi kaç cm³'tür?</p>
+<ul>
+<li><b>Adım 1 — Cismi tanı:</b> Bütün ayrıtları 6 cm → bu bir <b>düzgün dörtyüzlüdür</b>.</li>
+<li><b>Adım 2 — Yükseklik:</b> h = a√6/3 = 6√6/3 = <b>2√6 cm</b>.</li>
+<li><b>Adım 3 — Taban alanı:</b> Eşkenar üçgen → A<sub>T</sub> = 6²√3/4 = <b>9√3 cm²</b>.</li>
+<li><b>Adım 4 — Hacim:</b> V = (1/3) · 9√3 · 2√6 = 3√3 · 2√6 = 6√18 = <b>18√2 cm³</b>.</li>
+<li><b>Kontrol:</b> <u>Formülle V = a³√2/12 = 216√2/12 = <b>18√2</b> ✓ İki yol da aynı sonucu verdi.</u></li>
+</ul>
+
+<h3>6) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Ayrıt/yüz/köşe sayısı</b></td><td>"n kenarlı tabanlı piramit"</td><td><b>Köşe n+1, ayrıt 2n, yüz n+1</b>.</td></tr>
+<tr><td>2</td><td><b>Hacim</b></td><td>Taban ölçüleri + yükseklik</td><td><b>V = (1/3)·A<sub>T</sub>·h</b>.</td></tr>
+<tr><td>3</td><td><b>Yanal alan</b></td><td>"yan yüzler boyanacak"</td><td><b>(Ç<sub>T</sub>·h<sub>Y</sub>)/2</b> — h değil h<sub>Y</sub>!</td></tr>
+<tr><td>4</td><td><b>Yüzey alanı</b></td><td>"tamamı kaplanacak"</td><td><b>A<sub>T</sub> + A<sub>Y</sub></b>.</td></tr>
+<tr><td>5</td><td><b>Yan yüz yüksekliği</b></td><td>h ve taban ayrıtı verilmiş</td><td><b>h<sub>Y</sub>² = h² + apotem²</b>.</td></tr>
+<tr><td>6</td><td><b>Yanal ayrıt</b></td><td>"tepeden köşeye"</td><td><b>|TA|² = h² + yarıçap²</b>.</td></tr>
+<tr><td>7</td><td><b>Kare piramitte apotem/yarıçap</b></td><td>Taban kare, kenar a</td><td>Apotem <b>a/2</b>, yarıçap <b>a√2/2</b>.</td></tr>
+<tr><td>8</td><td><b>Düzgün dörtyüzlü</b></td><td>Tüm ayrıtlar eşit</td><td>h = <b>a√6/3</b>, A = <b>a²√3</b>, V = <b>a³√2/12</b>.</td></tr>
+<tr><td>9</td><td><b>Geriye gitme</b></td><td>Hacim/alan verilmiş, kenar isteniyor</td><td>Formülü kur, <b>bilinmeyeni çöz</b>.</td></tr>
+<tr><td>10</td><td><b>Prizma-piramit kıyası</b></td><td>Aynı taban, aynı yükseklik</td><td>Piramit = prizmanın <b>1/3</b>'ü.</td></tr>
+<tr><td>11</td><td><b>Oran-kat</b></td><td>"ayrıt k katına çıkarsa"</td><td>Alan <b>k²</b>, hacim <b>k³</b> katı.</td></tr>
+<tr><td>12</td><td><b>Açınım</b></td><td>Kare + 4 üçgen serilmiş</td><td>Üçgenlerin yüksekliği <b>h<sub>Y</sub></b>'dir.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 9) — Kare dik piramidin hacmi <b>75 cm³</b>, yüksekliği <b>9 cm</b> ise taban ayrıtı kaç cm'dir?</p>
+<ul>
+<li><b>Adım 1:</b> V = (1/3)·a²·h → 75 = (1/3)·a²·9 = 3a².</li>
+<li><b>Adım 2:</b> a² = 25 → <b>a = 5 cm</b>.</li>
+<li><b>Ders:</b> <u>Geriye gitme sorularında <b>formülü olduğu gibi kur</b>, sonra tek bilinmeyeni çöz. 1/3'ü unutursan a yanlış çıkar.</u></li>
+</ul>
+
+<h3>7) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Piramit:</b> Bir çokgen taban ile düzlemi dışındaki bir tepe noktasının belirlediği katı cisim.</li>
+<li><b>Tepe noktası (T):</b> Bütün yanal ayrıtların birleştiği nokta.</li>
+<li><b>Yanal ayrıt:</b> Tepeyi taban köşesine bağlayan parça. <b>Taban ayrıtı:</b> Tabandaki çokgenin kenarı.</li>
+<li><b>Yanal yüz:</b> Tepe ile bir taban kenarının oluşturduğu <b>üçgensel</b> bölge.</li>
+<li><b>Dik piramit:</b> Tepe ile tabanın ağırlık merkezini birleştiren parça tabana dik olan piramit.</li>
+<li><b>Düzgün dik piramit:</b> Tabanı düzgün çokgen, yan yüzleri eş ikizkenar üçgen olan dik piramit.</li>
+<li><b>Yükseklik (h):</b> Tepeden taban <b>merkezine</b> inen dik parça; hacimde kullanılır.</li>
+<li><b>Yan yüz yüksekliği (h<sub>Y</sub>):</b> Tepeden bir taban kenarının <b>ortasına</b> inen parça; yanal alanda kullanılır.</li>
+<li><b>Apotem:</b> Taban merkezinin bir kenara uzaklığı (karede a/2).</li>
+<li><b>Yarıçap:</b> Taban merkezinin bir köşeye uzaklığı (karede a√2/2).</li>
+<li><b>Düzgün dörtyüzlü:</b> Tüm yüzleri eşkenar üçgen olan üçgen piramit.</li>
+</ul>
+
+<h3>8) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>h ile h<sub>Y</sub>'yi karıştırmak:</b> Hacimde <b>h</b>, yanal alanda <b>h<sub>Y</sub></b>. Her zaman h<sub>Y</sub> &gt; h.</li>
+<li><b>Hacimde 1/3'ü unutmak:</b> Piramit prizma değildir; V = <b>(1/3)</b>·A<sub>T</sub>·h.</li>
+<li><b>Yanal alanda bölü 2'yi unutmak:</b> Yan yüzler <b>üçgen</b>; A<sub>Y</sub> = (Ç<sub>T</sub>·h<sub>Y</sub>)/<b>2</b>.</li>
+<li><b>Apotem ile yarıçapı karıştırmak:</b> Karede kenar ortasına <b>a/2</b>, köşeye <b>a√2/2</b>.</li>
+<li><b>Yanal ayrıtı yan yüz yüksekliği sanmak:</b> Yanal ayrıt köşeye, h<sub>Y</sub> kenar ortasına gider.</li>
+<li><b>Ayrıt sayısını 3n sanmak:</b> Piramitte ayrıt <b>2n</b>'dir (3n prizmanındı).</li>
+<li><b>Yüz sayısına tabanı katmamak:</b> Yüz = n + <b>1</b>.</li>
+<li><b>Düzgün dörtyüzlüde a√3/2 ile a√6/3'ü karıştırmak:</b> İlki <b>yan yüz</b> yüksekliği, ikincisi <b>cismin</b> yüksekliği.</li>
+<li><b>Düzgün dörtyüzlüde yüzey alanına 3 yüz saymak:</b> <b>Dört</b> yüz vardır: A = a²√3.</li>
+<li><b>Her piramidi düzgün sanmak:</b> Yanal ayrıtların eşitliği yalnızca <b>düzgün</b> piramitte garantidir.</li>
+<li><b>Oran sorusunda hacmi k² sanmak:</b> Hacim <b>k³</b> katına çıkar.</li>
+</ul>
+
+<h3>9) Özet Kartı</h3>
+<ul>
+<li><b>Piramit:</b> taban çokgeni + tepe noktası; yanal yüzler <b>üçgendir</b>.</li>
+<li><b>Dik piramit:</b> tepe, tabanın <b>ağırlık merkezinin</b> tam üstündedir.</li>
+<li><b>Düzgün dik piramit:</b> taban düzgün çokgen, yan yüzler eş ikizkenar üçgen, <b>yanal ayrıtlar eş</b>.</li>
+<li><b>n kenarlı tabanda:</b> <b>Köşe = n+1</b>, <b>Ayrıt = 2n</b>, <b>Yüz = n+1</b>; Euler: K − A + Y = 2.</li>
+<li><b>A<sub>Y</sub> = (Ç<sub>T</sub> · h<sub>Y</sub>)/2</b> &nbsp;·&nbsp; <b>A = A<sub>T</sub> + A<sub>Y</sub></b> &nbsp;·&nbsp; <b>V = (1/3)·A<sub>T</sub>·h</b>.</li>
+<li><b>Üç dik üçgen:</b> h<sub>Y</sub>² = h² + apotem² &nbsp;·&nbsp; (yanal ayrıt)² = h² + yarıçap² &nbsp;·&nbsp; (yanal ayrıt)² = h<sub>Y</sub>² + (taban ayrıtı/2)².</li>
+<li><b>Kare tabanda:</b> apotem = <b>a/2</b>, yarıçap = <b>a√2/2</b>.</li>
+<li><b>Aynı taban + aynı yükseklik:</b> piramit = prizmanın <b>üçte biri</b>.</li>
+<li><b>Düzgün dörtyüzlü (ayrıt a):</b> yan yüz yüksekliği <b>a√3/2</b>, yükseklik <b>a√6/3</b>, yüzey alanı <b>a²√3</b>, hacim <b>a³√2/12</b>.</li>
+<li><b>Ayrıt k katına çıkarsa:</b> alan <b>k²</b>, hacim <b>k³</b> katı.</li>
+<li><b>Altın refleks:</b> Piramit sorusunda önce <b>H'yi (taban merkezini) işaretle</b>, sonra hangi dik üçgende olduğunu belirle.</li>
+</ul>
+
+</body></html>

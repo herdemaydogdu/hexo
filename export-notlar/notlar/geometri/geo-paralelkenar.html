@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Paralelkenar</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Paralelkenar</h2>
+
+<p>Paralelkenar, dörtgenler ailesinin <b>en verimli üyesidir</b>: dikdörtgen, eşkenar dörtgen ve kare onun özel hâlleridir. Yani paralelkenar için öğrendiğin her özellik, otomatik olarak diğer üçünde de geçerlidir. Tanımı tek bir cümledir — <b>karşılıklı kenarları paraleldir</b> — ama bu tek cümleden kenar eşitliği, açı eşitliği, köşegen ortalaması ve bir dizi alan bağıntısı doğar. Bu ünitede o zinciri kuracağız.</p>
+
+<h3>1) Tanım ve Temel Özellikler</h3>
+<p class="formula">TANIM (PDF) — <b>Karşılıklı kenarları paralel</b> olan dörtgene <b>paralelkenar</b> denir.<br/>
+ABCD paralelkenarında: <b>[AB] // [DC]</b> ve <b>[AD] // [BC]</b><br/>
+<b>ÖZELLİK 1 — Karşılıklı kenarlar EŞİTTİR:</b> <b>|AB| = |DC| = a</b> ve <b>|AD| = |BC| = b</b><br/>
+<u>Neden? Bir köşegen çizersen (örneğin [AC]) oluşan iki üçgen <b>A.K.A. kuralına göre eştir</b> (iç ters açılar eşit, köşegen ortak). Eş üçgenlerde karşılıklı kenarlar eşit olduğu için karşılıklı kenarlar eşit çıkar.</u><br/>
+<b>Çevre:</b> <b>Ç(ABCD) = 2(a + b)</b></p>
+<p class="formula">ÖZELLİK 2 — AÇILAR (PDF) —<br/>
+• <b>Karşılıklı açılar eşittir:</b> <b>m(Â) = m(Ĉ)</b> ve <b>m(B̂) = m(D̂)</b><br/>
+• <b>Ardışık (komşu) köşelerdeki açılar BÜTÜNLERDİR:</b> <b>m(Â) + m(B̂) = 180°</b><br/>
+<u>Neden? [AD] // [BC] olduğu için A ve B açıları <b>karşı durumlu açılardır</b> → toplamları 180°. Yani paralelkenardaki tüm açı bilgisi, paralel doğrular ünitesinden geliyor.</u><br/>
+<b>Sonuç:</b> <u>Bir açıyı bilirsen dördünü de bilirsin: karşısındaki ona eşit, komşuları 180'den farkı kadardır.</u></p>
+<p class="formula">ÖZELLİK 3 — KÖŞEGENLER (PDF) — <b>Paralelkenarın köşegenleri birbirini ORTALAR.</b><br/>
+Köşegenlerin kesim noktası E olmak üzere: <b>|AE| = |EC|</b> ve <b>|DE| = |EB|</b><br/>
+<u>Dikkat: köşegenler birbirini ortalar ama <b>birbirine EŞİT DEĞİLDİR</b> (dikdörtgende eşit olurlar) ve <b>DİK DEĞİLDİR</b> (eşkenar dörtgende dik olurlar).</u><br/>
+<b>Sonuç:</b> Köşegenler paralelkenarı <b>alanları eşit dört üçgene</b> ayırır; E noktası aynı zamanda paralelkenarın <b>simetri merkezidir</b>.</p>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Paralelkenarın temel özellikleri">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Tek tanımdan doğan üç özellik</text>
+  <polygon points="80,190 240,190 300,90 140,90" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="80" y1="190" x2="300" y2="90" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <line x1="240" y1="190" x2="140" y2="90" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <circle cx="190" cy="140" r="4.5" fill="#dc2626"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="68" y="206">A</text><text x="242" y="206">B</text><text x="304" y="84">C</text><text x="128" y="84">D</text>
+    <text x="196" y="137">E</text>
+  </g>
+  <text x="160" y="207" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="218" y="140" font-size="11" font-weight="700" fill="#0369a1">b</text>
+  <text x="216" y="82" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="100" y="140" font-size="11" font-weight="700" fill="#0369a1">b</text>
+  <text x="98" y="182" font-size="10" font-weight="700" fill="#15803d">α</text>
+  <text x="222" y="182" font-size="10" font-weight="700" fill="#b45309">β</text>
+  <text x="278" y="102" font-size="10" font-weight="700" fill="#15803d">α</text>
+  <text x="152" y="102" font-size="10" font-weight="700" fill="#b45309">β</text>
+  <text x="190" y="232" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">α + β = 180°</text>
+  <text x="190" y="250" font-size="10" fill="#475569" text-anchor="middle">Köşegenler E noktasında birbirini ortalar.</text>
+  <line x1="340" y1="45" x2="340" y2="250" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="360" y="70" font-size="11" font-weight="700" fill="#334155">Tanım: karşılıklı kenarlar PARALEL</text>
+  <text x="360" y="94" font-size="11" font-weight="700" fill="#0369a1">1) Karşılıklı kenarlar EŞİT: |AB| = |DC|</text>
+  <text x="360" y="118" font-size="11" font-weight="700" fill="#15803d">2) Karşılıklı açılar EŞİT: m(A) = m(C)</text>
+  <text x="360" y="138" font-size="11" font-weight="700" fill="#b45309">&#160;&#160;&#160;Komşu açılar BÜTÜNLER: A + B = 180°</text>
+  <text x="360" y="162" font-size="11" font-weight="700" fill="#b91c1c">3) Köşegenler birbirini ORTALAR</text>
+  <text x="360" y="186" font-size="10" fill="#475569">Ama köşegenler eşit DEĞİL (dikdörtgende eşit),</text>
+  <text x="360" y="200" font-size="10" fill="#475569">dik de DEĞİL (eşkenar dörtgende dik).</text>
+  <text x="360" y="224" font-size="10" fill="#475569">Çevre = 2(a + b)</text>
+  <text x="360" y="242" font-size="10" fill="#475569">E, paralelkenarın SİMETRİ MERKEZİDİR.</text>
+</svg>
+<p class="formula">İKİ ÖZEL SONUÇ (PDF) —<br/>
+<b>a) Eş üçgenler:</b> Köşegen üzerinde |DE| = |BF| ve |AE| = |FC| olacak biçimde noktalar alınırsa <b>AED üçgeni ile CFB üçgeni EŞTİR</b>. <u>(Paralelkenarın merkezî simetrisinin doğrudan sonucu.)</u><br/>
+<b>b) Komşu açı açıortayları DİKTİR:</b> <u>Komşu açılar bütünler olduğu için yarıları toplamı 90°'dir; kalan açı da 90° çıkar. Bu, dörtgen ünitesindeki "m(A) + m(D) = 180° ise açıortaylar diktir" sonucunun paralelkenardaki hâlidir.</u><br/>
+<b>c) Açıortay ikizkenar üçgen doğurur:</b> Bir köşenin açıortayı karşı kenarı kestiğinde <u>iç ters açılar sayesinde <b>ikizkenar üçgen</b> oluşur</u>: [EF] // [AD] olmak üzere <b>|EF| = |AF| = |FB|</b>.</p>
+<svg viewBox="0 0 640 255" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Paralelkenarda açıortaylar">
+  <rect x="0" y="0" width="640" height="255" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Komşu açıların açıortayları birbirine diktir</text>
+  <polygon points="70,190 250,190 310,90 130,90" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <line x1="70" y1="190" x2="206" y2="113" stroke="#dc2626" stroke-width="2"/>
+  <line x1="250" y1="190" x2="206" y2="113" stroke="#0284c7" stroke-width="2"/>
+  <circle cx="206" cy="113" r="4" fill="#b91c1c"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="58" y="206">A</text><text x="252" y="206">B</text><text x="314" y="84">C</text><text x="118" y="84">D</text>
+    <text x="212" y="108">F</text>
+  </g>
+  <text x="90" y="180" font-size="9" font-weight="700" fill="#dc2626">α/2</text>
+  <text x="100" y="166" font-size="9" font-weight="700" fill="#dc2626">α/2</text>
+  <text x="222" y="180" font-size="9" font-weight="700" fill="#0284c7">β/2</text>
+  <text x="212" y="166" font-size="9" font-weight="700" fill="#0284c7">β/2</text>
+  <text x="196" y="132" font-size="11" font-weight="700" fill="#b91c1c">90°</text>
+  <text x="180" y="228" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">α/2 + β/2 = 90° → üçüncü açı da 90°</text>
+  <text x="180" y="246" font-size="10" fill="#475569" text-anchor="middle">Çünkü komşu açılar bütünlerdir: α + β = 180°</text>
+  <line x1="350" y1="45" x2="350" y2="250" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="370" y="70" font-size="11" font-weight="700" fill="#334155">Açıortay üç sonuç doğurur</text>
+  <text x="370" y="94" font-size="10" font-weight="700" fill="#b91c1c">1) Komşu açıların açıortayları DİKTİR.</text>
+  <text x="370" y="118" font-size="10" font-weight="700" fill="#0369a1">2) Açıortay karşı kenarı kesince</text>
+  <text x="370" y="134" font-size="10" font-weight="700" fill="#0369a1">&#160;&#160;&#160;İKİZKENAR üçgen oluşur.</text>
+  <text x="370" y="152" font-size="10" fill="#475569">Neden? Açıortay açıyı ikiye böler, paralellik</text>
+  <text x="370" y="166" font-size="10" fill="#475569">iç ters açıyı eşitler → iki açı eşit → ikizkenar.</text>
+  <text x="370" y="190" font-size="10" font-weight="700" fill="#15803d">3) [EF] // [AD] ise |EF| = |AF| = |FB|</text>
+  <text x="370" y="214" font-size="10" fill="#475569">Sınavda açıortay gördüğünde ilk refleksin</text>
+  <text x="370" y="228" font-size="10" fill="#475569">"burada ikizkenar üçgen var" olmalı.</text>
+  <text x="370" y="246" font-size="10" fill="#475569">Karşılıklı açıların açıortayları ise PARALELDİR.</text>
+</svg>
+<p class="formula">ÖRNEK — Bir ABCD paralelkenarında <b>m(Â) = 70°</b>, <b>|AB| = 12 cm</b> ve <b>|BC| = 8 cm</b>'dir. <b>a)</b> Diğer üç açı kaç derecedir? <b>b)</b> Çevresi kaçtır? <b>c)</b> |AC| = 18 ise köşegenlerin kesim noktası E için |AE| kaçtır?</p>
+<ul>
+<li><b>a)</b> Karşılıklı açı: m(Ĉ) = <b>70°</b>. Komşu açılar bütünler: m(B̂) = m(D̂) = 180 − 70 = <b>110°</b>.</li>
+<li><b>Kontrol:</b> 70 + 110 + 70 + 110 = 360 ✓ <u>(Dörtgende iç açılar toplamı 360°.)</u></li>
+<li><b>b)</b> Ç = 2(12 + 8) = <b>40 cm</b>.</li>
+<li><b>c)</b> Köşegenler birbirini ortaladığı için |AE| = 18/2 = <b>9 cm</b>.</li>
+<li><b>Ders:</b> <u>Paralelkenarda <b>bir açı ve iki kenar</b> verildiğinde şeklin tamamı belirlenmiş olur. Verilenleri şekle yerleştirip karşılıklı olanları hemen doldur.</u></li>
+</ul>
+
+<h3>2) Paralelkenar Olma Koşulları</h3>
+<p class="formula">BİR DÖRTGEN NE ZAMAN PARALELKENARDIR? — <u>Aşağıdaki beş koşuldan <b>HERHANGİ BİRİ</b> sağlanırsa dörtgen paralelkenardır:</u><br/>
+<b>1.</b> Karşılıklı kenarlar <b>paralel</b> ise (tanım).<br/>
+<b>2.</b> Karşılıklı kenarlar <b>eşit</b> ise.<br/>
+<b>3.</b> Karşılıklı açılar <b>eşit</b> ise.<br/>
+<b>4.</b> Köşegenler birbirini <b>ortalıyorsa</b>.<br/>
+<b>5.</b> <b>Bir kenar çifti hem paralel hem eşitse</b> — <u>bu en kullanışlısıdır; tek bir kenar çiftini kontrol etmek yeterlidir.</u><br/>
+<b>Uyarı:</b> <u>Yalnızca "bir kenar çifti paralel" olması yetmez — o durumda şekil <b>yamuk</b> olur. Paralelliğe <b>eşitlik</b> de eklenmelidir.</u></p>
+
+<h3>3) Paralelkenarda Alan</h3>
+<p class="formula">TEMEL FORMÜL (PDF) — <b>A(ABCD) = a · h<sub>a</sub> = b · h<sub>b</sub></b><br/>
+<u>Yani <b>bir kenar × o kenara ait yükseklik</b>. Üçgenden farkı: burada <b>2'ye bölünmez</b>, çünkü paralelkenar iki eş üçgenden oluşur.</u><br/>
+<b>SONUÇ:</b> a·h<sub>a</sub> = b·h<sub>b</sub> olduğu için <b>kenarlar ile yükseklikleri ters orantılıdır</b> (uzun kenarın yüksekliği kısadır).<br/>
+<b>TRİGONOMETRİK FORMÜL (PDF):</b> m(DÂB) = α olmak üzere<br/>
+<b>A(ABCD) = |AB| · |AD| · sin α</b><br/>
+<u>Neden? h<sub>a</sub> = |AD|·sin α'dır. Bunu a·h<sub>a</sub> formülünde yerine koy. Üçgendeki formülün 2 katı olması, paralelkenarın iki üçgen olmasındandır.</u></p>
+<p class="formula">ALAN ÖZELLİKLERİ (PDF) — <u>Beş madde; hepsi "yarı alan" fikrinden doğar:</u><br/>
+<b>1) Köşegen:</b> [AC] köşegeni paralelkenarı <b>alanları eşit iki üçgene</b> böler: A(ABC) = A(ADC) = Alan/2.<br/>
+<b>2) Karşı kenar üzerindeki nokta:</b> E ∈ [DC] ise <b>A(AEB) = Alan / 2</b> ve A(ADE) + A(BEC) = Alan/2.<br/>
+<u>Neden? AEB üçgeninin tabanı [AB], yüksekliği paralelkenarın yüksekliğidir → (a·h)/2 = Alanın yarısı. <b>E noktası [DC] üzerinde nerede olursa olsun bu değişmez.</b></u><br/>
+<b>3) İçteki nokta:</b> K iç bölgede herhangi bir nokta ise<br/>
+<b>A(ADK) + A(BCK) = A(AKB) + A(DKC) = Alan / 2</b><br/>
+<b>4) İç dikdörtgenler:</b> [NL] // [DC] ve [MK] // [DA] köşegen üzerindeki O noktasından geçiyorsa <b>A(DNOM) = A(KBLO)</b>.<br/>
+<b>5) Orta noktalar:</b> E, F, G, H kenarların orta noktalarıysa oluşan iç bölgeler <b>belirli oranlarda</b> alanlara ayrılır.</p>
+<svg viewBox="0 0 640 265" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Paralelkenarda alan">
+  <rect x="0" y="0" width="640" height="265" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Alan = kenar × yükseklik (bölü 2 YOK)</text>
+  <polygon points="60,195 220,195 280,95 120,95" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="120" y1="95" x2="120" y2="195" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4"/>
+  <rect x="120" y="181" width="14" height="14" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="128" y="150" font-size="11" font-weight="700" fill="#dc2626">hₐ</text>
+  <text x="140" y="212" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="255" y="150" font-size="11" font-weight="700" fill="#0369a1">b</text>
+  <text x="140" y="238" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">A = a · hₐ = b · h_b</text>
+  <text x="140" y="256" font-size="10" fill="#475569" text-anchor="middle">A = |AB| · |AD| · sin α</text>
+  <line x1="310" y1="45" x2="310" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <polygon points="350,195 490,195 545,95 405,95" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <line x1="350" y1="195" x2="545" y2="95" stroke="#b45309" stroke-width="2.5"/>
+  <text x="400" y="180" font-size="13" font-weight="700" fill="#15803d">S</text>
+  <text x="480" y="122" font-size="13" font-weight="700" fill="#15803d">S</text>
+  <g fill="#334155" font-size="10" font-weight="700">
+    <text x="340" y="211">A</text><text x="492" y="211">B</text><text x="549" y="89">C</text><text x="395" y="89">D</text>
+  </g>
+  <text x="447" y="232" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">Köşegen iki EŞİT alana böler</text>
+  <text x="447" y="250" font-size="10" fill="#475569" text-anchor="middle">A(ABC) = A(ADC) = Alan / 2</text>
+</svg>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="İçteki nokta ve karşılıklı üçgen alanları">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — İçteki bir noktadan çizilen dört üçgen</text>
+  <polygon points="60,195 240,195 300,95 120,95" fill="#f8fafc" stroke="#0369a1" stroke-width="2.5"/>
+  <polygon points="60,195 240,195 180,145" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.6"/>
+  <polygon points="240,195 300,95 180,145" fill="#dcfce7" stroke="#16a34a" stroke-width="1.6"/>
+  <polygon points="300,95 120,95 180,145" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.6"/>
+  <polygon points="120,95 60,195 180,145" fill="#dcfce7" stroke="#16a34a" stroke-width="1.6"/>
+  <circle cx="180" cy="145" r="4.5" fill="#b91c1c"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="48" y="211">A</text><text x="244" y="211">B</text><text x="304" y="89">C</text><text x="108" y="89">D</text>
+    <text x="186" y="142">K</text>
+  </g>
+  <text x="150" y="182" font-size="11" font-weight="700" fill="#0369a1">S₁</text>
+  <text x="238" y="145" font-size="11" font-weight="700" fill="#15803d">S₂</text>
+  <text x="200" y="118" font-size="11" font-weight="700" fill="#0369a1">S₃</text>
+  <text x="118" y="145" font-size="11" font-weight="700" fill="#15803d">S₄</text>
+  <text x="180" y="230" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">S₁ + S₃ = S₂ + S₄ = Alan / 2</text>
+  <text x="180" y="248" font-size="10" fill="#475569" text-anchor="middle">K noktası içeride NEREDE olursa olsun geçerlidir.</text>
+  <line x1="340" y1="45" x2="340" y2="255" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="360" y="70" font-size="11" font-weight="700" fill="#334155">Neden yarı alan çıkıyor?</text>
+  <text x="360" y="92" font-size="10" fill="#475569">S₁ üçgeninin tabanı [AB], S₃ üçgeninin tabanı [DC].</text>
+  <text x="360" y="108" font-size="10" fill="#475569">İkisi de a uzunluğunda ve paralel.</text>
+  <text x="360" y="124" font-size="10" fill="#475569">İki yüksekliğin toplamı = paralelkenarın yüksekliği h.</text>
+  <text x="360" y="144" font-size="10" font-weight="700" fill="#0369a1">S₁ + S₃ = (a·h₁)/2 + (a·h₂)/2 = a(h₁+h₂)/2 = a·h/2</text>
+  <text x="360" y="164" font-size="10" font-weight="700" fill="#b91c1c">= Alanın YARISI ✓</text>
+  <text x="360" y="190" font-size="11" font-weight="700" fill="#15803d">Aynı fikrin diğer görünümleri</text>
+  <text x="360" y="210" font-size="10" fill="#475569">• E ∈ [DC] ise A(AEB) = Alan/2</text>
+  <text x="360" y="226" font-size="10" fill="#475569">• Köşegen: A(ABC) = A(ADC) = Alan/2</text>
+  <text x="360" y="242" font-size="10" fill="#475569">• Köşegenler dört EŞİT alan oluşturur (her biri 1/4)</text>
+</svg>
+<p class="formula">ÖRNEK — Bir ABCD paralelkenarında <b>|AB| = 12 cm</b>, bu kenara ait yükseklik <b>7 cm</b>'dir. <b>a)</b> Alanı kaçtır? <b>b)</b> |BC| = 14 cm ise bu kenara ait yükseklik kaçtır? <b>c)</b> m(Â) = 30° ise |AD| kaçtır?</p>
+<ul>
+<li><b>a)</b> A = a · h<sub>a</sub> = 12 · 7 = <b>84 cm²</b>.</li>
+<li><b>b)</b> b · h<sub>b</sub> = 84 → 14 · h<sub>b</sub> = 84 → <b>h<sub>b</sub> = 6 cm</b>. <u>(Kenar uzadı, yükseklik kısaldı — ters orantı.)</u></li>
+<li><b>c)</b> A = |AB|·|AD|·sin 30° → 84 = 12 · |AD| · (1/2) = 6·|AD| → <b>|AD| = 14 cm</b>. <u>b şıkkıyla tutarlı ✓</u></li>
+<li><b>Ders:</b> <u>Alan tek bir sayı olduğu için <b>üç formül de aynı sonucu vermek zorundadır</b>. Bir şıkta bulduğunu diğerinde kontrol edebilirsin.</u></li>
+</ul>
+<p class="formula">ÖRNEK — Alanı <b>80 cm²</b> olan ABCD paralelkenarının iç bölgesinde bir K noktası alınıyor. <b>A(AKB) = 18 cm²</b> ise <b>A(DKC)</b> kaç cm²'dir?</p>
+<ul>
+<li><b>Kural:</b> Karşılıklı üçgenlerin alanları toplamı, paralelkenar alanının <b>yarısıdır</b> → A(AKB) + A(DKC) = 80/2 = <b>40</b>.</li>
+<li><b>Çözüm:</b> 18 + A(DKC) = 40 → <b>A(DKC) = 22 cm²</b>.</li>
+<li><b>Ek bilgi:</b> Diğer çiftin toplamı da 40'tır → A(ADK) + A(BCK) = 40. <u>Dört üçgenin toplamı 80 = paralelkenarın alanı ✓</u></li>
+<li><b>Sık hata:</b> <u>Dört üçgenin eşit olduğunu sanmak. Eşit olan <b>karşılıklı çiftlerin TOPLAMLARIDIR</b>; tek tek üçgenler eşit değildir (yalnızca K köşegenlerin kesim noktasındaysa dördü de eşit olur).</u></li>
+</ul>
+
+<h3>4) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Açı bulma</b></td><td>Bir açı verilmiş</td><td>Karşısı <b>eşit</b>, komşusu <b>180 − α</b>.</td></tr>
+<tr><td>2</td><td><b>Kenar / çevre</b></td><td>İki kenar verilmiş</td><td>Karşılıklı kenarlar eşit; <b>Ç = 2(a + b)</b>.</td></tr>
+<tr><td>3</td><td><b>Köşegen parçası</b></td><td>Köşegenler kesişiyor</td><td>Kesim noktası <b>ortalar</b>: |AE| = |AC|/2.</td></tr>
+<tr><td>4</td><td><b>Açıortay + ikizkenar</b></td><td>Bir köşeden açıortay çizilmiş</td><td>Oluşan üçgen <b>ikizkenardır</b>.</td></tr>
+<tr><td>5</td><td><b>Açıortayların diklik</b></td><td>Komşu iki açıortay</td><td>Aralarındaki açı <b>90°</b>.</td></tr>
+<tr><td>6</td><td><b>Alan (kenar-yükseklik)</b></td><td>Kenar ve yükseklik verilmiş</td><td><b>a · h<sub>a</sub></b> — bölme yok.</td></tr>
+<tr><td>7</td><td><b>İkinci yükseklik</b></td><td>İki kenar, bir yükseklik</td><td><b>a·h<sub>a</sub> = b·h<sub>b</sub></b>.</td></tr>
+<tr><td>8</td><td><b>Trigonometrik alan</b></td><td>İki kenar + aradaki açı</td><td><b>a · b · sin α</b>.</td></tr>
+<tr><td>9</td><td><b>Köşegen ve alan</b></td><td>Köşegen çizilmiş</td><td>Alanı <b>ikiye eşit</b> böler.</td></tr>
+<tr><td>10</td><td><b>Kenar üzerindeki nokta</b></td><td>E ∈ [DC], üçgen alanı</td><td>A(AEB) = <b>Alan/2</b> — E'nin yeri fark etmez.</td></tr>
+<tr><td>11</td><td><b>İçteki nokta</b></td><td>K içeride, dört üçgen</td><td><b>Karşılıklı çiftlerin toplamı = Alan/2</b>.</td></tr>
+<tr><td>12</td><td><b>Paralelkenar mıdır?</b></td><td>Koşullar veriliyor</td><td>Beş koşuldan <b>biri</b> yeterlidir.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 4) — ABCD paralelkenarında A köşesinin açıortayı [BC] kenarını F noktasında kesiyor. <b>|AB| = 10 cm</b> ve <b>|BC| = 14 cm</b> ise <b>|FC|</b> kaç cm'dir?</p>
+<ul>
+<li><b>Adım 1 — İkizkenarlığı gör:</b> [AD] // [BC] olduğu için m(DÂF) ile m(AF̂B) <b>iç ters açılardır</b> → eşittirler. Açıortay olduğu için m(DÂF) = m(FÂB). Buradan <b>m(FÂB) = m(AF̂B)</b> → <b>ABF ikizkenardır</b>.</li>
+<li><b>Adım 2 — Uzunluk:</b> İkizkenarlıktan <b>|BF| = |AB| = 10 cm</b>.</li>
+<li><b>Adım 3:</b> |FC| = |BC| − |BF| = 14 − 10 = <b>4 cm</b>.</li>
+<li><b>Ders:</b> <u>Paralelkenarda açıortay gördüğünde <b>hemen ikizkenar üçgen ara</b>. Bu kalıp, paralelkenar sorularının en sık çıkan tipidir ve iki satırda biter.</u></li>
+</ul>
+
+<h3>5) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Paralelkenar:</b> Karşılıklı kenarları paralel olan dörtgen.</li>
+<li><b>Karşılıklı kenarlar:</b> Birbirine paralel ve eşit olan kenar çiftleri.</li>
+<li><b>Ardışık (komşu) açılar:</b> Aynı kenarı paylaşan iki açı; toplamları 180°.</li>
+<li><b>Köşegen:</b> Karşılıklı köşeleri birleştiren doğru parçası; birbirlerini ortalarlar.</li>
+<li><b>Simetri merkezi:</b> Köşegenlerin kesim noktası; paralelkenar bu noktaya göre simetriktir.</li>
+<li><b>h<sub>a</sub>:</b> a kenarına ait yükseklik.</li>
+<li><b>Paralelkenar alanı:</b> A = a·h<sub>a</sub> = b·h<sub>b</sub> = a·b·sin α.</li>
+</ul>
+
+<h3>6) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Alanı 2'ye bölmek:</b> Paralelkenarda alan <b>a · h</b>'dir; bölme <b>üçgende</b> vardır.</li>
+<li><b>Köşegenleri eşit sanmak:</b> Paralelkenarda köşegenler <b>birbirini ortalar</b> ama eşit değildir (eşit olursa <b>dikdörtgen</b> olur).</li>
+<li><b>Köşegenleri dik sanmak:</b> Dik kesişirse <b>eşkenar dörtgen</b> olur.</li>
+<li><b>Karşılıklı açıları bütünler sanmak:</b> Karşılıklı açılar <b>eşittir</b>; <b>komşu</b> açılar bütünlerdir.</li>
+<li><b>Yanlış yüksekliği kullanmak:</b> Seçtiğin kenarın <b>kendi</b> yüksekliğini kullan.</li>
+<li><b>Trigonometrik formülde 1/2 yazmak:</b> Paralelkenarda <b>a·b·sin α</b>; 1/2 çarpanı <b>üçgende</b> vardır.</li>
+<li><b>İçteki noktada dört üçgeni eşit sanmak:</b> Eşit olan <b>karşılıklı çiftlerin toplamıdır</b>.</li>
+<li><b>Bir kenar çifti paralel diye paralelkenar demek:</b> Bu durumda şekil <b>yamuktur</b>; paralellik + eşitlik gerekir.</li>
+<li><b>Açıortayda ikizkenarlığı görmemek:</b> Açıortay + paralellik <b>daima</b> ikizkenar üçgen doğurur.</li>
+<li><b>E ∈ [DC] noktasının yerini önemli sanmak:</b> A(AEB) <b>daima</b> alanın yarısıdır.</li>
+<li><b>Çevrede tüm kenarları ayrı hesaplamak:</b> <b>Ç = 2(a + b)</b> yeterlidir.</li>
+</ul>
+
+<h3>7) Özet Kartı</h3>
+<ul>
+<li><b>Tanım:</b> karşılıklı kenarlar <b>paralel</b> → karşılıklı kenarlar <b>eşit</b>.</li>
+<li><b>Karşılıklı açılar EŞİT</b> &nbsp;·&nbsp; <b>komşu açılar BÜTÜNLER</b> (toplam 180°).</li>
+<li><b>Köşegenler birbirini ORTALAR</b>; eşit ya da dik olmak zorunda <b>değildir</b>.</li>
+<li><b>Çevre = 2(a + b)</b>.</li>
+<li><b>Komşu açıların açıortayları DİKTİR</b>; karşılıklı açılarınki <b>paraleldir</b>.</li>
+<li><b>Açıortay + paralellik = İKİZKENAR üçgen.</b></li>
+<li><b>Alan = a·h<sub>a</sub> = b·h<sub>b</sub> = a·b·sin α</b> &nbsp;<u>(bölü 2 YOK)</u>.</li>
+<li><b>Köşegen alanı ikiye eşit böler;</b> iki köşegen <b>dört eşit alan</b> oluşturur.</li>
+<li><b>E ∈ [DC] ise A(AEB) = Alan/2</b> — E'nin konumu fark etmez.</li>
+<li><b>İçteki K noktası:</b> <b>karşılıklı üçgen çiftlerinin toplamı = Alan/2</b>.</li>
+<li><b>Paralelkenar olma koşulu:</b> beş koşuldan <b>biri</b> yeterli; en pratiği <b>bir kenar çifti hem paralel hem eşit</b>.</li>
+<li><b>Dikdörtgen, eşkenar dörtgen ve kare</b> paralelkenarın özel hâlleridir — bu özellikler onlarda da geçerlidir.</li>
+</ul>
+
+</body></html>

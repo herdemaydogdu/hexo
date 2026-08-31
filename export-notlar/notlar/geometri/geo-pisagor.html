@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dik Üçgen: Pisagor ve Öklid</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Dik Üçgen: Pisagor ve Öklid</h2>
+
+<p>Dik üçgen, geometrinin <b>hesap makinesidir</b>. Bir şeklin uzunluklarını bulmak istediğinde yapacağın ilk iş, o şeklin içinde bir dik üçgen aramaktır — yoksa bir yükseklik çizerek kendin oluşturursun. Bu ünitede dik üçgenin iki büyük yasasını göreceğiz: <b>Pisagor teoremi</b> (üç kenar arasındaki bağıntı) ve <b>Öklid teoremi</b> (hipotenüse indirilen dikmenin oluşturduğu bağıntılar). Yanına, sınavda hesap yapmadan sonuca gitmeni sağlayan <b>özel üçgenleri</b> ekleyeceğiz.</p>
+
+<h3>1) Pisagor Teoremi</h3>
+<p class="formula">TEOREM (PDF) — Bir dik üçgende <b>dik kenar uzunluklarının kareleri toplamı, hipotenüs uzunluğunun karesine eşittir</b>.<br/>
+<b>a² + b² = c²</b> &nbsp;<u>(c = hipotenüs, yani dik açının KARŞISINDAKİ en uzun kenar)</u><br/>
+<b>Hangi kenar hipotenüs?</b> <u>Daima <b>dik açının karşısındaki</b> kenardır ve üçgenin <b>en uzun</b> kenarıdır. Formülü yazmadan önce hipotenüsün hangisi olduğunu belirle — bu, konudaki en sık hatanın kaynağıdır.</u><br/>
+<b>TERS YÖNÜ DE DOĞRUDUR:</b> Kenarları a, b, c olan bir üçgende <b>a² + b² = c²</b> sağlanıyorsa o üçgen <b>diktir</b>. Bu, bir üçgenin dik olup olmadığını anlamanın en hızlı yoludur.</p>
+<svg viewBox="0 0 640 285" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pisagor teoreminin alan yorumu">
+  <rect x="0" y="0" width="640" height="285" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Pisagor teoremi bir ALAN eşitliğidir: iki küçük karenin toplamı büyük kareye eşittir</text>
+  <polygon points="220,30 300,90 240,170 160,110" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <rect x="100" y="110" width="60" height="60" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <rect x="160" y="170" width="80" height="80" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <polygon points="160,110 160,170 240,170" fill="#fef3c7" stroke="#b45309" stroke-width="2.5"/>
+  <rect x="160" y="155" width="15" height="15" fill="none" stroke="#b45309" stroke-width="1.6"/>
+  <text x="130" y="145" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">a² = 3600</text>
+  <text x="200" y="215" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">b² = 6400</text>
+  <text x="230" y="105" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">c² = 10000</text>
+  <text x="150" y="142" font-size="11" font-weight="700" fill="#b45309">a=60</text>
+  <text x="196" y="186" font-size="11" font-weight="700" fill="#b45309">b=80</text>
+  <text x="206" y="132" font-size="11" font-weight="700" fill="#b45309">c=100</text>
+  <text x="175" y="272" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">3600 + 6400 = 10000 ✓</text>
+  <line x1="330" y1="45" x2="330" y2="275" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="350" y="68" font-size="14" font-weight="700" fill="#334155">a² + b² = c²</text>
+  <text x="350" y="94" font-size="10" fill="#475569">Teorem aslında kenar uzunluklarıyla değil, o kenarlar</text>
+  <text x="350" y="108" font-size="10" fill="#475569">üzerine kurulan KARELERİN ALANLARIYLA ilgilidir.</text>
+  <text x="350" y="134" font-size="11" font-weight="700" fill="#b91c1c">Hipotenüs hangisi?</text>
+  <text x="350" y="152" font-size="10" fill="#475569">Dik açının KARŞISINDAKİ kenar; daima en uzun olan.</text>
+  <text x="350" y="166" font-size="10" fill="#475569">Formülde yalnız başına duran kenar odur.</text>
+  <text x="350" y="192" font-size="11" font-weight="700" fill="#15803d">Ters yönü de doğrudur</text>
+  <text x="350" y="210" font-size="10" fill="#475569">a² + b² = c² sağlanıyorsa üçgen DİKTİR.</text>
+  <text x="350" y="224" font-size="10" fill="#475569">a² + b² &gt; c² → dar açılı · a² + b² &lt; c² → geniş açılı</text>
+  <text x="350" y="250" font-size="10" font-weight="700" fill="#0369a1">Karşılaştırmayı daima EN UZUN kenar için yap.</text>
+  <text x="350" y="268" font-size="10" fill="#475569">Örnek: 4, 5, 6 → 16 + 25 = 41 &gt; 36 → dar açılı.</text>
+</svg>
+<p class="formula">PİSAGOR ÜÇLÜLERİ (PDF) — <u>Kenar uzunlukları tam sayı olan dik üçgenlerdir. Ezberlemek büyük hız kazandırır çünkü sınavda karekök almana gerek kalmaz:</u></p>
+<table>
+<tr><th>Üçlü</th><th>Katları</th><th>Kontrol</th></tr>
+<tr><td><b>3 – 4 – 5</b></td><td>6-8-10 · 9-12-15 · 12-16-20 · 15-20-25</td><td>9 + 16 = 25</td></tr>
+<tr><td><b>5 – 12 – 13</b></td><td>10-24-26 · 15-36-39</td><td>25 + 144 = 169</td></tr>
+<tr><td><b>8 – 15 – 17</b></td><td>16-30-34</td><td>64 + 225 = 289</td></tr>
+<tr><td><b>7 – 24 – 25</b></td><td>14-48-50</td><td>49 + 576 = 625</td></tr>
+</table>
+<p class="formula">DİKKAT — <b>Üçlünün her katı da bir Pisagor üçlüsüdür</b> (3k, 4k, 5k). <u>Sınavda 6-8-? gördüğünde karekök almadan doğrudan 10 diyebilmelisin. 5-12-13 ve 8-15-17'yi de bu hızda tanıman gerekir.</u><br/>
+<b>Sık tuzak:</b> <u>Verilen iki sayının ikisi de dik kenar mı, yoksa biri hipotenüs mü? 5 ve 13 verilmişse üçüncü kenar 12'dir (13 hipotenüs), ama 5 ve 12 verilmişse 13'tür. Hangisinin en uzun olduğuna bak.</u></p>
+<p class="formula">ÖRNEK — <b>a)</b> Dik kenarları 6 ve 8 cm olan dik üçgenin hipotenüsü kaçtır? <b>b)</b> Hipotenüsü 26, bir dik kenarı 10 olan dik üçgenin diğer dik kenarı kaçtır?</p>
+<ul>
+<li><b>a)</b> 6-8 ikilisi <b>3-4-5'in 2 katıdır</b> → hipotenüs = 5·2 = <b>10 cm</b>. <u>(Uzun yol: 36 + 64 = 100 → √100 = 10 ✓)</u></li>
+<li><b>b)</b> 26 ve 10 → <b>5-12-13'ün 2 katı</b> (10-24-26) → diğer dik kenar = <b>24</b>. <u>(Uzun yol: 26² − 10² = 676 − 100 = 576 → √576 = 24 ✓)</u></li>
+<li><b>Ders:</b> <u>Üçlüleri tanımak her soruda <b>en az 20 saniye</b> kazandırır. Sayıları görür görmez "bu hangi üçlünün katı?" diye sor.</u></li>
+</ul>
+
+<h3>2) Özel Dik Üçgenler</h3>
+<p class="formula">İÇ AÇILARINA GÖRE ÖZEL ÜÇGENLER (PDF) — <u>Bu üç üçgende Pisagor hesabı yapmaya gerek yoktur; oranlar hazırdır:</u><br/>
+<b>• 30° – 60° – 90° üçgeni:</b> kenarlar <b>a</b> (30°'nin karşısı), <b>a√3</b> (60°'nin karşısı), <b>2a</b> (hipotenüs)<br/>
+<b>• 45° – 45° – 90° üçgeni:</b> kenarlar <b>a</b>, <b>a</b>, <b>a√2</b> (hipotenüs) — ikizkenar dik üçgen<br/>
+<b>• 15° – 75° – 90° üçgeni:</b> hipotenüs <b>4a</b> ise <b>hipotenüse ait yükseklik a</b>'dır<br/>
+<u>30-60-90'da hatırlama: <b>en küçük açının karşısında en küçük kenar (a)</b> durur, hipotenüs onun <b>iki katıdır</b>. Bu iki bilgiden üçüncü kenar (a√3) Pisagor'la zaten çıkar.</u></p>
+<svg viewBox="0 0 640 245" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Özel dik üçgenler">
+  <rect x="0" y="0" width="640" height="245" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Açılarına göre özel dik üçgenler</text>
+  <polygon points="60,93 60,180 110,180" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <rect x="60" y="165" width="15" height="15" fill="none" stroke="#0369a1" stroke-width="1.6"/>
+  <text x="66" y="110" font-size="10" font-weight="700" fill="#b91c1c">30°</text>
+  <text x="93" y="174" font-size="10" font-weight="700" fill="#b91c1c">60°</text>
+  <text x="38" y="140" font-size="11" font-weight="700" fill="#0369a1">a√3</text>
+  <text x="82" y="196" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="96" y="132" font-size="11" font-weight="700" fill="#0369a1">2a</text>
+  <text x="85" y="220" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">30° – 60° – 90°</text>
+  <text x="85" y="236" font-size="10" fill="#475569" text-anchor="middle">a · a√3 · 2a</text>
+  <polygon points="240,110 240,180 310,180" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <rect x="240" y="165" width="15" height="15" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="246" y="128" font-size="10" font-weight="700" fill="#b91c1c">45°</text>
+  <text x="288" y="174" font-size="10" font-weight="700" fill="#b91c1c">45°</text>
+  <text x="224" y="150" font-size="11" font-weight="700" fill="#15803d">a</text>
+  <text x="272" y="196" font-size="11" font-weight="700" fill="#15803d">a</text>
+  <text x="285" y="140" font-size="11" font-weight="700" fill="#15803d">a√2</text>
+  <text x="275" y="220" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">45° – 45° – 90°</text>
+  <text x="275" y="236" font-size="10" fill="#475569" text-anchor="middle">a · a · a√2 (ikizkenar)</text>
+  <polygon points="411,140 400,180 560,180" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <line x1="411" y1="140" x2="411" y2="180" stroke="#b91c1c" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="418" y="164" font-size="11" font-weight="700" fill="#b91c1c">a</text>
+  <text x="404" y="176" font-size="9" font-weight="700" fill="#b45309">75°</text>
+  <text x="538" y="176" font-size="9" font-weight="700" fill="#b45309">15°</text>
+  <text x="480" y="196" font-size="11" font-weight="700" fill="#b45309">4a</text>
+  <text x="480" y="220" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">15° – 75° – 90°</text>
+  <text x="480" y="236" font-size="10" fill="#475569" text-anchor="middle">hipotenüs 4a ise yükseklik a</text>
+</svg>
+<p class="formula">ÖRNEK — <b>a)</b> 30-60-90 üçgeninde hipotenüs <b>12 cm</b> ise diğer kenarlar kaçtır? <b>b)</b> 45-45-90 üçgeninde hipotenüs <b>10√2</b> ise dik kenarlar kaçtır?</p>
+<ul>
+<li><b>a)</b> Hipotenüs = 2a = 12 → <b>a = 6</b> → 30°'nin karşısı <b>6 cm</b>, 60°'nin karşısı <b>6√3 cm</b>.</li>
+<li><b>b)</b> Hipotenüs = a√2 = 10√2 → <b>a = 10</b> → iki dik kenar da <b>10 cm</b>.</li>
+<li><b>Kontrol:</b> a şıkkı için 6² + (6√3)² = 36 + 108 = 144 = 12² ✓ &nbsp;·&nbsp; b şıkkı için 100 + 100 = 200 = (10√2)² ✓</li>
+<li><b>Ders:</b> <u>Şekilde <b>30°, 45°, 60°</b> gördüğün an Pisagor'a girme; oranı yaz, tek çarpma/bölmeyle bitir.</u></li>
+</ul>
+<p class="formula">DİK KÖŞEGENLER BAĞINTISI (PDF) — Bir ABCD dörtgeninde <b>köşegenler birbirine dikse</b> ([AC] ⊥ [BD]):<br/>
+<b>|AB|² + |CD|² = |BC|² + |AD|²</b><br/>
+<u>Yani <b>karşılıklı kenarların kareleri toplamı eşittir</b>. Kanıtı basittir: kesişim noktasından her köşeye olan uzaklıklara p, q, r, s dersen her kenar Pisagor'la yazılır ve iki tarafta da <b>p² + q² + r² + s²</b> çıkar.</u><br/>
+<b>Aynı bağıntı</b> bir üçgende yükseklik çizildiğinde de kullanılır: [AH] ⊥ [BC] ise <b>|AB|² + |HC|² = |AC|² + |HB|²</b> tipi eşitlikler doğar.</p>
+<svg viewBox="0 0 640 285" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dik köşegenler bağıntısı">
+  <rect x="0" y="0" width="640" height="285" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Köşegenler dikse: karşılıklı kenarların kareleri toplamı eşittir</text>
+  <polygon points="150,60 60,160 150,230 280,160" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="150" y1="60" x2="150" y2="230" stroke="#dc2626" stroke-width="2"/>
+  <line x1="60" y1="160" x2="280" y2="160" stroke="#dc2626" stroke-width="2"/>
+  <rect x="150" y="145" width="15" height="15" fill="none" stroke="#dc2626" stroke-width="1.6"/>
+  <circle cx="150" cy="160" r="3.5" fill="#dc2626"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="144" y="52">A</text><text x="46" y="176">B</text><text x="146" y="248">C</text><text x="286" y="176">D</text>
+    <text x="158" y="155">O</text>
+  </g>
+  <text x="94" y="105" font-size="12" font-weight="700" fill="#0369a1">a</text>
+  <text x="94" y="208" font-size="12" font-weight="700" fill="#15803d">b</text>
+  <text x="222" y="208" font-size="12" font-weight="700" fill="#0369a1">c</text>
+  <text x="222" y="105" font-size="12" font-weight="700" fill="#15803d">d</text>
+  <text x="170" y="268" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">a² + c² = b² + d²</text>
+  <line x1="320" y1="45" x2="320" y2="275" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="340" y="70" font-size="11" font-weight="700" fill="#334155">Neden doğru?</text>
+  <text x="340" y="90" font-size="10" fill="#475569">Kesişim noktasından köşelere uzaklıklara</text>
+  <text x="340" y="104" font-size="10" fill="#475569">p (OA), q (OB), r (OC), s (OD) diyelim.</text>
+  <text x="340" y="124" font-size="10" fill="#475569">Dört küçük üçgen de DİK üçgendir:</text>
+  <text x="340" y="142" font-size="10" font-weight="700" fill="#0369a1">a² = p² + q²&#160;&#160;·&#160;&#160;c² = r² + s²</text>
+  <text x="340" y="158" font-size="10" font-weight="700" fill="#15803d">b² = q² + r²&#160;&#160;·&#160;&#160;d² = s² + p²</text>
+  <text x="340" y="180" font-size="10" fill="#475569">a² + c² = p² + q² + r² + s²</text>
+  <text x="340" y="196" font-size="10" fill="#475569">b² + d² = p² + q² + r² + s²</text>
+  <text x="340" y="216" font-size="11" font-weight="700" fill="#b91c1c">→ İkisi de aynı toplam ✓</text>
+  <text x="340" y="242" font-size="10" fill="#475569">Şekilde iki doğru parçası birbirine dik kesişiyorsa</text>
+  <text x="340" y="256" font-size="10" fill="#475569">bu bağıntıyı denemek çoğu zaman en kısa yoldur.</text>
+</svg>
+
+<h3>3) Öklid ve Öklid Teoremi</h3>
+<p class="formula">ÖKLİD KİMDİR? (PDF) — Öklid, geometri dünyasındaki yerini büyük bir matematikçi olmasından çok, <b>"Ögeler"</b> adlı kitabında kendi zamanına kadar bilinen geometriyi <b>tutarlı bir bütün hâlinde toplaması</b> sayesinde elde etmiştir. Ögeler dilden dile çevrilmiş, matbaanın icadından sonra binlerce kez basılmıştır.<br/>
+<b>Öklid'in 5 aksiyomu</b> (kanıt gerektirmeyen apaçık gerçekler):<br/>
+<b>1.</b> İki noktadan bir ve yalnız bir doğru geçer.<br/>
+<b>2.</b> Bir doğru parçası iki yöne de sınırsız uzatılabilir.<br/>
+<b>3.</b> Merkezi ve üzerinde bir noktası verilen bir çember çizilebilir.<br/>
+<b>4.</b> Bütün dik açılar eşittir.<br/>
+<b>5.</b> Bir doğruya, dışındaki bir noktadan <b>bir ve yalnız bir paralel</b> çizilir.<br/>
+<u>Beşinci aksiyom (paralellik aksiyomu) yüzyıllarca tartışılmış, onun reddedilmesiyle <b>Öklid dışı geometriler</b> doğmuştur. Bugün Einstein'ın uzay-zaman modeli de Öklid dışı bir geometriye dayanır.</u></p>
+<p class="formula">ÖKLİD TEOREMİ (PDF) — Bir dik üçgende <b>dik açının bulunduğu köşeden hipotenüse indirilen dikme</b> [AH] için:<br/>
+<b>• h² = p · k</b> &nbsp;<u>(yükseklik karesi = hipotenüsteki iki parçanın çarpımı)</u><br/>
+<b>• c² = p · a</b> &nbsp;<u>(bir dik kenarın karesi = kendi tarafındaki parça × hipotenüs)</u><br/>
+<b>• b² = k · a</b><br/>
+Burada <b>a</b> hipotenüs, <b>p</b> ve <b>k</b> hipotenüsün dikme tarafından ayrıldığı parçalar, <b>h</b> yüksekliktir.<br/>
+<b>EK BAĞINTI:</b> Alanı iki farklı yoldan yazarak: <u>Alan = (b·c)/2 = (a·h)/2</u> → <b>h = (b · c) / a</b><br/>
+<u>Yani yüksekliği bulmanın iki yolu var: Öklid'le (h² = p·k) ya da alan eşitliğiyle (h = bc/a). Elindeki verilere göre hangisi kısaysa onu seç.</u></p>
+<svg viewBox="0 0 640 265" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Öklid teoremi">
+  <rect x="0" y="0" width="640" height="265" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — Öklid teoremi: hipotenüse inen dikme üç bağıntı doğurur</text>
+  <polygon points="130,96 70,200 310,200" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="130" y1="96" x2="130" y2="200" stroke="#dc2626" stroke-width="2.5"/>
+  <rect x="130" y="185" width="15" height="15" fill="none" stroke="#dc2626" stroke-width="1.6"/>
+  <path d="M 118 108 L 130 120 L 142 108" fill="none" stroke="#b45309" stroke-width="2"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="124" y="88">A</text><text x="57" y="216">B</text><text x="314" y="216">C</text><text x="126" y="218">H</text>
+  </g>
+  <text x="88" y="145" font-size="12" font-weight="700" fill="#0369a1">c</text>
+  <text x="222" y="140" font-size="12" font-weight="700" fill="#0369a1">b</text>
+  <text x="138" y="155" font-size="12" font-weight="700" fill="#b91c1c">h</text>
+  <text x="98" y="216" font-size="11" font-weight="700" fill="#15803d">p</text>
+  <text x="218" y="216" font-size="11" font-weight="700" fill="#15803d">k</text>
+  <text x="190" y="240" font-size="10" fill="#475569" text-anchor="middle">a = p + k (hipotenüs)</text>
+  <text x="190" y="258" font-size="10" font-weight="700" fill="#b45309" text-anchor="middle">A köşesindeki açı 90° · [AH] ⊥ [BC]</text>
+  <line x1="345" y1="45" x2="345" y2="255" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="365" y="70" font-size="11" font-weight="700" fill="#334155">Öklid bağıntıları</text>
+  <text x="365" y="92" font-size="13" font-weight="700" fill="#b91c1c">h² = p · k</text>
+  <text x="365" y="114" font-size="13" font-weight="700" fill="#0369a1">c² = p · a</text>
+  <text x="365" y="136" font-size="13" font-weight="700" fill="#0369a1">b² = k · a</text>
+  <text x="365" y="160" font-size="10" fill="#475569">Hatırlama: her kenarın karesi, KENDİ tarafındaki</text>
+  <text x="365" y="174" font-size="10" fill="#475569">parça ile TÜM hipotenüsün çarpımıdır.</text>
+  <text x="365" y="198" font-size="11" font-weight="700" fill="#15803d">Alandan gelen bağıntı</text>
+  <text x="365" y="218" font-size="13" font-weight="700" fill="#15803d">h = (b · c) / a</text>
+  <text x="365" y="240" font-size="10" fill="#475569">Alan hem (b·c)/2 hem (a·h)/2 olduğu için.</text>
+</svg>
+<p class="formula">ÖRNEK — Bir dik üçgende hipotenüse inen dikme, hipotenüsü <b>4 cm</b> ve <b>9 cm</b>'lik iki parçaya ayırıyor. <b>a)</b> Yükseklik kaçtır? <b>b)</b> Dik kenarlar kaçtır? <b>c)</b> Üçgenin alanı kaçtır?</p>
+<ul>
+<li><b>a)</b> h² = p·k = 4·9 = 36 → <b>h = 6 cm</b>.</li>
+<li><b>b)</b> Hipotenüs a = 4 + 9 = <b>13</b>. &nbsp;c² = p·a = 4·13 = 52 → <b>c = 2√13</b>. &nbsp;b² = k·a = 9·13 = 117 → <b>b = 3√13</b>.</li>
+<li><b>Pisagor kontrolü:</b> 52 + 117 = 169 = 13² ✓</li>
+<li><b>c)</b> Alan = (a·h)/2 = (13·6)/2 = <b>39 cm²</b>. <u>Kontrol: (b·c)/2 = (3√13 · 2√13)/2 = (6·13)/2 = 39 ✓</u></li>
+<li><b>Ders:</b> <u>h² = p·k bağıntısı "yükseklik, iki parçanın <b>geometrik ortasıdır</b>" demektir. p ve k çarpımı tam kare çıkacak biçimde seçilir; 4 ve 9 gibi sayılar görürsen bu bağıntı sorulmuş demektir.</u></li>
+</ul>
+
+<h3>4) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Doğrudan Pisagor</b></td><td>Dik açı işareti + iki kenar</td><td><b>a² + b² = c²</b>; hipotenüsü doğru seç.</td></tr>
+<tr><td>2</td><td><b>Pisagor üçlüsü</b></td><td>6-8, 5-12, 8-15, 7-24 gibi sayılar</td><td>Üçüncü kenarı <b>hesapsız</b> yaz.</td></tr>
+<tr><td>3</td><td><b>Üçgen dik mi?</b></td><td>Üç kenar sayısal verilmiş</td><td>En uzun kenar için <b>a² + b² ile c²</b> karşılaştır.</td></tr>
+<tr><td>4</td><td><b>30-60-90</b></td><td>Şekilde 30° ya da 60°</td><td><b>a · a√3 · 2a</b>; hipotenüs kısa kenarın 2 katı.</td></tr>
+<tr><td>5</td><td><b>45-45-90</b></td><td>Şekilde 45° ya da ikizkenar dik</td><td><b>a · a · a√2</b>.</td></tr>
+<tr><td>6</td><td><b>Yükseklik çizerek</b></td><td>Dik üçgen yok ama uzunluk isteniyor</td><td><b>Yükseklik çiz</b>, dik üçgen oluştur.</td></tr>
+<tr><td>7</td><td><b>Öklid — yükseklik</b></td><td>Hipotenüs iki parçaya ayrılmış</td><td><b>h² = p·k</b>.</td></tr>
+<tr><td>8</td><td><b>Öklid — dik kenar</b></td><td>Bir parça ve hipotenüs verilmiş</td><td><b>c² = p·a</b> ya da <b>b² = k·a</b>.</td></tr>
+<tr><td>9</td><td><b>h = bc/a</b></td><td>İki dik kenar verilmiş, yükseklik isteniyor</td><td>Alan eşitliğinden <b>h = bc/a</b>.</td></tr>
+<tr><td>10</td><td><b>Dik köşegenler</b></td><td>Köşegenler dik kesişiyor</td><td><b>a² + c² = b² + d²</b>.</td></tr>
+<tr><td>11</td><td><b>Katlama / açılım</b></td><td>Kâğıt katlanmış, uzunluk isteniyor</td><td>Katlanan parçalar <b>eşit</b>; dik üçgen kur, Pisagor yaz.</td></tr>
+<tr><td>12</td><td><b>Günlük hayat</b></td><td>Merdiven, direk, tel, köşegen</td><td>Şekli <b>dik üçgene indirge</b>.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 12) — Bir merdivenin ayağı duvardan <b>1,5 m</b> uzakta, üst ucu duvarda <b>2 m</b> yükseklikte duruyor. Merdivenin boyu kaç metredir?</p>
+<ul>
+<li><b>Modelleme:</b> Duvar ve zemin dik açı yapar → <b>dik üçgen</b>; merdiven <b>hipotenüstür</b>.</li>
+<li><b>Hesap:</b> 1,5² + 2² = 2,25 + 4 = 6,25 → <b>merdiven = 2,5 m</b>.</li>
+<li><b>Üçlüyle:</b> <u>1,5 – 2 – 2,5 aslında <b>3-4-5'in yarısıdır</b>. Ondalıklı sayılarla uğraşmak yerine üçlüyü tanımak yeterlidir.</u></li>
+<li><b>Ders:</b> <u>Gerçek hayat sorularında dik açının nerede olduğunu bulmak çözümün yarısıdır: duvar-zemin, direk-toprak, kule-gölge hep dik açı verir.</u></li>
+</ul>
+
+<h3>5) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Dik üçgen:</b> Bir açısı 90° olan üçgen.</li>
+<li><b>Hipotenüs:</b> Dik açının karşısındaki kenar; üçgenin en uzun kenarı.</li>
+<li><b>Dik kenarlar:</b> Dik açıyı oluşturan iki kenar.</li>
+<li><b>Pisagor teoremi:</b> a² + b² = c² bağıntısı.</li>
+<li><b>Pisagor üçlüsü:</b> Kenarları tam sayı olan dik üçgen (3-4-5, 5-12-13, 8-15-17, 7-24-25).</li>
+<li><b>30-60-90 üçgeni:</b> Kenarları a, a√3, 2a oranında olan dik üçgen.</li>
+<li><b>45-45-90 üçgeni:</b> İkizkenar dik üçgen; kenarları a, a, a√2.</li>
+<li><b>Öklid teoremi:</b> h² = p·k, c² = p·a, b² = k·a bağıntıları.</li>
+<li><b>Dikme ayağı (H):</b> Hipotenüse inen yüksekliğin hipotenüse değdiği nokta.</li>
+<li><b>Geometrik orta:</b> h = √(p·k) ifadesindeki gibi iki sayının çarpımının karekökü.</li>
+<li><b>Aksiyom:</b> Kanıt gerektirmeyen, apaçık kabul edilen önerme.</li>
+</ul>
+
+<h3>6) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Hipotenüsü yanlış seçmek:</b> Hipotenüs <b>dik açının karşısındaki</b> ve <b>en uzun</b> kenardır; formülde <b>yalnız başına</b> durur.</li>
+<li><b>a² + b² = c² yerine a + b = c yazmak:</b> Teorem <b>kareler</b> arasındadır; uzunluklar toplanmaz.</li>
+<li><b>Üçlüde iki sayının rolünü karıştırmak:</b> 5 ve 13 verilmişse üçüncü <b>12</b>'dir; 5 ve 12 verilmişse <b>13</b>.</li>
+<li><b>30-60-90'da a√3'ü hipotenüs sanmak:</b> Hipotenüs <b>2a</b>'dır; a√3 ≈ 1,73a &lt; 2a.</li>
+<li><b>45-45-90'da √2 ile bölmeyi/çarpmayı şaşırmak:</b> Hipotenüs = dik kenar <b>× √2</b>; dik kenar = hipotenüs <b>÷ √2</b>.</li>
+<li><b>Öklid'de yanlış parçayı eşleştirmek:</b> <b>c² = p·a</b> — c kenarının <b>kendi tarafındaki</b> parça p'dir.</li>
+<li><b>h² = p·k yerine h² = p·a yazmak:</b> Yükseklik <b>iki PARÇANIN</b> çarpımıyla ilişkilidir, hipotenüsle değil.</li>
+<li><b>Öklid'i her üçgende kullanmak:</b> Teorem <b>yalnızca dik üçgende</b>, <b>dik köşeden inen</b> yükseklik için geçerlidir.</li>
+<li><b>Alan formülünde yanlış çift seçmek:</b> Alan = <b>iki DİK KENARIN</b> çarpımının yarısı ya da <b>hipotenüs × ona ait yükseklik</b>/2.</li>
+<li><b>Dik köşegen bağıntısında kenarları yanlış eşlemek:</b> <b>KARŞILIKLI</b> kenarların kareleri toplanır.</li>
+<li><b>Karekökü sadeleştirmemek:</b> √52 = <b>2√13</b> biçiminde yazılmalıdır.</li>
+</ul>
+
+<h3>7) Özet Kartı</h3>
+<ul>
+<li><b>Pisagor:</b> <b>a² + b² = c²</b> (c = hipotenüs = dik açının karşısı = en uzun kenar).</li>
+<li><b>Ters yönü:</b> a² + b² = c² ise üçgen <b>diktir</b>; &gt; ise dar açılı, &lt; ise geniş açılı.</li>
+<li><b>Üçlüler:</b> <b>3-4-5</b> · <b>5-12-13</b> · <b>8-15-17</b> · <b>7-24-25</b> ve tüm katları.</li>
+<li><b>30-60-90:</b> <b>a · a√3 · 2a</b> (kısa kenar 30°'nin karşısında).</li>
+<li><b>45-45-90:</b> <b>a · a · a√2</b>.</li>
+<li><b>15-75-90:</b> hipotenüs <b>4a</b> ise ona ait yükseklik <b>a</b>.</li>
+<li><b>Öklid:</b> <b>h² = p·k</b> &nbsp;·&nbsp; <b>c² = p·a</b> &nbsp;·&nbsp; <b>b² = k·a</b> &nbsp;·&nbsp; <b>a = p + k</b>.</li>
+<li><b>Alandan:</b> <b>h = (b·c)/a</b>.</li>
+<li><b>Dik köşegenler:</b> <b>a² + c² = b² + d²</b> (karşılıklı kenarlar).</li>
+<li><b>Uzunluk isteniyor ama dik üçgen yoksa:</b> <b>yükseklik çiz</b>.</li>
+<li><b>Öklid yalnızca dik üçgende</b>, dik köşeden inen yükseklik için geçerlidir.</li>
+<li><b>Gerçek hayat sorularında</b> önce <b>dik açının nerede olduğunu</b> bul.</li>
+</ul>
+
+</body></html>

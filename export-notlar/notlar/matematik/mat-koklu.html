@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Köklü Sayılar</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Köklü Sayılar</h2>
+
+<p>Köklü sayılar aslında <b>üslü sayıların başka bir yazımıdır</b>: √x demek x<sup>1/2</sup> demektir. Bu tek cümleyi kavradığında, köklü ifadelerdeki bütün özellikleri üslü sayı kurallarından <u>yeniden üretebilirsin</u> — ezberlemene gerek kalmaz. Ünitedeki iki kritik nokta şudur: <b>çift dereceli köklerde içerinin negatif olamaması</b> ve <b>köklü denklemlerde sağlamanın zorunlu olması</b>. TYT'de bu konudan kaybedilen puanların neredeyse tamamı bu iki yerden gelir.</p>
+
+<h3>1) Kök Kavramı — Kuvvet Almanın Tersi</h3>
+<p class="formula">TANIM — n ∈ ℤ⁺, n ≥ 2 ve a, x ∈ ℝ olmak üzere <b>xⁿ = a</b> eşitliğini sağlayan x değerlerine <b>a'nın n. kuvvetten kökü</b> denir ve <b>x = <sup>n</sup>√a</b> ile gösterilir. <u>Yani kök almak, "hangi sayının n. kuvveti bu eder?" sorusunun cevabıdır.</u> Buradaki <b>n</b> sayısına <u>kökün derecesi</u>, <b>a</b> sayısına <u>kök içi (radikand)</u> denir. n = 2 olduğunda derece yazılmaz: <b>√a</b>.</p>
+<p class="formula">ÜÇ DURUM — xⁿ = a denkleminin çözümü kök içinin işaretine ve derecenin tek/çift olmasına göre değişir:<br/>
+<b>1) a &gt; 0 için:</b> n <u>tek</u> ise <b>x = <sup>n</sup>√a</b> (tek çözüm) &nbsp;·&nbsp; n <u>çift</u> ise <b>x = +<sup>n</sup>√a veya x = −<sup>n</sup>√a</b> (iki çözüm)<br/>
+<b>2) a &lt; 0 için:</b> n <u>tek</u> ise <b>x = <sup>n</sup>√a</b> (tek çözüm, negatif) &nbsp;·&nbsp; n <u>çift</u> ise <b>gerçek kök YOKTUR</b><br/>
+<b>3) a = 0 için:</b> <b><sup>n</sup>√0 = 0</b><br/>
+<u>Neden çift derecede negatif olmaz? Çünkü hiçbir gerçek sayının çift kuvveti negatif olamaz; x² = −4 denklemini sağlayan gerçek x yoktur.</u></p>
+<svg viewBox="0 0 640 270" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kök derecesi ve kök içinin işaretine göre tanımlılık">
+  <rect x="0" y="0" width="640" height="270" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Derece tek mi çift mi? Kök içi negatif olabilir mi?</text>
+  <rect x="40" y="44" width="260" height="116" rx="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="170" y="68" font-size="14" font-weight="700" fill="#15803d" text-anchor="middle">TEK DERECE</text>
+  <text x="170" y="90" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">³√a, ⁵√a, ⁷√a …</text>
+  <text x="170" y="112" font-size="11" fill="#15803d" text-anchor="middle">Kök içi HER İŞARETTE olabilir</text>
+  <text x="170" y="132" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">³√(−8) = −2 ✓</text>
+  <text x="170" y="152" font-size="10" fill="#15803d" text-anchor="middle">Sonucun işareti = içerinin işareti</text>
+  <rect x="340" y="44" width="260" height="116" rx="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="470" y="68" font-size="14" font-weight="700" fill="#b91c1c" text-anchor="middle">ÇİFT DERECE</text>
+  <text x="470" y="90" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">√a, ⁴√a, ⁶√a …</text>
+  <text x="470" y="112" font-size="11" fill="#b91c1c" text-anchor="middle">Kök içi NEGATİF OLAMAZ</text>
+  <text x="470" y="132" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">√(−4) gerçek sayı değildir</text>
+  <text x="470" y="152" font-size="10" fill="#b91c1c" text-anchor="middle">Sonuç daima ≥ 0 çıkar</text>
+  <line x1="26" y1="180" x2="614" y2="180" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="200" font-size="10" fill="#475569">Tanımlılık koşulu: 2n+1 dereceli kökte içeri her gerçek sayı olabilir; 2n dereceli kökte içeri ≥ 0 olmak ZORUNDADIR.</text>
+  <text x="26" y="216" font-size="10" fill="#475569">Bu koşul sınavda gizli veri olarak kullanılır: √(x−3) ifadesi tanımlıysa x ≥ 3'tür — soru bunu söylemeden varsayar.</text>
+  <text x="26" y="232" font-size="10" fill="#475569">Kök dışına çıkarken: n TEK ise ⁿ√(aⁿ) = a  ·  n ÇİFT ise ⁿ√(aⁿ) = |a|. Çift derecede mutlak değer ZORUNLUDUR.</text>
+  <text x="26" y="248" font-size="10" fill="#475569">Örnek: √((−5)²) = |−5| = 5, −5 değil. Çünkü karekök sembolü daima pozitif kökü gösterir.</text>
+  <text x="26" y="264" font-size="10" fill="#475569">Sonuç: kök içi negatifken bile ÇIKAN değer pozitiftir; bu yüzden çift dereceli kökler asla negatif sonuç vermez.</text>
+</svg>
+<p class="formula">ÜSLÜ GÖSTERİM — Bütün kök kuralları buradan doğar: <b><sup>n</sup>√(x<sup>m</sup>) = x<sup>m/n</sup></b>. <u>Örnek: √x = x<sup>1/2</sup>, ³√(x²) = x<sup>2/3</sup>, ⁴√8 = 8<sup>1/4</sup> = (2³)<sup>1/4</sup> = 2<sup>3/4</sup>.</u> <b>Bir kural hatırlamadığında ifadeyi üslü yaz, üslü sayı kuralını uygula, sonra köke geri dön.</b> Bu yöntem her seferinde çalışır.</p>
+
+<h3>2) Köklü Sayılarda Dört İşlem</h3>
+<p class="formula">TOPLAMA ve ÇIKARMA — Yalnızca <b>kök derecesi ve kök içi AYNI</b> olan terimler toplanır; katsayılar toplanır, köklü kısım aynen kalır: <b>a·<sup>n</sup>√x ± b·<sup>n</sup>√x = (a ± b)·<sup>n</sup>√x</b>.<br/>
+<u>Örnek: 3√2 + 5√2 = 8√2. Ama √2 + √3 sadeleşmez — bunlar farklı "türler"dir, tıpkı 2 elma + 3 armut gibi.</u><br/>
+<b>EN YAYGIN HATA:</b> <b>√a + √b = √(a+b) DEĞİLDİR.</b> <u>Kontrol: √9 + √16 = 3 + 4 = 7, oysa √25 = 5. Kök toplamaya dağılmaz.</u></p>
+<p class="formula">ÇARPMA ve BÖLME — Kök <b>çarpmaya ve bölmeye dağılır</b>: <b><sup>n</sup>√a · <sup>n</sup>√b = <sup>n</sup>√(a·b)</b> &nbsp;ve&nbsp; <b><sup>n</sup>√a / <sup>n</sup>√b = <sup>n</sup>√(a/b)</b> (b ≠ 0).<br/>
+<u>Örnek: √2 · √8 = √16 = 4 &nbsp;·&nbsp; √50 / √2 = √25 = 5.</u> <b>Koşul:</b> dereceler <u>eşit</u> olmalıdır; değilse önce eşitlenir.</p>
+<p class="formula">DERECE EŞİTLEME — Dereceleri farklı köklerle işlem yapmak için önce ortak dereceye getirilir: <b><sup>n</sup>√(x<sup>m</sup>) = <sup>n·k</sup>√(x<sup>m·k</sup>)</b> — yani <u>derece ve içerideki üs aynı sayıyla çarpılırsa değer değişmez</u>. <br/>
+<u>Örnek: √2 · ³√2 → EKOK(2,3) = 6 → ⁶√(2³) · ⁶√(2²) = ⁶√(8·4) = ⁶√32.</u> <b>Kontrol:</b> Üslü yazımla 2<sup>1/2</sup> · 2<sup>1/3</sup> = 2<sup>5/6</sup> = ⁶√(2⁵) = ⁶√32 ✓</p>
+<p class="formula">KÖK DIŞINA ÇIKARMA ve İÇİNE ALMA — Kök içindeki tam kuvvetleri dışarı çıkarırsın: <b>√(a²·b) = |a|·√b</b>. <u>Örnek: √72 = √(36·2) = 6√2 &nbsp;·&nbsp; ³√54 = ³√(27·2) = 3·³√2.</u><br/>
+Tersine, dışarıdaki sayıyı içeri alırken derecesi kadar kuvvet alırsın: <b>a·√b = √(a²·b)</b>. <u>Örnek: 5√3 = √75.</u> <b>DİKKAT: İçeri alırken sayının pozitif olması gerekir</b>; −5√3 ifadesi √75 değil, <u>−√75</u>'tir.</p>
+
+<h3>3) Kök Özellikleri ve Özel Durumlar</h3>
+<table>
+<tr><th>#</th><th>Özellik</th><th>Üslü karşılığı / Neden</th></tr>
+<tr><td>1</td><td><b>(<sup>n</sup>√x)<sup>m</sup> = <sup>n</sup>√(x<sup>m</sup>)</b></td><td>(x<sup>1/n</sup>)<sup>m</sup> = x<sup>m/n</sup>. Üs, kökün içine ya da dışına serbestçe taşınır.</td></tr>
+<tr><td>2</td><td><b><sup>n</sup>√x · <sup>n</sup>√y = <sup>n</sup>√(xy)</b></td><td>x<sup>1/n</sup>·y<sup>1/n</sup> = (xy)<sup>1/n</sup>. Aynı üslü sayılar çarpılırken tabanlar birleşir.</td></tr>
+<tr><td>3</td><td><b><sup>n</sup>√(<sup>m</sup>√x) = <sup>n·m</sup>√x</b></td><td>(x<sup>1/m</sup>)<sup>1/n</sup> = x<sup>1/(mn)</sup>. İç içe köklerde <b>dereceler çarpılır</b>.</td></tr>
+<tr><td>4</td><td><b><sup>n</sup>√(a<sup>n</sup>) = a</b> (n tek)&nbsp;·&nbsp;<b>= |a|</b> (n çift)</td><td>Çift derece işareti sildiği için mutlak değer gerekir.</td></tr>
+<tr><td>5</td><td><b><sup>n·k</sup>√(x<sup>m·k</sup>) = <sup>n</sup>√(x<sup>m</sup>)</b></td><td>Kesirli üste sadeleştirme: x<sup>mk/nk</sup> = x<sup>m/n</sup>.</td></tr>
+</table>
+<p class="formula">İÇ İÇE KÖKLERDE DERECELER ÇARPILIR — <u>√(³√64) = ⁶√64 = 2</u>, çünkü 64 = 2⁶. <b>Dikkat: bu kural yalnızca köklerin ARASINDA başka bir terim yokken geçerlidir.</b> <u>√(2·³√5) ifadesinde önce içeri düzenlenir; doğrudan derece çarpılamaz.</u></p>
+<p class="formula">TANIMLILIK KOŞULU — Çift dereceli bir kök tanımlıysa <b>içi ≥ 0</b>'dır. Bu, soruda açıkça yazılmayan ama kullanılması gereken bir bilgidir. <u>Örnek: √(x − 3) + √(5 − x) ifadesi tanımlıysa hem x ≥ 3 hem x ≤ 5 olmalı → x ∈ [3, 5].</u> <b>Ayrıca payda konumundaki kök sıfır da olamaz</b>: 1/√(x−3) için x &gt; 3 (eşitlik yok).</p>
+
+<h3>4) Paydayı Kökten Kurtarma (Eşlenik)</h3>
+<p class="formula">TANIM — <b>Çarpımları rasyonel olan iki irrasyonel sayıdan her biri diğerinin EŞLENİĞİDİR.</b> Köklü kesirlerde paydayı kökten kurtarmak için pay ve payda, <u>paydanın eşleniğiyle</u> çarpılır.</p>
+<p class="formula">İKİ TEMEL DURUM —<br/>
+• <b>Payda tek terimli (√a):</b> Pay ve paydayı <b>√a</b> ile çarp. <u>Örnek: 6/√3 = (6·√3)/(√3·√3) = 6√3/3 = 2√3.</u><br/>
+• <b>Payda iki terimli (a + √b):</b> Eşleniği <b>a − √b</b>'dir; çünkü <u>(a + √b)(a − √b) = a² − b</u> ile kök yok olur (iki kare farkı).<br/>
+<u>Örnek: 4/(3 + √5) = 4(3 − √5) / [(3+√5)(3−√5)] = 4(3 − √5) / (9 − 5) = 4(3 − √5)/4 = <b>3 − √5</b>.</u></p>
+<p class="formula">ÖZEL KÖKLÜ İFADELER — <b>√(a ± 2√b)</b> biçimindeki iç içe kökler açılabilir. <b>a = m + n</b> ve <b>b = m·n</b> olacak biçimde iki sayı bulunursa:<br/>
+<b>√(a + 2√b) = √m + √n</b> &nbsp;ve&nbsp; <b>√(a − 2√b) = |√m − √n|</b><br/>
+<u>Örnek: √(7 + 2√12) → toplamı 7, çarpımı 12 olan sayılar: 3 ve 4 → √3 + √4 = √3 + 2.</u> <b>Kontrol:</b> (√3 + 2)² = 3 + 4√3 + 4 = 7 + 4√3 = 7 + 2√12 ✓ <u>Tanıma işareti: kök içinde "2√…" biçiminde bir terim varsa bu kalıbı dene.</u></p>
+
+<h3>5) Köklü Sayıları Sıralama</h3>
+<p class="formula">DURUM 1 — DERECELER EŞİT: Kök içi büyük olan büyüktür. <b>Yöntem: hepsini tek bir kök içine topla.</b><br/>
+<u>Örnek (PDF): a = 5√3, b = 2√20, c = 7√2 → a = √75, b = √80, c = √98 → <b>a &lt; b &lt; c</b>.</u> <b>Dışarıdaki katsayıyı içeri almak, karşılaştırmayı tek bakışa indirir.</b></p>
+<p class="formula">DURUM 2 — KÖK İÇLERİ EŞİT: <b>Derecesi küçük olan büyüktür.</b><br/>
+<u>Örnek (PDF): a = ³√64 = 4, b = √64 = 8, c = ⁶√64 = 2 → <b>c &lt; a &lt; b</b>.</u><br/>
+<b>Neden?</b> Aynı sayıyı daha çok parçaya bölmek gibi düşün: derece büyüdükçe sonuç 1'e yaklaşır ve küçülür (1'den büyük sayılarda).</p>
+<p class="formula">DURUM 3 — NE DERECE NE İÇERİK EŞİT: <b>Her sayıyı iki ardışık tam sayı arasına sıkıştır.</b></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Köklü sayıları aralığa sıkıştırarak sıralama">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Aralığa sıkıştırma: a = ³√123, b = √79, c = ⁴√234</text>
+  <rect x="40" y="44" width="180" height="100" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="130" y="66" font-size="13" font-weight="700" fill="#0369a1" text-anchor="middle">a = ³√123</text>
+  <text x="130" y="88" font-size="11" fill="#0369a1" text-anchor="middle">64 &lt; 123 &lt; 125</text>
+  <text x="130" y="108" font-size="11" fill="#0369a1" text-anchor="middle">³√64 &lt; a &lt; ³√125</text>
+  <text x="130" y="132" font-size="14" font-weight="700" fill="#0369a1" text-anchor="middle">4 &lt; a &lt; 5</text>
+  <rect x="230" y="44" width="180" height="100" rx="10" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+  <text x="320" y="66" font-size="13" font-weight="700" fill="#a16207" text-anchor="middle">b = √79</text>
+  <text x="320" y="88" font-size="11" fill="#a16207" text-anchor="middle">64 &lt; 79 &lt; 81</text>
+  <text x="320" y="108" font-size="11" fill="#a16207" text-anchor="middle">√64 &lt; b &lt; √81</text>
+  <text x="320" y="132" font-size="14" font-weight="700" fill="#a16207" text-anchor="middle">8 &lt; b &lt; 9</text>
+  <rect x="420" y="44" width="180" height="100" rx="10" fill="#fbe8ef" stroke="#be185d" stroke-width="2"/>
+  <text x="510" y="66" font-size="13" font-weight="700" fill="#9d174d" text-anchor="middle">c = ⁴√234</text>
+  <text x="510" y="88" font-size="11" fill="#9d174d" text-anchor="middle">81 &lt; 234 &lt; 256</text>
+  <text x="510" y="108" font-size="11" fill="#9d174d" text-anchor="middle">⁴√81 &lt; c &lt; ⁴√256</text>
+  <text x="510" y="132" font-size="14" font-weight="700" fill="#9d174d" text-anchor="middle">3 &lt; c &lt; 4</text>
+  <rect x="180" y="160" width="280" height="34" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="320" y="182" font-size="15" font-weight="700" fill="#15803d" text-anchor="middle">c &lt; a &lt; b</text>
+  <line x1="26" y1="208" x2="614" y2="208" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="226" font-size="10" fill="#475569">Yöntem: kök içindeki sayıyı, altında ve üstünde kalan en yakın TAM KUVVETLERİN arasına yerleştir (³√ için küpler, ⁴√ için 4. kuvvetler).</text>
+  <text x="26" y="242" font-size="10" fill="#475569">Aralıklar çakışmadığı sürece sıralama kesindir. Çakışırlarsa ondalık yaklaşım ya da ortak dereceye getirme gerekir.</text>
+</svg>
+<p class="formula">YAKLAŞIK DEĞER — √a sayısının yaklaşık değeri için: a'dan <u>küçük en büyük tam kare</u> x, a'dan <u>büyük en küçük tam kare</u> y olmak üzere <b>√a ≈ √x + (a − x)/(y − x)</b>. <u>Örnek: √79 için x = 64, y = 81 → √79 ≈ 8 + 15/17 ≈ 8,88. Gerçek değer 8,888… ✓</u></p>
+
+<h3>6) Köklü Denklemler — Sağlama Neden Zorunlu?</h3>
+<p>Bilinmeyenin kök içinde olduğu denklemlere <b>köklü denklem</b> denir. Bu denklemleri çözerken iki tarafın karesini alırsın — <u>ve işte tehlike tam burada başlar</u>.</p>
+<p class="formula">NEDEN YABANCI KÖK ÇIKAR? — Kare almak, <b>işaret bilgisini yok eden</b> bir işlemdir. <u>−5 = 5 yanlıştır ama iki tarafın karesi alınırsa 25 = 25 doğru olur.</u> Yani kare alma işlemi, <b>yanlış bir eşitliği doğru gösterebilir</b>. Bu yüzden bulduğun her kökü <b>ilk denklemde</b> denemek zorundasın.</p>
+<p class="formula">ÖRNEK (PDF) — <b>√x + 4 = 11</b> denkleminde x kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Kökü yalnız bırak:</b> √x = 11 − 4 = <b>7</b>.</li>
+<li><b>Adım 2 — Kare al:</b> (√x)² = 7² → <b>x = 49</b>.</li>
+<li><b>Adım 3 — Sağlama:</b> √49 + 4 = 7 + 4 = 11 ✓ <b>Eşitlik sağlandı, x = 49 geçerlidir.</b></li>
+</ul>
+<p class="formula">ÖRNEK (PDF) — <b>√x + 13 = 8</b> denkleminde x kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Kökü yalnız bırak:</b> √x = 8 − 13 = <b>−5</b>.</li>
+<li><b>Uyarı burada verilmeliydi:</b> Bir karekök <u>negatif olamaz</u>. Zaten bu satırda "çözüm yok" diyebilirdin.</li>
+<li><b>Adım 2 — Yine de kare alalım:</b> x = 25.</li>
+<li><b>Adım 3 — Sağlama:</b> √25 + 13 = 5 + 13 = <b>18 ≠ 8</b> ✗</li>
+<li><b>Sonuç: Denklemi sağlayan x değeri YOKTUR (ÇK = ∅).</b> <u>Kare alma işlemi sahte bir kök üretti; sağlama olmasa 25 yazıp kaybederdin.</u></li>
+<li><b>Kısayol:</b> Kökü yalnız bıraktığında sağ taraf <b>negatif çıkıyorsa</b> denklemin çözümü yoktur — daha ileri gitme.</li>
+</ul>
+<p class="formula">KÖKLÜ EŞİTSİZLİKLER — <b>√f(x) &lt; a</b> biçimindeki eşitsizliklerde <u>iki koşul birden</u> gerekir: <b>1)</b> tanımlılık: f(x) ≥ 0, <b>2)</b> kare alma: f(x) &lt; a² (a &gt; 0 olmak koşuluyla). Çözüm, iki kümenin <b>kesişimidir</b>. <u>Örnek: √(x − 1) &lt; 3 → x − 1 ≥ 0 ve x − 1 &lt; 9 → 1 ≤ x &lt; 10.</u> <b>Tanımlılık koşulunu yazmayan öğrenci, aralığın sol ucunu kaçırır.</b></p>
+
+<h3>7) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>İfadeyi sadeleştirme</b></td><td>Köklü toplam/çarpım verilip değeri istenir</td><td>Kök içlerini <b>çarpanlarına ayır</b>, tam kuvvetleri dışarı çıkar, benzer terimleri topla.</td></tr>
+<tr><td>2</td><td><b>Paydayı kökten kurtarma</b></td><td>Paydada kök var</td><td>Tek terimliyse kökle, iki terimliyse <b>eşleniğiyle</b> genişlet.</td></tr>
+<tr><td>3</td><td><b>Sıralama</b></td><td>Farklı dereceli/içerikli köklü sayılar</td><td>Dereceler eşitse içeriye bak → içerik eşitse dereceye bak → değilse <b>aralığa sıkıştır</b>.</td></tr>
+<tr><td>4</td><td><b>Köklü denklem</b></td><td>Bilinmeyen kök içinde</td><td>Kökü yalnız bırak → kare al → <b>SAĞLAMA YAP</b>. Sağ taraf negatifse çözüm yok.</td></tr>
+<tr><td>5</td><td><b>Tanımlılık aralığı</b></td><td>"…ifadesi tanımlı ise x'in aralığı"</td><td>Çift dereceli her kökün içi <b>≥ 0</b>; paydadaysa <b>&gt; 0</b>. Koşulların <b>kesişimini</b> al.</td></tr>
+<tr><td>6</td><td><b>Mutlak değerli çıkarma</b></td><td>√(x²) ya da ⁴√(x⁴) biçimi, x'in işareti verilmiş</td><td><b>Çift derecede mutlak değerle çık</b>, sonra işarete göre aç.</td></tr>
+<tr><td>7</td><td><b>İç içe kök</b></td><td>√(a ± 2√b) ya da √(³√x) biçimi</td><td>Basit iç içe kökte <b>dereceleri çarp</b>; a ± 2√b kalıbında <b>toplamı a, çarpımı b</b> olan sayıları ara.</td></tr>
+<tr><td>8</td><td><b>Kesirli üsse çevirme</b></td><td>Farklı dereceli kökler birlikte</td><td>Hepsini <b>x<sup>m/n</sup></b> biçiminde yaz, üslü kurallarla işlem yap, sonra köke dön.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 1) — <b>√48 − √27 + √75</b> işleminin sonucu kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Kök içlerini tam kare çarpanlarına ayır:</b> 48 = 16·3, 27 = 9·3, 75 = 25·3.</li>
+<li><b>Adım 2 — Dışarı çıkar:</b> 4√3 − 3√3 + 5√3.</li>
+<li><b>Adım 3 — Benzer terimleri topla:</b> (4 − 3 + 5)√3 = <b>6√3</b>.</li>
+<li><b>Ders:</b> Köklü toplama sorularında ilk iş <u>her kök içindeki en büyük tam kare çarpanı bulmaktır</u>. Hepsi aynı köke indirgenince işlem basit toplamaya döner.</li>
+</ul>
+<p class="formula">ÖRNEK (Tip 5) — <b>√(x + 2) / √(6 − x)</b> ifadesinin tanımlı olması için x hangi aralıkta olmalıdır?</p>
+<ul>
+<li><b>Koşul 1 — Payın içi ≥ 0:</b> x + 2 ≥ 0 → <b>x ≥ −2</b>.</li>
+<li><b>Koşul 2 — Paydanın içi &gt; 0:</b> Payda hem kök içi olduğu için ≥ 0, hem de sıfır olamayacağı için <u>kesinlikle pozitif</u> olmalıdır: 6 − x &gt; 0 → <b>x &lt; 6</b>.</li>
+<li><b>Kesişim:</b> <b>−2 ≤ x &lt; 6</b> → <b>[−2, 6)</b>.</li>
+<li><b>Kritik ayrıntı:</b> Paydadaki kök için eşitlik <u>yoktur</u>; bunu kaçırmak aralığın sağ ucunu yanlış kapatmaya yol açar.</li>
+</ul>
+
+<h3>8) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Köklü ifade:</b> <sup>n</sup>√a biçiminde yazılan, kuvvet almanın tersi işlemi gösteren ifade.</li>
+<li><b>Kökün derecesi (n):</b> Kaçıncı kuvvetten kök alındığını gösteren sayı; yazılmazsa 2'dir.</li>
+<li><b>Kök içi (radikand):</b> Kök sembolünün içindeki ifade.</li>
+<li><b>Tanımlılık koşulu:</b> Çift dereceli köklerde kök içinin negatif olamaması şartı.</li>
+<li><b>Kök dışına çıkarma:</b> Kök içindeki tam kuvvet çarpanlarını dışarı alma; çift derecede mutlak değerle çıkılır.</li>
+<li><b>Eşlenik:</b> Çarpımı rasyonel olan iki irrasyonel ifadeden her biri; a + √b'nin eşleniği a − √b'dir.</li>
+<li><b>Paydayı rasyonel yapma:</b> Paydadaki kökü yok etmek için pay ve paydayı eşlenikle çarpma.</li>
+<li><b>İç içe kök:</b> Bir kökün içinde başka bir kök bulunması; basit hâlde dereceler çarpılır.</li>
+<li><b>Yabancı kök:</b> Kare alma sırasında ortaya çıkan ama ilk denklemi sağlamayan değer.</li>
+<li><b>Kesirli üs:</b> <sup>n</sup>√(x<sup>m</sup>) ifadesinin x<sup>m/n</sup> biçimindeki karşılığı.</li>
+</ul>
+
+<h3>9) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>√a + √b = √(a+b) sanmak:</b> <u>√9 + √16 = 7</u> iken <u>√25 = 5</u>. Kök toplamaya dağılmaz, yalnızca çarpma ve bölmeye dağılır.</li>
+<li><b>√(x²) = x yazmak:</b> Doğrusu <b>|x|</b>'dir; x negatif olabilir.</li>
+<li><b>Çift dereceli kökte negatif içerik kabul etmek:</b> √(−4) gerçek sayı belirtmez; tanımlılık koşulunu ilk iş olarak yaz.</li>
+<li><b>Tanımlılıkta paydayı unutmak:</b> Paydadaki kök için koşul <b>&gt; 0</b>'dır, ≥ 0 değil.</li>
+<li><b>Köklü denklemde sağlama yapmamak:</b> Kare alma sahte kök üretir; <u>√x + 13 = 8</u> örneğinde 25 yabancı köktür.</li>
+<li><b>Kökü yalnız bırakınca negatif çıkanı görmezden gelmek:</b> √x = −5 durumunda doğrudan <b>çözüm yoktur</b>.</li>
+<li><b>Negatif katsayıyı kök içine almak:</b> −5√3 ifadesi √75 değil <b>−√75</b>'tir. İçeri yalnızca pozitif sayı alınır.</li>
+<li><b>İç içe kökte dereceleri toplamak:</b> Dereceler <b>çarpılır</b>: √(³√x) = ⁶√x.</li>
+<li><b>Farklı dereceli kökleri doğrudan çarpmak:</b> Önce <b>ortak dereceye</b> getirilmelidir.</li>
+<li><b>Eşlenikte işareti aynı bırakmak:</b> a + √b'nin eşleniği <b>a − √b</b>'dir; aynısıyla çarpmak kökü yok etmez.</li>
+<li><b>Sıralamada dereceyi göz ardı etmek:</b> Kök içleri eşitse <b>derecesi küçük olan büyüktür</b> (³√64 = 4 &lt; √64 = 8).</li>
+<li><b>Köklü eşitsizlikte tek koşul yazmak:</b> Hem <b>tanımlılık</b> hem <b>kare alma</b> koşulu gerekir; çözüm kesişimdir.</li>
+<li><b>0'ın kökünü tanımsız sanmak:</b> <sup>n</sup>√0 = 0'dır, tanımlıdır.</li>
+</ul>
+
+<h3>10) Özet Kartı</h3>
+<ul>
+<li><b>Tanım:</b> xⁿ = a ⇒ x = <sup>n</sup>√a. Kök almak, kuvvet almanın tersidir.</li>
+<li><b>Üslü karşılık:</b> <b><sup>n</sup>√(x<sup>m</sup>) = x<sup>m/n</sup></b> — bütün kuralların kaynağı.</li>
+<li><b>Tanımlılık:</b> Tek derecede içeri her sayı olabilir; <b>çift derecede içeri ≥ 0</b>, paydada <b>&gt; 0</b>.</li>
+<li><b>Dışarı çıkarma:</b> n tek → <sup>n</sup>√(aⁿ) = a &nbsp;·&nbsp; n çift → <sup>n</sup>√(aⁿ) = <b>|a|</b>.</li>
+<li><b>Toplama:</b> Yalnızca <b>aynı derece ve aynı içerik</b> toplanır: a√x + b√x = (a+b)√x. <b>√a + √b ≠ √(a+b)</b>.</li>
+<li><b>Çarpma-bölme:</b> <sup>n</sup>√a · <sup>n</sup>√b = <sup>n</sup>√(ab) &nbsp;·&nbsp; <sup>n</sup>√a / <sup>n</sup>√b = <sup>n</sup>√(a/b). Dereceler eşit olmalı.</li>
+<li><b>Derece eşitleme:</b> <sup>n</sup>√(x<sup>m</sup>) = <sup>nk</sup>√(x<sup>mk</sup>); ortak derece için EKOK kullan.</li>
+<li><b>İç içe kök:</b> <sup>n</sup>√(<sup>m</sup>√x) = <sup>nm</sup>√x — <b>dereceler çarpılır</b>.</li>
+<li><b>Eşlenik:</b> a + √b ↔ a − √b; çarpımları <b>a² − b</b> (iki kare farkı).</li>
+<li><b>Özel kalıp:</b> <b>√(a ± 2√b)</b> → toplamı a, çarpımı b olan m, n bul → <b>√m ± √n</b>.</li>
+<li><b>Sıralama:</b> Dereceler eşit → içeriğe bak &nbsp;·&nbsp; içerik eşit → <b>derecesi küçük olan büyük</b> &nbsp;·&nbsp; ikisi de değilse <b>aralığa sıkıştır</b>.</li>
+<li><b>Denklem:</b> Kökü yalnız bırak → kare al → <b>SAĞLAMA</b>. Sağ taraf negatifse çözüm yoktur.</li>
+<li><b>Eşitsizlik:</b> Tanımlılık koşulu <b>ve</b> kare alma koşulu; çözüm <b>kesişim</b>.</li>
+</ul>
+
+</body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Atmosfer, Sıcaklık, Basınç ve Rüzgârlar</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Atmosfer, Sıcaklık, Basınç ve Rüzgârlar</h2>
+
+<h3>1) Atmosfer ve Özellikleri</h3>
+<p>Yer çekiminin etkisiyle Dünya'nın dışını çepeçevre saran gaz tabakasına <b>atmosfer (hava küre)</b> denir.</p>
+<ul>
+<li><b>Oranı değişmeyen gazlar:</b> Azot (%78,08), oksijen (%20,95) ve asal gazlar (argon, kripton, hidrojen, ksenon, neon, helyum) — atmosferde her zaman bulunur ve oranları sabittir.</li>
+<li><b>Oranı değişen gazlar:</b> <b>Su buharı</b> ve <b>karbondioksit</b> — her zaman bulunur ama oranları <b>yere ve zamana göre değişir</b>. İklim olaylarının temel değişkeni budur.</li>
+</ul>
+<p><b>Atmosferin etkileri (neden-sonuç):</b> Gazların belirli oranlarda bulunması <b>canlı yaşamının devamlılığını</b> sağlar → Güneş'in <b>zararlı ışınlarını tutar</b> → ışınları <b>dağıtarak</b> doğrudan ışın almayan yerlerin de aydınlık olmasını sağlar → Dünya'nın <b>aşırı ısınmasını ve soğumasını önler</b> → hava akımlarıyla sıcaklığın <b>dengeli dağılmasını</b> sağlar → uzaydan gelen <b>gök taşlarını parçalar</b> → <b>hava olaylarının</b> meydana gelmesini sağlar → <b>sesi, ışığı ve sıcaklığı iletir</b>.</p>
+<svg viewBox="0 0 640 330" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Atmosfer katmanları">
+  <rect x="0" y="0" width="640" height="330" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Atmosfer katmanları ve özellikleri</text>
+  <rect x="60" y="256" width="420" height="52" fill="#dcfce7" stroke="#94a3b8"/>
+  <rect x="60" y="206" width="420" height="50" fill="#e0f2fe" stroke="#94a3b8"/>
+  <rect x="60" y="158" width="420" height="48" fill="#dbeafe" stroke="#94a3b8"/>
+  <rect x="60" y="106" width="420" height="52" fill="#fed7aa" stroke="#94a3b8"/>
+  <rect x="60" y="56" width="420" height="50" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="72" y="288" font-size="12" font-weight="700" fill="#166534">TROPOSFER (10–16 km)</text>
+  <text x="72" y="303" font-size="10" fill="#475569">gazların %75'i · su buharı · iklim olayları · yükseldikçe sıcaklık ↓</text>
+  <text x="72" y="234" font-size="12" font-weight="700" fill="#0369a1">STRATOSFER (~50 km)</text>
+  <text x="72" y="249" font-size="10" fill="#475569">ozon tabakası · yatay hava hareketi · ort. −50 °C</text>
+  <text x="72" y="186" font-size="12" font-weight="700" fill="#1e40af">MEZOSFER (~80 km)</text>
+  <text x="72" y="200" font-size="10" fill="#475569">meteorlar burada yanar · sıcaklık −90 °C'ye düşer</text>
+  <text x="72" y="136" font-size="12" font-weight="700" fill="#9a3412">TERMOSFER</text>
+  <text x="72" y="150" font-size="10" fill="#475569">en sıcak katman (1.000 °C üzeri) · iyonlar radyo dalgası iletir · aurora</text>
+  <text x="72" y="84" font-size="12" font-weight="700" fill="#334155">EKZOSFER (~10.000 km)</text>
+  <text x="72" y="98" font-size="10" fill="#475569">en dış katman · gazlar çok seyrek · haberleşme uyduları</text>
+  <line x1="500" y1="60" x2="500" y2="305" stroke="#334155" stroke-width="1.5"/>
+  <polygon points="500,56 495,68 505,68" fill="#334155"/>
+  <text x="510" y="76" font-size="10" fill="#475569">yükselti</text>
+  <text x="510" y="300" font-size="10" fill="#475569">yeryüzü</text>
+</svg>
+<p class="formula">DİKKAT: Troposferin kalınlığı <b>Ekvator'dan kutuplara gidildikçe azalır</b> (Ekvator'da ~16 km, kutuplarda ~10 km); çünkü Ekvator'da sıcak hava genleşip yükselir. Ayrıca <b>yatay ve dikey</b> hava hareketleri yalnızca troposferde görülür.</p>
+
+<h3>2) Hava Durumu ve İklim</h3>
+<ul>
+<li><b>Hava durumu:</b> <b>Dar alanlarda</b> etkili olan hava olaylarının <b>kısa süreli</b> ortalamasıdır. İnceleyen bilim: <b>meteoroloji</b>.</li>
+<li><b>İklim:</b> <b>Geniş alanlarda</b> etkili olan hava olaylarının <b>uzun süreli</b> ortalamasıdır. İnceleyen bilim: <b>klimatoloji</b>.</li>
+</ul>
+<table>
+<tr><th>İklimin doğal ortama etkileri</th><th>İklimin beşerî ortama etkileri</th></tr>
+<tr><td>Yer şekilleri, erozyon, kütle hareketleri, buzulların etki alanı, toprak oluşumu, yer üstü ve yer altı suları, bitki ve hayvan türlerinin dağılışı</td><td>Yerleşmelerin dağılışı, dokusu ve yapısı; nüfusun dağılışı; tarımsal üretim, hayvancılık, sanayi, ulaşım ve turizm etkinlikleri</td></tr>
+</table>
+
+<h3>3) Sıcaklığın Dağılışını Etkileyen Faktörler</h3>
+<p>Bir cismin kütlesinde bulunan enerjiye <b>ısı</b>, ısının çevreye yaydığı enerjiye <b>sıcaklık</b> denir.</p>
+<p><b>a) Güneş ışınlarının yere düşme açısı</b> — en temel etkendir. Açı büyüdükçe sıcaklık artar. Açıyı dört şey değiştirir:</p>
+<ul>
+<li><b>Dünya'nın şekli:</b> Ekvator'dan kutuplara açı daralır → sıcaklık azalır. Buna <b>enlem etkisi</b> denir.</li>
+<li><b>Günlük hareket:</b> Gün içinde açı sürekli değişir → günlük sıcaklık farkı oluşur.</li>
+<li><b>Yıllık hareket ve eksen eğikliği:</b> Açı yıl boyunca değişir → mevsimlik sıcaklık farkı oluşur.</li>
+<li><b>Yeryüzü şekilleri (bakı, eğim):</b> Dağların Güneş'e dönük yamacı daha sıcaktır; bu farka <b>bakı</b> denir. <u>Türkiye'de</u> dağların <b>güney</b> yamaçları güneşe dönüktür.</li>
+</ul>
+<p><b>b) Diğer faktörler:</b></p>
+<ul>
+<li><b>Atmosfer:</b> Güneş'ten gelen enerjinin yaklaşık <b>%43'ü</b> yeryüzünü ısıtır; ışınlar atmosferde dağıldığı için sıcaklık dengelenir.</li>
+<li><b>Yükselti:</b> Troposferde yerden yükseldikçe sıcaklık <b>azalır</b>; çünkü yeryüzüne yakın yoğun gazlar, yerden yansıyan ışınları daha fazla tutar.</li>
+<li><b>Güneşlenme süresi:</b> Yeryüzü ne kadar uzun süre ışın alırsa <b>ısı birikimi</b> o kadar fazladır.</li>
+<li><b>Nem:</b> Nem fazlaysa günlük ve yıllık sıcaklık farkı <b>az</b>, nem azsa <b>fazla</b> olur (çöllerde gece-gündüz farkı bu yüzden büyüktür).</li>
+<li><b>Kara ve denizlerin dağılışı:</b> Karalar çabuk ısınır çabuk soğur, denizler yavaş ısınır yavaş soğur → <b>karasallıkta</b> sıcaklık farkı fazla, <b>denizellikte</b> azdır.</li>
+<li><b>Okyanus akıntıları:</b> Ekvator yönünden gelen <b>sıcak</b> akıntılar sıcaklığı yükseltir, kutuplardan gelen <b>soğuk</b> akıntılar düşürür.</li>
+<li><b>Rüzgârlar:</b> Ekvator çevresinden esenler sıcaklığı artırır, kutuplardan esenler azaltır.</li>
+<li><b>Yüzey özellikleri:</b> Su yüzeyi ışınları büyük oranda yansıtır (ısınma gecikir); <b>koyu ve mat</b> renkli taşlar çabuk, <b>açık ve parlak</b> renkliler geç ısınır; nemli toprak geç ısınıp geç soğur; kar örtüsü beyaz ve parlak olduğu için ışınları yansıtır.</li>
+</ul>
+<p class="formula">DİKKAT: Kutup bölgelerinde <b>6 ay gündüz</b> yaşanmasına rağmen sıcaklık düşüktür — çünkü ışınlar <b>çok eğik açılarla</b> gelir. Güneşlenme süresi tek başına yüksek sıcaklık garantisi değildir.</p>
+<p><b>Sıcaklığın yeryüzündeki dağılışı:</b> Sıcaklıkları aynı olan noktaları birleştiren eğrilere <b>eş sıcaklık eğrisi (izoterm)</b> denir. Gerçek değerlerle çizilen haritaya <b>gerçek sıcaklık haritası</b>, yükselti etkisi ortadan kaldırılarak çizilene <b>indirgenmiş sıcaklık haritası</b> denir.</p>
+<ul>
+<li>Dünya'nın şeklinden dolayı sıcaklık genel olarak <b>Ekvator'dan kutuplara azalır</b>.</li>
+<li><b>Dönencelerdeki düşük nem</b> yüksek sıcaklıklara yol açmıştır (özellikle <u>Yengeç Dönencesi</u> — Büyük Sahra kuşağı).</li>
+<li>En düşük ve en yüksek sıcaklıklar, karaların daha fazla yer kapladığı <b>kuzey yarım kürede</b> görülür.</li>
+<li>Kuzey yarım kürede karaların <b>batı</b> kıyıları, güney yarım kürede <b>doğu</b> kıyıları daha sıcaktır — sebep <b>okyanus akıntılarıdır</b>.</li>
+</ul>
+
+<h3>4) Basınç ve Basınç Merkezleri</h3>
+<p>Yer çekiminin etkisiyle atmosferi oluşturan gazların yeryüzüne uyguladığı kuvvete <b>atmosfer basıncı</b> denir; birimi <b>milibar</b>, ölçüm aracı <b>barometredir</b>. <b>Normal basınç</b>: deniz seviyesinde, 45° enleminde ve 15 °C'de <b>1013 mb</b>.</p>
+<p><b>Basıncı etkileyen faktörler:</b></p>
+<ul>
+<li><b>Yükselti:</b> Yükseldikçe basınç <b>azalır</b> (gazların yoğunluğu azalır).</li>
+<li><b>Sıcaklık:</b> Isınan hava genleşir, yükselir → basınç <b>düşer</b>; soğuyan hava ağırlaşır, alçalır → basınç <b>artar</b>. Bu yüzden <b>Ekvator'da sürekli alçak</b>, <b>kutuplarda sürekli yüksek</b> basınç vardır (termik).</li>
+<li><b>Yer çekimi:</b> Geoit şekli nedeniyle kutuplarda çekim fazladır → Ekvator'dan kutuplara ve yüksekten alçağa gidildikçe basınç <b>artar</b>.</li>
+<li><b>Yoğunluk:</b> Gaz yoğunluğu fazlaysa basınç yüksektir.</li>
+<li><b>Dinamik etkenler:</b> Günlük harekete bağlı olarak <b>30° enlemlerinde dinamik yüksek basınç (DYB)</b>, <b>60° enlemlerinde dinamik alçak basınç (DAB)</b> kuşakları oluşur.</li>
+</ul>
+<table>
+<tr><th>Özellik</th><th>Alçak basınç (siklon)</th><th>Yüksek basınç (antisiklon)</th></tr>
+<tr><td>Yatay hava hareketi</td><td>Çevreden merkeze</td><td>Merkezden çevreye</td></tr>
+<tr><td>Dikey hava hareketi</td><td>Yükselici</td><td>Alçalıcı</td></tr>
+<tr><td>Gökyüzü</td><td>Kapalı (bulutlu)</td><td>Açık (güneşli)</td></tr>
+<tr><td>Yağış ihtimali</td><td>Yüksek</td><td>Düşük</td></tr>
+<tr><td>Sapma yönü</td><td>KYK'de sağa, GYK'de sola</td><td>KYK'de sağa, GYK'de sola</td></tr>
+</table>
+
+<h3>5) Rüzgârlar</h3>
+<p>Basınç farkına bağlı oluşan <b>yatay hava hareketine rüzgâr</b> denir; <b>yüksek basınçtan alçak basınca</b> doğru eser. Yön ve hızı <b>anemometre</b> ile ölçülür.</p>
+<p><b>Hızını etkileyen faktörler:</b> <b>Basınç farkı (gradyan)</b> arttıkça hız artar · <b>Dünya'nın eksen hareketi</b> sapmaya yol açtığı için katedilen mesafe uzar, hız azalır · <b>basınç merkezleri arası mesafe</b> · <b>sürtünme</b>.<br>
+<b>Yönünü etkileyen faktörler:</b> Dünya'nın eksen hareketi (KYK'de <b>sağa</b>, GYK'de <b>sola</b> sapma), <b>yer şekilleri</b> ve <b>basınç merkezlerinin konumu</b>.</p>
+<p>Rüzgârın belirli bir yönden esme zamanına <b>esme sıklığı</b>, yıl içinde en sık estiği yöne <b>hâkim rüzgâr yönü</b> denir; esme yönleri <b>rüzgâr frekans gülü</b> ile gösterilir.</p>
+<svg viewBox="0 0 640 330" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Basınç kuşakları ve sürekli rüzgârlar">
+  <rect x="0" y="0" width="640" height="330" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Basınç kuşakları ve sürekli rüzgârlar (kuzey yarım küre kesiti)</text>
+  <rect x="70" y="44" width="420" height="34" fill="#dbeafe" stroke="#94a3b8"/>
+  <rect x="70" y="78" width="420" height="58" fill="#dcfce7" stroke="#94a3b8"/>
+  <rect x="70" y="136" width="420" height="58" fill="#fef3c7" stroke="#94a3b8"/>
+  <rect x="70" y="194" width="420" height="58" fill="#fed7aa" stroke="#94a3b8"/>
+  <rect x="70" y="252" width="420" height="46" fill="#fee2e2" stroke="#94a3b8"/>
+  <text x="496" y="62" font-size="11" font-weight="700" fill="#1e40af">90° TYB</text>
+  <text x="496" y="140" font-size="11" font-weight="700" fill="#166534">60° DAB</text>
+  <text x="496" y="198" font-size="11" font-weight="700" fill="#9a3412">30° DYB</text>
+  <text x="496" y="290" font-size="11" font-weight="700" fill="#b91c1c">0° TAB</text>
+  <text x="84" y="66" font-size="10" fill="#475569">kutup: soğuk hava → termik yüksek basınç</text>
+  <g stroke="#0284c7" stroke-width="2.5">
+    <line x1="150" y1="100" x2="230" y2="126"/><line x1="270" y1="100" x2="350" y2="126"/>
+  </g>
+  <polygon points="230,126 216,120 220,132" fill="#0284c7"/><polygon points="350,126 336,120 340,132" fill="#0284c7"/>
+  <text x="150" y="96" font-size="11" font-weight="700" fill="#0369a1">Kutup rüzgârları (soğuk-kuru)</text>
+  <g stroke="#16a34a" stroke-width="2.5">
+    <line x1="230" y1="186" x2="150" y2="152"/><line x1="360" y1="186" x2="280" y2="152"/>
+  </g>
+  <polygon points="150,152 164,152 158,142" fill="#16a34a"/><polygon points="280,152 294,152 288,142" fill="#16a34a"/>
+  <text x="150" y="212" font-size="11" font-weight="700" fill="#15803d">Batı rüzgârları → 60°'de cephe yağışı</text>
+  <g stroke="#dc2626" stroke-width="2.5">
+    <line x1="230" y1="230" x2="160" y2="272"/><line x1="380" y1="230" x2="310" y2="272"/>
+  </g>
+  <polygon points="160,272 174,266 172,278" fill="#dc2626"/><polygon points="310,272 324,266 322,278" fill="#dc2626"/>
+  <text x="200" y="248" font-size="11" font-weight="700" fill="#b91c1c">Alize rüzgârları</text>
+  <text x="84" y="290" font-size="10" fill="#475569">Ekvator: sıcak hava yükselir → termik alçak basınç, bol yağış</text>
+  <text x="84" y="176" font-size="10" fill="#475569">30°: alçalıcı hava → çöller (Büyük Sahra, Arabistan)</text>
+</svg>
+<p><b>a) Sürekli rüzgârlar</b> — sürekli basınç merkezleri arasında yıl boyunca eser:</p>
+<ul>
+<li><b>Alize rüzgârları:</b> 30° <b>DYB</b>'den Ekvator'daki <b>TAB</b>'a doğru eser. Tropikal bölgede karaların <b>doğu kıyılarına bol yağış</b> bırakır.</li>
+<li><b>Batı rüzgârları:</b> 30° DYB'den 60° <b>DAB</b>'a doğru eser; 60°'de kutup rüzgârlarıyla karşılaşır ve <b>cephe yağışı</b> oluşur. <u>Türkiye</u> kışın bu kuşağın etkisindedir.</li>
+<li><b>Kutup rüzgârları:</b> 90° <b>TYB</b>'den 60° DAB'a eser; <b>soğuk ve kuru</b>durlar.</li>
+</ul>
+<p><b>b) Mevsimlik (muson) rüzgârlar:</b> Yaz ve kış mevsimlerinde karalarla denizler arasında esen <b>ters yönlü</b> rüzgârlardır; <u>Asya Kıtası ile Hint Okyanusu'nun</u> farklı ısınmasına bağlıdır ve en tipik hâliyle <u>Güneydoğu Asya kıyılarında</u> etkilidir. <b>Yaz musonu</b> denizden karaya eser, <b>bol yağış</b> bırakır; <b>kış musonu</b> karadan denize estiği için <b>yağış getirmez</b>.</p>
+<p><b>c) Yerel rüzgârlar</b> — yerel basınç koşullarına bağlıdır, etki alanları dardır:</p>
+<ul>
+<li><b>Meltemler:</b> Gün içindeki sıcaklık-basınç farkından doğar. <b>Kara meltemi</b> gece karadan (YB) denize (AB); <b>deniz meltemi</b> gündüz denizden (YB) karaya (AB) eser. <b>Dağ meltemi</b> gece dağdan vadiye; <b>vadi meltemi</b> gündüz vadiden yamaçlara doğru eser.</li>
+<li><b>Fön rüzgârları:</b> Dağları aşarak <b>alçalan kuru hava kütlelerinin</b> hıza ve sürtünmeye bağlı ısınmasıyla oluşan <b>sıcak ve kuru</b> rüzgârdır (kar erimesini hızlandırır).</li>
+<li><b>Akdeniz havzası rüzgârları:</b> <u>Sirokko</u> (Sahra'dan Cezayir, Tunus, İspanya, Sicilya ve İtalya kıyılarına; sıcak-kuru) · <u>Hamsin</u> (Mısır ve Libya kıyılarına; sıcak, kuru, toz yüklü) · <u>Samyeli</u> (Arap Yarımadası çöllerinden Irak, Suriye ve Türkiye'nin güneydoğusuna) · <u>Mistral</u> (Fransa'dan Akdeniz'e; soğuk, kuru, şiddetli) · <u>Bora</u> (Balkanlardan Adriyatik kıyılarına; soğuk-kuru) · <u>Etezyen</u> (mayıs-eylül arası Balkanlardan Ege'ye; serin-kuru) · <u>Krivetz</u> (Romanya'dan Tuna Vadisi boyunca Karadeniz'e; soğuk).</li>
+<li><b>Tropikal rüzgârlar:</b> Ekvator çevresinde sıcak okyanuslar üzerinde oluşan, karalara doğru etki alanı genişleyen çok hızlı rüzgârlardır.</li>
+</ul>
+<p class="formula">DİKKAT — Tropikal rüzgârların yerel adları: <b>Asya'nın doğusunda tayfun</b>, <b>Meksika Körfezi kıyılarında hurricane (harikeyn)</b>, <b>ABD'de tornado</b>, <b>Avustralya'da willy willy</b>.</p>
+
+<h3>6) Nem ve Yoğuşma</h3>
+<p>Suyun gaz hâline geçmesine <b>buharlaşma</b>, atmosfere karışan gaz hâlindeki suya <b>nem</b> denir.</p>
+<ul>
+<li><b>Mutlak nem:</b> 1 m³ hava kütlesindeki su buharının <b>gram</b> cinsinden miktarı. Yeterli su kütlesi ve yeterli sıcaklık varsa mutlak nem artar.</li>
+<li><b>Maksimum nem:</b> 1 m³ havanın <b>belirli bir sıcaklıkta</b> içerebileceği <b>en fazla</b> nem. Sıcaklıkla <b>doğru orantılıdır</b>: hava ısınınca genleşir, moleküller arası boşluk artar. (0 °C'de 4,85 g/m³ · 10 °C'de 9,42 · 20 °C'de 17,32)</li>
+<li><b>Bağıl (nispi) nem:</b> Havadaki su buharı basıncının, aynı sıcaklıktaki doymuş su buharı basıncına oranıdır.</li>
+</ul>
+<p class="formula">Bağıl nem (%) = (Su buharı basıncı ÷ Doymuş su buharı basıncı) × 100<br>
+Bağıl nem <b>%100</b> ise hava <b>doygundur</b>; %100'den azsa <b>nem açığı</b> vardır (bağıl nem %75 ise nem açığı %25).</p>
+<p class="formula">DİKKAT: <b>Maksimum nem sıcak yerlerde (özellikle çöller) fazla</b>, soğuk yerlerde (kutuplar) azdır. Çölde mutlak nem az olduğu hâlde maksimum nem yüksektir; bu yüzden bağıl nem çok düşüktür ve yağış oluşmaz.</p>
+<p><b>Yoğuşma:</b> Doymuş hava kütlesindeki nemin soğuma ya da nem artışı sonucu sıvı/katı hâle dönüşerek görünür hâle gelmesidir. Ürünleri:</p>
+<ul>
+<li><b>Sis:</b> Yeryüzüne yakın havanın doyma noktasına ulaşarak yoğuşması; havada asılı su damlacıkları.</li>
+<li><b>Bulut:</b> Hava kütlesinin <b>yerden yüksekte</b> yoğuşmasıyla oluşur. Gökyüzünün bulutlarla kaplı olma oranına <b>bulutluluk oranı</b> denir; bu oran yüksekse <b>güneşlenme süresi kısadır</b>.</li>
+<li><b>Çiy:</b> Sıcaklık 0 °C'nin <b>üzerinde</b> iken nemin yerdeki soğuk cisimler üzerinde <b>su damlacığı</b> olarak yoğuşması.</li>
+<li><b>Kırağı:</b> Sıcaklık 0 °C'nin <b>altında</b> iken nemin otlar, dallar, teller üzerinde <b>buz kristali</b> olarak yoğuşması.</li>
+<li><b>Kırç:</b> Sıcaklığın aşırı düştüğü günlerde <b>rüzgârlı</b> havadaki nemin cisimleri tamamen kaplayan <b>iğne taneleri</b> hâlinde buz katmanı oluşturması.</li>
+</ul>
+
+<h3>7) Yağışlar</h3>
+<p>Bağıl nem %100'e ulaşınca nem yoğuşur; yoğuşma anındaki sıcaklık <b>0 °C üzerindeyse sıvı</b>, <b>altındaysa katı</b> yağış oluşur.</p>
+<ul>
+<li><b>Yağmur:</b> 0 °C üzerinde nemin su damlacıkları hâlinde yoğuşup düşmesi.</li>
+<li><b>Kar:</b> 0 °C altında su buharının <b>doğrudan buz kristallerine</b> dönüşerek düşmesi.</li>
+<li><b>Dolu:</b> <b>Kümülonimbüs</b> gibi kalın bulutlarda; bulut tabanı ile tavanı arasındaki yüksek sıcaklık farkı ve karmaşık hava hareketleri sonucu oluşur.</li>
+</ul>
+<svg viewBox="0 0 640 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Yükselim, yamaç ve cephe yağışları">
+  <rect x="0" y="0" width="640" height="300" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Oluşum biçimine göre yağışlar</text>
+  <g>
+    <rect x="30" y="230" width="170" height="34" fill="#dcfce7" stroke="#94a3b8"/>
+    <path d="M115,225 L115,120" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 3"/>
+    <polygon points="115,116 109,128 121,128" fill="#dc2626"/>
+    <ellipse cx="115" cy="105" rx="42" ry="18" fill="#cbd5e1" stroke="#64748b"/>
+    <g stroke="#0284c7" stroke-width="1.6">
+      <line x1="98" y1="124" x2="94" y2="142"/><line x1="115" y1="124" x2="111" y2="142"/><line x1="132" y1="124" x2="128" y2="142"/>
+    </g>
+    <text x="34" y="284" font-size="11" font-weight="700" fill="#15803d">Yükselim (konveksiyonel)</text>
+    <text x="34" y="298" font-size="10" fill="#475569">Ekvator · orta kuşak iç kesim (ilkbahar-yaz)</text>
+  </g>
+  <g>
+    <polygon points="240,264 300,140 360,264" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+    <rect x="220" y="230" width="30" height="34" fill="#e0f2fe" stroke="#94a3b8"/>
+    <path d="M232,215 Q262,175 292,145" stroke="#dc2626" stroke-width="2" fill="none"/>
+    <polygon points="292,145 284,156 296,158" fill="#dc2626"/>
+    <ellipse cx="288" cy="132" rx="34" ry="15" fill="#cbd5e1" stroke="#64748b"/>
+    <g stroke="#0284c7" stroke-width="1.6">
+      <line x1="272" y1="146" x2="268" y2="162"/><line x1="288" y1="146" x2="284" y2="162"/>
+    </g>
+    <text x="316" y="200" font-size="10" fill="#9a3412">alçalan hava:</text>
+    <text x="316" y="214" font-size="10" fill="#9a3412">kuru (fön)</text>
+    <text x="226" y="284" font-size="11" font-weight="700" fill="#9a3412">Yamaç (orografik)</text>
+    <text x="226" y="298" font-size="10" fill="#475569">Karadeniz kıyıları · Güneydoğu Asya</text>
+  </g>
+  <g>
+    <rect x="400" y="230" width="210" height="34" fill="#e2e8f0" stroke="#94a3b8"/>
+    <path d="M410,230 L520,160 L610,150" fill="#dbeafe" stroke="#0284c7" stroke-width="1.5"/>
+    <path d="M520,160 L610,230" stroke="#dc2626" stroke-width="2"/>
+    <ellipse cx="540" cy="140" rx="40" ry="16" fill="#cbd5e1" stroke="#64748b"/>
+    <g stroke="#0284c7" stroke-width="1.6">
+      <line x1="524" y1="154" x2="520" y2="170"/><line x1="542" y1="154" x2="538" y2="170"/><line x1="560" y1="154" x2="556" y2="170"/>
+    </g>
+    <text x="412" y="200" font-size="10" fill="#0369a1">soğuk hava (alçalır)</text>
+    <text x="556" y="204" font-size="10" fill="#b91c1c">sıcak hava (yükselir)</text>
+    <text x="406" y="284" font-size="11" font-weight="700" fill="#0369a1">Cephe (frontal)</text>
+    <text x="406" y="298" font-size="10" fill="#475569">60° enlemleri · orta kuşak kışı</text>
+  </g>
+</svg>
+<p><b>Oluşum biçimine göre yağışlar:</b></p>
+<ul>
+<li><b>Yükselim (konveksiyonel) yağışları:</b> Gün içinde ısınan hava yükselir, sıcaklığı azalır, belirli yükseltiden sonra yoğuşur; genellikle <b>öğleden sonra kısa süreli sağanak</b> şeklinde düşer. <u>Ekvator çevresinde yıl boyunca</u>, orta kuşak karalarının iç kesimlerinde <b>ilkbahar ve yaz</b> mevsimlerinde görülür.</li>
+<li><b>Yamaç (orografik) yağışları:</b> Nemli hava kütlesi dağ yamacı boyunca yükselir, soğur ve yoğuşur. Kıyıya paralel uzanan sıradağların <b>denize bakan yamaçlarında</b> yaygındır: <u>Karadeniz'in kıyı kuşağı</u> ve <u>Güneydoğu Asya</u>.</li>
+<li><b>Cephe (frontal) yağışları:</b> Soğuk ve sıcak hava kütlelerinin karşılaşma alanına <b>cephe</b> denir; soğuk hava alçalır, sıcak hava yükselerek yoğuşur. <b>60° enlemlerinde yıl boyu</b>, orta kuşakta özellikle <b>kış mevsiminde</b> sık görülür.</li>
+</ul>
+<p><b>Yağışın dağılışını etkileyenler:</b> rüzgârlar, yükseklik, denize uzaklık, okyanus akıntıları, hava kütlesinin özelliği, yeryüzü şekillerinin uzanış doğrultusu.</p>
+<table>
+<tr><th>En çok yağış alan yerler</th><th>En az yağış alan yerler</th></tr>
+<tr><td>Ekvator ve çevresi · Avrupa ve Alaska'nın batı kıyıları · Güneydoğu Asya kıyıları · Güney Amerika'nın güneybatısı · Madagaskar ve Avustralya'nın doğusu</td><td>Kutup bölgeleri · 30° DYB alanları · soğuk su akıntılarının görüldüğü kıyılar · denizlerden uzak, etrafı dağlarla çevrili alanlar</td></tr>
+</table>
+<p class="formula">DİKKAT: Yağışın aylara/mevsimlere göre dağılış düzenine <b>yağış rejimi</b> denir. Mevsimler arası fark <b>fazlaysa düzensiz</b>, <b>azsa düzenli</b> rejim vardır. <u>Karadeniz</u> düzenli, <u>Akdeniz ve İç Anadolu</u> düzensiz rejime örnektir.</p>
+
+<h3>8) Meteorolojik Afetler: Şiddetli Rüzgârlar, Sel-Taşkın, Çığ</h3>
+<ul>
+<li><b>Şiddetli rüzgârlar:</b> Fırtına, tropikal siklon ve hortum gibi yıkıcı rüzgârlar dünyada <b>en fazla görülen ikinci afet türüdür</b>. Tropikal siklonlar <b>5°–20° enlemleri</b> arasında oluşur ve okyanuslardan karalara doğru çok sert eser. En fazla görüldüğü yerler: <u>Orta Amerika, ABD'nin güneyi, Güneydoğu Asya, Avustralya'nın kuzeyi, Afrika'nın doğu kıyıları</u>; en çok etkilenen ülkeler <u>ABD, Hindistan, Bangladeş, Filipinler</u>. Orta kuşakta görülen cephesel fırtına, oraj ve hortumlar coğrafi konumu nedeniyle <u>Türkiye'de</u> de etkilidir; <b>lodos, poyraz, fön</b> gibi yerel rüzgârlar kuvvetli fırtınalara dönüşebilir.</li>
+<li><b>Etkileri:</b> Binaların zarar görmesi/yıkılması, yaralanma ve can kayıpları, ulaşım yolları ile iletişim hatlarının zarar görmesi, şiddetli yağış-su baskını-kütle hareketlerini tetiklemesi, sanayi-turizm-ticaret işletmelerinin zarar görmesiyle ekonomik kayıplar.</li>
+<li><b>Sel ve taşkın:</b> Dünyada en sık yaşanan afetlerdendir; şiddetli yağış, ani kar erimesi, akarsu yatağının daraltılması ve yatak içine yerleşilmesi, bitki örtüsünün tahribi ve <b>plansız şehirleşme</b> etkiyi büyütür.</li>
+<li><b>Çığ:</b> Genellikle <b>bitki örtüsünün zayıf olduğu eğimli yamaçlarda</b> tabakalar hâlinde birikmiş kar kütlesinin kayması sonucu oluşur. <b>Deprem, yol yapım çalışmaları, ani sıcaklık değişimi ve taşıt titreşimleri</b> çığ riskini artırır. Dünyada <u>Kayalık Dağları, Alpler ve Himalayalar</u>; Türkiye'de <b>iç kesimler ve özellikle doğu bölgeleri</b> (kışı çok soğuk geçen, yağışı kar biçiminde alan alanlar) risklidir.</li>
+</ul>
+
+<h3>9) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Atmosfer:</b> Dünya'yı saran gaz tabakası. <b>Troposfer:</b> İklim olaylarının geçtiği en alt katman.</li>
+<li><b>Hava durumu / iklim:</b> Dar alan-kısa süre / geniş alan-uzun süre ortalaması.</li>
+<li><b>Enlem etkisi:</b> Ekvator'dan kutuplara ışın açısının daralmasıyla sıcaklığın azalması.</li>
+<li><b>Bakı:</b> Dağın Güneş'e dönük yamacının diğerinden daha sıcak olması.</li>
+<li><b>Karasallık / denizellik:</b> Kara etkisiyle sıcaklık farkının artması / deniz etkisiyle azalması.</li>
+<li><b>İzoterm:</b> Eş sıcaklık eğrisi. <b>İndirgenmiş sıcaklık haritası:</b> Yükselti etkisi giderilmiş harita.</li>
+<li><b>Siklon / antisiklon:</b> Alçak / yüksek basınç merkezi.</li>
+<li><b>DYB / DAB:</b> 30°'de dinamik yüksek, 60°'de dinamik alçak basınç. <b>TAB / TYB:</b> Ekvator'da termik alçak, kutupta termik yüksek basınç.</li>
+<li><b>Mutlak / maksimum / bağıl nem:</b> Havadaki gerçek nem / taşıyabileceği en fazla nem / ikisinin oranı.</li>
+<li><b>Orografik yağış:</b> Yamaç boyunca yükselen nemli havanın yoğuşmasıyla oluşan yağış.</li>
+<li><b>Fön:</b> Dağı aşıp alçalırken ısınan sıcak-kuru rüzgâr.</li>
+<li><b>Yağış rejimi:</b> Yağışın aylara/mevsimlere dağılış düzeni.</li>
+</ul>
+
+<h3>10) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Termik – dinamik basınç:</b> Ekvator (TAB) ve kutuplar (TYB) <b>sıcaklıktan</b>; 30° (DYB) ve 60° (DAB) <b>Dünya'nın dönüşünden</b> doğar.</li>
+<li><b>Mutlak nem – bağıl nem:</b> Çölde mutlak nem az, <b>maksimum nem yüksek</b> olduğu için bağıl nem çok düşüktür. Yağış için belirleyici olan <b>bağıl nemdir</b>.</li>
+<li><b>Sıcaklık farkı:</b> Nem ve deniz etkisi farkı <b>azaltır</b>; karasallık ve kuruluk <b>artırır</b>. Çölde gündüz çok sıcak, gece çok soğuktur.</li>
+<li><b>Alize – batı rüzgârı:</b> Alize <b>Ekvator'a doğru</b> (tropikal doğu kıyılarına yağış), batı rüzgârı <b>60°'ye doğru</b> eser (cephe yağışı).</li>
+<li><b>Yaz musonu – kış musonu:</b> Yaz musonu <b>denizden karaya</b> (yağışlı), kış musonu <b>karadan denize</b> (kuru) eser.</li>
+<li><b>Çiy – kırağı – kırç:</b> Sırasıyla 0 °C üzeri su damlası, 0 °C altı buz kristali, aşırı soğuk + rüzgârlı havada iğne şeklinde buz katmanı.</li>
+<li><b>Yükselti ile basınç ve sıcaklık:</b> İkisi de <b>azalır</b>; ama sıcaklık troposferde azalır, üst katmanlarda (termosfer) artar.</li>
+<li><b>Güneşlenme süresi ≠ yüksek sıcaklık:</b> Kutuplarda 6 ay gündüz vardır ama ışın açısı çok dar olduğu için sıcaklık düşüktür.</li>
+</ul>
+
+<h3>11) Özet Kartı</h3>
+<ul>
+<li>Atmosfer katmanları: troposfer (iklim olayları), stratosfer (ozon), mezosfer (meteorlar yanar), termosfer (en sıcak, aurora), ekzosfer (uydular).</li>
+<li>Sıcaklık faktörleri: ışın açısı (şekil, günlük-yıllık hareket, bakı-eğim), atmosfer, yükselti, güneşlenme süresi, nem, kara-deniz dağılışı, akıntılar, rüzgârlar, yüzey özellikleri.</li>
+<li>Basınç: yükselti ↑ → basınç ↓; sıcaklık ↑ → basınç ↓; 30° DYB, 60° DAB, Ekvator TAB, kutup TYB.</li>
+<li>Alçak basınç: yükselici hava, bulutlu, yağışlı; yüksek basınç: alçalıcı hava, açık, kurak.</li>
+<li>Sürekli rüzgârlar: alize (30°→0°), batı (30°→60°), kutup (90°→60°); mevsimlik: muson; yerel: meltem, fön, sirokko/hamsin/samyeli/mistral/bora/etezyen/krivetz, tropikal (tayfun, hurricane, tornado, willy willy).</li>
+<li>Nem: mutlak (g/m³), maksimum (sıcaklıkla artar), bağıl (%); %100 = doygun.</li>
+<li>Yağış tipleri: yükselim (Ekvator), yamaç (Karadeniz), cephe (60° ve orta kuşak kışı); rejim düzenli/düzensiz.</li>
+<li>Meteorolojik afetler: şiddetli rüzgârlar (2. sırada), sel-taşkın, çığ (eğimli, bitki örtüsü zayıf yamaçlar; Türkiye'de doğu bölgeleri).</li>
+</ul>
+
+</body></html>

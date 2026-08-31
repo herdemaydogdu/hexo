@@ -23,6 +23,7 @@ import {
 import { supabase } from "./supabaseClient";
 import useDashboardData from "./useDashboardData";
 import Quiz from "./Quiz.jsx";
+import LectureNotesView from "./LectureNotesView.jsx";
 
 /**
  * TYT Hazırlık — Dashboard (Supabase'e bağlı)
@@ -32,7 +33,7 @@ import Quiz from "./Quiz.jsx";
 // Yalnızca "dashboard" uygulanmış durumda; diğerleri "Yakında".
 const NAV = [
   { id: "dashboard", label: "Ana Sayfa", icon: LayoutDashboard, ready: true },
-  { id: "konu", label: "Konu Anlatımı", icon: BookOpen, ready: false },
+  { id: "konu", label: "Ders Notları", icon: BookOpen, ready: true },
   { id: "quiz", label: "Soru Çöz", icon: PenSquare, ready: true },
   { id: "deneme", label: "Deneme Sınavı", icon: Timer, ready: false },
   { id: "istatistik", label: "İstatistik", icon: BarChart3, ready: false },
@@ -224,7 +225,7 @@ export default function DashboardLayout() {
             TYT
           </div>
           <div className="flex-1">
-            <p className="text-sm font-bold leading-tight text-slate-800">TYT Hazırlık</p>
+            <p className="text-sm font-bold leading-tight text-slate-800">TYT Arena</p>
           </div>
           <button
             onClick={() => setSidebarOpen(false)}
@@ -301,6 +302,8 @@ export default function DashboardLayout() {
           )}
 
           {active === "quiz" && <Quiz onFinish={refresh} />}
+
+          {active === "konu" && <LectureNotesView />}
 
           {active === "dashboard" && (
             <>

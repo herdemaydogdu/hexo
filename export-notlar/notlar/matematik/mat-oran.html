@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Oran ve Orantı</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Oran ve Orantı</h2>
+
+<p>Oran-orantı, TYT'de <b>hem kendi başına hem de başka soruların içinde</b> en çok karşılaşılan konudur: yüzde, karışım, işçi-havuz, hareket, hatta geometri problemlerinin çoğu bir orantı kurmaya dayanır. Buradaki asıl beceri hesap yapmak değil, <b>iki çokluğun nasıl ilişkilendiğini doğru okumaktır</b>: biri artarken diğeri de artıyor mu (doğru orantı), yoksa azalıyor mu (ters orantı)? Bu tek karar yanlış verilirse, ardından yapılan bütün işlemler doğru olsa bile sonuç yanlış çıkar.</p>
+
+<h3>1) Oran ve Orantı — Temel Tanımlar</h3>
+<p class="formula">ORAN — <b>Aynı türden</b> iki çokluğun <b>bölme yoluyla</b> karşılaştırılmasına <b>oran</b> denir; <b>a/b</b> ya da <b>a : b</b> biçiminde gösterilir.<br/>
+<b>KRİTİK NOKTA — ORAN BİRİMSİZDİR:</b> Aynı türden iki çokluğu böldüğün için birimler sadeleşir. <u>6 metre / 2 metre = 3 (birimsiz bir sayı).</u> Ama <u>6 metre / 2 saniye = 3 m/s</u> — bu bir oran değil, <b>hızdır</b>. Farklı türden çoklukların bölümüne "oran" denmez.<br/>
+<b>Sınav uyarısı:</b> Birimler farklıysa önce <u>aynı birime çevir</u>. 2 saat ile 30 dakikanın oranı 2/30 değil, <b>120/30 = 4</b>'tür.</p>
+<p class="formula">ORANTI — İki ya da daha fazla oranın birbirine eşitlenmesine <b>orantı</b> denir: <b>a/b = c/d</b>. Bu eşitliğin ortak değerine <b>orantı sabiti</b> denir ve genellikle <b>k</b> ile gösterilir: <b>a/b = c/d = k</b>.<br/>
+<b>a : b = c : d</b> yazımında <u>b ve c</u> sayılarına <b>içler</b>, <u>a ve d</u> sayılarına <b>dışlar</b> denir.</p>
+<p class="formula">k YÖNTEMİ — BU ÜNİTENİN EN GÜÇLÜ ARACI: <b>a/b = 3/5</b> verildiyse a ve b'nin kendisini bilemezsin, ama <b>a = 3k</b> ve <b>b = 5k</b> yazabilirsin. <u>Neden? Çünkü oran sabitse iki sayı da aynı katsayıyla büyür.</u> Bu yazım, <b>iki bilinmeyeni tek bilinmeyene indirger</b> ve çoğu soruda k sonunda sadeleşip gider.<br/>
+<u>Örnek: a/b = 3/5 ve a + b = 40 ise 3k + 5k = 40 → 8k = 40 → k = 5 → a = 15, b = 25.</u></p>
+
+<h3>2) Orantının Özellikleri</h3>
+<table>
+<tr><th>#</th><th>Özellik</th><th>Neden / Nasıl kullanılır?</th></tr>
+<tr><td>1</td><td><b>İçler çarpımı = dışlar çarpımı:</b> a/b = c/d ⇒ <b>a·d = b·c</b></td><td>İki tarafı bd ile çarparsın. <u>Kesirden kurtulmanın en hızlı yolu.</u></td></tr>
+<tr><td>2</td><td><b>İçler ya da dışlar yer değiştirebilir:</b> a/b = c/d ⇒ <b>a/c = b/d</b> ve <b>d/b = c/a</b></td><td>Hepsi 1. özellikten çıkar; a·d = b·c eşitliğini farklı biçimlerde kesre dönüştürmüş olursun.</td></tr>
+<tr><td>3</td><td><b>Toplayarak orantı:</b> a/b = c/d = k ⇒ <b>(a+c)/(b+d) = k</b></td><td>a = bk, c = dk yaz → (bk + dk)/(b + d) = k(b+d)/(b+d) = k. <u>Çok kullanılır.</u></td></tr>
+<tr><td>4</td><td><b>Katsayılı toplama:</b> a/b = c/d = k ⇒ <b>(ma + nc)/(mb + nd) = k</b></td><td>Aynı ispat; her oranı istediğin katsayıyla genişletip toplayabilirsin.</td></tr>
+<tr><td>5</td><td><b>Çarpma:</b> a/b = c/d = k ⇒ <b>(a·c)/(b·d) = k²</b></td><td>İki oranı çarparsın: k · k = k². <u>Sonucun k değil k² olduğuna dikkat.</u></td></tr>
+</table>
+<p class="formula">3. ÖZELLİĞİN GÜCÜ — Bu özellik, <b>çıkarma için de geçerlidir</b>: <b>(a − c)/(b − d) = k</b> (b ≠ d). <u>Örnek: a/b = c/d = 2/7 ve a + c = 10 ise b + d = 35'tir; çünkü oran sabiti değişmez.</u> <b>Sınavda "toplamları verilmiş, karşılık gelen toplamı bul" tipi soruların tamamı budur.</b></p>
+<p class="formula">ÜÇLÜ ORANTI GÖSTERİMİ — <b>a/2 = b/3 = c/5</b> biçimindeki ifadeler <b>a : b : c = 2 : 3 : 5</b> olarak da yazılır ve k yöntemiyle <b>a = 2k, b = 3k, c = 5k</b> olur. <u>Örnek: a + b + c = 60 ise 10k = 60 → k = 6 → a = 12, b = 18, c = 30.</u> <b>Bu, "paylaştırma" sorularının iskeletidir.</b></p>
+
+<h3>3) Doğru Orantı ve Ters Orantı</h3>
+<p class="formula">DOĞRU ORANTI — İki çokluktan biri artarken diğeri de <b>aynı oranda artıyorsa</b> (ya da biri azalırken diğeri de azalıyorsa) bu çokluklar <b>doğru orantılıdır</b>. Gösterimi: <b>a/b = k</b> yani <b>a = k·b</b>. <u>Yani BÖLÜMLERİ sabittir.</u></p>
+<p class="formula">TERS ORANTI — Biri artarken diğeri <b>aynı oranda azalıyorsa</b> bu çokluklar <b>ters orantılıdır</b>. Gösterimi: <b>a · b = k</b>. <u>Yani ÇARPIMLARI sabittir.</u><br/>
+<b>Hafıza notu:</b> Doğru orantıda <u>bölüm</u> sabit, ters orantıda <u>çarpım</u> sabit. Bu tek cümle, hangi denklemi kuracağını söyler.</p>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Doğru orantı ve ters orantı grafikleri">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Doğru orantı bir DOĞRU, ters orantı bir HİPERBOL çizer</text>
+  <g stroke="#334155" stroke-width="2">
+    <line x1="60" y1="180" x2="290" y2="180"/><line x1="60" y1="180" x2="60" y2="50"/>
+    <line x1="360" y1="180" x2="590" y2="180"/><line x1="360" y1="180" x2="360" y2="50"/>
+  </g>
+  <line x1="60" y1="180" x2="270" y2="60" stroke="#16a34a" stroke-width="3"/>
+  <g fill="#16a34a"><circle cx="130" cy="140" r="4"/><circle cx="200" cy="100" r="4"/></g>
+  <text x="175" y="204" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">DOĞRU ORANTI: a = k·b</text>
+  <text x="175" y="222" font-size="10" fill="#475569" text-anchor="middle">Başlangıç noktasından geçen doğru</text>
+  <text x="175" y="238" font-size="10" fill="#475569" text-anchor="middle">BÖLÜMLERİ sabit: a/b = k</text>
+  <text x="175" y="254" font-size="10" fill="#475569" text-anchor="middle">Biri iki katına çıkarsa diğeri de iki katına çıkar</text>
+  <path d="M385,68 Q420,150 460,164 Q520,176 575,178" fill="none" stroke="#dc2626" stroke-width="3"/>
+  <g fill="#dc2626"><circle cx="404" cy="122" r="4"/><circle cx="470" cy="166" r="4"/></g>
+  <text x="475" y="204" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">TERS ORANTI: a·b = k</text>
+  <text x="475" y="222" font-size="10" fill="#475569" text-anchor="middle">Eksenlere yaklaşan eğri (hiperbol)</text>
+  <text x="475" y="238" font-size="10" fill="#475569" text-anchor="middle">ÇARPIMLARI sabit: a·b = k</text>
+  <text x="475" y="254" font-size="10" fill="#475569" text-anchor="middle">Biri iki katına çıkarsa diğeri yarıya iner</text>
+</svg>
+<table>
+<tr><th>DOĞRU orantılı çokluklar</th><th>TERS orantılı çokluklar</th></tr>
+<tr><td>Satın alınan ürün miktarı ↔ ödenen para</td><td>İşçi sayısı ↔ işin bitirilme süresi</td></tr>
+<tr><td>İşçi sayısı ↔ yapılan iş miktarı</td><td>Hız ↔ yolu alma süresi</td></tr>
+<tr><td>Hız ↔ (aynı sürede) alınan yol</td><td>Kişi sayısı ↔ yiyeceğin yetme süresi</td></tr>
+<tr><td>Çalışma süresi ↔ yapılan iş miktarı</td><td>Musluk sayısı ↔ havuzun dolma süresi</td></tr>
+</table>
+<p class="formula">HANGİSİ OLDUĞUNU NASIL ANLARIM? — Kendine tek bir soru sor: <b>"Birini iki katına çıkarırsam diğerine ne olur?"</b><br/>
+• Diğeri de <u>iki katına çıkıyorsa</u> → <b>doğru orantı</b><br/>
+• Diğeri <u>yarıya iniyorsa</u> → <b>ters orantı</b><br/>
+<u>Örnek: İşçi sayısını iki katına çıkarırsam iş daha ÇABUK biter, yani süre yarıya iner → işçi sayısı ile süre TERS orantılıdır. Ama aynı sürede yapılan iş miktarı iki katına çıkar → işçi sayısı ile iş miktarı DOĞRU orantılıdır.</u> <b>Aynı iki kavram, hangi büyüklüğe baktığına göre farklı orantı verir; bu yüzden soruda "ne soruluyor" dikkatle okunmalıdır.</b></p>
+<p class="formula">ÇAPRAZ KURULUM — İki satırlık tablolarda:<br/>
+• <b>Doğru orantı</b> ise <b>a·x = b·c</b> (çapraz çarpım)<br/>
+• <b>Ters orantı</b> ise <b>a·b = c·x</b> (satır içi çarpım)<br/>
+<u>Yani doğru orantıda çaprazlar, ters orantıda satırlar çarpılır. Bu küçük ayrım, tablo kurulumlu soruların tamamını çözer.</u></p>
+
+<h3>4) Paylaştırma Problemleri</h3>
+<p class="formula">DOĞRU ORANTILI PAYLAŞTIRMA — Bir miktar, verilen sayılarla <b>doğru orantılı</b> paylaştırılacaksa <b>paylar o sayılarla orantılıdır</b>: sayılar a, b, c ise paylar <b>ak, bk, ck</b> olur ve toplam (a+b+c)k'dir.<br/>
+<u>Örnek: 120 TL, 2 ve 3 ile doğru orantılı paylaştırılırsa 2k + 3k = 120 → k = 24 → paylar 48 ve 72 TL.</u> <b>Not: En büyük sayı en büyük payı alır.</b></p>
+<p class="formula">TERS ORANTILI PAYLAŞTIRMA — Bir miktar, verilen sayılarla <b>ters orantılı</b> paylaştırılacaksa <b>paylar o sayıların TERSLERİYLE doğru orantılıdır</b>: sayılar a, b, c ise paylar <b>k/a, k/b, k/c</b> olur.<br/>
+<u>Neden? Ters orantı "pay × sayı = sabit" demektir; buradan pay = sabit / sayı çıkar.</u> <b>Not: En küçük sayı en büyük payı alır — doğru orantının tam tersi.</b></p>
+<p class="formula">ÖRNEK (PDF) — Furkan, Fatih ve Feyza <b>144 cevizi</b> sırasıyla <b>3, 4 ve 6</b> sayılarıyla <b>ters orantılı</b> paylaşacaklardır. En az ceviz alan kişiyi ve aldığı ceviz sayısını bulunuz.</p>
+<ul>
+<li><b>Adım 1 — Payları terslerle yaz:</b> Furkan = k/3, &nbsp;Fatih = k/4, &nbsp;Feyza = k/6.</li>
+<li><b>Adım 2 — Toplamı kur:</b> k/3 + k/4 + k/6 = 144. Paydaların EKOK'u 12 → (4k + 3k + 2k)/12 = 144 → <b>9k/12 = 144</b>.</li>
+<li><b>Adım 3 — k'yi bul:</b> 9k = 1728 → <b>k = 192</b>.</li>
+<li><b>Adım 4 — En az alanı belirle:</b> Paylar k/3, k/4, k/6 olduğuna göre <u>paydası en büyük olan en küçük payı alır</u> → <b>k/6, yani Feyza</b>.</li>
+<li><b>Adım 5 — Hesapla:</b> Feyza = 192/6 = <b>32 ceviz</b>.</li>
+<li><b>Kontrol:</b> Furkan 64, Fatih 48, Feyza 32 → toplam 144 ✓</li>
+<li><b>Kritik sezgi:</b> Ters orantıda <b>en büyük sayıya sahip olan en az payı alır</b>. Feyza'nın sayısı 6 (en büyük) olduğu için payı en azdır. <u>Bu sezgi, hesabı yapmadan bile şık elemeni sağlar.</u></li>
+</ul>
+<p class="formula">PRATİK KISAYOL — Ters orantılı paylaştırmada kesirlerle uğraşmak yerine <b>sayıların EKOK'unu k olarak seç</b>. <u>Yukarıdaki örnekte EKOK(3,4,6) = 12 alınsaydı paylar 4, 3, 2 oranında olurdu (12/3, 12/4, 12/6). 144 sayısını 4:3:2 oranında bölmek çok daha kolaydır: 9 birim = 144 → 1 birim = 16 → paylar 64, 48, 32.</u> <b>Aynı sonuç, kesirsiz.</b></p>
+
+<h3>5) Bileşik Orantı</h3>
+<p class="formula">TANIM — Bir büyüklük <b>birden fazla değişkene</b> bağlıysa buna <b>bileşik orantı</b> denir. Her değişkenle olan ilişkiyi <u>ayrı ayrı</u> belirler, sonra birleştirirsin.<br/>
+<b>Klasik örnek:</b> Yapılan iş, <u>işçi sayısıyla</u> ve <u>çalışılan gün sayısıyla</u> doğru orantılıdır: <b>İş = İşçi × Gün × k</b>. Buradan <b>(İşçi₁ × Gün₁) / İş₁ = (İşçi₂ × Gün₂) / İş₂</b> bağıntısı çıkar.</p>
+<p class="formula">ÖRNEK — <b>6 işçi</b> bir işi <b>12 günde</b> bitiriyorsa, <b>9 işçi</b> aynı işi kaç günde bitirir?</p>
+<ul>
+<li><b>Adım 1 — İlişkiyi belirle:</b> İşçi sayısı arttıkça süre azalır → <b>ters orantı</b>.</li>
+<li><b>Adım 2 — Çarpım sabittir:</b> 6 × 12 = 9 × x → 72 = 9x → <b>x = 8 gün</b>.</li>
+<li><b>Mantık kontrolü:</b> İşçi sayısı 1,5 katına çıktı (6 → 9), süre 1,5'e bölündü (12 → 8) ✓</li>
+<li><b>Tuzak:</b> Ters orantıda çapraz çarpım <u>yapılmaz</u>. 6/12 = 9/x kurarsan x = 18 bulursun ki bu saçmadır — işçi artınca süre nasıl artsın?</li>
+</ul>
+<p class="formula">ÖRNEK — <b>4 işçi 5 günde 40 birim</b> iş yapıyorsa, <b>6 işçi 8 günde</b> kaç birim iş yapar?</p>
+<ul>
+<li><b>Adım 1 — İş, hem işçiyle hem günle doğru orantılı:</b> İş = k · (işçi × gün).</li>
+<li><b>Adım 2 — k'yi bul:</b> 40 = k · (4 × 5) = 20k → <b>k = 2</b>.</li>
+<li><b>Adım 3 — Yeni durumu hesapla:</b> İş = 2 · (6 × 8) = 2 · 48 = <b>96 birim</b>.</li>
+<li><b>Alternatif — oran kurarak:</b> İşçi 4→6 (×3/2), gün 5→8 (×8/5) → iş 40 · (3/2) · (8/5) = 96 ✓ <u>Her değişkendeki çarpanı ayrı ayrı uygula; bu yöntem daha hızlıdır.</u></li>
+</ul>
+
+<h3>6) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Oran verilip değer bulma</b></td><td>"a/b = 3/5 ve a + b = 40 ise…"</td><td><b>k yöntemi:</b> a = 3k, b = 5k yaz, toplamdan k'yi bul.</td></tr>
+<tr><td>2</td><td><b>İfadenin değeri</b></td><td>"a/b = 2/3 ise (2a+b)/(a−b) kaçtır?"</td><td>k yöntemiyle yerine koy; <b>k sadeleşir</b>, sayısal sonuç kalır.</td></tr>
+<tr><td>3</td><td><b>Toplayarak orantı</b></td><td>"a/b = c/d = k ve a+c verilmiş"</td><td><b>(a+c)/(b+d) = k</b> özelliğini doğrudan kullan.</td></tr>
+<tr><td>4</td><td><b>Doğru orantılı paylaştırma</b></td><td>"…ile doğru orantılı olarak paylaştırılıyor"</td><td>Paylar <b>ak, bk, ck</b>; toplamdan k'yi bul. <b>Büyük sayı büyük pay alır.</b></td></tr>
+<tr><td>5</td><td><b>Ters orantılı paylaştırma</b></td><td>"…ile ters orantılı olarak paylaştırılıyor"</td><td>Paylar <b>k/a, k/b, k/c</b> ya da kısayol: <b>EKOK'u bölerek</b> oranı bul. <b>Büyük sayı küçük pay alır.</b></td></tr>
+<tr><td>6</td><td><b>İşçi–gün–iş</b></td><td>"x işçi y günde…"</td><td><b>İşçi × Gün / İş</b> ifadesi sabittir; eşitliği kur.</td></tr>
+<tr><td>7</td><td><b>Ölçek / harita</b></td><td>"1/500 000 ölçekli harita"</td><td>Ölçek bir orandır; <b>birimleri eşitle</b> (km → cm), sonra orantı kur.</td></tr>
+<tr><td>8</td><td><b>Karışım oranı</b></td><td>"A ile B'nin oranı 3:2 olan karışım"</td><td>Miktarları <b>3k ve 2k</b> yaz; ekleme/çıkarma sonrası yeni oranı kur.</td></tr>
+<tr><td>9</td><td><b>Grafik yorumu</b></td><td>Doğrusal ya da hiperbol biçimli grafik</td><td>Doğru orantı → <b>başlangıçtan geçen doğru</b>; ters orantı → <b>eksenlere yaklaşan eğri</b>.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 2) — <b>a/b = 3/4</b> olduğuna göre <b>(2a + 3b)/(a − b)</b> ifadesinin değeri kaçtır?</p>
+<ul>
+<li><b>Adım 1 — k yöntemi:</b> a = 3k, b = 4k (k ≠ 0).</li>
+<li><b>Adım 2 — Yerine koy:</b> (2·3k + 3·4k)/(3k − 4k) = (6k + 12k)/(−k) = 18k/(−k).</li>
+<li><b>Adım 3 — Sadeleştir:</b> k ≠ 0 olduğu için k'ler gider → <b>−18</b>.</li>
+<li><b>Neden a = 3, b = 4 almak yerine k kullandık?</b> Bu soruda ikisi de aynı sonucu verir; ama <u>ifade doğrusal olmayan terimler içeriyorsa</u> (a² gibi) somut sayı seçmek yanıltabilir. <b>k yöntemi her durumda güvenlidir.</b></li>
+</ul>
+<p class="formula">ÖRNEK (Tip 7) — <b>1 : 400 000</b> ölçekli bir haritada iki şehir arası <b>6 cm</b>'dir. Gerçek uzaklık kaç km'dir?</p>
+<ul>
+<li><b>Adım 1 — Ölçeği oku:</b> Haritadaki 1 cm, gerçekte <b>400 000 cm</b>'dir.</li>
+<li><b>Adım 2 — Orantı kur:</b> 6 cm × 400 000 = <b>2 400 000 cm</b>.</li>
+<li><b>Adım 3 — Birimi çevir:</b> 1 km = 100 000 cm → 2 400 000 / 100 000 = <b>24 km</b>.</li>
+<li><b>En sık hata:</b> Birim çevirmeyi atlayıp "2 400 000 m" ya da "24 000 km" demek. <u>1 km = 1000 m = 100 000 cm eşitliğini ezberle; ölçek sorularının tamamı buna dayanır.</u></li>
+</ul>
+
+<h3>7) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Oran:</b> Aynı türden iki çokluğun bölme yoluyla karşılaştırılması; <b>birimsizdir</b>.</li>
+<li><b>Orantı:</b> İki ya da daha fazla oranın birbirine eşit olması durumu.</li>
+<li><b>Orantı sabiti (k):</b> Eşit oranların ortak değeri.</li>
+<li><b>İçler:</b> a : b = c : d yazımında ortadaki iki terim (b ve c).</li>
+<li><b>Dışlar:</b> Aynı yazımda baştaki ve sondaki terimler (a ve d).</li>
+<li><b>Doğru orantı:</b> İki çokluğun <b>bölümünün</b> sabit kaldığı ilişki; a/b = k.</li>
+<li><b>Ters orantı:</b> İki çokluğun <b>çarpımının</b> sabit kaldığı ilişki; a·b = k.</li>
+<li><b>Bileşik orantı:</b> Bir büyüklüğün birden fazla değişkene bağlı olduğu orantı.</li>
+<li><b>k yöntemi:</b> Oran verildiğinde sayıları ak, bk biçiminde yazarak tek bilinmeyene indirgeme tekniği.</li>
+<li><b>Ölçek:</b> Haritadaki uzunluğun gerçek uzunluğa oranı; bir doğru orantı örneğidir.</li>
+</ul>
+
+<h3>8) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Doğru/ters orantıyı ters seçmek:</b> "Birini iki katına çıkarırsam diğerine ne olur?" diye sor. Artıyorsa doğru, azalıyorsa ters orantı.</li>
+<li><b>Ters orantıda çapraz çarpmak:</b> Ters orantıda <b>satırlar</b> çarpılır (a·b = c·x), çaprazlar değil.</li>
+<li><b>Ters orantılı paylaştırmada sayıları doğrudan kullanmak:</b> Paylar sayılarla değil, <b>terslerle</b> orantılıdır.</li>
+<li><b>Ters orantıda en büyük payı yanlış kişiye vermek:</b> <b>En büyük sayı en KÜÇÜK payı alır.</b></li>
+<li><b>Birimleri eşitlememek:</b> Oran kurmadan önce iki çokluk <b>aynı birimde</b> olmalıdır (saat–dakika, m–cm).</li>
+<li><b>Farklı türden çoklukların oranını almak:</b> "3 elma ile 5 saatin oranı" anlamsızdır; oran aynı tür için tanımlıdır.</li>
+<li><b>Çarpma özelliğinde k yazmak:</b> a/b · c/d = <b>k²</b>'dir, k değil.</li>
+<li><b>Toplayarak orantıda payda ile payı karıştırmak:</b> <b>(a+c)/(b+d) = k</b>; paylar payla, paydalar paydayla toplanır.</li>
+<li><b>k'yi sıfır alabilmek:</b> k ≠ 0 varsayılır; aksi hâlde sadeleştirme geçersiz olur.</li>
+<li><b>Oranı yüzdeyle karıştırmak:</b> "a/b = 3/5" ile "a, b'nin %60'ıdır" aynı bilgidir ama <b>a : b = 3 : 5</b> ile "a, b'den %60 fazladır" farklı şeylerdir.</li>
+<li><b>Bileşik orantıda bir değişkeni unutmak:</b> İş = işçi × gün × k; üç büyüklüğün hepsini denklemde tut.</li>
+<li><b>Ölçekte birim çevirmeyi atlamak:</b> 1 km = 100 000 cm. Bu dönüşüm yapılmazsa sonuç binlerce kat sapar.</li>
+</ul>
+
+<h3>9) Özet Kartı</h3>
+<ul>
+<li><b>Oran:</b> Aynı türden iki çokluğun bölümü; <b>birimsizdir</b>. Birimler farklıysa önce eşitle.</li>
+<li><b>Orantı:</b> a/b = c/d = k. <b>İçler çarpımı = dışlar çarpımı</b> (a·d = b·c).</li>
+<li><b>k yöntemi:</b> a/b = m/n ise <b>a = mk, b = nk</b>. İki bilinmeyeni tek bilinmeyene indirir.</li>
+<li><b>Toplayarak orantı:</b> <b>(a+c)/(b+d) = k</b>; çıkarma için de geçerlidir.</li>
+<li><b>Katsayılı:</b> (ma + nc)/(mb + nd) = k. &nbsp;<b>Çarparak:</b> (a·c)/(b·d) = <b>k²</b>.</li>
+<li><b>Doğru orantı:</b> <b>a/b = k</b> — bölüm sabit, grafik <b>başlangıçtan geçen doğru</b>.</li>
+<li><b>Ters orantı:</b> <b>a·b = k</b> — çarpım sabit, grafik <b>hiperbol</b>.</li>
+<li><b>Ayırt etme:</b> "Birini iki katına çıkarırsam?" Diğeri artarsa doğru, azalırsa ters.</li>
+<li><b>Kurulum:</b> Doğru orantı → <b>çaprazlar</b> çarpılır &nbsp;·&nbsp; ters orantı → <b>satırlar</b> çarpılır.</li>
+<li><b>Doğru orantılı paylaştırma:</b> Paylar <b>ak, bk, ck</b>. <u>Büyük sayı büyük pay.</u></li>
+<li><b>Ters orantılı paylaştırma:</b> Paylar <b>k/a, k/b, k/c</b>. <u>Büyük sayı küçük pay.</u> Kısayol: EKOK'u böl.</li>
+<li><b>Bileşik orantı:</b> <b>İş = k · (İşçi × Gün)</b>; her değişkenin çarpanını ayrı ayrı uygula.</li>
+<li><b>Ölçek:</b> Haritadaki uzunluk × ölçek paydası = gerçek uzunluk. <b>1 km = 100 000 cm.</b></li>
+</ul>
+
+</body></html>

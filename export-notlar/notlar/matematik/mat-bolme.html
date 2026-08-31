@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Bölme ve Bölünebilme</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Bölme ve Bölünebilme</h2>
+
+<p>Bölünebilme kuralları çoğu öğrencinin <b>ezberlediği</b> ama <b>anlamadığı</b> konudur. Oysa bu kuralların hepsi <u>tek bir fikirden</u> türer: <b>10 sayısının, böldüğümüz sayıya göre nasıl davrandığından</b>. Bu fikri kavradığında sekiz ayrı kural ezberlemek yerine üç grup hatırlarsın — ve daha önemlisi, sınavda karşına çıkan <b>kalan bulma</b> sorularını saniyeler içinde çözersin.</p>
+
+<h3>1) Bölme İşleminin Anatomisi</h3>
+<p>Her bölme işleminin dört oyuncusu vardır: <b>bölünen (A), bölen (B), bölüm (C) ve kalan (K)</b>. Aralarındaki ilişki tek bir denklemle özetlenir ve bu denklem, konunun tamamının anahtarıdır.</p>
+<p class="formula">TEMEL BAĞINTI — <b>A = B · C + K</b> &nbsp;ve&nbsp; <b>0 ≤ K &lt; B</b><br/><u>İkinci koşul neden var?</u> Kalan, bölenden büyük ya da eşit olsaydı, o kalandan bir tane daha bölen çıkarabilirdik — yani bölümü artırabilirdik. Demek ki <b>kalan, "artık bölemediğimiz kırıntı"dır</b> ve zorunlu olarak bölenden küçüktür. Ayrıca <b>K = 0 ise A sayısı B'ye tam bölünür</b>.</p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bölme işleminin bileşenleri">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Bölme işleminin dört oyuncusu ve aralarındaki bağıntı</text>
+  <line x1="120" y1="52" x2="120" y2="120" stroke="#334155" stroke-width="2"/>
+  <line x1="120" y1="86" x2="230" y2="86" stroke="#334155" stroke-width="2"/>
+  <text x="60" y="76" font-size="16" font-weight="700" fill="#0369a1">47</text>
+  <text x="140" y="76" font-size="16" font-weight="700" fill="#b45309">5</text>
+  <text x="140" y="110" font-size="16" font-weight="700" fill="#15803d">9</text>
+  <text x="60" y="120" font-size="16" font-weight="700" fill="#b91c1c">2</text>
+  <text x="34" y="46" font-size="10" font-weight="700" fill="#0369a1">BÖLÜNEN (A)</text>
+  <text x="152" y="70" font-size="10" font-weight="700" fill="#b45309">BÖLEN (B)</text>
+  <text x="152" y="112" font-size="10" font-weight="700" fill="#15803d">BÖLÜM (C)</text>
+  <text x="34" y="138" font-size="10" font-weight="700" fill="#b91c1c">KALAN (K)</text>
+  <line x1="270" y1="40" x2="270" y2="180" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="300" y="56" width="300" height="34" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="322" y="79" font-size="15" font-weight="700" fill="#0369a1">A = B · C + K</text>
+  <text x="450" y="79" font-size="12" fill="#0369a1">47 = 5 · 9 + 2 ✓</text>
+  <rect x="300" y="100" width="300" height="34" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="322" y="123" font-size="15" font-weight="700" fill="#b91c1c">0 ≤ K &lt; B</text>
+  <text x="450" y="123" font-size="12" fill="#b91c1c">0 ≤ 2 &lt; 5 ✓</text>
+  <text x="300" y="156" font-size="10" fill="#475569">Kalan bölenden küçük olmasaydı bölümü bir artırabilirdik.</text>
+  <text x="300" y="170" font-size="10" fill="#475569">Yani kalan, "artık bölemediğimiz kırıntı"dır.</text>
+  <line x1="26" y1="192" x2="614" y2="192" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="212" font-size="10" fill="#475569">Sınav refleksi: Soruda "kalan" geçiyorsa ilk iş A = B·C + K yazmaktır. Bilinmeyenleri bu denkleme yerleştirdiğinde soru çoğu zaman kendiliğinden çözülür.</text>
+  <text x="26" y="228" font-size="10" fill="#475569">"En büyük kalan" soruluyorsa cevap daima BÖLEN − 1'dir; çünkü kalan bölene eşit olamaz, en fazla bir eksiği olabilir.</text>
+  <text x="26" y="244" font-size="10" fill="#475569">"Bir sayının 7 ile bölümünden kalan en çok kaçtır?" → 6. Bu, tek satırlık bir puandır ve her yıl sorulur.</text>
+</svg>
+<p><b>Kalanla ilgili dört kritik özellik:</b></p>
+<ul>
+<li><b>Kalan bölümden küçükse, bölen ile bölüm yer değiştirdiğinde kalan değişmez.</b> <u>Neden? A = B·C + K bağıntısında B ile C'nin yerini değiştirsen A = C·B + K olur — çarpma değişme özelliğine sahip olduğu için eşitlik bozulmaz. Tek şart, yeni bölen olan C'nin K'den büyük kalmasıdır.</u></li>
+<li><b>Bölünen ve bölen bir k sayısının katıysa, kalan da k'nin katı olmalıdır.</b> <u>Neden? A ve B'nin ikisi de k'ye bölünüyorsa, K = A − B·C ifadesinde sağ tarafın tamamı k'ye bölünür; öyleyse K de k'ye bölünür.</u> Bu, "kalan kaç olabilir?" sorularında şık elemenin en hızlı yoludur.</li>
+<li><b>Bir sayı k'ye bölünüyorsa, k'nin bütün bölenlerine de tam bölünür.</b> <u>Örnek: 12'nin katı olan bir sayı aynı zamanda 2'nin, 3'ün, 4'ün ve 6'nın da katıdır.</u></li>
+<li><b>Bir sayı 25'e tam bölünüyorsa son iki basamağı 00, 25, 50 veya 75 olmalıdır.</b></li>
+</ul>
+
+<h3>2) Kalan Aritmetiği — Sayıyı Hesaplamadan Kalanı Bulmak</h3>
+<p>Bu bölüm, bölünebilme konusunun <b>en çok soru getiren</b> kısmıdır. Fikir şudur: <b>büyük sayılarla uğraşmak yerine yalnızca kalanlarla işlem yapabilirsin.</b> Bu, matematikte "modüler aritmetik" diye adlandırılır ve TYT düzeyinde dört kuralla özetlenir.</p>
+<p class="formula">M ve N pozitif tam sayılarının x'e bölümünden kalanlar sırasıyla <b>m</b> ve <b>n</b> olsun. O hâlde:<br/>
+• <b>M + N</b> ifadesinin x ile bölümünden kalan = <b>m + n</b>'nin x ile bölümünden kalan<br/>
+• <b>M − N</b> ifadesinin x ile bölümünden kalan = <b>m − n</b>'nin x ile bölümünden kalan<br/>
+• <b>M · N</b> ifadesinin x ile bölümünden kalan = <b>m · n</b>'nin x ile bölümünden kalan<br/>
+• <b>M<sup>a</sup></b> ifadesinin x ile bölümünden kalan = <b>m<sup>a</sup></b>'nın x ile bölümünden kalan</p>
+<p class="formula">MANTIK — <u>Neden bu kural işliyor?</u> M = x·k₁ + m ve N = x·k₂ + n yazalım. Toplarsak: M + N = x(k₁ + k₂) + (m + n). Parantezli kısım <b>zaten x'in katı</b>, yani kalana hiç katkısı yok. Geriye yalnızca <b>m + n</b> kalıyor. Çarpımda da aynı şey olur: açtığında x içeren tüm terimler elenir, sadece <b>m · n</b> ayakta kalır. <b>Yani büyük sayıların "x'e bölünen kısmı" görünmez hâle gelir; sadece artıkları konuşur.</b></p>
+<p class="formula">ÖRNEK — A sayısının 17 ile bölümünden kalan 4, B sayısının 17 ile bölümünden kalan 3'tür. <b>A² + A·B − 2B</b> ifadesinin 17 ile bölümünden kalan kaçtır?</p>
+<ul>
+<li><b>Adım 1 — A ve B'yi unutup yerlerine kalanlarını koy:</b> A → 4, B → 3.</li>
+<li><b>Adım 2 — İşlemi kalanlarla yap:</b> 4² + 4·3 − 2·3 = 16 + 12 − 6 = <b>22</b>.</li>
+<li><b>Adım 3 — Sonucu tekrar 17'ye böl:</b> 22 = 17·1 + 5 → kalan <b>5</b>.</li>
+<li><b>Kritik uyarı:</b> Adım 2'de bulduğun 22 <u>cevap değildir</u>; kalan bölenden küçük olmak zorunda olduğu için mutlaka son bir bölme daha yapmalısın. Öğrencilerin en sık hatası burada durup 22 demektir.</li>
+</ul>
+<p class="formula">ÖRNEK — <b>7<sup>2026</sup></b> sayısının 5 ile bölümünden kalan kaçtır?</p>
+<ul>
+<li><b>Adım 1:</b> 7'nin 5'e bölümünden kalan <b>2</b>'dir. Öyleyse 7²⁰²⁶'nın kalanı = <b>2²⁰²⁶</b>'nın kalanına eşittir.</li>
+<li><b>Adım 2 — Kalanların dönüşümünü ara:</b> 2¹ → 2, 2² = 4 → 4, 2³ = 8 → 3, 2⁴ = 16 → 1, 2⁵ = 32 → 2… Kalanlar <b>2, 4, 3, 1</b> diye <b>4'erli döngüye</b> giriyor.</li>
+<li><b>Adım 3 — Üssü döngü uzunluğuna böl:</b> 2026 : 4 → kalan <b>2</b>. Demek ki döngünün <b>2. elemanı</b> geçerli.</li>
+<li><b>Sonuç:</b> Döngü (2, 4, 3, 1) olduğuna göre 2. eleman <b>4</b>'tür. Cevap <b>4</b>.</li>
+<li><b>Genel yöntem:</b> Büyük üslü sayılarda kalan sorulduğunda <b>kalanların periyodunu bul, üssü periyoda böl, kalanın kaçıncı sıraya denk geldiğine bak.</b> Bölme tam bölünüyorsa <u>döngünün son elemanını</u> alırsın.</li>
+</ul>
+
+<h3>3) Bölünebilme Kuralları — Neden İşliyorlar?</h3>
+<p>Şimdi asıl mesele. Aşağıdaki kuralların hepsi, <b>10 sayısının bölene göre nasıl davrandığından</b> doğar. Kuralları üç aileye ayırırsan asla karıştırmazsın.</p>
+<p class="formula">TEMEL FİKİR — Bir sayıyı çözümlediğimizde <b>abcde = 10000a + 1000b + 100c + 10d + e</b> olur. Bu toplamdaki her terimin içinde <b>10'un bir kuvveti</b> vardır. Bölünebilme kuralı bulmak demek, <b>"10'un kuvvetleri bu bölene bölündüğünde ne oluyor?"</b> sorusunu cevaplamak demektir. Üç farklı cevap, üç farklı kural ailesi doğurur.</p>
+<svg viewBox="0 0 640 330" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bölünebilme kurallarının üç ailesi">
+  <rect x="0" y="0" width="640" height="330" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Üç kural ailesi: 10'un kuvvetleri bölene göre nasıl davranıyor?</text>
+  <rect x="24" y="42" width="190" height="26" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="40" y="60" font-size="11" font-weight="700" fill="#15803d">A · SON BASAMAKLAR</text>
+  <text x="24" y="88" font-size="10" font-weight="700" fill="#334155">2, 5, 10 · 4, 25 · 8, 125</text>
+  <g font-size="9.5" fill="#475569">
+    <text x="24" y="108">10 = 2·5 → 10'un katı olan her</text>
+    <text x="24" y="122">terim 2'ye ve 5'e bölünür.</text>
+    <text x="24" y="140">Geriye sadece BİRLER basamağı</text>
+    <text x="24" y="154">kalır: 2, 5, 10 kuralı.</text>
+    <text x="24" y="176">100 = 4·25 → yüzler ve üstü</text>
+    <text x="24" y="190">elenir → SON İKİ basamak: 4, 25.</text>
+    <text x="24" y="212">1000 = 8·125 → SON ÜÇ</text>
+    <text x="24" y="226">basamak: 8, 125.</text>
+  </g>
+  <line x1="230" y1="42" x2="230" y2="250" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="248" y="42" width="180" height="26" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="264" y="60" font-size="11" font-weight="700" fill="#0369a1">B · RAKAMLAR TOPLAMI</text>
+  <text x="248" y="88" font-size="10" font-weight="700" fill="#334155">3 ve 9</text>
+  <g font-size="9.5" fill="#475569">
+    <text x="248" y="108">10 : 3 → kalan 1</text>
+    <text x="248" y="122">100 : 3 → kalan 1</text>
+    <text x="248" y="136">1000 : 3 → kalan 1  …</text>
+    <text x="248" y="158">Her basamak değeri "1 gibi"</text>
+    <text x="248" y="172">davranıyor. Öyleyse</text>
+    <text x="248" y="186">100c + 10d + e ifadesinin</text>
+    <text x="248" y="200">kalanı = c + d + e'nin kalanı.</text>
+    <text x="248" y="222">Aynısı 9 için de geçerli</text>
+    <text x="248" y="236">(9 = 10 − 1 olduğu için).</text>
+  </g>
+  <line x1="442" y1="42" x2="442" y2="250" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="460" y="42" width="156" height="26" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="474" y="60" font-size="11" font-weight="700" fill="#6d28d9">C · ALTERNATİF TOPLAM</text>
+  <text x="460" y="88" font-size="10" font-weight="700" fill="#334155">11</text>
+  <g font-size="9.5" fill="#475569">
+    <text x="460" y="108">10 : 11 → kalan −1 gibi</text>
+    <text x="460" y="122">100 : 11 → kalan +1</text>
+    <text x="460" y="136">1000 : 11 → kalan −1  …</text>
+    <text x="460" y="158">Basamaklar sırayla +1 ve −1</text>
+    <text x="460" y="172">gibi davranıyor. Bu yüzden</text>
+    <text x="460" y="186">sağdan sola +, −, +, −</text>
+    <text x="460" y="200">işaretlenip toplanır.</text>
+  </g>
+  <line x1="26" y1="262" x2="614" y2="262" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="282" font-size="10" fill="#475569">Ezberlenecek tek şey bu üç aile. 2-5-10 birler, 4-25 son iki, 8-125 son üç basamağa bakar; 3-9 rakamlar toplamına; 11 alternatif toplama.</text>
+  <text x="26" y="298" font-size="10" fill="#475569">6, 12, 15, 18, 24, 30, 44 gibi bileşik bölenlerin ayrı kuralı YOKTUR — onlar bu ailelerden ikisinin birleşimidir (bkz. bölüm 5).</text>
+  <text x="26" y="314" font-size="10" fill="#475569">Kural yalnız "bölünür mü?" demez, KALANI da verir: 3'e bölümünden kalan = rakamlar toplamının 3'e bölümünden kalan.</text>
+</svg>
+
+<h3>4) Kuralların Tam Listesi</h3>
+<table>
+<tr><th>Bölen</th><th>Kural</th><th>Kalan nasıl bulunur?</th></tr>
+<tr><td><b>2</b></td><td>Birler basamağındaki rakam <b>çift</b> ise sayı 2 ile tam bölünür</td><td>Tam bölünmüyorsa kalan <b>1</b>'dir (başka seçenek yok)</td></tr>
+<tr><td><b>3</b></td><td><b>Rakamları toplamı</b> 3'ün katı ise sayı 3 ile tam bölünür</td><td>Kalan = <b>rakamlar toplamının</b> 3 ile bölümünden kalan</td></tr>
+<tr><td><b>4</b></td><td><b>Son iki basamağı</b> oluşturan sayı 4'ün katı ise</td><td>Kalan = <b>son iki basamaklı sayının</b> 4 ile bölümünden kalan</td></tr>
+<tr><td><b>5</b></td><td>Birler basamağındaki rakam <b>0 ya da 5</b> ise</td><td>Kalan = <b>birler basamağındaki rakamın</b> 5 ile bölümünden kalan</td></tr>
+<tr><td><b>8</b></td><td><b>Son üç basamağı</b> oluşturan sayı 8'in katı ise</td><td>Kalan = <b>son üç basamaklı sayının</b> 8 ile bölümünden kalan</td></tr>
+<tr><td><b>9</b></td><td><b>Rakamları toplamı</b> 9'un katı ise</td><td>Kalan = <b>rakamlar toplamının</b> 9 ile bölümünden kalan</td></tr>
+<tr><td><b>10</b></td><td>Birler basamağındaki rakam <b>0</b> ise</td><td>Kalan = <b>birler basamağındaki rakamın kendisi</b></td></tr>
+<tr><td><b>11</b></td><td>Rakamlar <b>sağdan sola (+), (−), (+), (−)…</b> işaretlenip toplanır; sonuç 11'in katı ise</td><td>Beş basamaklı <b>abcde</b> için <b>(a + c + e) − (b + d)</b> hesaplanır; bu sonucun 11 ile bölümünden kalan aranan kalandır</td></tr>
+</table>
+<p class="formula">DİKKAT — <b>11 kuralında sonuç negatif çıkarsa</b>, kalanı bulmak için sonuca <b>11'in katları eklenir</b>. Örneğin alternatif toplam −3 çıktıysa −3 + 11 = <b>8</b> kalandır. Kalan asla negatif olamaz (0 ≤ K &lt; B kuralını hatırla).</p>
+<p class="formula">SIRALAMA İPUCU — Birden fazla kuralın uygulanması gereken sorularda şu sırayı izle: <b>önce birler basamağıyla ilgili kural</b> (2, 5, 10) → <b>sonra son iki basamak</b> (4, 25) → <b>sonra son üç basamak</b> (8) → <b>en son tüm basamaklar</b> (3, 9, 11). Bu sıra, bilinmeyen rakamları en hızlı daraltan sıradır: birler basamağı kısıtlandığında geriye çok az seçenek kalır.</p>
+<p class="formula">ÖRNEK — <b>34967</b> sayısının çeşitli bölenlere göre kalanlarını bulalım. Tek bir sayı üzerinde bütün kuralları çalıştırmak, hepsini bir arada görmenin en iyi yoludur.</p>
+<ul>
+<li><b>2 ile:</b> Birler basamağı 7, tek sayı → kalan <b>1</b>.</li>
+<li><b>3 ile:</b> Rakamlar toplamı 3+4+9+6+7 = <b>29</b>. 29'un 3 ile bölümünden kalan 2 → kalan <b>2</b>.</li>
+<li><b>4 ile:</b> Son iki basamak <b>67</b>. 67 = 4·16 + 3 → kalan <b>3</b>.</li>
+<li><b>5 ile:</b> Birler basamağı <b>7</b>. 7'nin 5 ile bölümünden kalan 2 → kalan <b>2</b>.</li>
+<li><b>8 ile:</b> Son üç basamak <b>967</b>. 967 = 8·120 + 7 → kalan <b>7</b>.</li>
+<li><b>9 ile:</b> Rakamlar toplamı yine <b>29</b>. 29'un 9 ile bölümünden kalan 2 → kalan <b>2</b>.</li>
+<li><b>10 ile:</b> Birler basamağı <b>7</b> → kalan doğrudan <b>7</b>.</li>
+<li><b>11 ile:</b> 34967 sayısını sağdan sola işaretle: 7(+), 6(−), 9(+), 4(−), 3(+). Yani <b>(3 + 9 + 7) − (4 + 6) = 19 − 10 = 9</b> → kalan <b>9</b>.</li>
+<li><b>Gözlem:</b> 3 ve 9 için aynı ara hesabı (rakamlar toplamı 29) kullandık — bu ikisi hep birlikte çalışır. Aynı şekilde 2, 5, 10 hep birlikte birler basamağına bakar. <b>Bu gruplama, işlem yükünü üçte bire indirir.</b></li>
+</ul>
+
+<h3>5) Bileşik Bölenler — 6, 12, 15, 18, 24, 30, 44</h3>
+<p>Bu sayıların <b>kendine ait bir kuralı yoktur</b>. Hepsi, öğrendiğin temel kuralların <b>ikisinin birleşimidir</b>. Ama birleştirmenin tek bir şartı var ve bu şart sınavda tuzak olarak kullanılır.</p>
+<p class="formula">KRİTİK KURAL — a ve b <b>aralarında asal</b> iki sayı olsun. Bir x doğal sayısı <b>hem a'ya hem b'ye</b> tam bölünüyorsa, x sayısı <b>a·b çarpımına da</b> tam bölünür. <u>Aralarında asal olma şartı zorunludur</u> — yoksa kural çöker.</p>
+<table>
+<tr><th>Bölen</th><th>Çarpanlara ayrılışı</th><th>Kontrol edilecek iki kural</th></tr>
+<tr><td><b>6</b></td><td>2 · 3</td><td>Sayı hem <b>2</b> hem <b>3</b> ile tam bölünüyor mu?</td></tr>
+<tr><td><b>12</b></td><td>3 · 4</td><td>Sayı hem <b>3</b> hem <b>4</b> ile tam bölünüyor mu?</td></tr>
+<tr><td><b>15</b></td><td>3 · 5</td><td>Sayı hem <b>3</b> hem <b>5</b> ile tam bölünüyor mu?</td></tr>
+<tr><td><b>18</b></td><td>2 · 9</td><td>Sayı hem <b>2</b> hem <b>9</b> ile tam bölünüyor mu?</td></tr>
+<tr><td><b>24</b></td><td>3 · 8</td><td>Sayı hem <b>3</b> hem <b>8</b> ile tam bölünüyor mu?</td></tr>
+<tr><td><b>30</b></td><td>3 · 10</td><td>Sayı hem <b>3</b> hem <b>10</b> ile tam bölünüyor mu?</td></tr>
+<tr><td><b>44</b></td><td>4 · 11</td><td>Sayı hem <b>4</b> hem <b>11</b> ile tam bölünüyor mu?</td></tr>
+</table>
+<p class="formula">EN SIK YAPILAN HATA — <b>12'yi 2·6 diye ayırmak.</b> 2 ve 6 <u>aralarında asal değildir</u> (ortak bölenleri 2'dir), bu yüzden kural işlemez. Karşı örnek: <b>18</b> sayısı hem 2'ye hem 6'ya tam bölünür ama <b>12'ye bölünmez</b>. Doğru ayrım <b>3·4</b>'tür, çünkü 3 ile 4 aralarında asaldır. Aynı mantıkla <b>24'ü 4·6 değil, 3·8</b> diye ayırmalısın. <u>Kontrol yöntemi: seçtiğin iki çarpanın EBOB'u 1 olmalı.</u></p>
+<p class="formula">BİLEŞİK BÖLENDE KALAN — C = a·b (a ile b aralarında asal) olmak üzere bir x sayısının <b>C ile bölümünden kalan</b> soruluyorsa: <b>kalan sayının a ve b'ye bölümünden kalanlarına bakılır.</b> Yani C'ye göre kalan, a'ya ve b'ye göre kalanları aynı anda sağlayan tek sayıdır (0 ile C−1 arasında).</p>
+<p class="formula">ÖRNEK — Bir x sayısının <b>3 ile bölümünden kalan 2</b>, <b>4 ile bölümünden kalan 3</b>'tür. x'in <b>12 ile bölümünden kalan</b> kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Bölenleri doğrula:</b> 12 = 3·4 ve 3 ile 4 aralarında asal. Kural uygulanabilir.</li>
+<li><b>Adım 2 — Aday kalanları listele:</b> 12'ye göre kalan 0 ile 11 arasında olmalı. 4 ile bölümünden 3 kalanını verenler: <b>3, 7, 11</b>.</li>
+<li><b>Adım 3 — İkinci koşulla ele:</b> Bunlardan 3'e bölümünden 2 kalanını veren hangisi? 3 → kalan 0 (hayır). 7 → kalan 1 (hayır). <b>11 → kalan 2 (evet)</b>.</li>
+<li><b>Sonuç:</b> Kalan <b>11</b>.</li>
+<li><b>Kestirme:</b> Her iki koşulda da <b>kalan, bölenin 1 eksiği</b> (3'te 2, 4'te 3). Bu, "x + 1 sayısı hem 3'e hem 4'e tam bölünüyor" demektir → x + 1 = 12'nin katı → <b>x'in 12'ye bölümünden kalan 11</b>. Bu tip simetriyi fark etmek dakikalar kazandırır.</li>
+</ul>
+
+<h3>6) Ardışık (İç İçe) Bölme İşlemleri</h3>
+<p>Bir sayının bölümü tekrar bölünüyorsa, bu bir <b>bölme zinciri</b>dir. Çözüm yöntemi tektir: <b>her bölmeyi ayrı bir denklem olarak yaz, sonra yerine koyma yöntemiyle birleştir.</b></p>
+<p class="formula">YÖNTEM — A sayısı B'ye bölündüğünde bölüm C, kalan K; B sayısı D'ye bölündüğünde bölüm E, kalan F ise:<br/><b>A = B·C + K</b> &nbsp;ve&nbsp; <b>B = D·E + F</b><br/>İkinci denklemi birincide yerine koyarak <b>A'yı en içteki bilinmeyen cinsinden</b> yazarsın. Zincir kaç halkalı olursa olsun mantık aynıdır: <u>en içten dışa doğru geri yerleştir</u>.</p>
+<p class="formula">ÖRNEK — Bir A sayısı 5'e bölündüğünde bölüm B, kalan 3 oluyor. B sayısı 4'e bölündüğünde bölüm 7, kalan 2 oluyor. A kaçtır?</p>
+<ul>
+<li><b>Adım 1 — İçteki bölmeden başla:</b> B = 4·7 + 2 = <b>30</b>.</li>
+<li><b>Adım 2 — Dıştaki bölmeye taşı:</b> A = 5·B + 3 = 5·30 + 3 = <b>153</b>.</li>
+<li><b>Kontrol:</b> 153 : 5 = 30 kalan 3 ✓ &nbsp;·&nbsp; 30 : 4 = 7 kalan 2 ✓</li>
+<li><b>Neden içten dışa?</b> Çünkü dıştaki denklemde B bilinmiyor; onu bulmadan A'ya geçemezsin. Zincirli sorularda <b>bilineni en çok olan denklemden başlamak</b> genel bir stratejidir.</li>
+</ul>
+<p class="formula">ÖRNEK — Bir sayının 6 ile bölümünden kalan 4'tür. Bu sayının <b>3 katının</b> 6 ile bölümünden kalan kaçtır?</p>
+<ul>
+<li><b>Adım 1:</b> Sayı x olsun, x'in kalanı 4. Kalan aritmetiğine göre <b>3x</b>'in kalanı = <b>3·4 = 12</b>'nin 6 ile bölümünden kalan.</li>
+<li><b>Adım 2:</b> 12 = 6·2 + 0 → kalan <b>0</b>.</li>
+<li><b>Yorum:</b> Sayının kendisi 6'ya bölünmüyordu ama <b>3 katı tam bölünüyor</b>. Bu şaşırtıcı değil: x = 6k + 4 ise 3x = 18k + 12 = 6(3k + 2) → tam bölünür. <u>Kalanla çarpma yapmak, sonucu tekrar bölmeyi gerektirir; bu adımı atlamak en sık hatadır.</u></li>
+</ul>
+
+<h3>7) Soru Tipleri — Bu Üniteden Kaç Kalıpta Soru Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td><b>1</b></td><td><b>Temel bağıntı</b></td><td>"bölüm", "kalan", "bölünen" kelimeleri; bilinmeyenli bölme tablosu</td><td>Hemen <b>A = B·C + K</b> yaz ve <b>0 ≤ K &lt; B</b> koşulunu not et. "En büyük kalan" → <b>bölen − 1</b></td></tr>
+<tr><td><b>2</b></td><td><b>Kalan aritmetiği</b></td><td>"A'nın x ile bölümünden kalan m…" verilip bir <b>ifadenin</b> kalanı isteniyor</td><td>Harflerin yerine <b>kalanlarını koy</b>, işlemi yap, sonucu <b>tekrar böl</b>. Son bölmeyi unutma</td></tr>
+<tr><td><b>3</b></td><td><b>Büyük üslü sayıda kalan</b></td><td>7²⁰²⁶, 3¹⁰⁰ gibi devasa kuvvetlerin kalanı</td><td>Kalanların <b>periyodunu</b> bul, üssü periyoda böl, sıraya bak. Tam bölünüyorsa <b>son eleman</b></td></tr>
+<tr><td><b>4</b></td><td><b>Bilinmeyen rakam bulma</b></td><td>"3A5B sayısı 6 ile tam bölünüyorsa A + B en çok kaçtır?"</td><td>Bileşik böleni <b>aralarında asal iki çarpana</b> ayır. Önce <b>birler basamağı</b> kuralını uygula (seçenek daralır), sonra rakamlar toplamı</td></tr>
+<tr><td><b>5</b></td><td><b>Kalan verilerek sayı arama</b></td><td>"3'e bölümünden 2, 4'e bölümünden 3 kalanını veren…"</td><td>Bölenler aralarında asalsa <b>çarpımlarına göre kalanı</b> ara. <b>Kalan = bölen − 1</b> simetrisi varsa <b>x + 1</b> hilesini kullan</td></tr>
+<tr><td><b>6</b></td><td><b>Ardışık bölme zinciri</b></td><td>Bölüm tekrar bölünüyor; iki ya da üç kademeli bölme</td><td>Her kademeyi <b>ayrı denklem</b> yaz, <b>en içten dışa</b> geri yerleştir</td></tr>
+<tr><td><b>7</b></td><td><b>Kalan olabilirlik / eleme</b></td><td>"aşağıdakilerden hangisi kalan OLAMAZ?"</td><td><b>Kalan &lt; bölen</b> koşuluyla ele. Bölünen ve bölen bir k'nin katıysa <b>kalan da k'nin katı</b> olmalı</td></tr>
+</table>
+<p class="formula">TEST TEKNİĞİ — <b>Bilinmeyen rakam sorularında sıralamayı doğru kur.</b> "3A5B sayısı 6 ile tam bölünüyor" dendiğinde:<br/>
+<b>1)</b> 6 = 2·3 ayır. &nbsp;<b>2)</b> Önce <b>2 kuralı</b>: B çift olmalı → B ∈ {0, 2, 4, 6, 8}. Beş seçenek kaldı.<br/>
+<b>3)</b> Sonra <b>3 kuralı</b>: 3 + A + 5 + B = 8 + A + B toplamı 3'ün katı olmalı.<br/>
+<b>4)</b> "A + B en çok kaçtır?" soruluyorsa A = 9 deneyerek başla ve yukarıdan aşağı in. <u>En büyük değer isteniyorsa büyükten, en küçük isteniyorsa küçükten başlamak deneme sayısını yarıya indirir.</u></p>
+<p class="formula">ÖRNEK — <b>7A4B</b> dört basamaklı sayısı <b>15</b> ile tam bölünüyorsa <b>A</b>'nın alabileceği en büyük değer kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Böleni ayır:</b> 15 = 3·5 ve <b>3 ile 5 aralarında asal</b> → kural uygulanabilir.</li>
+<li><b>Adım 2 — Önce 5 kuralı (birler basamağı):</b> B = <b>0</b> veya <b>5</b>. İki seçenek.</li>
+<li><b>Adım 3 — Sonra 3 kuralı:</b> Rakamlar toplamı 7 + A + 4 + B = <b>11 + A + B</b> ifadesi 3'ün katı olmalı.</li>
+<li><b>Adım 4 — B = 5 durumu:</b> 16 + A, 3'ün katı olmalı → A ∈ {2, 5, 8}. En büyüğü <b>8</b>.</li>
+<li><b>Adım 5 — B = 0 durumu:</b> 11 + A, 3'ün katı olmalı → A ∈ {1, 4, 7}. En büyüğü 7.</li>
+<li><b>Sonuç:</b> İki durumun en büyüğü <b>A = 8</b> (sayı 7845). <u>Dikkat: iki durumu da denemeden karar verme; B'nin iki seçeneği farklı A değerleri üretir.</u></li>
+</ul>
+
+<h3>8) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Bölünen (A):</b> Bölme işleminde parçalanan sayı.</li>
+<li><b>Bölen (B):</b> Kaça bölündüğünü gösteren sayı; <b>sıfır olamaz</b>.</li>
+<li><b>Bölüm (C):</b> Bölme sonucunda elde edilen tam kısım.</li>
+<li><b>Kalan (K):</b> Bölmeden artan miktar; <b>0 ≤ K &lt; B</b> koşulunu sağlar.</li>
+<li><b>Tam bölünme:</b> Kalanın 0 olması durumu.</li>
+<li><b>Kat:</b> Bir sayının tam sayılarla çarpımından elde edilen sayı; "x, k'nin katıdır" demek "x, k'ye tam bölünür" demektir.</li>
+<li><b>Bölen (çarpan) olmak:</b> a sayısı b'yi tam bölüyorsa a, b'nin bölenidir.</li>
+<li><b>Kalan aritmetiği:</b> Sayıların yerine kalanlarıyla işlem yapma yöntemi; toplama, çıkarma, çarpma ve kuvvet için geçerlidir.</li>
+<li><b>Periyot (döngü):</b> Kuvvetlerin kalanlarının belirli aralıklarla tekrar etmesi.</li>
+<li><b>Aralarında asal:</b> EBOB'ları 1 olan sayılar; bileşik bölünebilme kuralının zorunlu şartı.</li>
+<li><b>Alternatif toplam:</b> Rakamların sağdan sola +, −, +, − işaretlenerek toplanması; 11 kuralında kullanılır.</li>
+</ul>
+
+<h3>9) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Kalan aritmetiğinde son bölmeyi unutmak:</b> Kalanlarla işlem yapıp 22 bulduysan bu cevap değildir; 22'yi tekrar bölene bölmelisin. <b>Kalan daima bölenden küçüktür.</b></li>
+<li><b>12'yi 2·6, 24'ü 4·6 diye ayırmak:</b> Bu çarpanlar <b>aralarında asal değildir</b>, kural çöker. Doğrusu <b>12 = 3·4</b> ve <b>24 = 3·8</b>'dir. Karşı örnek: 18 hem 2'ye hem 6'ya bölünür ama 12'ye bölünmez.</li>
+<li><b>11 kuralında negatif sonucu kalan sanmak:</b> Alternatif toplam −3 çıktıysa kalan −3 değil, <b>−3 + 11 = 8</b>'dir.</li>
+<li><b>3 ile 9'u karıştırmak:</b> İkisi de rakamlar toplamına bakar ama <b>eşik farklıdır</b>. Rakamlar toplamı 12 olan bir sayı 3'e bölünür, <b>9'a bölünmez</b>.</li>
+<li><b>4 ile 8'i karıştırmak:</b> <b>4 → son iki</b>, <b>8 → son üç</b> basamak. Karışırsa <u>100 = 4·25, 1000 = 8·125</u> eşitliklerini hatırla.</li>
+<li><b>"Kalan en çok kaç olabilir?" sorusunda bölene eşit demek:</b> Cevap daima <b>bölen − 1</b>'dir.</li>
+<li><b>Bölünebilirlik tek yönlüdür:</b> Bir sayı 12'ye bölünüyorsa 6'ya da bölünür; ama <b>6'ya bölünen her sayı 12'ye bölünmez</b> (örnek: 18). Küçükten büyüğe çıkarım yapılamaz.</li>
+<li><b>0'ın durumu:</b> <b>0 her sayıya tam bölünür</b> (0 = B·0 + 0), ama <b>hiçbir sayı 0'a bölünemez</b>.</li>
+<li><b>Çift olmak ile 4'e bölünmek aynı şey değildir:</b> 6 çifttir ama 4'e bölünmez.</li>
+<li><b>Sıralama hatası:</b> Bilinmeyen rakam sorularında önce rakamlar toplamı kuralına bakıp sonra birler basamağına dönmek gereksiz deneme yaptırır. <b>Daima birler basamağından başla.</b></li>
+</ul>
+
+<h3>10) Özet Kartı</h3>
+<ul>
+<li><b>Temel bağıntı:</b> A = B·C + K &nbsp;·&nbsp; 0 ≤ K &lt; B &nbsp;·&nbsp; K = 0 ise tam bölünür &nbsp;·&nbsp; en büyük kalan = <b>bölen − 1</b>.</li>
+<li><b>Kalan aritmetiği:</b> Toplama, çıkarma, çarpma ve kuvvette <b>sayılar yerine kalanları</b> kullanılabilir; sonucu <b>tekrar bölmeyi unutma</b>.</li>
+<li><b>Büyük üs:</b> Kalanların <b>periyodunu</b> bul → üssü periyoda böl → kalanın gösterdiği sıradaki değeri al.</li>
+<li><b>Aile A — son basamaklar:</b> <b>2, 5, 10</b> → birler &nbsp;·&nbsp; <b>4, 25</b> → son iki &nbsp;·&nbsp; <b>8, 125</b> → son üç. (Çünkü 10 = 2·5, 100 = 4·25, 1000 = 8·125.)</li>
+<li><b>Aile B — rakamlar toplamı:</b> <b>3</b> ve <b>9</b>. (Çünkü 10'un her kuvveti 3'e ve 9'a bölündüğünde 1 kalanını verir.)</li>
+<li><b>Aile C — alternatif toplam:</b> <b>11</b>. Sağdan sola +, −, +, − işaretle; abcde için <b>(a + c + e) − (b + d)</b>. Negatif çıkarsa 11 ekle.</li>
+<li><b>Bileşik bölenler:</b> 6 = 2·3 &nbsp;·&nbsp; 12 = 3·4 &nbsp;·&nbsp; 15 = 3·5 &nbsp;·&nbsp; 18 = 2·9 &nbsp;·&nbsp; 24 = 3·8 &nbsp;·&nbsp; 30 = 3·10 &nbsp;·&nbsp; 44 = 4·11. <b>Çarpanlar aralarında asal olmalı.</b></li>
+<li><b>25 kuralı:</b> Son iki basamak <b>00, 25, 50 veya 75</b>.</li>
+<li><b>Bölen zinciri:</b> Bir sayı k'ye bölünüyorsa <b>k'nin tüm bölenlerine</b> de bölünür; tersi doğru değildir.</li>
+<li><b>Kalan eleme:</b> Bölünen ve bölen bir k'nin katıysa <b>kalan da k'nin katıdır</b>.</li>
+<li><b>Çözüm sırası:</b> birler basamağı → son iki basamak → son üç basamak → rakamlar toplamı / alternatif toplam.</li>
+<li><b>Ardışık bölme:</b> Her kademeyi ayrı denklem yaz, <b>en içten dışa</b> geri yerleştir.</li>
+</ul>
+
+</body></html>

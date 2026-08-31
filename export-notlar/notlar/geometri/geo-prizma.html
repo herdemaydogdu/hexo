@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dik Prizmalar ve Küp</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Dik Prizmalar ve Küp</h2>
+
+<p>Buraya kadar her şey <b>düzlemde</b> geçiyordu: üçgenler, dörtgenler, alanlar. Şimdi bir boyut ekliyoruz. Ama korkacak bir şey yok — <b>uzay geometrisinde yeni bir şey öğrenmiyorsun</b>. Bir prizmanın her yüzü, zaten bildiğin bir düzlem şeklidir; her köşegen hesabı, zaten bildiğin Pisagor'dur. Uzay geometrisinin tek yeni becerisi şudur: <b>üç boyutlu cismin içinden doğru düzlemi seçip, o düzlemde iki boyutlu geometri yapmak</b>. Bu ünitede öğreneceğin refleks tek cümledir: <u>"Hangi üçgenin içindeyim?"</u></p>
+
+<h3>1) Dik Prizma: Tanım ve Elemanlar</h3>
+<p class="formula">TANIM (PDF) — Bir çokgenin noktalarından geçen ve çokgenin düzlemine <b>dik</b> bir doğruya paralel doğruların oluşturduğu, <b>iki paralel düzlemle sınırlanan</b> kapalı bölgeye <b>dik prizma</b> denir.<br/>
+<u>Sade hâliyle: bir çokgeni al, kendine paralel olarak yukarı doğru <b>dik biçimde kaydır</b>. Süpürdüğü katı cisim bir dik prizmadır.</u><br/>
+<b>ELEMANLAR (PDF):</b><br/>
+• <b>Alt taban / üst taban:</b> Birbirine eş ve paralel iki çokgensel bölge (ABCD ve A′B′C′D′).<br/>
+• <b>Taban ayrıtları:</b> Tabanı oluşturan çokgenin kenarları.<br/>
+• <b>Yanal ayrıtlar:</b> Tabanların karşılıklı köşelerini birleştiren doğru parçaları.<br/>
+• <b>Yanal yüzler:</b> İki yanal ayrıt arasında kalan bölgeler.<br/>
+• <b>Yükseklik (h):</b> İki taban arasındaki uzaklık.</p>
+<p class="formula">İKİ KRİTİK SONUÇ (PDF DİKKAT) —<br/>
+<b>1) Dik prizmada yanal ayrıt = yüksekliktir.</b> <u>Çünkü kaydırma tabana diktir; yanal ayrıtlar tabana dik durur. "Yükseklik verilmemiş" diye panikleme — yanal ayrıt zaten yüksekliktir.</u><br/>
+<b>2) Dik prizmanın yanal yüzleri DİKDÖRTGENDİR.</b> <u>Bir kenarı taban ayrıtı, komşu kenarı yanal ayrıt ve ikisi birbirine dik. Bu yüzden yanal alan hesabı hep "taban ayrıtı × h" toplamına iner.</u><br/>
+<b>İSİMLENDİRME:</b> Prizma <b>tabanındaki çokgene göre</b> adlandırılır: tabanı üçgen ise <b>üçgen dik prizma</b>, dörtgen ise <b>dörtgen dik prizma</b>, altıgen ise <b>altıgen dik prizma</b>.<br/>
+<b>DÜZGÜN PRİZMA:</b> Tabanı <b>düzgün çokgen</b> olan prizma. Örnek: eşkenar üçgen dik prizma, kare dik prizma. <b>Tüm ayrıtları eşit olan kare prizma ise KÜP'tür.</b></p>
+<svg viewBox="0 0 640 275" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dik prizmanın elemanları">
+  <rect x="0" y="0" width="640" height="275" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Dik prizmanın elemanları</text>
+  <polygon points="60,230 200,230 245,195 105,195" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+  <polygon points="60,120 200,120 245,85 105,85" fill="#bae6fd" stroke="#0369a1" stroke-width="2"/>
+  <line x1="60" y1="120" x2="60" y2="230" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="200" y1="120" x2="200" y2="230" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="245" y1="85" x2="245" y2="195" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="105" y1="85" x2="105" y2="195" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="105" y1="195" x2="245" y2="195" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="60" y1="230" x2="105" y2="195" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="40" y1="120" x2="40" y2="230" stroke="#b91c1c" stroke-width="1.8"/>
+  <text x="24" y="180" font-size="11" font-weight="700" fill="#b91c1c">h</text>
+  <g fill="#334155" font-size="10" font-weight="700">
+    <text x="48" y="246">A</text><text x="200" y="246">B</text><text x="250" y="210">C</text><text x="94" y="210">D</text>
+    <text x="46" y="116">A'</text><text x="200" y="116">B'</text><text x="250" y="82">C'</text><text x="92" y="82">D'</text>
+  </g>
+  <text x="130" y="246" font-size="10" font-weight="700" fill="#0369a1">taban ayrıtı</text>
+  <text x="206" y="180" font-size="10" font-weight="700" fill="#15803d">yanal yüz</text>
+  <text x="252" y="145" font-size="10" font-weight="700" fill="#b45309">yanal ayrıt</text>
+  <text x="130" y="76" font-size="10" font-weight="700" fill="#0369a1">üst taban</text>
+  <text x="150" y="266" font-size="10" font-weight="700" fill="#0369a1" text-anchor="middle">alt taban</text>
+  <line x1="330" y1="45" x2="330" y2="270" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="350" y="70" font-size="11" font-weight="700" fill="#334155">Prizmanın iki altın kuralı</text>
+  <text x="350" y="94" font-size="11" font-weight="700" fill="#b91c1c">1) Yanal ayrıt = YÜKSEKLİK</text>
+  <text x="350" y="110" font-size="10" fill="#475569">Kaydırma tabana dik olduğu için</text>
+  <text x="350" y="124" font-size="10" fill="#475569">yanal ayrıtlar tabana diktir.</text>
+  <text x="350" y="146" font-size="11" font-weight="700" fill="#15803d">2) Yanal yüzler DİKDÖRTGEN</text>
+  <text x="350" y="162" font-size="10" fill="#475569">Bir kenarı taban ayrıtı, diğeri h;</text>
+  <text x="350" y="176" font-size="10" fill="#475569">ikisi birbirine dik.</text>
+  <text x="350" y="200" font-size="11" font-weight="700" fill="#0369a1">İsimlendirme</text>
+  <text x="350" y="216" font-size="10" fill="#475569">Taban üçgen → üçgen dik prizma</text>
+  <text x="350" y="230" font-size="10" fill="#475569">Taban dörtgen → dörtgen dik prizma</text>
+  <text x="350" y="244" font-size="10" fill="#475569">Taban düzgün çokgen → düzgün prizma</text>
+  <text x="350" y="264" font-size="10" font-weight="700" fill="#b45309">Tüm ayrıtları eşit kare prizma = KÜP</text>
+</svg>
+
+<h3>2) Ayrıt, Yüz ve Köşe Sayıları</h3>
+<p class="formula">n KENARLI TABANI OLAN DİK PRİZMADA —<br/>
+<b>Köşe sayısı = 2n</b> &nbsp;<u>(altta n, üstte n)</u><br/>
+<b>Ayrıt sayısı = 3n</b> &nbsp;<u>(alt tabanda n + üst tabanda n + yanal ayrıt n)</u><br/>
+<b>Yüz sayısı = n + 2</b> &nbsp;<u>(n yanal yüz + 2 taban)</u><br/>
+<u><b>Ezberleme, say.</b> Her formül tek cümlelik bir sayma işleminden geliyor. Sınavda unutursan bir kutu çiz ve say.</u><br/>
+<b>Kontrol (Euler):</b> <u>Köşe − Ayrıt + Yüz = 2n − 3n + (n+2) = <b>2</b> ✓ Her zaman 2 çıkar; cevabını böyle doğrulayabilirsin.</u></p>
+<table>
+<tr><th>Prizma</th><th>n</th><th>Köşe (2n)</th><th>Ayrıt (3n)</th><th>Yüz (n+2)</th></tr>
+<tr><td>Üçgen dik prizma</td><td>3</td><td>6</td><td>9</td><td>5</td></tr>
+<tr><td>Dörtgen dik prizma</td><td>4</td><td>8</td><td>12</td><td>6</td></tr>
+<tr><td>Beşgen dik prizma</td><td>5</td><td>10</td><td>15</td><td>7</td></tr>
+<tr><td>Altıgen dik prizma</td><td>6</td><td>12</td><td>18</td><td>8</td></tr>
+</table>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Üçgen ve altıgen dik prizma">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Taban değişir, kural değişmez</text>
+  <polygon points="50,200 150,200 120,170" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+  <polygon points="50,90 150,90 120,60" fill="#bae6fd" stroke="#0369a1" stroke-width="2"/>
+  <line x1="50" y1="90" x2="50" y2="200" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="150" y1="90" x2="150" y2="200" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="120" y1="60" x2="120" y2="170" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="100" y="224" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">Üçgen dik prizma</text>
+  <text x="100" y="240" font-size="10" font-weight="700" fill="#b91c1c" text-anchor="middle">6 köşe · 9 ayrıt · 5 yüz</text>
+  <line x1="200" y1="45" x2="200" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+  <polygon points="240,190 300,205 355,190 350,168 292,158 238,168" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+  <polygon points="240,90 300,105 355,90 350,68 292,58 238,68" fill="#bae6fd" stroke="#0369a1" stroke-width="2"/>
+  <line x1="240" y1="90" x2="240" y2="190" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="300" y1="105" x2="300" y2="205" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="355" y1="90" x2="355" y2="190" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="238" y1="68" x2="238" y2="168" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="292" y1="58" x2="292" y2="158" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="350" y1="68" x2="350" y2="168" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="296" y="228" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">Altıgen dik prizma</text>
+  <text x="296" y="244" font-size="10" font-weight="700" fill="#b91c1c" text-anchor="middle">12 köşe · 18 ayrıt · 8 yüz</text>
+  <line x1="400" y1="45" x2="400" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="420" y="70" font-size="11" font-weight="700" fill="#334155">n kenarlı taban için</text>
+  <text x="420" y="94" font-size="11" font-weight="700" fill="#0369a1">Köşe = 2n</text>
+  <text x="420" y="108" font-size="10" fill="#475569">altta n, üstte n</text>
+  <text x="420" y="130" font-size="11" font-weight="700" fill="#15803d">Ayrıt = 3n</text>
+  <text x="420" y="144" font-size="10" fill="#475569">n + n taban ayrıtı, n yanal ayrıt</text>
+  <text x="420" y="166" font-size="11" font-weight="700" fill="#b45309">Yüz = n + 2</text>
+  <text x="420" y="180" font-size="10" fill="#475569">n yanal yüz + 2 taban</text>
+  <text x="420" y="206" font-size="11" font-weight="700" fill="#b91c1c">Euler kontrolü</text>
+  <text x="420" y="222" font-size="10" fill="#475569">K − A + Y = 2n − 3n + n + 2 = 2</text>
+  <text x="420" y="240" font-size="10" font-weight="700" fill="#475569">Her zaman 2 → cevabını doğrula.</text>
+</svg>
+<p class="formula">ÖRNEK — Ayrıt sayısı <b>21</b> olan bir dik prizmanın <b>kaç yüzü</b> ve <b>kaç köşesi</b> vardır?</p>
+<ul>
+<li><b>Adım 1 — n'yi bul:</b> 3n = 21 → <b>n = 7</b> (tabanı yedigen).</li>
+<li><b>Adım 2:</b> Yüz = n + 2 = <b>9</b>, Köşe = 2n = <b>14</b>.</li>
+<li><b>Kontrol:</b> 14 − 21 + 9 = <b>2</b> ✓</li>
+<li><b>Ders:</b> <u>Verilen sayı hangisi olursa olsun, önce <b>n'yi çöz</b>; diğer ikisi tek satırda gelir.</u></li>
+</ul>
+
+<h3>3) Alan ve Hacim</h3>
+<p class="formula">GENEL FORMÜLLER — Taban alanı <b>T</b>, taban çevresi <b>Ç</b>, yükseklik <b>h</b> olmak üzere:<br/>
+<b>Yanal alan = Ç · h</b> &nbsp;<u>(yanal yüzler dikdörtgen; genişlikleri toplamı taban çevresidir. Prizmanın yan yüzeyini kesip açarsan tek bir dikdörtgen elde edersin: bir kenarı Ç, diğeri h.)</u><br/>
+<b>Toplam alan = Yanal alan + 2 · T = Ç·h + 2T</b><br/>
+<b>Hacim = T · h</b> &nbsp;<u>(taban alanı × yükseklik — "tabanı h kadar yukarı taşıdık" demenin matematiksel karşılığı)</u></p>
+<p class="formula">DİKDÖRTGENLER PRİZMASI (ayrıtları a, b, c) —<br/>
+<b>Hacim = a · b · c</b><br/>
+<b>Yüzey alanı = 2(ab + ac + bc)</b> &nbsp;<u>(üç farklı yüz, her birinden ikişer tane)</u><br/>
+<b>Cisim köşegeni = √(a² + b² + c²)</b><br/>
+<u><b>Neden?</b> Önce tabanda Pisagor: taban köşegeni = √(a²+b²). Sonra bu köşegen, yükseklik c ve cisim köşegeninden oluşan <b>ikinci bir dik üçgen</b> kur: cisim köşegeni² = (√(a²+b²))² + c² = a²+b²+c² ✓ <b>İki kere Pisagor</b> — uzay geometrisinin en çok kullanılan hamlesi budur.</u></p>
+<svg viewBox="0 0 640 265" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dikdörtgenler prizmasında cisim köşegeni">
+  <rect x="0" y="0" width="640" height="265" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Cisim köşegeni: iki kere Pisagor</text>
+  <polygon points="60,215 210,215 255,180 105,180" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+  <polygon points="60,110 210,110 255,75 105,75" fill="#bae6fd" stroke="#0369a1" stroke-width="2"/>
+  <line x1="60" y1="110" x2="60" y2="215" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="210" y1="110" x2="210" y2="215" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="255" y1="75" x2="255" y2="180" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="105" y1="75" x2="105" y2="180" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="105" y1="180" x2="255" y2="180" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="60" y1="215" x2="105" y2="180" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="60" y1="215" x2="255" y2="180" stroke="#16a34a" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="60" y1="215" x2="255" y2="75" stroke="#dc2626" stroke-width="2.4"/>
+  <text x="135" y="231" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="238" y="205" font-size="11" font-weight="700" fill="#0369a1">b</text>
+  <text x="44" y="166" font-size="11" font-weight="700" fill="#0369a1">c</text>
+  <text x="140" y="204" font-size="10" font-weight="700" fill="#15803d">√(a²+b²)</text>
+  <text x="150" y="130" font-size="11" font-weight="700" fill="#b91c1c">cisim köşegeni</text>
+  <line x1="320" y1="45" x2="320" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="340" y="70" font-size="11" font-weight="700" fill="#334155">Adım adım</text>
+  <text x="340" y="94" font-size="11" font-weight="700" fill="#15803d">1) TABANDA Pisagor</text>
+  <text x="340" y="110" font-size="10" fill="#475569">Taban köşegeni = √(a² + b²)</text>
+  <text x="340" y="132" font-size="11" font-weight="700" fill="#b91c1c">2) DİKEY üçgende Pisagor</text>
+  <text x="340" y="148" font-size="10" fill="#475569">Taban köşegeni ⊥ yükseklik olduğu için</text>
+  <text x="340" y="162" font-size="10" fill="#475569">yeni bir dik üçgen doğar.</text>
+  <text x="340" y="178" font-size="10" font-weight="700" fill="#0369a1">k² = (a²+b²) + c²</text>
+  <text x="340" y="200" font-size="11" font-weight="700" fill="#b45309">k = √(a² + b² + c²)</text>
+  <text x="340" y="224" font-size="10" fill="#475569">Hacim = a·b·c</text>
+  <text x="340" y="240" font-size="10" fill="#475569">Yüzey alanı = 2(ab + ac + bc)</text>
+  <text x="340" y="258" font-size="10" font-weight="700" fill="#b91c1c">Refleks: "Hangi üçgenin içindeyim?"</text>
+</svg>
+<p class="formula">ÖRNEK — Ayrıtları <b>3 cm</b>, <b>4 cm</b> ve <b>12 cm</b> olan bir dikdörtgenler prizmasının <b>a)</b> hacmini, <b>b)</b> yüzey alanını, <b>c)</b> cisim köşegenini bulunuz.</p>
+<ul>
+<li><b>a)</b> V = 3 · 4 · 12 = <b>144 cm³</b>.</li>
+<li><b>b)</b> A = 2(3·4 + 3·12 + 4·12) = 2(12 + 36 + 48) = 2 · 96 = <b>192 cm²</b>.</li>
+<li><b>c)</b> k = √(9 + 16 + 144) = √169 = <b>13 cm</b>.</li>
+<li><b>Ders:</b> <u>Yüzey alanında <b>üç farklı yüz çiftini</b> tara: ab, ac, bc. En sık hata bir çifti unutmaktır — üç çarpım yazdığından emin ol.</u></li>
+</ul>
+<p class="formula">ÖRNEK — Tabanı kenarı <b>4 cm</b> olan <b>eşkenar üçgen</b>, yüksekliği <b>10 cm</b> olan düzgün prizmanın hacmi ve yanal alanı kaçtır?</p>
+<ul>
+<li><b>Taban alanı:</b> Eşkenar üçgende T = a²√3/4 = 16√3/4 = <b>4√3 cm²</b>.</li>
+<li><b>Hacim:</b> V = T · h = 4√3 · 10 = <b>40√3 cm³</b>.</li>
+<li><b>Yanal alan:</b> Ç = 3 · 4 = 12 cm → Yanal alan = 12 · 10 = <b>120 cm²</b>.</li>
+<li><b>Toplam alan:</b> 120 + 2 · 4√3 = <b>(120 + 8√3) cm²</b>.</li>
+<li><b>Ders:</b> <u>Prizma sorusu aslında <b>bir düzlem geometri sorusudur</b>: tabanın alanını ve çevresini bulabiliyorsan gerisi çarpma işlemidir.</u></li>
+</ul>
+
+<h3>4) Küp</h3>
+<p class="formula">TANIM (PDF) — <b>Bütün ayrıtlarının uzunlukları eşit</b> olan dikdörtgenler prizmasına <b>küp</b> denir.<br/>
+Bir ayrıtı <b>a</b> olan küpte:<br/>
+• <b>Yüzey alanı = 6a²</b> &nbsp;<u>(6 tane eş kare yüz)</u><br/>
+• <b>Hacim = a³</b><br/>
+• <b>Yüzey köşegeni = a√2</b> &nbsp;<u>(bir yüz karedir; karenin köşegeni kenar·√2)</u><br/>
+• <b>Cisim köşegeni = a√3</b> &nbsp;<u>(genel formülde a = b = c koy: √(a²+a²+a²) = a√3)</u><br/>
+<u><b>√2 ve √3'ü karıştırma:</b> <b>yüzeyde</b> kalıyorsan √2, <b>cismin içinden</b> geçiyorsan √3. "İki boyut → √2, üç boyut → √3" diye hatırla.</u><br/>
+<b>KÜPÜN AÇINIMI (PDF):</b> <u>Küp kesilip düzleme serilirse <b>6 eş kareden</b> oluşan bir şekil elde edilir. Bu yüzden yüzey alanı 6a²'dir; açınım, yüzey alanının görsel kanıtıdır.</u></p>
+<svg viewBox="0 0 640 265" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Küpün köşegenleri ve açınımı">
+  <rect x="0" y="0" width="640" height="265" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — Küp: yüzeyde √2, cisimde √3</text>
+  <polygon points="60,215 170,215 210,178 100,178" fill="#e0f2fe" stroke="#0369a1" stroke-width="2"/>
+  <polygon points="60,105 170,105 210,68 100,68" fill="#bae6fd" stroke="#0369a1" stroke-width="2"/>
+  <line x1="60" y1="105" x2="60" y2="215" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="170" y1="105" x2="170" y2="215" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="210" y1="68" x2="210" y2="178" stroke="#0369a1" stroke-width="2.2"/>
+  <line x1="100" y1="68" x2="100" y2="178" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="100" y1="178" x2="210" y2="178" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="60" y1="215" x2="100" y2="178" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="60" y1="215" x2="170" y2="105" stroke="#16a34a" stroke-width="2.2"/>
+  <line x1="60" y1="215" x2="210" y2="68" stroke="#dc2626" stroke-width="2.4"/>
+  <text x="110" y="231" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="44" y="164" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="96" y="152" font-size="10" font-weight="700" fill="#15803d">a√2</text>
+  <text x="150" y="128" font-size="10" font-weight="700" fill="#b91c1c">a√3</text>
+  <text x="130" y="252" font-size="10" font-weight="700" fill="#334155" text-anchor="middle">yüzey köşegeni a√2 · cisim köşegeni a√3</text>
+  <line x1="250" y1="45" x2="250" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="270" y="66" font-size="11" font-weight="700" fill="#334155">Küpün açınımı — 6 eş kare</text>
+  <g fill="#fef3c7" stroke="#d97706" stroke-width="1.8">
+    <rect x="310" y="80" width="42" height="42"/>
+    <rect x="268" y="122" width="42" height="42"/>
+    <rect x="310" y="122" width="42" height="42"/>
+    <rect x="352" y="122" width="42" height="42"/>
+    <rect x="394" y="122" width="42" height="42"/>
+    <rect x="310" y="164" width="42" height="42"/>
+  </g>
+  <text x="352" y="224" font-size="10" font-weight="700" fill="#b45309" text-anchor="middle">Yüzey alanı = 6 · a² — açınım bunun kanıtıdır.</text>
+  <line x1="455" y1="45" x2="455" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="472" y="70" font-size="11" font-weight="700" fill="#334155">Küpte hepsi tek harften</text>
+  <text x="472" y="94" font-size="10" font-weight="700" fill="#0369a1">Hacim = a³</text>
+  <text x="472" y="112" font-size="10" font-weight="700" fill="#0369a1">Yüzey alanı = 6a²</text>
+  <text x="472" y="130" font-size="10" font-weight="700" fill="#15803d">Yüzey köşegeni = a√2</text>
+  <text x="472" y="148" font-size="10" font-weight="700" fill="#b91c1c">Cisim köşegeni = a√3</text>
+  <text x="472" y="172" font-size="10" fill="#475569">2 boyutta kalıyorsan √2,</text>
+  <text x="472" y="186" font-size="10" fill="#475569">cismin içinden geçiyorsan √3.</text>
+  <text x="472" y="210" font-size="10" font-weight="700" fill="#b45309">Ayrıt 2 katına çıkarsa</text>
+  <text x="472" y="226" font-size="10" fill="#475569">alan 4 kat (2²), hacim 8 kat (2³).</text>
+  <text x="472" y="248" font-size="10" fill="#475569">Benzerlikteki oran kuralı,</text>
+  <text x="472" y="262" font-size="10" fill="#475569">uzayda küple çalışır.</text>
+</svg>
+<p class="formula">ÖRNEK — Cisim köşegeninin uzunluğu <b>6√3 cm</b> olan bir küpün yüzey alanı ve hacmi kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Ayrıtı bul:</b> a√3 = 6√3 → <b>a = 6 cm</b>.</li>
+<li><b>Adım 2:</b> Yüzey alanı = 6 · 6² = 6 · 36 = <b>216 cm²</b>; Hacim = 6³ = <b>216 cm³</b>.</li>
+<li><b>Uyarı:</b> <u>Sayılar aynı çıktı ama <b>birimler farklı</b> (cm² ve cm³). Bu yalnızca a = 6 için olan bir tesadüftür, kural değildir.</u></li>
+</ul>
+<p class="formula">ÖRNEK — Bir küpün ayrıt uzunluğu <b>3 katına</b> çıkarılırsa yüzey alanı ve hacmi kaç katına çıkar?</p>
+<ul>
+<li><b>Yüzey alanı:</b> 6(3a)² = 6 · 9a² → <b>9 katı</b> (oran²).</li>
+<li><b>Hacim:</b> (3a)³ = 27a³ → <b>27 katı</b> (oran³).</li>
+<li><b>Ders:</b> <u>Benzerlikte öğrendiğin "uzunluk k → alan k²" kuralı uzayda <b>"hacim k³"</b> ile devam eder. Bu kural yalnızca küpe değil, <b>benzer tüm cisimlere</b> uygulanır.</u></li>
+</ul>
+
+<h3>5) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Ayrıt/yüz/köşe sayısı</b></td><td>"n kenarlı taban", sayı verilmiş</td><td>Önce <b>n'yi çöz</b>: 2n, 3n, n+2.</td></tr>
+<tr><td>2</td><td><b>Hacim</b></td><td>Taban ölçüleri + yükseklik</td><td><b>V = T · h</b>.</td></tr>
+<tr><td>3</td><td><b>Yanal alan</b></td><td>"yan yüzler boyanacak/kaplanacak"</td><td><b>Ç · h</b> (tabanlar hariç).</td></tr>
+<tr><td>4</td><td><b>Toplam alan</b></td><td>"tamamı boyanacak"</td><td><b>Ç·h + 2T</b>.</td></tr>
+<tr><td>5</td><td><b>Dikdörtgenler prizması</b></td><td>Üç ayrıt verilmiş</td><td>V = abc, A = 2(ab+ac+bc).</td></tr>
+<tr><td>6</td><td><b>Cisim köşegeni</b></td><td>"en uzak iki köşe"</td><td><b>√(a²+b²+c²)</b>; küpte a√3.</td></tr>
+<tr><td>7</td><td><b>Yüzey köşegeni</b></td><td>Aynı yüzdeki iki köşe</td><td>√(x²+y²); küpte <b>a√2</b>.</td></tr>
+<tr><td>8</td><td><b>Küp temel</b></td><td>Tek ayrıt verilmiş</td><td>6a², a³, a√2, a√3.</td></tr>
+<tr><td>9</td><td><b>Küpten geriye gitme</b></td><td>Hacim/alan/köşegen verilmiş</td><td>Önce <b>a'yı çöz</b>, sonra istenen.</td></tr>
+<tr><td>10</td><td><b>Oran-kat sorusu</b></td><td>"ayrıt k katına çıkarsa"</td><td>Alan <b>k²</b>, hacim <b>k³</b> katı.</td></tr>
+<tr><td>11</td><td><b>Küçük küplere bölme</b></td><td>"kaç birim küp çıkar"</td><td>Hacimleri böl: büyük V / küçük V.</td></tr>
+<tr><td>12</td><td><b>Su/doldurma</b></td><td>Litre, cm³, doluluk oranı</td><td>V = T·h; <b>1 L = 1000 cm³</b>.</td></tr>
+<tr><td>13</td><td><b>Açınım</b></td><td>Serilmiş kareler/dikdörtgenler</td><td>Alanları topla = yüzey alanı.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 11-12) — İç ölçüleri <b>20 cm × 30 cm × 50 cm</b> olan dikdörtgen prizma şeklindeki bir kap tamamen suyla doludur. <b>a)</b> Kaç litre su alır? <b>b)</b> Bu su, ayrıtı <b>10 cm</b> olan küp şeklindeki kaç kabı doldurur?</p>
+<ul>
+<li><b>a)</b> V = 20 · 30 · 50 = 30 000 cm³ = <b>30 litre</b> <u>(1 L = 1000 cm³)</u>.</li>
+<li><b>b)</b> Küpün hacmi = 10³ = 1000 cm³ → 30 000 / 1000 = <b>30 kap</b>.</li>
+<li><b>Ders:</b> <u>Hacim sorularında ilk iş <b>birimleri eşitlemektir</b>. cm³ ↔ litre dönüşümünü (1000) bilmezsen doğru hacmi bulsan bile yanlış şık işaretlersin.</u></li>
+</ul>
+
+<h3>6) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Dik prizma:</b> Bir çokgenin kendine paralel ve tabana dik kaydırılmasıyla oluşan katı cisim.</li>
+<li><b>Taban:</b> Prizmanın birbirine eş ve paralel iki yüzü.</li>
+<li><b>Taban ayrıtı:</b> Tabandaki çokgenin kenarı. <b>Yanal ayrıt:</b> Tabanların karşılıklı köşelerini birleştiren parça (= yükseklik).</li>
+<li><b>Yanal yüz:</b> İki yanal ayrıt arasındaki yüzey; dik prizmada dikdörtgendir.</li>
+<li><b>Yanal alan:</b> Tabanlar hariç yan yüzlerin toplam alanı; Ç · h.</li>
+<li><b>Toplam (yüzey) alan:</b> Yanal alan + 2 · taban alanı.</li>
+<li><b>Düzgün prizma:</b> Tabanı düzgün çokgen olan dik prizma.</li>
+<li><b>Küp:</b> Tüm ayrıtları eşit olan dikdörtgenler prizması.</li>
+<li><b>Yüzey köşegeni:</b> Aynı yüz üzerindeki iki karşıt köşeyi birleştiren parça; küpte a√2.</li>
+<li><b>Cisim köşegeni:</b> Cismin içinden geçerek en uzak iki köşeyi birleştiren parça; küpte a√3.</li>
+<li><b>Açınım:</b> Cismin yüzeylerinin düzleme serilmiş hâli.</li>
+</ul>
+
+<h3>7) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Yüzey köşegeni ile cisim köşegenini karıştırmak:</b> Yüzde <b>a√2</b>, cismin içinde <b>a√3</b>.</li>
+<li><b>Yanal alanı toplam alan sanmak:</b> "Yalnızca yan yüzler" deniyorsa <b>tabanları ekleme</b>; "tamamı" deniyorsa 2T'yi ekle.</li>
+<li><b>Hacim formülünde tabanı ihmal etmek:</b> V = <b>taban alanı</b> × h; taban çevresi değil.</li>
+<li><b>Yüzey alanında bir yüz çiftini unutmak:</b> 2(ab + ac + bc) — <b>üç</b> çarpım olmalı.</li>
+<li><b>Ayrıt sayısını 2n sanmak:</b> Ayrıt <b>3n</b>, köşe 2n'dir.</li>
+<li><b>Yüz sayısına tabanları katmamak:</b> Yüz = n + <b>2</b>.</li>
+<li><b>Ayrıt k katına çıkınca hacmin de k katı olacağını sanmak:</b> Alan <b>k²</b>, hacim <b>k³</b> katı olur.</li>
+<li><b>Birim karışıklığı:</b> Uzunluk cm, alan cm², hacim cm³; <b>1 L = 1000 cm³</b>, 1 m³ = 1 000 000 cm³.</li>
+<li><b>Küpte 6a² yerine 4a² yazmak:</b> Küpün <b>6</b> yüzü vardır (üst ve alt dâhil).</li>
+<li><b>Eşkenar üçgen tabanlı prizmada taban alanını yanlış hesaplamak:</b> T = <b>a²√3/4</b>.</li>
+<li><b>Yanal ayrıtın yükseklik olduğunu fark etmemek:</b> Dik prizmada bu ikisi <b>aynı</b> uzunluktur.</li>
+</ul>
+
+<h3>8) Özet Kartı</h3>
+<ul>
+<li><b>Dik prizma:</b> çokgeni tabana dik kaydır; yanal yüzler <b>dikdörtgen</b>, yanal ayrıt = <b>yükseklik</b>.</li>
+<li><b>n kenarlı tabanda:</b> <b>Köşe = 2n</b>, <b>Ayrıt = 3n</b>, <b>Yüz = n + 2</b>. Kontrol: K − A + Y = <b>2</b>.</li>
+<li><b>Yanal alan = Ç · h</b> &nbsp;·&nbsp; <b>Toplam alan = Ç·h + 2T</b> &nbsp;·&nbsp; <b>Hacim = T · h</b>.</li>
+<li><b>Dikdörtgenler prizması:</b> V = <b>abc</b>, A = <b>2(ab + ac + bc)</b>, cisim köşegeni <b>√(a²+b²+c²)</b>.</li>
+<li><b>Cisim köşegeni = iki kere Pisagor</b> (önce tabanda, sonra dikey üçgende).</li>
+<li><b>Küp (ayrıt a):</b> A = <b>6a²</b>, V = <b>a³</b>, yüzey köşegeni <b>a√2</b>, cisim köşegeni <b>a√3</b>.</li>
+<li><b>2 boyutta √2, 3 boyutta √3</b> — küpteki iki köşegeni böyle ayır.</li>
+<li><b>Ayrıt k katına çıkarsa:</b> alan <b>k²</b>, hacim <b>k³</b> katına çıkar.</li>
+<li><b>Küpün açınımı 6 eş karedir</b> — yüzey alanının görsel kanıtı.</li>
+<li><b>1 L = 1000 cm³</b>; hacim sorularında ilk iş birim eşitlemek.</li>
+<li><b>Altın refleks:</b> Uzay sorusunda <b>"hangi üçgenin içindeyim?"</b> diye sor; cevap her zaman bir düzlem geometri sorusuna iner.</li>
+</ul>
+
+</body></html>

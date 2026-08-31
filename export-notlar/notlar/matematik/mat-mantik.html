@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mantık</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Mantık</h2>
+
+<p>Mantık, TYT'de <b>ezberlenecek en az, anlaşılacak en çok</b> konudur. Bütün ünite iki sembolden doğar: <b>1 (doğru)</b> ve <b>0 (yanlış)</b>. Bağlaçlar bu iki değeri birleştiren kurallardan ibarettir ve hepsinin tablosu birkaç satırdır. Buradaki asıl zorluk hesap değil, <u>günlük dildeki "ise", "veya", "ancak ve ancak" ifadelerinin matematikte tam olarak ne anlama geldiğini kabul etmektir</u>. Özellikle <b>p yanlışken "p ise q" önermesinin doğru sayılması</b> ilk bakışta tuhaf gelir; bu ünitede neden böyle olduğunu da göreceğiz.</p>
+
+<h3>1) Önerme ve Doğruluk Değeri</h3>
+<p class="formula">TANIM — <b>Doğru ya da yanlış KESİN bir hüküm (yargı) bildiren</b> ifadelere <b>önerme</b> denir. Önermeler p, q, r, s gibi küçük harflerle gösterilir.<br/>
+<b>Önerme OLMAYANLAR:</b> soru cümleleri, emir cümleleri, dilek cümleleri ve <u>kişiden kişiye değişen görüş bildiren</u> ifadeler.</p>
+<p class="formula">ÖRNEK (PDF) — Aşağıdakilerden hangileri önermedir?<br/>
+<b>p:</b> "Asal olan her sayı tek sayıdır." → <b>ÖNERMEDİR</b> <u>(yanlış bir önerme, çünkü 2 asal ve çift; ama kesin bir hüküm bildiriyor)</u><br/>
+<b>q:</b> "Bugün sinemaya gidelim mi?" → <b>Önerme değildir</b> <u>(soru cümlesi)</u><br/>
+<b>r:</b> "Adana, Akdeniz Bölgesi'ne ait bir ilimizdir." → <b>ÖNERMEDİR</b> <u>(doğru)</u><br/>
+<b>s:</b> "Sevgi, başarılı bir öğrenci değildir." → <b>Önerme değildir</b> <u>(göreceli; "başarılı" ölçütü kişiden kişiye değişir)</u><br/>
+<b>t:</b> "Dünyanın en lezzetli meyvesi çilektir." → <b>Önerme değildir</b> <u>(kişisel görüş)</u><br/>
+<b>v:</b> "13 + 5 = 16 olur." → <b>ÖNERMEDİR</b> <u>(yanlış ama kesin)</u><br/>
+<b>KRİTİK NOKTA:</b> Bir ifadenin önerme olması için <u>doğru olması gerekmez</u>; <b>doğruluğunun kesin olarak belirlenebilmesi</b> yeterlidir.</p>
+<p class="formula">DOĞRULUK DEĞERİ ve DENKLİK — Önerme doğruysa <b>1</b> (ya da D), yanlışsa <b>0</b> (ya da Y) ile gösterilir: p ≡ 1 veya p ≡ 0.<br/>
+<b>Doğruluk değerleri aynı olan iki önermeye DENK önermeler denir:</b> p ≡ q. Denk değilse p ≢ q yazılır.</p>
+<p class="formula">DOĞRULUK TABLOSU — Her önermenin 2 durumu olduğuna göre:<br/>
+• <b>1 önerme</b> → 2 satır &nbsp;·&nbsp; <b>2 önerme</b> → 2·2 = <b>4</b> satır &nbsp;·&nbsp; <b>3 önerme</b> → 2·2·2 = <b>8</b> satır<br/>
+• Genel olarak <b>n tane bağımsız önermenin 2ⁿ farklı doğruluk durumu</b> vardır.<br/>
+<u>Bu sayı, "kaç farklı durum incelenmeli?" sorusunun doğrudan cevabıdır.</u></p>
+<p class="formula">DEĞİL (TÜMLEYEN) — Bir p önermesinin doğruluk değerini tersine çeviren önermeye <b>p'nin değili</b> denir ve <b>p′</b> (ya da ¬p) ile gösterilir. <b>p ≡ 1 ise p′ ≡ 0</b>, <b>p ≡ 0 ise p′ ≡ 1</b>.<br/>
+<b>Çift değil özdeşliği:</b> <b>(p′)′ ≡ p</b> — iki kez tersine çevirmek başa döndürür.</p>
+
+<h3>2) Bileşik Önermeler: ve, veya, ya da</h3>
+<p class="formula">TANIM — İki ya da daha fazla önermenin <b>"ve" (∧)</b>, <b>"veya" (∨)</b>, <b>"ya da" (⊻)</b>, <b>"ise" (⇒)</b>, <b>"ancak ve ancak" (⇔)</b> bağlaçlarıyla birleştirilmesiyle oluşan yeni önermeye <b>bileşik önerme</b> denir.</p>
+<svg viewBox="0 0 640 280" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dört temel bağlacın doğruluk tablosu">
+  <rect x="0" y="0" width="640" height="280" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Dört temel bağlacın doğruluk tablosu</text>
+  <g stroke="#94a3b8" stroke-width="1">
+    <line x1="40" y1="44" x2="600" y2="44"/><line x1="40" y1="70" x2="600" y2="70"/>
+    <line x1="40" y1="96" x2="600" y2="96"/><line x1="40" y1="122" x2="600" y2="122"/>
+    <line x1="40" y1="148" x2="600" y2="148"/><line x1="40" y1="174" x2="600" y2="174"/>
+  </g>
+  <g stroke="#94a3b8" stroke-width="1">
+    <line x1="40" y1="44" x2="40" y2="174"/><line x1="110" y1="44" x2="110" y2="174"/>
+    <line x1="180" y1="44" x2="180" y2="174"/><line x1="285" y1="44" x2="285" y2="174"/>
+    <line x1="390" y1="44" x2="390" y2="174"/><line x1="495" y1="44" x2="495" y2="174"/>
+    <line x1="600" y1="44" x2="600" y2="174"/>
+  </g>
+  <g font-size="12" font-weight="700" fill="#334155" text-anchor="middle">
+    <text x="75" y="62">p</text><text x="145" y="62">q</text>
+    <text x="232" y="62">p ∧ q</text><text x="337" y="62">p ∨ q</text><text x="442" y="62">p ⇒ q</text><text x="547" y="62">p ⇔ q</text>
+  </g>
+  <g font-size="12" fill="#475569" text-anchor="middle">
+    <text x="75" y="88">1</text><text x="145" y="88">1</text>
+    <text x="75" y="114">1</text><text x="145" y="114">0</text>
+    <text x="75" y="140">0</text><text x="145" y="140">1</text>
+    <text x="75" y="166">0</text><text x="145" y="166">0</text>
+  </g>
+  <g font-size="12" font-weight="700" text-anchor="middle">
+    <text x="232" y="88" fill="#15803d">1</text><text x="232" y="114" fill="#b91c1c">0</text><text x="232" y="140" fill="#b91c1c">0</text><text x="232" y="166" fill="#b91c1c">0</text>
+    <text x="337" y="88" fill="#15803d">1</text><text x="337" y="114" fill="#15803d">1</text><text x="337" y="140" fill="#15803d">1</text><text x="337" y="166" fill="#b91c1c">0</text>
+    <text x="442" y="88" fill="#15803d">1</text><text x="442" y="114" fill="#b91c1c">0</text><text x="442" y="140" fill="#15803d">1</text><text x="442" y="166" fill="#15803d">1</text>
+    <text x="547" y="88" fill="#15803d">1</text><text x="547" y="114" fill="#b91c1c">0</text><text x="547" y="140" fill="#b91c1c">0</text><text x="547" y="166" fill="#15803d">1</text>
+  </g>
+  <line x1="26" y1="196" x2="614" y2="196" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="214" font-size="10" fill="#475569">"ve" yalnızca İKİSİ DE doğruyken 1'dir — en katı bağlaç. Tabloda tek bir 1 vardır.</text>
+  <text x="26" y="230" font-size="10" fill="#475569">"veya" EN AZ BİRİ doğruyken 1'dir — en cömert bağlaç. Tabloda tek bir 0 vardır.</text>
+  <text x="26" y="246" font-size="10" fill="#475569">"ise" yalnızca 1 ⇒ 0 durumunda yanlıştır. Diğer üç durumda doğru kabul edilir.</text>
+  <text x="26" y="262" font-size="10" fill="#475569">"ancak ve ancak" doğruluk değerleri AYNI iken 1, farklı iken 0'dır — bir "eşitlik" bağlacıdır.</text>
+  <text x="26" y="278" font-size="10" fill="#475569">Ezber gerekmez: ∧ için "hepsi", ∨ için "en az biri", ⇔ için "aynı mı?" diye sor; ⇒ ayrı ele alınacak.</text>
+</svg>
+<p class="formula">"ve" (∧) — p ∧ q önermesi <b>yalnızca p ve q'nun her ikisi de doğruyken 1</b>, diğer durumlarda 0'dır.<br/>
+<b>Özellikleri:</b> <b>p ∧ p ≡ p</b> (tek kuvvet) &nbsp;·&nbsp; <b>p ∧ q ≡ q ∧ p</b> (değişme) &nbsp;·&nbsp; <b>p ∧ (q ∧ r) ≡ (p ∧ q) ∧ r</b> (birleşme)<br/>
+<b>Özel değerler:</b> <b>p ∧ p′ ≡ 0</b> &nbsp;·&nbsp; <b>p ∧ 1 ≡ p</b> &nbsp;·&nbsp; <b>p ∧ 0 ≡ 0</b><br/>
+<u>Sezgi: "ve" bir zincirdir; en zayıf halka (tek bir 0) tüm zinciri koparır.</u></p>
+<p class="formula">"veya" (∨) — p ∨ q önermesi <b>en az biri doğruyken 1</b>, ikisi de yanlışken 0'dır. <u>Dikkat: matematikteki "veya" KAPSAYICIDIR; ikisi de doğruysa yine doğrudur.</u><br/>
+<b>Özellikleri:</b> <b>p ∨ p ≡ p</b> &nbsp;·&nbsp; <b>p ∨ q ≡ q ∨ p</b> &nbsp;·&nbsp; <b>p ∨ (q ∨ r) ≡ (p ∨ q) ∨ r</b><br/>
+<b>Özel değerler:</b> <b>p ∨ p′ ≡ 1</b> &nbsp;·&nbsp; <b>p ∨ 1 ≡ 1</b> &nbsp;·&nbsp; <b>p ∨ 0 ≡ p</b></p>
+<p class="formula">"ya da" (⊻) — <b>DIŞLAYICI veya</b>: yalnızca <u>tam olarak biri</u> doğruyken 1'dir; ikisi de doğruysa <b>0</b>'dır. <u>Günlük dildeki "ya kahve ya çay" ifadesi budur — ikisi birden olmaz.</u><br/>
+<b>Bağlantı:</b> <b>p ⊻ q ≡ (p ∨ q) ∧ (p ∧ q)′</b> &nbsp;·&nbsp; ayrıca <b>p ⊻ q ≡ (p ⇔ q)′</b><br/>
+<b>Sınav ayrımı:</b> "veya" ikisi birden olabilir; <b>"ya da" olamaz</b>.</p>
+<p class="formula">DAĞILMA ÖZELLİKLERİ —<br/>
+• <b>p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r)</b> &nbsp;("ve"nin "veya" üzerine dağılması)<br/>
+• <b>p ∨ (q ∧ r) ≡ (p ∨ q) ∧ (p ∨ r)</b> &nbsp;("veya"nın "ve" üzerine dağılması)<br/>
+<u>Çarpma-toplama benzetmesi: ∧ çarpma, ∨ toplama gibi davranır. Ama ikinci satır sayılarda geçerli değildir — mantıkta her ikisi de dağılır.</u></p>
+<p class="formula">DE MORGAN KURALLARI — Bu ünitenin en çok kullanılan iki kuralı:<br/>
+• <b>(p ∨ q)′ ≡ p′ ∧ q′</b><br/>
+• <b>(p ∧ q)′ ≡ p′ ∨ q′</b><br/>
+<b>Sözel okuma:</b> Değil dışarıdan içeriye girerken <u>bağlaç yer değiştirir</u>: "ve" → "veya", "veya" → "ve".<br/>
+<u>Sezgi: "Ali ve Veli geldi" ifadesinin değili "Ali gelmedi ve Veli gelmedi" değil, "Ali gelmedi VEYA Veli gelmedi"dir — en az biri gelmemiş olması yeter.</u></p>
+
+<h3>3) Koşullu Önerme (⇒)</h3>
+<p class="formula">TANIM — p ile q'nun <b>"ise"</b> bağlacıyla bağlanmasıyla oluşan <b>p ⇒ q</b> önermesine <b>koşullu önerme</b> denir. <b>Yalnızca p doğru, q yanlış iken 0'dır</b>; diğer üç durumda 1'dir.<br/>
+<b>p:</b> hipotez (koşul) &nbsp;·&nbsp; <b>q:</b> hüküm (sonuç)</p>
+<p class="formula">NEDEN p YANLIŞKEN HEP DOĞRU? — Bu, ünitenin en çok yadırganan noktasıdır. <u>Şöyle düşün: "Sınavdan 90 alırsan seni sinemaya götüreceğim" sözünü verdim. Sözümü ne zaman TUTMAMIŞ olurum? Yalnızca 90 aldığın hâlde götürmezsem.</u> 90 almadıysan — götürsem de götürmesem de — sözümü çiğnemiş olmam. <b>İşte bu yüzden p yanlışken koşullu önerme doğru kabul edilir.</b> Buna <u>"boş yere doğruluk"</u> denir.</p>
+<p class="formula">ÖZELLİKLER —<br/>
+<b>p ⇒ p ≡ 1</b> &nbsp;·&nbsp; <b>p ⇒ 0 ≡ p′</b> &nbsp;·&nbsp; <b>0 ⇒ p ≡ 1</b> &nbsp;·&nbsp; <b>p ⇒ 1 ≡ 1</b> &nbsp;·&nbsp; <b>1 ⇒ p ≡ p</b> &nbsp;·&nbsp; <b>p ⇒ p′ ≡ p′</b><br/>
+<b>EN ÖNEMLİ ÖZDEŞLİK:</b> <b>p ⇒ q ≡ p′ ∨ q</b><br/>
+<u>Bu özdeşlik, "ise"li ifadeleri "veya"lıya çevirerek De Morgan uygulamanı sağlar. Buradan koşullu önermenin değili de çıkar:</u> <b>(p ⇒ q)′ ≡ p ∧ q′</b><br/>
+<u>Yani "p ise q" ifadesinin değili "p olur ama q olmaz"dır — bu da sezgiyle birebir uyuşur.</u></p>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Karşıt ters denklik şeması">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Karşıt, ters ve karşıt ters: hangisi denk?</text>
+  <rect x="60" y="44" width="200" height="46" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="160" y="64" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">ASIL</text>
+  <text x="160" y="82" font-size="14" font-weight="700" fill="#15803d" text-anchor="middle">p ⇒ q</text>
+  <rect x="380" y="44" width="200" height="46" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="480" y="64" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">KARŞIT TERSİ</text>
+  <text x="480" y="82" font-size="14" font-weight="700" fill="#15803d" text-anchor="middle">q′ ⇒ p′</text>
+  <line x1="262" y1="67" x2="376" y2="67" stroke="#16a34a" stroke-width="3"/>
+  <text x="319" y="58" font-size="13" font-weight="700" fill="#15803d" text-anchor="middle">≡ DENK</text>
+  <rect x="60" y="126" width="200" height="46" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="160" y="146" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">KARŞITI</text>
+  <text x="160" y="164" font-size="14" font-weight="700" fill="#b91c1c" text-anchor="middle">q ⇒ p</text>
+  <rect x="380" y="126" width="200" height="46" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="480" y="146" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">TERSİ</text>
+  <text x="480" y="164" font-size="14" font-weight="700" fill="#b91c1c" text-anchor="middle">p′ ⇒ q′</text>
+  <line x1="262" y1="149" x2="376" y2="149" stroke="#dc2626" stroke-width="3"/>
+  <text x="319" y="140" font-size="13" font-weight="700" fill="#b91c1c" text-anchor="middle">≡ DENK</text>
+  <line x1="26" y1="192" x2="614" y2="192" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="210" font-size="10" fill="#475569">Asıl önerme yalnızca KARŞIT TERSİNE denktir. Karşıtı ve tersi ise birbirine denktir ama asıl önermeye DEĞİL.</text>
+  <text x="26" y="226" font-size="10" fill="#475569">Örnek: "Yağmur yağarsa yerler ıslanır" doğrudur. Karşıt tersi: "Yerler ıslak değilse yağmur yağmamıştır" — yine doğru.</text>
+  <text x="26" y="242" font-size="10" fill="#475569">Ama karşıtı: "Yerler ıslaksa yağmur yağmıştır" — YANLIŞ olabilir (biri sulamış olabilir). İşte fark budur.</text>
+  <text x="26" y="256" font-size="10" fill="#475569">Not: p ⇒ q önermesinin TERSİ (p′ ⇒ q′) ile DEĞİLİ (p ∧ q′) farklı şeylerdir; bu ayrım sınavda sorulur.</text>
+</svg>
+<p class="formula">KARŞIT, TERS, KARŞIT TERS — p ⇒ q önermesi için:<br/>
+• <b>Karşıtı:</b> q ⇒ p &nbsp;·&nbsp; <b>Tersi:</b> p′ ⇒ q′ &nbsp;·&nbsp; <b>Karşıt tersi:</b> q′ ⇒ p′<br/>
+<b>ALTIN KURAL:</b> <b>p ⇒ q ≡ q′ ⇒ p′</b> — bir önerme yalnızca <u>karşıt tersine</u> denktir.<br/>
+<b>GEREKTİRME:</b> p ⇒ q önermesinin doğruluk değeri <b>1</b> ise bu koşullu önermeye <b>gerektirme</b> denir.</p>
+
+<h3>4) İki Yönlü Koşullu Önerme (⇔)</h3>
+<p class="formula">TANIM — <b>(p ⇒ q) ∧ (q ⇒ p)</b> bileşik önermesine <b>iki yönlü koşullu önerme</b> denir, <b>p ⇔ q</b> yazılır ve "p ancak ve ancak q" diye okunur.<br/>
+<b>Doğruluk değeri:</b> p ile q'nun doğruluk değerleri <b>aynı iken 1</b>, farklı iken 0'dır. <u>Yani ⇔ bir "eşitlik" bağlacıdır.</u></p>
+<p class="formula">ÖZELLİKLER — <b>p ⇔ q ≡ q ⇔ p</b> &nbsp;·&nbsp; <b>p ⇔ 1 ≡ p</b> &nbsp;·&nbsp; <b>p ⇔ 0 ≡ p′</b> &nbsp;·&nbsp; <b>p ⇔ p ≡ 1</b> &nbsp;·&nbsp; <b>p ⇔ p′ ≡ 0</b><br/>
+<b>p ⇔ q ≡ p′ ⇔ q′</b> &nbsp;·&nbsp; <b>(p ⇔ q)′ ≡ p′ ⇔ q ≡ p ⇔ q′</b><br/>
+<b>ÇİFT GEREKTİRME:</b> p ⇔ q önermesinin doğruluk değeri 1 ise buna <b>çift gerektirme</b> denir.</p>
+
+<h3>5) Açık Önerme ve Niceleyiciler</h3>
+<p class="formula">AÇIK ÖNERME — İçinde <b>en az bir değişken</b> bulunan ve değişkene verilen değere göre doğru ya da yanlış olan önermelere <b>açık önerme</b> denir; <b>p(x)</b> ile gösterilir. <u>Örnek: p(x): "x bir tam sayı ve x² = 9".</u><br/>
+<b>DOĞRULUK KÜMESİ:</b> Açık önermeyi doğrulayan elemanların kümesidir. <u>Yukarıdaki örnekte doğruluk kümesi {−3, 3}'tür.</u><br/>
+<b>Kritik bağlantı:</b> <u>Her denklem ve her eşitsizlik bir açık önermedir; çözüm kümeleri de bu açık önermelerin doğruluk kümesidir.</u> a ∈ doğruluk kümesi ise p(a) ≡ 1, değilse p(a) ≡ 0'dır.</p>
+<p class="formula">NİCELEYİCİLER —<br/>
+• <b>"Her" (∀)</b> — <b>evrensel niceleyici</b>. "Bütün", "tamamı" ile aynı anlamdadır.<br/>
+• <b>"Bazı" (∃)</b> — <b>varlıksal niceleyici</b>. "En az bir" ile aynı anlamdadır.<br/>
+<u>Örnek: "∀x ∈ ℝ⁺, x² &gt; 0" ifadesi "Her pozitif gerçek sayının karesi sıfırdan büyüktür" diye okunur.</u><br/>
+<b>DİKKAT:</b> "Bazı" ifadesi Türkçede "birkaçı ama hepsi değil" gibi anlaşılır; <u>matematikte ise "en az bir tane" demektir ve hepsi de olabilir</u>.</p>
+<p class="formula">NİCELEYİCİLERİN DEĞİLİ — Sınavda doğrudan sorulan bir kuraldır:<br/>
+• <b>(∀x, p(x))′ ≡ ∃x, p′(x)</b> &nbsp;<u>("Her x için p doğrudur"un değili: "Bazı x için p yanlıştır")</u><br/>
+• <b>(∃x, p(x))′ ≡ ∀x, p′(x)</b> &nbsp;<u>("Bazı x için p doğrudur"un değili: "Her x için p yanlıştır")</u><br/>
+<b>Kural:</b> Değil alınırken <b>niceleyici yer değiştirir</b> (∀ ↔ ∃) ve <b>içerideki önerme değillenir</b>. <u>De Morgan'ın niceleyici hâli olarak düşünebilirsin.</u><br/>
+<u>Sezgi: "Bütün kuşlar uçar" ifadesini çürütmek için bütün kuşları incelemene gerek yok; uçamayan TEK BİR kuş yeter.</u></p>
+
+<h3>6) Tanım, Aksiyom, Teorem ve İspat</h3>
+<table>
+<tr><th>Kavram</th><th>Anlamı</th><th>Örnek / Not</th></tr>
+<tr><td><b>Tanımsız terim</b></td><td>Başka bir tanıma ihtiyaç duymadan anlaşılan terim</td><td>Nokta, doğru, düzlem</td></tr>
+<tr><td><b>Tanımlı terim</b></td><td>Önceki terimler kullanılarak tanımlanan terim</td><td>Doğru parçası, açı, üçgen</td></tr>
+<tr><td><b>Tanım</b></td><td>Bir kavramı özelliklerini belirterek açıklama</td><td>Tutarlı, açık ve <b>kesin</b> olmalı; fazlasını kapsamamalı</td></tr>
+<tr><td><b>Aksiyom</b></td><td><b>İspatsız</b> doğru kabul edilen önerme</td><td>Çelişmemeli, bağımsız olmalı, <u>mümkün olduğunca az sayıda</u> olmalı</td></tr>
+<tr><td><b>Teorem</b></td><td>Doğruluğu <b>ispatlanması gereken</b> önerme</td><td>p ⇒ q biçimindedir; p hipotez, q hükümdür</td></tr>
+<tr><td><b>Hipotez</b></td><td>Teoremde verilen, doğru kabul edilen kısım</td><td>p ⇒ q ifadesindeki <b>p</b></td></tr>
+<tr><td><b>Hüküm</b></td><td>Teoremde ispatlanması istenen kısım</td><td>p ⇒ q ifadesindeki <b>q</b></td></tr>
+<tr><td><b>İspat</b></td><td>Hipotezden hükme mantıksal olarak ulaşma süreci</td><td>Doğrudan, olmayana ergi, karşıt ters, aksine örnek</td></tr>
+</table>
+<p class="formula">İSPAT YÖNTEMLERİ —<br/>
+• <b>Doğrudan ispat:</b> p'nin doğruluğundan başlayıp mantıksal adımlarla q'ya varılır.<br/>
+• <b>Karşıt ters ile ispat:</b> p ⇒ q yerine ona denk olan <b>q′ ⇒ p′</b> ispatlanır. <u>Bazen bu yol çok daha kolaydır.</u><br/>
+• <b>Olmayana ergi (çelişki):</b> Hükmün <u>yanlış olduğu varsayılır</u>, bir çelişkiye ulaşılır; demek ki varsayım yanlıştır.<br/>
+• <b>Aksine örnek (ters örnek):</b> Bir iddianın <u>yanlış olduğunu göstermek</u> için tek bir karşı örnek yeterlidir. <u>Örnek: "Her asal sayı tektir" iddiasını çürütmek için 2 sayısını göstermek yeter.</u><br/>
+<b>Kritik ayrım:</b> Bir iddiayı <u>çürütmek</u> için tek örnek yeter; <u>kanıtlamak</u> için ise örnek yetmez, genel ispat gerekir.</p>
+
+<h3>7) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Önerme mi değil mi?</b></td><td>Cümleler verilip önerme olanlar isteniyor</td><td>Kesin hüküm mü? Soru/emir/görüş ise <b>önerme değildir</b>.</td></tr>
+<tr><td>2</td><td><b>Doğruluk değeri hesabı</b></td><td>Bileşik önermenin değeri isteniyor</td><td>Tabloyu kur ya da <b>içten dışa</b> hesapla. p ∨ 1 ≡ 1 gibi kısayolları kullan.</td></tr>
+<tr><td>3</td><td><b>Denklik gösterme</b></td><td>"Aşağıdakilerden hangisi … ile denktir?"</td><td><b>p ⇒ q ≡ p′ ∨ q</b> ile "ise"yi kaldır, sonra <b>De Morgan</b> uygula.</td></tr>
+<tr><td>4</td><td><b>Değil alma</b></td><td>"…önermesinin değili nedir?"</td><td>De Morgan + <b>(p ⇒ q)′ ≡ p ∧ q′</b>. Niceleyici varsa ∀ ↔ ∃ çevir.</td></tr>
+<tr><td>5</td><td><b>Karşıt / ters / karşıt ters</b></td><td>Sözel bir "ise" cümlesi veriliyor</td><td>Yalnızca <b>karşıt ters denktir</b>. Karşıtı ve tersi asıl önermeye denk değildir.</td></tr>
+<tr><td>6</td><td><b>Totoloji / çelişki</b></td><td>"Daima doğrudur / daima yanlıştır"</td><td>Tüm satırlar 1 → <b>totoloji</b>; tüm satırlar 0 → <b>çelişki</b>.</td></tr>
+<tr><td>7</td><td><b>Niceleyici değili</b></td><td>"Her … " ya da "Bazı … " ifadesi</td><td>∀ ↔ ∃ değişir, içerideki önerme <b>değillenir</b>.</td></tr>
+<tr><td>8</td><td><b>Açık önerme / doğruluk kümesi</b></td><td>Denklem ya da eşitsizlik veriliyor</td><td><b>Çözüm kümesi = doğruluk kümesi</b>. Denklemi çöz.</td></tr>
+<tr><td>9</td><td><b>Tanım-aksiyom-teorem</b></td><td>Kavram eşleştirme sorusu</td><td>Aksiyom <b>ispatsız kabul</b>, teorem <b>ispat gerektirir</b>.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 4) — <b>(p ⇒ q′)′</b> önermesinin en sade eşiti nedir?</p>
+<ul>
+<li><b>Adım 1 — "ise"yi kaldır:</b> p ⇒ q′ ≡ <b>p′ ∨ q′</b>.</li>
+<li><b>Adım 2 — Değil al (De Morgan):</b> (p′ ∨ q′)′ ≡ <b>p ∧ q</b>.</li>
+<li><b>Kısayol:</b> Doğrudan <b>(p ⇒ q)′ ≡ p ∧ q′</b> kuralını uygulasaydık: burada hüküm q′ olduğundan (p ⇒ q′)′ ≡ p ∧ (q′)′ = <b>p ∧ q</b> ✓ Aynı sonuç, tek adımda.</li>
+<li><b>Kontrol:</b> Tablo kurarak da doğrulanabilir; p = 1, q = 1 için p ⇒ q′ = 1 ⇒ 0 = 0, değili 1 ✓ ve p ∧ q = 1 ✓</li>
+</ul>
+<p class="formula">ÖRNEK (Tip 5) — "Bir sayı 6 ile tam bölünüyorsa 3 ile de tam bölünür" önermesinin <b>karşıt tersini</b> yazınız ve doğruluğunu tartışınız.</p>
+<ul>
+<li><b>Asıl:</b> p ⇒ q, &nbsp;p: "6 ile bölünür", &nbsp;q: "3 ile bölünür". <u>Bu önerme doğrudur.</u></li>
+<li><b>Karşıt tersi:</b> q′ ⇒ p′ → <b>"Bir sayı 3 ile tam bölünmüyorsa 6 ile de tam bölünmez."</b> <u>Bu da doğrudur ✓ (denklik gereği zaten doğru olmak zorundaydı)</u></li>
+<li><b>Karşıtı:</b> q ⇒ p → "3 ile bölünüyorsa 6 ile de bölünür." <b>YANLIŞ</b> — <u>karşı örnek: 9 sayısı 3'e bölünür ama 6'ya bölünmez.</u></li>
+<li><b>Tersi:</b> p′ ⇒ q′ → "6 ile bölünmüyorsa 3 ile de bölünmez." <b>YANLIŞ</b> — <u>yine 9 karşı örnektir.</u></li>
+<li><b>Ders:</b> Karşıtı ve tersi birbirine denktir (ikisi de yanlış çıktı), asıl önermeye denk değildir. <b>Yalnızca karşıt ters güvenlidir.</b></li>
+</ul>
+
+<h3>8) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Önerme:</b> Doğru ya da yanlış kesin hüküm bildiren ifade.</li>
+<li><b>Doğruluk değeri:</b> Bir önermenin 1 (doğru) ya da 0 (yanlış) olması.</li>
+<li><b>Denk önermeler:</b> Doğruluk değerleri her durumda aynı olan önermeler (≡).</li>
+<li><b>Doğruluk tablosu:</b> Tüm doğruluk durumlarının listelendiği tablo; n önerme için <b>2ⁿ</b> satır.</li>
+<li><b>Değil (tümleyen):</b> Doğruluk değerini tersine çeviren işlem; p′ ile gösterilir.</li>
+<li><b>Bileşik önerme:</b> Bağlaçlarla birleştirilmiş önerme.</li>
+<li><b>De Morgan kuralları:</b> (p ∨ q)′ ≡ p′ ∧ q′ ve (p ∧ q)′ ≡ p′ ∨ q′.</li>
+<li><b>Koşullu önerme:</b> "p ise q" biçimindeki önerme; yalnızca 1 ⇒ 0 durumunda yanlıştır.</li>
+<li><b>Gerektirme:</b> Doğruluk değeri 1 olan koşullu önerme.</li>
+<li><b>Karşıt ters:</b> p ⇒ q önermesinin q′ ⇒ p′ hâli; asıl önermeye <b>denktir</b>.</li>
+<li><b>İki yönlü koşullu:</b> p ⇔ q; doğruluk değerleri aynıyken 1'dir.</li>
+<li><b>Açık önerme:</b> Değişken içeren, değere göre doğru/yanlış olan ifade.</li>
+<li><b>Doğruluk kümesi:</b> Açık önermeyi doğrulayan elemanların kümesi.</li>
+<li><b>Evrensel niceleyici (∀):</b> "Her", "bütün" anlamında.</li>
+<li><b>Varlıksal niceleyici (∃):</b> "Bazı", "en az bir" anlamında.</li>
+<li><b>Aksiyom:</b> İspatsız doğru kabul edilen önerme.</li>
+<li><b>Teorem:</b> İspatlanması gereken önerme.</li>
+<li><b>Totoloji:</b> Her durumda doğru olan bileşik önerme. <b>Çelişki:</b> her durumda yanlış olan.</li>
+</ul>
+
+<h3>9) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>"Önerme = doğru ifade" sanmak:</b> Yanlış bir cümle de önermedir; önemli olan <b>kesinlik</b>.</li>
+<li><b>Görüş bildiren cümleyi önerme saymak:</b> "En lezzetli meyve çilektir" <u>önerme değildir</u>.</li>
+<li><b>"veya" ile "ya da"yı karıştırmak:</b> "veya" (∨) ikisi birden olabilir; <b>"ya da" (⊻) olamaz</b>.</li>
+<li><b>p ⇒ q'yu p yanlışken yanlış sanmak:</b> p yanlışken koşullu önerme <b>daima doğrudur</b>.</li>
+<li><b>Tersi ile değili karıştırmak:</b> <b>Tersi:</b> p′ ⇒ q′ &nbsp;·&nbsp; <b>Değili:</b> p ∧ q′. Bunlar farklı önermelerdir.</li>
+<li><b>Karşıtı denk sanmak:</b> Yalnızca <b>karşıt ters</b> denktir; karşıtı ve tersi asıl önermeye denk değildir.</li>
+<li><b>De Morgan'da bağlacı değiştirmemek:</b> Değil içeri girerken <b>∧ ↔ ∨</b> yer değiştirir.</li>
+<li><b>Niceleyici değilinde sembolü sabit bırakmak:</b> <b>∀ ↔ ∃</b> değişir ve içerideki önerme değillenir.</li>
+<li><b>"Bazı"yı "hepsi değil" diye okumak:</b> Matematikte "bazı" = <b>en az bir</b>; hepsi de olabilir.</li>
+<li><b>Bir örnekle iddiayı kanıtlamaya çalışmak:</b> Tek örnek <u>çürütür</u>, kanıtlamaz.</li>
+<li><b>Aksiyom ile teoremi karıştırmak:</b> Aksiyom <b>ispatsız kabul edilir</b>, teorem <b>ispat gerektirir</b>.</li>
+<li><b>Doğruluk tablosunda satır sayısını yanlış almak:</b> n önerme için <b>2ⁿ</b> satır vardır.</li>
+</ul>
+
+<h3>10) Özet Kartı</h3>
+<ul>
+<li><b>Önerme:</b> Kesin hüküm bildiren ifade. Soru, emir, görüş → önerme değil.</li>
+<li><b>Tablo:</b> n bağımsız önerme → <b>2ⁿ</b> satır.</li>
+<li><b>∧ (ve):</b> Yalnızca <b>ikisi de 1</b> iken 1. &nbsp;p ∧ 1 ≡ p, p ∧ 0 ≡ 0, p ∧ p′ ≡ 0.</li>
+<li><b>∨ (veya):</b> <b>En az biri 1</b> iken 1. &nbsp;p ∨ 1 ≡ 1, p ∨ 0 ≡ p, p ∨ p′ ≡ 1.</li>
+<li><b>⊻ (ya da):</b> Yalnızca <b>tam biri</b> 1 iken 1. ≡ (p ⇔ q)′.</li>
+<li><b>De Morgan:</b> <b>(p ∨ q)′ ≡ p′ ∧ q′</b> &nbsp;·&nbsp; <b>(p ∧ q)′ ≡ p′ ∨ q′</b>.</li>
+<li><b>⇒ (ise):</b> Yalnızca <b>1 ⇒ 0</b> yanlıştır. &nbsp;<b>p ⇒ q ≡ p′ ∨ q</b> &nbsp;·&nbsp; <b>(p ⇒ q)′ ≡ p ∧ q′</b>.</li>
+<li><b>Denklik:</b> <b>p ⇒ q ≡ q′ ⇒ p′</b> (karşıt ters). Karşıtı ve tersi <u>denk değildir</u>.</li>
+<li><b>⇔:</b> Doğruluk değerleri <b>aynı</b> iken 1. ≡ (p ⇒ q) ∧ (q ⇒ p).</li>
+<li><b>Açık önerme:</b> Değişkenli ifade; <b>çözüm kümesi = doğruluk kümesi</b>.</li>
+<li><b>Niceleyiciler:</b> <b>∀</b> her (evrensel) &nbsp;·&nbsp; <b>∃</b> bazı = en az bir (varlıksal).</li>
+<li><b>Niceleyici değili:</b> <b>(∀ p)′ ≡ ∃ p′</b> &nbsp;·&nbsp; <b>(∃ p)′ ≡ ∀ p′</b>.</li>
+<li><b>Aksiyom</b> ispatsız kabul edilir; <b>teorem</b> ispatlanır. Bir iddiayı çürütmek için <b>tek karşı örnek</b> yeter.</li>
+</ul>
+
+</body></html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mutlak Değer</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Mutlak Değer</h2>
+
+<p>Mutlak değer, öğrencilerin "işaretini at, pozitif yap" diye ezberleyip sonra sürekli yanıldığı bir konudur. Oysa tek bir cümlede saklı: <b>mutlak değer, bir sayının sıfıra olan UZAKLIĞIDIR.</b> Uzaklık asla negatif olamaz — mutlak değerin pozitif çıkmasının tek sebebi budur. Bu ünitede önce uzaklık sezgisini kuracağız, sonra <u>içeriden çıkarken işaretin neden bazen değiştiğini</u> göreceğiz, en sonunda da denklem ve eşitsizlik kalıplarını sistemleştireceğiz. <b>Bir uyarı:</b> mutlak değerli denklemlerde bulduğun her kök geçerli olmayabilir; sağlama bu konuda isteğe bağlı değil, <u>zorunludur</u>.</p>
+
+<h3>1) Mutlak Değer Nedir? — Uzaklık Fikri</h3>
+<p class="formula">TANIM — Bir gerçek sayının sayı doğrusu üzerindeki yerinin <b>sıfır noktasına olan uzaklığına</b> o sayının <b>mutlak değeri</b> denir ve <b>|x|</b> ile gösterilir. <u>−4 sayısı sıfırdan 4 birim uzaktadır, 4 sayısı da 4 birim uzaktadır: |−4| = 4 ve |4| = 4.</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mutlak değerin sayı doğrusunda uzaklık olarak gösterimi">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Mutlak değer sıfıra olan uzaklıktır: |−4| = |4| = 4</text>
+  <line x1="60" y1="110" x2="580" y2="110" stroke="#334155" stroke-width="2"/>
+  <polygon points="580,110 572,106 572,114" fill="#334155"/>
+  <polygon points="60,110 68,106 68,114" fill="#334155"/>
+  <g stroke="#94a3b8" stroke-width="1.5">
+    <line x1="140" y1="104" x2="140" y2="116"/><line x1="200" y1="104" x2="200" y2="116"/>
+    <line x1="260" y1="104" x2="260" y2="116"/><line x1="320" y1="104" x2="320" y2="116"/>
+    <line x1="380" y1="104" x2="380" y2="116"/><line x1="440" y1="104" x2="440" y2="116"/>
+    <line x1="500" y1="104" x2="500" y2="116"/>
+  </g>
+  <g font-size="11" font-weight="700" fill="#334155" text-anchor="middle">
+    <text x="140" y="132">−4</text><text x="200" y="132">−2</text><text x="260" y="132">−1</text>
+    <text x="320" y="132">0</text><text x="380" y="132">1</text><text x="440" y="132">2</text><text x="500" y="132">4</text>
+  </g>
+  <circle cx="140" cy="110" r="6" fill="#dc2626"/><circle cx="500" cy="110" r="6" fill="#16a34a"/>
+  <path d="M140,92 L320,92" stroke="#dc2626" stroke-width="2.5"/>
+  <path d="M140,86 L140,98 M320,86 L320,98" stroke="#dc2626" stroke-width="2.5"/>
+  <text x="230" y="80" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">4 birim</text>
+  <path d="M320,92 L500,92" stroke="#16a34a" stroke-width="2.5"/>
+  <path d="M500,86 L500,98" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="410" y="80" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">4 birim</text>
+  <line x1="26" y1="152" x2="614" y2="152" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="172" font-size="10" fill="#475569">Uzaklık yön içermez; bu yüzden mutlak değer ASLA negatif olamaz: her x için |x| ≥ 0.</text>
+  <text x="26" y="188" font-size="10" fill="#475569">Aynı fikrin genel hâli: iki sayının BİRBİRİNE uzaklığı |a − b| ile gösterilir. |a − b| = |b − a| olduğuna dikkat et — uzaklık simetriktir.</text>
+  <text x="26" y="204" font-size="10" fill="#475569">Örnek: |x − 3| = 5 demek, "x sayısı 3'ten 5 birim uzakta" demektir → x = 8 ya da x = −2. Sayı doğrusunda iki yöne de gidebilirsin.</text>
+  <text x="26" y="220" font-size="10" fill="#475569">Bu geometrik okuma, mutlak değerli denklemlerin neden İKİ çözüm verdiğini tek bakışta açıklar: sağa ve sola.</text>
+  <text x="26" y="236" font-size="10" fill="#475569">|x| ≥ x her zaman doğrudur; eşitlik yalnızca x ≥ 0 iken sağlanır, x &lt; 0 iken |x| = −x olur.</text>
+</svg>
+<p class="formula">CEBİRSEL TANIM — Uzaklık fikrini formüle dökersek:<br/>
+<b>|x| = x</b> &nbsp;(x &gt; 0 ise) &nbsp;·&nbsp; <b>|x| = 0</b> &nbsp;(x = 0 ise) &nbsp;·&nbsp; <b>|x| = −x</b> &nbsp;(x &lt; 0 ise)<br/>
+<u>Üçüncü satır kafa karıştırır: "−x negatif değil mi?" Hayır. x zaten negatifse −x pozitif olur. Örneğin x = −5 için −x = 5. Yani "−x" bir işaret değil, bir DÜZELTMEDİR.</u></p>
+<p class="formula">İÇERİYİ AÇMA KURALI — Mutlak değer içindeki ifadenin <b>gerçek değeri</b>:<br/>
+• <b>0'a eşit ya da 0'dan büyükse</b> → mutlak değeri <u>kendisine</u> eşittir. <u>|2| = 2 &nbsp;·&nbsp; a &gt; 0 ise |4a| = 4a &nbsp;·&nbsp; b &lt; 0 ise |−3b| = −3b (çünkü −3b pozitiftir)</u><br/>
+• <b>0'dan küçükse</b> → mutlak değeri <u>ters işaretlisine</u> eşittir. <u>|−13| = 13 &nbsp;·&nbsp; a &gt; 0 ise |−7a| = 7a &nbsp;·&nbsp; b &lt; 0 ise |5b| = −5b</u><br/>
+<b>Kritik alışkanlık:</b> "İçerideki ifade pozitif mi negatif mi?" sorusunu sormadan mutlak değeri açma. İşaret bilgisi verilmemişse iki durumu da ele almalısın.</p>
+
+<h3>2) Mutlak Değerin Özellikleri</h3>
+<table>
+<tr><th>#</th><th>Özellik</th><th>Neden / Not</th></tr>
+<tr><td>1</td><td><b>|x · y| = |x| · |y|</b></td><td>Çarpımın uzaklığı, uzaklıkların çarpımıdır. İşaretler nasıl olursa olsun sonuç pozitiftir.</td></tr>
+<tr><td>2</td><td><b>|x / y| = |x| / |y|</b> &nbsp;(y ≠ 0)</td><td>Bölme de çarpma gibi davranır; mutlak değer paya ve paydaya ayrı ayrı dağılır.</td></tr>
+<tr><td>3</td><td><b>|x| = |−x|</b></td><td>Bir sayı ile ters işaretlisi sıfıra <b>aynı uzaklıktadır</b>. Bu yüzden |a − b| = |b − a|.</td></tr>
+<tr><td>4</td><td><b>|xⁿ| = |x|ⁿ</b></td><td>Kuvvet, mutlak değerin dışına ya da içine serbestçe taşınabilir.</td></tr>
+<tr><td>5</td><td><b>|x + y| ≤ |x| + |y|</b> &nbsp;(üçgen eşitsizliği)</td><td>Toplamada işaretler <u>birbirini götürebilir</u>, bu yüzden sol taraf küçülür. <b>Eşitlik yalnızca x ve y aynı işaretliyken</b> (ya da biri sıfırken) sağlanır.</td></tr>
+</table>
+<p class="formula">DİKKAT — ÇARPMA DAĞILIR, TOPLAMA DAĞILMAZ: <b>|x·y| = |x|·|y|</b> her zaman doğrudur, ama <b>|x + y| = |x| + |y|</b> her zaman doğru <u>değildir</u>. <u>Örnek: x = 5, y = −3 için |5 + (−3)| = 2 iken |5| + |−3| = 8. Çünkü toplamada zıt işaretler birbirini kısmen götürür.</u> <b>Sınavda "|x + y| = |x| + |y| ise" koşulu verilirse bu, x ve y'nin AYNI İŞARETLİ olduğu bilgisidir.</b></p>
+<p class="formula">KAREKÖK BAĞLANTISI — Çift dereceli köklerde <b>√(x²) = |x|</b> yazılmalıdır, <u>x değil</u>. <b>Neden?</b> x = −3 alalım: √((−3)²) = √9 = 3, yani |−3|. Sonuç asla negatif çıkmaz, çünkü karekök sembolü daima <u>pozitif kökü</u> gösterir. <b>Bu, TYT'de doğrudan sorulan bir ayrıntıdır.</b></p>
+<p class="formula">EK ÖZELLİKLER — <b>|x| ≥ 0</b> (mutlak değer negatif olamaz) &nbsp;·&nbsp; <b>|x| ≥ x</b> (kendisinden küçük olamaz) &nbsp;·&nbsp; <b>|x| = 0 ⇔ x = 0</b> &nbsp;·&nbsp; <b>|x| ≥ −x</b>. Ayrıca <b>|a| + |b| = 0 ise a = 0 ve b = 0</b>'dır; <u>çünkü ikisi de negatif olamayan iki sayının toplamı ancak ikisi birden sıfırken sıfır olur. Bu, iki bilinmeyeni tek denklemden bulmanı sağlayan güçlü bir kalıptır.</u></p>
+
+<h3>3) Kritik Nokta ve İşaret Tablosuyla Açma</h3>
+<p>Birden fazla mutlak değer içeren ifadelerde tek tek deneme yapmak yerine <b>sistem kurarsın</b>. Bunun aracı <b>kritik noktalardır</b>.</p>
+<p class="formula">TANIM — Mutlak değer ifadesinin <b>içini sıfır yapan değere kritik nokta</b> denir. <u>|x − 3| için kritik nokta 3, |2x + 4| için kritik nokta −2'dir.</u> Kritik noktalar sayı doğrusunu bölgelere ayırır ve <b>her bölgede içerideki ifadelerin işareti sabittir</b>; bu yüzden mutlak değerler o bölgede tek bir şekilde açılır.</p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kritik noktalar ve işaret bölgeleri">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — |x + 3| + |x| + |2x − 4| ifadesinin kritik noktaları: −3, 0, 2</text>
+  <line x1="60" y1="90" x2="580" y2="90" stroke="#334155" stroke-width="2"/>
+  <g stroke="#dc2626" stroke-width="2" stroke-dasharray="4 3">
+    <line x1="180" y1="60" x2="180" y2="120"/><line x1="320" y1="60" x2="320" y2="120"/><line x1="460" y1="60" x2="460" y2="120"/>
+  </g>
+  <g fill="#dc2626"><circle cx="180" cy="90" r="5"/><circle cx="320" cy="90" r="5"/><circle cx="460" cy="90" r="5"/></g>
+  <g font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">
+    <text x="180" y="138">−3</text><text x="320" y="138">0</text><text x="460" y="138">2</text>
+  </g>
+  <g font-size="10" font-weight="700" fill="#475569" text-anchor="middle">
+    <text x="118" y="72">Bölge 1</text><text x="250" y="72">Bölge 2</text><text x="390" y="72">Bölge 3</text><text x="520" y="72">Bölge 4</text>
+  </g>
+  <rect x="60" y="156" width="520" height="26" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="76" y="174" font-size="11" font-weight="700" fill="#0369a1">Her bölgede içerideki üç ifadenin de işareti sabittir → mutlak değerler tek biçimde açılır.</text>
+  <line x1="26" y1="196" x2="614" y2="196" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="214" font-size="10" fill="#475569">En küçük değer arayışında iyi haber: bu tür toplamların minimumu daima KRİTİK NOKTALARDAN BİRİNDE oluşur.</text>
+  <text x="26" y="230" font-size="10" fill="#475569">Yani her bölgeyi tek tek incelemek yerine yalnızca −3, 0 ve 2 değerlerini deneyip en küçüğünü seçmek yeterlidir.</text>
+  <text x="26" y="246" font-size="10" fill="#475569">Bu kısayol yalnızca mutlak değerlerin TOPLAMI için geçerlidir; aralarında çıkarma varsa bölgeleri ayrı ayrı incelemelisin.</text>
+</svg>
+<p class="formula">ÖRNEK (PDF) — <b>|x + 3| + |x| + |2x − 4|</b> ifadesinin <b>en küçük değerini</b> bulunuz.</p>
+<ul>
+<li><b>Adım 1 — Kritik noktaları bul:</b> x + 3 = 0 → −3, &nbsp;x = 0 → 0, &nbsp;2x − 4 = 0 → 2. Kritik noktalar: <b>−3, 0, 2</b>.</li>
+<li><b>Adım 2 — Her kritik noktayı dene:</b><br/>
+x = −3 → |0| + |−3| + |−10| = 0 + 3 + 10 = <b>13</b><br/>
+x = 0 → |3| + |0| + |−4| = 3 + 0 + 4 = <b>7</b><br/>
+x = 2 → |5| + |2| + |0| = 5 + 2 + 0 = <b>7</b></li>
+<li><b>Adım 3 — En küçüğü seç:</b> <b>7</b>. (Burada iki kritik nokta aynı değeri verdi; bu da 0 ile 2 arasındaki tüm x'lerde ifadenin 7 olduğunu gösterir.)</li>
+<li><b>Neden minimum kritik noktada?</b> Mutlak değerlerin toplamı <u>parçalı doğrusal</u> bir ifadedir; eğim yalnızca kritik noktalarda değişir. Dolayısıyla en düşük nokta ya bir kritik noktadadır ya da iki kritik nokta arasındaki düz bir parçadadır. <b>Kritik noktaları denemek her durumda yeter.</b></li>
+</ul>
+
+<h3>4) Mutlak Değerli Denklemler</h3>
+<p class="formula">TEMEL KALIPLAR — x, a ∈ ℝ olmak üzere:<br/>
+• <b>a &gt; 0</b> için <b>|x| = a</b> ⇒ <b>x = a veya x = −a</b> &nbsp;(iki çözüm)<br/>
+• <b>a = 0</b> için <b>|x| = 0</b> ⇒ <b>x = 0</b> &nbsp;(tek çözüm)<br/>
+• <b>a &lt; 0</b> için <b>|x| = a</b> ⇒ <b>ÇK = ∅</b> &nbsp;(uzaklık negatif olamaz)<br/>
+<u>Aynı mantık |ax + b| = c denkleminde de geçerlidir: c &lt; 0 ise çözüm kümesi boştur, hiç uğraşma.</u></p>
+<p class="formula">İKİ MUTLAK DEĞER EŞİTSE — <b>|f(x)| = |g(x)|</b> denklemi iki sayının <u>uzaklıklarının eşit olması</u> demektir; bu da ya sayıların kendilerinin eşit olmasıyla ya da birbirinin ters işaretlisi olmasıyla mümkündür: <b>f(x) = g(x) veya f(x) = −g(x)</b>. <u>Örnek: |x − 1| = |2x + 3| → x − 1 = 2x + 3 (x = −4) veya x − 1 = −2x − 3 (x = −2/3). Her ikisi de geçerlidir.</u></p>
+<p class="formula">TOPLAMI SIFIR KALIBI — <b>|a| + |b| = 0</b> ise <b>a = 0 ve b = 0</b>'dır. <u>Örnek: |x − 2| + |y + 5| = 0 ise x = 2 ve y = −5.</u> <b>Aynı fikir kareler için de çalışır</b> (a² + b² = 0 ise ikisi de sıfır), çünkü ikisi de negatif olamayan büyüklüklerdir.</p>
+<p class="formula">EN TEHLİKELİ DURUM — DEĞİŞKEN HEM İÇERİDE HEM DIŞARIDA: Sağ tarafta da bilinmeyen varsa, bulduğun kökler <b>yabancı kök</b> olabilir. Sebebi şu: mutlak değeri açarken "sağ taraf pozitiftir" varsayımını sessizce yapmış olursun; oysa bulduğun kök bunu bozabilir. <b>Bu tip denklemlerde sağlama isteğe bağlı değildir.</b></p>
+<p class="formula">ÖRNEK (PDF) — <b>|2x − 9| = −4x + 3</b> denkleminin çözüm kümesini bulunuz.</p>
+<ul>
+<li><b>Durum 1 — içerisi pozitif kabul:</b> 2x − 9 = −4x + 3 → 6x = 12 → <b>x = 2</b>.</li>
+<li><b>Durum 2 — içerisi negatif kabul:</b> 2x − 9 = −(−4x + 3) = 4x − 3 → −2x = 6 → <b>x = −3</b>.</li>
+<li><b>Sağlama (x = 2):</b> |2·2 − 9| = |−5| = 5 &nbsp;·&nbsp; sağ taraf: −4·2 + 3 = −5. &nbsp;<b>5 = −5 YANLIŞ</b> → x = 2 <u>çözüme alınmaz</u>.</li>
+<li><b>Sağlama (x = −3):</b> |2·(−3) − 9| = |−15| = 15 &nbsp;·&nbsp; sağ taraf: −4·(−3) + 3 = 15. &nbsp;<b>15 = 15 DOĞRU</b> ✓</li>
+<li><b>ÇK = {−3}</b>. <u>Neden x = 2 elendi? Çünkü o değerde sağ taraf −5 çıkıyor ve bir mutlak değer negatif olamaz. Sağlama yapmasaydın iki kök birden yazıp soruyu kaybederdin.</u></li>
+<li><b>Kısayol:</b> Sağ tarafın <u>negatif olamayacağı</u> koşulunu (−4x + 3 ≥ 0 → x ≤ 3/4) baştan yazarsan, x = 2 zaten koşulu sağlamadığı için elenir.</li>
+</ul>
+
+<h3>5) Mutlak Değerli Eşitsizlikler</h3>
+<p>Burada tek bir görsel kural her şeyi çözer: <b>küçüktür ARADA, büyüktür DIŞARIDA.</b> Sebebi yine uzaklık: "sıfıra uzaklığı a'dan az" demek bir aralığın içinde kalmak, "uzaklığı a'dan fazla" demek dışına taşmaktır.</p>
+<svg viewBox="0 0 640 270" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mutlak değerli eşitsizliklerin çözüm kümeleri">
+  <rect x="0" y="0" width="640" height="270" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Küçüktür arada, büyüktür dışarıda</text>
+  <text x="30" y="54" font-size="12" font-weight="700" fill="#0369a1">|x| ≤ a</text>
+  <line x1="120" y1="66" x2="580" y2="66" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="230" y1="66" x2="470" y2="66" stroke="#0284c7" stroke-width="5"/>
+  <circle cx="230" cy="66" r="6" fill="#0284c7"/><circle cx="470" cy="66" r="6" fill="#0284c7"/>
+  <g font-size="11" font-weight="700" fill="#334155" text-anchor="middle">
+    <text x="230" y="88">−a</text><text x="350" y="88">0</text><text x="470" y="88">a</text>
+  </g>
+  <text x="500" y="54" font-size="12" font-weight="700" fill="#0369a1">⇔ −a ≤ x ≤ a</text>
+  <text x="30" y="128" font-size="12" font-weight="700" fill="#c2410c">|x| ≥ a</text>
+  <line x1="120" y1="140" x2="580" y2="140" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="120" y1="140" x2="230" y2="140" stroke="#ea580c" stroke-width="5"/>
+  <line x1="470" y1="140" x2="580" y2="140" stroke="#ea580c" stroke-width="5"/>
+  <circle cx="230" cy="140" r="6" fill="#ea580c"/><circle cx="470" cy="140" r="6" fill="#ea580c"/>
+  <g font-size="11" font-weight="700" fill="#334155" text-anchor="middle">
+    <text x="230" y="162">−a</text><text x="350" y="162">0</text><text x="470" y="162">a</text>
+  </g>
+  <text x="470" y="128" font-size="12" font-weight="700" fill="#c2410c">⇔ x ≤ −a veya x ≥ a</text>
+  <text x="30" y="202" font-size="12" font-weight="700" fill="#6d28d9">a ≤ |x| ≤ b</text>
+  <line x1="120" y1="214" x2="580" y2="214" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="170" y1="214" x2="270" y2="214" stroke="#7c3aed" stroke-width="5"/>
+  <line x1="430" y1="214" x2="530" y2="214" stroke="#7c3aed" stroke-width="5"/>
+  <g fill="#7c3aed"><circle cx="170" cy="214" r="6"/><circle cx="270" cy="214" r="6"/><circle cx="430" cy="214" r="6"/><circle cx="530" cy="214" r="6"/></g>
+  <g font-size="10" font-weight="700" fill="#334155" text-anchor="middle">
+    <text x="170" y="236">−b</text><text x="270" y="236">−a</text><text x="350" y="236">0</text><text x="430" y="236">a</text><text x="530" y="236">b</text>
+  </g>
+  <text x="26" y="262" font-size="10" fill="#475569">Üçüncü durumda çözüm İKİ AYRI aralıktan oluşur: (a ≤ x ≤ b) veya (−b ≤ x ≤ −a). Simetrik iki parça, sıfırın çevresi boştur.</text>
+</svg>
+<p class="formula">SINIR DURUMLARI — Bunlar doğrudan soru olarak gelir, ezberlemek yerine uzaklık mantığıyla düşün:<br/>
+• <b>|x| &lt; 0</b> → <b>ÇK = ∅</b> &nbsp;(uzaklık negatif olamaz)<br/>
+• <b>|x| ≤ 0</b> → <b>ÇK = {0}</b> &nbsp;(yalnız sıfırın uzaklığı sıfırdır)<br/>
+• <b>|x| ≥ 0</b> → <b>ÇK = ℝ</b> &nbsp;(her sayı için doğru)<br/>
+• <b>|x| &gt; 0</b> → <b>ÇK = ℝ − {0}</b> &nbsp;(sıfır dışında her sayı)</p>
+<p class="formula">ÖRNEK — <b>|2x − 6| &lt; 8</b> eşitsizliğinin çözüm kümesini bulunuz.</p>
+<ul>
+<li><b>Adım 1 — "Küçüktür" olduğu için ARADA yaz:</b> −8 &lt; 2x − 6 &lt; 8.</li>
+<li><b>Adım 2 — Her tarafa 6 ekle:</b> −2 &lt; 2x &lt; 14.</li>
+<li><b>Adım 3 — Her tarafı 2'ye böl:</b> <b>−1 &lt; x &lt; 7</b> → <b>ÇK = (−1, 7)</b>.</li>
+<li><b>Geometrik okuma:</b> |2x − 6| = 2|x − 3| olduğu için eşitsizlik |x − 3| &lt; 4'e denktir: "x, 3'ten 4 birimden az uzakta" → 3'ün 4 birim solu ve sağı → (−1, 7) ✓</li>
+<li><b>"Büyüktür" olsaydı:</b> |2x − 6| &gt; 8 → 2x − 6 &lt; −8 <u>veya</u> 2x − 6 &gt; 8 → x &lt; −1 veya x &gt; 7. <b>Dikkat: iki parçayı "ve" ile değil "veya" ile birleştirirsin.</b></li>
+</ul>
+
+<h3>6) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>İşarete göre sadeleştirme</b></td><td>"a &lt; 0 &lt; b ise |a − b| + |b| ifadesinin eşiti"</td><td>Her mutlak değerin içindeki ifadenin <b>işaretini belirle</b>, ona göre aynen ya da ters işaretle aç.</td></tr>
+<tr><td>2</td><td><b>Mutlak değerli denklem</b></td><td>|ax + b| = c</td><td>c &lt; 0 → ∅. Değilse iki durum yaz. <b>Sağ tarafta değişken varsa sağlama zorunlu.</b></td></tr>
+<tr><td>3</td><td><b>İki mutlak değer eşitliği</b></td><td>|f(x)| = |g(x)|</td><td>f = g <b>veya</b> f = −g. İki kökü de yaz.</td></tr>
+<tr><td>4</td><td><b>Mutlak değerli eşitsizlik</b></td><td>|ax + b| &lt; c ya da &gt; c</td><td>Küçükse <b>arada</b>, büyükse <b>dışarıda</b>. c &lt; 0 durumlarını ayrıca kontrol et.</td></tr>
+<tr><td>5</td><td><b>En küçük değer</b></td><td>Mutlak değerlerin toplamı verilip minimumu istenir</td><td><b>Kritik noktaları</b> bul, hepsini dene, en küçüğü seç.</td></tr>
+<tr><td>6</td><td><b>Toplamı sıfır kalıbı</b></td><td>|a| + |b| = 0 (ya da kareler toplamı)</td><td>Her terim ayrı ayrı <b>sıfır</b> olmalıdır; iki bilinmeyeni de bulursun.</td></tr>
+<tr><td>7</td><td><b>Uzaklık yorumu</b></td><td>"x ile 5 arasındaki uzaklık 3'ten küçüktür"</td><td>Cümleyi <b>|x − 5| &lt; 3</b> diye yaz, sonra aralığa çevir.</td></tr>
+<tr><td>8</td><td><b>√(x²) kalıbı</b></td><td>Kök içinde tam kare, dışarıda işaret koşulu</td><td><b>√(x²) = |x|</b> yaz; sonra x'in işaretine göre aç.</td></tr>
+<tr><td>9</td><td><b>Değişken hem içte hem dışta</b></td><td>|f(x)| = g(x), sağ tarafta x var</td><td>İki durumu çöz, <u>ikisini de ilk denklemde sağla</u>. Yabancı kökü ele.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 1) — <b>a &lt; 0 &lt; b</b> olduğuna göre <b>|a| + |a − b| − |b|</b> ifadesinin eşiti nedir?</p>
+<ul>
+<li><b>|a|:</b> a negatif → mutlak değeri ters işaretlisi → <b>−a</b>.</li>
+<li><b>|a − b|:</b> a negatif, b pozitif → a − b <u>kesinlikle negatif</u> → <b>−(a − b) = −a + b</b>.</li>
+<li><b>|b|:</b> b pozitif → <b>b</b>.</li>
+<li><b>Birleştir:</b> (−a) + (−a + b) − (b) = <b>−2a</b>.</li>
+<li><b>Kontrol:</b> a = −1, b = 3 alalım: |−1| + |−4| − |3| = 1 + 4 − 3 = 2 &nbsp;·&nbsp; −2a = 2 ✓ <u>Somut sayı denemek, işaret hatalarını yakalamanın en hızlı yoludur.</u></li>
+</ul>
+<p class="formula">ÖRNEK (Tip 7) — Bir sayının <b>7'ye uzaklığı 2'den küçük</b> ise bu sayı hangi aralıktadır?</p>
+<ul>
+<li><b>Adım 1 — Cümleyi sembole çevir:</b> <b>|x − 7| &lt; 2</b>.</li>
+<li><b>Adım 2 — Arada yaz:</b> −2 &lt; x − 7 &lt; 2 → <b>5 &lt; x &lt; 9</b>.</li>
+<li><b>Sezgi kontrolü:</b> 7'nin 2 birim solu 5, sağı 9. Aradaki tüm sayılar 7'ye 2 birimden yakın ✓</li>
+<li><b>Genel çeviri:</b> "x'in a'ya uzaklığı" = <b>|x − a|</b>. Bu tek çeviri, sözel mutlak değer sorularının tamamını mekanikleştirir.</li>
+</ul>
+
+<h3>7) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Mutlak değer:</b> Bir sayının sayı doğrusunda sıfıra olan uzaklığı; |x| ile gösterilir ve negatif olamaz.</li>
+<li><b>Uzaklık gösterimi:</b> a ile b sayılarının birbirine uzaklığı |a − b|; simetriktir, |a − b| = |b − a|.</li>
+<li><b>Kritik nokta:</b> Mutlak değer içindeki ifadeyi sıfır yapan değer; sayı doğrusunu işaret bölgelerine ayırır.</li>
+<li><b>İşaret bölgesi:</b> İki kritik nokta arasında kalan ve içerideki ifadelerin işaretinin sabit olduğu aralık.</li>
+<li><b>Üçgen eşitsizliği:</b> |x + y| ≤ |x| + |y| bağıntısı; eşitlik yalnızca aynı işaretli sayılarda sağlanır.</li>
+<li><b>Yabancı kök:</b> Çözüm sırasında ortaya çıkan ama ilk denklemi sağlamayan, bu yüzden çözüme alınmayan değer.</li>
+<li><b>Sağlama:</b> Bulunan kökün ilk denklemde denenmesi; mutlak değerli denklemlerde zorunlu adımdır.</li>
+<li><b>Parçalı tanım:</b> Bir ifadenin, değişkenin bulunduğu aralığa göre farklı biçimlerde yazılması.</li>
+</ul>
+
+<h3>8) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>"Mutlak değer içindekini pozitif yap" demek:</b> Doğrusu, <u>içerideki ifadenin işaretine bakıp</u> aynen ya da ters işaretle açmaktır. İşaret bilgisi yoksa iki durumu da yaz.</li>
+<li><b>−x'i negatif sanmak:</b> x &lt; 0 iken −x <b>pozitiftir</b>. |x| = −x tanımı bu yüzden tutarlıdır.</li>
+<li><b>|x + y| = |x| + |y| sanmak:</b> Bu eşitlik yalnızca x ve y <b>aynı işaretliyken</b> geçerlidir; genel hâli <b>≤</b>'dir.</li>
+<li><b>√(x²) = x yazmak:</b> Doğrusu <b>|x|</b>'dir; x negatif olabilir.</li>
+<li><b>|x| = a &lt; 0 durumunda çözüm aramak:</b> Uzaklık negatif olamaz, doğrudan <b>ÇK = ∅</b>.</li>
+<li><b>|x| &gt; a çözümünü tek aralık yazmak:</b> Çözüm <b>iki ayrı parçadır</b>; "veya" ile birleştirilir.</li>
+<li><b>|x| &lt; a çözümünü "veya" ile yazmak:</b> Burada tek aralık vardır: <b>−a &lt; x &lt; a</b>.</li>
+<li><b>Sağ tarafta değişken varken sağlama yapmamak:</b> |2x − 9| = −4x + 3 örneğinde x = 2 yabancı köktür; sağlama yapılmazsa fark edilmez.</li>
+<li><b>|f| = |g| denkleminde tek durum yazmak:</b> Hem f = g hem f = −g incelenmelidir.</li>
+<li><b>|x| ≤ 0 için boş küme demek:</b> Doğrusu <b>{0}</b>'dır; sıfırın uzaklığı sıfırdır.</li>
+<li><b>Minimum ararken kritik nokta dışında değer denemek:</b> Mutlak değer toplamlarının minimumu daima kritik noktalarda (ya da aralarındaki düz parçada) oluşur.</li>
+<li><b>|a| + |b| = 0 iken tek koşul yazmak:</b> <b>Hem a = 0 hem b = 0</b> olmalıdır.</li>
+<li><b>Katsayıyı dışarı alırken mutlak değeri unutmak:</b> |2x − 6| = 2|x − 3| doğrudur çünkü 2 pozitiftir; <u>|−2x + 6| ifadesinde de 2|x − 3| olur, çünkü |−2| = 2</u>.</li>
+</ul>
+
+<h3>9) Özet Kartı</h3>
+<ul>
+<li><b>Tanım:</b> |x|, x'in sıfıra uzaklığı. <b>|x| ≥ 0</b> ve <b>|x| ≥ x</b>.</li>
+<li><b>Parçalı tanım:</b> x ≥ 0 ise |x| = x &nbsp;·&nbsp; x &lt; 0 ise |x| = −x.</li>
+<li><b>Uzaklık:</b> a ile b arası <b>|a − b|</b>. "x'in a'ya uzaklığı k" → |x − a| = k.</li>
+<li><b>Özellikler:</b> |xy| = |x||y| &nbsp;·&nbsp; |x/y| = |x|/|y| &nbsp;·&nbsp; |x| = |−x| &nbsp;·&nbsp; |xⁿ| = |x|ⁿ.</li>
+<li><b>Üçgen eşitsizliği:</b> <b>|x + y| ≤ |x| + |y|</b>; eşitlik aynı işaretlilerde.</li>
+<li><b>Kök:</b> <b>√(x²) = |x|</b>, x değil.</li>
+<li><b>Toplamı sıfır:</b> |a| + |b| = 0 ⇒ a = 0 <b>ve</b> b = 0.</li>
+<li><b>Denklem:</b> |x| = a → a &gt; 0 iki kök, a = 0 tek kök, a &lt; 0 boş küme.</li>
+<li><b>İki mutlak değer:</b> |f| = |g| → <b>f = g veya f = −g</b>.</li>
+<li><b>Değişken sağda:</b> Bulunan kökleri <b>mutlaka sağla</b>; yabancı kök çıkar.</li>
+<li><b>Eşitsizlik:</b> <b>|x| ≤ a → −a ≤ x ≤ a</b> (arada) &nbsp;·&nbsp; <b>|x| ≥ a → x ≤ −a veya x ≥ a</b> (dışarıda).</li>
+<li><b>Çift taraflı:</b> a ≤ |x| ≤ b → <b>iki simetrik aralık</b>.</li>
+<li><b>Sınır durumlar:</b> |x| &lt; 0 → ∅ &nbsp;·&nbsp; |x| ≤ 0 → {0} &nbsp;·&nbsp; |x| ≥ 0 → ℝ &nbsp;·&nbsp; |x| &gt; 0 → ℝ − {0}.</li>
+<li><b>Minimum:</b> Mutlak değer toplamlarının en küçük değeri <b>kritik noktalarda</b> aranır.</li>
+</ul>
+
+</body></html>

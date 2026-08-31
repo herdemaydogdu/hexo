@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>EBOB – EKOK</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>EBOB – EKOK</h2>
+
+<p>Bu ünitede öğrencilerin asıl zorlandığı yer formül değil, <b>karar</b>: "Bu soruda EBOB mu kullanacağım, EKOK mu?" Sınavda kaybedilen puanların neredeyse tamamı bu tercihte yapılan hatadan gelir. Bu yüzden burada önce <b>asal çarpanlara ayırmanın ne anlama geldiğini</b> kuracağız, sonra EBOB ile EKOK'un ne yaptığını görselleştireceğiz, en sonunda da <b>problem tipini tanıma refleksini</b> oturtacağız.</p>
+
+<h3>1) Asal Çarpanlara Ayırma — Bir Sayının DNA'sı</h3>
+<p>Her tam sayı, <b>asal sayıların çarpımı olarak tek bir biçimde</b> yazılabilir. Bu gösterim o sayının <b>kimliğidir</b>: bölenleri, kaç böleni olduğu, başka sayılarla ortak yönleri — hepsi bu kimlikten okunur.</p>
+<p class="formula">TANIM — x, y, z birbirinden <b>farklı</b> asal sayılar ve a, b, c doğal sayılar olmak üzere bir A tam sayısının <b>A = x<sup>a</sup> · y<sup>b</sup> · z<sup>c</sup></b> biçiminde yazılmasına <b>asal çarpanlarına ayırma</b> denir. <u>Dikkat: üsler farklı olabilir ama tabanlar birbirinden farklı asal sayılar olmak zorundadır.</u></p>
+<p><b>Nasıl yapılır?</b> Sayıyı en küçük asal sayıdan başlayarak bölersin; bölünebildiği sürece aynı asalla devam eder, bölünemediğinde bir sonraki asala geçersin. İşlem 1'e ulaşınca biter.</p>
+<svg viewBox="0 0 640 290" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="360 sayısının asal çarpanlarına ayrılması">
+  <rect x="0" y="0" width="640" height="290" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — 360 sayısının asal çarpanlarına ayrılması ve bölen sayısının okunması</text>
+  <line x1="112" y1="42" x2="112" y2="212" stroke="#334155" stroke-width="2"/>
+  <g font-size="13" font-weight="700" fill="#0369a1" text-anchor="end">
+    <text x="100" y="60">360</text><text x="100" y="84">180</text><text x="100" y="108">90</text>
+    <text x="100" y="132">45</text><text x="100" y="156">15</text><text x="100" y="180">5</text>
+    <text x="100" y="204">1</text>
+  </g>
+  <g font-size="13" font-weight="700" fill="#b45309">
+    <text x="124" y="60">2</text><text x="124" y="84">2</text><text x="124" y="108">2</text>
+    <text x="124" y="132">3</text><text x="124" y="156">3</text><text x="124" y="180">5</text>
+  </g>
+  <path d="M148,52 L168,52 L168,110 L148,110" stroke="#16a34a" stroke-width="2" fill="none"/>
+  <text x="176" y="86" font-size="11" font-weight="700" fill="#15803d">üç tane 2 → 2³</text>
+  <path d="M148,124 L168,124 L168,158 L148,158" stroke="#0284c7" stroke-width="2" fill="none"/>
+  <text x="176" y="146" font-size="11" font-weight="700" fill="#0369a1">iki tane 3 → 3²</text>
+  <path d="M148,172 L168,172 L168,186 L148,186" stroke="#7c3aed" stroke-width="2" fill="none"/>
+  <text x="176" y="184" font-size="11" font-weight="700" fill="#6d28d9">bir tane 5 → 5¹</text>
+  <rect x="300" y="60" width="300" height="40" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="322" y="86" font-size="16" font-weight="700" fill="#0369a1">360 = 2³ · 3² · 5¹</text>
+  <text x="300" y="126" font-size="11" font-weight="700" fill="#334155">Bölen sayısı: üsleri birer artır, çarp</text>
+  <rect x="300" y="136" width="300" height="36" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="316" y="160" font-size="14" font-weight="700" fill="#15803d">(3+1)·(2+1)·(1+1) = 4·3·2 = 24</text>
+  <text x="300" y="192" font-size="10" fill="#475569">360'ın 24 tane pozitif böleni vardır.</text>
+  <text x="300" y="208" font-size="10" fill="#475569">Aynı sayıda da negatif böleni vardır → 48 tam sayı böleni.</text>
+  <line x1="26" y1="226" x2="614" y2="226" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="246" font-size="10" fill="#475569">"+1" nereden geliyor? 2³ ifadesinde 2 çarpanını bir bölene KAÇ FARKLI ŞEKİLDE koyabilirsin? 2⁰, 2¹, 2², 2³ → dört seçenek, yani üs + 1.</text>
+  <text x="26" y="262" font-size="10" fill="#475569">Her asal için seçim bağımsız olduğundan seçenekler ÇARPILIR (saymanın temel ilkesi): 4 · 3 · 2 = 24.</text>
+  <text x="26" y="278" font-size="10" fill="#475569">Örnek bir bölen: 2¹·3⁰·5¹ = 10. Gerçekten 360 : 10 = 36 ✓ — her seçim bir böleni verir, hiçbiri tekrar etmez.</text>
+</svg>
+<p class="formula">BÖLEN FORMÜLLERİ — <b>A = x<sup>a</sup> · y<sup>b</sup> · z<sup>c</sup></b> sayısı için:<br/>
+• <b>Asal bölenleri:</b> {x, y, z} — üsler değil, tabanlar<br/>
+• <b>Pozitif bölenlerinin sayısı:</b> <b>(a+1)(b+1)(c+1)</b><br/>
+• <b>Negatif bölenlerinin sayısı:</b> <b>(a+1)(b+1)(c+1)</b> — pozitiflerle aynı sayıda<br/>
+• <b>Tam sayı bölenlerinin sayısı:</b> <b>2·(a+1)(b+1)(c+1)</b><br/>
+• <b>Tam sayı bölenlerinin toplamı:</b> <b>0</b> — çünkü her pozitif bölenin bir negatif eşi vardır, ikişerli birbirini götürür<br/>
+• <b>Asal olmayan tam sayı bölenlerinin toplamı:</b> <b>−(x + y + z)</b> — tüm bölenlerin toplamı 0 iken asal olan pozitif bölenler (x, y, z) çıkarılırsa geriye onların negatifi kalır</p>
+<p class="formula">ÖRNEK — <b>2<sup>4</sup> · 5<sup>2</sup></b> sayısının kaç tane <b>çift</b> pozitif böleni vardır?</p>
+<ul>
+<li><b>Yanlış refleks:</b> Bütün bölenleri sayıp yarısını almak. Bölenlerin yarısı çift olmak zorunda değil.</li>
+<li><b>Doğru düşünce:</b> Bir bölenin <b>çift olması</b>, içinde <b>en az bir tane 2 bulunması</b> demektir. Yani 2'nin üssü <b>0 olamaz</b>; 1, 2, 3 veya 4 olabilir → <b>4 seçenek</b> (5 değil).</li>
+<li>5'in üssü serbest: 0, 1, 2 → <b>3 seçenek</b>.</li>
+<li><b>Çift bölen sayısı = 4 · 3 = 12.</b></li>
+<li><b>Kontrol:</b> Toplam bölen (4+1)(2+1) = 15. Tek bölenler ise 2'nin üssü 0 olmak zorunda → 1·3 = 3 tane. 15 − 3 = 12 ✓</li>
+<li><b>Genel kural:</b> "Çift bölen sayısı" isteniyorsa <b>2'nin üssünü sıfırlama seçeneğini kaldır</b>; "tek bölen sayısı" isteniyorsa <b>2'nin üssünü sıfıra sabitle</b>.</li>
+</ul>
+
+<h3>2) EBOB ve EKOK — Ne İşe Yararlar?</h3>
+<p>Önce iki temel kelimeyi netleştirelim: <b>bölen</b> ve <b>kat</b>. Sıfırdan farklı bir x tam sayısı a'yı kalansız bölüyorsa <b>x, a'nın bölenidir</b>; aynı durumda <b>a da x'in katıdır</b>. Bölenler sayıdan <u>küçük</u>, katlar sayıdan <u>büyük</u> tarafta yaşar.</p>
+<table>
+<tr><th></th><th>EBOB (En Büyük Ortak Bölen)</th><th>EKOK (En Küçük Ortak Kat)</th></tr>
+<tr><td><b>Tanım</b></td><td>İki veya daha fazla sayının <b>pozitif ortak bölenlerinin en büyüğü</b></td><td>İki veya daha fazla sayının <b>pozitif ortak katlarının en küçüğü</b></td></tr>
+<tr><td><b>Gösterim</b></td><td>EBOB(a, b) veya (a, b)</td><td>EKOK(a, b) veya [a, b]</td></tr>
+<tr><td><b>Büyüklüğü</b></td><td>Sayılardan <b>küçük ya da eşit</b></td><td>Sayılardan <b>büyük ya da eşit</b></td></tr>
+<tr><td><b>Asal çarpanlarla bulma</b></td><td><b>Ortak</b> asal çarpanların <b>küçük üslüleri</b> çarpılır</td><td><b>Tüm</b> asal çarpanların <b>büyük üslüleri</b> çarpılır</td></tr>
+<tr><td><b>Sezgisi</b></td><td>"İkisinde de <b>ne kadarı ortak</b>?" — kesişim</td><td>"İkisini de <b>kapsayan en küçük</b> ne?" — birleşim</td></tr>
+</table>
+<p class="formula">NEDEN KÜÇÜK ÜS / BÜYÜK ÜS? — Diyelim ki A = 2³·3² ve B = 2¹·3⁵. <b>Ortak bölen</b> olacak bir sayı, hem A'yı hem B'yi bölmeli. İçindeki 2'nin üssü en fazla kaç olabilir? B'de sadece bir tane 2 var, öyleyse <b>en fazla 2¹</b> alabiliriz — yani <u>küçük üs</u>. <b>Ortak kat</b> olacak bir sayı ise hem A'nın hem B'nin katı olmalı; A'yı içine sığdırabilmek için <b>en az 2³</b> gerekir — yani <u>büyük üs</u>. Ezber değil, "sığdırma" mantığı.</p>
+<svg viewBox="0 0 640 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EBOB ve EKOK'un asal çarpanlarla bulunması">
+  <rect x="0" y="0" width="640" height="300" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — EBOB kesişim, EKOK birleşim: 60 ve 72 üzerinde</text>
+  <rect x="30" y="42" width="250" height="30" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="48" y="62" font-size="13" font-weight="700" fill="#0369a1">60 = 2² · 3¹ · 5¹</text>
+  <rect x="330" y="42" width="250" height="30" rx="8" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+  <text x="348" y="62" font-size="13" font-weight="700" fill="#9a3412">72 = 2³ · 3²</text>
+  <g font-size="11" fill="#475569">
+    <text x="30" y="98">2'nin üsleri: 2 ve 3 → küçük 2, büyük 3</text>
+    <text x="30" y="116">3'ün üsleri: 1 ve 2 → küçük 1, büyük 2</text>
+    <text x="30" y="134">5 yalnız 60'ta var → EBOB'a giremez, EKOK'a girer (5¹)</text>
+  </g>
+  <rect x="30" y="152" width="250" height="70" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="46" y="174" font-size="12" font-weight="700" fill="#15803d">EBOB — ORTAK olanların KÜÇÜK üssü</text>
+  <text x="46" y="198" font-size="14" font-weight="700" fill="#15803d">2² · 3¹ = 12</text>
+  <text x="46" y="214" font-size="9.5" fill="#166534">5 ortak değil, alınmaz. 12 her ikisini de böler.</text>
+  <rect x="330" y="152" width="250" height="70" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="346" y="174" font-size="12" font-weight="700" fill="#6d28d9">EKOK — TÜM asalların BÜYÜK üssü</text>
+  <text x="346" y="198" font-size="14" font-weight="700" fill="#6d28d9">2³ · 3² · 5¹ = 360</text>
+  <text x="346" y="214" font-size="9.5" fill="#5b21b6">5 de alınır. 360 her ikisinin de katıdır.</text>
+  <rect x="30" y="236" width="550" height="32" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="48" y="257" font-size="13" font-weight="700" fill="#b91c1c">Kontrol:  EBOB · EKOK = 12 · 360 = 4320  ve  60 · 72 = 4320  ✓</text>
+  <text x="26" y="286" font-size="10" fill="#475569">Bu eşitlik her zaman geçerlidir ve iki sayılık sorularda birini bilip diğerini bulmanın en hızlı yoludur. ÜÇ veya daha fazla sayıda GEÇERSİZDİR.</text>
+</svg>
+
+<h3>3) EBOB – EKOK Özellikleri</h3>
+<p class="formula">ÖZELLİK 1 — <b>a · b = EBOB(a, b) · EKOK(a, b)</b><br/><u>Neden?</u> Her asal çarpan için üsleri düşün: birinde m, diğerinde n olsun. Sol tarafta bu asalın üssü <b>m + n</b> olur. Sağ tarafta EBOB küçük üssü, EKOK büyük üssü alır — yani <b>min(m,n) + max(m,n)</b>. Ama <u>iki sayının küçüğü ile büyüğünün toplamı, o iki sayının toplamına eşittir</u>: min + max = m + n. Her asal için eşitlik sağlandığından çarpımlar da eşittir. <b>UYARI: Bu özellik yalnızca İKİ sayı için geçerlidir; üç sayıda çöker.</b></p>
+<p class="formula">ÖZELLİK 2 — a ve b <b>aralarında asal</b> ise: <b>EBOB(a, b) = 1</b> ve <b>EKOK(a, b) = a · b</b>.<br/><u>Neden?</u> Aralarında asal olmak, hiç ortak asal çarpanları olmaması demektir. Ortak çarpan yoksa kesişim boş → EBOB = 1. Kesişim boş olduğu için birleşim de tüm çarpanları içerir → EKOK = a·b. Bu, Özellik 1'in özel hâlidir: a·b = 1·(a·b) ✓</p>
+<p class="formula">ÖZELLİK 3 — a ve b pozitif tam sayılarından <b>biri diğerinin tam katı</b> ise: <b>EBOB = küçük olan</b>, <b>EKOK = büyük olan</b>.<br/><u>Örnek:</u> EBOB(6, 18) = 6 ve EKOK(6, 18) = 18. <u>Neden?</u> 6 zaten 18'i bölüyor, daha büyük bir ortak bölen bulunamaz; 18 zaten 6'nın katı, daha küçük bir ortak kat bulunamaz. <b>Kontrol:</b> 6·18 = 108 ve 6·18 = 108 ✓</p>
+<p><b>Türev sonuçlar (soru çözerken doğrudan kullanılır):</b></p>
+<ul>
+<li><b>İki sayının tüm ortak bölenleri, EBOB'un bölenleridir.</b> Yani "12 ve 18'in kaç tane ortak pozitif böleni vardır?" sorusunda tek tek aramaya gerek yok: EBOB(12,18) = 6 → 6'nın bölen sayısı = 4 (1, 2, 3, 6).</li>
+<li><b>İki sayının tüm ortak katları, EKOK'un katlarıdır.</b> "4 ve 6'nın 100'den küçük kaç ortak katı vardır?" → EKOK = 12 → 12, 24, …, 96 → <b>8 tane</b>.</li>
+<li><b>Kesir sadeleştirme:</b> Bir kesrin pay ve paydasını <b>EBOB'larına</b> bölersen kesrin <b>en sade hâlini</b> tek adımda elde edersin.</li>
+<li><b>Kesir toplama:</b> Paydaları <b>EKOK'larında</b> eşitlersen en küçük ortak paydayla çalışmış olursun; sayılar büyümez.</li>
+<li><b>EBOB, sayıların ikisini de böler:</b> EBOB(a,b) = d ise a = d·m ve b = d·n yazılabilir ve <b>m ile n aralarında asaldır</b>. Bu gösterim, "EBOB'u 6 olan iki sayı" tipi sorularda standart başlangıçtır.</li>
+</ul>
+<p class="formula">ÖRNEK — İki pozitif tam sayının <b>EBOB'u 6</b>, <b>EKOK'u 90</b>'dır. Bu sayıların toplamı en az kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Standart gösterime geç:</b> EBOB 6 olduğuna göre sayılar <b>6m</b> ve <b>6n</b> biçimindedir ve <b>m ile n aralarında asaldır</b>.</li>
+<li><b>Adım 2 — Özellik 1'i kullan:</b> Çarpımları = 6 · 90 = 540. Yani 6m · 6n = 540 → 36mn = 540 → <b>m·n = 15</b>.</li>
+<li><b>Adım 3 — Aralarında asal ikilileri listele:</b> m·n = 15 için (1, 15) ve (3, 5). İkisi de aralarında asal ✓</li>
+<li><b>Adım 4 — Toplamları karşılaştır:</b> (6·1 + 6·15) = 96 &nbsp;·&nbsp; (6·3 + 6·5) = 18 + 30 = <b>48</b>.</li>
+<li><b>Sonuç:</b> En az toplam <b>48</b>. <u>Kritik nokta: m ve n'nin aralarında asal olma şartını atlarsan (5, 3) yerine hatalı ikililer de üretir ve yanlış cevaba gidersin.</u></li>
+</ul>
+
+<h3>4) EBOB mu, EKOK mu? — Karar Refleksi</h3>
+<p>Bu bölüm ünitenin kalbi. Problemi okuduğunda <b>tek bir soru</b> sor: <b>"Bir bütünü parçalara mı ayırıyorum, yoksa parçaları birleştirip bütün mü yapıyorum?"</b></p>
+<svg viewBox="0 0 640 310" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EBOB mu EKOK mu karar şeması">
+  <rect x="0" y="0" width="640" height="310" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Karar şeması: bölüyor muyum, birleştiriyor muyum?</text>
+  <rect x="230" y="38" width="180" height="30" rx="8" fill="#0284c7"/>
+  <text x="248" y="58" font-size="12" font-weight="700" fill="#ffffff">PROBLEMİ OKU</text>
+  <g stroke="#334155" stroke-width="2" fill="none">
+    <path d="M280,68 L150,96"/><path d="M360,68 L490,96"/>
+  </g>
+  <rect x="30" y="96" width="240" height="30" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="46" y="116" font-size="11.5" font-weight="700" fill="#15803d">BÜTÜNÜ PARÇALARA AYIRIYORUM</text>
+  <rect x="370" y="96" width="240" height="30" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="386" y="116" font-size="11.5" font-weight="700" fill="#6d28d9">PARÇALARI BİRLEŞTİRİYORUM</text>
+  <rect x="30" y="136" width="240" height="26" rx="8" fill="#bbf7d0"/>
+  <text x="106" y="154" font-size="14" font-weight="700" fill="#14532d">EBOB</text>
+  <rect x="370" y="136" width="240" height="26" rx="8" fill="#ddd6fe"/>
+  <text x="446" y="154" font-size="14" font-weight="700" fill="#4c1d95">EKOK</text>
+  <g font-size="10" fill="#166534">
+    <text x="30" y="180">· "en büyük eş parçalara böl"</text>
+    <text x="30" y="196">· "en az sayıda parça elde et"</text>
+    <text x="30" y="212">· "artmadan / eksilmeden dağıt"</text>
+    <text x="30" y="228">· tarlayı en büyük KARE alanlara böl</text>
+    <text x="30" y="244">· depoyu en büyük KÜP hacimlere böl</text>
+    <text x="30" y="260">· kesir sadeleştirme</text>
+  </g>
+  <g font-size="10" fill="#5b21b6">
+    <text x="370" y="180">· "en az sayıda parça birleştirerek"</text>
+    <text x="370" y="196">· "en küçük kare / küp elde et"</text>
+    <text x="370" y="212">· "tekrar aynı anda / birlikte"</text>
+    <text x="370" y="228">· periyodik olaylar (nöbet, tur, sinyal)</text>
+    <text x="370" y="244">· "kaç dakika sonra yine karşılaşır"</text>
+    <text x="370" y="260">· kesirlerde payda eşitleme</text>
+  </g>
+  <line x1="26" y1="274" x2="614" y2="274" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="292" font-size="10" fill="#475569">Kestirme: Sonuç verilen sayılardan KÜÇÜK olacaksa EBOB, BÜYÜK olacaksa EKOK. "En büyük parça" diyor diye EKOK sanma — parça küçüktür.</text>
+  <text x="26" y="306" font-size="10" fill="#475569">"En büyük" ve "en küçük" kelimeleri kandırıcıdır; kelimeye değil, sonucun sayılardan büyük mü küçük mü olacağına bak.</text>
+</svg>
+<p class="formula">DİKKAT — Kelime tuzağı: "<b>en büyük</b> parçalara ayıralım" cümlesinde <b>en büyük</b> geçtiği için EKOK sanılır. Oysa parçalar sayılardan <u>küçüktür</u> → <b>EBOB</b>. Tersine "<b>en küçük</b> kareyi oluşturalım" cümlesinde <b>en küçük</b> geçer ama oluşan kare sayılardan <u>büyüktür</u> → <b>EKOK</b>. <b>Kelimeye değil, sonucun büyüklüğüne bak.</b></p>
+<p class="formula">ÖRNEK — Bir fabrikadaki üç makine bir ürünü sırasıyla <b>45, 50 ve 60 saniyede</b> üretmektedir. Makineler ilk kez <b>06.30</b>'da birlikte çalışmaya başladığına göre <b>beşinci kez</b> üçü birlikte ürün verdiğinde saat kaç olur?</p>
+<ul>
+<li><b>Adım 1 — Tipi tanı:</b> "tekrar birlikte" → periyodik olay → <b>EKOK</b>.</li>
+<li><b>Adım 2 — EKOK(45, 50, 60):</b> 45 = 3²·5, 50 = 2·5², 60 = 2²·3·5. Tüm asalların büyük üsleri: 2² · 3² · 5² = <b>900 saniye = 15 dakika</b>.</li>
+<li><b>Adım 3 — "Beşinci kez"i doğru say:</b> Başlangıç (06.30) <b>birlikte olma sayılmaz</b>, çünkü soru "ürün verdiğinde" diyor — ilk ortak ürün 15 dakika sonradır. Beşinci ortak ürün için <b>15 · 5 = 75 dakika</b> geçmelidir.</li>
+<li><b>Adım 4:</b> 75 dakika = <b>1 saat 15 dakika</b>. 06.30 + 1.15 = <b>07.45</b>.</li>
+<li><b>Sayma uyarısı:</b> Bu tip sorularda "başlangıç anı sayılıyor mu?" sorusunu mutlaka sor. "Birlikte <b>başladılar</b>, 5. kez birlikte <b>olacaklar</b>" deniyorsa başlangıç 1. sayılır ve <b>4 periyot</b> geçer. Buradaki gibi "5. kez ürün verdiğinde" deniyorsa <b>5 periyot</b> geçer.</li>
+</ul>
+
+<h3>5) Periyodik Problemler</h3>
+<p>Günlük hayatta bazı olaylar <b>belli zaman aralıklarıyla tekrar eder</b>: haftanın günleri 7 günde bir, nöbetler belirli aralıklarla, otobüsler belirli saatlerde. Bu tür olaylara <b>periyodik olay</b> denir ve iki tip soru üretir: <b>"kaçıncı kez ne zaman?"</b> ve <b>"o gün hangi gün?"</b></p>
+<p class="formula">İKİ ADIMLI YÖNTEM — <b>Adım A:</b> Kaç periyot geçtiğini bul (tek olay varsa periyodun kendisi, iki olay varsa <b>EKOK</b>). <b>Adım B:</b> Geçen toplam süreyi <b>7'ye böl</b>; <u>kalan</u> kaç gün ileri gidileceğini söyler.</p>
+<p class="formula">KRİTİK — "<b>n. kez</b>" ifadesinde <b>başlangıç sayılıyorsa n − 1 periyot</b>, <b>sayılmıyorsa n periyot</b> geçer. Soruyu okurken "ilk kez bugün oldu" mu deniyor, yoksa "bugün başladı, ilk olay ileride" mi — bunu ayırt et. <u>TYT'de bu ünitedeki hataların çoğu formülden değil, bu sayma farkından kaynaklanır.</u></p>
+<p class="formula">ÖRNEK — Burak <b>4 günde bir</b> tenis kursuna gitmektedir. Kursa <b>pazartesi</b> günü başlayan Burak <b>12. kez</b> hangi gün kursa gider?</p>
+<ul>
+<li><b>Adım 1 — Sayma kararı:</b> Pazartesi günü <b>1. kez</b> gitmiş sayılır. Öyleyse geriye <b>12 − 1 = 11 kez</b> daha gitmesi gerekir.</li>
+<li><b>Adım 2 — Geçen süre:</b> 4 · 11 = <b>44 gün</b>.</li>
+<li><b>Adım 3 — Haftaya indirge:</b> 44 : 7 = 6 tam hafta, <b>kalan 2</b>. Tam haftalar günü değiştirmez; sadece kalan önemlidir.</li>
+<li><b>Adım 4:</b> Pazartesiden <b>2 gün</b> ileri → <b>çarşamba</b>.</li>
+</ul>
+<p class="formula">ÖRNEK — İki askerden biri <b>5 günde bir</b>, diğeri <b>8 günde bir</b> nöbet tutmaktadır. İlk nöbetlerini birlikte <b>salı</b> günü tuttuklarına göre <b>6. kez</b> birlikte hangi gün nöbet tutarlar?</p>
+<ul>
+<li><b>Adım 1 — Ortak periyot:</b> 5 ile 8 aralarında asal olduğu için <b>EKOK(5, 8) = 40 gün</b>. (Özellik 2: aralarında asalsa EKOK = çarpım.)</li>
+<li><b>Adım 2 — Sayma:</b> İlk nöbeti birlikte tuttular → 1. kez sayıldı. Geriye <b>6 − 1 = 5</b> ortak nöbet kalır.</li>
+<li><b>Adım 3 — Geçen süre:</b> 40 · 5 = <b>200 gün</b>.</li>
+<li><b>Adım 4 — Haftaya indirge:</b> 200 : 7 = 28 tam hafta, <b>kalan 4</b>.</li>
+<li><b>Adım 5:</b> Salıdan <b>4 gün</b> ileri: çarşamba, perşembe, cuma, <b>cumartesi</b>.</li>
+<li><b>Not:</b> 200 gibi büyük bir sayıyı 7'ye bölerken kalanı hızlı bulmak için bölünebilme bilgisini kullan: 196 = 7·28 olduğundan 200 − 196 = 4.</li>
+</ul>
+
+<h3>6) Soru Tipleri — Bu Üniteden Kaç Kalıpta Soru Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td><b>1</b></td><td><b>Bölen sayısı</b></td><td>"kaç tane pozitif böleni vardır", "kaç çarpanı vardır"</td><td>Asal çarpanlara ayır → <b>(a+1)(b+1)(c+1)</b>. Çift/tek bölen isteniyorsa <b>2'nin üssünü kısıtla</b></td></tr>
+<tr><td><b>2</b></td><td><b>EBOB / EKOK hesabı</b></td><td>Doğrudan "EBOB(a,b) kaçtır" ya da ortak bölen/kat soruluyor</td><td>Asal çarpanlara ayır. <b>EBOB → ortakların küçük üssü</b>, <b>EKOK → tümünün büyük üssü</b></td></tr>
+<tr><td><b>3</b></td><td><b>Çarpım özelliği</b></td><td>EBOB ve EKOK'tan biri (ya da sayıların çarpımı) veriliyor, diğeri isteniyor</td><td><b>a·b = EBOB·EKOK</b>. Sayıları <b>d·m</b> ve <b>d·n</b> yaz, <b>m ile n aralarında asal</b> koşulunu unutma</td></tr>
+<tr><td><b>4</b></td><td><b>Bölme problemi (EBOB)</b></td><td>"en büyük eş parçalara", "artmadan böl", "en az sayıda parça"</td><td>Sonuç sayılardan <b>küçük</b> → EBOB. Parça sayısı isteniyorsa her sayıyı EBOB'a böl ve topla</td></tr>
+<tr><td><b>5</b></td><td><b>Birleştirme problemi (EKOK)</b></td><td>"en küçük kare/küp oluştur", "en az sayıda parçayla"</td><td>Sonuç sayılardan <b>büyük</b> → EKOK. Kaç parça gerektiği isteniyorsa EKOK'u parçanın ölçüsüne böl</td></tr>
+<tr><td><b>6</b></td><td><b>Periyodik buluşma</b></td><td>"tekrar birlikte", "yine aynı anda", "kaç dakika sonra karşılaşır"</td><td><b>EKOK</b> → periyot. Sonra <b>"n. kez" saymasını</b> dikkatle yap (başlangıç dâhil mi?)</td></tr>
+<tr><td><b>7</b></td><td><b>Gün bulma</b></td><td>"hangi gün", "hangi ay", haftanın günü soruluyor</td><td>Toplam günü bul → <b>7'ye böl, kalana bak</b> → başlangıç gününden kalan kadar ilerle</td></tr>
+<tr><td><b>8</b></td><td><b>Kalanlı EBOB</b></td><td>"a'yı böldüğünde 2, b'yi böldüğünde 3 kalanını veren en büyük sayı"</td><td>Kalanları <b>çıkar</b>: EBOB(a−2, b−3). Bölen, kalanlardan <b>büyük</b> olmalı — kontrol et</td></tr>
+</table>
+<p class="formula">TEST TEKNİĞİ — <b>Kalanlı EBOB soruları</b> ayrı bir kalıptır ve mantığı şudur: "A sayısını böldüğünde 2 kalanını veren" demek, "<b>A − 2</b> sayısını <b>tam bölen</b>" demektir. Öyleyse kalanları çıkar, sonra EBOB al. <u>Aynı şekilde "hepsini böldüğünde aynı kalanı veren en büyük sayı" isteniyorsa sayıların farklarının EBOB'u alınır</u> — çünkü aynı kalan çıkarma işleminde götürülür.</p>
+<p class="formula">ÖRNEK — <b>62, 86 ve 110</b> sayılarını böldüğünde <b>aynı kalanı</b> veren en büyük doğal sayı kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Kalanı bilmiyoruz</b>, ama her birinden aynı k çıkarılırsa tam bölünürler: 62−k, 86−k, 110−k hepsi bölünüyor.</li>
+<li><b>Adım 2 — Farkları al:</b> İki bölünen sayının farkı da bölünür. (86−k) − (62−k) = <b>24</b> &nbsp;·&nbsp; (110−k) − (86−k) = <b>24</b>. k düştü!</li>
+<li><b>Adım 3:</b> Aranan sayı 24'ü ve 48'i bölmeli → <b>EBOB(24, 24, 48) = 24</b>.</li>
+<li><b>Kontrol:</b> 62 : 24 → kalan 14 &nbsp;·&nbsp; 86 : 24 → kalan 14 &nbsp;·&nbsp; 110 : 24 → kalan 14 ✓ Üçü de aynı.</li>
+<li><b>Ders:</b> "Aynı kalan" ifadesi gördüğünde <b>farkları al</b>; bilinmeyen kalan kendiliğinden yok olur.</li>
+</ul>
+
+<h3>7) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Asal çarpanlara ayırma:</b> Bir sayıyı asal sayıların kuvvetlerinin çarpımı olarak yazma; her sayı için tektir.</li>
+<li><b>Asal bölen:</b> Bir sayıyı bölen asal sayılar; asal çarpan gösteriminin tabanları.</li>
+<li><b>Bölen (çarpan):</b> Bir sayıyı kalansız bölen sayı; sayıdan küçük ya da ona eşittir.</li>
+<li><b>Kat:</b> Bir sayının tam sayılarla çarpımı; sayıdan büyük ya da ona eşittir.</li>
+<li><b>EBOB:</b> Ortak bölenlerin en büyüğü; ortak asal çarpanların küçük üslülerinin çarpımı.</li>
+<li><b>EKOK:</b> Ortak katların en küçüğü; tüm asal çarpanların büyük üslülerinin çarpımı.</li>
+<li><b>Aralarında asal:</b> EBOB'u 1 olan sayılar; ortak asal çarpanları yoktur.</li>
+<li><b>Periyodik olay:</b> Belirli zaman aralıklarıyla tekrar eden olay.</li>
+<li><b>Periyot:</b> Tekrarlar arasındaki sabit süre; birden fazla olayın ortak periyodu EKOK'tur.</li>
+<li><b>Tam sayı böleni:</b> Pozitif ve negatif bölenlerin tümü; sayıları eşit, toplamları sıfırdır.</li>
+</ul>
+
+<h3>8) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>"En büyük" kelimesini görüp EKOK demek:</b> "En büyük eş parçalara bölelim" → parça sayılardan küçüktür → <b>EBOB</b>. Kelimeye değil, <b>sonucun büyüklüğüne</b> bak.</li>
+<li><b>a·b = EBOB·EKOK'u üç sayıda kullanmak:</b> Bu özellik <b>yalnızca iki sayı</b> için geçerlidir.</li>
+<li><b>m ile n'nin aralarında asal olma şartını atlamak:</b> Sayıları d·m ve d·n yazdığında <b>EBOB(m,n) = 1</b> olmak zorundadır; yoksa EBOB d'den büyük çıkardı.</li>
+<li><b>"n. kez" saymasında bir fazla/eksik periyot:</b> Başlangıç sayılıyorsa <b>n − 1</b>, sayılmıyorsa <b>n</b> periyot geçer. Soruyu bu gözle tekrar oku.</li>
+<li><b>EBOB'da ortak olmayan çarpanı almak:</b> Yalnızca bir sayıda bulunan asal çarpan <b>EBOB'a giremez</b> (ama EKOK'a girer).</li>
+<li><b>Bölen sayısı formülünde üsleri çarpmak:</b> Formül üslerin çarpımı değil, <b>(üs + 1)</b>'lerin çarpımıdır. 2³·3² için 3·2 = 6 değil, <b>4·3 = 12</b>.</li>
+<li><b>1'i unutmak:</b> Her sayının böleni olarak <b>1 ve kendisi</b> de sayılır; formül bunları zaten kapsar.</li>
+<li><b>Kalanlı EBOB'da kontrolü atlamak:</b> Bulduğun bölen, <b>verilen kalanlardan büyük</b> olmalıdır. 3 kalanını veren bir bölen 3'ten küçük olamaz.</li>
+<li><b>EBOB(a, b) ile ortak bölen sayısını karıştırmak:</b> EBOB tek bir sayıdır; <b>ortak bölenlerin sayısı</b> ise EBOB'un bölen sayısıdır.</li>
+<li><b>Gün bulmada bölümü kullanmak:</b> 7'ye bölmede işe yarayan <b>bölüm değil, kalandır</b>. Tam haftalar günü değiştirmez.</li>
+</ul>
+
+<h3>9) Özet Kartı</h3>
+<ul>
+<li><b>Asal çarpan:</b> A = x<sup>a</sup>·y<sup>b</sup>·z<sup>c</sup> (tabanlar farklı asallar). Bu gösterim sayının kimliğidir.</li>
+<li><b>Bölen sayısı:</b> pozitif <b>(a+1)(b+1)(c+1)</b> · negatif aynı · tam sayı <b>2·(a+1)(b+1)(c+1)</b> · tam sayı bölenlerin toplamı <b>0</b> · asal olmayan tam sayı bölenlerin toplamı <b>−(x+y+z)</b>.</li>
+<li><b>Çift/tek bölen:</b> Çift için 2'nin üssü ≥ 1 (bir seçenek eksilir), tek için 2'nin üssü = 0 (sabitlenir).</li>
+<li><b>EBOB:</b> Ortak asalların <b>küçük üsleri</b>. Sayılardan <b>küçük</b>. Tüm ortak bölenler EBOB'un bölenleridir.</li>
+<li><b>EKOK:</b> Tüm asalların <b>büyük üsleri</b>. Sayılardan <b>büyük</b>. Tüm ortak katlar EKOK'un katlarıdır.</li>
+<li><b>Özellik 1:</b> <b>a·b = EBOB·EKOK</b> (yalnız iki sayı için).</li>
+<li><b>Özellik 2:</b> Aralarında asalsa <b>EBOB = 1</b>, <b>EKOK = a·b</b>.</li>
+<li><b>Özellik 3:</b> Biri diğerinin katıysa <b>EBOB = küçük</b>, <b>EKOK = büyük</b>.</li>
+<li><b>Standart gösterim:</b> EBOB(a,b) = d ise a = d·m, b = d·n ve <b>EBOB(m,n) = 1</b>.</li>
+<li><b>Karar:</b> Bütünü <b>parçalara ayır</b> → EBOB · Parçaları <b>birleştir</b> → EKOK · <b>Tekrar birlikte</b> → EKOK.</li>
+<li><b>Periyot:</b> Ortak periyot = <b>EKOK</b>. "n. kez" → başlangıç sayılıyorsa <b>n−1</b>, sayılmıyorsa <b>n</b> periyot.</li>
+<li><b>Gün bulma:</b> Toplam gün <b>: 7</b> → <b>kalan</b> kadar ileri git. Bölüm işe yaramaz.</li>
+<li><b>Kalanlı EBOB:</b> Kalanları <b>çıkar</b> sonra EBOB al. "Aynı kalan" ise <b>farkların EBOB'u</b>. Bölen, kalandan büyük olmalı.</li>
+<li><b>Kesirler:</b> Sadeleştirme → <b>EBOB</b>'a böl · Payda eşitleme → <b>EKOK</b>'ta eşitle.</li>
+</ul>
+
+</body></html>

@@ -83,9 +83,11 @@ export default function Quiz({ onFinish }) {
         .select("id,subject,topic,q,options,answer,explanation")
         .eq("subject", subject.id);
       if (t.unit_id) query = query.eq("topic", t.unit_id);
-      const { data, error } = await query.limit(300);
+      const { data, error } = await query.limit(500);
       if (error) throw error;
-      const pool = shuffle(data || []).slice(0, SESSION_SIZE);
+      const shuffled = shuffle(data || []);
+      // Konu seçildiyse o konudaki TÜM sorular; "Karışık" ise ilk 20.
+      const pool = t.unit_id ? shuffled : shuffled.slice(0, 20);
       if (!pool.length) {
         setErr("Bu konuda soru bulunamadı.");
         return;
@@ -165,7 +167,7 @@ export default function Quiz({ onFinish }) {
           <ChevronLeft className="h-4 w-4" /> Dersler
         </button>
         <h1 className="text-xl font-bold tracking-tight text-slate-800">{subject?.name}</h1>
-        <p className="mt-1 text-sm text-slate-400">Bir konu seç, {SESSION_SIZE} soruluk test başlasın.</p>
+        <p className="mt-1 text-sm text-slate-400">Bir konu seç — o konudaki tüm sorular gelir.</p>
 
         {loading ? (
           <p className="mt-6 inline-flex items-center gap-2 text-sm text-slate-400">

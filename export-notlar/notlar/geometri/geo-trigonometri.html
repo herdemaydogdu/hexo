@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Trigonometrik Oranlar ve Birim Çember</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Trigonometrik Oranlar ve Birim Çember</h2>
+
+<p>Trigonometri, <b>açıları uzunluklara çeviren sözlüktür</b>. Şimdiye kadar açılarla açıları, uzunluklarla uzunlukları karşılaştırdık; Pisagor bile üç uzunluk arasında bir bağıntıydı. Trigonometri ise ilk kez <b>bir açıyı bir sayıya</b> dönüştürür: "30°" dediğinde karşısındaki kenarın hipotenüsün tam yarısı olduğunu bilirsin. Bu çeviri sayesinde bir açı ölçüp uzunluk hesaplayabilir, ya da uzunluk ölçüp açı bulabilirsin — haritacılıktan mühendisliğe kadar her yerde kullanılan şey budur.</p>
+
+<h3>1) Dik Üçgende Trigonometrik Oranlar</h3>
+<p class="formula">TANIM (PDF) — ABC dik üçgeninde m(Â) = 90° ve m(AĈB) = α olsun. a = hipotenüs, b ve c dik kenarlar olmak üzere:<br/>
+<b>sin α = a'nın karşısındaki dik kenar / hipotenüs = c / a</b><br/>
+<b>cos α = α'ya komşu dik kenar / hipotenüs = b / a</b><br/>
+<b>tan α = karşı / komşu = c / b</b><br/>
+<b>cot α = komşu / karşı = b / c</b><br/>
+<u>Üç kelimeyi doğru yerleştirmek yeterlidir: <b>KARŞI, KOMŞU, HİPOTENÜS</b>. Bir açı seçtiğinde hipotenüs değişmez (daima dik açının karşısı), ama <b>karşı ve komşu, seçtiğin açıya göre yer değiştirir</b>.</u></p>
+<p class="formula">HATIRLAMA — <u>Oranların paydasına bakarak ikiye ayır:</u><br/>
+• <b>Paydası HİPOTENÜS olanlar:</b> <b>sin</b> (karşı/hip) ve <b>cos</b> (komşu/hip) → bu ikisi <b>daima 1'den küçüktür</b>.<br/>
+• <b>Paydası DİK KENAR olanlar:</b> <b>tan</b> (karşı/komşu) ve <b>cot</b> (komşu/karşı) → bu ikisi <b>her değeri alabilir</b>.<br/>
+<b>Ters ilişkiler:</b> <b>tan α · cot α = 1</b> &nbsp;·&nbsp; <b>tan α = sin α / cos α</b> &nbsp;·&nbsp; <b>cot α = cos α / sin α</b></p>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dik üçgende trigonometrik oranlar">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Karşı · Komşu · Hipotenüs: üç kelime, dört oran</text>
+  <polygon points="100,90 100,205 290,205" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <rect x="100" y="190" width="15" height="15" fill="none" stroke="#0369a1" stroke-width="1.6"/>
+  <path d="M 262 205 A 28 28 0 0 0 268 186" fill="none" stroke="#dc2626" stroke-width="2"/>
+  <text x="256" y="196" font-size="12" font-weight="700" fill="#dc2626">α</text>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="92" y="82">A</text><text x="86" y="221">B</text><text x="294" y="221">C</text>
+  </g>
+  <text x="62" y="150" font-size="11" font-weight="700" fill="#b91c1c">KARŞI</text>
+  <text x="180" y="224" font-size="11" font-weight="700" fill="#15803d">KOMŞU</text>
+  <text x="196" y="140" font-size="11" font-weight="700" fill="#b45309">HİPOTENÜS</text>
+  <text x="195" y="248" font-size="10" fill="#475569" text-anchor="middle">α açısına göre: karşı = |AB| · komşu = |BC| · hipotenüs = |AC|</text>
+  <line x1="330" y1="45" x2="330" y2="250" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="352" y="72" font-size="13" font-weight="700" fill="#0369a1">sin α = KARŞI / HİPOTENÜS</text>
+  <text x="352" y="98" font-size="13" font-weight="700" fill="#0369a1">cos α = KOMŞU / HİPOTENÜS</text>
+  <text x="352" y="124" font-size="13" font-weight="700" fill="#15803d">tan α = KARŞI / KOMŞU</text>
+  <text x="352" y="150" font-size="13" font-weight="700" fill="#15803d">cot α = KOMŞU / KARŞI</text>
+  <text x="352" y="178" font-size="10" fill="#475569">Paydası hipotenüs olanlar (sin, cos) daima 1'den küçüktür.</text>
+  <text x="352" y="194" font-size="10" fill="#475569">Paydası dik kenar olanlar (tan, cot) her değeri alabilir.</text>
+  <text x="352" y="218" font-size="11" font-weight="700" fill="#b91c1c">tan α · cot α = 1</text>
+  <text x="352" y="240" font-size="11" font-weight="700" fill="#b91c1c">tan α = sin α / cos α</text>
+</svg>
+<p class="formula">TÜMLER AÇI BAĞINTILARI (PDF) — Bir dik üçgende iki dar açı <b>tümlerdir</b> (α + β = 90°). Birinin karşısı diğerinin komşusu olduğu için:<br/>
+<b>sin α = cos β</b> &nbsp;·&nbsp; <b>sin β = cos α</b> &nbsp;·&nbsp; <b>tan α = cot β</b> &nbsp;·&nbsp; <b>tan β = cot α</b><br/>
+<b>Genel yazımı:</b> <b>sin α = cos(90° − α)</b> &nbsp;·&nbsp; <b>tan α = cot(90° − α)</b><br/>
+<u>Örnek: sin 20° = cos 70°, tan 35° = cot 55°. "co-" ön eki zaten <b>complementary (tümler)</b> anlamına gelir — kosinüs, "tümler açının sinüsü" demektir.</u></p>
+<p class="formula">TEMEL ÖZDEŞLİK — <b>sin²α + cos²α = 1</b><br/>
+<u>Neden? Dik üçgende sin α = c/a ve cos α = b/a. Kareleri toplarsak (c² + b²)/a² olur; Pisagor'a göre b² + c² = a² olduğu için sonuç a²/a² = 1 çıkar. <b>Yani bu özdeşlik Pisagor teoreminin trigonometrik kılığıdır.</b></u><br/>
+<b>Kullanımı:</b> Birini bilip diğerini bulmak için. <u>cos α = 5/13 ise sin²α = 1 − 25/169 = 144/169 → sin α = 12/13.</u> (Dar açı olduğu için pozitif alınır.)</p>
+<p class="formula">ÖRNEK (PDF) — ABC üçgeninde B, D, C doğrusal; <b>|AB| = |AC| = 13 cm</b>, <b>|BD| = 3 cm</b>, <b>|DC| = 7 cm</b>'dir. m(AD̂C) = α olduğuna göre <b>tan α</b> kaçtır?</p>
+<ul>
+<li><b>Adım 1 — İkizkenarlığı kullan:</b> |AB| = |AC| olduğu için ABC ikizkenardır. <u>Tepe açısından indirilen dikme aynı zamanda kenarortaydır</u> → H, [BC]'nin orta noktasıdır.</li>
+<li><b>Adım 2 — Uzunlukları yerleştir:</b> |BC| = 3 + 7 = 10 → <b>|BH| = |HC| = 5 cm</b>. D noktası B'den 3 cm uzakta olduğu için <b>|DH| = 5 − 3 = 2 cm</b>.</li>
+<li><b>Adım 3 — Yüksekliği bul:</b> AHC dik üçgeninde |HC| = 5, |AC| = 13 → <b>5-12-13 üçlüsü</b> → <b>|AH| = 12 cm</b>.</li>
+<li><b>Adım 4 — Oranı yaz:</b> ADH dik üçgeninde α açısının karşısı |AH| = 12, komşusu |DH| = 2 → <b>tan α = 12/2 = 6</b>.</li>
+<li><b>Ders:</b> <u>Trigonometri sorularının çoğu aslında <b>uzunluk bulma</b> sorusudur; oran ancak son adımda yazılır. Şekilde ikizkenarlık, Pisagor üçlüsü ve yükseklik gibi araçları önce kullan.</u></li>
+</ul>
+
+<h3>2) 30°, 45° ve 60°'nin Trigonometrik Oranları</h3>
+<p class="formula">NEREDEN GELİYOR? (PDF) — <u>Bu değerler ezberlenmez, <b>iki özel üçgenden okunur</b>:</u><br/>
+<b>30-60-90 üçgeni:</b> kenarlar <b>k</b>, <b>k√3</b>, <b>2k</b> → 30°'nin karşısı k, hipotenüs 2k olduğu için <b>sin 30° = k/2k = 1/2</b>.<br/>
+<b>45-45-90 üçgeni:</b> kenarlar <b>k</b>, <b>k</b>, <b>k√2</b> → <b>sin 45° = k/(k√2) = 1/√2 = √2/2</b>.<br/>
+<u>Yani tabloyu unutursan bu iki üçgeni çizip oranları yeniden okuyabilirsin. Bu, ezberlemekten çok daha güvenlidir.</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Özel açıların trigonometrik oranları">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Değerler bu iki üçgenden okunur</text>
+  <polygon points="80,70 80,190 160,190" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <rect x="80" y="175" width="15" height="15" fill="none" stroke="#0369a1" stroke-width="1.6"/>
+  <text x="86" y="92" font-size="10" font-weight="700" fill="#b91c1c">30°</text>
+  <text x="138" y="184" font-size="10" font-weight="700" fill="#b91c1c">60°</text>
+  <text x="52" y="135" font-size="11" font-weight="700" fill="#0369a1">k√3</text>
+  <text x="115" y="207" font-size="11" font-weight="700" fill="#0369a1">k</text>
+  <text x="130" y="126" font-size="11" font-weight="700" fill="#0369a1">2k</text>
+  <text x="120" y="230" font-size="10" fill="#475569" text-anchor="middle">sin 30° = k/2k = 1/2</text>
+  <text x="120" y="245" font-size="10" fill="#475569" text-anchor="middle">cos 30° = k√3/2k = √3/2</text>
+  <polygon points="250,80 250,190 360,190" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <rect x="250" y="175" width="15" height="15" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+  <text x="256" y="100" font-size="10" font-weight="700" fill="#b91c1c">45°</text>
+  <text x="336" y="184" font-size="10" font-weight="700" fill="#b91c1c">45°</text>
+  <text x="232" y="140" font-size="11" font-weight="700" fill="#15803d">k</text>
+  <text x="300" y="207" font-size="11" font-weight="700" fill="#15803d">k</text>
+  <text x="315" y="128" font-size="11" font-weight="700" fill="#15803d">k√2</text>
+  <text x="305" y="230" font-size="10" fill="#475569" text-anchor="middle">sin 45° = k/(k√2) = √2/2</text>
+  <text x="305" y="245" font-size="10" fill="#475569" text-anchor="middle">tan 45° = k/k = 1</text>
+  <line x1="400" y1="45" x2="400" y2="240" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="420" y="70" font-size="11" font-weight="700" fill="#334155">Hatırlama kalıbı</text>
+  <text x="420" y="94" font-size="11" font-weight="700" fill="#0369a1">sin: 30° → 1/2 · 45° → √2/2 · 60° → √3/2</text>
+  <text x="420" y="114" font-size="10" fill="#475569">Paylar sırayla √1, √2, √3; payda hep 2.</text>
+  <text x="420" y="138" font-size="11" font-weight="700" fill="#15803d">cos: aynı sıra TERSTEN okunur</text>
+  <text x="420" y="158" font-size="10" fill="#475569">30° → √3/2 · 45° → √2/2 · 60° → 1/2</text>
+  <text x="420" y="182" font-size="11" font-weight="700" fill="#b45309">tan = sin / cos</text>
+  <text x="420" y="202" font-size="10" fill="#475569">30° → √3/3 · 45° → 1 · 60° → √3</text>
+  <text x="420" y="226" font-size="10" font-weight="700" fill="#b91c1c">Açı büyüdükçe sin artar, cos azalır.</text>
+</svg>
+<table>
+<tr><th>Açı</th><th>sin</th><th>cos</th><th>tan</th><th>cot</th></tr>
+<tr><td><b>30°</b></td><td><b>1/2</b></td><td><b>√3/2</b></td><td><b>√3/3</b></td><td><b>√3</b></td></tr>
+<tr><td><b>45°</b></td><td><b>√2/2</b></td><td><b>√2/2</b></td><td><b>1</b></td><td><b>1</b></td></tr>
+<tr><td><b>60°</b></td><td><b>√3/2</b></td><td><b>1/2</b></td><td><b>√3</b></td><td><b>√3/3</b></td></tr>
+</table>
+<p class="formula">TABLOYU OKUMA — <u>Satırlara değil, <b>simetriye</b> bak:</u><br/>
+• <b>sin sütunu yukarıdan aşağı:</b> 1/2, √2/2, √3/2 → <b>artıyor</b> (paylar √1, √2, √3).<br/>
+• <b>cos sütunu:</b> aynı üç sayı <b>tersten</b> → <b>azalıyor</b>. Çünkü <b>cos 30° = sin 60°</b> (tümler açı bağıntısı).<br/>
+• <b>tan ve cot</b> birbirinin tersidir; 45°'de ikisi de <b>1</b>'dir (kenarlar eşit olduğu için).<br/>
+<b>Örnek:</b> sin 30° + cos 60° + tan 45° = 1/2 + 1/2 + 1 = <b>2</b>.</p>
+
+<h3>3) Birim Çember</h3>
+<p class="formula">TANIM (PDF) — <b>Merkezi orijin ve yarıçapı 1 birim</b> olan çembere <b>birim çember</b> denir.<br/>
+Birim çember üzerindeki bir <b>K(x, y)</b> noktası için, K'den x eksenine dikme indirildiğinde oluşan dik üçgende Pisagor teoremi gereği:<br/>
+<b>x² + y² = 1</b><br/>
+<b>Eksen noktaları:</b> <b>A(1, 0)</b> · <b>B(0, 1)</b> · <b>C(−1, 0)</b> · <b>D(0, −1)</b><br/>
+<u>Birim çemberin amacı, trigonometriyi <b>dik üçgenin dar açılarından kurtarmaktır</b>. Dik üçgende yalnızca 0°–90° arası açılarla çalışabilirsin; birim çember 90°'den büyük açıları da tanımlar.</u></p>
+<p class="formula">ORANLARIN ÇEMBERDEKİ KARŞILIĞI (PDF) — K(x, y) noktasının [OA] ile yaptığı açı α olmak üzere:<br/>
+<b>x = cos α</b> &nbsp;→ <b>x ekseni KOSİNÜS ekseni</b>dir.<br/>
+<b>y = sin α</b> &nbsp;→ <b>y ekseni SİNÜS ekseni</b>dir.<br/>
+<b>x = 1 doğrusu → TANJANT ekseni</b> &nbsp;·&nbsp; <b>y = 1 doğrusu → KOTANJANT ekseni</b><br/>
+<b>Temel özdeşlik buradan da çıkar:</b> KOT dik üçgeninde <b>sin²α + cos²α = 1</b>.<br/>
+<u>Yani bir noktanın <b>apsisi kosinüs</b>, <b>ordinatı sinüstür</b>. Bu tek cümle, birim çember konusunun özüdür.</u></p>
+<svg viewBox="0 0 640 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Birim çember ve eksenler">
+  <rect x="0" y="0" width="640" height="300" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Birim çemberde apsis = kosinüs, ordinat = sinüs</text>
+  <line x1="120" y1="80" x2="400" y2="80" stroke="#b45309" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="300" y1="60" x2="300" y2="270" stroke="#16a34a" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text x="126" y="74" font-size="10" font-weight="700" fill="#b45309">y = 1 (KOTANJANT ekseni)</text>
+  <text x="306" y="266" font-size="10" font-weight="700" fill="#16a34a">x = 1 (TANJANT ekseni)</text>
+  <line x1="110" y1="160" x2="400" y2="160" stroke="#334155" stroke-width="2"/>
+  <line x1="220" y1="55" x2="220" y2="275" stroke="#334155" stroke-width="2"/>
+  <circle cx="220" cy="160" r="80" fill="none" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="220" y1="160" x2="315" y2="80" stroke="#7c3aed" stroke-width="2"/>
+  <circle cx="281" cy="109" r="4.5" fill="#0369a1"/>
+  <line x1="281" y1="109" x2="281" y2="160" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="220" y1="160" x2="281" y2="160" stroke="#0284c7" stroke-width="3"/>
+  <circle cx="300" cy="93" r="4" fill="#16a34a"/>
+  <circle cx="315" cy="80" r="4" fill="#b45309"/>
+  <g fill="#334155" font-size="10" font-weight="700">
+    <text x="286" y="104">K</text><text x="304" y="180">A(1,0)</text><text x="226" y="74">B(0,1)</text>
+  </g>
+  <text x="246" y="176" font-size="10" font-weight="700" fill="#0284c7">cos α</text>
+  <text x="288" y="140" font-size="10" font-weight="700" fill="#dc2626">sin α</text>
+  <text x="308" y="90" font-size="10" font-weight="700" fill="#16a34a">tan α</text>
+  <text x="322" y="74" font-size="10" font-weight="700" fill="#b45309">cot α</text>
+  <text x="238" y="152" font-size="10" font-weight="700" fill="#7c3aed">α</text>
+  <line x1="430" y1="45" x2="430" y2="290" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="450" y="70" font-size="11" font-weight="700" fill="#334155">Dört eksen</text>
+  <text x="450" y="92" font-size="11" font-weight="700" fill="#0284c7">x ekseni = KOSİNÜS ekseni</text>
+  <text x="450" y="112" font-size="11" font-weight="700" fill="#dc2626">y ekseni = SİNÜS ekseni</text>
+  <text x="450" y="132" font-size="11" font-weight="700" fill="#16a34a">x = 1 doğrusu = TANJANT</text>
+  <text x="450" y="152" font-size="11" font-weight="700" fill="#b45309">y = 1 doğrusu = KOTANJANT</text>
+  <text x="450" y="180" font-size="10" fill="#475569">K(x, y) noktası için x = cos α, y = sin α.</text>
+  <text x="450" y="196" font-size="10" fill="#475569">Yarıçap 1 olduğu için Pisagor doğrudan</text>
+  <text x="450" y="212" font-size="11" font-weight="700" fill="#b91c1c">sin²α + cos²α = 1</text>
+  <text x="450" y="212" font-size="11" font-weight="700" fill="#b91c1c"> </text>
+  <text x="450" y="240" font-size="10" fill="#475569">Tanjant ve kotanjant değerleri, açının kolu</text>
+  <text x="450" y="256" font-size="10" fill="#475569">uzatılınca bu iki doğruyu kestiği noktadan</text>
+  <text x="450" y="272" font-size="10" fill="#475569">okunur; bu yüzden 1'den büyük olabilirler.</text>
+</svg>
+<p class="formula">BÖLGELERDE İŞARETLER (PDF) — Birim çember dört bölgeye ayrılır ve her bölgede x ile y'nin işareti farklıdır:</p>
+<table>
+<tr><th>Bölge</th><th>Açı aralığı</th><th>x = cos</th><th>y = sin</th><th>tan / cot</th></tr>
+<tr><td><b>1. bölge</b></td><td>0° – 90°</td><td><b>+</b></td><td><b>+</b></td><td><b>+</b></td></tr>
+<tr><td><b>2. bölge</b></td><td>90° – 180°</td><td><b>−</b></td><td><b>+</b></td><td><b>−</b></td></tr>
+<tr><td><b>3. bölge</b></td><td>180° – 270°</td><td><b>−</b></td><td><b>−</b></td><td><b>+</b></td></tr>
+<tr><td><b>4. bölge</b></td><td>270° – 360°</td><td><b>+</b></td><td><b>−</b></td><td><b>−</b></td></tr>
+</table>
+<p class="formula">İŞARETLERİ HATIRLAMA — <u>Sadece x ve y'nin işaretini düşün, gerisi kendiliğinden gelir:</u><br/>
+• <b>Sağ yarıda x pozitif</b> (1. ve 4. bölge) → <b>cos pozitif</b>.<br/>
+• <b>Üst yarıda y pozitif</b> (1. ve 2. bölge) → <b>sin pozitif</b>.<br/>
+• <b>tan = sin/cos</b> olduğu için ikisi <b>aynı işaretliyse tan pozitif</b> (1. ve 3. bölge), farklıysa negatiftir.<br/>
+<b>Örnek:</b> 120° ikinci bölgededir → sin 120° &gt; 0, cos 120° &lt; 0, tan 120° &lt; 0.</p>
+<svg viewBox="0 0 640 275" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Birim çemberde bölgeler ve işaretler">
+  <rect x="0" y="0" width="640" height="275" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — Dört bölge, dört işaret düzeni</text>
+  <circle cx="200" cy="150" r="90" fill="none" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="90" y1="150" x2="315" y2="150" stroke="#334155" stroke-width="2"/>
+  <line x1="200" y1="45" x2="200" y2="255" stroke="#334155" stroke-width="2"/>
+  <g fill="#0369a1">
+    <circle cx="290" cy="150" r="4"/><circle cx="200" cy="60" r="4"/>
+    <circle cx="110" cy="150" r="4"/><circle cx="200" cy="240" r="4"/>
+  </g>
+  <g fill="#334155" font-size="10" font-weight="700">
+    <text x="296" y="166">A(1,0)</text><text x="208" y="54">B(0,1)</text>
+    <text x="70" y="166">C(−1,0)</text><text x="208" y="256">D(0,−1)</text>
+  </g>
+  <text x="245" y="100" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">1. bölge</text>
+  <text x="245" y="116" font-size="10" fill="#15803d" text-anchor="middle">x &gt; 0 · y &gt; 0</text>
+  <text x="152" y="100" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">2. bölge</text>
+  <text x="152" y="116" font-size="10" fill="#b45309" text-anchor="middle">x &lt; 0 · y &gt; 0</text>
+  <text x="152" y="196" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">3. bölge</text>
+  <text x="152" y="212" font-size="10" fill="#b91c1c" text-anchor="middle">x &lt; 0 · y &lt; 0</text>
+  <text x="245" y="196" font-size="11" font-weight="700" fill="#7c3aed" text-anchor="middle">4. bölge</text>
+  <text x="245" y="212" font-size="10" fill="#7c3aed" text-anchor="middle">x &gt; 0 · y &lt; 0</text>
+  <line x1="345" y1="45" x2="345" y2="265" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="365" y="70" font-size="11" font-weight="700" fill="#334155">İşaret kuralı üç satırda</text>
+  <text x="365" y="94" font-size="11" font-weight="700" fill="#0284c7">SAĞ yarı → cos pozitif (1. ve 4.)</text>
+  <text x="365" y="116" font-size="11" font-weight="700" fill="#dc2626">ÜST yarı → sin pozitif (1. ve 2.)</text>
+  <text x="365" y="138" font-size="11" font-weight="700" fill="#15803d">Aynı işaretli → tan pozitif (1. ve 3.)</text>
+  <text x="365" y="166" font-size="10" fill="#475569">Yani tan ve cot yalnızca 1. ve 3. bölgede pozitiftir.</text>
+  <text x="365" y="192" font-size="11" font-weight="700" fill="#b45309">Örnek</text>
+  <text x="365" y="212" font-size="10" fill="#475569">120° → 2. bölge → sin &gt; 0, cos &lt; 0, tan &lt; 0</text>
+  <text x="365" y="228" font-size="10" fill="#475569">200° → 3. bölge → sin &lt; 0, cos &lt; 0, tan &gt; 0</text>
+  <text x="365" y="252" font-size="10" font-weight="700" fill="#b91c1c">sin ve cos daima [−1, 1] aralığındadır.</text>
+</svg>
+<p class="formula">ÖRNEK — Bir dik üçgende <b>sin α = 3/5</b> olduğuna göre <b>cos α</b>, <b>tan α</b> ve <b>cot α</b> kaçtır?</p>
+<ul>
+<li><b>Yöntem 1 — Üçgen kurarak:</b> sin = karşı/hipotenüs = 3/5 → karşı = 3k, hipotenüs = 5k. <u>3-4-5 üçlüsü</u> → komşu = 4k.<br/>
+<b>cos α = 4/5</b> &nbsp;·&nbsp; <b>tan α = 3/4</b> &nbsp;·&nbsp; <b>cot α = 4/3</b>.</li>
+<li><b>Yöntem 2 — Özdeşlikle:</b> cos²α = 1 − (3/5)² = 1 − 9/25 = 16/25 → cos α = 4/5 (dar açı olduğu için pozitif). Sonra tan α = sin/cos = (3/5)/(4/5) = <b>3/4</b>.</li>
+<li><b>Kontrol:</b> tan α · cot α = (3/4)·(4/3) = 1 ✓ &nbsp;·&nbsp; sin² + cos² = 9/25 + 16/25 = 1 ✓</li>
+<li><b>Ders:</b> <u>Oran verildiğinde <b>bir üçgen çizip kenarlara 3k, 4k, 5k demek</b>, özdeşlikle uğraşmaktan hızlıdır — özellikle Pisagor üçlüsü çıkıyorsa.</u></li>
+</ul>
+
+<h3>4) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Temel oran</b></td><td>Dik üçgen + iki kenar</td><td><b>Karşı / komşu / hipotenüs</b>u belirle, oranı yaz.</td></tr>
+<tr><td>2</td><td><b>Bir orandan diğerleri</b></td><td>"sin α = 3/5 ise tan α"</td><td><b>Üçgen kur</b> (3k, 4k, 5k) ya da özdeşlik kullan.</td></tr>
+<tr><td>3</td><td><b>Özdeşlik</b></td><td>sin² + cos² ifadesi</td><td><b>sin²α + cos²α = 1</b>.</td></tr>
+<tr><td>4</td><td><b>Tümler açı</b></td><td>sin 20° · cos 70° gibi</td><td><b>sin α = cos(90 − α)</b>.</td></tr>
+<tr><td>5</td><td><b>Özel açı değerleri</b></td><td>30°, 45°, 60°</td><td>Tabloyu ya da <b>iki özel üçgeni</b> kullan.</td></tr>
+<tr><td>6</td><td><b>Şekilden oran</b></td><td>Karmaşık şekil, α işaretli</td><td>Önce <b>uzunlukları bul</b>, oranı en son yaz.</td></tr>
+<tr><td>7</td><td><b>Yükseklik çizerek</b></td><td>Dik üçgen görünmüyor</td><td><b>Dikme indir</b>, dik üçgen oluştur.</td></tr>
+<tr><td>8</td><td><b>Birim çember konumu</b></td><td>"120° hangi bölgede"</td><td>Bölgeyi belirle, <b>x ve y işaretine</b> bak.</td></tr>
+<tr><td>9</td><td><b>İşaret belirleme</b></td><td>"sin α &gt; 0, cos α &lt; 0 ise"</td><td>Üst yarı + sol yarı → <b>2. bölge</b>.</td></tr>
+<tr><td>10</td><td><b>Değer aralığı</b></td><td>"sin α = 2m − 1 ise m"</td><td><b>−1 ≤ sin α ≤ 1</b> koşulunu kur.</td></tr>
+<tr><td>11</td><td><b>Eğim ve tanjant</b></td><td>Doğrunun eğimi / yatayla açı</td><td><b>Eğim = tan α</b>.</td></tr>
+<tr><td>12</td><td><b>Günlük hayat</b></td><td>Gözlem açısı, rampa eğimi</td><td>Şekli <b>dik üçgene indirge</b>, oranı yaz.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 10) — <b>sin α = 2m − 1</b> eşitliğini sağlayan bir α açısı varsa, m hangi aralıktadır?</p>
+<ul>
+<li><b>Adım 1 — Sınırı hatırla:</b> Sinüs bir <b>orandır</b> ve payı (karşı kenar) paydasından (hipotenüs) büyük olamaz → <b>−1 ≤ sin α ≤ 1</b>.</li>
+<li><b>Adım 2 — Eşitsizliği kur:</b> −1 ≤ 2m − 1 ≤ 1.</li>
+<li><b>Adım 3 — Çöz:</b> Her tarafa 1 ekle → 0 ≤ 2m ≤ 2 → <b>0 ≤ m ≤ 1</b>.</li>
+<li><b>Ders:</b> <u>sin ve cos'un <b>[−1, 1]</b> aralığında olduğunu unutma — bu, birim çemberin yarıçapının 1 olmasının doğrudan sonucudur. tan ve cot için böyle bir sınır <b>yoktur</b>.</u></li>
+</ul>
+
+<h3>5) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Trigonometri:</b> Üçgenlerde açılar ile kenarlar arasındaki ilişkileri inceleyen dal.</li>
+<li><b>Sinüs (sin):</b> Karşı kenar / hipotenüs.</li>
+<li><b>Kosinüs (cos):</b> Komşu kenar / hipotenüs.</li>
+<li><b>Tanjant (tan):</b> Karşı kenar / komşu kenar.</li>
+<li><b>Kotanjant (cot):</b> Komşu kenar / karşı kenar; tanjantın tersi.</li>
+<li><b>Karşı kenar:</b> Seçilen açının tam karşısındaki dik kenar.</li>
+<li><b>Komşu kenar:</b> Seçilen açıyı oluşturan dik kenar.</li>
+<li><b>Temel özdeşlik:</b> sin²α + cos²α = 1.</li>
+<li><b>Tümler açı bağıntısı:</b> sin α = cos(90° − α).</li>
+<li><b>Birim çember:</b> Merkezi orijin, yarıçapı 1 olan çember.</li>
+<li><b>Kosinüs ekseni:</b> x ekseni. <b>Sinüs ekseni:</b> y ekseni.</li>
+<li><b>Tanjant ekseni:</b> x = 1 doğrusu. <b>Kotanjant ekseni:</b> y = 1 doğrusu.</li>
+<li><b>Bölge:</b> Birim çemberin eksenlerle ayrıldığı dört bölümden biri.</li>
+</ul>
+
+<h3>6) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Karşı ve komşuyu şaşırmak:</b> Bunlar <b>seçilen açıya göre</b> değişir; hipotenüs ise hep aynıdır.</li>
+<li><b>sin ile cos'u ters yazmak:</b> <b>sin = KARŞI/hip</b>, <b>cos = KOMŞU/hip</b>. <u>"Sinüs kar-şı" diye kodla.</u></li>
+<li><b>tan'ı sin/cos yerine cos/sin yazmak:</b> <b>tan = sin/cos</b>, cot = cos/sin.</li>
+<li><b>sin ve cos'u 1'den büyük bulmak:</b> İkisi de <b>[−1, 1]</b> aralığındadır; büyük çıktıysa oran ters kurulmuştur.</li>
+<li><b>tan'a da sınır koymak:</b> <b>tan ve cot her değeri alabilir</b>; 1'den büyük olabilirler.</li>
+<li><b>Tümler bağıntısında açıyı yanlış yazmak:</b> sin 40° = cos <b>50°</b>'dir, cos 40° değil.</li>
+<li><b>30° ile 60° değerlerini karıştırmak:</b> <b>sin 30° = 1/2</b> (küçük açı → küçük sinüs), sin 60° = √3/2.</li>
+<li><b>tan 30° yerine √3 yazmak:</b> <b>tan 30° = √3/3</b>, tan 60° = √3.</li>
+<li><b>Birim çemberde apsis-ordinat karışıklığı:</b> <b>apsis (x) = cos</b>, <b>ordinat (y) = sin</b>.</li>
+<li><b>2. bölgede tan'ı pozitif sanmak:</b> tan yalnızca <b>1. ve 3.</b> bölgede pozitiftir.</li>
+<li><b>Oranı bulmak için önce uzunlukları bulmayı atlamak:</b> Şekil sorularında <u>önce Pisagor/benzerlik ile kenarları bul</u>, oranı sonra yaz.</li>
+</ul>
+
+<h3>7) Özet Kartı</h3>
+<ul>
+<li><b>sin = karşı/hip</b> &nbsp;·&nbsp; <b>cos = komşu/hip</b> &nbsp;·&nbsp; <b>tan = karşı/komşu</b> &nbsp;·&nbsp; <b>cot = komşu/karşı</b>.</li>
+<li><b>tan = sin/cos</b> &nbsp;·&nbsp; <b>cot = cos/sin</b> &nbsp;·&nbsp; <b>tan · cot = 1</b>.</li>
+<li><b>sin²α + cos²α = 1</b> — Pisagor'un trigonometrik hâli.</li>
+<li><b>Tümler:</b> <b>sin α = cos(90° − α)</b>, <b>tan α = cot(90° − α)</b>.</li>
+<li><b>sin:</b> 30° → 1/2 · 45° → √2/2 · 60° → √3/2 &nbsp;<u>(cos tersten okunur)</u>.</li>
+<li><b>tan:</b> 30° → √3/3 · 45° → 1 · 60° → √3.</li>
+<li><b>Birim çember:</b> merkez orijin, yarıçap 1, <b>x² + y² = 1</b>.</li>
+<li><b>x = cos α</b> (apsis) &nbsp;·&nbsp; <b>y = sin α</b> (ordinat).</li>
+<li><b>x = 1 → tanjant ekseni</b> &nbsp;·&nbsp; <b>y = 1 → kotanjant ekseni</b>.</li>
+<li><b>İşaretler:</b> sağ yarı cos +, üst yarı sin +, aynı işaretli bölgelerde (1. ve 3.) tan +.</li>
+<li><b>−1 ≤ sin α ≤ 1</b> ve <b>−1 ≤ cos α ≤ 1</b>; tan ve cot sınırsızdır.</li>
+<li><b>Doğrunun eğimi = tan α</b> (yatayla yaptığı açının tanjantı).</li>
+<li><b>Şekil sorularında:</b> önce uzunlukları bul, oranı en son yaz.</li>
+</ul>
+
+</body></html>

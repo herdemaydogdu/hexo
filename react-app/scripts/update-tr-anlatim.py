@@ -1,0 +1,57 @@
+# -*- coding: utf-8 -*-
+"""tr-anlatim (Anlatım Biçimleri ve Düşünceyi Geliştirme Yolları) — kapsamlı not."""
+import json, os, base64
+
+CONTENT = r"""
+<h2>Anlatım Biçimleri ve Düşünceyi Geliştirme Yolları</h2>
+<p><b>Konuya giriş:</b> Bir paragrafın <b>nasıl kurulduğunu</b> iki açıdan inceleriz: yazarın seçtiği <b>anlatım biçimi</b> (metnin genel tekniği) ve düşüncesini desteklemek için başvurduğu <b>düşünceyi geliştirme yolları</b> (kanıtlama teknikleri). TYT'de "parçada hangi anlatım biçimi/düşünceyi geliştirme yolu kullanılmıştır?" tipinde sık sorulur.</p>
+
+<h3>1) Anlatım Biçimleri</h3>
+<ul>
+  <li><b>Öyküleyici (öyküleme) anlatım:</b> Olayların <b>kişi, mekân ve zaman</b> unsurlarına bağlanarak birbiri ardınca sıralandığı biçimdir; bir <b>hareket/olay akışı</b> vardır. Hikâye, roman, masal, gezi yazısı, anı gibi olaya dayalı metinlerde kullanılır. İki türü vardır: <b>açıklayıcı öyküleme</b> ve <b>sanatsal öyküleme</b>. <br><i>Örnek:</i> "Bu sabah cama vuran yağmurun sesiyle araladım gözlerimi. Kitabımı komodine bırakıp pencereye yöneldi adımlarım; toprak kokusunu içime çekmek için açtım pencereyi."</li>
+  <li><b>Betimleyici (betimleme) anlatım:</b> Kaynağını <b>gözlemden</b> alır; bir varlığın/yerin ayrıntılarını okuyucunun <b>zihninde canlandıracak</b> biçimde aktarır. Durağandır, resim çizer gibidir. İki türü vardır: <b>açıklayıcı betimleme</b> ve <b>sanatsal (izlenimsel) betimleme</b>. Bir kişinin fiziksel/ruhsal özelliklerinin betimlenmesine <b>portre</b> denir. <br><i>Örnek:</i> "Meryem'in çiçekleri; bazıları kırmızı, bazıları mavi. Her birinin kıvırcık yaprakları, az nemli toprakları var; kuru dallara asılı eski saksılarda birkaçı."</li>
+  <li><b>Açıklayıcı anlatım:</b> Bir konuyu <b>öğretmeyi</b> ya da bilgi vermeyi amaçlar. Dili <b>açık, yalın ve durudur</b>; kelimeler genellikle gerçek anlamdadır. Makale, deneme, haber yazısı gibi öğretici metinlerde kullanılır; örnekleme, sayısal veri, tanık gösterme gibi yollardan yararlanır. <br><i>Örnek:</i> "1911'de Giresun'un Görele ilçesinde doğar Bedri Rahmi Eyüboğlu. Köklü Eyüboğlu ailesindendir; sevgi, sanat ve kültürle iç içe büyür."</li>
+  <li><b>Tartışmacı anlatım:</b> Bir konuyu <b>savunmayı</b> ve okuyucuyu o görüşe <b>inandırmayı</b> amaçlar. Ortaya konan karşı görüşün yanlışlığını kanıtlama amacı taşıyabilir; okuyucuyu düşündürmeye yönelik <b>sorular</b> sorulabilir, kanı değiştirilmeye çalışılır. <br><i>Örnek:</i> "Bugünün romanıyla ilgili büyük endişem şu: İnsan acısı yok! ... Bizde şimdi yazılan romanlara bakın, anlatılanlar kimsenin derdi değil."</li>
+</ul>
+<p class="formula"><b>KRİTİK — Öyküleme mi betimleme mi?</b> Bir <b>olay/hareket akışı</b> (ne oldu, sonra ne oldu) varsa <b>öyküleme</b>; olay yok, <b>durağan bir görüntü/tasvir</b> varsa <b>betimleme</b>. İkisi çoğu zaman bir arada bulunur.</p>
+<p class="formula"><b>DİKKAT — Açıklayıcı mı tartışmacı mı?</b> Yalnızca bilgi veriliyorsa açıklayıcı; bir <b>tez savunuluyor</b>, karşı görüş çürütülüyor veya okur ikna edilmeye çalışılıyorsa tartışmacı.</p>
+
+<h3>2) Düşünceyi Geliştirme Yolları</h3>
+<ul>
+  <li><b>Tanımlama:</b> "Nedir? / Kimdir?" sorusuna cevap vererek bir varlığın/kavramın ne olduğunu belirtir. <br><i>Örnek:</i> "Şair; dil içinde dil yaratandır, insan içinde insan, toplum içinde toplum."</li>
+  <li><b>Karşılaştırma:</b> İki ya da daha çok unsurun <b>benzer ve farklı</b> yönlerini ortaya koyar. <br><i>Örnek:</i> "Batılı kahramanların bugün onlarca ürününe rastlarsınız; ama biz kendi evrensel kahramanlarımızı çocuklarımıza anlatmaya bile kafa yormuyoruz."</li>
+  <li><b>Tanık gösterme (alıntılama):</b> Savunulan düşünceyi inandırıcı kılmak için <b>konunun uzmanı bir kişinin sözünden alıntı</b> yapılır (genellikle tırnak içinde). <br><i>Örnek:</i> "Melih Cevdet'in şu sözü kulağımda çınlar: ‘‘Şiir, üzerinde çok konuşmayı kaldırmayan bir sanattır.’’"</li>
+  <li><b>Örneklendirme:</b> Düşünceyi pekiştirmek/inandırıcı kılmak için <b>somut örnekler</b> verilir. <br><i>Örnek:</i> "Murakami'nin Zemberekkuşu'nun Güncesi'nde uğursuzlukların fitilini ateşleyen, kedinin kaybolmasıdır."</li>
+  <li><b>Sayısal verilerden yararlanma:</b> Düşünceyi kanıtlamak için <b>rakam/istatistik</b> kullanılır. <br><i>Örnek:</i> "Yetişkinler dakikada ortalama 10-15 kez göz kırpar; bebekler ise ikiden az."</li>
+  <li><b>Benzetme:</b> Anlatımı güçlendirmek için <b>zayıf olan güçlü olana benzetilir</b>. <br><i>Örnek:</i> "Bir kızıl goncaya benzer dudağın / Açılan tek gülüsün sen bu bağın."</li>
+</ul>
+<p class="formula"><b>İPUCU:</b> <b>Tanık gösterme</b> mutlaka <b>başkasının sözünü</b> alıntılar (isim + söz). <b>Örneklendirme</b> somut bir örnek verir ama alıntı yapmaz. <b>Sayısal veri</b> rakam içerir. Bunları ayırt et.</p>
+
+<h3>3) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+  <li><b>Tanık gösterme ≠ örneklendirme:</b> Uzman birinin <b>sözü aktarılıyorsa</b> tanık gösterme; sadece somut bir <b>örnek</b> veriliyorsa örneklendirme.</li>
+  <li><b>Karşılaştırma</b> her zaman <b>iki+ unsur</b> ve bunların <b>benzer/farklı</b> yönlerini gerektirir; tek unsur varsa karşılaştırma olmaz.</li>
+  <li><b>Betimleme</b> beş duyuya seslenen <b>ayrıntılar</b> içerir; öyküleme ise <b>fiil/olay</b> ağırlıklıdır.</li>
+  <li>Bir paragrafta <b>birden çok</b> anlatım biçimi/geliştirme yolu bir arada bulunabilir; soru "ağır basanı" ya da "bulunmayanı" sorabilir.</li>
+</ul>
+""".strip()
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+TOPICS = os.path.join(HERE, "data", "topics.json")
+d = json.load(open(TOPICS, encoding="utf-8"))
+for t in d:
+    if t.get("unit_id") == "tr-anlatim":
+        t["content"] = CONTENT
+json.dump(d, open(TOPICS, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+
+# planı işaretle
+PLAN = os.path.join(HERE, "turkce-plan.json")
+p = json.load(open(PLAN, encoding="utf-8"))
+for k in p["konular"]:
+    if k["unit_id"] == "tr-anlatim":
+        k["done"] = True
+json.dump(p, open(PLAN, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+
+print("uzunluk:", len(CONTENT))
+print("BASE64:")
+print(base64.b64encode(CONTENT.encode("utf-8")).decode())

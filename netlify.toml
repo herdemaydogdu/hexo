@@ -1,0 +1,33 @@
+# ============================================================
+# TYT Hazırlık — Netlify yayın yapılandırması
+# Repo kökünde durur; asıl uygulama react-app/ alt klasöründedir.
+# ============================================================
+
+[build]
+  base    = "react-app"       # komutlar bu klasörde çalışır
+  command = "npm run build"
+  publish = "dist"            # base'e göreli → react-app/dist
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS    = "--no-audit --no-fund"
+
+# Tek sayfa uygulaması: bilinmeyen yollar index.html'e düşsün
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+
+# Statik varlıklar içerik hash'li → uzun süre önbelleklenebilir
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options        = "DENY"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(), microphone=(), geolocation=()"

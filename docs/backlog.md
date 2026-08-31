@@ -34,6 +34,15 @@ Keşif/pazarlama ekiplerinin ürettiği öneriler burada önceliklenir; orkestra
 | 13 | Rozet/paylaşım kartını **net artışına** bağla (genel çalışmaya değil) — #3 ile birleştir, düello/sıralama rakiplerinden farklılaş | Ürün/Büyüme | Orta/Orta | tasarim-qa |
 | 14 | "Reklamsız · kayıtsız · indirme yok" karşılaştırma vurgusu (Test Bank reklamlı + YKS Cepte kayıtlı kontrastı) | Konumlandırma | Orta/Düşük | konumlandirma |
 
+## Pazarlamadan gelen (2026-07-27 rakip analizi)
+> Gerekçe: docs/pazarlama/rakip-analiz-2026-07-27.md. Önceki bulgular teyit: fiyat kutupları sürüyor (Kunduz ~₺1.300/ay, Doping ₺2.800+ paket, koçluk ₺2.500–5.000/ay), "kalibre zorluk" vaadi hâlâ sahipsiz. Örtüşenler eklenmedi: SEO deneme sayfaları = #8, kısa video = #5/#10, koç-analiz mesajı = #12, net-artış paylaşım kartı = #13.
+
+| # | Öneri | Tür | Etki/Efor | Sahip |
+|---|---|---|---|---|
+| 15 | Gelir modeli kararı: tamamen ücretsiz mi, ₺149–299/ay premium katman mı? Boş fiyat bandı (~₺100–500/ay) doğrulandı; mevcut "tamamen ücretsiz" konumuyla çelişir — **karar: kullanıcı** | Fiyatlama | Yüksek/Düşük | kullanıcı |
+| 16 | Haftalık veli e-posta özeti (net gelişimi + çalışma süresi) — koçluk hizmetlerinin veli-raporu kozunun ürünleşmiş hali; Supabase auth sonrası uygulanabilir | Ürün | Orta/Orta | orkestra-sefi |
+| 17 | Deneme sonrası zayıf-alan ekranını (#7) "otomatik koç paneli"ne genişlet: haftalık çalışma önerisi + hedef net izleme (koçların ₺2.500+/ay sattığı panel) | Ürün | Yüksek/Yüksek | orkestra-sefi |
+
 ## Müfredat kapsam boşlukları (2026-07-06 mufredat-takip)
 > Detay: docs/mufredat/mufredat-durum-2026-07-06.md. Resmî TYT yapısı değişmedi (Maarif Modeli etkisi ≥2028); iş = mevcut kapsamın ünite boşluklarını kapatmak.
 
@@ -54,11 +63,21 @@ Keşif/pazarlama ekiplerinin ürettiği öneriler burada önceliklenir; orkestra
 
 | # | Boşluk | Öncelik | Öneri ünite sayısı |
 |---|---|---|---|
-| M10 | **Geometri** — hâlâ yalnızca `geo-acilar` + `geo-alan`; M1 değişmedi. Eksik: özel üçgenler (dik/Pisagor, ikizkenar, eşkenar), açıortay-kenarortay, benzerlik, açı-kenar, merkezler, çokgen, dörtgenler, çember-daire, analitik, katı cisimler | 🔴 En yüksek (≈%25 mat) | ~10–12 |
+| M10 | **Geometri** — İlerleme: `geo-ozelucgen` (Dik ve Özel Üçgenler, 25 soru+anlatım) ve **`geo-benzerlik` (Üçgende Eşlik ve Benzerlik, 25 soru+anlatım) yapıldı (2026-07-27, is-gelistirme, ?v=134)**. Kalan: açıortay-kenarortay, açı-kenar bağıntıları, merkezler, çokgen, dörtgenler, çember-daire, analitik, katı cisimler | 🔴 En yüksek (≈%25 mat) | ~8 kaldı |
 | M11 | **Biyoloji** — yalnızca `biy-hucre` + `biy-bilesen`. Eksik: ortak özellikler, organeller, zardan geçiş, sınıflandırma, mitoz, mayoz, kalıtım, ekosistem, güncel çevre | 🔴 Yüksek (6 fen sorusu) | ~8 |
 | M12 | **Kimya** — 6 ünite var; eksik iki yüksek-frekanslı konu: **karışımlar**, **asit-baz-tuz** | 🟠 Orta | ~2 |
 | M13 | **Türkçe soru bankası** — içerik 19 ünitede tam ama soru bankası 5'te; kalan ~14 başlığa soru üretimi (soru-uretici) | 🟠 Orta | — |
 | M14 | **Coğrafya konu anlatımı** — 13 soru bankası var, `setContent` yalnızca 3'te (konum/iklim/harita); kalan 10 ünitenin anlatımı stub olabilir (konu-anlatimi) | 🟠 Orta | — |
+
+## Müfredat kapsam boşlukları (2026-07-27 mufredat-takip — güncelleme)
+> Detay: docs/mufredat/mufredat-durum-2026-07-27.md. Resmî kapsam yine **değişmedi**; 2027 YKS de 2018 müfredatıyla yapılacak (Maarif etkisi 2028). **İlerleme:** M11 Biyoloji kapandı (2→19 ünite), M12 Kimya kapandı (6→30), M13 Türkçe soru bankası kapandı (5→15). 2027'ye esas TTKB kazanım listesi ~Kasım 2026'da beklenir — o turda satır satır karşılaştır.
+
+| # | Boşluk | Öncelik | Öneri ünite sayısı |
+|---|---|---|---|
+| M15 | **Geometri** — hâlâ 3 ünite (07-13'ten beri yalnız `geo-ozelucgen` eklendi). Eksik: açıortay-kenarortay, benzerlik, açı-kenar, çokgen, dörtgenler, çember-daire, analitik, katı cisimler, dönüşüm. Getiri sırası: benzerlik → çember → dörtgenler → katı cisimler | 🔴 En yüksek (≈%25 mat) | ~9–11 |
+| M16 | **Biyoloji: kalıtım** (`biy-kalitim`) — 19 üniteye rağmen tek eksik resmî konu; TYT'de hemen her yıl 1 soru | 🟠 Yüksek | 1 |
+| M17 | **Coğrafya konu anlatımı** — M14 değişmedi: `setContent` hâlâ 3/13 ünitede | 🟠 Orta | — |
+| M18 | Küçük tamamlamalar: `cog-afet` (doğal afetler) + Türkçe cümle türleri/sözel mantık (eski M9) | 🟡 Düşük | ~3 |
 
 ## İçerik (soru-uretici / konu-anlatimi)
 - Kalan branş üniteleri (Fonksiyon, Polinom, Olasılık, İstatistik + Geometri, Türkçe, Sosyal, Fen) için 25'er %20/40/40 soru — günlük otomatik görev (`gunluk-icerik-uretimi`) işliyor.

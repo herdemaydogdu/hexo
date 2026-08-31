@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Kümeler</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Kümeler</h2>
+
+<p>Kümeler, TYT'de <b>hem tek başına hem de olasılık, sayma ve mantık sorularının içinde</b> karşına çıkar. Buradaki kavramların çoğu sezgiseldir; asıl puan kaybı <b>küme problemlerinde Venn şemasını doğru bölgelere ayıramamaktan</b> gelir. "En az biri", "yalnızca biri", "hiçbiri" gibi ifadelerin şemada hangi bölgeye karşılık geldiğini bilmek, bu ünitedeki soruların çoğunu tek bakışa indirger. Bu ünitede önce temel kavramları kuracağız, sonra <b>bölge okuma refleksini</b> oturtacağız.</p>
+
+<h3>1) Temel Kavramlar ve Gösterimler</h3>
+<p class="formula">TANIM — <b>İyi tanımlanmış, birbirinden farklı nesneler topluluğuna küme</b> denir. Kümeler büyük harflerle, elemanlar küçük harflerle gösterilir.<br/>
+• <b>a ∈ A</b> → "a, A'nın elemanıdır" &nbsp;·&nbsp; <b>a ∉ A</b> → "a, A'nın elemanı değildir"<br/>
+• Bir A kümesinin eleman sayısı <b>s(A)</b> ile gösterilir.<br/>
+<b>"İyi tanımlanmış" ne demek?</b> <u>Bir nesnenin kümeye ait olup olmadığı kesin olarak belirlenebilmelidir. "Sınıftaki uzun boylu öğrenciler" bir küme belirtmez (ölçüt belirsiz), ama "boyu 180 cm'den uzun öğrenciler" küme belirtir.</u></p>
+<p class="formula">ÜÇ GÖSTERİM YÖNTEMİ —<br/>
+<b>1) Liste yöntemi:</b> Elemanlar { } içinde virgülle yazılır. <u>A = {1, 2, 3}</u><br/>
+<b>2) Venn şeması:</b> Kapalı bir eğri içinde her eleman noktayla gösterilir.<br/>
+<b>3) Ortak özellik yöntemi:</b> <u>A = {x | x çift rakam}</u>. Buradaki <b>"|"</b> sembolü <b>"öyle ki"</b> anlamına gelir; yerine <b>":"</b> de kullanılabilir.<br/>
+<u>Eleman sayısı çok olan kümelerde ortak özellik yöntemi tercih edilir.</u></p>
+<p class="formula">ÖNEMLİ KÜMELER —<br/>
+• <b>Boş küme:</b> Hiç elemanı olmayan küme; <b>∅</b> ya da <b>{ }</b> ile gösterilir. <u>DİKKAT: {∅} boş küme DEĞİLDİR; içinde bir eleman (boş küme) bulunan, eleman sayısı 1 olan bir kümedir.</u><br/>
+• <b>Evrensel küme (E):</b> Üzerinde çalışılan tüm elemanları içeren küme.<br/>
+• <b>Denk kümeler:</b> Eleman <u>sayıları</u> eşit olan kümeler. &nbsp;<b>Eşit kümeler:</b> <u>Elemanları</u> aynı olan kümeler.<br/>
+<u>Her eşit küme denktir ama her denk küme eşit değildir: {1,2} ile {a,b} denktir, eşit değildir.</u><br/>
+<b>Tekrar eden eleman yazılmaz:</b> {1, 1, 2} kümesi aslında {1, 2}'dir ve eleman sayısı <b>2</b>'dir.</p>
+
+<h3>2) Alt Küme ve Alt Küme Sayısı</h3>
+<p class="formula">TANIM — A kümesinin <b>her elemanı</b> aynı zamanda B'nin de elemanıysa <b>A ⊆ B</b> yazılır ve "A, B'nin alt kümesidir" denir. Tersten okunuşu: <b>B ⊇ A</b>, "B, A'yı kapsar".<br/>
+<b>Temel özellikler:</b><br/>
+• <b>∅ ⊆ A</b> — <u>boş küme her kümenin alt kümesidir</u><br/>
+• <b>A ⊆ A</b> — <u>her küme kendisinin alt kümesidir</u><br/>
+• <b>A ⊆ B ve B ⊆ C ise A ⊆ C</b> — <u>geçişme özelliği</u></p>
+<p class="formula">ALT KÜME SAYISI — <b>n elemanlı bir kümenin 2ⁿ alt kümesi</b> vardır.<br/>
+<b>NEDEN 2ⁿ?</b> <u>Her eleman için iki seçenek vardır: alt kümeye "alırım" ya da "almam". n eleman için bağımsız olarak 2·2·…·2 = 2ⁿ farklı seçim yapılır.</u> <b>Bu, alt küme sayısını ezberlemeden üretmenin yoludur.</b><br/>
+• <b>Öz alt küme sayısı = 2ⁿ − 1</b> <u>(kümenin kendisi hariç tutulur)</u><br/>
+• <b>Boştan farklı alt küme sayısı = 2ⁿ − 1</b> &nbsp;·&nbsp; <b>Hem boş kümeden hem kendisinden farklı = 2ⁿ − 2</b></p>
+<svg viewBox="0 0 640 270" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Alt küme sayısının neden 2 üzeri n olduğu">
+  <rect x="0" y="0" width="640" height="270" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Alt küme sayısı neden 2ⁿ? Her eleman için "al / alma" kararı</text>
+  <text x="60" y="52" font-size="12" font-weight="700" fill="#475569">A = {a, b, c} kümesi için üç bağımsız karar:</text>
+  <rect x="60" y="64" width="150" height="40" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="135" y="80" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">a elemanı</text>
+  <text x="135" y="96" font-size="11" fill="#0369a1" text-anchor="middle">var / yok → 2</text>
+  <rect x="245" y="64" width="150" height="40" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="320" y="80" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">b elemanı</text>
+  <text x="320" y="96" font-size="11" fill="#0369a1" text-anchor="middle">var / yok → 2</text>
+  <rect x="430" y="64" width="150" height="40" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="505" y="80" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">c elemanı</text>
+  <text x="505" y="96" font-size="11" fill="#0369a1" text-anchor="middle">var / yok → 2</text>
+  <rect x="200" y="122" width="240" height="34" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="320" y="144" font-size="14" font-weight="700" fill="#15803d" text-anchor="middle">2 · 2 · 2 = 2³ = 8 alt küme</text>
+  <text x="60" y="180" font-size="10" fill="#475569">{ } &#160; {a} &#160; {b} &#160; {c} &#160; {a,b} &#160; {a,c} &#160; {b,c} &#160; {a,b,c} → toplam 8 ✓</text>
+  <line x1="26" y1="196" x2="614" y2="196" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="214" font-size="10" fill="#475569">Aynı mantıkla: r elemanı MUTLAKA bulunduran alt küme sayısı = 2ⁿ⁻¹ (o eleman için karar sabitlenir, kalan n−1 eleman serbesttir).</text>
+  <text x="26" y="230" font-size="10" fill="#475569">İki eleman birlikte bulunanlar = 2ⁿ⁻², bir eleman bulunup diğeri bulunmayanlar da yine 2ⁿ⁻² tanedir.</text>
+  <text x="26" y="246" font-size="10" fill="#475569">"a VEYA b bulunur" üç durumu kapsar: yalnız a, yalnız b, ikisi birlikte. "a ya da b'den YALNIZ biri" ise iki durumdur.</text>
+  <text x="26" y="262" font-size="10" fill="#475569">r elemanlı alt kümelerin sayısı ise C(n, r) kombinasyonuyla bulunur; toplamları yine 2ⁿ eder.</text>
+</svg>
+
+<h3>3) Kesişim, Birleşim, Fark ve Tümleme</h3>
+<p class="formula">KESİŞİM (∩) — İki kümenin <b>ortak elemanlarından</b> oluşan küme: <b>A ∩ B = {x | x ∈ A <u>ve</u> x ∈ B}</b><br/>
+<b>Özellikleri:</b> <b>A ∩ A = A</b> &nbsp;·&nbsp; <b>A ∩ B = B ∩ A</b> &nbsp;·&nbsp; <b>A ∩ ∅ = ∅</b> &nbsp;·&nbsp; <b>A ⊂ B ise A ∩ B = A</b> &nbsp;·&nbsp; <b>A ∩ (B ∩ C) = (A ∩ B) ∩ C</b></p>
+<p class="formula">BİRLEŞİM (∪) — İki kümenin <b>tüm elemanlarından</b> oluşan küme: <b>A ∪ B = {x | x ∈ A <u>veya</u> x ∈ B}</b><br/>
+<b>Özellikleri:</b> <b>A ∪ A = A</b> &nbsp;·&nbsp; <b>A ∪ B = B ∪ A</b> &nbsp;·&nbsp; <b>A ∪ ∅ = A</b> &nbsp;·&nbsp; <b>A ⊂ B ise A ∪ B = B</b> &nbsp;·&nbsp; <b>A ∪ E = E</b><br/>
+<u>Mantıkla bağlantı: ∩ ↔ "ve" (∧), ∪ ↔ "veya" (∨). Kümelerin bütün özellikleri mantıktaki karşılıklarıyla birebir aynıdır.</u></p>
+<p class="formula">FARK (\) — A'da olup B'de <u>olmayan</u> elemanlar: <b>A \ B = {x | x ∈ A <u>ve</u> x ∉ B}</b><br/>
+<b>Özellikleri:</b> <b>A \ B ≠ B \ A</b> (değişme özelliği <u>yoktur</u>) &nbsp;·&nbsp; <b>A \ A = ∅</b> &nbsp;·&nbsp; <b>A \ E = ∅</b> &nbsp;·&nbsp; <b>A \ ∅ = A</b><br/>
+<b>AYRIK KÜMELER:</b> <b>A ∩ B = ∅</b> ise A ve B <b>ayrık kümelerdir</b>. Bu durumda <b>A \ B = A</b> ve <b>B \ A = B</b> olur.</p>
+<p class="formula">TÜMLEME (′) — E evrensel kümesinde A'da <u>bulunmayan</u> elemanlar: <b>A′ = E \ A</b><br/>
+<b>Özellikleri:</b> <b>(A′)′ = A</b> &nbsp;·&nbsp; <b>A ∪ A′ = E</b> &nbsp;·&nbsp; <b>A ∩ A′ = ∅</b> &nbsp;·&nbsp; <b>E′ = ∅</b> &nbsp;·&nbsp; <b>∅′ = E</b><br/>
+<b>Fark–tümleme bağlantısı:</b> <b>A \ B = A ∩ B′</b> <u>— bu özdeşlik, fark içeren ifadeleri sadeleştirmenin anahtarıdır.</u></p>
+<p class="formula">DE MORGAN KURALLARI (kümelerde) — <b>(A ∪ B)′ = A′ ∩ B′</b> &nbsp;·&nbsp; <b>(A ∩ B)′ = A′ ∪ B′</b><br/>
+<b>DAĞILMA:</b> <b>A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</b> &nbsp;·&nbsp; <b>A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</b><br/>
+<u>Mantıktaki kurallarla birebir aynı; birini bilen diğerini de bilir.</u></p>
+<p class="formula">ELEMAN SAYISI FORMÜLLERİ — Bu ünitenin en çok kullanılan bağıntısı:<br/>
+<b>s(A ∪ B) = s(A) + s(B) − s(A ∩ B)</b><br/>
+<u>Neden çıkarma var? Çünkü A ile B'yi topladığında kesişimdeki elemanları <b>iki kez</b> saymış olursun; bir kez geri çıkarırsın.</u><br/>
+<b>Üç küme için:</b> s(A ∪ B ∪ C) = s(A) + s(B) + s(C) − s(A∩B) − s(A∩C) − s(B∩C) + <b>s(A∩B∩C)</b><br/>
+<u>Diğer bağıntılar:</u> <b>s(A \ B) = s(A) − s(A ∩ B)</b> &nbsp;·&nbsp; <b>s(A′) = s(E) − s(A)</b></p>
+
+<h3>4) Küme Problemleri — Bölge Okuma</h3>
+<p>Küme problemlerinin tamamı, Venn şemasındaki <b>dört bölgeyi doğru okumaya</b> dayanır. Aşağıdaki tablo, sözel ifadelerin hangi bölgeye karşılık geldiğini verir.</p>
+<svg viewBox="0 0 640 280" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Venn şemasında dört bölge">
+  <rect x="0" y="0" width="640" height="280" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — İki kümeli Venn şemasında dört bölge</text>
+  <rect x="60" y="40" width="380" height="180" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+  <text x="76" y="60" font-size="12" font-weight="700" fill="#475569">E</text>
+  <circle cx="200" cy="130" r="85" fill="#bfdbfe" fill-opacity="0.65" stroke="#0284c7" stroke-width="2"/>
+  <circle cx="300" cy="130" r="85" fill="#fed7aa" fill-opacity="0.65" stroke="#ea580c" stroke-width="2"/>
+  <text x="150" y="60" font-size="13" font-weight="700" fill="#0369a1">A</text>
+  <text x="350" y="60" font-size="13" font-weight="700" fill="#c2410c">B</text>
+  <text x="155" y="136" font-size="20" font-weight="700" fill="#0369a1" text-anchor="middle">a</text>
+  <text x="250" y="136" font-size="20" font-weight="700" fill="#7c3aed" text-anchor="middle">b</text>
+  <text x="345" y="136" font-size="20" font-weight="700" fill="#c2410c" text-anchor="middle">c</text>
+  <text x="405" y="200" font-size="20" font-weight="700" fill="#475569" text-anchor="middle">d</text>
+  <g font-size="11" fill="#334155">
+    <text x="465" y="64">a = yalnız A</text>
+    <text x="465" y="88">b = A ∩ B (ikisi)</text>
+    <text x="465" y="112">c = yalnız B</text>
+    <text x="465" y="136">d = hiçbiri (dışarısı)</text>
+  </g>
+  <g font-size="11" font-weight="700" fill="#15803d">
+    <text x="465" y="168">s(A) = a + b</text>
+    <text x="465" y="190">s(B) = b + c</text>
+    <text x="465" y="212">s(E) = a+b+c+d</text>
+  </g>
+  <line x1="26" y1="236" x2="614" y2="236" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="254" font-size="10" fill="#475569">Problemi okurken her cümleyi bu dört harften biriyle eşleştir; denklem sistemi kendiliğinden kurulur.</text>
+  <text x="26" y="270" font-size="10" fill="#475569">Kesişimi boş olan kümeler (kız/erkek, gözlüklü/gözlüksüz gibi) verilmişse Venn yerine TABLO kurmak daha hızlıdır.</text>
+</svg>
+<table>
+<tr><th>Sözel ifade</th><th>Bölge karşılığı</th></tr>
+<tr><td>A sporunu yapanlar</td><td><b>a + b</b></td></tr>
+<tr><td>B sporunu yapanlar</td><td><b>b + c</b></td></tr>
+<tr><td><b>Yalnızca</b> A yapanlar</td><td><b>a</b></td></tr>
+<tr><td><b>Yalnızca</b> B yapanlar</td><td><b>c</b></td></tr>
+<tr><td><b>Her ikisini</b> yapanlar</td><td><b>b</b></td></tr>
+<tr><td><b>Hiçbirini</b> yapmayanlar</td><td><b>d</b></td></tr>
+<tr><td><b>En az birini</b> yapanlar</td><td><b>a + b + c</b> &nbsp;<u>(= s(A ∪ B))</u></td></tr>
+<tr><td><b>Yalnızca birini</b> (sadece birini) yapanlar</td><td><b>a + c</b></td></tr>
+<tr><td><b>En çok birini</b> yapanlar</td><td><b>a + c + d</b> &nbsp;<u>(ikisini birden yapmayanlar)</u></td></tr>
+<tr><td>A yapmayanlar</td><td><b>c + d</b></td></tr>
+<tr><td>B yapmayanlar</td><td><b>a + d</b></td></tr>
+<tr><td>Gruptaki tüm kişiler</td><td><b>a + b + c + d</b></td></tr>
+</table>
+<p class="formula">EN KRİTİK ÜÇ AYRIM —<br/>
+• <b>"En az biri"</b> = a + b + c &nbsp;<u>(ikisini birden yapanlar DÂHİL)</u><br/>
+• <b>"Yalnızca biri"</b> = a + c &nbsp;<u>(ikisini birden yapanlar HARİÇ)</u><br/>
+• <b>"En çok biri"</b> = a + c + d &nbsp;<u>(hiç yapmayanlar DÂHİL, ikisini yapanlar hariç)</u><br/>
+<b>Bu üç ifade sınavda bilinçli olarak birbirinin yerine kullanılır; hangisinin sorulduğunu işaretlemeden çözüme başlama.</b></p>
+<p class="formula">ÖRNEK (PDF) — Gözlüklü ve gözlüksüz öğrencilerin bulunduğu bir sınıfla ilgili:<br/>
+<b>I.</b> Gözlüklü kız sayısı, gözlüksüz erkek sayısının <b>2 katıdır</b>.<br/>
+<b>II.</b> Gözlüklü erkek sayısı, gözlüksüz erkek sayısından <b>3 eksiktir</b>.<br/>
+<b>III.</b> Gözlüksüz kız sayısı, gözlüklü kız sayısının <b>yarısından 3 fazladır</b>.<br/>
+<b>IV.</b> <b>Gözlüksüz veya erkek</b> öğrenci sayısı <b>21</b>'dir. &nbsp;Sınıf mevcudu kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Tablo kur:</b> Kesişimi boş iki ayrım var (kız/erkek ve gözlüklü/gözlüksüz) → <b>2×2 tablo</b> daha uygun. Gözlüksüz erkek sayısına <b>x</b> diyelim.</li>
+<li><b>Adım 2 — Diğerlerini x cinsinden yaz:</b> Gözlüklü kız = <b>2x</b> (I) &nbsp;·&nbsp; Gözlüklü erkek = <b>x − 3</b> (II) &nbsp;·&nbsp; Gözlüksüz kız = <b>(2x)/2 + 3 = x + 3</b> (III).</li>
+<li><b>Adım 3 — "Gözlüksüz veya erkek"i böl:</b> Bu grup üç bölgeden oluşur — gözlüksüz kız, gözlüksüz erkek ve gözlüklü erkek. <u>Gözlüklü kızlar hariçtir.</u><br/>
+(x + 3) + x + (x − 3) = 21 → <b>3x = 21 → x = 7</b>.</li>
+<li><b>Adım 4 — Tabloyu doldur:</b> Gözlüksüz erkek 7, gözlüklü erkek 4, gözlüklü kız 14, gözlüksüz kız 10.</li>
+<li><b>Adım 5 — Sınıf mevcudu:</b> 7 + 4 + 14 + 10 = <b>35</b>.</li>
+<li><b>Kritik hamle:</b> Adım 3'te "veya" ifadesinin <u>hangi üç bölgeyi kapsadığını</u> doğru belirlemek. "Gözlüksüz veya erkek" ifadesi, gözlüklü kızlar dışındaki herkestir — yani <b>tümleyeni gözlüklü kızlardır</b>. <u>Alternatif: 35 − 14 = 21 ✓</u></li>
+</ul>
+
+<h3>5) Sıralı İkili ve Kartezyen Çarpım</h3>
+<p class="formula">SIRALI İKİLİ — A ve B boştan farklı kümeler olmak üzere a ∈ A, b ∈ B için <b>(a, b)</b> ifadesine <b>sıralı ikili</b> denir. <b>a</b> birinci bileşen, <b>b</b> ikinci bileşendir.<br/>
+<b>SIRA ÖNEMLİDİR:</b> a ≠ b iken <b>(a, b) ≠ (b, a)</b>'dır.<br/>
+<b>Eşitlik koşulu:</b> <b>(a, b) = (c, d) ⟺ a = c ve b = d</b></p>
+<p class="formula">KARTEZYEN ÇARPIM — Birinci bileşeni A'dan, ikinci bileşeni B'den alınan tüm sıralı ikililerin kümesi:<br/>
+<b>A × B = {(a, b) | a ∈ A ve b ∈ B}</b><br/>
+<b>Özellikleri:</b><br/>
+• <b>A ≠ B ise A × B ≠ B × A</b> <u>(değişme özelliği yoktur)</u><br/>
+• <b>A × ∅ = ∅ × A = ∅</b><br/>
+• <b>s(A × B) = s(A) · s(B)</b> <u>— eleman sayıları çarpılır</u><br/>
+<u>Grafik gösterimde birinci bileşenler x eksenine, ikinci bileşenler y eksenine yerleştirilir; sonuç bir nokta ızgarası olur.</u></p>
+<p class="formula">ÖRNEK — s(A) = 3 ve s(B) = 4 ise <b>s(A × B)</b> ve <b>A × B'nin alt küme sayısı</b> kaçtır?</p>
+<ul>
+<li><b>Kartezyen çarpımın eleman sayısı:</b> 3 · 4 = <b>12</b>.</li>
+<li><b>Alt küme sayısı:</b> 12 elemanlı bir kümenin alt küme sayısı <b>2¹²= 4096</b>.</li>
+<li><b>Dikkat:</b> Soru "A × B'nin eleman sayısı" mı yoksa "alt küme sayısı" mı diye soruyor — <u>ikisi arasında büyük fark var</u>.</li>
+</ul>
+
+<h3>6) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Alt küme sayısı</b></td><td>"Kaç alt kümesi vardır?"</td><td><b>2ⁿ</b>. Öz alt küme 2ⁿ−1. Bir eleman zorunluysa <b>2ⁿ⁻¹</b>.</td></tr>
+<tr><td>2</td><td><b>Eleman sayısı bağıntısı</b></td><td>s(A), s(B), s(A∪B) veriliyor</td><td><b>s(A∪B) = s(A) + s(B) − s(A∩B)</b>.</td></tr>
+<tr><td>3</td><td><b>Venn problemi (2 küme)</b></td><td>"Kaç kişi her ikisini de…"</td><td><b>a, b, c, d</b> bölgelerini yaz; sözel ifadeleri bölgelere çevir.</td></tr>
+<tr><td>4</td><td><b>Venn problemi (3 küme)</b></td><td>Üç etkinlik/ders veriliyor</td><td><b>İçten dışa doldur:</b> önce üçünün kesişimi, sonra ikililer, en son tekler.</td></tr>
+<tr><td>5</td><td><b>Tablo problemi</b></td><td>Kız/erkek, gözlüklü/gözlüksüz gibi ayrımlar</td><td>Kesişimi boş ayrımlar varsa <b>2×2 tablo</b> kur.</td></tr>
+<tr><td>6</td><td><b>İşlem sadeleştirme</b></td><td>(A ∪ B) ∩ A′ gibi ifadeler</td><td><b>A \ B = A ∩ B′</b> ve <b>De Morgan</b> ile sadeleştir; Venn'de tarayarak doğrula.</td></tr>
+<tr><td>7</td><td><b>Kartezyen çarpım</b></td><td>A × B, sıralı ikili</td><td><b>s(A×B) = s(A)·s(B)</b>. Sıra önemlidir.</td></tr>
+<tr><td>8</td><td><b>Eşit / denk küme</b></td><td>"A = B ise x kaçtır?"</td><td>Eşitlik <b>elemanların aynı</b> olmasıdır; denklik yalnızca sayı eşitliğidir.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 2) — Bir sınıftaki <b>30 öğrenciden 18'i matematik</b>, <b>15'i fizik</b> kursuna gidiyor. <b>5 öğrenci</b> hiçbirine gitmiyorsa, <b>her ikisine</b> giden kaç öğrenci vardır?</p>
+<ul>
+<li><b>Adım 1 — En az birine gidenler:</b> 30 − 5 = <b>25</b> → s(M ∪ F) = 25.</li>
+<li><b>Adım 2 — Bağıntıyı kur:</b> 25 = 18 + 15 − s(M ∩ F) → 25 = 33 − s(M ∩ F) → <b>s(M ∩ F) = 8</b>.</li>
+<li><b>Kontrol (bölgelerle):</b> Yalnız matematik 18 − 8 = 10, yalnız fizik 15 − 8 = 7, ikisi 8, hiçbiri 5 → 10 + 7 + 8 + 5 = 30 ✓</li>
+<li><b>Ek sorular:</b> "Yalnızca birine gidenler" → 10 + 7 = <b>17</b>. "En çok birine gidenler" → 10 + 7 + 5 = <b>22</b>. <u>Aynı tablodan üç farklı soru çıkar; bölgeleri yazmak hepsini birden hazırlar.</u></li>
+</ul>
+
+<h3>7) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Küme:</b> İyi tanımlanmış, birbirinden farklı nesneler topluluğu.</li>
+<li><b>Eleman:</b> Kümeyi oluşturan her bir nesne.</li>
+<li><b>Boş küme (∅):</b> Hiç elemanı olmayan küme; {∅} ile karıştırılmamalıdır.</li>
+<li><b>Evrensel küme (E):</b> Üzerinde çalışılan tüm elemanları kapsayan küme.</li>
+<li><b>Alt küme (⊆):</b> Her elemanı başka bir kümede de bulunan küme.</li>
+<li><b>Öz alt küme:</b> Kümenin kendisi dışındaki alt kümeleri; sayısı 2ⁿ − 1.</li>
+<li><b>Eşit kümeler:</b> Elemanları aynı olan kümeler. <b>Denk kümeler:</b> eleman sayıları eşit olan kümeler.</li>
+<li><b>Kesişim (∩):</b> Ortak elemanlardan oluşan küme; "ve" bağlacına karşılık gelir.</li>
+<li><b>Birleşim (∪):</b> Tüm elemanlardan oluşan küme; "veya" bağlacına karşılık gelir.</li>
+<li><b>Fark (\):</b> Birinde olup diğerinde olmayan elemanlar; A \ B = A ∩ B′.</li>
+<li><b>Tümleyen (′):</b> Evrensel kümede o kümede bulunmayan elemanlar.</li>
+<li><b>Ayrık kümeler:</b> Kesişimi boş küme olan kümeler.</li>
+<li><b>Sıralı ikili:</b> (a, b) biçiminde, bileşen sırasının önemli olduğu gösterim.</li>
+<li><b>Kartezyen çarpım (×):</b> Tüm sıralı ikililerin kümesi; s(A×B) = s(A)·s(B).</li>
+</ul>
+
+<h3>8) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>"En az biri" ile "yalnızca biri"ni karıştırmak:</b> <b>En az biri</b> = a+b+c (kesişim dâhil), <b>yalnızca biri</b> = a+c (kesişim hariç).</li>
+<li><b>"En çok biri"ni yanlış okumak:</b> Bu ifade <b>hiç yapmayanları da kapsar</b>: a + c + d.</li>
+<li><b>∅ ile {∅}'i eşitlemek:</b> ∅ eleman içermez; <b>{∅} bir elemanlıdır</b>.</li>
+<li><b>Tekrar eden elemanı saymak:</b> {1, 1, 2} kümesinin eleman sayısı <b>2</b>'dir.</li>
+<li><b>Eşit ile denk kümeyi karıştırmak:</b> <b>Eşit</b> = elemanlar aynı; <b>denk</b> = sayılar aynı.</li>
+<li><b>Birleşim formülünde kesişimi çıkarmamak:</b> <b>s(A∪B) = s(A)+s(B)−s(A∩B)</b>; çıkarma unutulursa kesişim iki kez sayılır.</li>
+<li><b>Üç kümede işaretleri şaşırmak:</b> Üçlü kesişim <b>+</b> ile eklenir (üç kez çıkarıldığı için geri gelir).</li>
+<li><b>Fark işleminde sırayı önemsememek:</b> <b>A \ B ≠ B \ A</b>.</li>
+<li><b>A × B ile B × A'yı eşit sanmak:</b> Sıralı ikililerde <b>sıra önemlidir</b>.</li>
+<li><b>Alt küme sayısı ile eleman sayısını karıştırmak:</b> n elemanlı kümenin <b>2ⁿ</b> alt kümesi vardır.</li>
+<li><b>Venn'i üç kümede dıştan doldurmak:</b> Daima <b>en içten (üçlü kesişimden) başla</b>, dışa doğru ilerle.</li>
+<li><b>Ayrık kümelerde Venn ısrarı:</b> Kesişimi boş ayrımlarda <b>tablo</b> kurmak çok daha hızlıdır.</li>
+</ul>
+
+<h3>9) Özet Kartı</h3>
+<ul>
+<li><b>Gösterim:</b> Liste · Venn · ortak özellik. "|" = "öyle ki".</li>
+<li><b>Boş küme:</b> ∅ ⊆ her küme. <b>{∅} ≠ ∅</b> (biri 0, diğeri 1 elemanlı).</li>
+<li><b>Alt küme sayısı:</b> <b>2ⁿ</b> &nbsp;·&nbsp; öz alt küme <b>2ⁿ−1</b> &nbsp;·&nbsp; bir eleman zorunlu <b>2ⁿ⁻¹</b>.</li>
+<li><b>Neden 2ⁿ:</b> Her eleman için "al / alma" kararı → 2·2·…·2.</li>
+<li><b>∩ ↔ "ve"</b>, <b>∪ ↔ "veya"</b>. Mantıktaki tüm özellikler aynen geçerlidir.</li>
+<li><b>Fark:</b> <b>A \ B = A ∩ B′</b>. Sıra önemlidir, A \ B ≠ B \ A.</li>
+<li><b>Tümleyen:</b> (A′)′ = A &nbsp;·&nbsp; A ∪ A′ = E &nbsp;·&nbsp; A ∩ A′ = ∅.</li>
+<li><b>De Morgan:</b> <b>(A∪B)′ = A′∩B′</b> &nbsp;·&nbsp; <b>(A∩B)′ = A′∪B′</b>.</li>
+<li><b>Eleman sayısı:</b> <b>s(A∪B) = s(A)+s(B)−s(A∩B)</b>; üç kümede üçlü kesişim <b>+</b> ile eklenir.</li>
+<li><b>Bölgeler:</b> yalnız A = a · ikisi = b · yalnız B = c · hiçbiri = d.</li>
+<li><b>Üç ifade:</b> <b>en az biri</b> a+b+c &nbsp;·&nbsp; <b>yalnızca biri</b> a+c &nbsp;·&nbsp; <b>en çok biri</b> a+c+d.</li>
+<li><b>Kartezyen:</b> <b>s(A×B) = s(A)·s(B)</b>; (a,b) ≠ (b,a).</li>
+<li><b>Strateji:</b> Kesişimli sorularda <b>Venn</b>, ayrık ikili ayrımlarda <b>tablo</b>. Üç kümede <b>içten dışa</b> doldur.</li>
+</ul>
+
+</body></html>

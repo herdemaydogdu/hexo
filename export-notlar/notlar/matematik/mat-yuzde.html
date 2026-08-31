@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yüzde, Kâr-Zarar ve Faiz Problemleri</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Yüzde, Kâr-Zarar ve Faiz Problemleri</h2>
+
+<p>Yüzde problemlerinde bilgi eksikliğinden değil, <b>"neyin yüzdesi?" sorusunu atlamaktan</b> puan kaybedilir. %20 indirim <u>etiket fiyatı</u> üzerinden, %20 kâr ise <u>maliyet</u> üzerinden hesaplanır — ikisi farklı sayılardır. Bu ünitede önce yüzde hesabının iskeletini kuracağız, sonra kâr-zarar ve faiz kalıplarını aynı iskelete oturtacağız. <b>Altın kural:</b> her yüzde ifadesinin yanına <u>hangi sayının yüzdesi olduğunu</u> yaz; bu tek alışkanlık, bu ünitedeki hataların çoğunu ortadan kaldırır.</p>
+
+<h3>1) Yüzde Hesabının Temel Bağıntıları</h3>
+<p class="formula">DÖRT TEMEL SORU —<br/>
+• <b>A sayısının %x'i kaçtır?</b> → <b>A · x/100</b><br/>
+• <b>A sayısının %x'inin %y'si kaçtır?</b> → <b>A · (x/100) · (y/100)</b><br/>
+• <b>Hangi sayının %a'sı Y'dir?</b> → <b>X · a/100 = Y</b> → X = 100Y/a<br/>
+• <b>A sayısı B sayısının yüzde kaçıdır?</b> → <b>(A/B) · 100</b><br/>
+<u>Dördü de tek bir fikirden çıkar: "%x" demek "x/100 ile çarp" demektir.</u></p>
+<p class="formula">100x HİLESİ — Yüzde problemlerinde <b>başlangıç değerine 100x demek</b> bütün kesirleri yok eder. <u>Örnek: 100x sayısının %20'si 20x, %35'i 35x olur — hiç bölme yapmadan.</u> <b>Bu, yüzde problemlerinin standart açılış hamlesidir</b> ve maliyet, satış fiyatı, anapara gibi bilinmeyen başlangıç değerlerinde her zaman işe yarar.</p>
+<p class="formula">ÇARPAN YÖNTEMİ — Yüzde artış ve azalışları <b>çarpanlarla</b> yazmak, zincirleme işlemleri tek satıra indirir:<br/>
+• <b>%x artış</b> → <b>× (1 + x/100)</b> &nbsp;<u>(%20 artış → ×1,2 ya da ×6/5)</u><br/>
+• <b>%x azalış</b> → <b>× (1 − x/100)</b> &nbsp;<u>(%20 azalış → ×0,8 ya da ×4/5)</u><br/>
+<b>Kesir olarak yazmak ondalıktan daha güvenlidir:</b> %20 → 6/5 ve 4/5, %25 → 5/4 ve 3/4, %50 → 3/2 ve 1/2.</p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ardışık yüzde değişimlerinde çarpan yöntemi">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — %20 zam sonra %20 indirim: başlangıca dönmez</text>
+  <rect x="40" y="50" width="130" height="46" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+  <text x="105" y="70" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">Başlangıç</text>
+  <text x="105" y="88" font-size="14" font-weight="700" fill="#334155" text-anchor="middle">100 TL</text>
+  <line x1="170" y1="73" x2="230" y2="73" stroke="#16a34a" stroke-width="2.5"/>
+  <polygon points="238,73 228,68 228,78" fill="#16a34a"/>
+  <text x="200" y="62" font-size="10" font-weight="700" fill="#15803d" text-anchor="middle">×6/5</text>
+  <rect x="240" y="50" width="130" height="46" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="305" y="70" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">%20 zam</text>
+  <text x="305" y="88" font-size="14" font-weight="700" fill="#15803d" text-anchor="middle">120 TL</text>
+  <line x1="370" y1="73" x2="430" y2="73" stroke="#dc2626" stroke-width="2.5"/>
+  <polygon points="438,73 428,68 428,78" fill="#dc2626"/>
+  <text x="400" y="62" font-size="10" font-weight="700" fill="#b91c1c" text-anchor="middle">×4/5</text>
+  <rect x="440" y="50" width="130" height="46" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="505" y="70" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">%20 indirim</text>
+  <text x="505" y="88" font-size="14" font-weight="700" fill="#b91c1c" text-anchor="middle">96 TL</text>
+  <rect x="180" y="116" width="280" height="38" rx="10" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+  <text x="320" y="140" font-size="13" font-weight="700" fill="#a16207" text-anchor="middle">Net: ×(6/5)(4/5) = ×24/25 → %4 AZALIŞ</text>
+  <line x1="26" y1="172" x2="614" y2="172" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="190" font-size="10" fill="#475569">Neden? İkinci işlem 100 üzerinden değil, BÜYÜMÜŞ 120 üzerinden yapılır. 120'nin %20'si 24'tür, 20 değil.</text>
+  <text x="26" y="206" font-size="10" fill="#475569">Genel kural: %x zam sonra %x indirim → daima x²/100 kadar NET AZALIŞ olur. %20 için 400/100 = %4.</text>
+  <text x="26" y="222" font-size="10" fill="#475569">Sıra değişse de sonuç aynıdır (çarpma değişmeli): önce indirim sonra zam da %4 azalış verir.</text>
+  <text x="26" y="238" font-size="10" fill="#475569">Ardışık yüzdeler ASLA toplanmaz. %10 + %10 zam = %21 zamdır, %20 değil (×1,1×1,1 = ×1,21).</text>
+</svg>
+<p class="formula">ÖRNEK (PDF) — Asiye, Begüm ve Cenk <b>720 TL</b>'yi şöyle paylaşmıştır: Asiye'nin payı Begüm'ün payının <b>4 katı</b>; Begüm ile Cenk'in toplam payı, Asiye'nin payının <b>%150'si</b> kadardır. Asiye'nin payı tüm paranın yüzde kaçıdır?</p>
+<ul>
+<li><b>Adım 1 — Değişkenler:</b> Begüm'ün payı <b>x</b> ise Asiye'nin payı <b>4x</b>. Cenk'in payı <b>y</b> olsun.</li>
+<li><b>Adım 2 — İkinci koşul:</b> x + y = 4x · (150/100) = <b>6x</b> → <b>y = 5x</b>.</li>
+<li><b>Adım 3 — Toplam:</b> 4x + x + 5x = 720 → 10x = 720 → <b>x = 72</b>.</li>
+<li><b>Adım 4 — Asiye'nin payı:</b> 4x = <b>288 TL</b>.</li>
+<li><b>Adım 5 — Yüzdesi:</b> (288 / 720) · 100 = <b>%40</b>.</li>
+<li><b>Kısayol:</b> Toplam 10x, Asiye 4x olduğuna göre oran doğrudan 4/10 = <b>%40</b>'tır; TL değerlerini hesaplamaya bile gerek yoktu. <u>"Yüzde kaçı" sorularında sayısal değere inmek çoğu zaman gereksizdir.</u></li>
+</ul>
+
+<h3>2) Kâr ve Zarar</h3>
+<p class="formula">TEMEL BAĞINTILAR —<br/>
+<b>Kâr = Satış fiyatı − Maliyet</b> &nbsp;·&nbsp; <b>Zarar = Maliyet − Satış fiyatı</b><br/>
+<b>Kâr yüzdesi = (Kâr / Maliyet) · 100</b> &nbsp;·&nbsp; <b>Zarar yüzdesi = (Zarar / Maliyet) · 100</b></p>
+<p class="formula">EN KRİTİK AYRIM — <b>Kâr ve zarar MALİYET üzerinden</b>, <b>indirim ve zam SATIŞ (etiket) fiyatı üzerinden</b> hesaplanır. <u>Bu ayrım, bu ünitedeki hataların ana kaynağıdır.</u><br/>
+<b>Pratik sonuç:</b> Kâr-zarar sorularında <b>maliyete 100x</b>, indirim-zam sorularında <b>etiket fiyatına 100x</b> demek işi kolaylaştırır.</p>
+<p class="formula">ZAM ve İNDİRİM FORMÜLLERİ — A TL'lik bir ürüne:<br/>
+• <b>%x indirim</b> yapılırsa yeni fiyat: <b>A · (100 − x)/100</b><br/>
+• <b>%x zam</b> yapılırsa yeni fiyat: <b>A · (100 + x)/100</b></p>
+<p class="formula">ÖRNEK — Maliyeti <b>240 TL</b> olan bir ürün <b>%25 kârla</b> satılıyor. Satış fiyatı kaç TL'dir?</p>
+<ul>
+<li><b>Kâr maliyet üzerinden:</b> 240 · 25/100 = <b>60 TL</b>.</li>
+<li><b>Satış fiyatı:</b> 240 + 60 = <b>300 TL</b>. <u>Ya da doğrudan 240 · 5/4 = 300.</u></li>
+<li><b>Ters soru:</b> "300 TL'ye satılan ürün %25 kâr getirdiyse maliyeti kaçtır?" → Maliyet <b>100x</b> olsun: 125x = 300 → x = 2,4 → maliyet <b>240 TL</b>. <u>300'ün %25'ini çıkarıp 225 demek YANLIŞTIR; yüzde maliyet üzerindendir.</u></li>
+</ul>
+<p class="formula">ÖRNEK — Bir esnaf ürünü <b>%20 zararla 400 TL</b>'ye satmıştır. Maliyeti kaç TL'dir?</p>
+<ul>
+<li><b>Adım 1 — Maliyete 100x de:</b> %20 zarar → satış fiyatı maliyetin %80'i = <b>80x</b>.</li>
+<li><b>Adım 2 — Denklem:</b> 80x = 400 → <b>x = 5</b> → maliyet = 100x = <b>500 TL</b>.</li>
+<li><b>Kontrol:</b> 500 TL maliyet, 400 TL satış → 100 TL zarar → 100/500 = %20 ✓</li>
+<li><b>Sık yapılan hata:</b> 400'ün %20'sini (80) ekleyip 480 demek. <u>Zarar yüzdesi maliyete göre olduğu için satıştan geriye giderken bölme yapılır, ekleme değil.</u></li>
+</ul>
+
+<h3>3) Ardışık Yüzde Değişimleri</h3>
+<p class="formula">ALTIN KURAL — Ardışık yüzdeler <b>ASLA toplanmaz</b>, <b>çarpanlar çarpılır</b>.<br/>
+<u>%10 zam sonra %10 zam → ×1,1 × 1,1 = ×1,21 → toplam <b>%21</b> zam (%20 değil).</u><br/>
+<u>%20 zam sonra %20 indirim → ×6/5 × 4/5 = ×24/25 → <b>%4 azalış</b> (sıfır değil).</u><br/>
+<b>Genel kural:</b> %x zam sonra %x indirim (ya da tersi) daima <b>x²/100 kadar net azalış</b> verir.</p>
+<p class="formula">ÖRNEK — Bir ürünün fiyatına önce <b>%25 zam</b>, sonra yeni fiyat üzerinden <b>%20 indirim</b> yapılıyor. Fiyat toplamda yüzde kaç değişmiştir?</p>
+<ul>
+<li><b>Çarpanlar:</b> ×(5/4) ve ×(4/5).</li>
+<li><b>Çarp:</b> (5/4)·(4/5) = <b>1</b> → fiyat <b>değişmemiştir</b>.</li>
+<li><b>Neden bu sefer sıfır çıktı?</b> Çünkü %25 zammın tersi %20 indirimdir: 5/4 ile 4/5 birbirinin tersidir. <u>%x zammı geri almak için gereken indirim %x değil, x/(100+x)·100'dür.</u></li>
+<li><b>Sayısal doğrulama:</b> 100 → 125 → 125·0,8 = 100 ✓</li>
+</ul>
+
+<h3>4) Faiz Problemleri</h3>
+<p class="formula">BASİT FAİZ — Faiz her dönem <b>yalnızca anapara üzerinden</b> hesaplanır:<br/>
+<b>Faiz = Anapara × Faiz oranı × Süre</b> &nbsp;·&nbsp; <b>F = (A · n · t) / 100</b> &nbsp;(n: yıllık yüzde oranı, t: yıl)<br/>
+<u>Örnek: 2000 TL, yıllık %15 faizle 3 yıl → F = 2000·15·3/100 = 900 TL. Toplam birikim 2900 TL.</u></p>
+<p class="formula">SÜRE BİRİMİ — Faiz oranı genellikle <b>yıllıktır</b>; süre ay ya da gün cinsindense <u>orantılı olarak çevir</u>:<br/>
+• <b>t ay için:</b> F = A · n · t / (100 · 12) &nbsp;·&nbsp; <b>t gün için:</b> F = A · n · t / (100 · 360)<br/>
+<u>Örnek: 6000 TL, yıllık %20, 8 ay → F = 6000·20·8/1200 = 800 TL.</u> <b>Birim çevirmeyi atlamak, sonucu 12 kat şaşırtır.</b></p>
+<p class="formula">BİLEŞİK FAİZ — Faiz her dönem <b>birikmiş tutar üzerinden</b> hesaplanır; yani ardışık yüzde artışıdır:<br/>
+<b>Son değer = A · (1 + n/100)<sup>t</sup></b><br/>
+<u>Örnek: 1000 TL, yıllık %10, 2 yıl → 1000 · 1,1² = 1210 TL. Basit faizle 1200 TL olurdu; aradaki 10 TL, birinci yılın faizinin faizidir.</u> <b>Bileşik faiz daima basit faizden fazladır (t &gt; 1 için).</b></p>
+
+<h3>5) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Doğrudan yüzde hesabı</b></td><td>"…nın %20'si kaçtır?"</td><td><b>× x/100</b>. Zincirlenmişse sırayla çarp.</td></tr>
+<tr><td>2</td><td><b>Yüzde kaçıdır?</b></td><td>"A sayısı B'nin yüzde kaçıdır?"</td><td><b>(A/B)·100</b>. Sayısal değere inmeden oranı sadeleştir.</td></tr>
+<tr><td>3</td><td><b>Bilinmeyen başlangıç</b></td><td>"Hangi sayının %40'ı 60'tır?"</td><td>Başlangıca <b>100x</b> de; denklem kur.</td></tr>
+<tr><td>4</td><td><b>Kâr / zarar yüzdesi</b></td><td>"%25 kârla satıldı"</td><td><b>Maliyete 100x</b>. Kâr-zarar <u>maliyet</u> üzerinden.</td></tr>
+<tr><td>5</td><td><b>İndirim / zam</b></td><td>"Etiket fiyatına %20 indirim"</td><td><b>Etiket fiyatına 100x</b>. İndirim-zam <u>satış fiyatı</u> üzerinden.</td></tr>
+<tr><td>6</td><td><b>Ardışık değişim</b></td><td>"Önce %20 zam, sonra %10 indirim"</td><td><b>Çarpanları çarp</b>: (1+a)(1−b). Asla toplama.</td></tr>
+<tr><td>7</td><td><b>Basit faiz</b></td><td>"Yıllık %15 faizle 3 yıl"</td><td><b>F = A·n·t/100</b>. Süre ay/gün ise <b>12 / 360</b>'a böl.</td></tr>
+<tr><td>8</td><td><b>Bileşik faiz</b></td><td>"Her yıl faiziyle birlikte"</td><td><b>A·(1 + n/100)<sup>t</sup></b>. Ardışık yüzde artışı gibi düşün.</td></tr>
+<tr><td>9</td><td><b>Karışık paylaşım</b></td><td>"Payı diğerinin %150'si kadar"</td><td>Herkesi tek bir değişken cinsinden yaz; oranı doğrudan yüzdeye çevir.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 5) — Etiket fiyatı üzerinden <b>%20 indirim</b> yapılan bir ürün <b>320 TL</b>'ye satılmıştır. Etiket fiyatı kaç TL'dir?</p>
+<ul>
+<li><b>Adım 1 — Etiket fiyatına 100x de:</b> %20 indirimden sonra kalan <b>80x</b>.</li>
+<li><b>Adım 2 — Denklem:</b> 80x = 320 → <b>x = 4</b> → etiket fiyatı = <b>400 TL</b>.</li>
+<li><b>Kontrol:</b> 400'ün %20'si 80 → 400 − 80 = 320 ✓</li>
+<li><b>Sık yapılan hata:</b> 320'ye %20 ekleyip 384 demek. <u>İndirim etiket üzerinden yapıldığı için geri dönerken 0,8'e bölmek gerekir: 320/0,8 = 400.</u></li>
+</ul>
+<p class="formula">ÖRNEK (Tip 4 + 5 birlikte) — Maliyeti <b>200 TL</b> olan ürüne <b>%50 kâr</b> koyularak etiketlenmiş, sonra etiket fiyatı üzerinden <b>%20 indirimle</b> satılmıştır. Esnafın kâr yüzdesi kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Etiket fiyatı (maliyet üzerinden %50 kâr):</b> 200 · 3/2 = <b>300 TL</b>.</li>
+<li><b>Adım 2 — İndirimli satış (etiket üzerinden %20):</b> 300 · 4/5 = <b>240 TL</b>.</li>
+<li><b>Adım 3 — Gerçek kâr:</b> 240 − 200 = <b>40 TL</b>.</li>
+<li><b>Adım 4 — Kâr yüzdesi (maliyet üzerinden):</b> 40/200 · 100 = <b>%20</b>.</li>
+<li><b>Ders:</b> Aynı soruda iki farklı taban kullanıldı — kâr maliyete, indirim etikete göre. <u>Bu tip sorularda her adımda "neyin yüzdesi?" diye sormak zorunludur.</u> "%50 − %20 = %30" demek tamamen yanlıştır.</li>
+</ul>
+
+<h3>6) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Yüzde:</b> Bir bütünün yüzde kaçlık kısmını gösteren oran; %x demek x/100 demektir.</li>
+<li><b>Maliyet fiyatı:</b> Ürünün satıcıya mal olduğu fiyat; <b>kâr ve zararın hesap tabanı</b>.</li>
+<li><b>Satış (etiket) fiyatı:</b> Ürünün satıldığı fiyat; <b>indirim ve zammın hesap tabanı</b>.</li>
+<li><b>Kâr:</b> Satış fiyatının maliyeti aşan kısmı.</li>
+<li><b>Zarar:</b> Maliyetin satış fiyatını aşan kısmı.</li>
+<li><b>İndirim:</b> Etiket fiyatı üzerinden yapılan değer düşümü.</li>
+<li><b>Zam:</b> Etiket fiyatının artırılması.</li>
+<li><b>Anapara:</b> Faize yatırılan başlangıç tutarı.</li>
+<li><b>Basit faiz:</b> Her dönem yalnızca anapara üzerinden hesaplanan faiz.</li>
+<li><b>Bileşik faiz:</b> Her dönem birikmiş tutar üzerinden hesaplanan faiz; ardışık yüzde artışıdır.</li>
+<li><b>Çarpan yöntemi:</b> Yüzde değişimlerini (1 ± x/100) çarpanlarıyla yazma tekniği.</li>
+</ul>
+
+<h3>7) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Kâr ile indirimi aynı tabana oturtmak:</b> <b>Kâr maliyete</b>, <b>indirim etikete</b> göre hesaplanır.</li>
+<li><b>Ardışık yüzdeleri toplamak:</b> %20 zam + %20 indirim <u>sıfır değil</u>, <b>%4 azalıştır</b>.</li>
+<li><b>%10 + %10 = %20 demek:</b> Doğrusu <b>%21</b>'dir (×1,1×1,1 = ×1,21).</li>
+<li><b>İndirimden geri dönerken ekleme yapmak:</b> 320 TL indirimli fiyatsa etiket 320+%20 değil, <b>320/0,8 = 400</b>'dür.</li>
+<li><b>Zarar yüzdesini satış üzerinden almak:</b> Zarar da <b>maliyet</b> üzerinden hesaplanır.</li>
+<li><b>Faizde süre birimini çevirmemek:</b> Yıllık oran verilip süre ay ise <b>12'ye</b>, gün ise <b>360'a</b> bölünür.</li>
+<li><b>Basit faizle bileşik faizi karıştırmak:</b> Basitte faiz sabittir, bileşikte <b>faizin faizi</b> işler.</li>
+<li><b>"Yüzde kaç fazla" ile "yüzde kaçıdır"ı karıştırmak:</b> A, B'den %20 fazlaysa A = 1,2B'dir; ama A, B'nin %20'si ise A = 0,2B'dir.</li>
+<li><b>Yüzde artışta ve azalışta tabanın değiştiğini unutmak:</b> 100'den 120'ye çıkış %20 artış, 120'den 100'e dönüş <b>%16,7</b> azalıştır — aynı yüzde değildir.</li>
+<li><b>Sayısal değere gereksiz inmek:</b> "Yüzde kaçıdır" sorularında oranı sadeleştirmek çoğu zaman yeterlidir.</li>
+</ul>
+
+<h3>8) Özet Kartı</h3>
+<ul>
+<li><b>%x demek</b> <b>× x/100</b> demektir.</li>
+<li><b>Dört bağıntı:</b> A'nın %x'i = A·x/100 &nbsp;·&nbsp; hangi sayının %a'sı Y → 100Y/a &nbsp;·&nbsp; A, B'nin yüzde kaçı → (A/B)·100.</li>
+<li><b>100x hilesi:</b> Bilinmeyen başlangıç değerine <b>100x</b> de; kesirler yok olur.</li>
+<li><b>Çarpanlar:</b> %x artış → <b>(1 + x/100)</b> &nbsp;·&nbsp; %x azalış → <b>(1 − x/100)</b>.</li>
+<li><b>Ardışık değişim:</b> Çarpanları <b>çarp</b>, asla toplama. %x zam + %x indirim → <b>x²/100 net azalış</b>.</li>
+<li><b>Kâr = Satış − Maliyet</b>, <b>Zarar = Maliyet − Satış</b>.</li>
+<li><b>Kâr/zarar yüzdesi MALİYETE göre</b>; <b>indirim/zam ETİKETE göre</b>.</li>
+<li><b>Pratik:</b> Kâr sorularında maliyete 100x, indirim sorularında etikete 100x de.</li>
+<li><b>Basit faiz:</b> <b>F = A·n·t/100</b>. Ay için <b>/12</b>, gün için <b>/360</b>.</li>
+<li><b>Bileşik faiz:</b> <b>A·(1 + n/100)<sup>t</sup></b>; basit faizden daima fazladır.</li>
+<li><b>Her yüzdenin yanına</b> hangi sayının yüzdesi olduğunu yaz — bu ünitedeki tek gerçek koruma budur.</li>
+</ul>
+
+</body></html>

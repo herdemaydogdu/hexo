@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Yamuk</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Yamuk</h2>
+
+<p>Yamuk, dörtgenler ailesinin <b>en gevşek tanımlı</b> üyesidir: yalnızca <b>bir kenar çiftinin paralel olması</b> yeterlidir. Bu gevşeklik onu hem en genel hem de en çeşitli şekil yapar — paralelkenar bile aslında bir yamuktur. Ama gevşek tanımın bir bedeli var: yamukta karşılıklı kenarlar eşit değildir, köşegenler birbirini ortalamaz. Buna karşılık <b>tek paralellikten doğan</b> çok güçlü iki araç kazanırız: <b>orta taban</b> ve <b>köşegenlerin oluşturduğu benzer üçgenler</b>. Bu ünitenin tamamı bu iki araç üzerine kurulu.</p>
+
+<h3>1) Tanım ve Temel Özellikler</h3>
+<p class="formula">TANIM (PDF) — <b>En az iki kenarı paralel</b> olan dörtgene <b>yamuk</b> denir.<br/>
+[AB] // [DC] olmak üzere:<br/>
+• <b>[AB] → alt taban (a)</b> &nbsp;·&nbsp; <b>[DC] → üst taban (c)</b><br/>
+• <b>[AD] ve [BC] → yan kenarlar</b><br/>
+• <b>Yükseklik (h):</b> iki taban arasındaki dik uzaklık<br/>
+<b>AÇI ÖZELLİĞİ:</b> Aynı yan kenardaki iki açı <b>BÜTÜNLERDİR</b>: <b>x + y = 180°</b><br/>
+<u>Neden? [AB] // [DC] ve yan kenar bir kesendir → o iki açı <b>karşı durumlu açılardır</b>. Yamuktaki tüm açı bilgisi bu tek gerçekten gelir.</u></p>
+<p class="formula">ORTA TABAN (PDF) — Yan kenarların <b>orta noktalarını</b> birleştiren doğru parçasına <b>orta taban</b> denir.<br/>
+<b>|EF| = (a + c) / 2</b> &nbsp;<u>(tabanların <b>aritmetik ortalaması</b>)</u><br/>
+• Orta taban <b>her iki tabana da paraleldir</b>.<br/>
+<b>KÖŞEGENLERİN ORTA TABANDA AYIRDIĞI PARÇALAR (PDF):</b><br/>
+<b>|EK| = |LF| = c / 2</b> &nbsp;·&nbsp; <b>|KL| = (a − c) / 2</b><br/>
+<u>Yani köşegenlerin orta tabanda kestiği orta parça, tabanların <b>farkının yarısıdır</b>. Kontrol: c/2 + (a−c)/2 + c/2 = (a+c)/2 ✓</u></p>
+<svg viewBox="0 0 640 265" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Yamukta orta taban">
+  <rect x="0" y="0" width="640" height="265" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Orta taban ve köşegenlerin ayırdığı parçalar</text>
+  <polygon points="60,200 280,200 230,100 110,100" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="85" y1="150" x2="255" y2="150" stroke="#16a34a" stroke-width="2.5"/>
+  <line x1="60" y1="200" x2="230" y2="100" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="280" y1="200" x2="110" y2="100" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <g fill="#16a34a">
+    <circle cx="85" cy="150" r="3.5"/><circle cx="255" cy="150" r="3.5"/>
+  </g>
+  <g fill="#b45309">
+    <circle cx="145" cy="150" r="3.5"/><circle cx="195" cy="150" r="3.5"/>
+  </g>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="48" y="216">A</text><text x="284" y="216">B</text><text x="234" y="94">C</text><text x="102" y="94">D</text>
+    <text x="70" y="146">E</text><text x="260" y="146">F</text>
+    <text x="140" y="142">K</text><text x="192" y="142">L</text>
+  </g>
+  <text x="170" y="216" font-size="11" font-weight="700" fill="#0369a1">a</text>
+  <text x="170" y="94" font-size="11" font-weight="700" fill="#0369a1">c</text>
+  <text x="112" y="166" font-size="9" font-weight="700" fill="#b45309">c/2</text>
+  <text x="158" y="166" font-size="9" font-weight="700" fill="#b91c1c">(a−c)/2</text>
+  <text x="212" y="166" font-size="9" font-weight="700" fill="#b45309">c/2</text>
+  <text x="170" y="240" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">|EF| = (a + c) / 2</text>
+  <text x="170" y="258" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">|KL| = (a − c) / 2</text>
+  <line x1="320" y1="45" x2="320" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="340" y="70" font-size="11" font-weight="700" fill="#334155">Yamuğun temelleri</text>
+  <text x="340" y="92" font-size="10" fill="#475569">[AB] // [DC] · a = alt taban, c = üst taban</text>
+  <text x="340" y="110" font-size="10" font-weight="700" fill="#0369a1">Yan kenardaki açılar BÜTÜNLER: x + y = 180°</text>
+  <text x="340" y="128" font-size="10" fill="#475569">(paralel doğrularda karşı durumlu açılar)</text>
+  <text x="340" y="154" font-size="11" font-weight="700" fill="#15803d">Orta taban = tabanların ORTALAMASI</text>
+  <text x="340" y="174" font-size="10" fill="#475569">Her iki tabana da paraleldir.</text>
+  <text x="340" y="198" font-size="11" font-weight="700" fill="#b91c1c">Orta parça = tabanların FARKININ yarısı</text>
+  <text x="340" y="218" font-size="10" fill="#475569">Kontrol: c/2 + (a−c)/2 + c/2 = (a+c)/2 ✓</text>
+  <text x="340" y="244" font-size="10" fill="#475569">Toplam → ortalama · Fark → orta parça.</text>
+  <text x="340" y="258" font-size="10" font-weight="700" fill="#b45309">Bu ikisini karıştırmamak kritiktir.</text>
+</svg>
+
+<h3>2) Yamuğun Alanı</h3>
+<p class="formula">TEMEL FORMÜL (PDF) — <b>A(ABCD) = [(a + c) / 2] · h</b><br/>
+<u>Yani <b>orta taban × yükseklik</b>. Yamuğun alanı, aynı yüksekliğe sahip ve tabanı orta taban kadar olan bir <b>dikdörtgenin alanına eşittir</b>.</u><br/>
+<b>Neden?</b> <u>Köşegen çizip iki üçgene ayır: biri taban a, diğeri taban c, ikisinin de yüksekliği h. Toplam = (a·h)/2 + (c·h)/2 = <b>(a+c)·h/2</b> ✓</u><br/>
+<b>Kontroller:</b> <u>c = a olursa formül a·h verir → <b>paralelkenar</b>. c = 0 olursa (a·h)/2 verir → <b>üçgen</b>. Yani yamuk formülü ikisini de kapsar.</u></p>
+<p class="formula">ALAN ÖZELLİKLERİ (PDF) —<br/>
+<b>1) Yan kenarın orta noktası:</b> E, [DA]'nın orta noktası ise <b>A(ABCD) = 2 · A(EB̂C)</b> → <u>EBC üçgeninin alanı, yamuğun <b>yarısıdır</b>.</u><br/>
+<b>2) Yükseklikle üçgen alanları:</b> [CH] ⊥ [AB] ve |CH| = h olmak üzere<br/>
+<b>A(AED) = |AE|·h/2</b> &nbsp;·&nbsp; <b>A(EBC) = |EB|·h/2</b> &nbsp;·&nbsp; <b>A(DEC) = |DC|·h/2</b><br/>
+<u>Yani taban üzerindeki her parça, kendi alanını doğrudan belirler.</u></p>
+<p class="formula">KÖŞEGENLERİN OLUŞTURDUĞU DÖRT ÜÇGEN (PDF) — <u>Bu, yamuğun en çok soru üreten bölümüdür.</u><br/>
+Köşegenlerin kesim noktası O olmak üzere: <b>S₁ = A(DOC)</b> (üst), <b>S₂ = A(COB)</b> (sağ), <b>S₃ = A(BOA)</b> (alt), <b>S₄ = A(AOD)</b> (sol).<br/>
+<b>• S₂ = S₄</b> &nbsp;<u>(yan üçgenlerin alanları EŞİTTİR)</u><br/>
+<b>• S₂ · S₄ = S₁ · S₃</b> &nbsp;→ dolayısıyla <b>S₂ = S₄ = √(S₁ · S₃)</b><br/>
+<b>• S₁ / S₃ = (c/a)²</b> &nbsp;<u>(DOC ile BOA benzerdir — kelebek modeli! Benzerlik oranı c/a, alan oranı karesi.)</u></p>
+<p class="formula">NEDEN S₂ = S₄? — <u>İki satırlık kanıt:</u><br/>
+ACD ve BCD üçgenleri <b>aynı tabanı</b> ([DC]) paylaşır ve tepe noktaları ([A] ve [B]) tabana <b>paralel bir doğru üzerindedir</b> → <b>yükseklikleri aynıdır</b> → <b>A(ACD) = A(BCD)</b>.<br/>
+Her ikisinden ortak parça olan S₁'i (DOC) çıkarırsak: <b>S₄ = S₂</b> ✓<br/>
+<u>Bu, alan ünitesindeki "taban ortak → alanlar yüksekliklerle orantılı" kuralının doğrudan uygulamasıdır.</u></p>
+<svg viewBox="0 0 640 265" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Yamukta köşegenlerin oluşturduğu dört üçgen">
+  <rect x="0" y="0" width="640" height="265" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Köşegenler dört üçgen oluşturur: yandakiler EŞİTTİR</text>
+  <polygon points="60,200 300,200 240,90 120,90" fill="#f8fafc" stroke="#0369a1" stroke-width="2.5"/>
+  <polygon points="120,90 240,90 180,127" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+  <polygon points="240,90 300,200 180,127" fill="#dcfce7" stroke="#16a34a" stroke-width="1.6"/>
+  <polygon points="300,200 60,200 180,127" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.6"/>
+  <polygon points="60,200 120,90 180,127" fill="#dcfce7" stroke="#16a34a" stroke-width="1.6"/>
+  <circle cx="180" cy="127" r="4" fill="#b91c1c"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="48" y="216">A</text><text x="304" y="216">B</text><text x="244" y="84">C</text><text x="112" y="84">D</text>
+    <text x="186" y="124">O</text>
+  </g>
+  <text x="180" y="110" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">S₁</text>
+  <text x="242" y="140" font-size="11" font-weight="700" fill="#15803d">S₂</text>
+  <text x="180" y="176" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">S₃</text>
+  <text x="108" y="140" font-size="11" font-weight="700" fill="#15803d">S₄</text>
+  <text x="180" y="234" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">S₂ = S₄ = √(S₁ · S₃)</text>
+  <text x="180" y="254" font-size="11" font-weight="700" fill="#b45309" text-anchor="middle">S₁ / S₃ = (c/a)²</text>
+  <line x1="340" y1="45" x2="340" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="360" y="70" font-size="11" font-weight="700" fill="#334155">Neden S₂ = S₄?</text>
+  <text x="360" y="90" font-size="10" fill="#475569">ACD ve BCD üçgenleri aynı tabanı ([DC]) paylaşır;</text>
+  <text x="360" y="104" font-size="10" fill="#475569">A ve B tabana PARALEL bir doğru üzerinde</text>
+  <text x="360" y="118" font-size="10" fill="#475569">olduğu için yükseklikleri de aynıdır.</text>
+  <text x="360" y="136" font-size="10" font-weight="700" fill="#0369a1">→ A(ACD) = A(BCD)</text>
+  <text x="360" y="154" font-size="10" font-weight="700" fill="#15803d">İkisinden ortak S₁'i çıkar → S₄ = S₂ ✓</text>
+  <text x="360" y="180" font-size="11" font-weight="700" fill="#b45309">Neden S₁/S₃ = (c/a)²?</text>
+  <text x="360" y="200" font-size="10" fill="#475569">DOC ile BOA KELEBEK modelidir → benzerdir.</text>
+  <text x="360" y="214" font-size="10" fill="#475569">Benzerlik oranı c/a, alan oranı karesi.</text>
+  <text x="360" y="238" font-size="10" font-weight="700" fill="#b91c1c">Toplam alan = S₁ + 2√(S₁S₃) + S₃</text>
+  <text x="360" y="256" font-size="10" fill="#475569">= (√S₁ + √S₃)² — çok kullanışlı bir kısayol.</text>
+</svg>
+<p class="formula">ÖRNEK — [AB] // [DC] olan bir yamukta <b>a = 14 cm</b>, <b>c = 8 cm</b>, <b>h = 6 cm</b>'dir. <b>a)</b> Orta taban kaçtır? <b>b)</b> Alanı kaçtır? <b>c)</b> Köşegenlerin orta tabanda ayırdığı orta parça kaçtır?</p>
+<ul>
+<li><b>a)</b> Orta taban = (14 + 8)/2 = <b>11 cm</b>.</li>
+<li><b>b)</b> A = 11 · 6 = <b>66 cm²</b>. <u>(Orta taban × yükseklik.)</u></li>
+<li><b>c)</b> |KL| = (14 − 8)/2 = <b>3 cm</b>.</li>
+<li><b>Ders:</b> <u><b>Toplam → ortalama</b> (orta taban), <b>fark → orta parça</b>. İki formülün ikisi de "bölü 2"dir; ayrım toplama mı çıkarma mı olduğudur.</u></li>
+</ul>
+<p class="formula">ÖRNEK — Bir yamukta köşegenlerin oluşturduğu üçgenlerden <b>S₁ = 9 cm²</b> (üst) ve <b>S₃ = 25 cm²</b> (alt) ise yamuğun alanı kaç cm²'dir?</p>
+<ul>
+<li><b>Adım 1 — Yan üçgenler:</b> S₂ = S₄ = √(S₁ · S₃) = √(9 · 25) = √225 = <b>15 cm²</b>.</li>
+<li><b>Adım 2 — Toplam:</b> A = 9 + 15 + 15 + 25 = <b>64 cm²</b>.</li>
+<li><b>Kısayol:</b> <u>A = (√S₁ + √S₃)² = (3 + 5)² = 8² = <b>64</b> ✓ Bu formül tek adımda sonuca götürür.</u></li>
+<li><b>Bonus:</b> Benzerlik oranı c/a = √(S₁/S₃) = √(9/25) = <b>3/5</b> → tabanlar 3k ve 5k oranındadır.</li>
+</ul>
+
+<h3>3) İkizkenar Yamuk</h3>
+<p class="formula">TANIM (PDF) — ABCD yamuğunda [AB] // [DC] ve <b>|AD| = |BC|</b> ise bu yamuğa <b>ikizkenar yamuk</b> denir (yan kenarlar eşit).<br/>
+<b>ÖZELLİKLER:</b><br/>
+• <b>Aynı tabandaki açılar EŞİTTİR:</b> <b>m(Â) = m(B̂) = α</b> ve <b>m(D̂) = m(Ĉ) = β</b> &nbsp;<u>(ayrıca α + β = 180°)</u><br/>
+• <b>KÖŞEGEN UZUNLUKLARI EŞİTTİR:</b> <b>|AC| = |BD|</b><br/>
+• Köşegenlerin kesim noktası E olmak üzere <b>|ED| = |EC|</b> ve <b>|EA| = |EB|</b><br/>
+• <b>Bir simetri ekseni vardır:</b> tabanların orta noktalarından geçen dikey doğru.<br/>
+<u>Bu şekil, dikdörtgenin yamuk versiyonudur: her ikisinde de köşegenler eşittir.</u></p>
+<p class="formula">DİK YAMUK (PDF) — Herhangi bir köşesindeki açının ölçüsü <b>90°</b> olan yamuğa <b>dik yamuk</b> denir.<br/>
+<u>Bu durumda [AD] yan kenarı aynı zamanda <b>yamuğun yüksekliğidir</b> — ayrıca yükseklik çizmeye gerek kalmaz. Bir açı 90° ise komşusu da 90°'dir (bütünler), yani dik yamukta <b>iki dik açı</b> bulunur.</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="İkizkenar yamuk ve dik yamuk">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — İki özel yamuk</text>
+  <polygon points="50,190 210,190 180,95 80,95" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="50" y1="190" x2="180" y2="95" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <line x1="210" y1="190" x2="80" y2="95" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="4 3"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="38" y="206">A</text><text x="214" y="206">B</text><text x="184" y="89">C</text><text x="70" y="89">D</text>
+  </g>
+  <text x="66" y="182" font-size="9" font-weight="700" fill="#15803d">α</text>
+  <text x="192" y="182" font-size="9" font-weight="700" fill="#15803d">α</text>
+  <text x="86" y="112" font-size="9" font-weight="700" fill="#b45309">β</text>
+  <text x="168" y="112" font-size="9" font-weight="700" fill="#b45309">β</text>
+  <text x="130" y="218" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">İKİZKENAR YAMUK</text>
+  <text x="130" y="236" font-size="10" font-weight="700" fill="#b91c1c" text-anchor="middle">|AD| = |BC| → |AC| = |BD|</text>
+  <line x1="260" y1="45" x2="260" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+  <polygon points="300,190 440,190 400,95 300,95" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <rect x="300" y="176" width="14" height="14" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+  <rect x="300" y="95" width="14" height="14" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="288" y="206">A</text><text x="444" y="206">B</text><text x="404" y="89">C</text><text x="288" y="89">D</text>
+  </g>
+  <text x="278" y="146" font-size="10" font-weight="700" fill="#b91c1c">h</text>
+  <text x="370" y="218" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">DİK YAMUK</text>
+  <text x="370" y="236" font-size="10" font-weight="700" fill="#b91c1c" text-anchor="middle">[AD] yan kenarı = yükseklik</text>
+  <line x1="470" y1="45" x2="470" y2="245" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="488" y="72" font-size="11" font-weight="700" fill="#334155">İkizkenar yamukta</text>
+  <text x="488" y="92" font-size="10" fill="#475569">• Yan kenarlar eşit</text>
+  <text x="488" y="108" font-size="10" fill="#475569">• Aynı tabandaki açılar eşit</text>
+  <text x="488" y="124" font-size="10" font-weight="700" fill="#b91c1c">• Köşegenler EŞİT</text>
+  <text x="488" y="140" font-size="10" fill="#475569">• |ED| = |EC|, |EA| = |EB|</text>
+  <text x="488" y="156" font-size="10" fill="#475569">• Bir simetri ekseni var</text>
+  <text x="488" y="182" font-size="11" font-weight="700" fill="#15803d">Dik yamukta</text>
+  <text x="488" y="202" font-size="10" fill="#475569">• İki açı 90°'dir</text>
+  <text x="488" y="218" font-size="10" fill="#475569">• Bir yan kenar doğrudan</text>
+  <text x="488" y="232" font-size="10" fill="#475569">&#160;&#160;yüksekliktir</text>
+</svg>
+
+<h3>4) Köşegenleri Dik Olan Yamuklar</h3>
+<p class="formula">DURUM 1 — İKİZKENAR YAMUKTA KÖŞEGENLER DİKSE (PDF):<br/>
+<b>h = (a + c) / 2</b> &nbsp;<u>(yükseklik, orta tabana EŞİT olur!)</u><br/>
+<b>A(ABCD) = h²</b> &nbsp;<u>(alan, yüksekliğin karesidir)</u><br/>
+<u>Neden? Alan formülü A = [(a+c)/2]·h idi. h = (a+c)/2 olduğu için A = h·h = h² çıkar. Yani bu özel yamuk, kenarı h olan bir <b>kareyle aynı alana</b> sahiptir.</u><br/>
+<b>DURUM 2 — DİK YAMUKTA KÖŞEGENLER DİKSE (PDF):</b><br/>
+[AD] ⊥ [AB] ve |AD| = h olmak üzere <b>h² = a · c</b><br/>
+<u>Yani yükseklik, tabanların <b>geometrik ortasıdır</b>. Bu, Öklid teoremindeki h² = p·k bağıntısının yamuktaki karşılığıdır — nedeni de aynıdır: dik açı + dik köşegen, benzer üçgenler doğurur.</u></p>
+<svg viewBox="0 0 640 265" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Köşegenleri dik yamuklar">
+  <rect x="0" y="0" width="640" height="265" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — Köşegenler dik kesişirse iki güçlü bağıntı doğar</text>
+  <polygon points="60,210 220,210 180,90 100,90" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="60" y1="210" x2="180" y2="90" stroke="#dc2626" stroke-width="2"/>
+  <line x1="220" y1="210" x2="100" y2="90" stroke="#dc2626" stroke-width="2"/>
+  <rect x="140" y="136" width="14" height="14" fill="none" stroke="#dc2626" stroke-width="1.6" transform="rotate(45 147 143)"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="48" y="226">A</text><text x="224" y="226">B</text><text x="184" y="84">C</text><text x="90" y="84">D</text>
+  </g>
+  <text x="140" y="226" font-size="10" font-weight="700" fill="#0369a1">a</text>
+  <text x="140" y="84" font-size="10" font-weight="700" fill="#0369a1">c</text>
+  <text x="238" y="152" font-size="10" font-weight="700" fill="#b91c1c">h</text>
+  <line x1="230" y1="90" x2="230" y2="210" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <text x="140" y="248" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">İKİZKENAR + dik köşegen</text>
+  <text x="140" y="262" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">h = (a+c)/2 · A = h²</text>
+  <line x1="290" y1="45" x2="290" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <polygon points="340,200 475,200 400,110 340,110" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <line x1="340" y1="200" x2="400" y2="110" stroke="#dc2626" stroke-width="2"/>
+  <line x1="475" y1="200" x2="340" y2="110" stroke="#dc2626" stroke-width="2"/>
+  <rect x="340" y="186" width="14" height="14" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+  <g fill="#334155" font-size="11" font-weight="700">
+    <text x="328" y="216">A</text><text x="479" y="216">B</text><text x="404" y="104">C</text><text x="328" y="104">D</text>
+  </g>
+  <text x="405" y="216" font-size="10" font-weight="700" fill="#16a34a">a</text>
+  <text x="368" y="104" font-size="10" font-weight="700" fill="#16a34a">c</text>
+  <text x="322" y="158" font-size="10" font-weight="700" fill="#b91c1c">h</text>
+  <text x="408" y="248" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">DİK YAMUK + dik köşegen</text>
+  <text x="408" y="262" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">h² = a · c</text>
+  <line x1="500" y1="45" x2="500" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="516" y="76" font-size="10" font-weight="700" fill="#334155">Hatırlama</text>
+  <text x="516" y="100" font-size="10" fill="#475569">İkizkenarda</text>
+  <text x="516" y="114" font-size="10" font-weight="700" fill="#0369a1">ARİTMETİK orta</text>
+  <text x="516" y="128" font-size="10" fill="#475569">h = (a+c)/2</text>
+  <text x="516" y="154" font-size="10" fill="#475569">Dik yamukta</text>
+  <text x="516" y="168" font-size="10" font-weight="700" fill="#15803d">GEOMETRİK orta</text>
+  <text x="516" y="182" font-size="10" fill="#475569">h = √(a·c)</text>
+  <text x="516" y="208" font-size="10" fill="#475569">İkisi de "orta"dır;</text>
+  <text x="516" y="222" font-size="10" fill="#475569">biri toplamdan,</text>
+  <text x="516" y="236" font-size="10" fill="#475569">diğeri çarpımdan</text>
+  <text x="516" y="250" font-size="10" fill="#475569">gelir.</text>
+</svg>
+<p class="formula">ÖRNEK — Köşegenleri <b>dik kesişen ikizkenar</b> bir yamukta tabanlar <b>12 cm</b> ve <b>8 cm</b>'dir. Yamuğun yüksekliği ve alanı kaçtır?</p>
+<ul>
+<li><b>Yükseklik:</b> h = (12 + 8)/2 = <b>10 cm</b>.</li>
+<li><b>Alan:</b> A = h² = <b>100 cm²</b>.</li>
+<li><b>Kontrol:</b> Normal formülle A = [(12+8)/2]·10 = 10 · 10 = 100 ✓</li>
+</ul>
+<p class="formula">ÖRNEK — Köşegenleri <b>dik kesişen dik</b> bir yamukta tabanlar <b>9 cm</b> ve <b>4 cm</b>'dir. Yüksekliği ve alanı kaçtır?</p>
+<ul>
+<li><b>Yükseklik:</b> h² = 9 · 4 = 36 → <b>h = 6 cm</b>.</li>
+<li><b>Alan:</b> A = [(9 + 4)/2] · 6 = 6,5 · 6 = <b>39 cm²</b>.</li>
+<li><b>Dikkat:</b> <u>Burada A = h² <b>geçerli değildir</b> (39 ≠ 36). O formül yalnızca <b>ikizkenar</b> yamuk içindir. İki durumu karıştırma.</u></li>
+</ul>
+
+<h3>5) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Yamukta açı</b></td><td>Bir açı verilmiş</td><td>Yan kenardaki açılar <b>bütünler</b> (180°).</td></tr>
+<tr><td>2</td><td><b>Orta taban</b></td><td>Yan kenar orta noktaları işaretli</td><td><b>(a + c)/2</b>.</td></tr>
+<tr><td>3</td><td><b>Orta parça</b></td><td>Köşegenler orta tabanı kesiyor</td><td><b>(a − c)/2</b>.</td></tr>
+<tr><td>4</td><td><b>Alan</b></td><td>Tabanlar ve yükseklik verilmiş</td><td><b>[(a+c)/2] · h</b>.</td></tr>
+<tr><td>5</td><td><b>Yan üçgen alanları</b></td><td>Köşegenler çizilmiş</td><td><b>S₂ = S₄</b>; toplam alanı bul.</td></tr>
+<tr><td>6</td><td><b>S₂ = √(S₁·S₃)</b></td><td>Üst ve alt üçgen alanları verilmiş</td><td>Toplam = <b>(√S₁ + √S₃)²</b>.</td></tr>
+<tr><td>7</td><td><b>Kelebek benzerliği</b></td><td>Köşegenler + tabanlar</td><td>DOC ~ BOA, oran <b>c/a</b>.</td></tr>
+<tr><td>8</td><td><b>İkizkenar yamuk</b></td><td>Yan kenarlar eşit işaretli</td><td>Taban açıları eşit, <b>köşegenler eşit</b>.</td></tr>
+<tr><td>9</td><td><b>Dik yamuk</b></td><td>Bir köşede dik açı</td><td>Yan kenar <b>doğrudan yüksekliktir</b>.</td></tr>
+<tr><td>10</td><td><b>Dik köşegen (ikizkenar)</b></td><td>Köşegenler dik + ikizkenar</td><td><b>h = (a+c)/2</b>, <b>A = h²</b>.</td></tr>
+<tr><td>11</td><td><b>Dik köşegen (dik yamuk)</b></td><td>Köşegenler dik + dik yamuk</td><td><b>h² = a·c</b>.</td></tr>
+<tr><td>12</td><td><b>Yükseklik indirme</b></td><td>Yan kenar ve tabanlar verilmiş</td><td><b>Üst köşelerden dikme indir</b> → dik üçgen + dikdörtgen.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 12) — Bir ikizkenar yamukta tabanlar <b>16 cm</b> ve <b>10 cm</b>, yan kenar <b>5 cm</b>'dir. Yamuğun alanı kaç cm²'dir?</p>
+<ul>
+<li><b>Adım 1 — Dikme indir:</b> C ve D köşelerinden [AB]'ye dikmeler indir. Ortada <b>10 cm</b>'lik bir dikdörtgen, iki yanda <b>eş dik üçgen</b> oluşur.</li>
+<li><b>Adım 2 — Taban parçalarını bul:</b> Artan kısım 16 − 10 = 6 cm; ikizkenar olduğu için <b>iki yana eşit</b> dağılır → her biri <b>3 cm</b>.</li>
+<li><b>Adım 3 — Pisagor:</b> Dik üçgende hipotenüs 5, bir dik kenar 3 → <b>h = 4 cm</b> (3-4-5 üçlüsü).</li>
+<li><b>Adım 4 — Alan:</b> A = [(16 + 10)/2] · 4 = 13 · 4 = <b>52 cm²</b>.</li>
+<li><b>Ders:</b> <u>Yamukta yükseklik verilmemişse refleksin <b>"üst köşelerden dikme indir"</b> olmalı. Şekil bir dikdörtgen + iki dik üçgene ayrılır; ikizkenarsa üçgenler eştir ve fark ikiye bölünür.</u></li>
+</ul>
+
+<h3>6) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Yamuk:</b> En az bir kenar çifti paralel olan dörtgen.</li>
+<li><b>Alt taban / üst taban:</b> Paralel olan iki kenar (a ve c).</li>
+<li><b>Yan kenar:</b> Paralel olmayan kenarlar.</li>
+<li><b>Yükseklik (h):</b> İki taban arasındaki dik uzaklık.</li>
+<li><b>Orta taban:</b> Yan kenarların orta noktalarını birleştiren parça; (a + c)/2.</li>
+<li><b>İkizkenar yamuk:</b> Yan kenarları eşit olan yamuk; köşegenleri de eşittir.</li>
+<li><b>Dik yamuk:</b> Bir açısı 90° olan yamuk; bir yan kenarı yüksekliktir.</li>
+<li><b>Yamuğun alanı:</b> [(a + c)/2] · h.</li>
+<li><b>Aritmetik orta:</b> (a + c)/2. <b>Geometrik orta:</b> √(a·c).</li>
+</ul>
+
+<h3>7) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Orta taban ile orta parçayı karıştırmak:</b> Orta taban <b>(a+c)/2</b>, köşegenlerin ayırdığı orta parça <b>(a−c)/2</b>.</li>
+<li><b>Alanda 2'ye bölmeyi unutmak:</b> A = <b>[(a+c)/2]·h</b>; (a+c)·h değil.</li>
+<li><b>Yamukta köşegenleri eşit sanmak:</b> Köşegenler yalnızca <b>ikizkenar</b> yamukta eşittir.</li>
+<li><b>Köşegenlerin birbirini ortaladığını sanmak:</b> Bu <b>paralelkenara</b> özgüdür; yamukta geçerli değildir.</li>
+<li><b>Dört üçgenin hepsini eşit sanmak:</b> Yalnızca <b>yan iki üçgen</b> (S₂ = S₄) eşittir.</li>
+<li><b>S₂ = (S₁+S₃)/2 sanmak:</b> Doğrusu <b>S₂ = √(S₁·S₃)</b> — geometrik ortadır.</li>
+<li><b>h = (a+c)/2 formülünü her yamukta kullanmak:</b> Yalnızca <b>ikizkenar + köşegenler dik</b> durumunda geçerlidir.</li>
+<li><b>h² = a·c'yi ikizkenar yamukta kullanmak:</b> O formül <b>dik yamuk + dik köşegen</b> içindir.</li>
+<li><b>İkizkenar yamukta A = h² formülünü dik yamuğa taşımak:</b> İkisi farklı durumlardır.</li>
+<li><b>Yükseklik yoksa çaresiz kalmak:</b> <b>Üst köşelerden dikme indir</b>; dikdörtgen + dik üçgen oluşur.</li>
+<li><b>İkizkenarda farkı ikiye bölmemek:</b> Taban farkı <b>iki yana eşit</b> dağılır.</li>
+</ul>
+
+<h3>8) Özet Kartı</h3>
+<ul>
+<li><b>Yamuk:</b> en az bir kenar çifti paralel; yan kenardaki açılar <b>bütünler</b>.</li>
+<li><b>Orta taban = (a + c)/2</b> &nbsp;·&nbsp; <b>Orta parça = (a − c)/2</b>.</li>
+<li><b>Alan = [(a + c)/2] · h = orta taban × yükseklik.</b></li>
+<li><b>c = a → paralelkenar</b>, <b>c = 0 → üçgen</b>; yamuk formülü ikisini de kapsar.</li>
+<li><b>Köşegen üçgenleri:</b> <b>S₂ = S₄ = √(S₁·S₃)</b> &nbsp;·&nbsp; <b>S₁/S₃ = (c/a)²</b>.</li>
+<li><b>Toplam alan = (√S₁ + √S₃)²</b>.</li>
+<li><b>İkizkenar yamuk:</b> yan kenarlar eşit → taban açıları eşit → <b>köşegenler eşit</b>.</li>
+<li><b>Dik yamuk:</b> iki açı 90°; bir <b>yan kenar doğrudan yüksekliktir</b>.</li>
+<li><b>İkizkenar + dik köşegen:</b> <b>h = (a+c)/2</b> ve <b>A = h²</b> (aritmetik orta).</li>
+<li><b>Dik yamuk + dik köşegen:</b> <b>h² = a·c</b> (geometrik orta).</li>
+<li><b>Yükseklik verilmemişse:</b> <b>üst köşelerden dikme indir</b> → dikdörtgen + dik üçgen.</li>
+<li><b>İkizkenarda taban farkı iki yana EŞİT dağılır.</b></li>
+</ul>
+
+</body></html>

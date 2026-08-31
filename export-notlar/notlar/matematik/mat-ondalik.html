@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ondalık Gösterim</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Ondalık Gösterim</h2>
+
+<p>Ondalık sayılar aslında <b>kesirlerin başka bir kıyafetidir</b>. 0,25 ile 1/4 aynı sayıdır; sadece biri "yüzde yirmi beş"i, diğeri "dörtte bir"i anlatır. Bu ünitede iki soruya net cevap vereceğiz: <b>hangi kesir sonlu ondalık olur, hangisi sonsuza kadar devreder?</b> ve <b>devirli bir sayıyı kesre çevirirken o garip "9'lar ve 0'lar" formülü nereden geliyor?</b> Bu iki mantığı kurduğunda, TYT'de bu konudan gelen soruların neredeyse tamamı tek satırlık işleme iner.</p>
+
+<h3>1) Ondalık Gösterim — Virgülün Sağındaki Basamaklar</h3>
+<p>Tam sayılarda her basamağın bir değeri vardır: birler, onlar, yüzler… Bu değerler 10'un kuvvetleridir. Virgülün sağına geçtiğimizde <b>aynı mantık devam eder</b>, sadece kuvvetler negatife döner: onda birler, yüzde birler, binde birler…</p>
+<p class="formula">TANIM — Paydası <b>10, 100, 1000, …</b> yani <b>10'un kuvvetleri</b> olan kesirlere <b>ondalık kesir</b>, bu kesirlerin belirttiği sayılara <b>ondalık sayı</b> denir. <u>Örnek: 3/10 = 0,3</u>. Virgülün solundaki kısma <b>tam kısım</b>, sağındaki kısma <b>ondalık kısım (kesir kısmı)</b> denir.</p>
+<svg viewBox="0 0 640 260" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ondalık sayıda basamak değerleri">
+  <rect x="0" y="0" width="640" height="260" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — 43,507 sayısının basamak değerleri: virgül bir ayraç değil, dönüm noktasıdır</text>
+  <line x1="252" y1="40" x2="252" y2="150" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4"/>
+  <text x="252" y="166" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">virgül</text>
+  <g font-size="26" font-weight="700" fill="#0f172a" text-anchor="middle">
+    <text x="150" y="80">4</text><text x="215" y="80">3</text>
+    <text x="295" y="80">5</text><text x="360" y="80">0</text><text x="425" y="80">7</text>
+  </g>
+  <text x="243" y="80" font-size="26" font-weight="700" fill="#b91c1c">,</text>
+  <g font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">
+    <text x="150" y="106">onlar</text><text x="215" y="106">birler</text>
+  </g>
+  <g font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">
+    <text x="295" y="106">onda bir</text><text x="360" y="106">yüzde bir</text><text x="425" y="106">binde bir</text>
+  </g>
+  <g font-size="12" font-weight="700" fill="#475569" text-anchor="middle">
+    <text x="150" y="130">10¹</text><text x="215" y="130">10⁰</text>
+    <text x="295" y="130">10⁻¹</text><text x="360" y="130">10⁻²</text><text x="425" y="130">10⁻³</text>
+  </g>
+  <line x1="26" y1="182" x2="614" y2="182" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="202" font-size="10" fill="#475569">Açılım: 43,507 = 4·10 + 3·1 + 5·(1/10) + 0·(1/100) + 7·(1/1000) = 40 + 3 + 0,5 + 0 + 0,007</text>
+  <text x="26" y="218" font-size="10" fill="#475569">Kesir hâli: 43,507 = 43507/1000. Kural basit — virgülden sonra kaç basamak varsa paydada o kadar sıfır vardır.</text>
+  <text x="26" y="234" font-size="10" fill="#475569">Sondaki sıfırlar değeri değiştirmez: 0,5 = 0,50 = 0,500, çünkü 5/10 = 50/100 = 500/1000 (genişletme).</text>
+  <text x="26" y="250" font-size="10" fill="#475569">Ama BAŞTAKİ sıfırlar değiştirir: 0,5 ile 0,05 aynı değildir — ikincisi on kat küçüktür. Basamak sayısını daima say.</text>
+</svg>
+<p class="formula">ONDALIKTAN KESRE — Virgülü kaldır, <b>virgülden sonraki basamak sayısı kadar sıfır</b> içeren bir paydaya böl. <u>0,7 = 7/10</u>, &nbsp;<u>0,25 = 25/100 = 1/4</u>, &nbsp;<u>3,14 = 314/100 = 157/50</u>. <b>Neden işliyor?</b> Çünkü 0,25 ifadesi zaten "2 onda bir + 5 yüzde bir" demektir; ortak paydada yazınca 20/100 + 5/100 = 25/100 çıkar.</p>
+
+<h3>2) Kesirden Ondalığa — Hangi Kesir Sonlu, Hangisi Devirli?</h3>
+<p>Bir kesri ondalığa çevirmenin iki yolu vardır: <b>payı paydaya bölmek</b> ya da <b>paydayı 10'un kuvvetine tamamlamak</b>. İkinci yol daha hızlıdır ama her kesirde işe yaramaz — ve tam olarak <u>işe yaramadığı durumlar</u>, devirli sayıların doğduğu yerdir.</p>
+<p class="formula">YÖNTEM — Paydayı 10'un kuvveti yap. <u>3/5 = (3·2)/(5·2) = 6/10 = 0,6</u>. &nbsp;<u>7/25 = (7·4)/(25·4) = 28/100 = 0,28</u>. &nbsp;<u>9/8 = (9·125)/(8·125) = 1125/1000 = 1,125</u>.</p>
+<p class="formula">KRİTİK SORU — Paydayı ne zaman 10'un kuvvetine tamamlayabiliriz? <b>10 = 2 · 5</b> olduğuna göre 10'un her kuvveti yalnızca <b>2 ve 5</b> asal çarpanlarından oluşur (100 = 2²·5², 1000 = 2³·5³). Öyleyse bir paydayı 10'un kuvvetine çevirebilmek için o paydanın <u>sadeleştirilmiş hâlinde</u> 2 ve 5 dışında asal çarpan bulunmamalıdır.<br/>
+<b>KURAL:</b> En sade hâldeki bir kesirde paydanın asal çarpanları yalnızca <b>2 ve/veya 5</b> ise ondalık açılım <b>SONLUDUR</b>; payda <b>3, 7, 11, 13…</b> gibi başka bir asal çarpan içeriyorsa açılım <b>DEVİRLİDİR</b>.</p>
+<svg viewBox="0 0 640 280" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sonlu mu devirli mi karar şeması">
+  <rect x="0" y="0" width="640" height="280" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Bir kesir sonlu mu devirli mi? Karar şeması</text>
+  <rect x="220" y="38" width="200" height="34" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+  <text x="320" y="60" font-size="12" font-weight="700" fill="#334155" text-anchor="middle">Kesri EN SADE hâline getir</text>
+  <line x1="320" y1="72" x2="320" y2="94" stroke="#64748b" stroke-width="2"/>
+  <rect x="180" y="94" width="280" height="34" rx="10" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+  <text x="320" y="116" font-size="12" font-weight="700" fill="#a16207" text-anchor="middle">Paydayı asal çarpanlarına ayır</text>
+  <line x1="320" y1="128" x2="320" y2="146" stroke="#64748b" stroke-width="2"/>
+  <line x1="150" y1="146" x2="490" y2="146" stroke="#64748b" stroke-width="2"/>
+  <line x1="150" y1="146" x2="150" y2="168" stroke="#64748b" stroke-width="2"/>
+  <line x1="490" y1="146" x2="490" y2="168" stroke="#64748b" stroke-width="2"/>
+  <rect x="40" y="168" width="220" height="52" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="150" y="188" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">Yalnızca 2 ve/veya 5 var</text>
+  <text x="150" y="208" font-size="13" font-weight="700" fill="#15803d" text-anchor="middle">SONLU ondalık</text>
+  <rect x="380" y="168" width="220" height="52" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="490" y="188" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">Başka bir asal da var (3, 7, 11…)</text>
+  <text x="490" y="208" font-size="13" font-weight="700" fill="#b91c1c" text-anchor="middle">DEVİRLİ ondalık</text>
+  <text x="46" y="238" font-size="10" fill="#15803d">3/8: payda 2³ → 0,375 ✓ &#160; 7/20: payda 2²·5 → 0,35 ✓ &#160; 9/40: 2³·5 → 0,225 ✓</text>
+  <text x="386" y="238" font-size="10" fill="#b91c1c">1/3 → 0,333… &#160; 5/6: payda 2·3 → 0,8333…</text>
+  <text x="386" y="252" font-size="10" fill="#b91c1c">3/7 → 0,428571428571… (6 basamak devreder)</text>
+  <text x="26" y="272" font-size="10" fill="#475569">TUZAK: Önce sadeleştirmezsen yanılırsın. 6/15 paydasında 3 var gibi görünür, ama sadeleşince 2/5 olur → 0,4, yani SONLU.</text>
+</svg>
+<p class="formula">MANTIK — DEVİR NEDEN OLUŞUR? 1/7 işlemini elle bölmeye başla: her adımda bir <b>kalan</b> elde edersin ve 7'ye bölmede olabilecek kalanlar yalnızca <b>1, 2, 3, 4, 5, 6</b>'dır (0 olsaydı bölme biterdi). Yani en fazla <b>6 adım</b> sonra bir kalan zorunlu olarak tekrar eder; kalan tekrar edince ondan sonraki bütün basamaklar da aynen tekrar eder. <u>Bu yüzden 1/7 = 0,142857142857… ve devreden kısım tam 6 basamaktır.</u> <b>Genel sonuç: paydası n olan bir kesrin devir uzunluğu en fazla n − 1 basamaktır.</b> Devir bir tesadüf değil, kalanların sınırlı sayıda olmasının kaçınılmaz sonucudur.</p>
+
+<h3>3) Ondalık Sayılarda Dört İşlem</h3>
+<p>Ondalık sayılarla işlem yaparken kuralları ezberlemek yerine tek bir cümleyi hatırla: <b>ondalık sayı, paydası 10'un kuvveti olan bir kesirdir.</b> Bütün virgül kuralları bu kesirlerden doğar.</p>
+<table>
+<tr><th>İşlem</th><th>Kural</th><th>Neden böyle?</th></tr>
+<tr><td><b>Toplama / Çıkarma</b></td><td>Virgüller <b>alt alta</b> gelecek biçimde yaz, doğal sayı gibi işlem yap, sonucu virgül hizasından ayır</td><td>Virgülü hizalamak, <b>paydaları eşitlemektir</b>. Aynı basamak değerleri alt alta gelmezse "onda bir" ile "yüzde bir"i toplamış olursun.</td></tr>
+<tr><td><b>Çarpma</b></td><td>Virgül yokmuş gibi çarp; sonuçta, <b>çarpılan sayıların virgülden sonraki basamak sayıları toplamı</b> kadar sağdan sola ayır</td><td>0,3 · 0,04 = (3/10)·(4/100) = 12/1000. Paydalar çarpılınca sıfırlar <b>toplanır</b> — bu yüzden basamaklar toplanır.</td></tr>
+<tr><td><b>Bölme</b></td><td><b>Böleni</b> virgülden kurtar; böleni hangi sayıyla çarptıysan <b>bölüneni de</b> aynı sayıyla çarp</td><td>Bölme bir kesirdir; pay ve paydayı aynı sayıyla çarpmak <b>değeri değiştirmez</b>. 4,8 : 0,6 = 48 : 6 = 8.</td></tr>
+</table>
+<p class="formula">DİKKAT — TOPLAMADA HİZA, ÇARPMADA HİZA YOK: Toplama ve çıkarmada virgülleri hizalamak <b>zorunludur</b>; çarpmada ise sayıları sağa dayalı yazarsın, virgülün yeri yalnızca <u>sonuçta</u> belirlenir. Bu ikisini karıştırmak en yaygın hatadır. <u>Eksik basamakları sıfırla tamamlamak işini kolaylaştırır: 12,5 + 3,75 işleminde 12,50 yaz.</u></p>
+<p class="formula">ÖRNEK — <b>0,25 · 0,4</b> ve <b>0,25 : 0,4</b> işlemlerini yapınız.</p>
+<ul>
+<li><b>Çarpma — virgülü unut:</b> 25 · 4 = 100. Basamak sayıları: 0,25'te <b>2</b>, 0,4'te <b>1</b> → toplam <b>3</b>. Sağdan üç basamak ayır: <b>0,100 = 0,1</b>.</li>
+<li><b>Kesirle kontrol:</b> (25/100)·(4/10) = 100/1000 = 0,1 ✓</li>
+<li><b>Bölme — böleni virgülden kurtar:</b> 0,4 sayısını 10 ile çarpınca 4 olur; öyleyse bölüneni de 10 ile çarp: 2,5. Şimdi <b>2,5 : 4 = 0,625</b>.</li>
+<li><b>Kesirle kontrol:</b> (1/4) : (2/5) = (1/4)·(5/2) = 5/8 = 0,625 ✓</li>
+<li><b>Ders:</b> Emin olamadığın her ondalık işlemde <u>kesre çevirip kontrol etmek</u> on saniye sürer ve virgül hatalarını anında yakalar.</li>
+</ul>
+<p class="formula">10'UN KUVVETLERİYLE ÇARPMA ve BÖLME — <b>10 ile çarparsan virgül bir basamak SAĞA</b>, 100 ile çarparsan iki basamak sağa kayar; <b>10'a bölersen bir basamak SOLA</b>, 100'e bölersen iki basamak sola kayar. <u>Kaç sıfır varsa o kadar basamak.</u><br/><b>Neden?</b> Çünkü 10 ile çarpmak, paydadaki bir sıfırı silmek demektir: (35/100)·10 = 35/10. Sayı büyüyorsa virgül sağa, küçülüyorsa sola gider. <u>Yer kalmazsa sıfır ekle: 0,07 · 1000 = 70 &nbsp;·&nbsp; 2,5 : 1000 = 0,0025.</u></p>
+
+<h3>4) Devirli Ondalık Sayılar</h3>
+<p>Virgülden sonraki kısımda belli bir rakam grubu <b>sonsuza kadar</b> tekrar ediyorsa bu sayıya <b>devirli ondalık sayı</b> denir. Tekrar eden gruba <b>devir (devreden kısım)</b>, devirden önce gelen ve tekrar etmeyen kısma <b>devretmeyen kısım</b> denir. Gösterimde devreden rakamların üzerine çizgi çekilir.</p>
+<p class="formula">GÖSTERİM — a, b, c, d, e birer rakam olmak üzere:<br/>
+<b>a,bbb… = a,b̄</b> &nbsp;(tek rakam devrediyor)<br/>
+<b>a,bcbcbc… = a,b̄c̄</b> &nbsp;(iki rakamlık grup devrediyor)<br/>
+<b>a,bcdecde… = a,bc̄d̄ē</b> &nbsp;(b devretmiyor, cde devrediyor)<br/>
+<u>Örnek: 0,272727… = 0,2̄7̄ &nbsp;·&nbsp; 1,4666… = 1,46̄ &nbsp;·&nbsp; 21,3787878… = 21,37̄8̄</u></p>
+<p class="formula">DİKKAT — Devreden kısmı doğru okumak, bu konudaki her şeyin temelidir. <b>1,46̄</b> sayısında devreden yalnızca <u>6</u>'dır (1,4666…), <b>1,4̄6̄</b> sayısında ise devreden <u>46</u>'dır (1,464646…). Çizginin nereye kadar uzandığına bakmadan formüle girme.</p>
+
+<h3>5) Devirli Ondalığı Kesre Çevirme — Formülün Kaynağı</h3>
+<p>Şimdi konunun en çok soru getiren ve en çok ezberlenen kısmına geldik. Önce formülü yazalım, sonra <b>nereden geldiğini ispatlayalım</b> — çünkü mantığını bilirsen formülü unutsan bile soruyu çözersin.</p>
+<p class="formula">FORMÜL — <b>a,bcd̄ē</b> gibi bir devirli sayı için:<br/>
+<b>Kesir = (Sayının tamamı − Devretmeyen kısım) / (Devreden rakam sayısı kadar 9, devretmeyen rakam sayısı kadar 0)</b><br/>
+Burada "sayının tamamı" ve "devretmeyen kısım" yazılırken <u>virgül yokmuş gibi</u> okunur.</p>
+<p class="formula">İSPAT — 10'UN KUVVETİYLE ÇARPMA HİLESİ. <b>x = 0,4̄5̄ = 0,454545…</b> olsun. Devir <u>iki</u> basamaklı olduğu için sayıyı <b>100</b> ile çarpalım:<br/>
+<b>100x = 45,454545…</b><br/>
+<b>&nbsp;&nbsp;&nbsp;x = &nbsp;0,454545…</b><br/>
+Alt alta <b>çıkaralım</b>: sağ tarafta virgülden sonraki sonsuz kuyruklar <u>birebir aynı</u> olduğu için tamamen yok olur:<br/>
+<b>99x = 45</b> &nbsp;→&nbsp; <b>x = 45/99 = 5/11</b>.<br/>
+<u>İşte paydadaki 9'lar buradan geliyor: 100 − 1 = 99. Devir üç basamaklıysa 1000 − 1 = 999 olur. Paydadaki 0'lar ise devretmeyen kısmı kaydırmak için kullandığın ek 10 kuvvetinden gelir.</u></p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Devirli ondalık sayıyı kesre çevirme formülünün anatomisi">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Formülün anatomisi: 21,37̄8̄ sayısı üzerinde</text>
+  <text x="60" y="66" font-size="24" font-weight="700" fill="#0f172a">21,3</text>
+  <text x="122" y="66" font-size="24" font-weight="700" fill="#b91c1c">78</text>
+  <line x1="122" y1="46" x2="158" y2="46" stroke="#b91c1c" stroke-width="2"/>
+  <text x="60" y="88" font-size="10" font-weight="700" fill="#0369a1">devretmeyen: 21,3</text>
+  <text x="122" y="102" font-size="10" font-weight="700" fill="#b91c1c">devreden: 78</text>
+  <line x1="200" y1="40" x2="200" y2="130" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="230" y="60" font-size="12" font-weight="700" fill="#334155">PAY = tamamı − devretmeyen</text>
+  <rect x="230" y="70" width="230" height="30" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="248" y="90" font-size="14" font-weight="700" fill="#0369a1">21378 − 213 = 21165</text>
+  <text x="230" y="122" font-size="12" font-weight="700" fill="#334155">PAYDA = 2 tane 9, 1 tane 0</text>
+  <rect x="230" y="132" width="230" height="30" rx="8" fill="#fef9c3" stroke="#ca8a04" stroke-width="2"/>
+  <text x="278" y="152" font-size="14" font-weight="700" fill="#a16207">990</text>
+  <rect x="60" y="132" width="150" height="30" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="76" y="152" font-size="13" font-weight="700" fill="#15803d">21165/990 = 1411/66</text>
+  <line x1="26" y1="180" x2="614" y2="180" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="200" font-size="10" fill="#475569">9'ların sayısı = DEVREDEN rakam sayısı (78 → 2 rakam → 99). Sıfırların sayısı = DEVRETMEYEN rakam sayısı (3 → 1 rakam → bir 0).</text>
+  <text x="26" y="216" font-size="10" fill="#475569">Pay yazılırken virgül yokmuş gibi okunur: 21,378… → 21378 ve 21,3 → 213. Rakamları eksiksiz aktar, en sık hata burada.</text>
+  <text x="26" y="232" font-size="10" fill="#475569">Devretmeyen kısım yoksa (0,4̄5̄ gibi) paydada hiç 0 olmaz: yalnızca 99. Sonuçta mutlaka sadeleştir.</text>
+  <text x="26" y="248" font-size="10" fill="#475569">Kontrol: 1411 : 66 ≈ 21,3787878… ✓ Bölmeyi kabaca yapmak, formüle yanlış rakam yazdığını anında gösterir.</text>
+</svg>
+<p class="formula">ÖRNEK (PDF) — <b>21,37̄8̄</b> devirli ondalık sayısını rasyonel sayıya çeviriniz.</p>
+<ul>
+<li><b>Adım 1 — Parçaları ayır:</b> Devreden kısım <b>78</b> (2 rakam), devretmeyen kısım <b>3</b> (1 rakam).</li>
+<li><b>Adım 2 — Payı yaz:</b> Sayının tamamı (virgülsüz) <b>21378</b>, devretmeyen kısım (virgülsüz) <b>213</b> → 21378 − 213 = <b>21165</b>.</li>
+<li><b>Adım 3 — Paydayı yaz:</b> 2 tane 9, 1 tane 0 → <b>990</b>.</li>
+<li><b>Adım 4 — Sadeleştir:</b> 21165/990 → ikisi de 15'e bölünür → <b>1411/66</b>.</li>
+<li><b>Kontrol:</b> 1411 : 66 = 21,3787878… ✓</li>
+</ul>
+<p class="formula">ÖRNEK — <b>0,3̄</b> ve <b>2,1̄6̄</b> sayılarını kesre çeviriniz.</p>
+<ul>
+<li><b>0,3̄:</b> Devreden 3 (1 rakam), devretmeyen yok. Pay: 3 − 0 = 3. Payda: bir tane 9 → 9. Sonuç <b>3/9 = 1/3</b>. <u>Bu, 1/3 = 0,333… eşitliğinin tersten doğrulanmasıdır.</u></li>
+<li><b>2,1̄6̄:</b> Devreden 16 (2 rakam), devretmeyen yok (virgülden hemen sonra başlıyor). Pay: 216 − 2 = 214. Payda: iki tane 9 → 99. Sonuç <b>214/99</b>.</li>
+<li><b>Kritik nokta:</b> İkinci örnekte "devretmeyen kısım" <u>tam kısım olan 2</u>'dir; virgülden sonra devretmeyen rakam olmadığı için paydaya sıfır eklenmez.</li>
+<li><b>Ünlü sonuç:</b> Aynı formülle <b>0,9̄ = 9/9 = 1</b> çıkar. Şaşırtıcı görünse de doğrudur: 0,999… ile 1 <u>aynı sayının iki farklı yazımıdır</u>.</li>
+</ul>
+
+<h3>6) Sıralama, Yuvarlama ve Karşılaştırma</h3>
+<p class="formula">ONDALIK SIRALAMA — Önce <b>tam kısımlara</b> bak; büyük olan büyüktür. Tam kısımlar eşitse <b>soldan sağa basamak basamak</b> karşılaştır; ilk farklılaşan basamakta kim büyükse sayı odur.<br/><b>DİKKAT:</b> "Basamak sayısı çok olan büyüktür" <u>yanlıştır</u>. 0,5 &gt; 0,4999 — çünkü ilk ondalık basamakta 5 &gt; 4. <u>Karşılaştırmayı kolaylaştırmak için basamakları sıfırla eşitle: 0,5000 ile 0,4999.</u></p>
+<p class="formula">DEVİRLİ SAYILARDA SIRALAMA — Devri <b>birkaç basamak açarak yaz</b>, sonra normal karşılaştır. <u>Örnek: 0,3̄ = 0,3333… ile 0,34 karşılaştırılırsa 0,3333 &lt; 0,3400 olduğu için 0,34 büyüktür.</u> Devri açmadan çizgiye bakarak karar vermeye çalışmak yanıltır.</p>
+<p class="formula">YUVARLAMA — Hangi basamağa yuvarlanacaksa <b>bir sağındaki rakama</b> bakılır: <b>5 ve üzeriyse</b> yuvarlanan basamak bir artar, <b>5'ten küçükse</b> aynı kalır; sağdaki basamaklar atılır. <u>3,847 sayısı yüzde birler basamağına yuvarlanırsa 3,85; onda birler basamağına yuvarlanırsa 3,8 olur.</u> <b>Zincirleme yuvarlama yapma:</b> 3,847'yi önce 3,85 sonra 3,9 yapmak yanlıştır; doğrudan hedef basamağa bak.</p>
+<p class="formula">İRRASYONEL AYRIMI — <b>Sonlu</b> ve <b>devirli</b> ondalık açılımların hepsi <b>rasyoneldir</b>; kesre çevrilebilirler. Sadece <b>sonsuz ve devirsiz</b> açılımlar irrasyoneldir (√2 = 1,41421356…, π = 3,14159…). <u>Sınavda "0,1010010001… sayısı rasyonel midir?" diye sorulursa dikkat: burada sıfırların sayısı her seferinde artıyor, yani sabit bir grup tekrar etmiyor → devirli değil → irrasyonel.</u></p>
+
+<h3>7) Test Teknikleri</h3>
+<p class="formula">SIK KULLANILAN ONDALIK KARŞILIKLARI — Bunları ezberlemek değil, tanımak zaman kazandırır: <b>1/2 = 0,5</b> &nbsp;<b>1/4 = 0,25</b> &nbsp;<b>3/4 = 0,75</b> &nbsp;<b>1/5 = 0,2</b> &nbsp;<b>1/8 = 0,125</b> &nbsp;<b>3/8 = 0,375</b> &nbsp;<b>1/3 = 0,3̄</b> &nbsp;<b>2/3 = 0,6̄</b> &nbsp;<b>1/6 = 0,16̄</b> &nbsp;<b>1/9 = 0,1̄</b> &nbsp;<b>1/11 = 0,0̄9̄</b>. Bir işlemde bunlardan biri görünürse kesre çevirip devam etmek çoğu zaman daha hızlıdır.</p>
+<p class="formula">PAYDASI 9'LARDAN OLUŞANLAR — <b>n/9 = 0,n̄</b>, &nbsp;<b>n/99 = 0,0̄n̄</b> biçiminde iki rakamlık devir verir. <u>Örnek: 5/9 = 0,5̄ &nbsp;·&nbsp; 23/99 = 0,2̄3̄ &nbsp;·&nbsp; 7/99 = 0,0̄7̄.</u> Formülü tersten okumak, şıkları saniyeler içinde eleyebilir.</p>
+<p class="formula">İŞLEMDE HANGİ FORMA GEÇMELİ? — <b>Toplama-çıkarma</b> gerektiren sorularda ondalık kalmak genellikle hızlıdır. <b>Çarpma, bölme ve devirli sayı</b> içeren sorularda ise <u>kesre çevirmek</u> neredeyse her zaman daha güvenlidir; virgül kaymaları en çok bu iki işlemde hata üretir.</p>
+<p class="formula">BASAMAK SAYMA KISAYOLU — Bir çarpımda sonucun virgülden sonra kaç basamağı olacağını <b>hesaplamadan</b> bilebilirsin: basamak sayılarını topla. <u>0,002 · 0,15 → 3 + 2 = 5 basamak → sonuç 0,00030 = 0,0003.</u> Şıklarda yalnızca virgül yeri farklıysa bu tek bakış soruyu bitirir.</p>
+
+<h3>8) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Ondalık dört işlem</b></td><td>Virgüllü sayılarla uzun ifade</td><td>Toplama-çıkarmada virgülleri hizala; çarpma-bölmede kesre çevirip işlem yap, sonda geri dön.</td></tr>
+<tr><td>2</td><td><b>Devirliyi kesre çevirme</b></td><td>Üzeri çizgili sayı, "rasyonel sayı olarak yazınız"</td><td>Devreden/devretmeyen rakam sayısını say → 9'lar ve 0'lar → tamamı eksi devretmeyen → sadeleştir.</td></tr>
+<tr><td>3</td><td><b>Sonlu mu devirli mi?</b></td><td>"Hangisinin ondalık açılımı sonludur/devirlidir?"</td><td>Önce <b>sadeleştir</b>, sonra paydayı asal çarpanlara ayır. Yalnız 2 ve 5 varsa sonlu.</td></tr>
+<tr><td>4</td><td><b>Devir uzunluğu / n. basamak</b></td><td>"Virgülden sonraki 100. rakam kaçtır?"</td><td>Devir uzunluğunu bul, devretmeyen basamakları çıkar, kalanı devir uzunluğuna böl, <b>kalana</b> bak.</td></tr>
+<tr><td>5</td><td><b>Sıralama</b></td><td>Ondalık ve devirli sayılar karışık verilir</td><td>Devirleri aynı basamak sayısına kadar aç, sıfırla eşitle, soldan sağa karşılaştır.</td></tr>
+<tr><td>6</td><td><b>Yuvarlama / yaklaşık değer</b></td><td>"En yakın onda bire yuvarlayınız"</td><td>Hedef basamağın <b>bir sağına</b> bak; 5 ve üzeri artırır. Zincirleme yuvarlama yapma.</td></tr>
+<tr><td>7</td><td><b>Rasyonel–irrasyonel ayrımı</b></td><td>Uzun ondalık açılım verilip türü sorulur</td><td>Sabit bir grup tekrar ediyor mu? Ediyorsa rasyonel, düzen değişiyorsa irrasyonel.</td></tr>
+<tr><td>8</td><td><b>10'un kuvvetiyle işlem</b></td><td>Bilimsel gösterim ya da büyük/küçük çarpanlar</td><td>Sıfır sayısı kadar basamak kaydır: çarpmada sağa, bölmede sola. Yer yoksa sıfır ekle.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 4) — <b>3/7</b> sayısının ondalık açılımında virgülden sonraki <b>50.</b> rakam kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Açılımı bul:</b> 3 : 7 = 0,428571428571… Devreden grup <b>428571</b>, uzunluğu <b>6</b>. Devretmeyen basamak yok.</li>
+<li><b>Adım 2 — Devir uzunluğuna böl:</b> 50 : 6 = 8 kalan <b>2</b>. Sekiz tam tur döner, sonra 2 basamak daha ilerler.</li>
+<li><b>Adım 3 — Kalana bak:</b> Kalan 2 olduğuna göre grubun <b>2. rakamı</b>: 4-<b>2</b>-8-5-7-1 → <b>2</b>.</li>
+<li><b>Kritik detay:</b> Bölme <u>tam bölünseydi</u> (kalan 0) grubun <b>son</b> rakamını alırdın. 48. rakam sorulsaydı cevap 1 olurdu.</li>
+<li><b>Devretmeyen kısım varsa:</b> Önce devretmeyen basamak sayısını sıradan <u>çıkar</u>, kalan sırayı devir uzunluğuna böl.</li>
+</ul>
+<p class="formula">ÖRNEK (Tip 3) — <b>7/56</b>, <b>9/24</b>, <b>11/40</b>, <b>13/30</b> kesirlerinden hangilerinin ondalık açılımı sonludur?</p>
+<ul>
+<li><b>7/56:</b> Önce sadeleştir → <b>1/8</b>. Payda 2³ → yalnız 2 var → <b>SONLU</b> (0,125).</li>
+<li><b>9/24:</b> Sadeleştir → <b>3/8</b>. Payda 2³ → <b>SONLU</b> (0,375).</li>
+<li><b>11/40:</b> Sade zaten. 40 = 2³·5 → yalnız 2 ve 5 → <b>SONLU</b> (0,275).</li>
+<li><b>13/30:</b> Sade zaten. 30 = 2·3·5 → içinde <b>3</b> var → <b>DEVİRLİ</b> (0,43̄).</li>
+<li><b>Ders:</b> İlk iki kesirde sadeleştirmeden bakılsaydı paydalarda 7 ve 3 görünüp yanlış karar verilirdi. <b>Sadeleştirme, bu soru tipinde zorunlu ilk adımdır.</b></li>
+</ul>
+
+<h3>9) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Ondalık kesir:</b> Paydası 10'un bir kuvveti olan kesir (7/100 gibi).</li>
+<li><b>Ondalık sayı:</b> Ondalık kesrin virgüllü gösterimi (0,07).</li>
+<li><b>Tam kısım:</b> Virgülün solundaki bölüm; sayının kaç bütün içerdiğini gösterir.</li>
+<li><b>Ondalık kısım (kesir kısmı):</b> Virgülün sağındaki bölüm; bütünden küçük olan artığı gösterir.</li>
+<li><b>Basamak değeri:</b> Bir rakamın bulunduğu basamağa göre kazandığı değer; virgülün sağında 10⁻¹, 10⁻², … olarak devam eder.</li>
+<li><b>Sonlu ondalık:</b> Ondalık açılımı belli bir basamakta biten sayı; en sade hâlinde paydası yalnızca 2 ve 5 çarpanları içerir.</li>
+<li><b>Devirli ondalık:</b> Virgülden sonra belli bir rakam grubunun sonsuza kadar tekrar ettiği sayı.</li>
+<li><b>Devir (devreden kısım):</b> Sonsuza kadar tekrar eden rakam grubu; üzerine çizgi çekilerek gösterilir.</li>
+<li><b>Devretmeyen kısım:</b> Virgülle devir arasında kalan, tekrar etmeyen rakamlar.</li>
+<li><b>Devir uzunluğu:</b> Devreden gruptaki rakam sayısı; paydası n olan bir kesirde en fazla n − 1 olabilir.</li>
+<li><b>Saf devirli sayı:</b> Devrin virgülden hemen sonra başladığı sayı (0,4̄5̄); paydasında yalnız 9'lar bulunur.</li>
+<li><b>Karışık devirli sayı:</b> Devirden önce devretmeyen rakam bulunan sayı (0,16̄); paydasında 9'ların ardından 0 gelir.</li>
+<li><b>Yuvarlama:</b> Bir sayıyı belirli bir basamağa kadar yaklaşık değeriyle yazma.</li>
+<li><b>İrrasyonel sayı:</b> Ondalık açılımı hem sonsuz hem devirsiz olan, kesre çevrilemeyen sayı.</li>
+</ul>
+
+<h3>10) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Toplamada virgülleri hizalamamak:</b> 12,5 + 3,75 işleminde sayıları sağa dayalı yazmak yanlış sonuç verir. <b>Virgül virgülün altına.</b></li>
+<li><b>Çarpmada virgülleri hizalamaya çalışmak:</b> Çarpmada hiza yoktur; virgülün yeri yalnızca sonuçta, basamak toplamıyla belirlenir.</li>
+<li><b>Bölmede yalnızca böleni virgülden kurtarmak:</b> Böleni 10 ile çarptıysan <b>bölüneni de</b> 10 ile çarpmalısın; yoksa sonuç on kat sapar.</li>
+<li><b>Sonlu/devirli kararında sadeleştirmemek:</b> 6/15 paydasında 3 var gibi durur ama sadeleşince 2/5 olur ve açılım sonludur.</li>
+<li><b>Devir çizgisinin kapsamını yanlış okumak:</b> 1,46̄ (yalnız 6 devrediyor) ile 1,4̄6̄ (46 devrediyor) farklı sayılardır.</li>
+<li><b>Formülde 9 ve 0 sayısını karıştırmak:</b> <b>9'lar devredene</b>, <b>0'lar devretmeyene</b> göre yazılır — tersi değil.</li>
+<li><b>Payda "tamamı" yazarken virgülü hesaba katmak:</b> Pay yazılırken sayılar <u>virgülsüz</u> okunur; 21,378… için 21378 yazılır.</li>
+<li><b>Saf devirlide paydaya sıfır eklemek:</b> 0,4̄5̄ için payda 99'dur, 990 değil; virgülden sonra devretmeyen rakam yoktur.</li>
+<li><b>"Basamağı çok olan büyüktür" sanısı:</b> 0,4999 &lt; 0,5. Karşılaştırma soldan sağa, basamak basamak yapılır.</li>
+<li><b>Zincirleme yuvarlama:</b> 3,847 → 3,85 → 3,9 yanlıştır. Hedef basamağın bir sağına <u>bir kez</u> bakılır: 3,8.</li>
+<li><b>Her sonsuz açılımı irrasyonel sanmak:</b> Devrediyorsa rasyoneldir. 0,3̄ = 1/3.</li>
+<li><b>0,9̄ ile 1'i farklı sanmak:</b> Formül 9/9 = 1 verir; bunlar aynı sayının iki yazımıdır.</li>
+<li><b>n. basamak sorusunda kalan 0 çıkınca ilk rakamı almak:</b> Kalan 0 ise devir grubunun <b>son</b> rakamı alınır.</li>
+<li><b>10 ile bölerken virgülü sağa kaydırmak:</b> Bölmede sayı küçülür, virgül <b>sola</b> gider.</li>
+</ul>
+
+<h3>11) Özet Kartı</h3>
+<ul>
+<li><b>Ondalık = kesir:</b> Virgülden sonra kaç basamak varsa paydada o kadar sıfır. 0,25 = 25/100.</li>
+<li><b>Sonlu mu devirli mi:</b> Sadeleştir → paydayı asal çarpanlarına ayır. Yalnız <b>2 ve 5</b> → sonlu; başka asal → devirli.</li>
+<li><b>Devir neden oluşur:</b> Bölmede kalanlar sınırlı sayıdadır, biri tekrar edince basamaklar da tekrar eder. Devir uzunluğu ≤ payda − 1.</li>
+<li><b>Toplama-çıkarma:</b> Virgüller alt alta; eksik basamakları sıfırla tamamla.</li>
+<li><b>Çarpma:</b> Virgül yokmuş gibi çarp, <b>basamak sayılarını topla</b>, sağdan o kadar ayır.</li>
+<li><b>Bölme:</b> Böleni virgülden kurtar, <b>bölüneni de aynı sayıyla çarp</b>.</li>
+<li><b>10'un kuvvetleri:</b> Çarpmada virgül <b>sağa</b>, bölmede <b>sola</b>; sıfır sayısı kadar basamak.</li>
+<li><b>Devirli → kesir:</b> <b>(Tamamı − Devretmeyen) / (devreden kadar 9, devretmeyen kadar 0)</b>, sonra sadeleştir.</li>
+<li><b>Formülün kaynağı:</b> 100x − x = 99x hilesi; sonsuz kuyruklar çıkarmada birbirini götürür.</li>
+<li><b>Ezber destekleri:</b> n/9 = 0,n̄ &nbsp;·&nbsp; n/99 = 0,0̄n̄ &nbsp;·&nbsp; 0,9̄ = 1.</li>
+<li><b>n. basamak:</b> Devretmeyeni çıkar → devir uzunluğuna böl → <b>kalana</b> bak; kalan 0 ise grubun son rakamı.</li>
+<li><b>Sıralama:</b> Tam kısım → soldan sağa basamak. Devirleri açarak yaz, sıfırla eşitle.</li>
+<li><b>Yuvarlama:</b> Hedefin bir sağına bak; ≥ 5 artırır. Tek adımda yap.</li>
+<li><b>Tür ayrımı:</b> Sonlu ve devirli → <b>rasyonel</b>. Sonsuz ve devirsiz → <b>irrasyonel</b>.</li>
+</ul>
+
+</body></html>

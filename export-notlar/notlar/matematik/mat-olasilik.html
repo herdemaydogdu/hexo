@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Permütasyon, Kombinasyon ve Olasılık</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Permütasyon, Kombinasyon ve Olasılık</h2>
+
+<p>Bu ünitenin tamamı <b>tek bir soruya</b> dayanır: <b>"Sıra önemli mi?"</b> Önemliyse permütasyon, değilse kombinasyon. Bu kararı doğru verdiğinde formüller kendiliğinden yerine oturur; yanlış verdiğinde bütün işlemler doğru olsa bile sonuç yanlış çıkar. Olasılık ise bunun üzerine kurulur: <b>istenen durum sayısı / tüm durum sayısı</b>. Yani olasılık sorularının zorluğu olasılıkta değil, <u>sayma kısmındadır</u>. Bu ünitede önce saymayı sağlam kuracağız, sonra olasılık doğal olarak gelecek.</p>
+
+<h3>1) Saymanın Temel İlkesi</h3>
+<p class="formula">ÇARPMA YOLUYLA SAYMA — <b>k tane olay</b> art arda gerçekleşiyorsa ve birinci olay n₁, ikinci olay n₂, …, k'ıncı olay n<sub>k</sub> farklı biçimde olabiliyorsa, olayların tamamı <b>n₁ · n₂ · … · n<sub>k</sub></b> farklı biçimde gerçekleşir.<br/>
+<b>TOPLAMA YOLUYLA SAYMA</b> — A ve B <u>ayrık</u> (aynı anda olamayan) durumlarsa: <b>s(A ∪ B) = s(A) + s(B)</b>.</p>
+<p class="formula">ALTIN AYRIM — <b>"VE" varsa ÇARP, "VEYA" varsa TOPLA.</b><br/>
+<u>"Bir gömlek VE bir pantolon seçilecek" → çarp. "Bir gömlek VEYA bir pantolon seçilecek" → topla.</u><br/>
+<b>Sezgi:</b> "ve" adımların peş peşe yapılması, "veya" alternatiflerden birinin seçilmesi demektir. <u>Adımlar çarpılır, alternatifler toplanır.</u></p>
+<p class="formula">ÖRNEK (PDF) — <b>a)</b> 4 mektup, 3 posta kutusuna kaç farklı şekilde atılabilir?<br/>
+<b>b)</b> 3 mektup, 4 posta kutusuna <b>her kutuda en çok bir mektup</b> olacak biçimde kaç farklı şekilde atılabilir?</p>
+<ul>
+<li><b>a) Kısıt yok:</b> Her mektup için 3 seçenek vardır ve seçimler bağımsızdır → 3 · 3 · 3 · 3 = <b>3⁴ = 81</b>.<br/>
+<u>Kritik nokta: mektup başına karar veriyoruz, kutu başına değil. "Hangi nesne için karar veriyorum?" sorusu bu tip soruların anahtarıdır.</u></li>
+<li><b>b) Kısıtlı (her kutuda en çok bir mektup):</b> Birinci mektup 4 kutudan birine, ikinci mektup <u>kalan 3</u> kutudan birine, üçüncü mektup <u>kalan 2</u> kutudan birine → 4 · 3 · 2 = <b>24</b>.<br/>
+<u>Bu aslında P(4, 3) permütasyonudur.</u></li>
+<li><b>Ders:</b> Kısıt yoksa seçenek sayısı <b>sabit kalır</b> (üslü ifade), kısıt varsa <b>birer birer azalır</b> (permütasyon). Bu iki durumu ayırmak, sayma sorularının ilk adımıdır.</li>
+</ul>
+
+<h3>2) Faktöriyel</h3>
+<p class="formula">TANIM — n ∈ ℕ olmak üzere 1'den n'ye kadar ardışık tam sayıların çarpımına <b>n faktöriyel</b> denir: <b>n! = 1 · 2 · 3 · … · (n−1) · n</b><br/>
+<b>Kabuller:</b> <b>0! = 1</b> ve <b>1! = 1</b>.<br/>
+<b>Özyineleme:</b> <b>n! = n · (n−1)!</b> — <u>bu bağıntı, faktöriyelli ifadeleri sadeleştirmenin tek aracıdır.</u><br/>
+<b>Değerler:</b> 2! = 2 · 3! = 6 · 4! = 24 · 5! = 120 · 6! = 720</p>
+<p class="formula">TOPLAMA-ÇIKARMADA ORTAK PARANTEZ — Faktöriyeller <b>toplanamaz</b> (8! + 9! ≠ 17!). Yapılacak şey, <b>küçük olana göre düzenleyip ortak paranteze almaktır</b>.<br/>
+<b>ÖRNEK (PDF):</b> <u>(10! + 9!) / (9! − 8!)</u> işleminin sonucu?<br/>
+• Pay: 10! + 9! = 9!(10 + 1) = <b>11 · 9!</b> &nbsp;·&nbsp; Payda: 9! − 8! = 8!(9 − 1) = <b>8 · 8!</b><br/>
+• Bölüm: (11 · 9!) / (8 · 8!) = (11 · 9 · 8!) / (8 · 8!) = <b>99/8</b><br/>
+<u>Dikkat: 9! = 9 · 8! yazarak paydayla sadeleştirdik. Ortak parantez + özyineleme, bu tip soruların tamamını çözer.</u></p>
+<p class="formula">FAKTÖRİYELDEKİ ASAL ÇARPAN SAYISI — <b>n! = aᵏ · t</b> ifadesinde a asalının en büyük k üssünü bulmak için <b>n'yi a'ya bölmeye devam et, bölümleri topla</b>.<br/>
+<b>ÖRNEK (PDF):</b> 29! = A · 3ᵏ ise k en çok kaçtır? → 29 : 3 = 9 &nbsp;·&nbsp; 9 : 3 = 3 &nbsp;·&nbsp; 3 : 3 = 1 → <b>9 + 3 + 1 = 13</b>.<br/>
+<u>Neden işliyor? İlk bölme 3'ün katlarını, ikincisi 9'un katlarını (bir 3 daha), üçüncüsü 27'nin katlarını sayar. Her katman bir çarpan ekler.</u><br/>
+<b>Uygulama:</b> "n! sayısının sonunda kaç sıfır vardır?" sorusu, <b>5'in üssünü</b> saymakla çözülür (2 her zaman daha çoktur).</p>
+
+<h3>3) Permütasyon — Sıra Önemli</h3>
+<p class="formula">TANIM — n elemanlı bir kümenin birbirinden farklı <b>r elemanından oluşan DİZİLİŞLERİN</b> her birine <b>n'nin r'li permütasyonu</b> denir:<br/>
+<b>P(n, r) = n! / (n − r)!</b><br/>
+<b>Özel değerler:</b> <b>P(n, 0) = 1</b> &nbsp;·&nbsp; <b>P(n, 1) = n</b> &nbsp;·&nbsp; <b>P(n, n) = n!</b><br/>
+<u>Pratik hesap: P(n, r), n'den başlayarak azalan r tane sayının çarpımıdır. P(8, 3) = 8 · 7 · 6 = 336. Formülü açmaya gerek yok.</u></p>
+<p class="formula">TEKRARLI PERMÜTASYON — n nesnenin n₁ tanesi özdeş, n₂ tanesi özdeş, …, n<sub>r</sub> tanesi özdeşse farklı diziliş sayısı:<br/>
+<b>n! / (n₁! · n₂! · … · n<sub>r</sub>!)</b><br/>
+<u>Neden bölüyoruz? Özdeş nesneler kendi aralarında yer değiştirdiğinde <b>yeni bir diziliş oluşmaz</b>; bu tekrarları saymamak için özdeş grupların faktöriyellerine böleriz.</u><br/>
+<b>Örnek:</b> KİTAP kelimesinin harfleri 5! = 120 farklı şekilde dizilir (hepsi farklı). Ama <u>ANANAS</u> kelimesinde 3 A ve 2 N vardır: 6!/(3!·2!) = 720/12 = <b>60</b>.</p>
+<p class="formula">ÖRNEK (PDF) — <b>ELEK</b> kelimesinin harflerinden <b>herhangi 3'ü</b> kaç farklı şekilde sıralanabilir?</p>
+<ul>
+<li><b>Dikkat:</b> Harfler E, L, E, K — iki tane E var. "Herhangi 3'ü" dendiği için <u>hangi harfin dışarıda kaldığına göre durumlara ayırmalıyız</u>.</li>
+<li><b>Durum 1 — E'lerden biri kullanılmaz:</b> Kalan L, E, K (hepsi farklı) → 3! = <b>6</b>.</li>
+<li><b>Durum 2 — L kullanılmaz:</b> Kalan E, E, K → 3!/(2!·1!) = <b>3</b>.</li>
+<li><b>Durum 3 — K kullanılmaz:</b> Kalan E, L, E → 3!/(2!·1!) = <b>3</b>.</li>
+<li><b>Toplam:</b> 6 + 3 + 3 = <b>12</b>.</li>
+<li><b>Ders:</b> Özdeş eleman içeren "bir kısmını seç ve sırala" sorularında <b>doğrudan formül yoktur</b>; durumlara ayırmak zorunludur. <u>Durumlar ayrık olduğu için sonunda TOPLARIZ.</u></li>
+</ul>
+<p class="formula">DÖNEL (DAİRESEL) PERMÜTASYON — n kişi <b>yuvarlak bir masa</b> etrafında <b>(n − 1)!</b> farklı şekilde oturur.<br/>
+<u>Neden n! değil? Çünkü herkes aynı anda bir sandalye kayarsa <b>diziliş değişmemiş sayılır</b>; n farklı döndürme aynı düzeni verir, bu yüzden n!/n = (n−1)! olur.</u><br/>
+<b>Kolye/bilezik durumu:</b> Ayna simetrisi de aynı sayılıyorsa <b>(n − 1)!/2</b> olur.</p>
+
+<h3>4) Kombinasyon — Sıra Önemsiz</h3>
+<p class="formula">TANIM — n elemanlı bir kümenin <b>r elemanlı ALT KÜMELERİNİN</b> her birine <b>r'li kombinasyon</b> denir:<br/>
+<b>C(n, r) = n! / [r! · (n − r)!]</b> &nbsp;<u>(binom katsayısı olarak da yazılır)</u><br/>
+<b>Permütasyonla bağlantı:</b> <b>P(n, r) = C(n, r) · r!</b><br/>
+<u>Yani kombinasyon, permütasyondan <b>iç sıralamaları</b> atarak elde edilir: önce seç (C), sonra istersen sırala (r!).</u></p>
+<p class="formula">TEMEL ÖZELLİKLER —<br/>
+• <b>C(n, 0) = 1</b> &nbsp;·&nbsp; <b>C(n, 1) = n</b> &nbsp;·&nbsp; <b>C(n, n) = 1</b><br/>
+• <b>C(n, r) = C(n, n − r)</b> &nbsp;<u>(simetri: r tane seçmek, n−r tanesini dışarıda bırakmakla aynıdır)</u><br/>
+• <b>C(n, r) + C(n, r+1) = C(n+1, r+1)</b> &nbsp;<u>(Pascal kuralı)</u><br/>
+• <b>C(n,0) + C(n,1) + … + C(n,n) = 2ⁿ</b> &nbsp;<u>(tüm alt kümelerin toplamı — kümeler ünitesindeki 2ⁿ ile aynı sonuç)</u><br/>
+<b>Hesap kısayolu:</b> C(10, 3) = (10·9·8)/(3·2·1) = 120. <u>Payda r tane azalan sayı, paydada r!.</u></p>
+<svg viewBox="0 0 640 280" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Permütasyon mu kombinasyon mu karar şeması">
+  <rect x="0" y="0" width="640" height="280" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Tek soru: SIRA ÖNEMLİ Mİ?</text>
+  <rect x="190" y="40" width="260" height="36" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+  <text x="320" y="63" font-size="13" font-weight="700" fill="#334155" text-anchor="middle">Seçilenlerin sırası sonucu değiştiriyor mu?</text>
+  <line x1="320" y1="76" x2="320" y2="94" stroke="#64748b" stroke-width="2"/>
+  <line x1="150" y1="94" x2="490" y2="94" stroke="#64748b" stroke-width="2"/>
+  <line x1="150" y1="94" x2="150" y2="112" stroke="#64748b" stroke-width="2"/>
+  <line x1="490" y1="94" x2="490" y2="112" stroke="#64748b" stroke-width="2"/>
+  <rect x="35" y="112" width="230" height="86" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+  <text x="150" y="134" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">EVET → PERMÜTASYON</text>
+  <text x="150" y="156" font-size="14" font-weight="700" fill="#0369a1" text-anchor="middle">P(n, r) = n!/(n−r)!</text>
+  <text x="150" y="176" font-size="10" fill="#0369a1" text-anchor="middle">başkan-yardımcı seçimi, sıraya dizme,</text>
+  <text x="150" y="190" font-size="10" fill="#0369a1" text-anchor="middle">şifre, sayı oluşturma, madalya sırası</text>
+  <rect x="375" y="112" width="230" height="86" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="490" y="134" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">HAYIR → KOMBİNASYON</text>
+  <text x="490" y="156" font-size="14" font-weight="700" fill="#15803d" text-anchor="middle">C(n, r) = n!/[r!(n−r)!]</text>
+  <text x="490" y="176" font-size="10" fill="#15803d" text-anchor="middle">komisyon/takım kurma, el seçme,</text>
+  <text x="490" y="190" font-size="10" fill="#15803d" text-anchor="middle">doğru-üçgen sayma, ikram seçimi</text>
+  <line x1="26" y1="216" x2="614" y2="216" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="234" font-size="10" fill="#475569">Test yöntemi: seçtiğin iki nesnenin yerini değiştir. Yeni bir sonuç oluyorsa PERMÜTASYON, aynı kalıyorsa KOMBİNASYON.</text>
+  <text x="26" y="250" font-size="10" fill="#475569">"Başkan ve yardımcı" → (Ali başkan, Veli yardımcı) ≠ (Veli başkan, Ali yardımcı) → sıra önemli → permütasyon.</text>
+  <text x="26" y="266" font-size="10" fill="#475569">"2 kişilik komisyon" → {Ali, Veli} = {Veli, Ali} → sıra önemsiz → kombinasyon. P(n,r) = C(n,r)·r! bağıntısı bu farkı ölçer.</text>
+</svg>
+<p class="formula">KOMBİNASYON ve GEOMETRİ — Sıra önemsiz olduğu için geometrik sayma soruları doğrudan kombinasyondur:<br/>
+• <b>Herhangi üçü doğrusal olmayan n nokta ile:</b> doğru sayısı <b>C(n, 2)</b>, üçgen sayısı <b>C(n, 3)</b><br/>
+• <b>n kenarlı çokgende köşegen sayısı:</b> <b>C(n, 2) − n = n(n−3)/2</b> &nbsp;<u>(tüm nokta çiftlerinden kenarları çıkar)</u><br/>
+• <b>m yatay ve n dikey doğru ile oluşan dikdörtgen sayısı:</b> <b>C(m, 2) · C(n, 2)</b><br/>
+<u>Mantık: bir doğruyu iki nokta, bir üçgeni üç nokta, bir dikdörtgeni iki yatay + iki dikey doğru belirler. Sıra hiçbirinde önemli değildir.</u></p>
+
+<h3>5) Binom Açılımı ve Pascal Üçgeni</h3>
+<p class="formula">BİNOM AÇILIMI — n ∈ ℕ olmak üzere:<br/>
+<b>(x + y)ⁿ = C(n,0)xⁿ + C(n,1)x<sup>n−1</sup>y + C(n,2)x<sup>n−2</sup>y² + … + C(n,n)yⁿ</b><br/>
+<b>Temel gözlemler:</b><br/>
+• Açılımda <b>(n + 1) terim</b> vardır.<br/>
+• Her terimde x ile y'nin <b>üsleri toplamı n</b>'dir.<br/>
+• <b>Katsayılar toplamı</b> için değişkenlere <b>1</b> yazılır.<br/>
+• <b>Sabit terim</b> için değişkenlere <b>0</b> yazılır.</p>
+<p class="formula">GENEL TERİM — x'in azalan kuvvetlerine göre açılımda:<br/>
+• <b>Baştan (r+1). terim:</b> <b>C(n, r) · x<sup>n−r</sup> · y<sup>r</sup></b><br/>
+• <b>Sondan (r+1). terim:</b> <b>C(n, r) · x<sup>r</sup> · y<sup>n−r</sup></b><br/>
+• <b>Ortadaki terim:</b> n <u>çift</u> ise r = n/2 alınır; n <u>tek</u> ise ortada tek bir terim <b>yoktur</b> (terim sayısı çifttir).</p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pascal üçgeni">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Pascal üçgeni: her sayı üstündeki iki komşusunun toplamı</text>
+  <g font-size="14" font-weight="700" fill="#0369a1" text-anchor="middle">
+    <text x="320" y="56">1</text>
+    <text x="290" y="86">1</text><text x="350" y="86">1</text>
+    <text x="260" y="116">1</text><text x="320" y="116">2</text><text x="380" y="116">1</text>
+    <text x="230" y="146">1</text><text x="290" y="146">3</text><text x="350" y="146">3</text><text x="410" y="146">1</text>
+    <text x="200" y="176">1</text><text x="260" y="176">4</text><text x="320" y="176">6</text><text x="380" y="176">4</text><text x="440" y="176">1</text>
+  </g>
+  <g font-size="10" fill="#475569" text-anchor="end">
+    <text x="150" y="56">n = 0</text><text x="150" y="86">n = 1</text><text x="150" y="116">n = 2</text>
+    <text x="150" y="146">n = 3</text><text x="150" y="176">n = 4</text>
+  </g>
+  <g font-size="10" fill="#15803d">
+    <text x="480" y="56">toplam 1 = 2⁰</text><text x="480" y="86">toplam 2 = 2¹</text><text x="480" y="116">toplam 4 = 2²</text>
+    <text x="480" y="146">toplam 8 = 2³</text><text x="480" y="176">toplam 16 = 2⁴</text>
+  </g>
+  <line x1="26" y1="196" x2="614" y2="196" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="214" font-size="10" fill="#475569">n. satır, (x+y)ⁿ açılımının katsayılarını verir: C(n,0), C(n,1), …, C(n,n). Satır toplamı daima 2ⁿ'dir.</text>
+  <text x="26" y="230" font-size="10" fill="#475569">"Her sayı üstündeki ikisinin toplamı" kuralı, C(n,r) + C(n,r+1) = C(n+1,r+1) Pascal özdeşliğinin görsel hâlidir.</text>
+  <text x="26" y="246" font-size="10" fill="#475569">Satırlar simetriktir; bu da C(n,r) = C(n,n−r) özelliğine karşılık gelir.</text>
+</svg>
+<p class="formula">ÖRNEK (PDF) — <b>(2x − 3y + 4)⁷</b> açılımında <b>katsayılar toplamı</b> ve <b>sabit terim</b> kaçtır?</p>
+<ul>
+<li><b>Katsayılar toplamı:</b> Değişkenlere 1 yaz → (2·1 − 3·1 + 4)⁷ = (2 − 3 + 4)⁷ = <b>3⁷</b>.</li>
+<li><b>Sabit terim:</b> Değişkenlere 0 yaz → (0 − 0 + 4)⁷ = <b>4⁷</b>.</li>
+<li><b>Neden işliyor?</b> <u>Açılımdaki her terim katsayı × x^a × y^b biçimindedir. x = y = 1 koyunca tüm değişkenler 1 olur ve geriye sadece katsayılar toplamı kalır. x = y = 0 koyunca değişken içeren tüm terimler sıfırlanır, yalnızca sabit terim ayakta kalır.</u></li>
+<li><b>Sık hata:</b> "Katsayılar toplamı" ile "terim sayısı"nı karıştırmak. Ayrıca sabit terimi bulurken <u>sadece sabitleri toplamak</u> yanlıştır; ifadenin tamamına 0 yazılmalıdır.</li>
+</ul>
+
+<h3>6) Olasılıkta Temel Kavramlar</h3>
+<p class="formula">TANIMLAR —<br/>
+• <b>Deney:</b> Tekrarlanabilen, farklı tekrarlarında farklı sonuçlar verebilen süreç. <u>(Para atma)</u><br/>
+• <b>Çıktı:</b> Deneyde elde edilen her bir sonuç. <u>(Yazı, tura)</u><br/>
+• <b>Örnek uzay (E):</b> Tüm çıktıların kümesi. <u>(E = {Y, T})</u><br/>
+• <b>Olay:</b> Örnek uzayın herhangi bir alt kümesi.</p>
+<p class="formula">ÖRNEK UZAY BÜYÜKLÜKLERİ — <u>Bunlar doğrudan çarpma ilkesinden çıkar:</u><br/>
+• <b>n para atılması:</b> s(E) = <b>2ⁿ</b> &nbsp;<u>(her para için 2 seçenek)</u><br/>
+• <b>n zar atılması:</b> s(E) = <b>6ⁿ</b><br/>
+<b>Kritik not:</b> <u>n parayı aynı anda atmakla bir parayı n kez atmak aynı örnek uzayı verir.</u> İki zar için s(E) = 36, iki para için s(E) = 4'tür.</p>
+<p class="formula">OLASILIK — Her çıktının gelme şansı <b>eşit</b> olan bir örnek uzayda A olayının olasılığı:<br/>
+<b>P(A) = s(A) / s(E)</b><br/>
+<b>Temel kurallar:</b><br/>
+• <b>0 ≤ P(A) ≤ 1</b> &nbsp;·&nbsp; P(A) = 0 → <b>imkânsız olay</b> &nbsp;·&nbsp; P(A) = 1 → <b>kesin olay</b><br/>
+• <b>P(A) + P(A′) = 1</b> &nbsp;<u>(tümleyen kuralı)</u><br/>
+• <b>Ayrık olaylar için:</b> P(A ∪ B) = P(A) + P(B)<br/>
+• <b>Ayrık olmayan olaylar için:</b> <b>P(A ∪ B) = P(A) + P(B) − P(A ∩ B)</b><br/>
+<u>Son formül, kümelerdeki eleman sayısı bağıntısının olasılık hâlidir.</u></p>
+<p class="formula">TÜMLEYEN KISAYOLU — <b>"En az bir …" ifadesi gördüğünde tümleyeni düşün.</b><br/>
+<u>Örnek: 3 para atıldığında en az bir tura gelme olasılığı? Doğrudan saymak yerine: "hiç tura gelmemesi" tek bir durumdur (YYY) → P = 1 − 1/8 = <b>7/8</b>.</u><br/>
+<b>Bu kısayol, "en az bir" içeren soruların neredeyse tamamında en hızlı yoldur.</b></p>
+<p class="formula">ÖRNEK — Bir torbada <b>4 kırmızı, 6 mavi</b> bilye vardır. <b>Ardışık olarak iki bilye</b> çekiliyor (<u>geri konulmadan</u>). İkisinin de kırmızı olma olasılığı kaçtır?</p>
+<ul>
+<li><b>Yöntem 1 — Kombinasyonla:</b> Tüm seçimler C(10, 2) = 45, kırmızı seçimler C(4, 2) = 6 → P = 6/45 = <b>2/15</b>.</li>
+<li><b>Yöntem 2 — Ardışık olasılıkla:</b> İlk çekiliş 4/10, ikinci çekiliş (bir kırmızı gitti) 3/9 → (4/10)·(3/9) = 12/90 = <b>2/15</b> ✓</li>
+<li><b>Geri konulsaydı:</b> (4/10)·(4/10) = <b>4/25</b> olurdu. <u>"Geri konularak" ifadesi sonucu tamamen değiştirir; soruda mutlaka ara.</u></li>
+<li><b>Ders:</b> Sıra önemsiz olduğu için kombinasyon kullanılabilir; ardışık çarpım da aynı sonucu verir. <b>İki yoldan da doğrulamak, olasılıkta en güvenilir kontroldür.</b></li>
+</ul>
+
+<h3>7) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Çarpma ilkesi</b></td><td>"Kaç farklı şekilde …?" (adımlı seçim)</td><td>Her adımın seçenek sayısını <b>çarp</b>. Kısıt varsa seçenekler azalır.</td></tr>
+<tr><td>2</td><td><b>Sayı oluşturma</b></td><td>"Rakamlarla kaç farklı sayı yazılır?"</td><td><b>En kısıtlı basamaktan başla</b> (baştaki 0 olamaz, çift olma koşulu vb.).</td></tr>
+<tr><td>3</td><td><b>Faktöriyel sadeleştirme</b></td><td>(n+1)!/n! gibi ifadeler</td><td><b>n! = n·(n−1)!</b> ve <b>ortak parantez</b> kullan.</td></tr>
+<tr><td>4</td><td><b>Permütasyon</b></td><td>Sıralama, diziliş, görev dağılımı</td><td><b>P(n,r)</b> = n'den azalan r sayının çarpımı.</td></tr>
+<tr><td>5</td><td><b>Tekrarlı permütasyon</b></td><td>Aynı harften birden fazla var</td><td><b>n!/(n₁!·n₂!·…)</b>. Bir kısmı seçiliyorsa <b>durumlara ayır</b>.</td></tr>
+<tr><td>6</td><td><b>Kombinasyon</b></td><td>Takım, komisyon, grup seçme</td><td><b>C(n,r)</b>. "En az / en çok" varsa durumları <b>topla</b> ya da tümleyeni al.</td></tr>
+<tr><td>7</td><td><b>Geometrik sayma</b></td><td>Nokta, doğru, üçgen, köşegen</td><td>Doğru <b>C(n,2)</b>, üçgen <b>C(n,3)</b>, köşegen <b>n(n−3)/2</b>.</td></tr>
+<tr><td>8</td><td><b>Binom terimi</b></td><td>"…açılımında x³ 'ün katsayısı"</td><td><b>C(n,r)·x<sup>n−r</sup>y<sup>r</sup></b>; üsleri eşitleyip r'yi bul.</td></tr>
+<tr><td>9</td><td><b>Basit olasılık</b></td><td>Zar, para, torba, kart</td><td><b>P = s(A)/s(E)</b>. Örnek uzayı <b>çarpma ilkesiyle</b> hesapla.</td></tr>
+<tr><td>10</td><td><b>"En az bir" olasılığı</b></td><td>"En az bir … gelme olasılığı"</td><td><b>1 − P(hiç olmama)</b> — tümleyen kısayolu.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 6) — <b>5 kadın ve 4 erkek</b> arasından <b>3 kişilik</b> bir komisyon kurulacaktır. Komisyonda <b>en az bir kadın</b> bulunma olasılığı kaçtır?</p>
+<ul>
+<li><b>Adım 1 — Örnek uzay:</b> 9 kişiden 3 kişi seçimi → C(9, 3) = (9·8·7)/(3·2·1) = <b>84</b>.</li>
+<li><b>Adım 2 — Tümleyeni kullan:</b> "En az bir kadın"ın tümleyeni <b>"hiç kadın yok"</b>, yani 3'ü de erkek → C(4, 3) = <b>4</b>.</li>
+<li><b>Adım 3 — Olasılık:</b> P = 1 − 4/84 = 1 − 1/21 = <b>20/21</b>.</li>
+<li><b>Doğrudan saymak neden uzun?</b> <u>1 kadın + 2 erkek, 2 kadın + 1 erkek, 3 kadın olmak üzere üç durumu ayrı ayrı hesaplayıp toplamak gerekirdi: C(5,1)C(4,2) + C(5,2)C(4,1) + C(5,3) = 30 + 40 + 10 = 80 → 80/84 = 20/21 ✓ Aynı sonuç, dört kat işlem.</u></li>
+<li><b>Kural:</b> <b>"En az bir" gördüğünde önce tümleyeni dene</b>; genellikle tek bir durum kalır.</li>
+</ul>
+<p class="formula">ÖRNEK (Tip 2) — <b>0, 1, 2, 3, 4</b> rakamlarıyla, <b>rakamları farklı</b> üç basamaklı kaç <b>çift</b> sayı yazılabilir?</p>
+<ul>
+<li><b>İki kısıt var:</b> Baştaki rakam <u>0 olamaz</u> ve son rakam <u>çift olmalı</u> (0, 2, 4). Kısıtlar çakıştığı için <b>durumlara ayırmalıyız</b>.</li>
+<li><b>Durum 1 — Birler basamağı 0:</b> Yüzler için kalan 4 rakamdan biri (0 kullanıldı, kısıt yok) → 4, onlar için kalan 3 → <b>4 · 3 = 12</b>.</li>
+<li><b>Durum 2 — Birler basamağı 2 veya 4 (2 seçenek):</b> Yüzler basamağı 0 olamaz ve birler kullanıldı → kalan 4 rakamdan 0 çıkarılır → <b>3</b> seçenek; onlar için kalan 3 → 2 · 3 · 3 = <b>18</b>.</li>
+<li><b>Toplam:</b> 12 + 18 = <b>30</b>.</li>
+<li><b>Ders:</b> İki kısıt aynı anda varsa <u>doğrudan çarpma yapılamaz</u>; kısıtların çakıştığı durum (burada birler basamağının 0 olması) <b>ayrı ele alınmalıdır</b>. Bu, sayma sorularındaki en klasik tuzaktır.</li>
+</ul>
+
+<h3>8) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Saymanın temel ilkesi:</b> Ardışık adımların seçenek sayılarının çarpılması.</li>
+<li><b>Faktöriyel (n!):</b> 1'den n'ye kadar ardışık sayıların çarpımı; 0! = 1.</li>
+<li><b>Permütasyon:</b> Sıralı seçim; P(n,r) = n!/(n−r)!.</li>
+<li><b>Tekrarlı permütasyon:</b> Özdeş nesneler içeren dizilişler; n!/(n₁!n₂!…).</li>
+<li><b>Dönel permütasyon:</b> Yuvarlak masa dizilişi; (n−1)!.</li>
+<li><b>Kombinasyon:</b> Sırasız seçim; C(n,r) = n!/[r!(n−r)!].</li>
+<li><b>Pascal üçgeni:</b> Binom katsayılarının üçgen düzeni; her sayı üstündeki ikisinin toplamı.</li>
+<li><b>Binom açılımı:</b> (x+y)ⁿ ifadesinin terimlerine ayrılması; (n+1) terim içerir.</li>
+<li><b>Deney:</b> Tekrarlanabilen, sonucu önceden kesin bilinmeyen süreç.</li>
+<li><b>Örnek uzay (E):</b> Tüm olası çıktıların kümesi.</li>
+<li><b>Olay:</b> Örnek uzayın bir alt kümesi.</li>
+<li><b>Tümleyen olay (A′):</b> A'nın gerçekleşmediği durum; P(A) + P(A′) = 1.</li>
+<li><b>Ayrık olaylar:</b> Aynı anda gerçekleşemeyen olaylar; kesişimleri boştur.</li>
+<li><b>İmkânsız olay:</b> Olasılığı 0 olan olay. <b>Kesin olay:</b> olasılığı 1 olan olay.</li>
+</ul>
+
+<h3>9) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Permütasyon–kombinasyon ayrımını kaçırmak:</b> "Sıra önemli mi?" sorusunu sormadan formüle geçme. <u>İki seçilenin yerini değiştir; sonuç değişiyorsa permütasyon.</u></li>
+<li><b>"ve"/"veya" karışıklığı:</b> <b>"ve" çarp</b>, <b>"veya" topla</b>.</li>
+<li><b>Faktöriyelleri toplamak:</b> 8! + 9! ≠ 17!. <b>Ortak paranteze al.</b></li>
+<li><b>Tekrarlı permütasyonda bölmeyi unutmak:</b> Özdeş nesneler varsa <b>faktöriyellerine bölünür</b>.</li>
+<li><b>Özdeş harflerde "bir kısmını seç" sorusunda formül aramak:</b> <b>Durumlara ayırmak</b> zorunludur.</li>
+<li><b>Dönel permütasyonda n! yazmak:</b> Yuvarlak masada <b>(n−1)!</b>'dir.</li>
+<li><b>Sayı oluştururken baştaki sıfırı unutmak:</b> Üç basamaklı sayıda yüzler basamağı <b>0 olamaz</b>.</li>
+<li><b>İki kısıt çakışırken doğrudan çarpmak:</b> Kısıtlar birbirini etkiliyorsa <b>durumlara ayır</b>.</li>
+<li><b>"Geri konularak / konulmayarak"ı gözden kaçırmak:</b> İkinci çekilişte paydanın değişip değişmediğini belirler.</li>
+<li><b>"En az bir"i doğrudan saymak:</b> <b>Tümleyen</b> neredeyse her zaman daha kısadır.</li>
+<li><b>Olasılığı 1'den büyük bulmak:</b> <b>0 ≤ P(A) ≤ 1</b>; büyük çıkıyorsa örnek uzay yanlış hesaplanmıştır.</li>
+<li><b>Ayrık olmayan olaylarda kesişimi çıkarmamak:</b> P(A∪B) = P(A) + P(B) − <b>P(A∩B)</b>.</li>
+<li><b>Katsayılar toplamı için terimleri tek tek hesaplamak:</b> Değişkenlere <b>1</b> yazmak yeterlidir.</li>
+</ul>
+
+<h3>10) Özet Kartı</h3>
+<ul>
+<li><b>Temel ilke:</b> <b>"ve" → çarp</b>, <b>"veya" → topla</b>.</li>
+<li><b>Faktöriyel:</b> n! = n·(n−1)!, <b>0! = 1</b>. Toplama-çıkarmada <b>ortak paranteze al</b>.</li>
+<li><b>n!'deki asal üssü:</b> n'yi o asala bölmeye devam et, <b>bölümleri topla</b>.</li>
+<li><b>Permütasyon:</b> <b>P(n,r) = n!/(n−r)!</b> — n'den azalan r sayının çarpımı. Sıra <b>önemli</b>.</li>
+<li><b>Tekrarlı permütasyon:</b> <b>n!/(n₁!·n₂!·…)</b>.</li>
+<li><b>Dönel permütasyon:</b> <b>(n−1)!</b> &nbsp;·&nbsp; kolye: (n−1)!/2.</li>
+<li><b>Kombinasyon:</b> <b>C(n,r) = n!/[r!(n−r)!]</b>. Sıra <b>önemsiz</b>. <b>P(n,r) = C(n,r)·r!</b>.</li>
+<li><b>Kombinasyon özellikleri:</b> C(n,r) = C(n,n−r) &nbsp;·&nbsp; C(n,r)+C(n,r+1) = C(n+1,r+1) &nbsp;·&nbsp; toplam <b>2ⁿ</b>.</li>
+<li><b>Geometri:</b> doğru <b>C(n,2)</b> · üçgen <b>C(n,3)</b> · köşegen <b>n(n−3)/2</b>.</li>
+<li><b>Binom:</b> <b>(n+1) terim</b>; genel terim <b>C(n,r)x<sup>n−r</sup>y<sup>r</sup></b>; katsayılar toplamı için <b>1</b>, sabit terim için <b>0</b> yaz.</li>
+<li><b>Örnek uzay:</b> n para → <b>2ⁿ</b> &nbsp;·&nbsp; n zar → <b>6ⁿ</b>.</li>
+<li><b>Olasılık:</b> <b>P(A) = s(A)/s(E)</b>, <b>0 ≤ P ≤ 1</b>, <b>P(A) + P(A′) = 1</b>.</li>
+<li><b>Birleşim:</b> P(A∪B) = P(A) + P(B) − P(A∩B); ayrıksa kesişim 0.</li>
+<li><b>"En az bir":</b> <b>1 − P(hiç olmama)</b>.</li>
+</ul>
+
+</body></html>

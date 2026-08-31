@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Çarpanlara Ayırma</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Çarpanlara Ayırma ve Rasyonel İfadeler</h2>
+
+<p>Çarpanlara ayırma, bir toplamı <b>çarpıma çevirmektir</b>. Peki neden? Çünkü <b>çarpım hâlindeki bir ifade üzerinde neredeyse her şey yapılabilir</b>: sadeleştirebilirsin, sıfıra eşitleyip kök bulabilirsin, işaret incelemesi yapabilirsin. Toplam hâlindeki bir ifadede bunların hiçbiri mümkün değildir. Bu yüzden çarpanlara ayırma tek başına bir konu değil, denklem–eşitsizlik–rasyonel ifade–limit gibi pek çok konunun <b>ortak aletidir</b>. Bu ünitede önce yöntemleri, sonra özdeşlikleri, en son da bunların rasyonel ifadelerde nasıl kullanıldığını göreceğiz.</p>
+
+<h3>1) Çarpanlara Ayırma Nedir?</h3>
+<p class="formula">TANIM — Bir polinomun <b>iki ya da daha fazla polinomun çarpımı biçiminde</b> yazılmasına <b>çarpanlara ayırma</b> denir.<br/>
+<b>R(x) = P(x) · Q(x)</b> eşitliğinde P(x) ve Q(x)'e R(x)'in <b>çarpanları</b> denir.<br/>
+<u>Sadeleştirme yalnızca ÇARPANLAR arasında yapılabilir; terimler arasında sadeleştirme yapılamaz. Bu, konunun varlık sebebidir.</u></p>
+<p class="formula">HANGİ YÖNTEMİ SEÇECEĞİM? — <b>Sıralama her zaman aynıdır:</b><br/>
+<b>1.</b> Önce <b>ortak çarpan</b> var mı bak — varsa mutlaka paranteze al.<br/>
+<b>2.</b> Terim sayısına bak: <b>2 terim</b> → kare/küp farkı ya da küp toplamı; <b>3 terim</b> → tam kare mi, değilse çapraz çarpım; <b>4 terim</b> → gruplandırma.<br/>
+<b>3.</b> Karmaşık ifadelerde <b>değişken değiştir</b>.<br/>
+<b>4.</b> Çarpanlara ayırdıktan sonra <b>parçalar hâlâ ayrılabiliyor mu</b> diye tekrar bak — <u>en sık atlanan adım budur</u>.</p>
+
+<h3>2) Ortak Çarpan Parantezine Alma</h3>
+<p class="formula">TANIM — Bir polinomun <b>her teriminde bulunan ortak çarpanın</b> paranteze alınmasıdır.<br/>
+• <b>a·x + b·x = x·(a + b)</b><br/>
+• <b>a·x⁴ + b·x³ + c·x = x·(a·x³ + b·x² + c)</b> &nbsp;<u>(değişkenin EN KÜÇÜK üssü ortak çarpandır)</u><br/>
+• <b>7x⁶ + 5x⁴ − x² = x²·(7x⁴ + 5x² − 1)</b><br/>
+• <b>a(x − y) + b(x − y) = (a + b)(x − y)</b> &nbsp;<u>(ortak çarpan bir PARANTEZ de olabilir)</u><br/>
+• <b>a(x − y)⁴ + b(x − y)⁴ = (x − y)⁴(a + b)</b></p>
+<p class="formula">İŞARET NUMARASI — <b>(a − b) = −(b − a)</b><br/>
+Bu yüzden: <b>(a − b)<sup>çift</sup> = (b − a)<sup>çift</sup></b> &nbsp;·&nbsp; <b>(a − b)<sup>tek</sup> = −(b − a)<sup>tek</sup></b><br/>
+<u>Yani çift kuvvetlerde parantezin içi serbestçe ters çevrilebilir; tek kuvvetlerde başına eksi gelir.</u></p>
+<p class="formula">ÖRNEK (PDF) — <b>8(2 − a)⁴ + 7(a − 2)³</b> ifadesini çarpanlarına ayırınız.</p>
+<ul>
+<li><b>Adım 1 — Parantezleri eşitle:</b> Üs <b>çift</b> olduğu için (2 − a)⁴ = <b>(a − 2)⁴</b> yazabiliriz → 8(a − 2)⁴ + 7(a − 2)³.</li>
+<li><b>Adım 2 — Ortak çarpan:</b> Ortak olan <b>(a − 2)³</b>'tür (küçük üs) → (a − 2)³·[8(a − 2) + 7].</li>
+<li><b>Adım 3 — Köşeli parantezi düzenle:</b> 8a − 16 + 7 = <b>8a − 9</b>.</li>
+<li><b>Sonuç:</b> <b>(a − 2)³ · (8a − 9)</b>.</li>
+<li><b>Ders:</b> <u>Farklı görünen iki parantez, işaret numarasıyla aynı hâle getirilebilir. Bu fark edilmezse "ortak çarpan yok" sanılır ve soru çözülemez.</u></li>
+</ul>
+
+<h3>3) Gruplandırma Yöntemi</h3>
+<p class="formula">MANTIK — Terimlerin <b>hepsinde</b> ortak çarpan yoksa, <b>ortak çarpanı olan terimler bir araya getirilir</b>. Genellikle <b>4 terimli</b> ifadelerde kullanılır ve <b>2 + 2</b> biçiminde gruplanır.<br/>
+<b>Kritik nokta:</b> İlk gruplamadan sonra <u>iki grupta AYNI parantez çıkmalıdır</u>; çıkmıyorsa gruplama yanlıştır, terimlerin yeri değiştirilip tekrar denenir.</p>
+<p class="formula">ÖRNEKLER (PDF) —<br/>
+• <b>ax + bx + ay + by</b> = x(a + b) + y(a + b) = <b>(x + y)(a + b)</b><br/>
+• <b>x⁴ − x³ + x² − x</b> = x³(x − 1) + x(x − 1) = <b>(x³ + x)(x − 1) = x(x² + 1)(x − 1)</b><br/>
+• <b>x³ + 5x² − x − 5</b> = x²(x + 5) − (x + 5) = <b>(x² − 1)(x + 5) = (x − 1)(x + 1)(x + 5)</b><br/>
+• <b>ax² − ax + bx − b</b> = ax(x − 1) + b(x − 1) = <b>(ax + b)(x − 1)</b><br/>
+<u>Son iki örnekte parçaları BİR KEZ DAHA ayırdık (x² − 1 → (x−1)(x+1), x³ + x → x(x²+1)). Soru "en fazla kaç çarpan" ya da "çarpanlarından biri değildir" diyorsa bu adım şarttır.</u></p>
+<p class="formula">GRUPLANDIRMA ile ÜÇ TERİMLİ İFADE — Ortadaki terim <b>ikiye bölünerek</b> dört terime çevrilir:<br/>
+<u>x² − 3x − 4 = x² − 4x + x − 4 = x(x − 4) + (x − 4) = <b>(x + 1)(x − 4)</b></u><br/>
+<b>Nasıl bölünür?</b> Çarpımları <b>a·c</b>, toplamları <b>b</b> olan iki sayı bulunur. Burada a·c = −4, b = −3 → sayılar −4 ve +1.</p>
+
+<h3>4) Özdeşlikler: Tam Kare ve İki Kare Farkı</h3>
+<p class="formula">TAM KARE ÖZDEŞLİKLERİ —<br/>
+<b>(a + b)² = a² + 2ab + b²</b><br/>
+<b>(a − b)² = a² − 2ab + b²</b><br/>
+<b>İKİ KARE FARKI:</b> <b>a² − b² = (a − b)(a + b)</b><br/>
+<b>DİKKAT:</b> <u>a² + b² çarpanlarına AYRILAMAZ</u> (gerçek sayılarda). Kare <b>farkı</b> ayrılır, kare <b>toplamı</b> ayrılmaz — bu ayrım sınavda sürekli test edilir.</p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tam kare ve iki kare farkının alan yorumu">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Özdeşliklerin alan yorumu: neden böyle olduğunu görmek</text>
+  <text x="30" y="48" font-size="11" font-weight="700" fill="#0369a1">(a + b)² = a² + 2ab + b²</text>
+  <rect x="30" y="58" width="90" height="90" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.6"/>
+  <rect x="120" y="58" width="45" height="90" fill="#bae6fd" stroke="#0284c7" stroke-width="1.6"/>
+  <rect x="30" y="148" width="90" height="45" fill="#bae6fd" stroke="#0284c7" stroke-width="1.6"/>
+  <rect x="120" y="148" width="45" height="45" fill="#7dd3fc" stroke="#0284c7" stroke-width="1.6"/>
+  <text x="75" y="108" font-size="13" font-weight="700" fill="#0369a1" text-anchor="middle">a²</text>
+  <text x="142" y="108" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">ab</text>
+  <text x="75" y="176" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">ab</text>
+  <text x="142" y="176" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">b²</text>
+  <text x="97" y="212" font-size="10" fill="#475569" text-anchor="middle">Kenarı (a + b) olan karenin alanı</text>
+  <text x="97" y="226" font-size="10" fill="#475569" text-anchor="middle">dört parçanın toplamıdır: ab iki kez sayılır.</text>
+  <line x1="240" y1="40" x2="240" y2="235" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="270" y="48" font-size="11" font-weight="700" fill="#15803d">a² − b² = (a + b)(a − b)</text>
+  <rect x="270" y="58" width="120" height="120" fill="#dcfce7" stroke="#16a34a" stroke-width="1.6"/>
+  <rect x="270" y="58" width="45" height="45" fill="#fee2e2" stroke="#dc2626" stroke-width="1.6"/>
+  <text x="292" y="86" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">b²</text>
+  <text x="352" y="126" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">a² − b²</text>
+  <text x="330" y="196" font-size="10" fill="#475569" text-anchor="middle">Büyük kareden küçük kare çıkarılır.</text>
+  <text x="330" y="210" font-size="10" fill="#475569" text-anchor="middle">Kalan L şekli kesilip birleştirilince</text>
+  <text x="330" y="224" font-size="10" fill="#475569" text-anchor="middle">kenarları (a+b) ve (a−b) olan dikdörtgen olur.</text>
+  <line x1="420" y1="40" x2="420" y2="235" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="440" y="62" font-size="11" font-weight="700" fill="#b45309">Türetilen bağıntılar</text>
+  <text x="440" y="84" font-size="11" fill="#475569">a² + b² = (a + b)² − 2ab</text>
+  <text x="440" y="104" font-size="11" fill="#475569">a² + b² = (a − b)² + 2ab</text>
+  <text x="440" y="124" font-size="11" fill="#475569">(a + b)² − (a − b)² = 4ab</text>
+  <text x="440" y="144" font-size="11" fill="#475569">(a + b)² + (a − b)² = 2(a² + b²)</text>
+  <text x="440" y="164" font-size="11" fill="#475569">a³ + b³ = (a + b)³ − 3ab(a + b)</text>
+  <text x="440" y="184" font-size="11" fill="#475569">a³ − b³ = (a − b)³ + 3ab(a − b)</text>
+  <text x="440" y="210" font-size="10" fill="#b45309">Bu altı satır, "a + b ve ab verilmiş,</text>
+  <text x="440" y="224" font-size="10" fill="#b45309">a² + b² kaçtır?" tipi soruların tamamını çözer.</text>
+</svg>
+<p class="formula">İKİ KARE FARKININ SAYISAL GÜCÜ — <u>Büyük sayılarla uğraşırken önce özdeşliğe bak:</u><br/>
+<b>2024² − 2023² = (2024 − 2023)(2024 + 2023) = 1 · 4047 = 4047</b><br/>
+<u>Kareleri tek tek hesaplamak dakikalar alırdı; özdeşlikle 5 saniye sürdü. Sınavda büyük sayıların karesi göründüğünde ilk refleksin bu olmalı.</u></p>
+
+<h3>5) Özdeşlikler: Tam Küp ve Küp Toplamı/Farkı</h3>
+<p class="formula">TAM KÜP —<br/>
+<b>(a + b)³ = a³ + 3a²b + 3ab² + b³</b><br/>
+<b>(a − b)³ = a³ − 3a²b + 3ab² − b³</b><br/>
+<b>KÜPLERİN TOPLAMI:</b> <b>a³ + b³ = (a + b)(a² − ab + b²)</b><br/>
+<b>KÜPLERİN FARKI:</b> <b>a³ − b³ = (a − b)(a² + ab + b²)</b><br/>
+<u>Hatırlama kuralı: <b>ilk parantezdeki işaret ifadenin işaretiyle AYNI</b>, ikinci parantezin ortasındaki işaret <b>TERSİDİR</b>. İkinci parantezde katsayı 2 yoktur — tam kareyle karıştırma.</u></p>
+<p class="formula">ÖRNEKLER (PDF) —<br/>
+• <b>(3x + 4)³</b> = (3x)³ + 3(3x)²·4 + 3·3x·4² + 4³ = <b>27x³ + 108x² + 144x + 64</b><br/>
+• <b>(5x − 1)³</b> = (5x)³ − 3(5x)²·1 + 3·5x·1² − 1³ = <b>125x³ − 75x² + 15x − 1</b><br/>
+• <b>64x³ + 27</b> = (4x)³ + 3³ = <b>(4x + 3)(16x² − 12x + 9)</b><br/>
+• <b>x³ − 8</b> = x³ − 2³ = <b>(x − 2)(x² + 2x + 4)</b></p>
+<p class="formula">ÖRNEK — <b>x + 1/x = 3</b> ise <b>x² + 1/x²</b> ve <b>x³ + 1/x³</b> kaçtır?</p>
+<ul>
+<li><b>Kurulum:</b> a = x, b = 1/x alırsak <b>a·b = 1</b> olur. <u>Bu tip soruların anahtarı, çarpımın 1 olduğunu görmektir.</u></li>
+<li><b>x² + 1/x²:</b> a² + b² = (a + b)² − 2ab = 3² − 2·1 = <b>7</b>.</li>
+<li><b>x³ + 1/x³:</b> a³ + b³ = (a + b)³ − 3ab(a + b) = 27 − 3·1·3 = <b>18</b>.</li>
+<li><b>Neden bu yol?</b> <u>x'i tek tek bulmaya kalksan ikinci dereceden denklem çözüp irrasyonel köklerle uğraşman gerekirdi. Özdeşlik, x'i hiç bulmadan sonuca götürür.</u></li>
+<li><b>Genelleme:</b> x − 1/x = k verilirse x² + 1/x² = k² + 2 olur — <u>çıkarma hâlinde işaret değişir, dikkat et</u>.</li>
+</ul>
+
+<h3>6) Üç Terimli İfadeler: ax² + bx + c</h3>
+<p class="formula">ÇAPRAZ ÇARPIM YÖNTEMİ (PDF) — ax² + bx + c ifadesinde:<br/>
+<b>1.</b> Birinci terim <b>ax² = px · tx</b> biçiminde, üçüncü terim <b>c = m · n</b> biçiminde çarpanlarına ayrılır.<br/>
+<b>2.</b> Seçilen çarpanlar <b>çapraz olarak çarpılıp toplanır</b>.<br/>
+<b>3.</b> Sonuç <b>ortanca terimi (bx)</b> veriyorsa seçim doğrudur.<br/>
+<b>4.</b> Çarpanlar <b>yan yana</b> yazılır: <b>ax² + bx + c = (px + m)(tx + n)</b>.<br/>
+<u>Tutmadıysa panik yapma — c'nin başka bir çarpan ikilisini dene. Deneme sayısı azdır.</u></p>
+<svg viewBox="0 0 640 240" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Çapraz çarpım yöntemi">
+  <rect x="0" y="0" width="640" height="240" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — Çapraz çarpım: 2x² − 7x + 6 ifadesini ayırma</text>
+  <text x="60" y="58" font-size="15" font-weight="700" fill="#334155">2x²</text>
+  <text x="140" y="58" font-size="15" font-weight="700" fill="#b91c1c">− 7x</text>
+  <text x="225" y="58" font-size="15" font-weight="700" fill="#334155">+ 6</text>
+  <text x="60" y="96" font-size="15" font-weight="700" fill="#0369a1">2x</text>
+  <text x="225" y="96" font-size="15" font-weight="700" fill="#0369a1">− 3</text>
+  <text x="60" y="134" font-size="15" font-weight="700" fill="#15803d">x</text>
+  <text x="225" y="134" font-size="15" font-weight="700" fill="#15803d">− 2</text>
+  <line x1="85" y1="90" x2="218" y2="128" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <line x1="85" y1="128" x2="218" y2="90" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="5 4"/>
+  <text x="290" y="96" font-size="11" fill="#475569">2x · (−2) = −4x</text>
+  <text x="290" y="118" font-size="11" fill="#475569">x · (−3) = −3x</text>
+  <line x1="288" y1="126" x2="392" y2="126" stroke="#64748b" stroke-width="1.4"/>
+  <text x="290" y="144" font-size="12" font-weight="700" fill="#b91c1c">toplam = −7x ✓ ortanca terim</text>
+  <rect x="60" y="158" width="330" height="34" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="225" y="180" font-size="14" font-weight="700" fill="#15803d" text-anchor="middle">2x² − 7x + 6 = (2x − 3)(x − 2)</text>
+  <line x1="420" y1="40" x2="420" y2="220" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="440" y="60" font-size="11" font-weight="700" fill="#334155">İşaret ön elemesi</text>
+  <text x="440" y="82" font-size="10" fill="#475569">c &gt; 0 ise iki çarpan AYNI işaretli;</text>
+  <text x="440" y="98" font-size="10" fill="#475569">işaretlerini b belirler (b &lt; 0 → ikisi de −).</text>
+  <text x="440" y="120" font-size="10" fill="#475569">c &lt; 0 ise çarpanlar ZIT işaretlidir.</text>
+  <text x="440" y="142" font-size="10" fill="#475569">Bu ön eleme, deneme sayısını yarıya indirir.</text>
+  <text x="440" y="168" font-size="11" font-weight="700" fill="#b45309">a = 1 özel durumu</text>
+  <text x="440" y="188" font-size="10" fill="#475569">x² + bx + c için: çarpımı c, toplamı b</text>
+  <text x="440" y="202" font-size="10" fill="#475569">olan iki sayıyı bul — çapraz çarpıma</text>
+  <text x="440" y="216" font-size="10" fill="#475569">bile gerek kalmaz.</text>
+</svg>
+<p class="formula">DEĞİŞKEN DEĞİŞTİRME (PDF) — Benzer terimler <b>yeni bir değişkenle</b> adlandırılıp ifade sadeleştirilir, çarpanlara ayrılır, sonra <b>geri dönülür</b>.<br/>
+<b>ÖRNEK:</b> <u>16x⁴ − 16x² + 3</u> ifadesini çarpanlarına ayıralım.</p>
+<ul>
+<li><b>Adım 1 — Değişken seç:</b> a = 4x² dersek 16x⁴ = (4x²)² = a² olur → ifade <b>a² − 4a + 3</b> hâline gelir.</li>
+<li><b>Adım 2 — Ayır:</b> Çarpımı 3, toplamı −4 olan sayılar −1 ve −3 → <b>(a − 3)(a − 1)</b>.</li>
+<li><b>Adım 3 — Geri dön:</b> a = 4x² yaz → <b>(4x² − 3)(4x² − 1)</b>.</li>
+<li><b>Adım 4 — Devam edilebilir mi?</b> <u>4x² − 1 bir iki kare farkıdır!</u> → (2x − 1)(2x + 1).</li>
+<li><b>Tam sonuç:</b> <b>(4x² − 3)(2x − 1)(2x + 1)</b>.</li>
+<li><b>Ders:</b> <u>Çarpanlara ayırma bitmiş görünse bile her parçaya tekrar bak.</u> "Aşağıdakilerden hangisi bu ifadenin çarpanı DEĞİLDİR?" sorularında fark yaratan tam olarak bu adımdır.</li>
+</ul>
+
+<h3>7) Rasyonel İfadeler</h3>
+<p class="formula">TANIM — P(x) ve Q(x) birer polinom ve <b>Q(x) ≠ 0</b> olmak üzere <b>P(x)/Q(x)</b> biçimindeki ifadelere <b>rasyonel ifade</b> denir.<br/>
+<b>TANIMSIZLIK:</b> <u>Paydayı sıfır yapan değerler tanım kümesinden çıkarılır ve sadeleştirmeden SONRA da geçerliliğini korur.</u></p>
+<p class="formula">DÖRT İŞLEM —<br/>
+• <b>Toplama/Çıkarma:</b> Paydalar eşitlenir → <b>P/Q ± R/T = (P·T ± R·Q)/(Q·T)</b><br/>
+• <b>Çarpma:</b> Paylar payla, paydalar paydayla → <b>(P/Q)·(R/T) = (P·R)/(Q·T)</b><br/>
+• <b>Bölme:</b> Bölenin payı ve paydası <b>yer değiştirir</b>, çarpma yapılır → <b>(P/Q) ÷ (R/T) = (P·T)/(Q·R)</b><br/>
+<b>ALTIN KURAL:</b> <u>Rasyonel ifadelerde ÖNCE pay ve payda çarpanlarına ayrılır, ortak çarpanlar sadeleştirilir, SONRA işlem yapılır.</u> Tersini yapmak ifadeyi gereksiz yere büyütür.</p>
+<p class="formula">ÖRNEK — <b>(x² − 9) / (x² + 7x + 12)</b> ifadesini sadeleştiriniz.</p>
+<ul>
+<li><b>Pay:</b> x² − 9 = x² − 3² = <b>(x − 3)(x + 3)</b> &nbsp;<u>(iki kare farkı)</u></li>
+<li><b>Payda:</b> Çarpımı 12, toplamı 7 olan sayılar 3 ve 4 → <b>(x + 3)(x + 4)</b></li>
+<li><b>Sadeleştir:</b> Ortak çarpan (x + 3) → <b>(x − 3)/(x + 4)</b></li>
+<li><b>Tanımsızlık koşulu:</b> <u>Başlangıçtaki payda (x+3)(x+4) olduğu için <b>x ≠ −3 ve x ≠ −4</b> koşulları sadeleştirmeden sonra da geçerlidir.</u> Sadeleşen çarpan yok olmaz, kısıtı kalır.</li>
+<li><b>Kontrol:</b> x = 0 için orijinal ifade −9/12 = −3/4, sadeleşmiş ifade −3/4 ✓</li>
+</ul>
+<p class="formula">ÖRNEK — <b>1/(x − 1) + 2/(x + 1)</b> işleminin sonucu nedir?</p>
+<ul>
+<li><b>Payda eşitle:</b> Ortak payda <b>(x − 1)(x + 1) = x² − 1</b>.</li>
+<li><b>Payları düzenle:</b> [1·(x + 1) + 2·(x − 1)] / (x² − 1) = (x + 1 + 2x − 2)/(x² − 1).</li>
+<li><b>Sonuç:</b> <b>(3x − 1)/(x² − 1)</b>, &nbsp;<u>x ≠ 1 ve x ≠ −1</u>.</li>
+<li><b>Kontrol:</b> x = 0 için sol taraf: 1/(−1) + 2/1 = 1; sağ taraf: (−1)/(−1) = 1 ✓ <u>Rasyonel işlemlerde kolay bir sayı seçip iki tarafı karşılaştırmak, hata yakalamanın en hızlı yoludur.</u></li>
+</ul>
+
+<h3>8) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Ortak çarpan</b></td><td>Her terimde aynı ifade</td><td><b>En küçük üssü</b> paranteze al; parantezleri işaretle eşitle.</td></tr>
+<tr><td>2</td><td><b>Gruplandırma</b></td><td>4 terim var</td><td><b>2 + 2</b> grupla; aynı parantez çıkmalı.</td></tr>
+<tr><td>3</td><td><b>İki kare farkı</b></td><td>a² − b² biçimi, büyük sayı kareleri</td><td><b>(a − b)(a + b)</b> — hesaplama yapma.</td></tr>
+<tr><td>4</td><td><b>Tam kare tanıma</b></td><td>a² ± 2ab + b² biçimi</td><td>Orta terim <b>2·√ilk·√son</b> mu diye kontrol et.</td></tr>
+<tr><td>5</td><td><b>Küp özdeşlikleri</b></td><td>a³ ± b³ ya da 4 terimli küp açılımı</td><td><b>(a ± b)(a² ∓ ab + b²)</b>.</td></tr>
+<tr><td>6</td><td><b>Simetrik ifade değeri</b></td><td>a + b ve ab verilmiş</td><td><b>a² + b² = (a+b)² − 2ab</b> türetmelerini kullan.</td></tr>
+<tr><td>7</td><td><b>x + 1/x tipi</b></td><td>Sayı ve tersi birlikte</td><td><b>çarpım = 1</b>; aynı özdeşlikler geçerli.</td></tr>
+<tr><td>8</td><td><b>Üç terimli ayırma</b></td><td>ax² + bx + c</td><td><b>Çapraz çarpım</b>; işaret ön elemesi yap.</td></tr>
+<tr><td>9</td><td><b>Değişken değiştirme</b></td><td>x⁴, x⁶ ya da tekrarlı parantez</td><td>Benzer bloğa <b>yeni değişken</b> ver, sonra geri dön.</td></tr>
+<tr><td>10</td><td><b>"Çarpanı değildir"</b></td><td>Seçeneklerde çarpan aranıyor</td><td><b>Sonuna kadar ayır</b>; her parçayı tekrar kontrol et.</td></tr>
+<tr><td>11</td><td><b>Rasyonel sadeleştirme</b></td><td>Pay ve payda polinom</td><td><b>Önce çarpanlara ayır</b>, sonra sadeleştir.</td></tr>
+<tr><td>12</td><td><b>Tanımsızlık</b></td><td>"tanımsız yapan değer"</td><td><b>Payda = 0</b> çöz; sadeleşen çarpanın kısıtı da kalır.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 6) — <b>a + b = 7</b> ve <b>a·b = 10</b> ise <b>a² + b²</b>, <b>a − b</b> ve <b>a³ + b³</b> kaçtır?</p>
+<ul>
+<li><b>a² + b²:</b> (a + b)² − 2ab = 49 − 20 = <b>29</b>.</li>
+<li><b>a − b:</b> (a − b)² = a² + b² − 2ab = 29 − 20 = 9 → <b>a − b = ±3</b>. <u>Karekök alırken iki işaret de mümkündür; soru "pozitif" demiyorsa ikisini de yaz.</u></li>
+<li><b>a³ + b³:</b> (a + b)³ − 3ab(a + b) = 343 − 3·10·7 = 343 − 210 = <b>133</b>.</li>
+<li><b>Doğrulama:</b> Toplamı 7, çarpımı 10 olan sayılar <b>2 ve 5</b>'tir → 4 + 25 = 29 ✓, 8 + 125 = 133 ✓, |2 − 5| = 3 ✓</li>
+<li><b>Ders:</b> <u>Bu tip sorularda a ve b'yi bulmak çoğu zaman mümkün ama gereksizdir; büyük sayılarda ya da irrasyonel köklerde imkânsız hâle gelir. Özdeşlikle çözmek her durumda çalışır.</u></li>
+</ul>
+
+<h3>9) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Çarpanlara ayırma:</b> Bir polinomu polinomların çarpımı biçiminde yazma.</li>
+<li><b>Çarpan:</b> R(x) = P(x)·Q(x) eşitliğinde P(x) ve Q(x).</li>
+<li><b>Ortak çarpan:</b> Her terimde bulunan çarpan.</li>
+<li><b>Gruplandırma:</b> Ortak çarpanı olan terimleri bir araya getirme yöntemi.</li>
+<li><b>Özdeşlik:</b> Değişkenin her değeri için doğru olan eşitlik.</li>
+<li><b>Tam kare ifade:</b> (a ± b)² biçiminde yazılabilen üç terimli ifade.</li>
+<li><b>İki kare farkı:</b> a² − b² = (a − b)(a + b).</li>
+<li><b>Küplerin toplamı/farkı:</b> a³ ± b³ = (a ± b)(a² ∓ ab + b²).</li>
+<li><b>Çapraz çarpım:</b> ax² + bx + c ifadesini ayırmada kullanılan yöntem.</li>
+<li><b>Değişken değiştirme:</b> Tekrar eden bloğa yeni değişken vererek sadeleştirme.</li>
+<li><b>Rasyonel ifade:</b> İki polinomun bölümü; payda sıfırdan farklı olmalı.</li>
+<li><b>Tanımsızlık:</b> Paydayı sıfır yapan değerlerin durumu.</li>
+</ul>
+
+<h3>10) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>a² + b²'yi ayırmaya çalışmak:</b> <b>Kare TOPLAMI çarpanlarına ayrılmaz</b>; ama kare farkı ayrılır.</li>
+<li><b>Küp özdeşliğinde 2 koymak:</b> a³ + b³ = (a + b)(a² <b>− ab</b> + b²); <u>2ab değil, ab</u>.</li>
+<li><b>Küp özdeşliğinde işaret:</b> Birinci parantez ifadeyle <b>aynı</b>, ikinci parantezin ortası <b>ters</b> işaretlidir.</li>
+<li><b>Tam kareyi yanlış tanımak:</b> x² + 4x + 4 tam karedir; x² + 4x + 5 <b>değildir</b>. Orta terim <b>2·√ilk·√son</b> olmalı.</li>
+<li><b>Terimler arasında sadeleştirme:</b> (x + 2)/2 ifadesinde 2'ler sadeleşmez. <b>Sadece çarpanlar sadeleşir.</b></li>
+<li><b>Ortak çarpanda büyük üssü almak:</b> x⁵ + x³ ifadesinde ortak çarpan <b>x³</b>'tür, x⁵ değil.</li>
+<li><b>(a − b) ile (b − a)'yı aynı sanmak:</b> <b>(a − b) = −(b − a)</b>; tek kuvvetlerde işaret değişir.</li>
+<li><b>Ayırmayı yarıda bırakmak:</b> x⁴ − 1 = (x² − 1)(x² + 1) = <b>(x − 1)(x + 1)(x² + 1)</b> — <u>ilk adımda durma</u>.</li>
+<li><b>Sadeleştirdikten sonra kısıtı unutmak:</b> Sadeleşen çarpanın <b>tanımsızlık koşulu devam eder</b>.</li>
+<li><b>Rasyonel işlemde önce toplayıp sonra ayırmak:</b> <b>Önce ayır, sadeleştir, sonra işlem yap.</b></li>
+<li><b>(a − b)² = a² − b² sanmak:</b> Doğrusu <b>a² − 2ab + b²</b>; orta terim kaybolmaz.</li>
+<li><b>Karekök alırken tek işaret yazmak:</b> (a − b)² = 9 → <b>a − b = ±3</b>.</li>
+</ul>
+
+<h3>11) Özet Kartı</h3>
+<ul>
+<li><b>Yöntem sırası:</b> ortak çarpan → terim sayısına bak → değişken değiştir → <b>parçaları tekrar kontrol et</b>.</li>
+<li><b>2 terim:</b> a² − b² = (a−b)(a+b) &nbsp;·&nbsp; a³ ± b³ = (a ± b)(a² ∓ ab + b²).</li>
+<li><b>3 terim:</b> tam kare mi? Değilse <b>çapraz çarpım</b>.</li>
+<li><b>4 terim:</b> <b>2 + 2 gruplandırma</b> ya da küp açılımı.</li>
+<li><b>(a + b)² = a² + 2ab + b²</b> &nbsp;·&nbsp; <b>(a − b)² = a² − 2ab + b²</b>.</li>
+<li><b>(a ± b)³ = a³ ± 3a²b + 3ab² ± b³</b>.</li>
+<li><b>a² + b² = (a+b)² − 2ab = (a−b)² + 2ab</b>.</li>
+<li><b>(a+b)² − (a−b)² = 4ab</b> &nbsp;·&nbsp; <b>(a+b)² + (a−b)² = 2(a²+b²)</b>.</li>
+<li><b>a³ + b³ = (a+b)³ − 3ab(a+b)</b> &nbsp;·&nbsp; <b>a³ − b³ = (a−b)³ + 3ab(a−b)</b>.</li>
+<li><b>x + 1/x tipi:</b> çarpım 1'dir; aynı özdeşlikler doğrudan çalışır.</li>
+<li><b>(a − b) = −(b − a)</b>; çift üste serbest, tek üste eksi.</li>
+<li><b>Rasyonel ifade:</b> önce çarpanlara ayır → sadeleştir → işlem yap; <b>payda ≠ 0</b> koşulunu koru.</li>
+<li><b>Büyük sayı karesi görünce:</b> önce <b>iki kare farkını</b> dene.</li>
+</ul>
+
+</body></html>

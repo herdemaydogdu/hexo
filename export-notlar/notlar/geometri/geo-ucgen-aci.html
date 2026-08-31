@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Üçgende Açılar ve Kenar Bağıntıları</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Üçgende Açılar ve Kenar Bağıntıları</h2>
+
+<p>Üçgen, geometrinin <b>en küçük kapalı şeklidir</b> — ve bu yüzden en güçlüsüdür. Her çokgen üçgenlere bölünebildiği için, üçgen hakkında bildiğin her şey aslında tüm geometri hakkında bir şey bilmek demektir. Bu ünitede üçgenin iki temel yasasını kuracağız: <b>açıların birbiriyle</b> ilişkisi (toplamları neden hep 180°?) ve <b>açılarla kenarların</b> ilişkisi (büyük açının karşısında neden büyük kenar durur?). Bu ikisini kavradığında, üçgen sorularının büyük bölümü ölçmeden, sadece bakarak çözülebilir hâle gelir.</p>
+
+<h3>1) Üçgen Nedir?</h3>
+<p class="formula">TANIM — Aynı düzlemde bulunan ve <b>doğrusal olmayan</b> üç noktayı birleştiren doğru parçalarının birleşimine <b>üçgen</b> denir.<br/>
+<b>[AB] ∪ [BC] ∪ [CA] = ABC üçgeni</b><br/>
+• <b>A, B, C</b> → üçgenin <b>köşeleri</b> &nbsp;·&nbsp; <b>[AB], [BC], [CA]</b> → üçgenin <b>kenarları</b><br/>
+<b>Kenar adlandırma geleneği:</b> Bir köşenin <u>karşısındaki</u> kenar, o köşenin <b>küçük harfiyle</b> gösterilir: A'nın karşısı <b>a</b>, B'nin karşısı <b>b</b>, C'nin karşısı <b>c</b>.<br/>
+<u>"Doğrusal olmayan" şartı neden var? Üç nokta aynı doğru üzerindeyse aralarında kapalı bir bölge oluşmaz, şekil düz bir çizgiye çöker. Bu şart, üçgen eşitsizliğinin de temelidir.</u></p>
+
+<h3>2) Üçgende Açı Özellikleri</h3>
+<p class="formula">ÜÇ TEMEL KURAL —<br/>
+<b>1.</b> Bir üçgenin <b>iç açılarının ölçüleri toplamı 180°</b>'dir: <b>a + b + c = 180°</b><br/>
+<b>2.</b> Bir üçgenin <b>dış açılarının ölçüleri toplamı 360°</b>'dir: <b>x + y + z = 360°</b><br/>
+<b>3.</b> Bir <b>dış açının ölçüsü</b>, kendisine <b>komşu olmayan iki iç açının</b> ölçüleri toplamına eşittir:<br/>
+<b>a + b = z</b> &nbsp;·&nbsp; <b>a + c = y</b> &nbsp;·&nbsp; <b>b + c = x</b></p>
+<p class="formula">180° NEREDEN GELİYOR? — <u>Bir önceki ünitedeki paralel doğru kuralı burada karşımıza çıkıyor:</u><br/>
+Üçgenin bir köşesinden (örneğin A'dan) <b>karşı kenara paralel bir doğru çizilir</b>. Bu doğru üzerinde A köşesinde üç açı yan yana gelir ve bir <b>doğru açı (180°)</b> oluşturur. Kenardaki açılarla <b>iç ters</b> oldukları için bu üç açı, üçgenin üç iç açısına eşittir.<br/>
+<b>Sonuç: a + b + c = 180°.</b><br/>
+<u>Yani üçgenin açı toplamı kuralı ezberlenecek bir bilgi değil, "köşeden paralel çiz" hamlesinin doğrudan sonucudur. Bu, geometride birçok kuralın nasıl birbirine bağlandığının iyi bir örneğidir.</u></p>
+<svg viewBox="0 0 640 270" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Üçgende iç ve dış açılar">
+  <rect x="0" y="0" width="640" height="270" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — İç açı toplamı 180° ve dış açı kuralı</text>
+  <line x1="60" y1="70" x2="300" y2="70" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="306" y="74" font-size="10" fill="#64748b">BC'ye paralel</text>
+  <polygon points="150,70 70,205 280,205" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="280" y1="205" x2="360" y2="205" stroke="#0369a1" stroke-width="2.5" stroke-dasharray="4 3"/>
+  <g fill="#334155" font-size="12" font-weight="700">
+    <text x="143" y="62">A</text><text x="56" y="220">B</text><text x="284" y="222">C</text>
+  </g>
+  <text x="147" y="96" font-size="13" font-weight="700" fill="#b91c1c">a</text>
+  <text x="88" y="194" font-size="13" font-weight="700" fill="#15803d">b</text>
+  <text x="258" y="194" font-size="13" font-weight="700" fill="#b45309">c</text>
+  <text x="124" y="88" font-size="12" font-weight="700" fill="#15803d">b</text>
+  <text x="172" y="88" font-size="12" font-weight="700" fill="#b45309">c</text>
+  <text x="300" y="196" font-size="13" font-weight="700" fill="#7c3aed">z</text>
+  <text x="175" y="240" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">A köşesinde: b + a + c = 180° (doğru açı)</text>
+  <text x="175" y="258" font-size="11" font-weight="700" fill="#7c3aed" text-anchor="middle">Dış açı: z = a + b</text>
+  <line x1="400" y1="45" x2="400" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="420" y="68" font-size="11" font-weight="700" fill="#334155">1) İç açılar toplamı</text>
+  <text x="420" y="86" font-size="12" font-weight="700" fill="#0369a1">a + b + c = 180°</text>
+  <text x="420" y="112" font-size="11" font-weight="700" fill="#334155">2) Dış açılar toplamı</text>
+  <text x="420" y="130" font-size="12" font-weight="700" fill="#0369a1">x + y + z = 360°</text>
+  <text x="420" y="156" font-size="11" font-weight="700" fill="#334155">3) Dış açı kuralı</text>
+  <text x="420" y="174" font-size="10" fill="#475569">Bir dış açı, kendisine KOMŞU OLMAYAN</text>
+  <text x="420" y="188" font-size="10" fill="#475569">iki iç açının toplamına eşittir.</text>
+  <text x="420" y="206" font-size="11" font-weight="700" fill="#7c3aed">z = a + b · y = a + c · x = b + c</text>
+  <text x="420" y="232" font-size="10" fill="#475569">Neden? z, c'nin bütünleridir: z = 180 − c.</text>
+  <text x="420" y="246" font-size="10" fill="#475569">a + b + c = 180 ise a + b = 180 − c = z ✓</text>
+</svg>
+<p class="formula">ÖRNEK — Bir üçgenin iç açıları <b>3x + 10</b>, <b>2x − 5</b> ve <b>x + 55</b> derece olduğuna göre en büyük açı kaç derecedir?</p>
+<ul>
+<li><b>Adım 1 — Toplamı yaz:</b> (3x + 10) + (2x − 5) + (x + 55) = 180.</li>
+<li><b>Adım 2 — Sadeleştir:</b> 6x + 60 = 180 → 6x = 120 → <b>x = 20</b>.</li>
+<li><b>Adım 3 — Açıları hesapla:</b> 3·20 + 10 = <b>70°</b> &nbsp;·&nbsp; 2·20 − 5 = <b>35°</b> &nbsp;·&nbsp; 20 + 55 = <b>75°</b>.</li>
+<li><b>Kontrol:</b> 70 + 35 + 75 = 180 ✓ &nbsp;·&nbsp; En büyük açı <b>75°</b>.</li>
+<li><b>Ders:</b> <u>Bu tipte tek hamle vardır: hepsini topla, 180'e eşitle. Sonucu bulduktan sonra <b>üç açıyı da hesaplayıp topladığını kontrol et</b> — 10 saniyelik bu adım, işaret hatalarını yakalar.</u></li>
+</ul>
+<p class="formula">İKİ ÖZEL SONUÇ (PDF) —<br/>
+<b>a) İçteki nokta (kırlangıç) kuralı:</b> D noktası ABC üçgeninin <b>içindeyse</b>:<br/>
+<b>m(BD̂C) = m(Â) + m(AB̂D) + m(AĈD)</b><br/>
+<u>Yani içteki açı, üçgenin tepe açısı ile ona giden iki parça açının toplamıdır. Kanıtı: AD doğrusunu D'nin ötesine uzat, iki kez dış açı kuralı uygula.</u><br/>
+<b>b) Yükseklik–açıortay arası açı:</b> Aynı köşeden çizilen <b>yükseklik ile açıortay</b> arasındaki açı, diğer iki açının <b>farkının yarısıdır</b>:<br/>
+<b>α = |m(B̂) − m(Ĉ)| / 2</b><br/>
+<u>Örnek: m(B̂) = 70°, m(Ĉ) = 30° ise aradaki açı (70 − 30)/2 = <b>20°</b>'dir. İkizkenar üçgende B = C olduğu için α = 0 çıkar — bu da "ikizkenarda yükseklik ve açıortay çakışır" bilgisinin sayısal kanıtıdır.</u></p>
+
+<h3>3) Üçgen Çeşitleri</h3>
+<table>
+<tr><th>Ölçüt</th><th>Tür</th><th>Özelliği</th></tr>
+<tr><td rowspan="3"><b>Kenarlarına göre</b></td><td><b>Eşkenar üçgen</b></td><td>Üç kenarı eşit; <b>üç açısı da 60°</b>.</td></tr>
+<tr><td><b>İkizkenar üçgen</b></td><td>İki kenarı eşit; <b>taban açıları eşit</b>.</td></tr>
+<tr><td><b>Çeşitkenar üçgen</b></td><td>Üç kenarı da farklı; üç açısı da farklı.</td></tr>
+<tr><td rowspan="3"><b>Açılarına göre</b></td><td><b>Dar açılı üçgen</b></td><td>Üç açısı da <b>90°'den küçük</b>.</td></tr>
+<tr><td><b>Dik üçgen</b></td><td>Bir açısı <b>90°</b>.</td></tr>
+<tr><td><b>Geniş açılı üçgen</b></td><td>Bir açısı <b>90°'den büyük</b>.</td></tr>
+</table>
+<p class="formula">DİKKAT — Bir üçgende <b>en fazla BİR tane</b> dik ya da geniş açı bulunabilir.<br/>
+<u>Neden? İki tane 90° zaten 180° eder ve üçüncü açıya yer kalmaz. Bu yüzden "iki açısı geniş olan üçgen" diye bir şey yoktur.</u><br/>
+<b>Sonuç:</b> Her üçgende <b>en az iki açı dar</b>dır.</p>
+<p class="formula">İKİZKENAR ÜÇGEN — |AB| = |AC| olmak üzere:<br/>
+• <b>[BC] → taban</b> &nbsp;·&nbsp; <b>[AB] ve [AC] → yan kenarlar</b><br/>
+• <b>B̂ ve Ĉ → taban açıları</b> (eşittirler) &nbsp;·&nbsp; <b>Â → tepe açısı</b><br/>
+• <b>m(B̂) = m(Ĉ)</b> — <u>eşit kenarların karşısındaki açılar eşittir</u><br/>
+<b>KRİTİK BİLGİ:</b> Bir ikizkenar üçgenin <b>tepe noktasından çizilen yükseklik, aynı zamanda AÇIORTAY ve KENARORTAYDIR</b> (üçü çakışır).<br/>
+<u>Bu tek cümle, ikizkenar üçgen sorularının yarısını çözer: yükseklik gördüğün an tabanı ikiye böldüğünü ve tepe açısını ikiye böldüğünü de biliyorsun demektir.</u><br/>
+<b>Ek bilgi:</b> İkizkenar üçgende <b>taban açıları DAİMA DAR AÇIDIR</b> — çünkü ikisi eşit olduğu için her biri 90°'den küçük olmak zorundadır.</p>
+<p class="formula">EŞKENAR ÜÇGEN — |AB| = |AC| = |BC| olmak üzere:<br/>
+<b>m(Â) = m(B̂) = m(Ĉ) = 60°</b><br/>
+<u>Neden 60°? Üç açı eşit ve toplamları 180° ise her biri 180/3 = 60°'dir.</u><br/>
+<b>Not:</b> Eşkenar üçgen aynı zamanda bir ikizkenar üçgendir, dolayısıyla ikizkenarın tüm özellikleri onda da geçerlidir. Her köşeden çizilen yükseklik, hem açıortay hem kenarortaydır.</p>
+<svg viewBox="0 0 640 250" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="İkizkenar ve eşkenar üçgen">
+  <rect x="0" y="0" width="640" height="250" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — İkizkenar ve eşkenar üçgen</text>
+  <polygon points="115,60 55,195 175,195" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <line x1="115" y1="60" x2="115" y2="195" stroke="#dc2626" stroke-width="2" stroke-dasharray="5 4"/>
+  <rect x="115" y="180" width="15" height="15" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+  <g fill="#334155" font-size="12" font-weight="700">
+    <text x="109" y="52">A</text><text x="42" y="210">B</text><text x="178" y="210">C</text>
+  </g>
+  <text x="72" y="185" font-size="12" font-weight="700" fill="#15803d">α</text>
+  <text x="152" y="185" font-size="12" font-weight="700" fill="#15803d">α</text>
+  <text x="78" y="130" font-size="11" fill="#0369a1">yan</text>
+  <text x="140" y="130" font-size="11" fill="#0369a1">yan</text>
+  <text x="115" y="212" font-size="11" fill="#0369a1" text-anchor="middle">taban</text>
+  <text x="115" y="232" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">İKİZKENAR</text>
+  <polygon points="300,105 250,192 350,192" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <g fill="#334155" font-size="12" font-weight="700">
+    <text x="294" y="97">A</text><text x="237" y="207">B</text><text x="353" y="207">C</text>
+  </g>
+  <text x="300" y="130" font-size="11" font-weight="700" fill="#15803d" text-anchor="middle">60°</text>
+  <text x="268" y="184" font-size="11" font-weight="700" fill="#15803d">60°</text>
+  <text x="322" y="184" font-size="11" font-weight="700" fill="#15803d">60°</text>
+  <text x="300" y="232" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">EŞKENAR</text>
+  <line x1="390" y1="45" x2="390" y2="240" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="410" y="68" font-size="11" font-weight="700" fill="#0369a1">İkizkenar üçgende</text>
+  <text x="410" y="86" font-size="10" fill="#475569">• Eşit kenarların karşısındaki açılar eşittir: B = C.</text>
+  <text x="410" y="102" font-size="10" fill="#475569">• Taban açıları DAİMA dardır.</text>
+  <text x="410" y="118" font-size="10" font-weight="700" fill="#b91c1c">• Tepeden çizilen yükseklik = açıortay = kenarortay</text>
+  <text x="410" y="132" font-size="10" fill="#475569">&#160;&#160;(tabanı ve tepe açısını ikiye böler).</text>
+  <text x="410" y="150" font-size="10" fill="#475569">• Bir açısı bilinirse üçü de bulunur:</text>
+  <text x="410" y="164" font-size="10" fill="#475569">&#160;&#160;tepe 40° ise taban açıları (180−40)/2 = 70°.</text>
+  <text x="410" y="188" font-size="11" font-weight="700" fill="#15803d">Eşkenar üçgende</text>
+  <text x="410" y="206" font-size="10" fill="#475569">• Üç kenar ve üç açı eşit; her açı 60°.</text>
+  <text x="410" y="222" font-size="10" fill="#475569">• Aynı zamanda ikizkenardır; tüm ikizkenar</text>
+  <text x="410" y="236" font-size="10" fill="#475569">&#160;&#160;özellikleri her üç köşe için geçerlidir.</text>
+</svg>
+<p class="formula">ÖRNEK — Bir ikizkenar üçgenin <b>tepe açısı 40°</b>'dir. Taban açıları kaç derecedir? Peki <b>taban açılarından biri 40°</b> olsaydı tepe açısı kaç olurdu?</p>
+<ul>
+<li><b>Durum 1 (tepe 40°):</b> Taban açıları eşit ve toplamları 180 − 40 = 140° → her biri <b>70°</b>.</li>
+<li><b>Durum 2 (taban 40°):</b> İki taban açısı da 40° olur → tepe açısı 180 − 80 = <b>100°</b>.</li>
+<li><b>Kritik uyarı:</b> <u>Soruda "bir açısı 40°" deniyorsa <b>iki durum da mümkündür</b> ve her ikisi de kontrol edilmelidir. Sınavda "kaç farklı değer alabilir" tipindeki sorular tam olarak bu ikiliği ölçer.</u></li>
+<li><b>İstisna:</b> Verilen açı <b>90° ya da daha büyükse</b>, o açı taban açısı OLAMAZ (taban açıları daima dardır) → tek durum kalır, o açı tepe açısıdır.</li>
+</ul>
+
+<h3>4) Üçgende Açı–Kenar Bağıntıları</h3>
+<p class="formula">TEMEL KURAL — Bir üçgende <b>büyük açının karşısındaki kenar, küçük açının karşısındaki kenardan büyüktür</b>.<br/>
+<b>m(Â) &gt; m(B̂) &gt; m(Ĉ) ⇔ a &gt; b &gt; c</b><br/>
+<u>Çift yönlü bir bağıntıdır: açılardan kenar sırasına, kenarlardan açı sırasına geçebilirsin.</u><br/>
+<b>Sonuçlar:</b><br/>
+• Bir üçgende <b>eşit açıların karşısındaki kenarlar eşittir</b> (ikizkenarlığın kaynağı budur).<br/>
+• <b>DİKKAT (PDF):</b> <u>Aynı açılara sahip İKİ FARKLI üçgende, eşit açıların karşısındaki kenar uzunlukları eşit OLMAYABİLİR.</u> Yani kural <b>tek bir üçgenin içinde</b> geçerlidir — iki üçgen arasında değil. (İki üçgen arasında kurulan ilişki <b>benzerliktir</b> ve bir sonraki ünitenin konusudur.)<br/>
+<b>Sezgi:</b> Bir açıyı büyütmek, karşısındaki kenarın uçlarını birbirinden uzaklaştırmak demektir; makasın ağzını açmayı düşün — açı büyüdükçe uçlar arasındaki mesafe artar.</p>
+<svg viewBox="0 0 640 235" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Açı kenar bağıntısı">
+  <rect x="0" y="0" width="640" height="235" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Büyük açının karşısında büyük kenar durur</text>
+  <polygon points="180,55 80,190 330,190" fill="#e0f2fe" stroke="#0369a1" stroke-width="2.5"/>
+  <g fill="#334155" font-size="12" font-weight="700">
+    <text x="174" y="47">A</text><text x="66" y="205">B</text><text x="334" y="205">C</text>
+  </g>
+  <text x="177" y="82" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">80°</text>
+  <text x="102" y="180" font-size="11" font-weight="700" fill="#b45309">60°</text>
+  <text x="300" y="180" font-size="11" font-weight="700" fill="#15803d">40°</text>
+  <text x="205" y="209" font-size="13" font-weight="700" fill="#b91c1c" text-anchor="middle">a (en uzun)</text>
+  <text x="272" y="118" font-size="13" font-weight="700" fill="#b45309">b</text>
+  <text x="112" y="118" font-size="13" font-weight="700" fill="#15803d">c (en kısa)</text>
+  <line x1="370" y1="45" x2="370" y2="225" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="390" y="68" font-size="12" font-weight="700" fill="#0369a1">80° &gt; 60° &gt; 40°  ⇒  a &gt; b &gt; c</text>
+  <text x="390" y="94" font-size="10" fill="#475569">Bağıntı çift yönlüdür: kenar sırasından açı sırasına</text>
+  <text x="390" y="108" font-size="10" fill="#475569">da geçebilirsin.</text>
+  <text x="390" y="132" font-size="11" font-weight="700" fill="#b91c1c">Kenar uzunluklarına göre açı türü</text>
+  <text x="390" y="152" font-size="10" fill="#475569">b en uzun kenar, karşısındaki açı B olsun:</text>
+  <text x="390" y="170" font-size="10" font-weight="700" fill="#15803d">b² &lt; a² + c² → B dar açı (dar açılı üçgen)</text>
+  <text x="390" y="186" font-size="10" font-weight="700" fill="#334155">b² = a² + c² → B dik açı (dik üçgen)</text>
+  <text x="390" y="202" font-size="10" font-weight="700" fill="#b91c1c">b² &gt; a² + c² → B geniş açı (geniş açılı üçgen)</text>
+  <text x="390" y="222" font-size="10" fill="#475569">Kontrolü daima EN UZUN kenar için yap.</text>
+</svg>
+<p class="formula">ÜÇGENİN TÜRÜNÜ KENARLARDAN ANLAMA — <b>b en uzun kenar</b> olmak üzere:<br/>
+• <b>b² &lt; a² + c²</b> → <b>dar açılı</b> üçgen<br/>
+• <b>b² = a² + c²</b> → <b>dik</b> üçgen &nbsp;<u>(Pisagor durumu)</u><br/>
+• <b>b² &gt; a² + c²</b> → <b>geniş açılı</b> üçgen<br/>
+<u>Neden en uzun kenar? Çünkü en büyük açı onun karşısındadır; üçgende dik ya da geniş açı olacaksa <b>ancak orada</b> olabilir. Diğer kenarlar için test yapmak gereksizdir.</u><br/>
+<b>Örnek:</b> Kenarları 4, 5, 6 olan üçgen: 6² = 36, 4² + 5² = 41 → 36 &lt; 41 → <b>dar açılı</b>. Kenarları 4, 5, 7 olan üçgen: 49 &gt; 41 → <b>geniş açılı</b>.</p>
+
+<h3>5) Üçgen Eşitsizliği</h3>
+<p class="formula">KURAL — Bir üçgende <b>herhangi iki kenar uzunluğunun toplamı, üçüncü kenarın uzunluğundan büyüktür</b>.<br/>
+<b>a &lt; b + c</b> &nbsp;·&nbsp; <b>b &lt; a + c</b> &nbsp;·&nbsp; <b>c &lt; a + b</b><br/>
+<b>KULLANIŞLI HÂLİ:</b> Bir kenar, diğer ikisinin <b>toplamından küçük</b>, <b>farkının mutlak değerinden büyüktür</b>:<br/>
+<b>|a − b| &lt; c &lt; a + b</b><br/>
+<u>Neden? İki nokta arasındaki en kısa yol düz çizgidir. B'den C'ye doğrudan gitmek (a), A üzerinden dolaşmaktan (b + c) daha kısa olmak zorundadır. Alt sınır ise üstteki eşitsizliğin yeniden düzenlenmiş hâlidir.</u><br/>
+<b>Pratik not:</b> Üç eşitsizliği tek tek yazmaya gerek yoktur; <b>en uzun kenarın diğer ikisinin toplamından küçük olması</b> yeterlidir. Diğer ikisi otomatik sağlanır.</p>
+<svg viewBox="0 0 640 225" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Üçgen eşitsizliği aralığı">
+  <rect x="0" y="0" width="640" height="225" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 4 — Üçgen eşitsizliği: iki kenarı 5 ve 9 olan üçgenin üçüncü kenarı</text>
+  <line x1="50" y1="100" x2="600" y2="100" stroke="#334155" stroke-width="2"/>
+  <rect x="190" y="90" width="330" height="20" fill="#dcfce7" stroke="none"/>
+  <line x1="50" y1="100" x2="600" y2="100" stroke="#334155" stroke-width="2"/>
+  <g stroke="#334155" stroke-width="1.5">
+    <line x1="80" y1="95" x2="80" y2="105"/><line x1="190" y1="88" x2="190" y2="112"/>
+    <line x1="300" y1="95" x2="300" y2="105"/><line x1="410" y1="95" x2="410" y2="105"/>
+    <line x1="520" y1="88" x2="520" y2="112"/><line x1="575" y1="95" x2="575" y2="105"/>
+  </g>
+  <circle cx="190" cy="100" r="5" fill="#f8fafc" stroke="#16a34a" stroke-width="2.5"/>
+  <circle cx="520" cy="100" r="5" fill="#f8fafc" stroke="#16a34a" stroke-width="2.5"/>
+  <g font-size="11" fill="#475569" text-anchor="middle">
+    <text x="80" y="128">2</text><text x="300" y="128">8</text><text x="410" y="128">10</text><text x="575" y="128">15</text>
+  </g>
+  <text x="190" y="80" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">4</text>
+  <text x="520" y="80" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">14</text>
+  <text x="355" y="152" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">|9 − 5| &lt; x &lt; 9 + 5  →  4 &lt; x &lt; 14</text>
+  <text x="355" y="172" font-size="10" fill="#475569" text-anchor="middle">Uç noktalar DAHİL DEĞİLDİR (içi boş yuvarlak): x = 4 ya da x = 14 olursa üçgen çökerek doğru parçasına dönüşür.</text>
+  <text x="355" y="192" font-size="10" fill="#475569" text-anchor="middle">x tam sayı ise alabileceği değerler 5, 6, 7, 8, 9, 10, 11, 12, 13 → 9 farklı değer.</text>
+  <text x="355" y="212" font-size="10" font-weight="700" fill="#b45309" text-anchor="middle">Tam sayı sayısı kısayolu: (üst sınır − alt sınır) − 1 = (14 − 4) − 1 = 9</text>
+</svg>
+<p class="formula">ÖRNEK — İki kenarının uzunluğu <b>5 cm</b> ve <b>9 cm</b> olan bir üçgenin üçüncü kenarı <b>x</b> cm'dir. <b>a)</b> x hangi aralıktadır? <b>b)</b> x bir tam sayı ise kaç farklı değer alabilir? <b>c)</b> Üçgenin çevresi en fazla kaç tam sayı olabilir?</p>
+<ul>
+<li><b>a)</b> |9 − 5| &lt; x &lt; 9 + 5 → <b>4 &lt; x &lt; 14</b>.</li>
+<li><b>b)</b> x ∈ {5, 6, 7, …, 13} → <b>9 farklı değer</b>. <u>Kısayol: (14 − 4) − 1 = 9.</u></li>
+<li><b>c)</b> Çevre = 5 + 9 + x = 14 + x. x en fazla 13 olabildiği için çevre en fazla <b>27 cm</b>'dir.</li>
+<li><b>Sık hata:</b> <u>Sınırların dahil olduğunu sanmak. x = 4 olsaydı 5 + 4 = 9 olur, üçgen kapanmaz; üç nokta aynı doğruya düşer. Bu yüzden eşitsizlikler <b>kesindir</b> (&lt; işareti, ≤ değil).</u></li>
+</ul>
+<p class="formula">İLERİ SEVİYE (PDF) — Üçgenin <b>türü de biliniyorsa</b> aralık daralır. b en uzun kenar ve karşısındaki açı B olmak üzere:<br/>
+• <b>ABC dar açılı ise:</b> <b>|a − c| &lt; b &lt; √(a² + c²)</b><br/>
+• <b>ABC geniş açılı ise:</b> <b>√(a² + c²) &lt; b &lt; a + c</b><br/>
+<u>Yani dik üçgen sınırı (√(a²+c²)), dar açılı ile geniş açılı üçgenleri birbirinden ayıran eşiktir. Üçgen eşitsizliğinin sınırları aynı kalır, sadece bu eşik araya girer.</u></p>
+
+<h3>6) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>İç açı toplamı</b></td><td>Açılar cebirsel verilmiş</td><td>Topla, <b>180</b>'e eşitle.</td></tr>
+<tr><td>2</td><td><b>Dış açı</b></td><td>Kenar uzatılmış, dışta açı var</td><td><b>Dış açı = komşu olmayan iki iç açının toplamı.</b></td></tr>
+<tr><td>3</td><td><b>İkizkenar açı</b></td><td>İki kenara eşit işareti konmuş</td><td>Taban açılarına <b>aynı harfi</b> ver.</td></tr>
+<tr><td>4</td><td><b>"Bir açısı α" belirsizliği</b></td><td>İkizkenarda tek açı verilmiş</td><td><b>Tepe mi taban mı</b> — iki durumu da dene.</td></tr>
+<tr><td>5</td><td><b>Eşkenar üçgen</b></td><td>Üç kenar eşit</td><td>Tüm açılar <b>60°</b>.</td></tr>
+<tr><td>6</td><td><b>Açı sıralama</b></td><td>Kenar uzunlukları verilmiş</td><td><b>Büyük kenar ↔ büyük açı.</b></td></tr>
+<tr><td>7</td><td><b>Üçgen türü</b></td><td>Üç kenar sayısal verilmiş</td><td>En uzun kenar için <b>b² ile a²+c²</b> karşılaştır.</td></tr>
+<tr><td>8</td><td><b>Üçgen eşitsizliği</b></td><td>"üçüncü kenar", "kaç farklı"</td><td><b>|a−b| &lt; c &lt; a+b</b>; tam sayı sayısı = fark − 1.</td></tr>
+<tr><td>9</td><td><b>Üçgen oluşabilir mi?</b></td><td>Üç uzunluk verilmiş</td><td><b>En uzun &lt; diğer ikisinin toplamı</b> mı?</td></tr>
+<tr><td>10</td><td><b>Yükseklik–açıortay açısı</b></td><td>Aynı köşeden ikisi de çizilmiş</td><td><b>|B − C| / 2</b>.</td></tr>
+<tr><td>11</td><td><b>İçteki nokta</b></td><td>Üçgenin içinde bir D noktası</td><td><b>m(BD̂C) = Â + AB̂D + AĈD</b>.</td></tr>
+<tr><td>12</td><td><b>Çevre sınırı</b></td><td>"çevre en çok / en az"</td><td>Kenar aralığını bul, uçlara göre <b>çevreyi sınırla</b>.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 2 + Tip 3) — Bir ABC üçgeninde <b>|AB| = |AC|</b>, C köşesindeki <b>dış açı 110°</b>'dir. Tepe açısı m(Â) kaç derecedir?</p>
+<ul>
+<li><b>Adım 1 — Dış açıdan iç açıya:</b> C'deki iç açı = 180 − 110 = <b>70°</b>.</li>
+<li><b>Adım 2 — İkizkenarlığı kullan:</b> |AB| = |AC| olduğu için taban açıları eşittir → m(B̂) = m(Ĉ) = <b>70°</b>.</li>
+<li><b>Adım 3 — Tepe açısı:</b> m(Â) = 180 − 70 − 70 = <b>40°</b>.</li>
+<li><b>Alternatif (daha hızlı):</b> <u>Dış açı kuralına göre C'deki dış açı, komşu olmayan iki iç açının toplamıdır: 110 = m(Â) + m(B̂) = m(Â) + 70 → m(Â) = 40° ✓ Tek adımda bitti.</u></li>
+<li><b>Ders:</b> <u>Dış açı gördüğünde önce "180'den çıkarayım" refleksini bırak; <b>doğrudan iki iç açının toplamı</b> olduğunu kullanmak neredeyse her zaman bir adım kısadır.</u></li>
+</ul>
+
+<h3>7) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Üçgen:</b> Doğrusal olmayan üç noktayı birleştiren doğru parçalarının birleşimi.</li>
+<li><b>Köşe:</b> Üçgeni oluşturan noktalar. <b>Kenar:</b> Köşeleri birleştiren doğru parçaları.</li>
+<li><b>İç açı:</b> Üçgenin içinde kalan açı. <b>Dış açı:</b> Bir kenarın uzatılmasıyla oluşan komşu bütünler açı.</li>
+<li><b>Eşkenar üçgen:</b> Üç kenarı eşit; tüm açıları 60°.</li>
+<li><b>İkizkenar üçgen:</b> İki kenarı eşit; taban açıları eşit.</li>
+<li><b>Çeşitkenar üçgen:</b> Üç kenarı da farklı.</li>
+<li><b>Taban / yan kenar:</b> İkizkenarda eşit olmayan kenar / eşit olan kenarlar.</li>
+<li><b>Taban açıları:</b> İkizkenarda tabana komşu, birbirine eşit açılar.</li>
+<li><b>Tepe açısı:</b> İkizkenarda yan kenarlar arasındaki açı.</li>
+<li><b>Dar açılı üçgen:</b> Üç açısı da 90°'den küçük.</li>
+<li><b>Dik üçgen:</b> Bir açısı 90°.</li>
+<li><b>Geniş açılı üçgen:</b> Bir açısı 90°'den büyük.</li>
+<li><b>Üçgen eşitsizliği:</b> |a − b| &lt; c &lt; a + b bağıntısı.</li>
+</ul>
+
+<h3>8) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Dış açıyı 180'den çıkarmakla yetinmek:</b> <b>Dış açı = komşu olmayan iki iç açının toplamıdır</b>; bu kısayolu kullan.</li>
+<li><b>Dış açılar toplamını 180 sanmak:</b> Dış açılar toplamı <b>360°</b>'dir.</li>
+<li><b>İkizkenarda "bir açı" belirsizliğini atlamak:</b> Verilen açı <b>tepe ya da taban</b> olabilir; ikisini de kontrol et (açı ≥ 90° ise sadece tepe olabilir).</li>
+<li><b>Taban açısını geniş sanmak:</b> İkizkenarda <b>taban açıları daima dardır</b>.</li>
+<li><b>Açı–kenar kuralını iki farklı üçgene uygulamak:</b> Kural <b>tek bir üçgenin içinde</b> geçerlidir.</li>
+<li><b>Üçgen eşitsizliğinde eşitliği dahil etmek:</b> Sınırlar <b>dahil değildir</b> (&lt; kullan, ≤ değil).</li>
+<li><b>Alt sınırı unutmak:</b> Sadece "toplamdan küçük" değil, aynı zamanda <b>farkın mutlak değerinden büyük</b>.</li>
+<li><b>Tam sayı sayarken uçları saymak:</b> 4 &lt; x &lt; 14 için değerler <b>5'ten 13'e</b>; sayı <b>(14 − 4) − 1 = 9</b>.</li>
+<li><b>Üçgen türü testini yanlış kenarla yapmak:</b> Karşılaştırma <b>daima EN UZUN kenar</b> için yapılır.</li>
+<li><b>İki geniş açı olabileceğini düşünmek:</b> Bir üçgende <b>en fazla bir</b> dik ya da geniş açı vardır.</li>
+<li><b>Yükseklik–açıortay açısında farkı bölmeyi unutmak:</b> Formül <b>|B − C| / 2</b>'dir.</li>
+<li><b>Şekle bakıp "ikizkenar görünüyor" demek:</b> <u>Eşitlik işareti (çentik) yoksa ya da uzunluklar verilmemişse ikizkenar kabul edilemez.</u></li>
+</ul>
+
+<h3>9) Özet Kartı</h3>
+<ul>
+<li><b>İç açılar toplamı = 180°</b> &nbsp;·&nbsp; <b>Dış açılar toplamı = 360°</b>.</li>
+<li><b>Dış açı = komşu olmayan iki iç açının toplamı.</b></li>
+<li><b>180° kuralının kaynağı:</b> köşeden karşı kenara paralel çizmek.</li>
+<li><b>İkizkenar:</b> taban açıları eşit ve <b>daima dar</b>; tepeden yükseklik = açıortay = kenarortay.</li>
+<li><b>İkizkenarda tek açı verilmişse</b> tepe/taban ikiliğini kontrol et.</li>
+<li><b>Eşkenar:</b> tüm açılar <b>60°</b>.</li>
+<li><b>Bir üçgende en fazla bir dik ya da geniş açı</b> bulunur; en az iki açı dardır.</li>
+<li><b>Büyük açı ↔ büyük kenar</b> (aynı üçgen içinde, çift yönlü).</li>
+<li><b>Üçgen türü (b en uzun):</b> b² &lt; a²+c² dar · b² = a²+c² dik · b² &gt; a²+c² geniş.</li>
+<li><b>Üçgen eşitsizliği:</b> <b>|a − b| &lt; c &lt; a + b</b>; sınırlar dahil değil.</li>
+<li><b>Tam sayı sayısı:</b> (üst sınır − alt sınır) − 1.</li>
+<li><b>Yükseklik–açıortay arası açı:</b> <b>|B − C| / 2</b>.</li>
+<li><b>İçteki nokta:</b> <b>m(BD̂C) = Â + AB̂D + AĈD</b>.</li>
+</ul>
+
+</body></html>

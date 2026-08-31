@@ -1,0 +1,180 @@
+{
+  "kaynak_pdf": "TYT İçerik/tyt-turkce.pdf",
+  "project_id": "jmoimahqkiepgdmwnovs",
+  "aciklama": "Türkçe ders notu üretim planı. Sıradaki done=false konu işlenir. Bittiğinde kullanıcıdan sonraki ders için prompt beklenir.",
+  "konular": [
+    {
+      "sira": 1,
+      "unit_id": "tr-sozcuk",
+      "name": "Sözcükte Anlam",
+      "pdf_basliklari": [
+        "SÖZCÜKTE ANLAM 1",
+        "SÖZCÜKTE ANLAM 2",
+        "SÖZCÜKTE ANLAM 3",
+        "SÖZCÜKTE ANLAM 4"
+      ],
+      "pdf_sayfa": "11-16",
+      "done": true
+    },
+    {
+      "sira": 2,
+      "unit_id": "tr-cumle",
+      "name": "Cümlede Anlam",
+      "pdf_basliklari": [
+        "CÜMLEDE ANLAM 1",
+        "CÜMLEDE ANLAM 2",
+        "CÜMLEDE ANLAM 3"
+      ],
+      "pdf_sayfa": "17-23",
+      "done": true
+    },
+    {
+      "sira": 3,
+      "unit_id": "tr-anlatim",
+      "name": "Anlatım Biçimleri ve Düşünceyi Geliştirme Yolları",
+      "pdf_basliklari": [
+        "PARAGRAFTA ANLAM 1"
+      ],
+      "pdf_sayfa": "24-27",
+      "done": true
+    },
+    {
+      "sira": 4,
+      "unit_id": "tr-paragraf",
+      "name": "Paragraf",
+      "pdf_basliklari": [
+        "PARAGRAFTA ANLAM 2",
+        "PARAGRAFTA ANLAM 3",
+        "PARAGRAFIN YAPISI"
+      ],
+      "pdf_sayfa": "28-37",
+      "done": true
+    },
+    {
+      "sira": 5,
+      "unit_id": "tr-ses",
+      "name": "Ses Bilgisi",
+      "pdf_basliklari": [
+        "SES BİLGİSİ 1",
+        "SES BİLGİSİ 2"
+      ],
+      "pdf_sayfa": "38-40",
+      "done": true
+    },
+    {
+      "sira": 6,
+      "unit_id": "tr-yazim",
+      "name": "Yazım Kuralları",
+      "pdf_basliklari": [
+        "YAZIM KURALLARI 1",
+        "YAZIM KURALLARI 2",
+        "YAZIM KURALLARI 3"
+      ],
+      "pdf_sayfa": "41-54",
+      "done": true
+    },
+    {
+      "sira": 7,
+      "unit_id": "tr-noktalama",
+      "name": "Noktalama İşaretleri",
+      "pdf_basliklari": [
+        "NOKTALAMA İŞARETLERİ 1",
+        "NOKTALAMA İŞARETLERİ 2",
+        "NOKTALAMA İŞARETLERİ 3"
+      ],
+      "pdf_sayfa": "55-64",
+      "done": true
+    },
+    {
+      "sira": 8,
+      "unit_id": "tr-yapi",
+      "name": "Sözcükte Yapı ve Ekler",
+      "pdf_basliklari": [
+        "BİÇİM BİLGİSİ 1",
+        "BİÇİM BİLGİSİ 2"
+      ],
+      "pdf_sayfa": "65-72",
+      "done": true
+    },
+    {
+      "sira": 9,
+      "unit_id": "tr-adlar",
+      "name": "Sözcük Türleri: Ad, Sıfat, Zamir, Zarf",
+      "pdf_basliklari": [
+        "İSİM",
+        "SIFAT",
+        "ZAMİR",
+        "ZARF"
+      ],
+      "pdf_sayfa": "83-104",
+      "done": true
+    },
+    {
+      "sira": 10,
+      "unit_id": "tr-tamlama",
+      "name": "Tamlamalar",
+      "pdf_basliklari": [
+        "İSİM VE SIFAT TAMLAMALARI"
+      ],
+      "pdf_sayfa": "97-100",
+      "done": true
+    },
+    {
+      "sira": 11,
+      "unit_id": "tr-edat",
+      "name": "Edat, Bağlaç ve Ünlem",
+      "pdf_basliklari": [
+        "EDAT",
+        "BAĞLAÇ",
+        "ÜNLEM"
+      ],
+      "pdf_sayfa": "105-108",
+      "done": true
+    },
+    {
+      "sira": 12,
+      "unit_id": "tr-fiil",
+      "name": "Fiiller (Kip, Kişi, Ek Fiil)",
+      "pdf_basliklari": [
+        "FİİLDE KİP",
+        "EK-FİİL",
+        "FİİLDE YAPI",
+        "FİİLDE ÇATI"
+      ],
+      "pdf_sayfa": "109-122",
+      "done": true
+    },
+    {
+      "sira": 13,
+      "unit_id": "tr-fiilimsi",
+      "name": "Fiilimsiler",
+      "pdf_basliklari": [
+        "FİİLİMSİLER"
+      ],
+      "pdf_sayfa": "115-118",
+      "done": true
+    },
+    {
+      "sira": 14,
+      "unit_id": "tr-ogeler",
+      "name": "Cümlenin Ögeleri",
+      "pdf_basliklari": [
+        "CÜMLENİN ÖGELERİ",
+        "CÜMLE TÜRLERİ"
+      ],
+      "pdf_sayfa": "123-128",
+      "done": true
+    },
+    {
+      "sira": 15,
+      "unit_id": "tr-bozukluk",
+      "name": "Anlatım Bozuklukları",
+      "pdf_basliklari": [
+        "ANLATIM BOZUKLUKLARI 1",
+        "ANLATIM BOZUKLUKLARI 2"
+      ],
+      "pdf_sayfa": "129-136",
+      "done": true
+    }
+  ]
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Basit Eşitsizlikler</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Basit Eşitsizlikler</h2>
+
+<p>Eşitsizlikler, denklemlerin "yaklaşık" hâli değildir; <b>bilgi eksikken bile karar verebilmenin matematiğidir</b>. x'in tam değerini bilmiyor olabilirsin ama 2 ile 5 arasında olduğunu biliyorsan, x + 3 hakkında kesin bir şey söyleyebilirsin. TYT'de bu konudan gelen sorular hemen hemen tek bir beceriyi ölçer: <b>bir ifadenin alabileceği en küçük ve en büyük değeri doğru kurabilmek</b>. Bu ünitede önce aralık dilini kuracağız, sonra eşitsizliklerin kurallarını <u>ezberlemeden</u> türeteceğiz, en sonunda da sınavın favori kalıbı olan "ifade sınırlama" sorularını sistemleştireceğiz.</p>
+
+<h3>1) Aralık Kavramı — Sonsuz Sayıyı Tek Sembolle Yazmak</h3>
+<p>Sayı doğrusu üzerinde iki nokta arasındaki <b>tüm gerçek sayılardan</b> oluşan alt kümeye <b>aralık</b> denir. Aralıkları adlandıran tek şey, <b>uç noktaların kümeye dâhil olup olmadığıdır</b>.</p>
+<p class="formula">GÖSTERİM — <b>Köşeli parantez [ ] dâhil</b>, <b>normal parantez ( ) hariç</b> demektir. Sayı doğrusunda <b>dolu nokta</b> dâhil olanı, <b>boş (içi beyaz) nokta</b> hariç olanı gösterir. <u>Sonsuz bir sayı olmadığı için ∞ ve −∞ tarafı DAİMA açık parantezle yazılır: [3, ∞) doğru, [3, ∞] yanlıştır.</u></p>
+<table>
+<tr><th>Tür</th><th>Küme gösterimi</th><th>Aralık</th><th>Anlamı</th></tr>
+<tr><td><b>Kapalı aralık</b></td><td>{x | a ≤ x ≤ b}</td><td><b>[a, b]</b></td><td>Her iki uç da dâhil</td></tr>
+<tr><td><b>Açık aralık</b></td><td>{x | a &lt; x &lt; b}</td><td><b>(a, b)</b></td><td>Hiçbir uç dâhil değil</td></tr>
+<tr><td><b>Yarı açık</b></td><td>{x | a &lt; x ≤ b}</td><td><b>(a, b]</b></td><td>Sağ uç dâhil, sol uç hariç</td></tr>
+<tr><td><b>Yarı açık</b></td><td>{x | a ≤ x &lt; b}</td><td><b>[a, b)</b></td><td>Sol uç dâhil, sağ uç hariç</td></tr>
+<tr><td><b>Işın (sınırsız)</b></td><td>{x | x ≥ a}</td><td><b>[a, ∞)</b></td><td>Bir ucu kapalı, diğeri sonsuz</td></tr>
+<tr><td><b>Sınırsız aralık</b></td><td>{x | x &lt; a}</td><td><b>(−∞, a)</b></td><td>a'dan küçük tüm gerçek sayılar</td></tr>
+<tr><td><b>Gerçek sayılar</b></td><td>ℝ</td><td><b>(−∞, ∞)</b></td><td>ℝ'nin kendisi de bir aralıktır</td></tr>
+</table>
+<svg viewBox="0 0 640 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aralık türlerinin sayı doğrusunda gösterimi">
+  <rect x="0" y="0" width="640" height="300" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Aralık türleri: dolu nokta dâhil, boş nokta hariç</text>
+  <g stroke="#cbd5e1" stroke-width="2">
+    <line x1="120" y1="56" x2="440" y2="56"/><line x1="120" y1="98" x2="440" y2="98"/>
+    <line x1="120" y1="140" x2="440" y2="140"/><line x1="120" y1="182" x2="440" y2="182"/>
+    <line x1="120" y1="224" x2="440" y2="224"/>
+  </g>
+  <g stroke="#0284c7" stroke-width="4">
+    <line x1="200" y1="56" x2="360" y2="56"/><line x1="200" y1="98" x2="360" y2="98"/>
+    <line x1="200" y1="140" x2="360" y2="140"/>
+    <line x1="200" y1="182" x2="440" y2="182"/><line x1="120" y1="224" x2="360" y2="224"/>
+  </g>
+  <g fill="#0284c7">
+    <circle cx="200" cy="56" r="6"/><circle cx="360" cy="56" r="6"/>
+    <circle cx="200" cy="140" r="6"/><circle cx="200" cy="182" r="6"/>
+  </g>
+  <g fill="#ffffff" stroke="#0284c7" stroke-width="3">
+    <circle cx="200" cy="98" r="6"/><circle cx="360" cy="98" r="6"/><circle cx="360" cy="140" r="6"/>
+    <circle cx="360" cy="224" r="6"/>
+  </g>
+  <g font-size="12" font-weight="700" fill="#334155" text-anchor="middle">
+    <text x="200" y="46">a</text><text x="360" y="46">b</text>
+  </g>
+  <g font-size="13" font-weight="700" fill="#0369a1">
+    <text x="466" y="61">[a, b]</text><text x="466" y="103">(a, b)</text><text x="466" y="145">[a, b)</text>
+    <text x="466" y="187">[a, ∞)</text><text x="466" y="229">(−∞, b)</text>
+  </g>
+  <g font-size="10" fill="#475569">
+    <text x="534" y="61">iki uç dâhil</text><text x="534" y="103">iki uç hariç</text><text x="534" y="145">sol dâhil</text>
+    <text x="534" y="187">ışın</text><text x="534" y="229">sınırsız</text>
+  </g>
+  <line x1="26" y1="248" x2="614" y2="248" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="268" font-size="10" fill="#475569">Bir ucu kapalı diğeri sonsuz olan aralıklara IŞIN denir: [a, ∞) ya da (−∞, b]. Sonsuz tarafı asla köşeli parantezle kapatılmaz.</text>
+  <text x="26" y="284" font-size="10" fill="#475569">Uç noktanın dâhil olup olmaması sonucu değiştirir: x ≥ 2 ise en küçük değer 2'dir; x &gt; 2 ise EN KÜÇÜK DEĞER YOKTUR.</text>
+</svg>
+<p class="formula">DİKKAT — TAM SAYI mı GERÇEK SAYI mı? <b>x ∈ ℝ</b> ise (2, 5) aralığında <u>sonsuz</u> sayı vardır ve en küçüğü yoktur. <b>x ∈ ℤ</b> ise aynı aralıkta yalnızca <u>3 ve 4</u> vardır, yani <b>2 tam sayı</b>. Sorularda "x tam sayıdır" ifadesi görürsen aralığı <b>saymaya</b> geçersin; görmezsen aralık olarak bırakırsın. <u>Bu tek kelime, sorunun cevabını tamamen değiştirir.</u></p>
+<p class="formula">ARALIKLARDA KÜME İŞLEMLERİ — Kesişim, birleşim ve fark alırken aralıkları <b>aynı sayı doğrusu üzerinde alt alta</b> çizmek en güvenli yoldur. <b>Kesişim (∩)</b> her ikisinin de kapladığı ortak bölge, <b>birleşim (∪)</b> ikisinden en az birinin kapladığı bölge, <b>fark (A \ B)</b> A'da olup B'de olmayan bölgedir.</p>
+<svg viewBox="0 0 640 280" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aralıklarda kesişim birleşim ve fark">
+  <rect x="0" y="0" width="640" height="280" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 2 — A = [−4, 6) ve B = (2, 8] üzerinde küme işlemleri</text>
+  <g stroke="#cbd5e1" stroke-width="1.5">
+    <line x1="60" y1="60" x2="580" y2="60"/><line x1="60" y1="100" x2="580" y2="100"/>
+    <line x1="60" y1="146" x2="580" y2="146"/><line x1="60" y1="186" x2="580" y2="186"/>
+    <line x1="60" y1="226" x2="580" y2="226"/>
+  </g>
+  <g font-size="11" font-weight="700" fill="#334155" text-anchor="middle">
+    <text x="120" y="248">−4</text><text x="280" y="248">2</text><text x="360" y="248">6</text><text x="520" y="248">8</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3">
+    <line x1="120" y1="52" x2="120" y2="236"/><line x1="280" y1="52" x2="280" y2="236"/>
+    <line x1="360" y1="52" x2="360" y2="236"/><line x1="520" y1="52" x2="520" y2="236"/>
+  </g>
+  <line x1="120" y1="60" x2="360" y2="60" stroke="#0284c7" stroke-width="5"/>
+  <circle cx="120" cy="60" r="5" fill="#0284c7"/><circle cx="360" cy="60" r="5" fill="#ffffff" stroke="#0284c7" stroke-width="3"/>
+  <text x="20" y="64" font-size="12" font-weight="700" fill="#0369a1">A</text>
+  <line x1="280" y1="100" x2="520" y2="100" stroke="#ea580c" stroke-width="5"/>
+  <circle cx="280" cy="100" r="5" fill="#ffffff" stroke="#ea580c" stroke-width="3"/><circle cx="520" cy="100" r="5" fill="#ea580c"/>
+  <text x="20" y="104" font-size="12" font-weight="700" fill="#c2410c">B</text>
+  <line x1="120" y1="146" x2="520" y2="146" stroke="#16a34a" stroke-width="5"/>
+  <circle cx="120" cy="146" r="5" fill="#16a34a"/><circle cx="520" cy="146" r="5" fill="#16a34a"/>
+  <text x="16" y="150" font-size="11" font-weight="700" fill="#15803d">A∪B</text>
+  <text x="540" y="150" font-size="12" font-weight="700" fill="#15803d">[−4, 8]</text>
+  <line x1="280" y1="186" x2="360" y2="186" stroke="#7c3aed" stroke-width="5"/>
+  <circle cx="280" cy="186" r="5" fill="#ffffff" stroke="#7c3aed" stroke-width="3"/><circle cx="360" cy="186" r="5" fill="#ffffff" stroke="#7c3aed" stroke-width="3"/>
+  <text x="16" y="190" font-size="11" font-weight="700" fill="#6d28d9">A∩B</text>
+  <text x="540" y="190" font-size="12" font-weight="700" fill="#6d28d9">(2, 6)</text>
+  <line x1="120" y1="226" x2="280" y2="226" stroke="#b91c1c" stroke-width="5"/>
+  <circle cx="120" cy="226" r="5" fill="#b91c1c"/><circle cx="280" cy="226" r="5" fill="#b91c1c"/>
+  <text x="16" y="230" font-size="11" font-weight="700" fill="#b91c1c">A\B</text>
+  <text x="540" y="230" font-size="12" font-weight="700" fill="#b91c1c">[−4, 2]</text>
+  <text x="26" y="270" font-size="10" fill="#475569">Uç noktalara dikkat: A\B işleminde 2 sayısı B'ye ait OLMADIĞI için (B'de 2 hariç) A\B'ye DÂHİLDİR — bu yüzden [−4, 2] kapalıdır.</text>
+</svg>
+
+<h3>2) Eşitsizliğin Özellikleri — Kuralları Türetmek</h3>
+<p><b>&gt;, ≥, &lt;, ≤</b> sembollerinin kullanıldığı ifadelere <b>eşitsizlik</b> denir. Eşitsizliklerle çalışırken tek bir temel fikri aklında tut: <b>a &lt; b demek, b − a &gt; 0 demektir.</b> Aşağıdaki kuralların hepsi bu tek cümleden çıkar.</p>
+<table>
+<tr><th>#</th><th>Özellik</th><th>Neden?</th></tr>
+<tr><td>1</td><td>Her iki tarafa aynı sayı eklenir/çıkarılırsa <b>yön değişmez</b>. <u>a &lt; b ⇒ a + c &lt; b + c</u></td><td>(b + c) − (a + c) = b − a &gt; 0. Fark hiç değişmedi, yani sıralama da değişmez.</td></tr>
+<tr><td>2</td><td><b>Pozitif</b> bir sayıyla çarpılır/bölünürse <b>yön değişmez</b>. <u>a &lt; b, c &gt; 0 ⇒ ac &lt; bc</u></td><td>c(b − a) ifadesinde pozitif × pozitif = pozitif. Fark hâlâ pozitif kaldı.</td></tr>
+<tr><td>3</td><td><b>Negatif</b> bir sayıyla çarpılır/bölünürse <b>YÖN DEĞİŞİR</b>. <u>a &lt; b, c &lt; 0 ⇒ ac &gt; bc</u></td><td>c(b − a) ifadesinde negatif × pozitif = <b>negatif</b>. Fark işaret değiştirdiği için sıralama tersine döner.</td></tr>
+<tr><td>4</td><td>Yönü <b>aynı</b> eşitsizlikler taraf tarafa <b>toplanabilir</b>. <u>a &lt; b, c &lt; d ⇒ a + c &lt; b + d</u></td><td>İki pozitif farkın toplamı yine pozitiftir. <b>Ama çıkarma yapılamaz</b> — bu, en sık yapılan hatadır.</td></tr>
+<tr><td>5</td><td><b>Pozitif</b> sayılarda ters alınırsa <b>yön değişir</b>. <u>0 &lt; a &lt; b ⇒ 1/a &gt; 1/b</u></td><td>Payda büyüdükçe kesir küçülür: 1/2 &gt; 1/5. Bölünen sabitken bölen büyürse pay azalır.</td></tr>
+<tr><td>6</td><td><b>Zıt işaretli</b> sayılarda ters alınırsa <b>yön değişmez</b>. <u>a &lt; 0 &lt; b ⇒ 1/a &lt; 1/b</u></td><td>1/a negatif, 1/b pozitif kalır; negatif daima pozitiften küçüktür. Sıralama bozulmaz.</td></tr>
+<tr><td>7</td><td><b>Pozitif</b> sayılarda kuvvet alınırsa <b>yön değişmez</b>. <u>0 &lt; a &lt; b ⇒ aⁿ &lt; bⁿ</u></td><td>Pozitif sayılarda büyüme kuvvetle korunur: 2 &lt; 3 ⇒ 8 &lt; 27.</td></tr>
+<tr><td>8</td><td><b>Negatif</b> sayılarda kuvvet: <b>n tek ise yön değişmez, n çift ise değişir</b>. <u>a &lt; b &lt; 0 ⇒ a³ &lt; b³ ama a² &gt; b²</u></td><td>Çift kuvvet işareti pozitife çevirir ve mutlak değeri büyük olan öne geçer: −5 &lt; −2 ama 25 &gt; 4.</td></tr>
+</table>
+<p class="formula">MANTIK — NEGATİFLE ÇARPMA NEDEN YÖN ÇEVİRİR? Ezberlemek yerine <b>görselleştir</b>: −1 ile çarpmak, sayı doğrusunda her sayıyı sıfıra göre <b>aynaya yansıtmaktır</b>. 2 &lt; 5 iken solda olan 2'ydi; yansıtınca −2 ve −5 olur ve bu sefer <b>solda olan −5</b>'tir. Sıralama tersine döndü çünkü doğrunun kendisi ters çevrildi. <u>Bu yüzden bir eşitsizliği −3 ile çarptığında ya da −3'e böldüğünde sembolü çevirmeyi unutamazsın: sayı doğrusunu ters çevirmiş oluyorsun.</u></p>
+<p class="formula">DİKKAT — TARAF TARAFA ÇIKARMA YOKTUR: <u>2 &lt; x &lt; 5</u> ve <u>1 &lt; y &lt; 3</u> verilsin. x − y için "2 − 1 &lt; x − y &lt; 5 − 3" yazmak <b>tamamen yanlıştır</b> (1 &lt; x − y &lt; 2 gibi saçma bir sonuç verir). Doğru yol: <b>önce −y'nin aralığını bul</b>, sonra topla. 1 &lt; y &lt; 3 eşitsizliğini −1 ile çarp → <b>−3 &lt; −y &lt; −1</b>. Şimdi toplayabilirsin: 2 + (−3) &lt; x − y &lt; 5 + (−1) → <b>−1 &lt; x − y &lt; 4</b>.</p>
+
+<h3>3) Birinci Dereceden Bir Bilinmeyenli Eşitsizlikler</h3>
+<p class="formula">TANIM — a, b ∈ ℝ ve a ≠ 0 olmak üzere <b>ax + b &lt; 0</b>, <b>ax + b &gt; 0</b>, <b>ax + b ≤ 0</b>, <b>ax + b ≥ 0</b> biçimindeki ifadelere <b>birinci dereceden bir bilinmeyenli eşitsizlik</b> denir. Çözüm kümesi bir <u>sayı</u> değil, bir <u>aralıktır</u>.</p>
+<p class="formula">ÇÖZÜM ADIMLARI — <b>1)</b> Parantezleri aç, varsa kesirlerden EKOK ile kurtul. <b>2)</b> Bilinmeyenleri bir tarafa, sayıları diğer tarafa topla (taraf değiştiren terimin işareti değişir). <b>3)</b> Katsayıya böl — <u>katsayı negatifse sembolü çevir</u>. <b>4)</b> Sonucu aralık olarak yaz ve sayı doğrusunda göster.</p>
+<p class="formula">ÖRNEK — <b>3 − 2x ≥ 11</b> eşitsizliğinin çözüm kümesini bulunuz.</p>
+<ul>
+<li><b>Adım 1 — Sayıları topla:</b> Her iki taraftan 3 çıkar → <b>−2x ≥ 8</b>. <u>Toplama-çıkarmada yön değişmez, sembol aynı kalır.</u></li>
+<li><b>Adım 2 — Katsayıya böl:</b> Her iki tarafı <b>−2</b> ile böl. Bölen <u>negatif</u> olduğu için <b>sembol çevrilir</b>: <b>x ≤ −4</b>.</li>
+<li><b>Adım 3 — Aralık olarak yaz:</b> <b>(−∞, −4]</b>. Eşitlik dâhil olduğu için uç nokta kapalıdır.</li>
+<li><b>Kontrol:</b> x = −5 dene → 3 − 2(−5) = 13 ≥ 11 ✓ &nbsp;·&nbsp; x = 0 dene → 3 ≥ 11 ✗ Doğru tarafı seçmişiz.</li>
+<li><b>Ders:</b> Çözümü bulduktan sonra <u>aralıktan bir sayı ve dışından bir sayı</u> denemek on saniye sürer ve yön hatasını anında yakalar.</li>
+</ul>
+<p class="formula">ÇİFT TARAFLI EŞİTSİZLİK — <b>−3 &lt; 2x + 1 ≤ 7</b> gibi ifadelerde x'i ortada yalnız bırakmak için yapılan her işlem <b>üç bölgeye birden</b> uygulanır. <u>Her taraftan 1 çıkar: −4 &lt; 2x ≤ 6. Her tarafı 2'ye böl: −2 &lt; x ≤ 3. Sonuç: (−2, 3].</u> <b>Negatife bölünüyorsa her iki sembol de çevrilir ve sayılar yer değiştirir.</b></p>
+
+<h3>4) İfade Sınırlama — TYT'nin Favori Kalıbı</h3>
+<p>Sınavda bu konudan gelen soruların çoğu şu biçimdedir: "x ve y'nin aralıkları verilmiş, <b>x + y</b> (ya da x − y, x·y, x/y) ifadesi hangi aralıktadır?" Burada kural ezberlemek yerine <b>tek bir yöntem</b> kullan: <b>uçları hesapla, en küçüğünü ve en büyüğünü seç.</b></p>
+<table>
+<tr><th>İfade</th><th>Yöntem</th><th>Örnek: 2 &lt; x &lt; 5, &nbsp;1 &lt; y &lt; 3</th></tr>
+<tr><td><b>x + y</b></td><td>Alt sınırları topla, üst sınırları topla</td><td>2 + 1 = 3, &nbsp;5 + 3 = 8 → <b>3 &lt; x + y &lt; 8</b></td></tr>
+<tr><td><b>x − y</b></td><td><b>Önce −y aralığını bul</b>, sonra topla</td><td>−3 &lt; −y &lt; −1 → <b>−1 &lt; x − y &lt; 4</b></td></tr>
+<tr><td><b>x · y</b></td><td>Dört uç çarpımını hesapla, <b>en küçük ve en büyüğünü</b> seç</td><td>2·1=2, 2·3=6, 5·1=5, 5·3=15 → <b>2 &lt; xy &lt; 15</b></td></tr>
+<tr><td><b>x / y</b></td><td>Dört uç bölümünü hesapla, en küçük ve en büyüğünü seç. <u>y aralığı 0 içeremez</u></td><td>2/1=2, 2/3, 5/1=5, 5/3 → <b>2/3 &lt; x/y &lt; 5</b></td></tr>
+</table>
+<p class="formula">NEDEN "DÖRT UÇ" YÖNTEMİ? Toplamada işler basittir çünkü toplama, her iki değişkende de <b>artan</b> bir işlemdir: x büyürse toplam büyür, y büyürse toplam büyür. Ama <b>çarpmada işaret devreye girer</b>. Değişkenlerden biri negatif olabiliyorsa "büyük × büyük = en büyük" kuralı bozulur. <u>Örnek: −5 &lt; x &lt; −2 ve 1 &lt; y &lt; 3 için xy çarpımının en küçüğü (−5)·3 = −15, en büyüğü (−2)·1 = −2'dir. Yani en büyük sonuç, iki KÜÇÜK uçtan gelmiştir.</u> <b>Bu yüzden çarpma ve bölmede daima dört ihtimali de yaz; sezgiyle karar verme.</b></p>
+<p class="formula">DİKKAT — ARALIK 0 İÇERİYORSA: <u>−2 &lt; x &lt; 3</u> gibi bir aralıkta <b>x²</b> için "dört uç" yetmez. x² ifadesinin en küçüğü uçlarda değil, <b>x = 0</b> noktasındadır: 0. En büyüğü ise uçların mutlak değeri büyük olanından gelir: 3² = 9. Sonuç: <b>0 ≤ x² &lt; 9</b>. <u>Kural: kare (ya da çift kuvvet) alırken, aralık sıfırı içeriyorsa alt sınır 0'dır.</u></p>
+<p class="formula">DİKKAT — BÖLMEDE PAYDA SIFIRI İÇEREMEZ: <u>1 &lt; x &lt; 4</u> ve <u>−2 &lt; y &lt; 2</u> verilirse x/y ifadesi için sınır <b>bulunamaz</b>; çünkü y sıfıra yaklaştıkça bölüm sınırsız büyür. Soruda x/y isteniyorsa y'nin aralığı ya tamamen pozitif ya tamamen negatif olmalıdır — bunu ilk iş olarak kontrol et.</p>
+<p class="formula">ÖRNEK — <b>−4 ≤ x ≤ 2</b> ve <b>1 ≤ y ≤ 3</b> ise <b>x − 2y</b> ifadesinin alabileceği en küçük ve en büyük değerler nedir?</p>
+<ul>
+<li><b>Adım 1 — İfadeyi topluma çevir:</b> x − 2y = x + (−2y). Önce <b>−2y</b>'nin aralığını bulmalıyız.</li>
+<li><b>Adım 2 — −2 ile çarp, sembolleri çevir:</b> 1 ≤ y ≤ 3 eşitsizliğini −2 ile çarpınca <b>−6 ≤ −2y ≤ −2</b> olur. <u>Uçların yeri değişti: 3'ten gelen −6 artık alt sınır.</u></li>
+<li><b>Adım 3 — Topla:</b> En küçük: −4 + (−6) = <b>−10</b>. En büyük: 2 + (−2) = <b>0</b>.</li>
+<li><b>Sonuç:</b> <b>−10 ≤ x − 2y ≤ 0</b>.</li>
+<li><b>Kontrol:</b> En küçük değer x = −4, y = 3 için: −4 − 6 = −10 ✓ En büyük değer x = 2, y = 1 için: 2 − 2 = 0 ✓</li>
+<li><b>Ders:</b> Çıkarma içeren her ifadede <u>çıkarılan terimin aralığını negatife çevirmek</u> zorunlu ilk adımdır. Doğrudan uçları çıkarmak yanlış sonuç verir.</li>
+</ul>
+
+<h3>5) Mutlak Değerli ve Kesirli Eşitsizliklere Giriş</h3>
+<p class="formula">MUTLAK DEĞERLİ TEMEL KALIPLAR — <b>|x| &lt; a</b> (a &gt; 0) ifadesi "x'in sıfıra uzaklığı a'dan küçük" demektir → <b>−a &lt; x &lt; a</b>, yani <u>tek bir aralık</u>. <b>|x| &gt; a</b> ifadesi ise "uzaklık a'dan büyük" demektir → <b>x &lt; −a veya x &gt; a</b>, yani <u>iki ayrı parça</u>. <b>Hafıza notu:</b> küçüktür <b>arada</b>, büyüktür <b>dışarıda</b>.</p>
+<p class="formula">DİKKAT — KESİRLİ EŞİTSİZLİKTE PAYDAYLA ÇARPMA: <u>3/x &gt; 1</u> eşitsizliğinde her iki tarafı x ile çarpmak <b>tehlikelidir</b>, çünkü x'in işaretini bilmiyorsun; negatifse sembolü çevirmen gerekir. <b>Güvenli yol:</b> her şeyi bir tarafa topla ve tek kesir hâline getir: 3/x − 1 &gt; 0 → (3 − x)/x &gt; 0. Sonra payı ve paydayı sıfır yapan değerleri (0 ve 3) sayı doğrusuna yerleştirip işaret tablosu kur. <u>Payda sıfır yapan değer çözüme asla dâhil edilmez.</u></p>
+
+<h3>6) İki Bilinmeyenli Eşitsizlikler ve Bölge Grafiği</h3>
+<p class="formula">TANIM — a, b, c gerçek sayı, a ve b sıfırdan farklı olmak üzere <b>ax + by &lt; c</b>, <b>ax + by ≤ c</b>, <b>ax + by &gt; c</b>, <b>ax + by ≥ c</b> biçimindeki ifadelere <b>birinci dereceden iki bilinmeyenli eşitsizlik</b> denir. Çözüm kümesi (x, y) sıralı ikililerinden oluşur ve sonsuz eleman içerdiği için analitik düzlemde <b>boyalı bir bölge</b> olarak gösterilir.</p>
+<p class="formula">ÇÖZÜM ADIMLARI — <b>1)</b> Eşitsizliği eşitlik yap: ax + by = c. <b>2)</b> y'yi yalnız bırak: <b>y = mx + n</b>. <b>3)</b> Doğruyu çiz — sembol <b>&lt; veya &gt;</b> ise <u>kesikli</u>, <b>≤ veya ≥</b> ise <u>düz</u> çizgi (kesikli çizgi "bu noktalar dâhil değil" demektir). <b>4)</b> <b>y &gt; mx + n</b> ise doğrunun <u>üst</u> bölgesini, <b>y &lt; mx + n</b> ise <u>alt</u> bölgesini boya.</p>
+<svg viewBox="0 0 640 300" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="İki bilinmeyenli eşitsizliğin bölge grafiği">
+  <rect x="0" y="0" width="640" height="300" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 3 — Kesikli ve düz çizgi: y &lt; x + 1 ile y ≥ x + 1</text>
+  <g stroke="#cbd5e1" stroke-width="1">
+    <line x1="60" y1="60" x2="60" y2="250"/><line x1="340" y1="60" x2="340" y2="250"/>
+  </g>
+  <polygon points="60,250 280,250 280,88" fill="#bfdbfe" fill-opacity="0.7"/>
+  <line x1="60" y1="240" x2="290" y2="240" stroke="#334155" stroke-width="2"/>
+  <line x1="90" y1="70" x2="90" y2="255" stroke="#334155" stroke-width="2"/>
+  <line x1="60" y1="230" x2="280" y2="80" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="7 5"/>
+  <text x="150" y="215" font-size="13" font-weight="700" fill="#0369a1">y &lt; x + 1</text>
+  <text x="96" y="270" font-size="10" fill="#475569">kesikli çizgi: doğru üzerindeki noktalar DÂHİL DEĞİL</text>
+  <text x="296" y="86" font-size="11" font-weight="700" fill="#0369a1">x</text>
+  <polygon points="340,250 340,88 560,88 560,250" fill="#fed7aa" fill-opacity="0" />
+  <polygon points="340,230 560,80 560,60 340,60" fill="#fed7aa" fill-opacity="0.8"/>
+  <line x1="340" y1="240" x2="570" y2="240" stroke="#334155" stroke-width="2"/>
+  <line x1="370" y1="70" x2="370" y2="255" stroke="#334155" stroke-width="2"/>
+  <line x1="340" y1="230" x2="560" y2="80" stroke="#ea580c" stroke-width="3"/>
+  <text x="420" y="215" font-size="13" font-weight="700" fill="#c2410c">y ≥ x + 1</text>
+  <text x="376" y="270" font-size="10" fill="#475569">düz çizgi: doğru üzerindeki noktalar ÇÖZÜME DÂHİL</text>
+  <line x1="26" y1="278" x2="614" y2="278" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="294" font-size="10" fill="#475569">Kontrol yöntemi: doğru üzerinde OLMAYAN bir nokta seç (genelde başlangıç noktası O(0,0)) ve eşitsizlikte yerine koy. Sağlıyorsa o noktanın bulunduğu tarafı boya.</text>
+</svg>
+<p class="formula">TEST NOKTASI YÖNTEMİ — "Üst mü alt mı?" diye düşünmek yerine <b>bir nokta dene</b>. Doğru üzerinde olmayan en kolay nokta <b>O(0, 0)</b>'dır. <u>Örnek: 2x + 3y &lt; 6 eşitsizliğinde (0,0) koy → 0 &lt; 6 ✓ sağlanıyor → başlangıç noktasının bulunduğu taraf boyanır.</u> Doğru başlangıç noktasından geçiyorsa (1, 0) gibi başka bir nokta seç. <b>Bu yöntem hiç yanıltmaz ve y'yi yalnız bırakma zahmetinden kurtarır.</b></p>
+<p class="formula">EŞİTSİZLİK SİSTEMLERİ — Birden fazla eşitsizlik birlikte verildiğinde çözüm kümesi, <b>bölgelerin KESİŞİMİ</b>dir; yani her eşitsizliği ayrı ayrı boyayıp <u>ortak kalan</u> alanı alırsın. <u>Bu ortak bölge çoğu zaman bir çokgen olur ve köşe noktaları, doğruların kesim noktalarıdır.</u> Sistemin çözümü boş küme de olabilir — bölgeler hiç kesişmiyorsa.</p>
+
+<h3>7) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Eşitsizlik çözme</b></td><td>ax + b &lt; c biçiminde tek bilinmeyen</td><td>Bilinmeyeni yalnız bırak; <b>negatife bölerken sembolü çevir</b>. Aralık olarak yaz.</td></tr>
+<tr><td>2</td><td><b>İfade sınırlama</b></td><td>"x ve y'nin aralığı verilmiş, x+y / x−y / xy kaç olabilir?"</td><td>Çıkarma varsa önce <b>negatife çevir</b>; çarpma/bölmede <b>dört ucu da</b> hesapla.</td></tr>
+<tr><td>3</td><td><b>Tam sayı sayma</b></td><td>"x tam sayı ise kaç değer alır?"</td><td>Aralığı bul, <b>uç noktaların dâhil olup olmadığına</b> dikkat ederek say. Açık uçtaki tam sayı sayılmaz.</td></tr>
+<tr><td>4</td><td><b>Aralıklarda küme işlemi</b></td><td>A ∩ B, A ∪ B, A \ B istenir</td><td>Aynı sayı doğrusuna alt alta çiz; uç noktaların açık/kapalı durumunu tek tek karar ver.</td></tr>
+<tr><td>5</td><td><b>En küçük / en büyük değer</b></td><td>"…ifadesinin alabileceği en büyük tam sayı değeri"</td><td>Aralığı bul; sınır açıksa <b>sınırın kendisi alınmaz</b>, bir içerideki tam sayı alınır.</td></tr>
+<tr><td>6</td><td><b>Mutlak değerli eşitsizlik</b></td><td>|x − a| &lt; b ya da |x − a| &gt; b</td><td>Küçükse <b>arada</b> (−b &lt; x − a &lt; b), büyükse <b>dışarıda</b> (iki ayrı aralık).</td></tr>
+<tr><td>7</td><td><b>Grafikten bölge okuma</b></td><td>Taralı bölge verilip eşitsizlik sorulur</td><td>Çizgi kesikli mi düz mü bak (sembol seçilir); sonra taralı bölgeden bir nokta al ve şıklarda dene.</td></tr>
+<tr><td>8</td><td><b>Eşitsizlik sistemi / ortak bölge</b></td><td>İki-üç eşitsizlik birlikte, "hangi bölge?"</td><td>Her birini ayrı boya, <b>kesişimi</b> al. Köşe noktaları doğruların kesim noktalarıdır.</td></tr>
+<tr><td>9</td><td><b>Koşullu işaret belirleme</b></td><td>"a &lt; 0 &lt; b ise aşağıdakilerden hangisi daima pozitiftir?"</td><td>Her şıkkı işaret kuralıyla test et; emin olamazsan aralıktan <b>somut sayı</b> seç ve dene.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 3) — <b>−7 &lt; 3x + 2 ≤ 11</b> eşitsizliğini sağlayan kaç tane <b>x tam sayısı</b> vardır?</p>
+<ul>
+<li><b>Adım 1 — Her taraftan 2 çıkar:</b> −9 &lt; 3x ≤ 9.</li>
+<li><b>Adım 2 — Her tarafı 3'e böl:</b> 3 pozitif olduğu için semboller aynı kalır → <b>−3 &lt; x ≤ 3</b>.</li>
+<li><b>Adım 3 — Tam sayıları say:</b> Sol uç <u>açık</u> olduğu için −3 sayılmaz; sağ uç <u>kapalı</u> olduğu için 3 sayılır. Değerler: −2, −1, 0, 1, 2, 3 → <b>6 tane</b>.</li>
+<li><b>Hızlı sayma formülü:</b> Her iki uç da kapalıysa <b>büyük − küçük + 1</b>; bir uç açıksa <b>büyük − küçük</b>; her iki uç da açıksa <b>büyük − küçük − 1</b>. Burada 3 − (−3) = 6 ✓</li>
+<li><b>En sık hata:</b> Uç noktaların açık/kapalı durumunu kontrol etmeden formül uygulamak. <u>Tek bir uç noktası, cevabı bir birim kaydırır.</u></li>
+</ul>
+<p class="formula">ÖRNEK (Tip 2) — <b>−3 &lt; x &lt; 1</b> ve <b>2 &lt; y &lt; 4</b> ise <b>x · y</b> çarpımı hangi aralıktadır?</p>
+<ul>
+<li><b>Adım 1 — Dört ucu da hesapla:</b> (−3)·2 = −6, &nbsp;(−3)·4 = <b>−12</b>, &nbsp;1·2 = 2, &nbsp;1·4 = <b>4</b>.</li>
+<li><b>Adım 2 — En küçük ve en büyüğü seç:</b> En küçük <b>−12</b>, en büyük <b>4</b>.</li>
+<li><b>Sonuç:</b> <b>−12 &lt; xy &lt; 4</b>.</li>
+<li><b>Neden sezgi yetmez:</b> "Alt × alt = alt sınır" düşünseydin −6 bulurdun ve yanılırdın. x negatif olduğu için y büyüdükçe çarpım <u>küçülüyor</u>. <b>Negatif içeren her aralıkta dört ucu da yazmak zorunludur.</b></li>
+<li><b>Uç noktalar açık olduğu için</b> sonuç aralığı da açık yazılır; x tam olarak −3 olamadığı için çarpım tam olarak −12 de olamaz.</li>
+</ul>
+
+<h3>8) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Eşitsizlik:</b> &gt;, ≥, &lt;, ≤ sembollerinden birini içeren matematiksel ifade.</li>
+<li><b>Aralık:</b> Sayı doğrusu üzerinde iki nokta arasındaki tüm gerçek sayılardan oluşan alt küme.</li>
+<li><b>Kapalı aralık [a, b]:</b> Uç noktaların dâhil olduğu aralık; sayı doğrusunda dolu noktayla gösterilir.</li>
+<li><b>Açık aralık (a, b):</b> Uç noktaların dâhil olmadığı aralık; boş (beyaz) noktayla gösterilir.</li>
+<li><b>Yarı açık aralık:</b> Uçlardan yalnızca birinin dâhil olduğu aralık, [a, b) veya (a, b].</li>
+<li><b>Işın:</b> Bir ucu kapalı, diğer ucu sonsuz olan aralık: [a, ∞) ya da (−∞, a].</li>
+<li><b>Sınırsız aralık:</b> Uçlarından en az biri sonsuz olan aralık; sonsuz tarafı daima açık parantezlidir.</li>
+<li><b>Uç nokta:</b> Aralığı sınırlayan sayı; dâhil olup olmaması aralığın türünü belirler.</li>
+<li><b>Çözüm kümesi:</b> Eşitsizliği sağlayan tüm değerlerin kümesi; genellikle bir aralık ya da aralıkların birleşimidir.</li>
+<li><b>Birinci dereceden bir bilinmeyenli eşitsizlik:</b> ax + b ile 0'ın karşılaştırıldığı, a ≠ 0 olan eşitsizlik.</li>
+<li><b>Birinci dereceden iki bilinmeyenli eşitsizlik:</b> ax + by ile c'nin karşılaştırıldığı, çözümü düzlemde bölge olan eşitsizlik.</li>
+<li><b>Eşitsizlik sistemi:</b> Birden fazla eşitsizliğin aynı anda sağlanması istenen durum; çözüm, bölgelerin kesişimidir.</li>
+<li><b>Kesikli çizgi:</b> Grafikte doğru üzerindeki noktaların çözüme dâhil olmadığını gösterir (&lt; ve &gt; için).</li>
+<li><b>Test noktası:</b> Hangi bölgenin boyanacağını belirlemek için eşitsizlikte denenen, doğru üzerinde olmayan nokta.</li>
+<li><b>Kritik nokta:</b> Bir ifadeyi (ya da paydayı) sıfır yapan değer; işaret tablosunda bölgeleri ayırır.</li>
+</ul>
+
+<h3>9) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Negatife bölerken sembolü çevirmemek:</b> −2x &gt; 6 ifadesinden x &gt; −3 çıkarmak <u>yanlıştır</u>; doğrusu <b>x &lt; −3</b>.</li>
+<li><b>Bilinmeyenle çarpıp bölmek:</b> x'in işareti bilinmiyorsa eşitsizliği x ile çarpamazsın; sembolün ne olacağını bilemezsin.</li>
+<li><b>Taraf tarafa çıkarma yapmak:</b> Eşitsizlikler <b>toplanabilir ama çıkarılamaz</b>. Çıkarma için önce ikinci aralığı negatife çevir.</li>
+<li><b>Çarpımda yalnızca iki ucu hesaplamak:</b> Negatif değer içeren aralıklarda <b>dört ihtimalin</b> hepsi yazılmalıdır.</li>
+<li><b>Kare alırken sıfırı unutmak:</b> Aralık sıfırı içeriyorsa x²'nin alt sınırı uçlardan değil, <b>0</b>'dan gelir.</li>
+<li><b>Bölmede paydanın sıfır içermesi:</b> y aralığı 0'ı kapsıyorsa x/y için sınır bulunamaz; önce bunu kontrol et.</li>
+<li><b>Sonsuzu köşeli parantezle kapatmak:</b> [3, ∞] <u>yanlıştır</u>; ∞ bir sayı değildir, daima <b>[3, ∞)</b> yazılır.</li>
+<li><b>Tam sayı sayarken uçları yanlış almak:</b> Açık uçtaki değer sayılmaz. −3 &lt; x ≤ 3 için 6 tane vardır, 7 değil.</li>
+<li><b>"En küçük değer" ile "en küçük tam sayı değeri"ni karıştırmak:</b> x &gt; 2 ise en küçük <u>değer yoktur</u>, ama en küçük <b>tam sayı</b> değeri 3'tür.</li>
+<li><b>|x| &gt; a çözümünü tek aralık yazmak:</b> Bu durumda çözüm <b>iki ayrı parçadır</b>: x &lt; −a veya x &gt; a.</li>
+<li><b>Kesikli/düz çizgiyi ters seçmek:</b> Eşitlik varsa (≤, ≥) çizgi <b>düz</b>; yoksa (&lt;, &gt;) <b>kesikli</b> çizilir.</li>
+<li><b>Ters alırken yönü sabit sanmak:</b> Sayılar <b>aynı işaretliyse</b> ters almada yön değişir; <b>zıt işaretliyse</b> değişmez.</li>
+<li><b>Çift kuvvette sıralamayı korumak:</b> −5 &lt; −2 doğrudur ama kareleri (−5)² = 25 &gt; 4 = (−2)²'dir; çift kuvvet sıralamayı bozar.</li>
+<li><b>Sistemde birleşim almak:</b> Eşitsizlik sisteminin çözümü <b>kesişimdir</b> ("ve"), birleşim değil ("veya").</li>
+</ul>
+
+<h3>10) Özet Kartı</h3>
+<ul>
+<li><b>Aralık gösterimi:</b> [ ] dâhil, ( ) hariç. <b>∞ daima açık parantezle.</b></li>
+<li><b>Işın:</b> Bir ucu kapalı bir ucu sonsuz olan aralık. <b>ℝ = (−∞, ∞)</b> da bir aralıktır.</li>
+<li><b>Küme işlemleri:</b> Aynı sayı doğrusuna alt alta çiz; ∩ ortak bölge, ∪ tüm kaplanan, \ A'da olup B'de olmayan.</li>
+<li><b>Toplama-çıkarma:</b> Yön değişmez.</li>
+<li><b>Pozitifle çarpma-bölme:</b> Yön değişmez. <b>Negatifle:</b> yön DEĞİŞİR (sayı doğrusu aynalanır).</li>
+<li><b>Taraf tarafa:</b> Aynı yönlü eşitsizlikler <b>toplanır</b>, çıkarılmaz.</li>
+<li><b>Ters alma:</b> Aynı işaretliyse yön değişir (0 &lt; a &lt; b ⇒ 1/a &gt; 1/b); zıt işaretliyse değişmez.</li>
+<li><b>Kuvvet:</b> Pozitiflerde sıralama korunur; negatiflerde <b>tek kuvvet korur, çift kuvvet çevirir</b>.</li>
+<li><b>Çözüm adımı:</b> Bilinmeyeni yalnız bırak → katsayıya böl → negatifse sembolü çevir → aralık yaz → bir sayı deneyerek kontrol et.</li>
+<li><b>x − y:</b> Önce <b>−y</b> aralığını bul, sonra topla. Doğrudan uçları çıkarma.</li>
+<li><b>x·y ve x/y:</b> <b>Dört ucu</b> hesapla, en küçük ve en büyüğü seç. Bölmede payda 0 içeremez.</li>
+<li><b>x²:</b> Aralık 0 içeriyorsa alt sınır <b>0</b>'dır.</li>
+<li><b>Tam sayı sayma:</b> İki uç kapalı → fark + 1 &nbsp;·&nbsp; bir uç açık → fark &nbsp;·&nbsp; iki uç açık → fark − 1.</li>
+<li><b>Mutlak değer:</b> <b>|x| &lt; a → arada</b> (−a &lt; x &lt; a) &nbsp;·&nbsp; <b>|x| &gt; a → dışarıda</b> (x &lt; −a veya x &gt; a).</li>
+<li><b>İki bilinmeyenli:</b> Doğruyu çiz (≤/≥ düz, &lt;/&gt; kesikli) → <b>test noktası (0,0)</b> koy → sağlayan tarafı boya.</li>
+<li><b>Sistem:</b> Bölgelerin <b>kesişimi</b>; köşeler doğruların kesim noktalarıdır.</li>
+</ul>
+
+</body></html>

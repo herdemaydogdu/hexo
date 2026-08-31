@@ -1,0 +1,172 @@
+{
+  "kaynak": "tyt-matematik.pdf (MEBİ TYT Matematik Konu Özetleri) — geometri bölümü, konu 92-137",
+  "not": "pypdf indeksi = konu numarası + 20. Her turda done=false olan İLK üniteyi işle, Supabase'e dollar-quote + md5 yöntemiyle yaz, done: true yap.",
+  "derinlik": "Coğrafya/matematik seviyesi: mantık önce formül sonra, her alt başlıkta çözümlü örnek, zorunlu SORU TİPLERİ tablosu, kavram sözlüğü, sık karıştırılanlar, özet kartı, doğrulanmış inline SVG şekiller. Geometri görsel bir branş olduğu için ünite başına 3-4 SVG hedeflenir.",
+  "uniteler": [
+    {
+      "sira": 1,
+      "unit_id": "geo-acilar",
+      "name": "Açılar ve Paralel Doğrular",
+      "pdf_konular": [
+        "92. Açı Kavramı ve Çeşitleri",
+        "93. Açı Kavramı ve Çeşitleri (devam)",
+        "94. Paralel İki Doğrunun Bir Kesenle Yaptığı Açılar"
+      ],
+      "pdf_index": "112-114",
+      "done": true
+    },
+    {
+      "sira": 2,
+      "unit_id": "geo-ucgen-aci",
+      "name": "Üçgende Açılar ve Kenar Bağıntıları",
+      "pdf_konular": [
+        "95. Üçgende Açılar",
+        "96. İkizkenar ve Eşkenar Üçgende Açı Özellikleri",
+        "97. Üçgende Açı Kenar Bağıntıları",
+        "98. Üçgen Eşitsizliği"
+      ],
+      "pdf_index": "115-118",
+      "done": true
+    },
+    {
+      "sira": 3,
+      "unit_id": "geo-eslik-benzerlik",
+      "name": "Üçgenlerde Eşlik ve Benzerlik",
+      "pdf_konular": [
+        "99-100. Üçgenlerde Eşlik",
+        "101-102. Üçgenlerde Benzerlik",
+        "103. Üçgenlerde Temel Benzerlik",
+        "104. Üçgenlerde Benzerlik Uygulamaları"
+      ],
+      "pdf_index": "119-124",
+      "done": true
+    },
+    {
+      "sira": 4,
+      "unit_id": "geo-yardimci",
+      "name": "Üçgende Yardımcı Elemanlar",
+      "pdf_konular": [
+        "105-108. Üçgende Açıortay",
+        "109. Üçgende Kenarortay",
+        "110-111. Üçgende Yükseklik",
+        "112. Üçgende Kenar Orta Dikme"
+      ],
+      "pdf_index": "125-132",
+      "done": true
+    },
+    {
+      "sira": 5,
+      "unit_id": "geo-pisagor",
+      "name": "Dik Üçgen: Pisagor ve Öklid",
+      "pdf_konular": [
+        "113. Dik Üçgende Pisagor Teoremi",
+        "114. Öklid'in Çalışmaları"
+      ],
+      "pdf_index": "133-134",
+      "done": true
+    },
+    {
+      "sira": 6,
+      "unit_id": "geo-trigonometri",
+      "name": "Trigonometrik Oranlar ve Birim Çember",
+      "pdf_konular": [
+        "115. Trigonometrik Oranlar",
+        "116. 30°, 45°, 60° nin Trigonometrik Oranları",
+        "117. Birim Çember"
+      ],
+      "pdf_index": "135-137",
+      "done": true
+    },
+    {
+      "sira": 7,
+      "unit_id": "geo-alan",
+      "name": "Üçgende Alan",
+      "pdf_konular": [
+        "118. Üçgende Alan",
+        "119. Üçgende Alan Uygulamaları"
+      ],
+      "pdf_index": "138-139",
+      "done": true
+    },
+    {
+      "sira": 8,
+      "unit_id": "geo-cokgen",
+      "name": "Çokgenler ve Dörtgenler",
+      "pdf_konular": [
+        "120. Çokgenler",
+        "121. Dörtgenler ve Özellikleri",
+        "122. Özel Dörtgenler"
+      ],
+      "pdf_index": "140-142",
+      "done": true
+    },
+    {
+      "sira": 9,
+      "unit_id": "geo-paralelkenar",
+      "name": "Paralelkenar",
+      "pdf_konular": [
+        "125. Paralelkenarda Açı ve Uzunluk",
+        "126-127. Paralelkenarda Alan"
+      ],
+      "pdf_index": "145-147",
+      "done": true
+    },
+    {
+      "sira": 10,
+      "unit_id": "geo-dikdortgen-kare",
+      "name": "Dikdörtgen ve Kare",
+      "pdf_konular": [
+        "129. Dikdörtgende Açı ve Uzunluk",
+        "130. Dikdörtgende Alan",
+        "131. Kare"
+      ],
+      "pdf_index": "149-151",
+      "done": true
+    },
+    {
+      "sira": 11,
+      "unit_id": "geo-eskenar-deltoid",
+      "name": "Eşkenar Dörtgen ve Deltoid",
+      "pdf_konular": [
+        "128. Eşkenar Dörtgen",
+        "132. Deltoid"
+      ],
+      "pdf_index": "148,152",
+      "done": true
+    },
+    {
+      "sira": 12,
+      "unit_id": "geo-yamuk",
+      "name": "Yamuk",
+      "pdf_konular": [
+        "123. Yamuğun Alanı",
+        "124. İkizkenar ve Dik Yamuk"
+      ],
+      "pdf_index": "143-144",
+      "done": true
+    },
+    {
+      "sira": 13,
+      "unit_id": "geo-prizma",
+      "name": "Dik Prizmalar ve Küp",
+      "pdf_konular": [
+        "133-134. Dik Prizmalar",
+        "135. Küp"
+      ],
+      "pdf_index": "153-155",
+      "done": true
+    },
+    {
+      "sira": 14,
+      "unit_id": "geo-piramit",
+      "name": "Dik Piramit ve Düzgün Dörtyüzlü",
+      "pdf_konular": [
+        "136. Dik Piramit",
+        "137. Düzgün Dört Yüzlü",
+        "Dik piramitte hacim"
+      ],
+      "pdf_index": "156-158",
+      "done": true
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Hareket (Hız) Problemleri</title>
+<style>
+body{max-width:860px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#1e293b}
+h2{font-size:1.7rem;border-bottom:3px solid #0369a1;padding-bottom:8px}
+h3{font-size:1.2rem;color:#0369a1;margin-top:32px}
+.formula{background:#f1f5f9;border-left:4px solid #0369a1;padding:12px 16px;border-radius:0 8px 8px 0}
+table{border-collapse:collapse;width:100%;margin:16px 0;font-size:.93rem}
+th,td{border:1px solid #cbd5e1;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#e2e8f0}
+svg{display:block;margin:16px 0}
+u{text-decoration:none;background:#fef9c3;padding:1px 2px;border-radius:3px}
+</style></head><body>
+<h2>Hareket (Hız) Problemleri</h2>
+
+<p>Hareket problemleri tek bir formüle dayanır — <b>Yol = Hız × Zaman</b> — ama soruların zorluğu formülden değil, <b>iki hareketlinin birbirine göre nasıl davrandığını görmekten</b> gelir. Zıt yönde gidiyorlarsa hızlar toplanır, aynı yönde gidiyorlarsa çıkarılır. Bir de en çok yanıltan konu var: <b>ortalama hız, hızların ortalaması değildir.</b> Bu ünitede önce temel bağıntıyı ve birim çevirmeyi oturtacağız, sonra karşılaşma-yetişme kalıplarını ve ortalama hızın neden farklı hesaplandığını göreceğiz.</p>
+
+<h3>1) Temel Bağıntı ve Birimler</h3>
+<p class="formula">TEMEL FORMÜL — <b>X = V · t</b> &nbsp;(X: yol, V: hız, t: zaman)<br/>
+Buradan: <b>V = X / t</b> &nbsp;·&nbsp; <b>t = X / V</b><br/>
+<u>Üç büyüklükten ikisi verilince üçüncüsü daima bulunur. Soruyu okurken hangisinin verildiğini, hangisinin arandığını işaretle.</u></p>
+<p class="formula">ORANTI İLİŞKİLERİ — Bu üç ilişki, hesap yapmadan karar vermeni sağlar:<br/>
+• <b>V sabitse:</b> X ile t <b>doğru orantılıdır</b> &nbsp;<u>(aynı hızla iki katı süre gidersen iki katı yol alırsın)</u><br/>
+• <b>X sabitse:</b> V ile t <b>ters orantılıdır</b> &nbsp;<u>(aynı yolu iki kat hızla gidersen yarı sürede varırsın)</u><br/>
+• <b>t sabitse:</b> X ile V <b>doğru orantılıdır</b> &nbsp;<u>(aynı sürede iki kat hızlı gidersen iki kat yol alırsın)</u></p>
+<p class="formula">BİRİM ÇEVİRME — <b>1 km = 1000 m</b>, <b>1 saat = 60 dk</b>, <b>1 dk = 60 sn</b>. Hız birimleri km/sa, m/dk, m/sn olabilir.<br/>
+<b>En çok kullanılan dönüşüm:</b> <b>km/sa → m/sn</b> için <b>× 1000/3600 = × 5/18</b>; tersi için <b>× 18/5</b>.<br/>
+<u>Örnek: 72 km/sa = 72 · 5/18 = 20 m/sn. &nbsp; 15 m/sn = 15 · 18/5 = 54 km/sa.</u><br/>
+<b>ALTIN KURAL:</b> Hesaba başlamadan önce <u>bütün büyüklükleri aynı birime çevir</u>. Hız km/sa iken süre dakika verilmişse ya süreyi saate çevir ya hızı km/dk yap. <b>Bu adımı atlamak, bu ünitedeki hataların yarısını oluşturur.</b></p>
+
+<h3>2) Zıt Yönlü ve Aynı Yönlü Hareket</h3>
+<p class="formula">İKİ TEMEL DURUM — Hızları V₁ ve V₂ olan iki araç için, aralarındaki mesafe |AB| ve geçen süre t olmak üzere:<br/>
+• <b>ZIT YÖNLÜ (birbirine doğru ya da birbirinden uzaklaşan):</b> <b>|AB| = (V₁ + V₂) · t</b><br/>
+• <b>AYNI YÖNLÜ (biri diğerini kovalıyor, V₁ &gt; V₂):</b> <b>|AB| = (V₁ − V₂) · t</b><br/>
+<u>Mantığı: zıt yönde giderken aradaki mesafe her saniye iki hızın toplamı kadar kapanır (ya da açılır). Aynı yönde ise yalnızca hız FARKI kadar yaklaşırlar; öndeki de kaçtığı için net kazanç sadece farktır.</u></p>
+<svg viewBox="0 0 640 280" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zıt yönlü ve aynı yönlü hareket">
+  <rect x="0" y="0" width="640" height="280" fill="#f8fafc" rx="10"/>
+  <text x="20" y="24" font-size="13" font-weight="700" fill="#334155">Şekil 1 — Zıt yönde hızlar TOPLANIR, aynı yönde ÇIKARILIR</text>
+  <text x="30" y="52" font-size="12" font-weight="700" fill="#15803d">ZIT YÖNLÜ — karşılaşma</text>
+  <line x1="60" y1="82" x2="580" y2="82" stroke="#334155" stroke-width="2"/>
+  <circle cx="60" cy="82" r="6" fill="#0284c7"/><circle cx="580" cy="82" r="6" fill="#ea580c"/>
+  <text x="60" y="72" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">A</text>
+  <text x="580" y="72" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">B</text>
+  <line x1="75" y1="98" x2="145" y2="98" stroke="#0284c7" stroke-width="2.5"/>
+  <polygon points="152,98 142,93 142,103" fill="#0284c7"/>
+  <text x="110" y="116" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">V₁ →</text>
+  <line x1="565" y1="98" x2="495" y2="98" stroke="#ea580c" stroke-width="2.5"/>
+  <polygon points="488,98 498,93 498,103" fill="#ea580c"/>
+  <text x="530" y="116" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">← V₂</text>
+  <rect x="220" y="92" width="200" height="28" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="320" y="111" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">|AB| = (V₁ + V₂)·t</text>
+  <text x="30" y="156" font-size="12" font-weight="700" fill="#b91c1c">AYNI YÖNLÜ — yetişme (V₁ &gt; V₂)</text>
+  <line x1="60" y1="186" x2="580" y2="186" stroke="#334155" stroke-width="2"/>
+  <circle cx="150" cy="186" r="6" fill="#0284c7"/><circle cx="420" cy="186" r="6" fill="#ea580c"/>
+  <text x="150" y="176" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">A</text>
+  <text x="420" y="176" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">B</text>
+  <line x1="165" y1="202" x2="245" y2="202" stroke="#0284c7" stroke-width="2.5"/>
+  <polygon points="252,202 242,197 242,207" fill="#0284c7"/>
+  <text x="205" y="220" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">V₁ →</text>
+  <line x1="435" y1="202" x2="485" y2="202" stroke="#ea580c" stroke-width="2.5"/>
+  <polygon points="492,202 482,197 482,207" fill="#ea580c"/>
+  <text x="462" y="220" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">V₂ →</text>
+  <rect x="240" y="196" width="200" height="28" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+  <text x="340" y="215" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">|AB| = (V₁ − V₂)·t</text>
+  <line x1="26" y1="240" x2="614" y2="240" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="26" y="258" font-size="10" fill="#475569">Zıt yönde uzaklaşmada da formül aynıdır: aradaki mesafe (V₁ + V₂)·t hızıyla AÇILIR.</text>
+  <text x="26" y="274" font-size="10" fill="#475569">Aynı yönde V₁ = V₂ ise fark sıfırdır → asla yetişemez. Bu, "yetişir mi?" sorularının cevabıdır.</text>
+</svg>
+<p class="formula">ÖRNEK — Aralarında <b>300 km</b> olan A ve B şehirlerinden aynı anda birbirlerine doğru hareket eden iki araçtan biri <b>70 km/sa</b>, diğeri <b>80 km/sa</b> hızla gidiyor. Kaç saat sonra karşılaşırlar?</p>
+<ul>
+<li><b>Adım 1 — Yön:</b> Birbirlerine doğru → <b>zıt yönlü</b> → hızlar toplanır: 70 + 80 = <b>150 km/sa</b>.</li>
+<li><b>Adım 2 — Süre:</b> t = 300 / 150 = <b>2 saat</b>.</li>
+<li><b>Kontrol:</b> 2 saatte biri 140 km, diğeri 160 km gider → 140 + 160 = 300 ✓</li>
+<li><b>Ek soru:</b> "Karşılaştıklarında A'dan kaç km uzaktadırlar?" → 70 · 2 = <b>140 km</b>. <u>Soru sık sık süreyi değil, karşılaşma noktasının yerini sorar.</u></li>
+</ul>
+<p class="formula">ÖRNEK — Bir araç, kendisinden <b>60 km</b> önde giden ve <b>60 km/sa</b> hızla ilerleyen bir araca <b>90 km/sa</b> hızla yaklaşmaktadır. Kaç saat sonra yetişir?</p>
+<ul>
+<li><b>Adım 1 — Yön:</b> Aynı yönlü → hızlar çıkarılır: 90 − 60 = <b>30 km/sa</b> (yaklaşma hızı).</li>
+<li><b>Adım 2 — Süre:</b> t = 60 / 30 = <b>2 saat</b>.</li>
+<li><b>Kontrol:</b> 2 saatte kovalayan 180 km, öndeki 120 km gider. Öndeki 60 km avantajlıydı: 60 + 120 = 180 ✓ Tam yetişti.</li>
+<li><b>Kritik sezgi:</b> Aynı yönde <u>hız farkı sıfırsa asla yetişemez</u>; fark ne kadar küçükse süre o kadar uzar.</li>
+</ul>
+
+<h3>3) Ortalama Hız — En Çok Yanıltan Konu</h3>
+<p class="formula">TANIM — <b>Ortalama Hız = Toplam Yol / Toplam Zaman</b><br/>
+<b>DİKKAT: Ortalama hız, hızların aritmetik ortalaması DEĞİLDİR.</b> <u>Çünkü yavaş gidilen bölümde daha çok zaman harcanır; o hız ortalamayı daha fazla "aşağı çeker".</u></p>
+<p class="formula">GİDİŞ-DÖNÜŞ FORMÜLÜ — Bir araç <b>aynı yolu</b> gidişte V₁, dönüşte V₂ hızıyla alıyorsa ortalama hız:<br/>
+<b>V<sub>ort</sub> = 2·V₁·V₂ / (V₁ + V₂)</b> &nbsp;<u>(harmonik ortalama)</u><br/>
+<b>Türetilişi:</b> Yol tek yön için x olsun. Toplam yol <b>2x</b>, toplam zaman <b>x/V₁ + x/V₂</b>. Bölersek:<br/>
+V<sub>ort</sub> = 2x / (x/V₁ + x/V₂) = 2 / (1/V₁ + 1/V₂) = <b>2V₁V₂/(V₁+V₂)</b>. <u>x sadeleşti — yani sonuç yolun uzunluğundan bağımsızdır.</u></p>
+<p class="formula">ÖRNEK — Bir araç bir yolu <b>60 km/sa</b> ile gidip <b>40 km/sa</b> ile dönüyor. Gidiş-dönüş ortalama hızı kaçtır?</p>
+<ul>
+<li><b>Yanlış refleks:</b> (60 + 40)/2 = 50 km/sa demek. <u>Bu, iki hızda EŞİT SÜRE geçirilseydi doğru olurdu; ama burada eşit YOL alınıyor.</u></li>
+<li><b>Doğru — formülle:</b> 2·60·40 / (60 + 40) = 4800/100 = <b>48 km/sa</b>.</li>
+<li><b>Doğru — sayı vererek:</b> Tek yön 120 km olsun. Gidiş 120/60 = 2 saat, dönüş 120/40 = 3 saat. Toplam yol 240 km, toplam zaman 5 saat → 240/5 = <b>48 km/sa</b> ✓</li>
+<li><b>Neden 50'den küçük?</b> Yavaş olan hızda (40) <u>daha uzun süre</u> geçirildi (3 saat), hızlı olanda daha kısa (2 saat). Ortalama, süresi uzun olana doğru kayar. <b>Bu yüzden gidiş-dönüş ortalaması daima aritmetik ortalamadan KÜÇÜKTÜR.</b></li>
+<li><b>Şık eleme:</b> Cevap her zaman iki hız arasında ve <u>aritmetik ortalamadan küçük</u> olmalıdır. 48 &lt; 50 ✓</li>
+</ul>
+<p class="formula">EŞİT SÜRE DURUMU — Eğer araç <b>eşit sürelerde</b> farklı hızlarla gidiyorsa (yolları değil, süreleri eşitse) ortalama hız <u>aritmetik ortalamadır</u>: <b>(V₁ + V₂)/2</b>. <u>Örnek: 2 saat 60 km/sa, 2 saat 40 km/sa → toplam yol 200 km, toplam süre 4 saat → 50 km/sa.</u><br/>
+<b>Ayırt etme:</b> Soruda <u>"aynı yolu"</u> geçiyorsa harmonik, <u>"eşit süre"</u> geçiyorsa aritmetik ortalama kullanılır.</p>
+
+<h3>4) Tren ve Köprü Problemleri</h3>
+<p class="formula">BOYU OLAN CİSİMLER — Tren gibi <b>uzunluğu olan</b> hareketlilerde alınan yol, cismin kendi boyunu da içerir:<br/>
+• <b>Bir direği (noktayı) geçme:</b> alınan yol = <b>trenin boyu</b><br/>
+• <b>Bir köprüyü/tüneli geçme:</b> alınan yol = <b>trenin boyu + köprünün boyu</b><br/>
+• <b>İki trenin birbirini geçmesi:</b> alınan yol = <b>iki trenin boyları toplamı</b>; hız zıt yönde toplam, aynı yönde farktır.<br/>
+<u>Mantık: "geçme" işlemi, trenin BURNUNUN girmesiyle başlar, KUYRUĞUNUN çıkmasıyla biter. Bu yüzden kendi boyu da yola eklenir.</u></p>
+<p class="formula">ÖRNEK — <b>200 m</b> uzunluğundaki bir tren, <b>72 km/sa</b> hızla <b>400 m</b> uzunluğundaki bir köprüyü kaç saniyede geçer?</p>
+<ul>
+<li><b>Adım 1 — Birimleri eşitle:</b> 72 km/sa = 72 · 5/18 = <b>20 m/sn</b>.</li>
+<li><b>Adım 2 — Alınan yol:</b> 200 + 400 = <b>600 m</b>.</li>
+<li><b>Adım 3 — Süre:</b> 600 / 20 = <b>30 saniye</b>.</li>
+<li><b>Sık yapılan hata:</b> Yalnızca köprü boyunu (400 m) almak → 20 saniye. <u>Tren kuyruğu köprüden çıkana kadar geçiş bitmez.</u></li>
+</ul>
+
+<h3>5) Soru Tipleri — TYT'de Bu Konudan Ne Gelir?</h3>
+<table>
+<tr><th>#</th><th>Soru tipi</th><th>Tanınma işareti</th><th>Çözüm refleksi</th></tr>
+<tr><td>1</td><td><b>Temel yol-hız-zaman</b></td><td>İki büyüklük verilip üçüncüsü isteniyor</td><td><b>X = V·t</b>. Önce <b>birimleri eşitle</b>.</td></tr>
+<tr><td>2</td><td><b>Karşılaşma</b></td><td>"Birbirlerine doğru hareket ediyorlar"</td><td>Hızları <b>topla</b>: t = mesafe / (V₁ + V₂).</td></tr>
+<tr><td>3</td><td><b>Yetişme</b></td><td>"Arkasından hareket ediyor / yetişiyor"</td><td>Hızları <b>çıkar</b>: t = mesafe / (V₁ − V₂). Fark 0 ise yetişemez.</td></tr>
+<tr><td>4</td><td><b>Ortalama hız (aynı yol)</b></td><td>"Gidip aynı yoldan dönüyor"</td><td><b>2V₁V₂/(V₁+V₂)</b>. Aritmetik ortalamadan küçük çıkmalı.</td></tr>
+<tr><td>5</td><td><b>Ortalama hız (eşit süre)</b></td><td>"2 saat şu hızla, 2 saat bu hızla"</td><td><b>Aritmetik ortalama</b>: (V₁+V₂)/2.</td></tr>
+<tr><td>6</td><td><b>Tren – köprü</b></td><td>Uzunluğu olan cisim geçiyor</td><td>Yol = <b>tren boyu + engel boyu</b>. Direk için sadece tren boyu.</td></tr>
+<tr><td>7</td><td><b>Geç kalma / erken varma</b></td><td>"5 dk geç kaldı / erken vardı"</td><td>İki durumun <b>sürelerini yaz</b>, farkı dakika cinsinden denklem yap.</td></tr>
+<tr><td>8</td><td><b>Akıntılı hareket</b></td><td>Nehir, akıntı, rüzgâr</td><td>Akıntı yönünde <b>V + a</b>, tersinde <b>V − a</b>.</td></tr>
+<tr><td>9</td><td><b>Turlama / çembersel</b></td><td>Pistte tur atma</td><td>Aynı yönde fark, zıt yönde toplam hızla <b>bir tur</b> kapatılır.</td></tr>
+</table>
+<p class="formula">ÖRNEK (Tip 7) — Bir öğrenci okula <b>60 m/dk</b> hızla giderse <b>5 dakika geç</b>, <b>80 m/dk</b> hızla giderse <b>3 dakika erken</b> varıyor. Ev ile okul arası kaç metredir?</p>
+<ul>
+<li><b>Adım 1 — Ortak bilinmeyen:</b> Tam zamanında varmak için gereken süre <b>t</b> dakika olsun. Yol her iki durumda aynıdır.</li>
+<li><b>Adım 2 — İki durumu yaz:</b> 60(t + 5) = 80(t − 3). <u>Geç kalınca süre t'den 5 fazla, erken varınca 3 azdır.</u></li>
+<li><b>Adım 3 — Çöz:</b> 60t + 300 = 80t − 240 → 540 = 20t → <b>t = 27 dakika</b>.</li>
+<li><b>Adım 4 — Yol:</b> 60 · (27 + 5) = 60 · 32 = <b>1920 m</b>.</li>
+<li><b>Kontrol:</b> 80 · (27 − 3) = 80 · 24 = 1920 ✓</li>
+<li><b>Kalıbın anahtarı:</b> <u>Yol sabittir</u>; iki farklı hız-süre çarpımını eşitlemek denklemi doğrudan verir.</li>
+</ul>
+<p class="formula">ÖRNEK (Tip 8) — Akıntı hızı <b>3 km/sa</b> olan bir nehirde, durgun suda <b>15 km/sa</b> hızla giden bir tekne, <b>36 km</b>'lik yolu akıntı yönünde gidip geri dönüyor. Toplam süre kaç saattir?</p>
+<ul>
+<li><b>Akıntı yönünde:</b> 15 + 3 = <b>18 km/sa</b> → süre 36/18 = <b>2 saat</b>.</li>
+<li><b>Akıntıya karşı:</b> 15 − 3 = <b>12 km/sa</b> → süre 36/12 = <b>3 saat</b>.</li>
+<li><b>Toplam:</b> <b>5 saat</b>.</li>
+<li><b>Ortalama hız kontrolü:</b> 72 km / 5 saat = 14,4 km/sa. <u>Formülle: 2·18·12/(18+12) = 432/30 = 14,4 ✓ Durgun su hızından (15) küçük çıktı — akıntı hiçbir zaman avantaj sağlamaz.</u></li>
+</ul>
+
+<h3>6) Kavram Sözlüğü</h3>
+<ul>
+<li><b>Hız (V):</b> Birim zamanda alınan yol; km/sa, m/dk, m/sn birimleriyle ölçülür.</li>
+<li><b>Yol (X):</b> Hareketlinin kat ettiği toplam mesafe.</li>
+<li><b>Zaman (t):</b> Hareketin sürdüğü süre.</li>
+<li><b>Zıt yönlü hareket:</b> İki hareketlinin birbirine doğru ya da birbirinden uzaklaşarak hareket etmesi; hızlar toplanır.</li>
+<li><b>Aynı yönlü hareket:</b> İki hareketlinin aynı doğrultuda ilerlemesi; hızlar çıkarılır.</li>
+<li><b>Yaklaşma hızı:</b> İki hareketli arasındaki mesafenin kapanma hızı; zıt yönde toplam, aynı yönde farktır.</li>
+<li><b>Ortalama hız:</b> Toplam yolun toplam zamana bölümü; hızların ortalaması değildir.</li>
+<li><b>Harmonik ortalama:</b> Eşit yollarda geçerli olan ortalama hız formülü: 2V₁V₂/(V₁+V₂).</li>
+<li><b>Akıntı hızı:</b> Suyun kendi hızı; hareket yönüne göre araç hızına eklenir ya da çıkarılır.</li>
+</ul>
+
+<h3>7) Sınavda Sık Karıştırılanlar</h3>
+<ul>
+<li><b>Birim çevirmeyi atlamak:</b> Hız km/sa, süre dakika ise sonuç 60 kat sapar. <b>km/sa → m/sn için × 5/18.</b></li>
+<li><b>Ortalama hızı aritmetik ortalama sanmak:</b> Aynı yol gidilip dönülüyorsa <b>2V₁V₂/(V₁+V₂)</b> kullanılır.</li>
+<li><b>Eşit yol ile eşit süreyi karıştırmak:</b> "Aynı yolu" → harmonik, "eşit süre" → aritmetik ortalama.</li>
+<li><b>Zıt/aynı yönü ters seçmek:</b> Karşılaşmada <b>topla</b>, yetişmede <b>çıkar</b>.</li>
+<li><b>Trenin kendi boyunu unutmak:</b> Köprü geçişinde yol = <b>tren + köprü</b>; direk geçişinde sadece tren boyu.</li>
+<li><b>Karşılaşma süresini karşılaşma yeriyle karıştırmak:</b> Süreyi bulduktan sonra <b>hangi aracın yolunun sorulduğuna</b> bak.</li>
+<li><b>Akıntıda yönleri ters uygulamak:</b> Akıntı yönünde <b>V + a</b>, karşısında <b>V − a</b>.</li>
+<li><b>Hız farkı sıfırken yetişme aramak:</b> Aynı hızda giden araç <b>asla yetişemez</b>.</li>
+<li><b>Geç kalma/erken varma denklemini yanlış kurmak:</b> Geç kalınca süre <b>fazla</b>, erken varınca <b>az</b> olur; yol her iki durumda aynıdır.</li>
+<li><b>Ortalama hızın aralık kontrolünü atlamak:</b> Sonuç daima <b>iki hız arasında</b> olmalıdır.</li>
+</ul>
+
+<h3>8) Özet Kartı</h3>
+<ul>
+<li><b>Temel:</b> <b>X = V · t</b> &nbsp;·&nbsp; V = X/t &nbsp;·&nbsp; t = X/V.</li>
+<li><b>Orantılar:</b> V sabit → X ile t doğru &nbsp;·&nbsp; X sabit → V ile t <b>ters</b> &nbsp;·&nbsp; t sabit → X ile V doğru.</li>
+<li><b>Birim:</b> <b>km/sa → m/sn: × 5/18</b> &nbsp;·&nbsp; m/sn → km/sa: × 18/5.</li>
+<li><b>Karşılaşma (zıt yön):</b> <b>|AB| = (V₁ + V₂)·t</b>.</li>
+<li><b>Yetişme (aynı yön):</b> <b>|AB| = (V₁ − V₂)·t</b>. Fark 0 → yetişemez.</li>
+<li><b>Ortalama hız:</b> <b>Toplam yol / Toplam zaman</b>.</li>
+<li><b>Gidiş-dönüş (eşit yol):</b> <b>V<sub>ort</sub> = 2V₁V₂/(V₁+V₂)</b>; aritmetik ortalamadan <b>küçüktür</b>.</li>
+<li><b>Eşit süre:</b> ortalama hız <b>(V₁+V₂)/2</b>.</li>
+<li><b>Tren:</b> Direk → tren boyu &nbsp;·&nbsp; köprü → <b>tren + köprü</b> &nbsp;·&nbsp; iki tren → <b>boyları toplamı</b>.</li>
+<li><b>Akıntı:</b> Yönünde <b>V + a</b>, karşısında <b>V − a</b>.</li>
+<li><b>Geç/erken kalıbı:</b> Yol sabit → <b>V₁(t + a) = V₂(t − b)</b>.</li>
+<li><b>Kontrol:</b> Ortalama hız daima iki hızın <b>arasında</b>; birimler <b>aynı</b> olmalı.</li>
+</ul>
+
+</body></html>
