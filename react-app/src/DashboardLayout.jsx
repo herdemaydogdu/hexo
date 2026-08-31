@@ -225,7 +225,7 @@ export default function DashboardLayout() {
             TYT
           </div>
           <div className="flex-1">
-            <p className="text-sm font-bold leading-tight text-slate-800">TYT Arena</p>
+            <p className="text-sm font-bold leading-tight text-slate-800">TYT Hazırlık</p>
           </div>
           <button
             onClick={() => setSidebarOpen(false)}

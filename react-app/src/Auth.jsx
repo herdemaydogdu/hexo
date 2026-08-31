@@ -44,7 +44,7 @@ export default function Auth() {
           <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-300 to-violet-300 text-white">
             <GraduationCap className="h-6 w-6" strokeWidth={1.8} />
           </div>
-          <h1 className="text-xl font-bold tracking-tight">TYT Arena</h1>
+          <h1 className="text-xl font-bold tracking-tight">TYT Hazırlık</h1>
           <p className="mt-1 text-sm text-slate-400">
             {mode === "signin" ? "Hesabına giriş yap" : "Yeni hesap oluştur"}
           </p>
