@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { supabase } from "./supabaseClient";
 import {
-  Search, Bold, Italic, List, ChevronRight, Check, ListChecks,
+  Search, Bold, Italic, List, ChevronRight, ChevronDown, Check, ListChecks,
   PenLine, Highlighter, Eraser, Trash2, X, NotebookPen,
 } from "lucide-react";
 import NotebookCanvas from "./NotebookCanvas.jsx";
@@ -24,6 +24,23 @@ const SUBJECTS = [
   { id: "sosyal",    name: "Sosyal",    dot: "#f0a882", soft: "#fdeee6", tint: "#fff8f4", ring: "#f8cdb6" }, // uçuk şeftali
   { id: "fen",       name: "Fen",       dot: "#e79ac0", soft: "#fbeaf2", tint: "#fef6fa", ring: "#f3c5da" }, // pudra
 ];
+
+/* Ders içi branşlar. unit_id ön ekinden türetilir: "cog-iklim" → Coğrafya.
+   Bir derste tek branş varsa başlık gösterilmez, liste düz kalır. */
+const BRANCH_LABELS = {
+  tar: "Tarih", cog: "Coğrafya", fel: "Felsefe", din: "Din Kültürü",
+  fiz: "Fizik", kim: "Kimya", biy: "Biyoloji",
+  mat: "Matematik", geo: "Geometri", tr: "Türkçe",
+};
+
+/* Branş sırası. Şart: DB'deki sort_order branşları iç içe geçiriyor
+   (fel-giris 2, tar-inkilap 49...), bu yüzden sıra burada sabitleniyor. */
+const BRANCH_ORDER = {
+  sosyal: ["tar", "cog", "fel", "din"],
+  fen: ["fiz", "kim", "biy"],
+};
+
+const branchOf = (unitId) => String(unitId || "").split("-")[0];
 
 /* Yumuşak, iki katmanlı gölge — kartlara "havada duruyor" hissi verir */
 const SOFT_SHADOW = "0 1px 2px rgba(15,23,42,.04), 0 14px 34px -18px rgba(15,23,42,.16)";
@@ -89,6 +106,7 @@ export default function LectureNotesView() {
   const [noteStatus, setNoteStatus] = useState("");
   const [done, setDone] = useState(new Set());
   const [tab, setTab] = useState("topics"); // "topics" | "notes"
+  const [collapsed, setCollapsed] = useState(() => new Set()); // kapalı branşlar
   const editorRef = useRef(null);
   const saveTimer = useRef(null);
 
@@ -119,6 +137,7 @@ export default function LectureNotesView() {
       const list = (data || []).filter((t) => t.content);
       setTopics(list);
       setActiveId(list[0]?.unit_id || null);
+      setCollapsed(new Set());
       setLoading(false);
     })();
     return () => { cancel = true; };
@@ -136,6 +155,83 @@ export default function LectureNotesView() {
   const active = topics.find((t) => t.unit_id === activeId) || null;
   const filtered = topics.filter((t) => t.name.toLowerCase().includes(q.trim().toLowerCase()));
   const pct = topics.length ? Math.round((done.size / topics.length) * 100) : 0;
+
+  /* Konuları branşlara böl. Tek branş çıkarsa (Türkçe, Matematik, Geometri)
+     başlık gösterilmez; liste eskisi gibi düz akar. */
+  const groups = useMemo(() => {
+    const by = new Map();
+    for (const t of filtered) {
+      const b = branchOf(t.unit_id);
+      if (!by.has(b)) by.set(b, []);
+      by.get(b).push(t);
+    }
+    const order = BRANCH_ORDER[subjectId] || [];
+    const keys = [...by.keys()].sort((a, b) => {
+      const ia = order.indexOf(a), ib = order.indexOf(b);
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+    });
+    return keys.map((k) => ({
+      key: k,
+      label: BRANCH_LABELS[k] || k,
+      items: by.get(k),
+      doneCount: by.get(k).filter((t) => done.has(t.unit_id)).length,
+    }));
+  }, [filtered, subjectId, done]);
+
+  const grouped = groups.length > 1;
+
+  function toggleBranch(key) {
+    setCollapsed((prev) => {
+      const next = new Set(prev);
+      next.has(key) ? next.delete(key) : next.add(key);
+      return next;
+    });
+  }
+
+  /* Tek bir konu satırı — hem düz listede hem branş gruplarında kullanılır */
+  function renderTopic(t) {
+    const on = t.unit_id === activeId;
+    const isDone = done.has(t.unit_id);
+    return (
+                      <div
+                        key={t.unit_id}
+                        className={
+                          "group flex items-center rounded-2xl transition-all duration-200 " +
+                          (on ? "shadow-sm" : "hover:bg-slate-50/80")
+                        }
+                        style={on ? { backgroundColor: subject.soft } : undefined}
+                      >
+                        <button
+                          onClick={(e) => toggleDone(t.unit_id, e)}
+                          aria-label={isDone ? t.name + " · tamamlandı" : t.name + " · tamamlanmadı"}
+                          aria-pressed={isDone}
+                          className="grid shrink-0 place-items-center py-3 pl-3.5 pr-2"
+                        >
+                          {isDone ? (
+                            <span
+                              className="grid h-[18px] w-[18px] place-items-center rounded-full text-white transition-transform duration-200"
+                              style={{ backgroundColor: subject.dot }}
+                            >
+                              <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                            </span>
+                          ) : (
+                            <span className="h-[18px] w-[18px] rounded-full border-[1.5px] border-slate-200 transition-colors duration-200 group-hover:border-slate-300" />
+                          )}
+                        </button>
+                        <button
+                          onClick={() => setActiveId(t.unit_id)}
+                          className={
+                            "flex flex-1 items-center justify-between gap-2 overflow-hidden py-3 pr-3.5 text-left text-sm leading-relaxed transition-colors duration-200 " +
+                            (on ? "font-semibold text-slate-700" : isDone ? "font-light text-slate-300" : "font-normal text-slate-500")
+                          }
+                        >
+                          <span className={"truncate " + (isDone && !on ? "line-through decoration-slate-200" : "")}>{t.name}</span>
+                          {on && <ChevronRight className="h-4 w-4 shrink-0" style={{ color: subject.dot }} strokeWidth={2.2} />}
+                        </button>
+                      </div>
+    );
+  }
+
 
   function toggleDone(uid, e) {
     e?.stopPropagation();
@@ -349,48 +445,38 @@ export default function LectureNotesView() {
                 {loading ? (
                   <ListSkeleton />
                 ) : filtered.length ? (
-                  filtered.map((t) => {
-                    const on = t.unit_id === activeId;
-                    const isDone = done.has(t.unit_id);
-                    return (
-                      <div
-                        key={t.unit_id}
-                        className={
-                          "group flex items-center rounded-2xl transition-all duration-200 " +
-                          (on ? "shadow-sm" : "hover:bg-slate-50/80")
-                        }
-                        style={on ? { backgroundColor: subject.soft } : undefined}
-                      >
-                        <button
-                          onClick={(e) => toggleDone(t.unit_id, e)}
-                          aria-label={isDone ? t.name + " · tamamlandı" : t.name + " · tamamlanmadı"}
-                          aria-pressed={isDone}
-                          className="grid shrink-0 place-items-center py-3 pl-3.5 pr-2"
-                        >
-                          {isDone ? (
-                            <span
-                              className="grid h-[18px] w-[18px] place-items-center rounded-full text-white transition-transform duration-200"
-                              style={{ backgroundColor: subject.dot }}
-                            >
-                              <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                  grouped ? (
+                    groups.map((g) => {
+                      const shut = collapsed.has(g.key) && !q.trim();
+                      return (
+                        <section key={g.key} className="pb-1">
+                          <button
+                            onClick={() => toggleBranch(g.key)}
+                            aria-expanded={!shut}
+                            className="sticky top-0 z-10 mb-1 flex w-full items-center gap-2 rounded-xl bg-white/90 px-3.5 py-2 text-left backdrop-blur-sm transition-colors duration-200 hover:bg-slate-50"
+                          >
+                            <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: subject.dot }} />
+                            <span className="flex-1 truncate text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+                              {g.label}
                             </span>
-                          ) : (
-                            <span className="h-[18px] w-[18px] rounded-full border-[1.5px] border-slate-200 transition-colors duration-200 group-hover:border-slate-300" />
-                          )}
-                        </button>
-                        <button
-                          onClick={() => setActiveId(t.unit_id)}
-                          className={
-                            "flex flex-1 items-center justify-between gap-2 overflow-hidden py-3 pr-3.5 text-left text-sm leading-relaxed transition-colors duration-200 " +
-                            (on ? "font-semibold text-slate-700" : isDone ? "font-light text-slate-300" : "font-normal text-slate-500")
-                          }
-                        >
-                          <span className={"truncate " + (isDone && !on ? "line-through decoration-slate-200" : "")}>{t.name}</span>
-                          {on && <ChevronRight className="h-4 w-4 shrink-0" style={{ color: subject.dot }} strokeWidth={2.2} />}
-                        </button>
-                      </div>
-                    );
-                  })
+                            <span className="shrink-0 text-[11px] font-medium tabular-nums text-slate-300">
+                              {g.doneCount}/{g.items.length}
+                            </span>
+                            <ChevronDown
+                              className={
+                                "h-3.5 w-3.5 shrink-0 text-slate-300 transition-transform duration-200 " +
+                                (shut ? "-rotate-90" : "")
+                              }
+                              strokeWidth={2}
+                            />
+                          </button>
+                          {!shut && <div className="space-y-1">{g.items.map(renderTopic)}</div>}
+                        </section>
+                      );
+                    })
+                  ) : (
+                    filtered.map(renderTopic)
+                  )
                 ) : (
                   <p className="px-4 py-8 text-center text-sm font-light text-slate-300">Sonuç bulunamadı.</p>
                 )}
