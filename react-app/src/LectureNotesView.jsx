@@ -106,7 +106,7 @@ export default function LectureNotesView() {
   const [noteStatus, setNoteStatus] = useState("");
   const [done, setDone] = useState(new Set());
   const [tab, setTab] = useState("topics"); // "topics" | "notes"
-  const [collapsed, setCollapsed] = useState(() => new Set()); // kapalı branşlar
+  const [activeBranch, setActiveBranch] = useState(null); // seçili branş (Fizik/Kimya/…)
   const editorRef = useRef(null);
   const saveTimer = useRef(null);
 
@@ -137,7 +137,7 @@ export default function LectureNotesView() {
       const list = (data || []).filter((t) => t.content);
       setTopics(list);
       setActiveId(list[0]?.unit_id || null);
-      setCollapsed(new Set());
+      setActiveBranch(null);
       setLoading(false);
     })();
     return () => { cancel = true; };
@@ -154,38 +154,43 @@ export default function LectureNotesView() {
 
   const active = topics.find((t) => t.unit_id === activeId) || null;
   const filtered = topics.filter((t) => t.name.toLowerCase().includes(q.trim().toLowerCase()));
-  const pct = topics.length ? Math.round((done.size / topics.length) * 100) : 0;
 
-  /* Konuları branşlara böl. Tek branş çıkarsa (Türkçe, Matematik, Geometri)
-     başlık gösterilmez; liste eskisi gibi düz akar. */
-  const groups = useMemo(() => {
+  /* Ders içi branşlar: Fen → Fizik/Kimya/Biyoloji, Sosyal → Tarih/Coğrafya/Felsefe/Din.
+     Tek branşlı derslerde (Türkçe, Matematik, Geometri) buton satırı gizlenir. */
+  const branches = useMemo(() => {
     const by = new Map();
-    for (const t of filtered) {
+    for (const t of topics) {
       const b = branchOf(t.unit_id);
       if (!by.has(b)) by.set(b, []);
       by.get(b).push(t);
     }
     const order = BRANCH_ORDER[subjectId] || [];
-    const keys = [...by.keys()].sort((a, b) => {
-      const ia = order.indexOf(a), ib = order.indexOf(b);
-      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
-    });
-    return keys.map((k) => ({
-      key: k,
-      label: BRANCH_LABELS[k] || k,
-      items: by.get(k),
-      doneCount: by.get(k).filter((t) => done.has(t.unit_id)).length,
-    }));
-  }, [filtered, subjectId, done]);
+    return [...by.keys()]
+      .sort((a, b) => {
+        const ia = order.indexOf(a), ib = order.indexOf(b);
+        return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+      })
+      .map((k) => ({
+        key: k,
+        label: BRANCH_LABELS[k] || k,
+        items: by.get(k),
+        doneCount: by.get(k).filter((t) => done.has(t.unit_id)).length,
+      }));
+  }, [topics, subjectId, done]);
 
-  const grouped = groups.length > 1;
+  const multiBranch = branches.length > 1;
+  const branch = branches.find((b) => b.key === activeBranch) || branches[0] || null;
+  const scope = multiBranch && branch ? branch.items : topics;          // görünen konu kümesi
+  const visible = scope.filter((t) => t.name.toLowerCase().includes(q.trim().toLowerCase()));
+  const scopeDone = multiBranch && branch ? branch.doneCount : done.size;
+  const pct = scope.length ? Math.round((scopeDone / scope.length) * 100) : 0;
 
-  function toggleBranch(key) {
-    setCollapsed((prev) => {
-      const next = new Set(prev);
-      next.has(key) ? next.delete(key) : next.add(key);
-      return next;
-    });
+  /* Branşa geçince o branşın ilk konusunu aç */
+  function pickBranch(key) {
+    setActiveBranch(key);
+    setQ("");
+    const first = branches.find((b) => b.key === key)?.items[0];
+    if (first) setActiveId(first.unit_id);
   }
 
   /* Tek bir konu satırı — hem düz listede hem branş gruplarında kullanılır */
@@ -310,6 +315,39 @@ export default function LectureNotesView() {
         })}
       </div>
 
+      {/* ───────── Branş butonları — "Fen" deyince Fizik / Kimya / Biyoloji ───────── */}
+      {multiBranch && (
+        <div className="scrollbar-hide -mx-1 -mt-5 mb-7 flex gap-2 overflow-x-auto px-1 pb-1">
+          {branches.map((b) => {
+            const on = b.key === branch?.key;
+            return (
+              <button
+                key={b.key}
+                onClick={() => pickBranch(b.key)}
+                aria-pressed={on}
+                className={
+                  "inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-2xl border px-4 py-2.5 text-sm transition-all duration-200 " +
+                  (on
+                    ? "border-transparent font-semibold text-white shadow-sm"
+                    : "border-slate-100 bg-white font-medium text-slate-500 hover:border-slate-200 hover:text-slate-700")
+                }
+                style={on ? { backgroundColor: subject.dot } : undefined}
+              >
+                {b.label}
+                <span
+                  className={
+                    "rounded-lg px-1.5 py-0.5 text-[11px] font-semibold tabular-nums " +
+                    (on ? "bg-white/25 text-white" : "bg-slate-50 text-slate-400")
+                  }
+                >
+                  {b.doneCount}/{b.items.length}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
         {/* ───────── Okuma kartı ───────── */}
         <article
@@ -410,7 +448,7 @@ export default function LectureNotesView() {
               <div className="shrink-0 px-5 pt-5">
                 <div className="mb-2.5 flex items-baseline justify-between">
                   <span className="text-xs font-medium tracking-wide text-slate-400">
-                    {done.size} / {topics.length} konu
+                    {scopeDone} / {scope.length} konu
                   </span>
                   <span className="text-xs font-semibold" style={{ color: subject.dot }}>%{pct}</span>
                 </div>
@@ -444,39 +482,8 @@ export default function LectureNotesView() {
               <div className="scrollbar-slim min-h-0 flex-1 space-y-1 overflow-y-auto px-3 py-4">
                 {loading ? (
                   <ListSkeleton />
-                ) : filtered.length ? (
-                  grouped ? (
-                    groups.map((g) => {
-                      const shut = collapsed.has(g.key) && !q.trim();
-                      return (
-                        <section key={g.key} className="pb-1">
-                          <button
-                            onClick={() => toggleBranch(g.key)}
-                            aria-expanded={!shut}
-                            className="sticky top-0 z-10 mb-1 flex w-full items-center gap-2 rounded-xl bg-white/90 px-3.5 py-2 text-left backdrop-blur-sm transition-colors duration-200 hover:bg-slate-50"
-                          >
-                            <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: subject.dot }} />
-                            <span className="flex-1 truncate text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
-                              {g.label}
-                            </span>
-                            <span className="shrink-0 text-[11px] font-medium tabular-nums text-slate-300">
-                              {g.doneCount}/{g.items.length}
-                            </span>
-                            <ChevronDown
-                              className={
-                                "h-3.5 w-3.5 shrink-0 text-slate-300 transition-transform duration-200 " +
-                                (shut ? "-rotate-90" : "")
-                              }
-                              strokeWidth={2}
-                            />
-                          </button>
-                          {!shut && <div className="space-y-1">{g.items.map(renderTopic)}</div>}
-                        </section>
-                      );
-                    })
-                  ) : (
-                    filtered.map(renderTopic)
-                  )
+                ) : visible.length ? (
+                  visible.map(renderTopic)
                 ) : (
                   <p className="px-4 py-8 text-center text-sm font-light text-slate-300">Sonuç bulunamadı.</p>
                 )}

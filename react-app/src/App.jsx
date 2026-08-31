@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "./supabaseClient";
 import DashboardLayout from "./DashboardLayout.jsx";
-import Auth from "./Auth.jsx";
 
 export default function App() {
   const [session, setSession] = useState(undefined); // undefined = yükleniyor
@@ -25,6 +24,6 @@ export default function App() {
     );
   }
 
-  // Giriş yoksa Auth ekranı, varsa dashboard.
-  return session ? <DashboardLayout /> : <Auth />;
+  // Site üyeliksiz de gezilebilir; giriş ekranı panel içinden açılır.
+  return <DashboardLayout session={session} />;
 }

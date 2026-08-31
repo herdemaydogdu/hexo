@@ -19,11 +19,16 @@ import {
   Loader2,
   Menu,
   X,
+  Gamepad2,
+  Lock,
+  ArrowRight,
 } from "lucide-react";
 import { supabase } from "./supabaseClient";
 import useDashboardData from "./useDashboardData";
 import Quiz from "./Quiz.jsx";
 import LectureNotesView from "./LectureNotesView.jsx";
+import Games from "./Games.jsx";
+import Auth from "./Auth.jsx";
 
 /**
  * TYT Hazırlık — Dashboard (Supabase'e bağlı)
@@ -31,12 +36,14 @@ import LectureNotesView from "./LectureNotesView.jsx";
  */
 
 // Yalnızca "dashboard" uygulanmış durumda; diğerleri "Yakında".
+/* guest: üyeliksiz ziyaretçiye de açık mı? */
 const NAV = [
-  { id: "dashboard", label: "Ana Sayfa", icon: LayoutDashboard, ready: true },
-  { id: "konu", label: "Ders Notları", icon: BookOpen, ready: true },
-  { id: "quiz", label: "Soru Çöz", icon: PenSquare, ready: true },
-  { id: "deneme", label: "Deneme Sınavı", icon: Timer, ready: false },
-  { id: "istatistik", label: "İstatistik", icon: BarChart3, ready: false },
+  { id: "dashboard", label: "Ana Sayfa", icon: LayoutDashboard, ready: true, guest: true },
+  { id: "konu", label: "Ders Notları", icon: BookOpen, ready: true, guest: true },
+  { id: "oyun", label: "Oyunlar", icon: Gamepad2, ready: true, guest: true },
+  { id: "quiz", label: "Soru Çöz", icon: PenSquare, ready: true, guest: false },
+  { id: "deneme", label: "Deneme Sınavı", icon: Timer, ready: false, guest: false },
+  { id: "istatistik", label: "İstatistik", icon: BarChart3, ready: false, guest: false },
 ];
 
 const TINT = {
@@ -55,7 +62,7 @@ const EXAM_DATE = "2027-06-19";
 const fmt = (n, d = 0) =>
   new Intl.NumberFormat("tr-TR", { maximumFractionDigits: d }).format(Number(n) || 0);
 
-function NavItem({ item, active, onClick }) {
+function NavItem({ item, active, onClick, locked }) {
   const Icon = item.icon;
   if (!item.ready) {
     return (
@@ -78,7 +85,80 @@ function NavItem({ item, active, onClick }) {
     >
       <Icon className="h-5 w-5" strokeWidth={1.8} />
       <span>{item.label}</span>
+      {locked && <Lock className="ml-auto h-3.5 w-3.5 text-slate-300" strokeWidth={2} />}
     </button>
+  );
+}
+
+/* Üyeliksiz ziyaretçinin gördüğü ana sayfa */
+function GuestLanding({ onAuth, onBrowse }) {
+  const highlights = [
+    { n: "162", l: "konu anlatımı", d: "Türkçe, Matematik, Geometri, Fen ve Sosyal" },
+    { n: "3.995", l: "özgün soru", d: "Her konuda kolay–orta–zor dağılımı" },
+    { n: "4", l: "tekrar oyunu", d: "Eşleştirme, Hafıza, Bilgi Kartları, Hızlı Yarış" },
+  ];
+  return (
+    <div className="mx-auto w-full max-w-4xl">
+      <section className="rounded-3xl border border-slate-100 bg-gradient-to-br from-violet-50 via-white to-sky-50 p-8 sm:p-10">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-violet-600">
+          <Sparkles className="h-3.5 w-3.5" strokeWidth={2} /> TYT Hazırlık
+        </span>
+        <h1 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-slate-800 sm:text-4xl">
+          Konuyu oku, soruyla pekiştir,<br className="hidden sm:block" /> oyunla kalıcı hale getir.
+        </h1>
+        <p className="mt-3 max-w-xl text-base font-light leading-relaxed text-slate-500">
+          Bütün konu anlatımları üyelik gerekmeden açık. Soru çözmek, ilerlemeni kaydetmek
+          ve nerede zayıf olduğunu görmek için ücretsiz hesap aç.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <button
+            onClick={onAuth}
+            className="inline-flex items-center gap-2 rounded-2xl bg-violet-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-violet-700"
+          >
+            Ücretsiz üye ol <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+          </button>
+          <button
+            onClick={onBrowse}
+            className="inline-flex items-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-600 shadow-sm transition-colors hover:text-slate-800"
+          >
+            Ders notlarına göz at
+          </button>
+        </div>
+      </section>
+
+      <div className="mt-5 grid gap-3 sm:grid-cols-3">
+        {highlights.map((h) => (
+          <div key={h.l} className="rounded-3xl border border-slate-100 bg-white p-5">
+            <div className="text-2xl font-bold tabular-nums text-slate-800">{h.n}</div>
+            <div className="text-sm font-semibold text-slate-600">{h.l}</div>
+            <p className="mt-1.5 text-xs font-light leading-relaxed text-slate-400">{h.d}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-5 rounded-3xl border border-slate-100 bg-white p-6">
+        <h2 className="text-sm font-semibold text-slate-700">Üye olunca ne açılıyor?</h2>
+        <ul className="mt-3 space-y-2.5">
+          {[
+            "3.995 sorunun tamamı ve konu konu soru çözme",
+            "Çözdüğün her sorunun kaydı: günlük seri, doğru oranı, zayıf ders",
+            "Yanlış defteri ve kaldığın yerden devam",
+            "Oyun rekorlarının hesabına kaydı — telefondan girince de durur",
+          ].map((t) => (
+            <li key={t} className="flex items-start gap-2.5 text-sm font-light leading-relaxed text-slate-500">
+              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-violet-400" strokeWidth={2} />
+              {t}
+            </li>
+          ))}
+        </ul>
+        <button
+          onClick={onAuth}
+          className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-slate-800 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-slate-900"
+        >
+          Hesap oluştur <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+        </button>
+      </div>
+    </div>
   );
 }
 
@@ -159,10 +239,20 @@ function ProgressRow({ row }) {
   );
 }
 
-export default function DashboardLayout() {
+export default function DashboardLayout({ session }) {
+  const guest = !session;
   const [active, setActive] = useState("dashboard");
   const [email, setEmail] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showAuth, setShowAuth] = useState(false); // giriş/kayıt ekranı
+
+  /* Misafir kilitli bir sekmeye tıklarsa üyelik ekranını aç */
+  function go(id) {
+    const item = NAV.find((n) => n.id === id);
+    if (guest && item && !item.guest) { setShowAuth(true); return; }
+    setActive(id);
+    setSidebarOpen(false);
+  }
 
   const {
     dailyGoal, solvedToday, streak, avgNet, completedTopics,
@@ -173,8 +263,23 @@ export default function DashboardLayout() {
     supabase?.auth.getUser().then(({ data }) => setEmail(data?.user?.email || ""));
   }, []);
 
-  // İlk yükleme: veri gelene kadar spinner (0/boş titremesini önler).
-  if (loading && !ready) {
+  // Üyelik ekranı açıkken her şeyin önüne geçer
+  if (showAuth) {
+    return (
+      <div className="relative min-h-screen">
+        <button
+          onClick={() => setShowAuth(false)}
+          className="absolute left-4 top-4 z-10 flex items-center gap-1.5 rounded-xl bg-white/80 px-3 py-2 text-sm font-medium text-slate-500 backdrop-blur transition-colors hover:text-slate-700"
+        >
+          <X className="h-4 w-4" strokeWidth={2} /> Siteye dön
+        </button>
+        <Auth />
+      </div>
+    );
+  }
+
+  // İlk yükleme: veri gelene kadar spinner (misafirde beklenecek veri yok).
+  if (!guest && loading && !ready) {
     return (
       <div className="grid min-h-screen place-items-center bg-slate-50 font-sans text-slate-400">
         <span className="inline-flex items-center gap-2 text-sm">
@@ -242,10 +347,8 @@ export default function DashboardLayout() {
               key={item.id}
               item={item}
               active={active === item.id}
-              onClick={() => {
-                setActive(item.id);
-                setSidebarOpen(false);
-              }}
+              locked={guest && !item.guest}
+              onClick={() => go(item.id)}
             />
           ))}
         </nav>
@@ -290,7 +393,16 @@ export default function DashboardLayout() {
           >
             <Bell className="h-5 w-5" strokeWidth={1.8} />
           </button>
-          <ProfileMenu email={email} />
+          {guest ? (
+            <button
+              onClick={() => setShowAuth(true)}
+              className="inline-flex items-center gap-2 rounded-2xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-violet-700"
+            >
+              Giriş yap / Üye ol
+            </button>
+          ) : (
+            <ProfileMenu email={email} />
+          )}
         </header>
 
         {/* Main */}
@@ -305,7 +417,11 @@ export default function DashboardLayout() {
 
           {active === "konu" && <LectureNotesView />}
 
-          {active === "dashboard" && (
+          {active === "oyun" && <Games guest={guest} onAuth={() => setShowAuth(true)} />}
+
+          {active === "dashboard" && guest && <GuestLanding onAuth={() => setShowAuth(true)} onBrowse={() => setActive("konu")} />}
+
+          {active === "dashboard" && !guest && (
             <>
           {/* ——— Hero: Kaldığın yer + Günlük hedef ——— */}
           <section className="grid grid-cols-1 gap-5 lg:grid-cols-3">
