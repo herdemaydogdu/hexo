@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import { supabase } from "./supabaseClient";
 import {
-  Search, Bold, Italic, List, ChevronRight, ChevronDown, Check, ListChecks,
+  Search, Bold, Italic, List, ChevronRight, ChevronDown, Check, ListChecks, Gamepad2,
   PenLine, Highlighter, Eraser, Trash2, X, NotebookPen,
 } from "lucide-react";
 import NotebookCanvas from "./NotebookCanvas.jsx";
@@ -96,7 +96,7 @@ function ListSkeleton() {
   );
 }
 
-export default function LectureNotesView() {
+export default function LectureNotesView({ onPlay }) {
   const [subjectId, setSubjectId] = useState("turkce");
   const [topics, setTopics] = useState([]);
   const [activeId, setActiveId] = useState(null);
@@ -385,12 +385,23 @@ export default function LectureNotesView() {
                 <ToolBtn onClick={() => setDrawMode(false)} label="Kapat"><X className="h-4 w-4" strokeWidth={1.8} /></ToolBtn>
               </>
             ) : (
-              <button
-                onClick={() => setDrawMode(true)}
-                className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-slate-400 transition-colors duration-200 hover:text-slate-600"
-              >
-                <PenLine className="h-4 w-4" strokeWidth={1.8} style={{ color: subject.dot }} /> Çiz
-              </button>
+              <>
+                {onPlay && active && (
+                  <button
+                    onClick={() => onPlay(subjectId, active.unit_id)}
+                    className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-slate-400 transition-colors duration-200 hover:text-slate-600"
+                    title="Bu konuyu oyunla tekrar et"
+                  >
+                    <Gamepad2 className="h-4 w-4" strokeWidth={1.8} style={{ color: subject.dot }} /> Oyunla tekrar et
+                  </button>
+                )}
+                <button
+                  onClick={() => setDrawMode(true)}
+                  className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium text-slate-400 transition-colors duration-200 hover:text-slate-600"
+                >
+                  <PenLine className="h-4 w-4" strokeWidth={1.8} style={{ color: subject.dot }} /> Çiz
+                </button>
+              </>
             )}
           </div>
 

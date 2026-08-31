@@ -245,6 +245,14 @@ export default function DashboardLayout({ session }) {
   const [email, setEmail] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showAuth, setShowAuth] = useState(false); // giriş/kayıt ekranı
+  const [gameSeed, setGameSeed] = useState(null);  // ders notundan oyuna geçiş
+
+  /* Ders Notları → "Oyunla tekrar et" */
+  function playUnit(subjectId, unitId) {
+    setGameSeed({ subjectId, unitId });
+    setActive("oyun");
+    setSidebarOpen(false);
+  }
 
   /* Misafir kilitli bir sekmeye tıklarsa üyelik ekranını aç */
   function go(id) {
@@ -415,9 +423,9 @@ export default function DashboardLayout({ session }) {
 
           {active === "quiz" && <Quiz onFinish={refresh} />}
 
-          {active === "konu" && <LectureNotesView />}
+          {active === "konu" && <LectureNotesView onPlay={playUnit} />}
 
-          {active === "oyun" && <Games guest={guest} onAuth={() => setShowAuth(true)} />}
+          {active === "oyun" && <Games guest={guest} onAuth={() => setShowAuth(true)} seed={gameSeed} onSeedUsed={() => setGameSeed(null)} />}
 
           {active === "dashboard" && guest && <GuestLanding onAuth={() => setShowAuth(true)} onBrowse={() => setActive("konu")} />}
 

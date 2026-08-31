@@ -42,9 +42,10 @@ const GAMES = [
 const GAME_BY_ID = Object.fromEntries(GAMES.map((g) => [g.id, g]));
 
 const DIFFS = {
-  kolay: { name: "Kolay", pairs: 4, time: 75 },
-  orta:  { name: "Orta",  pairs: 6, time: 60 },
-  zor:   { name: "Zor",   pairs: 8, time: 45 },
+  kolay: { name: "Kolay", pairs: 4, time: 75, reverse: false },
+  orta:  { name: "Orta",  pairs: 6, time: 60, reverse: false },
+  // Zor'da eşleştirme ters yöne döner: tanımı okuyup terimi bulursun (hatırlama yönü daha zor).
+  zor:   { name: "Zor",   pairs: 8, time: 45, reverse: true },
 };
 
 const SOFT_SHADOW = "0 1px 2px rgba(15,23,42,.04), 0 14px 34px -18px rgba(15,23,42,.16)";
@@ -85,7 +86,7 @@ const sfx = {
 
 /* ===================================================================== */
 
-export default function Games({ guest = false, onAuth }) {
+export default function Games({ guest = false, onAuth, seed, onSeedUsed }) {
   const [view, setView] = useState("menu");     // menu | units | play
   const [gameId, setGameId] = useState(null);
   const [subjectId, setSubjectId] = useState(null);
@@ -96,11 +97,30 @@ export default function Games({ guest = false, onAuth }) {
   const [userId, setUserId] = useState(null);
   const [bests, setBests] = useState({});       // "game|unit_id" → en iyi skor
   const [muted, setMuted] = useState(() => localStorage.getItem(SFX_KEY) === "0");
+  const [seedUnit, setSeedUnit] = useState(null);   // ders notundan gelen ünite
 
   const game = gameId ? GAME_BY_ID[gameId] : null;
   const subject = SUBJECTS.find((s) => s.id === subjectId) || SUBJECTS[0];
 
   useEffect(() => { supabase?.auth.getUser().then(({ data }) => setUserId(data?.user?.id || null)); }, []);
+
+  /* Ders Notları'ndan "bu konuyu oyunla tekrar et" ile gelindiğinde
+     doğrudan o ünitenin oyun seçimine düş. */
+  useEffect(() => {
+    if (!seed?.unitId) return;
+    let cancel = false;
+    (async () => {
+      const { data } = await supabase.from("topics")
+        .select("unit_id,name,pairs,question_count").eq("unit_id", seed.unitId).maybeSingle();
+      if (cancel || !data) return;
+      setSubjectId(seed.subjectId);
+      setSeedUnit(data);
+      setGameId(null);
+      setView("menu");
+      onSeedUsed?.();
+    })();
+    return () => { cancel = true; };
+  }, [seed?.unitId]);
 
   /* Kişisel rekorlar */
   const loadBests = useCallback(async () => {
@@ -185,6 +205,7 @@ export default function Games({ guest = false, onAuth }) {
       <GameRunner
         game={game} subject={subject} unit={unit} diff={diff}
         best={bests[game.id + "|" + unit.unit_id]}
+        userId={userId}
         onSave={saveResult}
         onExit={() => setView("units")}
       />
@@ -224,8 +245,50 @@ export default function Games({ guest = false, onAuth }) {
         </div>
       )}
 
+      {/* 0) Ders notundan gelindi: bu üniteyle oyun seç */}
+      {seedUnit && !gameId && (
+        <div className="mb-6">
+          <BackBar label="Tüm oyunlar" onClick={() => setSeedUnit(null)} />
+          <div className="mb-3 rounded-2xl px-4 py-3" style={{ backgroundColor: subject.soft }}>
+            <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Bu üniteyle tekrar</p>
+            <p className="text-base font-bold text-slate-800">{seedUnit.name}</p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {GAMES.map((g) => {
+              const varMi = g.needs === "pairs"
+                ? (seedUnit.pairs || []).length >= 2
+                : seedUnit.question_count > 0 && !guest;
+              return (
+                <button
+                  key={g.id}
+                  disabled={!varMi}
+                  onClick={() => { sfx.tap(); setGameId(g.id); setUnit(seedUnit); setView("play"); }}
+                  className={
+                    "flex items-start gap-4 rounded-3xl border p-5 text-left transition-all duration-200 " +
+                    (varMi ? "border-slate-100 bg-white hover:-translate-y-0.5" : "border-slate-100 bg-slate-50 opacity-60")
+                  }
+                  style={varMi ? { boxShadow: SOFT_SHADOW } : undefined}
+                >
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-slate-50 text-slate-500">
+                    <g.Icon className="h-5 w-5" strokeWidth={1.8} />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-base font-semibold text-slate-700">{g.name}</span>
+                    <span className="mt-0.5 block text-sm font-light text-slate-400">
+                      {varMi ? g.desc
+                        : g.needs === "questions" && guest ? "Üye olunca açılır"
+                        : "Bu ünitede yeterli içerik yok"}
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* 1) Oyun seç */}
-      {!gameId && (
+      {!gameId && !seedUnit && (
         <div className="grid gap-3 sm:grid-cols-2">
           {GAMES.map((g) => (
             <button
@@ -344,7 +407,12 @@ export default function Games({ guest = false, onAuth }) {
                           <span className="min-w-0 flex-1">
                             <span className="block truncate text-sm font-medium text-slate-600">{u.name}</span>
                             <span className="mt-0.5 block text-xs font-light text-slate-400">
-                              {game.needs === "pairs" ? (u.pairs || []).length + " terim" : u.question_count + " soru"}
+                              {game.needs === "pairs" ? (() => {
+                                const have = (u.pairs || []).length;
+                                const want = game.id === "flashcard" ? have : DIFFS[diff].pairs;
+                                const real = Math.min(want, have);
+                                return real + " kart" + (real < want ? " (bu ünitede o kadar var)" : "");
+                              })() : u.question_count + " soru"}
                             </span>
                           </span>
                           {best != null && (
@@ -381,7 +449,7 @@ function BackBar({ label, onClick }) {
 /* Oyun motoru — seçilen oyunu kurar, bitince sonucu üst bileşene verir   */
 /* ===================================================================== */
 
-function GameRunner({ game, subject, unit, diff, best, onSave, onExit }) {
+function GameRunner({ game, subject, unit, diff, best, userId, onSave, onExit }) {
   const [phase, setPhase] = useState("loading"); // loading | play | done
   const [data, setData] = useState(null);
   const [result, setResult] = useState(null);
@@ -423,6 +491,21 @@ function GameRunner({ game, subject, unit, diff, best, onSave, onExit }) {
 
   const replay = () => { setResult(null); setNonce((n) => n + 1); };
 
+  /* Hızlı Yarış'ta verilen her cevap normal soru çözümü gibi kaydedilir:
+     günlük seri, çözülen soru sayacı ve zayıf ders analizi böylece oyunu da sayar. */
+  const recordAnswer = useCallback(async (question, isCorrect) => {
+    if (!userId || !question?.id) return;
+    try {
+      await supabase.from("attempts").insert({
+        user_id: userId, question_id: question.id, subject: subject.id, is_correct: isCorrect,
+      });
+      if (!isCorrect) {
+        await supabase.from("wrong_book")
+          .upsert({ user_id: userId, question_id: question.id }, { onConflict: "user_id,question_id" });
+      }
+    } catch { /* kayıt başarısız olsa da oyun akmaya devam eder */ }
+  }, [userId, subject.id]);
+
   return (
     <div className="mx-auto w-full max-w-4xl px-4 py-6 sm:px-6">
       <div className="mb-5 flex items-start justify-between gap-4">
@@ -445,12 +528,12 @@ function GameRunner({ game, subject, unit, diff, best, onSave, onExit }) {
 
       {phase === "play" && data && (
         <>
-          {game.id === "matching"  && <MatchingGame pairs={data} subject={subject} onFinish={finish} />}
+          {game.id === "matching"  && <MatchingGame pairs={data} subject={subject} reverse={DIFFS[diff].reverse} onFinish={finish} />}
           {game.id === "memory"    && <MemoryGame   pairs={data} subject={subject} onFinish={finish} />}
           {game.id === "flashcard" && <FlashcardGame pairs={data} subject={subject} onFinish={finish} />}
           {game.id === "timeattack" && (
             data.length
-              ? <TimeAttackGame questions={data} subject={subject} seconds={DIFFS[diff].time} onFinish={finish} />
+              ? <TimeAttackGame questions={data} subject={subject} seconds={DIFFS[diff].time} onAnswer={recordAnswer} onFinish={finish} />
               : <p className="rounded-2xl bg-slate-50 px-4 py-8 text-center text-sm font-light text-slate-400">
                   Bu ünitede soru bulunamadı.
                 </p>
@@ -517,7 +600,12 @@ function Stat({ label, value, accent }) {
 
 /* ---------------------------- 1) Eşleştirme ---------------------------- */
 
-function MatchingGame({ pairs, subject, onFinish }) {
+function MatchingGame({ pairs: rawPairs, subject, reverse, onFinish }) {
+  // Zor modda yön ters: solda tanım, sağda terim. Hatırlama yönü değiştiği için gerçekten zorlaşır.
+  const pairs = useMemo(
+    () => (reverse ? rawPairs.map((p) => ({ term: p.def, def: p.term })) : rawPairs),
+    [rawPairs, reverse]
+  );
   const [defs] = useState(() => shuffle(pairs.map((p, i) => ({ ...p, i }))));
   const [picked, setPicked] = useState(null);   // seçili terim index'i
   const [solved, setSolved] = useState(() => new Set());
@@ -553,6 +641,11 @@ function MatchingGame({ pairs, subject, onFinish }) {
   return (
     <div>
       <ProgressBar done={solved.size} total={pairs.length} accent={subject.dot} extra={errors ? errors + " hata" : "hatasız"} />
+      {reverse && (
+        <p className="mb-3 rounded-xl bg-slate-50 px-3 py-2 text-xs font-light text-slate-500">
+          Ters yön: soldaki <b className="font-semibold">tanımı</b> oku, sağdan doğru terimi seç.
+        </p>
+      )}
       <div className="grid gap-3 sm:grid-cols-2">
         <div className="space-y-2">
           {pairs.map((p, i) => {
@@ -734,7 +827,7 @@ function FlashcardGame({ pairs, subject, onFinish }) {
 
 /* ---------------------------- 4) Hızlı Yarış --------------------------- */
 
-function TimeAttackGame({ questions, subject, seconds, onFinish }) {
+function TimeAttackGame({ questions, subject, seconds, onAnswer, onFinish }) {
   const [i, setI] = useState(0);
   const [left, setLeft] = useState(seconds);
   const [score, setScore] = useState(0);
@@ -767,6 +860,7 @@ function TimeAttackGame({ questions, subject, seconds, onFinish }) {
     setPicked(idx);
     setAsked((a) => a + 1);
     const ok = idx === q.answer;
+    onAnswer?.(q, ok);
     if (ok) {
       sfx.good();
       const nc = combo + 1;
