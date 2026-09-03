@@ -36,6 +36,32 @@ function trHata(err) {
   return "Beklenmedik bir sorun oldu. Tekrar dener misin?";
 }
 
+/* Tek kullanımlık ("10 dakikalık") e-posta servisleri. Bunlarla açılan hesap
+   şifre unutulduğunda kurtarılamaz; kaydı en baştan engelliyoruz. */
+const GECICI_ALANLAR = [
+  "mailinator.com","yopmail.com","guerrillamail.com","10minutemail.com","tempmail.com",
+  "temp-mail.org","throwawaymail.com","sharklasers.com","getnada.com","trashmail.com",
+  "maildrop.cc","fakeinbox.com","dispostable.com","mailnesia.com","emailondeck.com",
+  "moakt.com","tempmailo.com","mohmal.com","spam4.me","grr.la",
+];
+
+/* Yazım hatası olan yaygın alan adları — öğrenci farkında olmadan kendini kilitlemesin */
+const YAZIM_HATASI = {
+  "gmial.com": "gmail.com", "gmai.com": "gmail.com", "gmail.co": "gmail.com",
+  "gmail.con": "gmail.com", "hotmial.com": "hotmail.com", "hotmail.con": "hotmail.com",
+  "outlok.com": "outlook.com", "yahoo.co": "yahoo.com", "windowslive.com": "hotmail.com",
+};
+
+function epostaSorunu(email) {
+  const alan = String(email).toLowerCase().split("@")[1] || "";
+  if (!alan) return null;
+  if (GECICI_ALANLAR.includes(alan))
+    return "Geçici e-posta adresleriyle hesap açılamıyor. Şifreni unutursan hesabını kurtaramazsın; gerçek bir adres kullan.";
+  if (YAZIM_HATASI[alan])
+    return `E-posta adresinde yazım hatası olabilir: “${alan}” yerine “${YAZIM_HATASI[alan]}” mı olacaktı?`;
+  return null;
+}
+
 const INPUT =
   "w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm focus:border-violet-300 focus:outline-none focus:ring-2 focus:ring-violet-100";
 
@@ -46,8 +72,22 @@ export default function Auth({ mode: initialMode = "signin", onDone }) {
   const [password2, setPassword2] = useState("");
   const [msg, setMsg] = useState(null); // { type: "ok" | "err", text }
   const [busy, setBusy] = useState(false);
+  const [bekleyenEposta, setBekleyenEposta] = useState(null); // doğrulama bekleyen adres
 
-  const go = (m) => { setMode(m); setMsg(null); setPassword(""); setPassword2(""); };
+  const go = (m) => { setMode(m); setMsg(null); setPassword(""); setPassword2(""); setBekleyenEposta(null); };
+
+  async function tekrarGonder() {
+    setBusy(true);
+    try {
+      const { error } = await supabase.auth.resend({ type: "signup", email: bekleyenEposta });
+      if (error) throw error;
+      setMsg({ type: "ok", text: "Doğrulama e-postasını yeniden gönderdik. Spam klasörüne de bak." });
+    } catch (err) {
+      setMsg({ type: "err", text: trHata(err) });
+    } finally {
+      setBusy(false);
+    }
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -57,17 +97,30 @@ export default function Auth({ mode: initialMode = "signin", onDone }) {
       if (!supabase) throw new Error("Supabase yapılandırılmamış (.env eksik).");
 
       if (mode === "signup") {
+        const sorun = epostaSorunu(email);
+        if (sorun) { setMsg({ type: "err", text: sorun }); setBusy(false); return; }
         if (password.length < 6) throw new Error("at least 6");
-        const { error } = await supabase.auth.signUp({ email, password });
+        const { data, error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;
-        setMsg({ type: "ok", text: "Kayıt başarılı! Şimdi giriş yapabilirsin." });
-        setMode("signin");
+        // Supabase'de e-posta doğrulama açıksa oturum dönmez → öğrenciyi e-postasına yönlendir.
+        if (!data?.session) {
+          setBekleyenEposta(email);
+          setMsg({
+            type: "ok",
+            text: "Hesabın oluşturuldu. Doğrulama bağlantısını e-postana gönderdik — tıklayınca giriş yapabilirsin.",
+          });
+        } else {
+          setMsg({ type: "ok", text: "Kayıt başarılı! Şimdi giriş yapabilirsin." });
+          setMode("signin");
+        }
         setPassword("");
       } else if (mode === "signin") {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
         // Başarılı → App onAuthStateChange ile panele geçer.
       } else if (mode === "forgot") {
+        const sorun = epostaSorunu(email);
+        if (sorun) { setMsg({ type: "err", text: sorun }); setBusy(false); return; }
         const { error } = await supabase.auth.resetPasswordForEmail(email, {
           redirectTo: window.location.origin,
         });
@@ -176,6 +229,16 @@ export default function Auth({ mode: initialMode = "signin", onDone }) {
             {dugme}
           </button>
         </form>
+
+        {bekleyenEposta && (
+          <button
+            onClick={tekrarGonder}
+            disabled={busy}
+            className="mt-3 w-full text-center text-xs font-medium text-violet-500 transition-colors hover:text-violet-600 disabled:opacity-60"
+          >
+            E-posta gelmedi mi? Yeniden gönder
+          </button>
+        )}
 
         {mode === "signin" && (
           <button
