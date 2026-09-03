@@ -50,6 +50,12 @@ const DIFFS = {
 
 /* Leitner kutuları: doğru bilinen kart bir üst kutuya çıkar, aralık uzar.
    Yanlış/emin değil → 1. kutuya düşer ve aynı gün tekrar gelir. */
+/* Bilgi Kartları oturum boyu: bir seferde 15 kart. Daha uzunu bitirilmiyor,
+   daha kısası tekrar etkisi vermiyor. Ünitede yeterli terim yoksa deste
+   o ünitenin sorularından üretilen "soru kartları" ile tamamlanır. */
+const DECK_SIZE = 15;
+const MIN_TERM_CARDS = 12;
+
 const BOX_DAYS = { 1: 0, 2: 1, 3: 3, 4: 7, 5: 21 };
 const nextDue = (box) => new Date(Date.now() + (BOX_DAYS[box] ?? 0) * 86400000 + (box === 1 ? 10 * 60000 : 0)).toISOString();
 
@@ -153,6 +159,36 @@ export default function Games({ guest = false, onAuth, seed, onSeedUsed }) {
   }, [userId]);
   useEffect(() => { loadDue(); }, [loadDue]);
 
+  /* Yanlış defterindeki soruları kart destesine çevir — en hedefli tekrar budur */
+  const [wrongCount, setWrongCount] = useState(0);
+  const loadWrong = useCallback(async () => {
+    if (!userId) { setWrongCount(0); return; }
+    const { count } = await supabase
+      .from("wrong_book").select("question_id", { count: "exact", head: true }).eq("user_id", userId);
+    setWrongCount(count || 0);
+  }, [userId]);
+  useEffect(() => { loadWrong(); }, [loadWrong]);
+
+  async function startWrongDeck() {
+    if (!userId) { onAuth?.(); return; }
+    sfx.tap();
+    const { data: rows } = await supabase
+      .from("wrong_book").select("question_id").eq("user_id", userId).limit(30);
+    const ids = (rows || []).map((r) => r.question_id);
+    if (!ids.length) return;
+    const { data: qs } = await supabase
+      .from("questions").select("id,q,options,answer,explanation,topic").in("id", ids);
+    const cards = shuffle(qs || []).map((q) => ({
+      uid: q.topic, kind: "q", qid: q.id, term: q.q,
+      def: (q.options?.[q.answer] ?? "") + (q.explanation ? " — " + q.explanation : ""),
+    }));
+    if (!cards.length) return;
+    setReviewCards(cards.slice(0, DECK_SIZE));
+    setGameId("flashcard");
+    setUnit({ unit_id: null, name: "Yanlışlarım" });
+    setView("play");
+  }
+
   /* Tekrar oturumunu kur: vadesi gelen kartları ünitelerinin tanımlarıyla birleştir */
   async function startReview() {
     if (!userId) { onAuth?.(); return; }
@@ -248,7 +284,7 @@ export default function Games({ guest = false, onAuth, seed, onSeedUsed }) {
         userId={userId}
         reviewCards={reviewCards}
         onSave={saveResult}
-        onExit={() => { setReviewCards(null); loadDue(); setView(reviewCards ? "menu" : "units"); }}
+        onExit={() => { setReviewCards(null); loadDue(); loadWrong(); setView(reviewCards ? "menu" : "units"); }}
       />
     );
   }
@@ -354,6 +390,26 @@ export default function Games({ guest = false, onAuth, seed, onSeedUsed }) {
             1 → 3 → 7 → 21 gün aralıklarla geri gelir.
           </p>
         )
+      )}
+
+      {/* Yanlışlarım — en hedefli tekrar */}
+      {!gameId && !seedUnit && !guest && wrongCount > 0 && (
+        <button
+          onClick={startWrongDeck}
+          className="mb-3 flex w-full items-center gap-4 rounded-3xl border border-rose-100 bg-rose-50/60 p-5 text-left transition-all duration-200 hover:-translate-y-0.5"
+          style={{ boxShadow: SOFT_SHADOW }}
+        >
+          <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-rose-500">
+            <X className="h-5 w-5" strokeWidth={2.2} />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-base font-semibold text-slate-800">Yanlışlarım</span>
+            <span className="mt-0.5 block text-sm font-light text-slate-500">
+              Yanlış yaptığın <b className="font-semibold text-rose-600">{wrongCount} soru</b> kart olarak karşına gelsin.
+              Bildiğin konuyu değil, bilmediğini çalış.
+            </span>
+          </span>
+        </button>
       )}
 
       {/* 1) Oyun seç */}
@@ -532,9 +588,12 @@ function GameRunner({ game, subject, unit, diff, best, userId, reviewCards, onSa
       startedAt.current = Date.now();
       if (reviewCards) {
         if (!cancel) { setData(reviewCards); setPhase("play"); }
+      } else if (game.id === "flashcard") {
+        const deck = await buildDeck(unit, userId);
+        if (!cancel) { setData(deck); setPhase("play"); }
       } else if (game.needs === "pairs") {
         const all = (unit.pairs || []).map((p) => ({ ...p, uid: unit.unit_id }));
-        const n = game.id === "flashcard" ? all.length : Math.min(DIFFS[diff].pairs, all.length);
+        const n = Math.min(DIFFS[diff].pairs, all.length);
         if (!cancel) { setData(shuffle(all).slice(0, n)); setPhase("play"); }
       } else {
         let q = supabase.from("questions").select("id,q,options,answer,explanation").eq("subject", subject.id);
@@ -565,7 +624,7 @@ function GameRunner({ game, subject, unit, diff, best, userId, reviewCards, onSa
   /* Bilgi Kartları'nda verilen her karar Leitner kutusuna işlenir:
      "Biliyorum" bir üst kutuya çıkarır ve aralığı uzatır, "Tekrar bak" 1. kutuya düşürür. */
   const recordCard = useCallback(async (card, known) => {
-    if (!userId || !card?.uid || !card?.term) return;
+    if (!userId || !card?.uid || !card?.term || card.kind === "q") return;
     const box = Math.max(1, Math.min(5, known ? (card.box || 0) + 1 : 1));
     try {
       await supabase.from("card_reviews").upsert({
@@ -630,6 +689,42 @@ function GameRunner({ game, subject, unit, diff, best, userId, reviewCards, onSa
       )}
     </div>
   );
+}
+
+/* Bir ünitenin Bilgi Kartları destesi.
+   1) Terim kartları — kullanıcının zayıf olduğu (düşük kutu) ve hiç görmediği kartlar öne alınır.
+   2) Terim sayısı azsa deste, o ünitenin sorularından üretilen soru kartlarıyla tamamlanır.
+      Böylece her ünitenin çalışılabilir bir destesi olur. */
+async function buildDeck(unit, userId) {
+  const terms = (unit.pairs || []).map((p) => ({ ...p, uid: unit.unit_id, kind: "term" }));
+
+  // Zayıf/görülmemiş kartları öne al
+  let ordered = shuffle(terms);
+  if (userId && unit.unit_id && terms.length) {
+    try {
+      const { data: rev } = await supabase
+        .from("card_reviews").select("term,box").eq("user_id", userId).eq("unit_id", unit.unit_id);
+      const boxOf = new Map((rev || []).map((r) => [r.term, r.box]));
+      ordered = shuffle(terms).sort((a, b) => (boxOf.get(a.term) ?? 0) - (boxOf.get(b.term) ?? 0));
+    } catch { /* sıralama yapılamazsa rastgele kalır */ }
+  }
+
+  // Deste küçükse soru kartlarıyla tamamla
+  if (ordered.length < MIN_TERM_CARDS && unit.unit_id) {
+    try {
+      const { data: qs } = await supabase
+        .from("questions").select("id,q,options,answer,explanation")
+        .eq("topic", unit.unit_id).limit(40);
+      const soru = shuffle(qs || []).slice(0, MIN_TERM_CARDS - ordered.length).map((q) => ({
+        uid: unit.unit_id, kind: "q", qid: q.id,
+        term: q.q,
+        def: (q.options?.[q.answer] ?? "") + (q.explanation ? " — " + q.explanation : ""),
+      }));
+      ordered = [...ordered, ...soru];
+    } catch { /* soru çekilemezse eldeki terimlerle devam */ }
+  }
+
+  return ordered.slice(0, DECK_SIZE);
 }
 
 function ResultCard({ result, subject, best, onReplay, onExit }) {
@@ -880,11 +975,15 @@ function FlashcardGame({ pairs, subject, onMark, onFinish }) {
       >
         <div>
           <span className="mb-3 block text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-300">
-            {flipped ? "Tanım" : "Terim"}
+            {card.kind === "q" ? (flipped ? "Cevap" : "Soru") : flipped ? "Tanım" : "Terim"}
           </span>
-          <span className={flipped
-            ? "block text-base font-light leading-relaxed text-slate-600"
-            : "block text-xl font-semibold text-slate-800"}>
+          <span className={
+            flipped
+              ? "block text-base font-light leading-relaxed text-slate-600"
+              : card.kind === "q"
+                ? "block whitespace-pre-line text-base font-medium leading-relaxed text-slate-700"
+                : "block text-xl font-semibold text-slate-800"
+          }>
             {flipped ? card.def : card.term}
           </span>
           {!flipped && <span className="mt-4 block text-xs font-light text-slate-300">Çevirmek için tıkla</span>}
