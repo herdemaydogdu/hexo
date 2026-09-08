@@ -29,6 +29,7 @@ import Quiz from "./Quiz.jsx";
 import LectureNotesView from "./LectureNotesView.jsx";
 import Games from "./Games.jsx";
 import Auth from "./Auth.jsx";
+import { LegalPage, Footer, SATICI } from "./Legal.jsx";
 
 /**
  * TYT Hazırlık — Dashboard (Supabase'e bağlı)
@@ -134,6 +135,32 @@ function GuestLanding({ onAuth, onBrowse }) {
             <p className="mt-1.5 text-xs font-light leading-relaxed text-slate-400">{h.d}</p>
           </div>
         ))}
+      </div>
+
+      {/* Fiyat — iyzico başvurusunda ürün ve bedelin açıkça görünmesi şart */}
+      <div className="mt-5 rounded-3xl border-2 border-violet-100 bg-white p-6">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-violet-500">Üyelik</p>
+            <h2 className="mt-1 text-lg font-bold text-slate-800">{SATICI.urunAdi}</h2>
+            <p className="mt-1 text-sm font-light text-slate-500">
+              12 ay boyunca soru bankası, oyunlar ve ilerleme takibi
+            </p>
+          </div>
+          <div className="text-right">
+            <div className="text-3xl font-bold tracking-tight text-slate-800">{SATICI.fiyat}</div>
+            <div className="text-xs font-light text-slate-400">{SATICI.fiyatNot} · yıllık</div>
+          </div>
+        </div>
+        <button
+          onClick={onAuth}
+          className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-violet-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-violet-700"
+        >
+          Üyeliği başlat <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+        </button>
+        <p className="mt-3 text-xs font-light text-slate-400">
+          Konu anlatımları ücretsiz ve üyeliksiz açıktır. Otomatik yenileme yoktur.
+        </p>
       </div>
 
       <div className="mt-5 rounded-3xl border border-slate-100 bg-white p-6">
@@ -246,6 +273,7 @@ export default function DashboardLayout({ session }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showAuth, setShowAuth] = useState(false); // giriş/kayıt ekranı
   const [gameSeed, setGameSeed] = useState(null);  // ders notundan oyuna geçiş
+  const [legal, setLegal] = useState(null);        // açık yasal sayfa (slug)
 
   /* Ders Notları → "Oyunla tekrar et" */
   function playUnit(subjectId, unitId) {
@@ -421,15 +449,19 @@ export default function DashboardLayout({ session }) {
             </div>
           )}
 
-          {active === "quiz" && <Quiz onFinish={refresh} />}
+          {!legal && active === "quiz" && <Quiz onFinish={refresh} />}
 
-          {active === "konu" && <LectureNotesView onPlay={playUnit} />}
+          {!legal && active === "konu" && <LectureNotesView onPlay={playUnit} />}
 
-          {active === "oyun" && <Games guest={guest} onAuth={() => setShowAuth(true)} seed={gameSeed} onSeedUsed={() => setGameSeed(null)} />}
+          {!legal && active === "oyun" && <Games guest={guest} onAuth={() => setShowAuth(true)} seed={gameSeed} onSeedUsed={() => setGameSeed(null)} />}
 
-          {active === "dashboard" && guest && <GuestLanding onAuth={() => setShowAuth(true)} onBrowse={() => setActive("konu")} />}
+          {legal && <LegalPage slug={legal} onBack={() => setLegal(null)} />}
 
-          {active === "dashboard" && !guest && (
+          {!legal && active === "dashboard" && guest && (
+            <GuestLanding onAuth={() => setShowAuth(true)} onBrowse={() => setActive("konu")} />
+          )}
+
+          {!legal && active === "dashboard" && !guest && (
             <>
           {/* ——— Hero: Kaldığın yer + Günlük hedef ——— */}
           <section className="grid grid-cols-1 gap-5 lg:grid-cols-3">
@@ -546,6 +578,8 @@ export default function DashboardLayout({ session }) {
           </section>
             </>
           )}
+
+          <Footer onOpen={(slug) => { setLegal(slug); setSidebarOpen(false); }} />
         </main>
       </div>
     </div>
