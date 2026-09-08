@@ -390,20 +390,34 @@ export default function DashboardLayout({ session }) {
         </nav>
 
         <div className="mt-4 rounded-3xl bg-gradient-to-br from-violet-50 to-sky-50 p-4">
-          <div className="flex items-center gap-2 text-violet-600">
-            <Flame className="h-4 w-4" strokeWidth={2} />
-            <span className="text-xs font-semibold">{fmt(streak)} günlük seri</span>
-          </div>
-          <p className="mt-1.5 text-xs leading-relaxed text-slate-500">
-            {streak > 0 ? "Bugünkü hedefini tamamla, serini sürdür." : "İlk testini çöz, serini başlat."}
-          </p>
+          {guest ? (
+            <>
+              <div className="flex items-center gap-2 text-violet-600">
+                <Sparkles className="h-4 w-4" strokeWidth={2} />
+                <span className="text-xs font-semibold">Ücretsiz keşfet</span>
+              </div>
+              <p className="mt-1.5 text-xs leading-relaxed text-slate-500">
+                Konu anlatımları ve oyunlar üyeliksiz açık. İlerlemeni kaydetmek için üye ol.
+              </p>
+            </>
+          ) : (
+            <>
+              <div className="flex items-center gap-2 text-violet-600">
+                <Flame className="h-4 w-4" strokeWidth={2} />
+                <span className="text-xs font-semibold">{fmt(streak)} günlük seri</span>
+              </div>
+              <p className="mt-1.5 text-xs leading-relaxed text-slate-500">
+                {streak > 0 ? "Bugünkü hedefini tamamla, serini sürdür." : "İlk testini çöz, serini başlat."}
+              </p>
+            </>
+          )}
         </div>
       </aside>
 
       {/* ——— Sağ kolon ——— */}
-      <div className="flex flex-1 flex-col">
+      <div className="flex min-w-0 flex-1 flex-col">
         {/* Header */}
-        <header className="sticky top-0 z-10 flex items-center gap-4 border-b border-slate-100 bg-white/70 px-6 py-4 backdrop-blur">
+        <header className="sticky top-0 z-10 flex items-center gap-2 border-b border-slate-100 bg-white/70 px-4 py-3 backdrop-blur sm:gap-4 sm:px-6 sm:py-4">
           <button
             onClick={() => setSidebarOpen(true)}
             aria-label="Menüyü aç"
@@ -411,9 +425,16 @@ export default function DashboardLayout({ session }) {
           >
             <Menu className="h-5 w-5" strokeWidth={1.8} />
           </button>
-          <div className="flex-1">
-            <h1 className="text-lg font-bold tracking-tight text-slate-800">Merhaba! 👋</h1>
-            <p className="text-xs text-slate-400">Bugün çalışmaya kaldığın yerden devam et.</p>
+          <div className="min-w-0 flex-1">
+            <h1 className="truncate text-base font-bold tracking-tight text-slate-800 sm:text-lg">
+              {guest ? "TYT Hazırlık" : "Merhaba! 👋"}
+            </h1>
+            {/* Alt satır dar ekranda gizli — mobilde üst barı 169px'e şişiriyordu */}
+            <p className="hidden truncate text-xs text-slate-400 sm:block">
+              {guest
+                ? "Konu anlatımları ücretsiz. Soru çözmek için üye ol."
+                : "Bugün çalışmaya kaldığın yerden devam et."}
+            </p>
           </div>
           <span
             className="hidden items-center gap-1.5 rounded-full bg-gradient-to-r from-violet-100 to-sky-100 px-3 py-1.5 text-xs font-semibold text-violet-700 sm:inline-flex"
@@ -425,16 +446,17 @@ export default function DashboardLayout({ session }) {
           <button
             aria-label="Bildirimler (yakında)"
             title="Bildirimler — yakında"
-            className="flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-slate-400 hover:bg-slate-200"
+            className="hidden h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-slate-400 hover:bg-slate-200 sm:flex"
           >
             <Bell className="h-5 w-5" strokeWidth={1.8} />
           </button>
           {guest ? (
             <button
               onClick={() => setShowAuth(true)}
-              className="inline-flex items-center gap-2 rounded-2xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-violet-700"
+              className="inline-flex shrink-0 whitespace-nowrap items-center gap-2 rounded-2xl bg-violet-600 px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-violet-700 sm:px-4"
             >
-              Giriş yap / Üye ol
+              <span className="sm:hidden">Giriş</span>
+              <span className="hidden sm:inline">Giriş yap / Üye ol</span>
             </button>
           ) : (
             <ProfileMenu email={email} />
@@ -442,7 +464,7 @@ export default function DashboardLayout({ session }) {
         </header>
 
         {/* Main */}
-        <main className="flex-1 space-y-6 p-6">
+        <main className="min-w-0 flex-1 space-y-6 p-4 sm:p-6">
           {error && (
             <div className="rounded-2xl border border-rose-100 bg-rose-50 px-4 py-3 text-sm text-rose-600">
               Veri yüklenemedi: {error}

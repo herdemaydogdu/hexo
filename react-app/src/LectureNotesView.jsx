@@ -351,7 +351,7 @@ export default function LectureNotesView({ onPlay }) {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
         {/* ───────── Okuma kartı ───────── */}
         <article
-          className="relative min-h-[64vh] overflow-hidden rounded-[28px] border border-white/80 p-8 sm:p-10 lg:p-12"
+          className="relative min-h-[64vh] overflow-hidden rounded-[28px] border border-white/80 p-5 sm:p-10 lg:p-12"
           style={{
             background: `linear-gradient(180deg, ${subject.tint} 0%, #ffffff 220px)`,
             boxShadow: SOFT_SHADOW,
